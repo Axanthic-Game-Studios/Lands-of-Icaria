@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_green_ground_shrooms_2",
+  "textures": {
+    "particle": "landsoficaria:block/green_ground_shrooms",
+    "shroom": "landsoficaria:block/green_ground_shrooms",
+    "stem": "landsoficaria:block/stem_ground_shrooms"
+  }
+}

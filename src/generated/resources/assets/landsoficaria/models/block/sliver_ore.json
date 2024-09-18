@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/sliver_ore"
+    "all": "landsoficaria:block/sliver_ore",
+    "particle": "landsoficaria:block/sliver_ore"
   }
 }

@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/marl_adobe",
-    "side": "landsoficaria:block/marl_adobe",
-    "top": "landsoficaria:block/marl_adobe"
-  }
+  "parent": "landsoficaria:block/marl_adobe_slab"
 }

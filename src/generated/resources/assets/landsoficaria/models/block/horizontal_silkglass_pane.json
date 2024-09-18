@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_horizontal_pane",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "edge": "landsoficaria:block/silkglass_pane",
+    "pane": "landsoficaria:block/silkglass",
+    "particle": "landsoficaria:block/silkglass"
+  }
+}

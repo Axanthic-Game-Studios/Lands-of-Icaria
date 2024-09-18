@@ -6,14 +6,72 @@
       },
       {
         "model": "landsoficaria:block/loam",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/loam",
         "y": 180
       },
       {
-        "model": "landsoficaria:block/loam_mirrored"
+        "model": "landsoficaria:block/loam",
+        "y": 270
       },
       {
-        "model": "landsoficaria:block/loam_mirrored",
+        "model": "landsoficaria:block/loam",
+        "x": 90
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 90,
         "y": 180
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 180
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 270
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/loam",
+        "x": 270,
+        "y": 270
       }
     ]
   }

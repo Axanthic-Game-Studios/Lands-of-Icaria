@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/purple_hydracinth_overlay",
+    "particle": "landsoficaria:block/purple_hydracinth_overlay",
+    "texture": "landsoficaria:block/purple_hydracinth"
+  }
+}

@@ -15,8 +15,6 @@ import net.minecraft.world.item.*;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -28,8 +26,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class IcariaItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaIdents.ID);
-
-	public static final List<Supplier<? extends Item>> SIMPLE_ITEMS = new ArrayList<>();
 
 	public static final Supplier<Item> GRASSY_MARL = IcariaItems.register("grassy_marl", () -> new BlockItem(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> MARL = IcariaItems.register("marl", () -> new BlockItem(IcariaBlocks.MARL.get(), IcariaItems.propertiesItem()));
@@ -230,7 +226,7 @@ public class IcariaItems {
 	public static final Supplier<Item> VANADIUMSTEEL_BARS = IcariaItems.register("vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaItems.register("horizontal_vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> VANADIUMSTEEL_CHAIN = IcariaItems.registerSimple("vanadiumsteel_chain", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VANADIUMSTEEL_CHAIN = IcariaItems.register("vanadiumsteel_chain", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> KETTLE = IcariaItems.register("kettle", () -> new BlockItem(IcariaBlocks.KETTLE.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> GRINDER = IcariaItems.register("grinder", () -> new BlockItem(IcariaBlocks.GRINDER.get(), IcariaItems.propertiesItem()));
@@ -281,14 +277,14 @@ public class IcariaItems {
 	public static final Supplier<Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
 	public static final Supplier<Item> SOW_SKULL = IcariaItems.register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
 
-	public static final Supplier<Item> LIGNITE_TORCH = IcariaItems.registerSimple("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final Supplier<Item> ANTHRACITE_TORCH = IcariaItems.registerSimple("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
+	public static final Supplier<Item> LIGNITE_TORCH = IcariaItems.register("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
+	public static final Supplier<Item> ANTHRACITE_TORCH = IcariaItems.register("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
 
-	public static final Supplier<Item> LAUREL_CHERRY_CAKE = IcariaItems.registerSimple("laurel_cherry_cake", () -> new BlockItem(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> STRAWBERRY_CAKE = IcariaItems.registerSimple("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> PHYSALIS_CAKE = IcariaItems.registerSimple("physalis_cake", () -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> VINE_BERRY_CAKE = IcariaItems.registerSimple("vine_berry_cake", () -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> VINE_SPROUT_CAKE = IcariaItems.registerSimple("vine_sprout_cake", () -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> LAUREL_CHERRY_CAKE = IcariaItems.register("laurel_cherry_cake", () -> new BlockItem(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> STRAWBERRY_CAKE = IcariaItems.register("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> PHYSALIS_CAKE = IcariaItems.register("physalis_cake", () -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> VINE_BERRY_CAKE = IcariaItems.register("vine_berry_cake", () -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> VINE_SPROUT_CAKE = IcariaItems.register("vine_sprout_cake", () -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), IcariaItems.propertiesItem(1)));
 
 	public static final Supplier<Item> CYPRESS_SAPLING = IcariaItems.register("cypress_sapling", () -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYPRESS_LEAVES = IcariaItems.register("cypress_leaves", () -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -310,11 +306,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_CYPRESS_BARREL_RACK = IcariaItems.register("triple_cypress_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYPRESS_TROUGH = IcariaItems.register("cypress_trough", () -> new BlockItem(IcariaBlocks.CYPRESS_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYPRESS_CRAFTING_TABLE = IcariaItems.register("cypress_crafting_table", () -> new BlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_DOOR = IcariaItems.registerSimple("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CYPRESS_DOOR = IcariaItems.register("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYPRESS_TRAPDOOR = IcariaItems.register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_LADDER = IcariaItems.registerSimple("cypress_ladder", () -> new BlockItem(IcariaBlocks.CYPRESS_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_SIGN = IcariaItems.registerSimple("cypress_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get()));
-	public static final Supplier<Item> CYPRESS_HANGING_SIGN = IcariaItems.registerSimple("cypress_hanging_sign", () -> new HangingSignItem(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> CYPRESS_LADDER = IcariaItems.register("cypress_ladder", () -> new BlockItem(IcariaBlocks.CYPRESS_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CYPRESS_SIGN = IcariaItems.register("cypress_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get()));
+	public static final Supplier<Item> CYPRESS_HANGING_SIGN = IcariaItems.register("cypress_hanging_sign", () -> new HangingSignItem(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> DROUGHTROOT_SAPLING = IcariaItems.register("droughtroot_sapling", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> DROUGHTROOT_LEAVES = IcariaItems.register("droughtroot_leaves", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -336,11 +332,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_DROUGHTROOT_BARREL_RACK = IcariaItems.register("triple_droughtroot_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> DROUGHTROOT_TROUGH = IcariaItems.register("droughtroot_trough", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> DROUGHTROOT_CRAFTING_TABLE = IcariaItems.register("droughtroot_crafting_table", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_DOOR = IcariaItems.registerSimple("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> DROUGHTROOT_DOOR = IcariaItems.register("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> DROUGHTROOT_TRAPDOOR = IcariaItems.register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_LADDER = IcariaItems.registerSimple("droughtroot_ladder", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_SIGN = IcariaItems.registerSimple("droughtroot_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get()));
-	public static final Supplier<Item> DROUGHTROOT_HANGING_SIGN = IcariaItems.registerSimple("droughtroot_hanging_sign", () -> new HangingSignItem(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> DROUGHTROOT_LADDER = IcariaItems.register("droughtroot_ladder", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> DROUGHTROOT_SIGN = IcariaItems.register("droughtroot_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get()));
+	public static final Supplier<Item> DROUGHTROOT_HANGING_SIGN = IcariaItems.register("droughtroot_hanging_sign", () -> new HangingSignItem(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> FIR_SAPLING = IcariaItems.register("fir_sapling", () -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> FIR_LEAVES = IcariaItems.register("fir_leaves", () -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -362,11 +358,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_FIR_BARREL_RACK = IcariaItems.register("triple_fir_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> FIR_TROUGH = IcariaItems.register("fir_trough", () -> new BlockItem(IcariaBlocks.FIR_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> FIR_CRAFTING_TABLE = IcariaItems.register("fir_crafting_table", () -> new BlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_DOOR = IcariaItems.registerSimple("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FIR_DOOR = IcariaItems.register("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> FIR_TRAPDOOR = IcariaItems.register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_LADDER = IcariaItems.registerSimple("fir_ladder", () -> new BlockItem(IcariaBlocks.FIR_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_SIGN = IcariaItems.registerSimple("fir_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get()));
-	public static final Supplier<Item> FIR_HANGING_SIGN = IcariaItems.registerSimple("fir_hanging_sign", () -> new HangingSignItem(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> FIR_LADDER = IcariaItems.register("fir_ladder", () -> new BlockItem(IcariaBlocks.FIR_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FIR_SIGN = IcariaItems.register("fir_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get()));
+	public static final Supplier<Item> FIR_HANGING_SIGN = IcariaItems.register("fir_hanging_sign", () -> new HangingSignItem(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> LAUREL_SAPLING = IcariaItems.register("laurel_sapling", () -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LAUREL_LEAVES = IcariaItems.register("laurel_leaves", () -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -388,11 +384,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_LAUREL_BARREL_RACK = IcariaItems.register("triple_laurel_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LAUREL_TROUGH = IcariaItems.register("laurel_trough", () -> new BlockItem(IcariaBlocks.LAUREL_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LAUREL_CRAFTING_TABLE = IcariaItems.register("laurel_crafting_table", () -> new BlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_DOOR = IcariaItems.registerSimple("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LAUREL_DOOR = IcariaItems.register("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> LAUREL_TRAPDOOR = IcariaItems.register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_LADDER = IcariaItems.registerSimple("laurel_ladder", () -> new BlockItem(IcariaBlocks.LAUREL_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_SIGN = IcariaItems.registerSimple("laurel_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get()));
-	public static final Supplier<Item> LAUREL_HANGING_SIGN = IcariaItems.registerSimple("laurel_hanging_sign", () -> new HangingSignItem(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> LAUREL_LADDER = IcariaItems.register("laurel_ladder", () -> new BlockItem(IcariaBlocks.LAUREL_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LAUREL_SIGN = IcariaItems.register("laurel_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get()));
+	public static final Supplier<Item> LAUREL_HANGING_SIGN = IcariaItems.register("laurel_hanging_sign", () -> new HangingSignItem(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> OLIVE_SAPLING = IcariaItems.register("olive_sapling", () -> new BlockItem(IcariaBlocks.OLIVE_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> OLIVE_LEAVES = IcariaItems.register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -414,11 +410,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_OLIVE_BARREL_RACK = IcariaItems.register("triple_olive_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> OLIVE_TROUGH = IcariaItems.register("olive_trough", () -> new BlockItem(IcariaBlocks.OLIVE_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> OLIVE_CRAFTING_TABLE = IcariaItems.register("olive_crafting_table", () -> new BlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_DOOR = IcariaItems.registerSimple("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> OLIVE_DOOR = IcariaItems.register("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> OLIVE_TRAPDOOR = IcariaItems.register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_LADDER = IcariaItems.registerSimple("olive_ladder", () -> new BlockItem(IcariaBlocks.OLIVE_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_SIGN = IcariaItems.registerSimple("olive_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get()));
-	public static final Supplier<Item> OLIVE_HANGING_SIGN = IcariaItems.registerSimple("olive_hanging_sign", () -> new HangingSignItem(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> OLIVE_LADDER = IcariaItems.register("olive_ladder", () -> new BlockItem(IcariaBlocks.OLIVE_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> OLIVE_SIGN = IcariaItems.register("olive_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get()));
+	public static final Supplier<Item> OLIVE_HANGING_SIGN = IcariaItems.register("olive_hanging_sign", () -> new HangingSignItem(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> PLANE_SAPLING = IcariaItems.register("plane_sapling", () -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> PLANE_LEAVES = IcariaItems.register("plane_leaves", () -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -440,11 +436,11 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_PLANE_BARREL_RACK = IcariaItems.register("triple_plane_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> PLANE_TROUGH = IcariaItems.register("plane_trough", () -> new BlockItem(IcariaBlocks.PLANE_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> PLANE_CRAFTING_TABLE = IcariaItems.register("plane_crafting_table", () -> new BlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_DOOR = IcariaItems.registerSimple("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PLANE_DOOR = IcariaItems.register("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> PLANE_TRAPDOOR = IcariaItems.register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_LADDER = IcariaItems.registerSimple("plane_ladder", () -> new BlockItem(IcariaBlocks.PLANE_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_SIGN = IcariaItems.registerSimple("plane_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get()));
-	public static final Supplier<Item> PLANE_HANGING_SIGN = IcariaItems.registerSimple("plane_hanging_sign", () -> new HangingSignItem(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> PLANE_LADDER = IcariaItems.register("plane_ladder", () -> new BlockItem(IcariaBlocks.PLANE_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PLANE_SIGN = IcariaItems.register("plane_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get()));
+	public static final Supplier<Item> PLANE_HANGING_SIGN = IcariaItems.register("plane_hanging_sign", () -> new HangingSignItem(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
 	public static final Supplier<Item> POPULUS_SAPLING = IcariaItems.register("populus_sapling", () -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> POPULUS_LEAVES = IcariaItems.register("populus_leaves", () -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), IcariaItems.propertiesItem()));
@@ -466,59 +462,59 @@ public class IcariaItems {
 	public static final Supplier<Item> TRIPLE_POPULUS_BARREL_RACK = IcariaItems.register("triple_populus_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> POPULUS_TROUGH = IcariaItems.register("populus_trough", () -> new BlockItem(IcariaBlocks.POPULUS_TROUGH.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> POPULUS_CRAFTING_TABLE = IcariaItems.register("populus_crafting_table", () -> new BlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_DOOR = IcariaItems.registerSimple("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> POPULUS_DOOR = IcariaItems.register("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> POPULUS_TRAPDOOR = IcariaItems.register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_LADDER = IcariaItems.registerSimple("populus_ladder", () -> new BlockItem(IcariaBlocks.POPULUS_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_SIGN = IcariaItems.registerSimple("populus_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
-	public static final Supplier<Item> POPULUS_HANGING_SIGN = IcariaItems.registerSimple("populus_hanging_sign", () -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
+	public static final Supplier<Item> POPULUS_LADDER = IcariaItems.register("populus_ladder", () -> new BlockItem(IcariaBlocks.POPULUS_LADDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> POPULUS_SIGN = IcariaItems.register("populus_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
+	public static final Supplier<Item> POPULUS_HANGING_SIGN = IcariaItems.register("populus_hanging_sign", () -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
 
-	public static final Supplier<Item> BLOOMY_VINE = IcariaItems.registerSimple("bloomy_vine", () -> new BlockItem(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BRANCHY_VINE = IcariaItems.registerSimple("branchy_vine", () -> new BlockItem(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BRUSHY_VINE = IcariaItems.registerSimple("brushy_vine", () -> new BlockItem(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DRY_VINE = IcariaItems.registerSimple("dry_vine", () -> new BlockItem(IcariaBlocks.DRY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> REEDY_VINE = IcariaItems.registerSimple("reedy_vine", () -> new BlockItem(IcariaBlocks.REEDY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SWIRLY_VINE = IcariaItems.registerSimple("swirly_vine", () -> new BlockItem(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> THORNY_VINE = IcariaItems.registerSimple("thorny_vine", () -> new BlockItem(IcariaBlocks.THORNY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLOOMY_VINE = IcariaItems.register("bloomy_vine", () -> new BlockItem(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BRANCHY_VINE = IcariaItems.register("branchy_vine", () -> new BlockItem(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BRUSHY_VINE = IcariaItems.register("brushy_vine", () -> new BlockItem(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> DRY_VINE = IcariaItems.register("dry_vine", () -> new BlockItem(IcariaBlocks.DRY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> REEDY_VINE = IcariaItems.register("reedy_vine", () -> new BlockItem(IcariaBlocks.REEDY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SWIRLY_VINE = IcariaItems.register("swirly_vine", () -> new BlockItem(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> THORNY_VINE = IcariaItems.register("thorny_vine", () -> new BlockItem(IcariaBlocks.THORNY_VINE.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> FERN = IcariaItems.registerSimple("fern", () -> new BlockItem(IcariaBlocks.FERN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FERN = IcariaItems.register("fern", () -> new BlockItem(IcariaBlocks.FERN.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> SMALL_GRASS = IcariaItems.registerSimple("small_grass", () -> new BlockItem(IcariaBlocks.SMALL_GRASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_GRASS = IcariaItems.registerSimple("medium_grass", () -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LARGE_GRASS = IcariaItems.registerSimple("large_grass", () -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SMALL_GRASS = IcariaItems.register("small_grass", () -> new BlockItem(IcariaBlocks.SMALL_GRASS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MEDIUM_GRASS = IcariaItems.register("medium_grass", () -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LARGE_GRASS = IcariaItems.register("large_grass", () -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> SMALL_MIXED_GRAIN = IcariaItems.registerSimple("small_mixed_grain", () -> new BlockItem(IcariaBlocks.SMALL_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_MIXED_GRAIN = IcariaItems.registerSimple("medium_mixed_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_BROWN_GRAIN = IcariaItems.registerSimple("medium_brown_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_WHITE_GRAIN = IcariaItems.registerSimple("medium_white_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_YELLOW_GRAIN = IcariaItems.registerSimple("medium_yellow_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LARGE_BROWN_GRAIN = IcariaItems.registerSimple("large_brown_grain", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SMALL_MIXED_GRAIN = IcariaItems.register("small_mixed_grain", () -> new BlockItem(IcariaBlocks.SMALL_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MEDIUM_MIXED_GRAIN = IcariaItems.register("medium_mixed_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MEDIUM_BROWN_GRAIN = IcariaItems.register("medium_brown_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MEDIUM_WHITE_GRAIN = IcariaItems.register("medium_white_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MEDIUM_YELLOW_GRAIN = IcariaItems.register("medium_yellow_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LARGE_BROWN_GRAIN = IcariaItems.register("large_brown_grain", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> BLINDWEED = IcariaItems.registerSimple("blindweed", () -> new BlockItem(IcariaBlocks.BLINDWEED.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHAMEOMILE = IcariaItems.registerSimple("chameomile", () -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHARMONDER = IcariaItems.registerSimple("charmonder", () -> new BlockItem(IcariaBlocks.CHARMONDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CLOVER = IcariaItems.registerSimple("clover", () -> new BlockItem(IcariaBlocks.CLOVER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIREHILT = IcariaItems.registerSimple("firehilt", () -> new BlockItem(IcariaBlocks.FIREHILT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_HYDRACINTH = IcariaItems.registerSimple("blue_hydracinth", () -> new BlockItem(IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_HYDRACINTH = IcariaItems.registerSimple("purple_hydracinth", () -> new BlockItem(IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIONFANGS = IcariaItems.registerSimple("lionfangs", () -> new BlockItem(IcariaBlocks.LIONFANGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPEARDROPS = IcariaItems.registerSimple("speardrops", () -> new BlockItem(IcariaBlocks.SPEARDROPS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_STAGHORN = IcariaItems.registerSimple("purple_staghorn", () -> new BlockItem(IcariaBlocks.PURPLE_STAGHORN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOW_STAGHORN = IcariaItems.registerSimple("yellow_staghorn", () -> new BlockItem(IcariaBlocks.YELLOW_STAGHORN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_STORMCOTTON = IcariaItems.registerSimple("blue_stormcotton", () -> new BlockItem(IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_STORMCOTTON = IcariaItems.registerSimple("pink_stormcotton", () -> new BlockItem(IcariaBlocks.PINK_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_STORMCOTTON = IcariaItems.registerSimple("purple_stormcotton", () -> new BlockItem(IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SUNKETTLE = IcariaItems.registerSimple("sunkettle", () -> new BlockItem(IcariaBlocks.SUNKETTLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SUNSPONGE = IcariaItems.registerSimple("sunsponge", () -> new BlockItem(IcariaBlocks.SUNSPONGE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOIDLILY = IcariaItems.registerSimple("voidlily", () -> new BlockItem(IcariaBlocks.VOIDLILY.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLINDWEED = IcariaItems.register("blindweed", () -> new BlockItem(IcariaBlocks.BLINDWEED.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHAMEOMILE = IcariaItems.register("chameomile", () -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHARMONDER = IcariaItems.register("charmonder", () -> new BlockItem(IcariaBlocks.CHARMONDER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CLOVER = IcariaItems.register("clover", () -> new BlockItem(IcariaBlocks.CLOVER.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FIREHILT = IcariaItems.register("firehilt", () -> new BlockItem(IcariaBlocks.FIREHILT.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLUE_HYDRACINTH = IcariaItems.register("blue_hydracinth", () -> new BlockItem(IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PURPLE_HYDRACINTH = IcariaItems.register("purple_hydracinth", () -> new BlockItem(IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LIONFANGS = IcariaItems.register("lionfangs", () -> new BlockItem(IcariaBlocks.LIONFANGS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SPEARDROPS = IcariaItems.register("speardrops", () -> new BlockItem(IcariaBlocks.SPEARDROPS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PURPLE_STAGHORN = IcariaItems.register("purple_staghorn", () -> new BlockItem(IcariaBlocks.PURPLE_STAGHORN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> YELLOW_STAGHORN = IcariaItems.register("yellow_staghorn", () -> new BlockItem(IcariaBlocks.YELLOW_STAGHORN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLUE_STORMCOTTON = IcariaItems.register("blue_stormcotton", () -> new BlockItem(IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PINK_STORMCOTTON = IcariaItems.register("pink_stormcotton", () -> new BlockItem(IcariaBlocks.PINK_STORMCOTTON.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PURPLE_STORMCOTTON = IcariaItems.register("purple_stormcotton", () -> new BlockItem(IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SUNKETTLE = IcariaItems.register("sunkettle", () -> new BlockItem(IcariaBlocks.SUNKETTLE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SUNSPONGE = IcariaItems.register("sunsponge", () -> new BlockItem(IcariaBlocks.SUNSPONGE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VOIDLILY = IcariaItems.register("voidlily", () -> new BlockItem(IcariaBlocks.VOIDLILY.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> BOLBOS = IcariaItems.registerSimple("bolbos", () -> new BlockItem(IcariaBlocks.BOLBOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DATHULLA = IcariaItems.registerSimple("dathulla", () -> new BlockItem(IcariaBlocks.DATHULLA.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MONDANOS = IcariaItems.registerSimple("mondanos", () -> new BlockItem(IcariaBlocks.MONDANOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOTH_AGARIC = IcariaItems.registerSimple("moth_agaric", () -> new BlockItem(IcariaBlocks.MOTH_AGARIC.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NAMDRAKE = IcariaItems.registerSimple("namdrake", () -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PSILOCYBOS = IcariaItems.registerSimple("psilocybos", () -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ROWAN = IcariaItems.registerSimple("rowan", () -> new BlockItem(IcariaBlocks.ROWAN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WILTED_ELM = IcariaItems.registerSimple("wilted_elm", () -> new BlockItem(IcariaBlocks.WILTED_ELM.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BOLBOS = IcariaItems.register("bolbos", () -> new BlockItem(IcariaBlocks.BOLBOS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> DATHULLA = IcariaItems.register("dathulla", () -> new BlockItem(IcariaBlocks.DATHULLA.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MONDANOS = IcariaItems.register("mondanos", () -> new BlockItem(IcariaBlocks.MONDANOS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MOTH_AGARIC = IcariaItems.register("moth_agaric", () -> new BlockItem(IcariaBlocks.MOTH_AGARIC.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> NAMDRAKE = IcariaItems.register("namdrake", () -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PSILOCYBOS = IcariaItems.register("psilocybos", () -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ROWAN = IcariaItems.register("rowan", () -> new BlockItem(IcariaBlocks.ROWAN.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> WILTED_ELM = IcariaItems.register("wilted_elm", () -> new BlockItem(IcariaBlocks.WILTED_ELM.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> BLUE_GROUND_FLOWERS = IcariaItems.register("blue_ground_flowers", () -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> CYAN_GROUND_FLOWERS = IcariaItems.register("cyan_ground_flowers", () -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
@@ -553,57 +549,57 @@ public class IcariaItems {
 	public static final Supplier<Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", () -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), IcariaItems.propertiesItem()));
 	public static final Supplier<Item> GRINDER_STONE = IcariaItems.register("grinder_stone", () -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> PAINTING = IcariaItems.registerSimple("painting", () -> new IcariaPaintingItem(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PAINTING = IcariaItems.register("painting", () -> new IcariaPaintingItem(IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> BONE_REMAINS = IcariaItems.registerSimple("bone_remains", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_LUMP = IcariaItems.registerSimple("loam_lump", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_BRICK = IcariaItems.registerSimple("loam_brick", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHERT = IcariaItems.registerSimple("chert", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ENDER_JELLYFISH_JELLY = IcariaItems.registerSimple("ender_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIRE_JELLYFISH_JELLY = IcariaItems.registerSimple("fire_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NATURE_JELLYFISH_JELLY = IcariaItems.registerSimple("nature_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOID_JELLYFISH_JELLY = IcariaItems.registerSimple("void_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WATER_JELLYFISH_JELLY = IcariaItems.registerSimple("water_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_STRING = IcariaItems.registerSimple("arachne_string", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT = IcariaItems.registerSimple("spelt", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VINE_REED = IcariaItems.registerSimple("vine_reed", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ROTTEN_BONES = IcariaItems.registerSimple("rotten_bones", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GREENPOWDER = IcariaItems.registerSimple("greenpowder", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CALCITE_SHARD = IcariaItems.registerSimple("calcite_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_SHARD = IcariaItems.registerSimple("halite_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> JASPER_SHARD = IcariaItems.registerSimple("jasper_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ZIRCON_SHARD = IcariaItems.registerSimple("zircon_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CALCITE_DUST = IcariaItems.registerSimple("calcite_dust", () -> new BoneMealItem(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_DUST = IcariaItems.registerSimple("halite_dust", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGNITE = IcariaItems.registerSimple("lignite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_CHALKOS = IcariaItems.registerSimple("raw_chalkos", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_KASSITEROS = IcariaItems.registerSimple("raw_kassiteros", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DOLOMITE = IcariaItems.registerSimple("dolomite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_VANADIUM = IcariaItems.registerSimple("raw_vanadium", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLIVER = IcariaItems.registerSimple("sliver", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_SIDEROS = IcariaItems.registerSimple("raw_sideros", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTHRACITE = IcariaItems.registerSimple("anthracite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_MOLYBDENUM = IcariaItems.registerSimple("raw_molybdenum", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BONE_REMAINS = IcariaItems.register("bone_remains", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LOAM_LUMP = IcariaItems.register("loam_lump", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LOAM_BRICK = IcariaItems.register("loam_brick", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHERT = IcariaItems.register("chert", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ENDER_JELLYFISH_JELLY = IcariaItems.register("ender_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FIRE_JELLYFISH_JELLY = IcariaItems.register("fire_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> NATURE_JELLYFISH_JELLY = IcariaItems.register("nature_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VOID_JELLYFISH_JELLY = IcariaItems.register("void_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> WATER_JELLYFISH_JELLY = IcariaItems.register("water_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ARACHNE_STRING = IcariaItems.register("arachne_string", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SPELT = IcariaItems.register("spelt", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VINE_REED = IcariaItems.register("vine_reed", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ROTTEN_BONES = IcariaItems.register("rotten_bones", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> GREENPOWDER = IcariaItems.register("greenpowder", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CALCITE_SHARD = IcariaItems.register("calcite_shard", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> HALITE_SHARD = IcariaItems.register("halite_shard", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> JASPER_SHARD = IcariaItems.register("jasper_shard", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ZIRCON_SHARD = IcariaItems.register("zircon_shard", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CALCITE_DUST = IcariaItems.register("calcite_dust", () -> new BoneMealItem(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> HALITE_DUST = IcariaItems.register("halite_dust", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LIGNITE = IcariaItems.register("lignite", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RAW_CHALKOS = IcariaItems.register("raw_chalkos", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RAW_KASSITEROS = IcariaItems.register("raw_kassiteros", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> DOLOMITE = IcariaItems.register("dolomite", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RAW_VANADIUM = IcariaItems.register("raw_vanadium", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SLIVER = IcariaItems.register("sliver", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RAW_SIDEROS = IcariaItems.register("raw_sideros", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ANTHRACITE = IcariaItems.register("anthracite", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RAW_MOLYBDENUM = IcariaItems.register("raw_molybdenum", () -> new Item(IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> CHALKOS_NUGGET = IcariaItems.registerSimple("chalkos_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_NUGGET = IcariaItems.registerSimple("kassiteros_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORICHALCUM_NUGGET = IcariaItems.registerSimple("orichalcum_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_NUGGET = IcariaItems.registerSimple("vanadium_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUMSTEEL_NUGGET = IcariaItems.registerSimple("vanadiumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_NUGGET = IcariaItems.registerSimple("sideros_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_NUGGET = IcariaItems.registerSimple("molybdenum_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUMSTEEL_NUGGET = IcariaItems.registerSimple("molybdenumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLURIDIUM_NUGGET = IcariaItems.registerSimple("bluridium_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHALKOS_NUGGET = IcariaItems.register("chalkos_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> KASSITEROS_NUGGET = IcariaItems.register("kassiteros_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ORICHALCUM_NUGGET = IcariaItems.register("orichalcum_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VANADIUM_NUGGET = IcariaItems.register("vanadium_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VANADIUMSTEEL_NUGGET = IcariaItems.register("vanadiumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SIDEROS_NUGGET = IcariaItems.register("sideros_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MOLYBDENUM_NUGGET = IcariaItems.register("molybdenum_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MOLYBDENUMSTEEL_NUGGET = IcariaItems.register("molybdenumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLURIDIUM_NUGGET = IcariaItems.register("bluridium_nugget", () -> new Item(IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> CHALKOS_INGOT = IcariaItems.registerSimple("chalkos_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_INGOT = IcariaItems.registerSimple("kassiteros_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORICHALCUM_INGOT = IcariaItems.registerSimple("orichalcum_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_INGOT = IcariaItems.registerSimple("vanadium_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUMSTEEL_INGOT = IcariaItems.registerSimple("vanadiumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_INGOT = IcariaItems.registerSimple("sideros_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_INGOT = IcariaItems.registerSimple("molybdenum_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUMSTEEL_INGOT = IcariaItems.registerSimple("molybdenumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLURIDIUM_INGOT = IcariaItems.registerSimple("bluridium_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHALKOS_INGOT = IcariaItems.register("chalkos_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> KASSITEROS_INGOT = IcariaItems.register("kassiteros_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ORICHALCUM_INGOT = IcariaItems.register("orichalcum_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VANADIUM_INGOT = IcariaItems.register("vanadium_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> VANADIUMSTEEL_INGOT = IcariaItems.register("vanadiumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SIDEROS_INGOT = IcariaItems.register("sideros_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MOLYBDENUM_INGOT = IcariaItems.register("molybdenum_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MOLYBDENUMSTEEL_INGOT = IcariaItems.register("molybdenumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLURIDIUM_INGOT = IcariaItems.register("bluridium_ingot", () -> new Item(IcariaItems.propertiesItem()));
 
 	public static final IcariaToolItems CHERT_TOOLS = new IcariaToolItems("chert", IcariaTiers.CHERT);
 	public static final IcariaToolItems CHALKOS_TOOLS = new IcariaToolItems("chalkos", IcariaTiers.CHALKOS);
@@ -618,33 +614,33 @@ public class IcariaItems {
 	public static final IcariaArmorItems KASSITEROS_ARMOR = new IcariaArmorItems("kassiteros", IcariaArmorMaterials.KASSITEROS, 15);
 	public static final IcariaArmorItems ORICHALCUM_ARMOR = new IcariaArmorItems("orichalcum", IcariaArmorMaterials.ORICHALCUM, 24);
 	public static final IcariaArmorItems VANADIUMSTEEL_ARMOR = new IcariaArmorItems("vanadiumsteel", IcariaArmorMaterials.VANADIUMSTEEL, 27);
-	public static final Supplier<Item> LAUREL_WREATH = IcariaItems.registerSimple("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LAUREL_WREATH = IcariaItems.register("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> GREEK_FIRE_GRENADE = IcariaItems.registerSimple("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> GREEK_FIRE_GRENADE = IcariaItems.register("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem()));
 
-	public static final Supplier<TotemItem> TOTEM_OF_STUFFING = IcariaItems.registerSimple("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNBLINDING = IcariaItems.registerSimple("totem_of_unblinding", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNDROWNING = IcariaItems.registerSimple("totem_of_undrowning", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNSHATTERING = IcariaItems.registerSimple("totem_of_unshattering", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNSINKING = IcariaItems.registerSimple("totem_of_unsinking", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final Supplier<TotemItem> TOTEM_OF_STUFFING = IcariaItems.register("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final Supplier<TotemItem> TOTEM_OF_UNBLINDING = IcariaItems.register("totem_of_unblinding", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final Supplier<TotemItem> TOTEM_OF_UNDROWNING = IcariaItems.register("totem_of_undrowning", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final Supplier<TotemItem> TOTEM_OF_UNSHATTERING = IcariaItems.register("totem_of_unshattering", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
+	public static final Supplier<TotemItem> TOTEM_OF_UNSINKING = IcariaItems.register("totem_of_unsinking", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
 
-	public static final Supplier<Item> UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WHITE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("white_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_GRAY_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("light_gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAY_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLACK_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("black_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BROWN_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("brown_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RED_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("red_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORANGE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("orange_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOW_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("yellow_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIME_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("lime_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GREEN_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("green_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYAN_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("cyan_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_BLUE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("light_blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("purple_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MAGENTA_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("magenta_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_UNFIRED_STORAGE_VASE = IcariaItems.registerSimple("pink_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> UNFIRED_STORAGE_VASE = IcariaItems.register("unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> WHITE_UNFIRED_STORAGE_VASE = IcariaItems.register("white_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LIGHT_GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("light_gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLACK_UNFIRED_STORAGE_VASE = IcariaItems.register("black_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BROWN_UNFIRED_STORAGE_VASE = IcariaItems.register("brown_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RED_UNFIRED_STORAGE_VASE = IcariaItems.register("red_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ORANGE_UNFIRED_STORAGE_VASE = IcariaItems.register("orange_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> YELLOW_UNFIRED_STORAGE_VASE = IcariaItems.register("yellow_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LIME_UNFIRED_STORAGE_VASE = IcariaItems.register("lime_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> GREEN_UNFIRED_STORAGE_VASE = IcariaItems.register("green_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CYAN_UNFIRED_STORAGE_VASE = IcariaItems.register("cyan_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LIGHT_BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("light_blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PURPLE_UNFIRED_STORAGE_VASE = IcariaItems.register("purple_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> MAGENTA_UNFIRED_STORAGE_VASE = IcariaItems.register("magenta_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PINK_UNFIRED_STORAGE_VASE = IcariaItems.register("pink_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> ANTI_GRAVITY_SCROLL = IcariaItems.register("anti_gravity_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
 	public static final Supplier<Item> FORTIFYING_SCROLL = IcariaItems.register("fortifying_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
@@ -653,71 +649,71 @@ public class IcariaItems {
 	public static final Supplier<Item> FREEZING_SCROLL = IcariaItems.register("freezing_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
 	public static final Supplier<Item> MAGIC_MISSILE_SCROLL = IcariaItems.register("magic_missile_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
 
-	public static final Supplier<Item> ANTI_GRAVITY_SPELL = IcariaItems.registerSimple("anti_gravity_spell", () -> new AntiGravitySpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6919359, 20));
-	public static final Supplier<Item> FORTIFYING_SPELL = IcariaItems.registerSimple("fortifying_spell", () -> new FortifyingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6316160, 20));
-	public static final Supplier<Item> HEALING_SPELL = IcariaItems.registerSimple("healing_spell", () -> new HealingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 16711680, 20));
-	public static final Supplier<Item> BUBBLE_SPELL = IcariaItems.registerSimple("bubble_spell", () -> new BubbleSpellItem(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FREEZING_SPELL = IcariaItems.registerSimple("freezing_spell", () -> new FreezingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 14277081, 20));
-	public static final Supplier<Item> MAGIC_MISSILE_SPELL = IcariaItems.registerSimple("magic_missile_spell", () -> new MagicMissileSpellItem(IcariaItems.propertiesItem(), 0.0F, 2.0F, 6307968, 40));
+	public static final Supplier<Item> ANTI_GRAVITY_SPELL = IcariaItems.register("anti_gravity_spell", () -> new AntiGravitySpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6919359, 20));
+	public static final Supplier<Item> FORTIFYING_SPELL = IcariaItems.register("fortifying_spell", () -> new FortifyingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6316160, 20));
+	public static final Supplier<Item> HEALING_SPELL = IcariaItems.register("healing_spell", () -> new HealingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 16711680, 20));
+	public static final Supplier<Item> BUBBLE_SPELL = IcariaItems.register("bubble_spell", () -> new BubbleSpellItem(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FREEZING_SPELL = IcariaItems.register("freezing_spell", () -> new FreezingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 14277081, 20));
+	public static final Supplier<Item> MAGIC_MISSILE_SPELL = IcariaItems.register("magic_missile_spell", () -> new MagicMissileSpellItem(IcariaItems.propertiesItem(), 0.0F, 2.0F, 6307968, 40));
 
-	public static final Supplier<Item> EMPTY_FLASK = IcariaItems.registerSimple("empty_flask", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTI_GRAVITY_FLASK = IcariaItems.registerSimple("anti_gravity_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.LEVITATION, 600));
-	public static final Supplier<Item> FORTIFYING_FLASK = IcariaItems.registerSimple("fortifying_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.DAMAGE_RESISTANCE, 600));
-	public static final Supplier<Item> HEALING_FLASK = IcariaItems.registerSimple("healing_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.REGENERATION, 600));
+	public static final Supplier<Item> EMPTY_FLASK = IcariaItems.register("empty_flask", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ANTI_GRAVITY_FLASK = IcariaItems.register("anti_gravity_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.LEVITATION, 600));
+	public static final Supplier<Item> FORTIFYING_FLASK = IcariaItems.register("fortifying_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.DAMAGE_RESISTANCE, 600));
+	public static final Supplier<Item> HEALING_FLASK = IcariaItems.register("healing_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.REGENERATION, 600));
 
-	public static final Supplier<Item> EMPTY_VIAL = IcariaItems.registerSimple("empty_vial", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_VENOM_VIAL = IcariaItems.registerSimple("arachne_venom_vial", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> HYLIASTRUM_VIAL = IcariaItems.registerSimple("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> EMPTY_VIAL = IcariaItems.register("empty_vial", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> ARACHNE_VENOM_VIAL = IcariaItems.register("arachne_venom_vial", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> HYLIASTRUM_VIAL = IcariaItems.register("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem(1)));
 
-	public static final Supplier<Item> CHEST_LABEL = IcariaItems.registerSimple("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> CHEST_LABEL = IcariaItems.register("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> YELLOWSTONE_GEAR = IcariaItems.registerSimple("yellowstone_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 256)));
-	public static final Supplier<Item> UNFIRED_LOAM_GEAR = IcariaItems.registerSimple("unfired_loam_gear", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> LOAM_GEAR = IcariaItems.registerSimple("loam_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 512)));
-	public static final Supplier<Item> VOIDSHALE_GEAR = IcariaItems.registerSimple("voidshale_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 768)));
-	public static final Supplier<Item> VANADIUM_GEAR = IcariaItems.registerSimple("vanadium_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 1024)));
-	public static final Supplier<Item> BLUE_GEARFRAGMENT = IcariaItems.registerSimple("blue_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> GREEN_GEARFRAGMENT = IcariaItems.registerSimple("green_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> YELLOW_GEARFRAGMENT = IcariaItems.registerSimple("yellow_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> DAEDALIAN_GEAR = IcariaItems.registerSimple("daedalian_gear", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> YELLOWSTONE_GEAR = IcariaItems.register("yellowstone_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 256)));
+	public static final Supplier<Item> UNFIRED_LOAM_GEAR = IcariaItems.register("unfired_loam_gear", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> LOAM_GEAR = IcariaItems.register("loam_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 512)));
+	public static final Supplier<Item> VOIDSHALE_GEAR = IcariaItems.register("voidshale_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 768)));
+	public static final Supplier<Item> VANADIUM_GEAR = IcariaItems.register("vanadium_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 1024)));
+	public static final Supplier<Item> BLUE_GEARFRAGMENT = IcariaItems.register("blue_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> GREEN_GEARFRAGMENT = IcariaItems.register("green_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> YELLOW_GEARFRAGMENT = IcariaItems.register("yellow_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
+	public static final Supplier<Item> DAEDALIAN_GEAR = IcariaItems.register("daedalian_gear", () -> new Item(IcariaItems.propertiesItem(1)));
 
-	public static final Supplier<Item> AETERNAE_HIDE = IcariaItems.registerSimple("aeternae_hide", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT_FLOUR = IcariaItems.registerSimple("spelt_flour", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT_BREAD = IcariaItems.registerSimple("spelt_bread", () -> new Item(IcariaItems.propertiesFood(5, 0.6F)));
-	public static final Supplier<Item> VINE_SPROUT = IcariaItems.registerSimple("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(2, 0.5F, 1, 12)));
-	public static final Supplier<Item> VINEBERRIES = IcariaItems.registerSimple("vineberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> STRAWBERRIES = IcariaItems.registerSimple("strawberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> PHYSALIS = IcariaItems.registerSimple("physalis", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> LAUREL_CHERRY = IcariaItems.registerSimple("laurel_cherry", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> BLACK_OLIVES = IcariaItems.registerSimple("black_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> GREEN_OLIVES = IcariaItems.registerSimple("green_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> GARLIC = IcariaItems.registerSimple("garlic", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> ONION = IcariaItems.registerSimple("onion", () -> new ItemNameBlockItem(IcariaBlocks.ONION_CROP.get(), IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> RAW_AETERNAE_MEAT = IcariaItems.registerSimple("raw_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_AETERNAE_MEAT = IcariaItems.registerSimple("cooked_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
-	public static final Supplier<Item> RAW_CATOBLEPAS_MEAT = IcariaItems.registerSimple("raw_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_CATOBLEPAS_MEAT = IcariaItems.registerSimple("cooked_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> RAW_CERVER_MEAT = IcariaItems.registerSimple("raw_cerver_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
-	public static final Supplier<Item> COOKED_CERVER_MEAT = IcariaItems.registerSimple("cooked_cerver_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
-	public static final Supplier<Item> RAW_SOW_MEAT = IcariaItems.registerSimple("raw_sow_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
-	public static final Supplier<Item> COOKED_SOW_MEAT = IcariaItems.registerSimple("cooked_sow_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> MYRMEKE_SCALES = IcariaItems.registerSimple("myrmeke_scales", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLUG_SCALES = IcariaItems.registerSimple("slug_scales", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SNULL_CREAM = IcariaItems.registerSimple("snull_cream", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 1.0F, MobEffects.CONFUSION, 200, 0, 1.0F)));
-	public static final Supplier<Item> VINEGAR = IcariaItems.registerSimple("vinegar", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> AETERNAE_HIDE = IcariaItems.register("aeternae_hide", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SPELT_FLOUR = IcariaItems.register("spelt_flour", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SPELT_BREAD = IcariaItems.register("spelt_bread", () -> new Item(IcariaItems.propertiesFood(5, 0.6F)));
+	public static final Supplier<Item> VINE_SPROUT = IcariaItems.register("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(2, 0.5F, 1, 12)));
+	public static final Supplier<Item> VINEBERRIES = IcariaItems.register("vineberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> STRAWBERRIES = IcariaItems.register("strawberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> PHYSALIS = IcariaItems.register("physalis", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> LAUREL_CHERRY = IcariaItems.register("laurel_cherry", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> BLACK_OLIVES = IcariaItems.register("black_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> GREEN_OLIVES = IcariaItems.register("green_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> GARLIC = IcariaItems.register("garlic", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> ONION = IcariaItems.register("onion", () -> new ItemNameBlockItem(IcariaBlocks.ONION_CROP.get(), IcariaItems.propertiesFood(2, 0.5F)));
+	public static final Supplier<Item> RAW_AETERNAE_MEAT = IcariaItems.register("raw_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
+	public static final Supplier<Item> COOKED_AETERNAE_MEAT = IcariaItems.register("cooked_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
+	public static final Supplier<Item> RAW_CATOBLEPAS_MEAT = IcariaItems.register("raw_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
+	public static final Supplier<Item> COOKED_CATOBLEPAS_MEAT = IcariaItems.register("cooked_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
+	public static final Supplier<Item> RAW_CERVER_MEAT = IcariaItems.register("raw_cerver_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
+	public static final Supplier<Item> COOKED_CERVER_MEAT = IcariaItems.register("cooked_cerver_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
+	public static final Supplier<Item> RAW_SOW_MEAT = IcariaItems.register("raw_sow_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
+	public static final Supplier<Item> COOKED_SOW_MEAT = IcariaItems.register("cooked_sow_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
+	public static final Supplier<Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SLUG_SCALES = IcariaItems.register("slug_scales", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SNULL_CREAM = IcariaItems.register("snull_cream", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 1.0F, MobEffects.CONFUSION, 200, 0, 1.0F)));
+	public static final Supplier<Item> VINEGAR = IcariaItems.register("vinegar", () -> new Item(IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> UNFIRED_LOAM_BOWL = IcariaItems.registerSimple("unfired_loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_BOWL = IcariaItems.registerSimple("loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FRUIT_SALAD = IcariaItems.registerSimple("fruit_salad", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, MobEffects.HEAL, 1, 0, 1.0F, 1)));
-	public static final Supplier<Item> ONION_SOUP = IcariaItems.registerSimple("onion_soup", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(4, 1.0F, 1)));
-	public static final Supplier<Item> AETERNAE_STEW = IcariaItems.registerSimple("aeternae_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
-	public static final Supplier<Item> CATOBLEPAS_STEW = IcariaItems.registerSimple("catoblepas_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
-	public static final Supplier<Item> CERVER_STEW = IcariaItems.registerSimple("cerver_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
-	public static final Supplier<Item> SOW_STEW = IcariaItems.registerSimple("sow_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
+	public static final Supplier<Item> UNFIRED_LOAM_BOWL = IcariaItems.register("unfired_loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LOAM_BOWL = IcariaItems.register("loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> FRUIT_SALAD = IcariaItems.register("fruit_salad", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, MobEffects.HEAL, 1, 0, 1.0F, 1)));
+	public static final Supplier<Item> ONION_SOUP = IcariaItems.register("onion_soup", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(4, 1.0F, 1)));
+	public static final Supplier<Item> AETERNAE_STEW = IcariaItems.register("aeternae_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
+	public static final Supplier<Item> CATOBLEPAS_STEW = IcariaItems.register("catoblepas_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
+	public static final Supplier<Item> CERVER_STEW = IcariaItems.register("cerver_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
+	public static final Supplier<Item> SOW_STEW = IcariaItems.register("sow_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
 
-	public static final Supplier<Item> SPELT_SEEDS = IcariaItems.registerSimple("spelt_seeds", () -> new ItemNameBlockItem(IcariaBlocks.SPELT_CROP.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRAWBERRY_SEEDS = IcariaItems.registerSimple("strawberry_seeds", () -> new ItemNameBlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PHYSALIS_SEEDS = IcariaItems.registerSimple("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> SPELT_SEEDS = IcariaItems.register("spelt_seeds", () -> new ItemNameBlockItem(IcariaBlocks.SPELT_CROP.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> STRAWBERRY_SEEDS = IcariaItems.register("strawberry_seeds", () -> new ItemNameBlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.propertiesItem()));
+	public static final Supplier<Item> PHYSALIS_SEEDS = IcariaItems.register("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), IcariaItems.propertiesItem()));
 
 	public static final Supplier<Item> AETERNAE_SPAWN_EGG = IcariaItems.register("aeternae_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.AETERNAE, 0x40280B, 0x88581F, IcariaItems.propertiesItem()));
 	public static final Supplier<Item> ARACHNE_SPAWN_EGG = IcariaItems.register("arachne_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.ARACHNE, 0x362E28, 0x6A8C97, IcariaItems.propertiesItem()));
@@ -758,12 +754,12 @@ public class IcariaItems {
 	public static final Supplier<Item> SOW_SPAWN_EGG = IcariaItems.register("sow_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, IcariaItems.propertiesItem()));
 	public static final Supplier<Item> VINEGAROON_SPAWN_EGG = IcariaItems.register("vinegaroon_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.VINEGAROON, 0x382819, 0xC99559, IcariaItems.propertiesItem()));
 
-	public static final Supplier<Item> MEDITERRANEAN_WATER_BUCKET = IcariaItems.registerSimple("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER.get(), IcariaItems.propertiesItem(1).craftRemainder(Items.BUCKET)));
+	public static final Supplier<Item> MEDITERRANEAN_WATER_BUCKET = IcariaItems.register("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER.get(), IcariaItems.propertiesItem(1).craftRemainder(Items.BUCKET)));
 
-	public static final Supplier<Item> LEFT_GRINDER_CHAIN = IcariaItems.registerSimple("left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STATIC_LEFT_GRINDER_CHAIN = IcariaItems.registerSimple("static_left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RIGHT_GRINDER_CHAIN = IcariaItems.registerSimple("right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.registerSimple("static_right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> LEFT_GRINDER_CHAIN = IcariaItems.register("left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> STATIC_LEFT_GRINDER_CHAIN = IcariaItems.register("static_left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> RIGHT_GRINDER_CHAIN = IcariaItems.register("right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final Supplier<Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.register("static_right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
 
 	public static Item.Properties propertiesItem() {
 		return new Item.Properties();
@@ -839,11 +835,5 @@ public class IcariaItems {
 
 	public static <T extends Item> Supplier<T> register(String pName, Supplier<T> pSupplier) {
 		return IcariaItems.ITEMS.register(pName, pSupplier);
-	}
-
-	public static <T extends Item> Supplier<T> registerSimple(String pName, Supplier<T> pSupplier) {
-		Supplier<T> registryObject = IcariaItems.register(pName, pSupplier);
-		IcariaItems.SIMPLE_ITEMS.add(registryObject);
-		return registryObject;
 	}
 }

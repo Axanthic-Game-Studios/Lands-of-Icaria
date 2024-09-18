@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "landsoficaria:block/smooth_dolomite",
+    "particle": "landsoficaria:block/smooth_dolomite",
     "side": "landsoficaria:block/smooth_dolomite",
     "top": "landsoficaria:block/smooth_dolomite"
   }

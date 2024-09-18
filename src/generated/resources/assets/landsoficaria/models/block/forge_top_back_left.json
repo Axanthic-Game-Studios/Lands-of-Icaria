@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_forge_top_back_left",
+  "textures": {
+    "grainite": "landsoficaria:block/grainite",
+    "grainite_bricks": "landsoficaria:block/grainite_bricks",
+    "loam_bricks": "landsoficaria:block/loam_bricks",
+    "particle": "landsoficaria:block/grainite"
+  }
+}

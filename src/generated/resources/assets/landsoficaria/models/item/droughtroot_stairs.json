@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/droughtroot_planks",
-    "side": "landsoficaria:block/droughtroot_planks",
-    "top": "landsoficaria:block/droughtroot_planks"
-  }
+  "parent": "landsoficaria:block/droughtroot_stairs"
 }

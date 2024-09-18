@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/wall_inventory",
-  "textures": {
-    "wall": "landsoficaria:block/grainite_bricks"
-  }
+  "parent": "landsoficaria:block/grainite_brick_wall_inventory"
 }

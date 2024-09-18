@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "facing=east,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=false,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=false,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=false,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=true,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_barrel_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=true,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/tapped_droughtroot_barrel_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=true,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 90
+    },
+    "facing=east,full_rack=true,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 90
+    },
+    "facing=north,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack"
+    },
+    "facing=north,full_rack=false,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack"
+    },
+    "facing=north,full_rack=false,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack"
+    },
+    "facing=north,full_rack=false,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack"
+    },
+    "facing=north,full_rack=true,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_barrel_rack"
+    },
+    "facing=north,full_rack=true,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/tapped_droughtroot_barrel_rack"
+    },
+    "facing=north,full_rack=true,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack"
+    },
+    "facing=north,full_rack=true,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack"
+    },
+    "facing=south,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=false,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=false,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=false,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=true,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_barrel_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=true,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/tapped_droughtroot_barrel_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=true,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 180
+    },
+    "facing=south,full_rack=true,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 180
+    },
+    "facing=west,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=false,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=false,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=false,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/droughtroot_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=true,loaded_barrel=false,tapped_barrel=false": {
+      "model": "landsoficaria:block/droughtroot_barrel_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=true,loaded_barrel=false,tapped_barrel=true": {
+      "model": "landsoficaria:block/tapped_droughtroot_barrel_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=true,loaded_barrel=true,tapped_barrel=false": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 270
+    },
+    "facing=west,full_rack=true,loaded_barrel=true,tapped_barrel=true": {
+      "model": "landsoficaria:block/loaded_droughtroot_barrel_rack",
+      "y": 270
+    }
+  }
+}

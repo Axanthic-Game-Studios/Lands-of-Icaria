@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_tapped_barrel_rack",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/cypress_barrel_back",
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/cypress_planks",
+    "planks": "landsoficaria:block/cypress_planks"
+  }
+}

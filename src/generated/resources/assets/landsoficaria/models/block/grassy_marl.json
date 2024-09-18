@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/grass_block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "landsoficaria:block/marl",
+    "overlay": "landsoficaria:block/grassy_marl_side",
+    "particle": "landsoficaria:block/marl",
+    "side": "landsoficaria:block/marl",
+    "top": "landsoficaria:block/grassy_marl_top"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_bolbos",
+  "textures": {
+    "particle": "landsoficaria:block/bolbos",
+    "texture": "landsoficaria:block/bolbos"
+  }
+}

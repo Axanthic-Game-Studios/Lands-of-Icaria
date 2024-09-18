@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/mossy_relicstone_tiles"
+    "all": "landsoficaria:block/mossy_relicstone_tiles",
+    "particle": "landsoficaria:block/mossy_relicstone_tiles"
   }
 }

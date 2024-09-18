@@ -28,7 +28,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/flowing_mediterranean_water");
 	public static final ResourceLocation MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water");
 	public static final ResourceLocation ONION = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_onion");
-	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_end");
+	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_top");
 	public static final ResourceLocation VINEBERRIES = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_vineberries");
 
 	// EFFECT

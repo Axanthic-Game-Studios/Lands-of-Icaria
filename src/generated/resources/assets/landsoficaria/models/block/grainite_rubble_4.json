@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_rubble_4",
+  "textures": {
+    "particle": "landsoficaria:block/grainite",
+    "texture": "landsoficaria:block/grainite"
+  }
+}

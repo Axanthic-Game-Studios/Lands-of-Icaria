@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
+    "particle": "landsoficaria:block/mossy_relicstone_tiles",
     "wall": "landsoficaria:block/mossy_relicstone_tiles"
   }
 }

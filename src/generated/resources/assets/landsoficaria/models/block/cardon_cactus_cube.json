@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_cardon_cactus_cube",
+  "textures": {
+    "particle": "landsoficaria:block/cardon_cactus_side",
+    "texture": "landsoficaria:block/cardon_cactus_side"
+  }
+}

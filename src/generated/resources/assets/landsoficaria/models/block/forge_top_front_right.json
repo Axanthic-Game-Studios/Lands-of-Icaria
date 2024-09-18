@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_forge_top_front_right",
+  "textures": {
+    "forge": "landsoficaria:block/forge",
+    "grainite": "landsoficaria:block/grainite",
+    "grainite_bricks": "landsoficaria:block/grainite_bricks",
+    "particle": "landsoficaria:block/grainite",
+    "stripped_cypress_log": "landsoficaria:block/stripped_cypress_log"
+  }
+}

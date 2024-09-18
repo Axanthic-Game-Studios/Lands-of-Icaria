@@ -1,0 +1,599 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#torch_bone",
+          "uv": [
+            9.0,
+            15.0,
+            12.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone"
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            2.0,
+            15.0,
+            4.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_bone",
+          "uv": [
+            4.0,
+            15.0,
+            7.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        6.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        1,
+        9.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone",
+          "uv": [
+            7.0,
+            15.0,
+            7.5,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            3.0,
+            15.0,
+            3.5,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_bone",
+          "uv": [
+            4.0,
+            15.0,
+            6.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        6.5,
+        0,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        7,
+        1,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#torch_bone",
+          "uv": [
+            12.0,
+            15.0,
+            14.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone",
+          "uv": [
+            5.0,
+            15.0,
+            5.5,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            3.0,
+            15.0,
+            3.5,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        9,
+        0,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9.5,
+        1,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#torch_bone"
+        },
+        "north": {
+          "texture": "#torch_bone",
+          "uv": [
+            5.0,
+            8.0,
+            7.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            9.0,
+            8.0,
+            11.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_bone",
+          "uv": [
+            11.0,
+            8.0,
+            13.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        1,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        8,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#torch_bone",
+          "uv": [
+            9.0,
+            7.0,
+            12.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone"
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            2.0,
+            7.0,
+            4.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            3.0,
+            13.0,
+            5.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_bone",
+          "uv": [
+            4.0,
+            7.0,
+            7.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        8,
+        6.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        9,
+        9.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone",
+          "uv": [
+            7.0,
+            7.0,
+            7.5,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            3.0,
+            7.0,
+            3.5,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_bone",
+          "uv": [
+            4.0,
+            7.0,
+            6.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        6.5,
+        8,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        7,
+        9,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#torch_bone",
+          "uv": [
+            12.0,
+            7.0,
+            14.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_bone",
+          "uv": [
+            5.0,
+            7.0,
+            5.5,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_bone",
+          "uv": [
+            3.0,
+            7.0,
+            3.5,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_bone",
+          "uv": [
+            0.0,
+            0.0,
+            0.5,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        9,
+        8,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9.5,
+        9,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#torch_coal",
+          "uv": [
+            12.0,
+            2.0,
+            14.0,
+            3.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_coal",
+          "uv": [
+            12.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_coal",
+          "uv": [
+            12.0,
+            4.0,
+            14.0,
+            5.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_coal",
+          "uv": [
+            12.0,
+            6.0,
+            14.0,
+            7.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        9,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        10,
+        9
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#torch_coal",
+          "uv": [
+            5.0,
+            10.0,
+            7.0,
+            11.0
+          ]
+        },
+        "north": {
+          "texture": "#torch_coal",
+          "uv": [
+            5.0,
+            8.0,
+            7.0,
+            9.0
+          ]
+        },
+        "south": {
+          "texture": "#torch_coal",
+          "uv": [
+            5.0,
+            12.0,
+            7.0,
+            13.0
+          ]
+        },
+        "up": {
+          "texture": "#torch_coal",
+          "uv": [
+            1.0,
+            9.0,
+            3.0,
+            11.0
+          ]
+        },
+        "west": {
+          "texture": "#torch_coal",
+          "uv": [
+            5.0,
+            14.0,
+            7.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        10,
+        7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        11,
+        9
+      ]
+    }
+  ]
+}

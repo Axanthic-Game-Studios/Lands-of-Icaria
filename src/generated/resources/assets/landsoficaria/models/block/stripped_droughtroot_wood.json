@@ -1,7 +1,8 @@
 {
   "parent": "minecraft:block/cube_column",
   "textures": {
-    "end": "landsoficaria:block/stripped_droughtroot_wood_end",
-    "side": "landsoficaria:block/stripped_droughtroot_wood_side"
+    "end": "landsoficaria:block/stripped_droughtroot_log",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "side": "landsoficaria:block/stripped_droughtroot_log"
   }
 }

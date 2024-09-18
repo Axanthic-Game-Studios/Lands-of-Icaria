@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/namdrake"
+      },
+      {
+        "model": "landsoficaria:block/namdrake",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/namdrake",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/namdrake",
+        "y": 270
+      }
+    ]
+  }
+}

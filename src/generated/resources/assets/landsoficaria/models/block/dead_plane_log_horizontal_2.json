@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_dead_log_horizontal_2",
+  "textures": {
+    "log": "landsoficaria:block/plane_log",
+    "log_top": "landsoficaria:block/plane_log_top",
+    "marl": "landsoficaria:block/marl",
+    "moss": "landsoficaria:block/scrubland_moss",
+    "particle": "landsoficaria:block/plane_log",
+    "stripped_log": "landsoficaria:block/stripped_plane_log"
+  }
+}

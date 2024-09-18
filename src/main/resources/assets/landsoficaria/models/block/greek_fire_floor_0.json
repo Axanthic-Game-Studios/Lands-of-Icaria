@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_fire_floor",
-  "textures": {
-    "fire": "landsoficaria:block/greek_fire_0"
-  }
-}

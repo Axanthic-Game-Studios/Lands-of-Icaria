@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/sunstone_adobe",
+    "particle": "landsoficaria:block/sunstone_adobe",
     "side": "landsoficaria:block/sunstone_adobe",
     "top": "landsoficaria:block/sunstone_adobe"
   }

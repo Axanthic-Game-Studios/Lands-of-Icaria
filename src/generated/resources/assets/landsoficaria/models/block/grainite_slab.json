@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/grainite",
+    "particle": "landsoficaria:block/grainite",
     "side": "landsoficaria:block/grainite",
     "top": "landsoficaria:block/grainite"
   }

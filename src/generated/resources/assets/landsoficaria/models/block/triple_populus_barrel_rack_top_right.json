@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_triple_barrel_rack_top_right",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "landsoficaria:block/populus_planks"
+  }
+}

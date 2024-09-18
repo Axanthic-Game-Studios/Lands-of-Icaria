@@ -1,0 +1,18 @@
+{
+  "parent": "neoforge:item/default",
+  "base": {
+    "parent": "minecraft:item/generated",
+    "textures": {
+      "layer0": "landsoficaria:item/bubble_scroll"
+    }
+  },
+  "loader": "neoforge:separate_transforms",
+  "perspectives": {
+    "firstperson_lefthand": {
+      "parent": "minecraft:builtin/entity"
+    },
+    "firstperson_righthand": {
+      "parent": "minecraft:builtin/entity"
+    }
+  }
+}

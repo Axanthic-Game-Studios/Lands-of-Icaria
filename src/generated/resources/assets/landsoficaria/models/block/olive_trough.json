@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_trough",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "log": "landsoficaria:block/olive_log",
+    "particle": "landsoficaria:block/olive_planks",
+    "planks": "landsoficaria:block/olive_planks"
+  }
+}

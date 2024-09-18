@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/droughtroot_leaves"
+    "all": "landsoficaria:block/droughtroot_leaves",
+    "particle": "landsoficaria:block/droughtroot_leaves"
   }
 }

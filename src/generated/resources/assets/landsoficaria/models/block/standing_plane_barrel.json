@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_standing_barrel",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/plane_barrel_back",
+    "barrel_front": "landsoficaria:block/plane_barrel_front",
+    "particle": "landsoficaria:block/plane_planks",
+    "planks": "landsoficaria:block/plane_planks"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_0"
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_0",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_1"
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_1",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_2"
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_2",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_2",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/large_brown_ground_shrooms_2",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_loot_vase_9",
+  "textures": {
+    "particle": "landsoficaria:block/lost_loot_vase_particle",
+    "texture": "landsoficaria:block/lost_loot_vase"
+  }
+}

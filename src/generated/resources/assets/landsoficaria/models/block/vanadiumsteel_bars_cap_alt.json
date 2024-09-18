@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/iron_bars_cap_alt",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bars": "landsoficaria:block/vanadiumsteel_bars",
+    "edge": "landsoficaria:block/vanadiumsteel_bars",
+    "particle": "landsoficaria:block/vanadiumsteel_bars"
+  }
+}

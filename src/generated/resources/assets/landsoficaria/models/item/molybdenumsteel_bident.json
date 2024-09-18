@@ -1,5 +1,5 @@
 {
-  "parent": "landsoficaria:item/bident",
+  "parent": "minecraft:item/handheld",
   "overrides": [
     {
       "model": "landsoficaria:item/molybdenumsteel_bident_throwing",

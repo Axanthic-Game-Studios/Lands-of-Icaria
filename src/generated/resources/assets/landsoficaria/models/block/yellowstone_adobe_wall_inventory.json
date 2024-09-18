@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/yellowstone_adobe",
+    "wall": "landsoficaria:block/yellowstone_adobe"
+  }
+}

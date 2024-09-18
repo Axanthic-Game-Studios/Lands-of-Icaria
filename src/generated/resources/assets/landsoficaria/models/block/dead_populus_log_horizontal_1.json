@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_dead_log_horizontal_1",
+  "textures": {
+    "brown_ground_shrooms": "landsoficaria:block/brown_ground_shrooms",
+    "log": "landsoficaria:block/populus_log",
+    "log_top": "landsoficaria:block/populus_log_top",
+    "marl": "landsoficaria:block/marl",
+    "particle": "landsoficaria:block/populus_log",
+    "stem_ground_shrooms": "landsoficaria:block/stem_ground_shrooms",
+    "stripped_log": "landsoficaria:block/stripped_populus_log"
+  }
+}

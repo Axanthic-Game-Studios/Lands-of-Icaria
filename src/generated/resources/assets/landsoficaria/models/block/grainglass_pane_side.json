@@ -1,7 +1,9 @@
 {
   "parent": "minecraft:block/template_glass_pane_side",
+  "render_type": "minecraft:cutout",
   "textures": {
     "edge": "landsoficaria:block/grainglass_pane",
-    "pane": "landsoficaria:block/grainglass"
+    "pane": "landsoficaria:block/grainglass",
+    "particle": "landsoficaria:block/grainglass"
   }
 }

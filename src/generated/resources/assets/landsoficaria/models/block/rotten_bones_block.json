@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/rotten_bones_block"
+    "all": "landsoficaria:block/rotten_bones_block",
+    "particle": "landsoficaria:block/rotten_bones_block"
   }
 }

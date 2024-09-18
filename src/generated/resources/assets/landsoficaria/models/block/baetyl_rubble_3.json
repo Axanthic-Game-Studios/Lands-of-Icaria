@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_rubble_3",
+  "textures": {
+    "particle": "landsoficaria:block/baetyl",
+    "texture": "landsoficaria:block/baetyl"
+  }
+}

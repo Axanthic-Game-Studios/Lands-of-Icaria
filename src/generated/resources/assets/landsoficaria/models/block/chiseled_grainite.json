@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/chiseled_grainite"
+    "all": "landsoficaria:block/chiseled_grainite",
+    "particle": "landsoficaria:block/chiseled_grainite"
   }
 }

@@ -1,0 +1,40 @@
+{
+  "variants": {
+    "axis=x": [
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_2",
+        "y": 90
+      }
+    ],
+    "axis=y": [
+      {
+        "model": "landsoficaria:block/dead_laurel_log_0"
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_1"
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_2"
+      }
+    ],
+    "axis=z": [
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_0"
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_1"
+      },
+      {
+        "model": "landsoficaria:block/dead_laurel_log_horizontal_2"
+      }
+    ]
+  }
+}

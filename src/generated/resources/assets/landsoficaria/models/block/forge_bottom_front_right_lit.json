@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_forge_bottom_front_right_lit",
+  "textures": {
+    "forge": "landsoficaria:block/forge",
+    "grainite": "landsoficaria:block/grainite",
+    "grainite_bricks": "landsoficaria:block/grainite_bricks",
+    "lava_flow": "minecraft:block/lava_flow",
+    "lava_still": "minecraft:block/lava_still",
+    "loam_bricks": "landsoficaria:block/loam_bricks",
+    "particle": "landsoficaria:block/grainite",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

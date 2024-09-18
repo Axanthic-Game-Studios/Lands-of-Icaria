@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
+    "particle": "landsoficaria:block/cobbled_baetyl",
     "wall": "landsoficaria:block/cobbled_baetyl"
   }
 }

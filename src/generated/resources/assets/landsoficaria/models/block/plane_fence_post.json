@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/fence_post",
   "textures": {
+    "particle": "landsoficaria:block/plane_planks",
     "texture": "landsoficaria:block/plane_planks"
   }
 }

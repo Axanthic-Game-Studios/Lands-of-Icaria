@@ -1,0 +1,81 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_0"
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_0",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_1"
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_1",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_2"
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_2",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_2",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_2",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_3"
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_3",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_3",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_3",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_4"
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_4",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_4",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/yellowstone_rubble_4",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -2,6 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "landsoficaria:block/cracked_relicstone_tiles",
+    "particle": "landsoficaria:block/cracked_relicstone_tiles",
     "side": "landsoficaria:block/cracked_relicstone_tiles",
     "top": "landsoficaria:block/cracked_relicstone_tiles"
   }

@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/budding_jasper"
+    "all": "landsoficaria:block/budding_jasper",
+    "particle": "landsoficaria:block/budding_jasper"
   }
 }

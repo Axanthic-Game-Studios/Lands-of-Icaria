@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_potted_bromelia",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "dirt": "minecraft:block/dirt",
+    "overlay": "landsoficaria:block/pink_bromelia_overlay",
+    "particle": "minecraft:block/flower_pot",
+    "pot": "minecraft:block/flower_pot",
+    "texture": "landsoficaria:block/pink_bromelia"
+  }
+}

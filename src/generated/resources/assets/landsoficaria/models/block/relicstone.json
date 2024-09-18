@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/relicstone"
+    "all": "landsoficaria:block/relicstone",
+    "particle": "landsoficaria:block/relicstone"
   }
 }

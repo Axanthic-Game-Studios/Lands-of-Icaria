@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/loam_bricks",
-    "side": "landsoficaria:block/loam_bricks",
-    "top": "landsoficaria:block/loam_bricks"
-  }
+  "parent": "landsoficaria:block/loam_brick_slab"
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_calcite_crystal",
+  "textures": {
+    "particle": "landsoficaria:block/calcite_crystal",
+    "texture": "landsoficaria:block/calcite_crystal"
+  }
+}

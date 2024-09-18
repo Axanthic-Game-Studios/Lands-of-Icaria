@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/grainite_bricks",
+    "particle": "landsoficaria:block/grainite_bricks",
     "side": "landsoficaria:block/grainite_bricks",
     "top": "landsoficaria:block/grainite_bricks"
   }

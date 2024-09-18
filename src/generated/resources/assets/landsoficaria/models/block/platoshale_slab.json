@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/platoshale",
+    "particle": "landsoficaria:block/platoshale",
     "side": "landsoficaria:block/platoshale",
     "top": "landsoficaria:block/platoshale"
   }

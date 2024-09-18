@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/jasper"
+    "all": "landsoficaria:block/jasper",
+    "particle": "landsoficaria:block/jasper"
   }
 }

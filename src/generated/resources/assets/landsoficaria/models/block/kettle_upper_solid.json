@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_kettle_upper_solid",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "laurel_log": "landsoficaria:block/laurel_log",
+    "laurel_planks": "landsoficaria:block/laurel_planks",
+    "particle": "landsoficaria:block/laurel_log"
+  }
+}

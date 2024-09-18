@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/smooth_dolomite",
-    "side": "landsoficaria:block/smooth_dolomite",
-    "top": "landsoficaria:block/smooth_dolomite"
-  }
+  "parent": "landsoficaria:block/smooth_dolomite_stairs"
 }

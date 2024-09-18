@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_vine",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/growing_branchy_vine_overlay",
+    "particle": "landsoficaria:block/growing_branchy_vine",
+    "texture": "landsoficaria:block/growing_branchy_vine"
+  }
+}

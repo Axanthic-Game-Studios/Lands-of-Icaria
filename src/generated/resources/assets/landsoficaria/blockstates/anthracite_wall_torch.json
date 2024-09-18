@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/anthracite_wall_torch",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/anthracite_wall_torch"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/anthracite_wall_torch",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/anthracite_wall_torch",
+      "y": 270
+    }
+  }
+}

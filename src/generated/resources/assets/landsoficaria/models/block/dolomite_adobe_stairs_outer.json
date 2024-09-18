@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/dolomite_adobe",
+    "particle": "landsoficaria:block/dolomite_adobe",
     "side": "landsoficaria:block/dolomite_adobe",
     "top": "landsoficaria:block/dolomite_adobe"
   }

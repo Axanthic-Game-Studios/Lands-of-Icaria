@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_cake_3",
+  "textures": {
+    "cake_bottom": "landsoficaria:block/cake_bottom",
+    "cake_inside": "landsoficaria:block/physalis_cake_inside",
+    "cake_side": "landsoficaria:block/physalis_cake_side",
+    "cake_top": "landsoficaria:block/physalis_cake_top",
+    "particle": "landsoficaria:block/physalis_cake_side"
+  }
+}

@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/fir_leaves"
+    "all": "landsoficaria:block/fir_leaves",
+    "particle": "landsoficaria:block/fir_leaves"
   }
 }

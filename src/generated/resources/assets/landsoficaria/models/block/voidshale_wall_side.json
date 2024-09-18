@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_wall_side",
   "textures": {
+    "particle": "landsoficaria:block/voidshale",
     "wall": "landsoficaria:block/voidshale"
   }
 }

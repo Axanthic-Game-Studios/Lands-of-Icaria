@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/fir_planks",
+    "particle": "landsoficaria:block/fir_planks",
     "side": "landsoficaria:block/fir_planks",
     "top": "landsoficaria:block/fir_planks"
   }

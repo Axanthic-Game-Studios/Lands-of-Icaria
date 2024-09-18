@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_storage_vase",
+  "textures": {
+    "dark": "landsoficaria:block/storage_vase_dark",
+    "lite": "landsoficaria:block/storage_vase_lite",
+    "neck": "landsoficaria:block/storage_vase_neck",
+    "particle": "landsoficaria:block/storage_vase_dark",
+    "vase": "landsoficaria:block/storage_vase"
+  }
+}

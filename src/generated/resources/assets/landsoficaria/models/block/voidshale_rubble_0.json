@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_rubble_0",
+  "textures": {
+    "particle": "landsoficaria:block/voidshale",
+    "texture": "landsoficaria:block/voidshale"
+  }
+}

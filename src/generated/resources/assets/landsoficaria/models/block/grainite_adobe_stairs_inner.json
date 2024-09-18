@@ -2,6 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "landsoficaria:block/grainite_adobe",
+    "particle": "landsoficaria:block/grainite_adobe",
     "side": "landsoficaria:block/grainite_adobe",
     "top": "landsoficaria:block/grainite_adobe"
   }

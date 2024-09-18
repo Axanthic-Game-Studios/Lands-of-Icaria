@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/farmland",
+  "textures": {
+    "dirt": "landsoficaria:block/marl",
+    "particle": "landsoficaria:block/marl",
+    "top": "landsoficaria:block/fertilized_farmland"
+  }
+}

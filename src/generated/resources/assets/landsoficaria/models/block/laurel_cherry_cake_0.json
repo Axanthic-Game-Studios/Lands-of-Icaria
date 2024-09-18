@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_cake_0",
+  "textures": {
+    "cake_bottom": "landsoficaria:block/cake_bottom",
+    "cake_side": "landsoficaria:block/laurel_cherry_cake_side",
+    "cake_top": "landsoficaria:block/laurel_cherry_cake_top",
+    "particle": "landsoficaria:block/laurel_cherry_cake_side"
+  }
+}

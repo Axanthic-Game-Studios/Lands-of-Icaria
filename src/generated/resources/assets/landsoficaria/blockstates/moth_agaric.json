@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/moth_agaric"
+      },
+      {
+        "model": "landsoficaria:block/moth_agaric",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/moth_agaric",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/moth_agaric",
+        "y": 270
+      }
+    ]
+  }
+}

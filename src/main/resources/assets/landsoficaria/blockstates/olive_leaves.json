@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "olives=none": { "model": "landsoficaria:block/olive_leaves" },
-    "olives=green": { "model": "landsoficaria:block/green_olive_leaves" },
-    "olives=black": { "model": "landsoficaria:block/black_olive_leaves" },
-    "olives=leaves": { "model": "landsoficaria:block/olive_leaves" }
-  }
-}

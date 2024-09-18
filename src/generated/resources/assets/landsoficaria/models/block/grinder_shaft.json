@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_grinder_shaft",
+  "textures": {
+    "particle": "landsoficaria:block/grinder",
+    "texture": "landsoficaria:block/grinder"
+  }
+}

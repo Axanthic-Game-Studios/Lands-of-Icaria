@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "landsoficaria:block/olive_leaves",
+    "particle": "landsoficaria:block/olive_leaves"
+  }
+}

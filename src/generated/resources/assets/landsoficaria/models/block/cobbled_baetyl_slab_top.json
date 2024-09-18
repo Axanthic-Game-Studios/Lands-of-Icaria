@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab_top",
   "textures": {
     "bottom": "landsoficaria:block/cobbled_baetyl",
+    "particle": "landsoficaria:block/cobbled_baetyl",
     "side": "landsoficaria:block/cobbled_baetyl",
     "top": "landsoficaria:block/cobbled_baetyl"
   }

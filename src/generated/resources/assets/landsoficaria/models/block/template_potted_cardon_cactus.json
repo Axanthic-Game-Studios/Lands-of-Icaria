@@ -1,0 +1,268 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#pot"
+        },
+        "east": {
+          "texture": "#pot"
+        },
+        "north": {
+          "texture": "#pot"
+        },
+        "south": {
+          "texture": "#pot"
+        },
+        "up": {
+          "texture": "#pot"
+        },
+        "west": {
+          "texture": "#pot"
+        }
+      },
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        6,
+        6,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#pot"
+        },
+        "east": {
+          "texture": "#pot"
+        },
+        "north": {
+          "texture": "#pot"
+        },
+        "south": {
+          "texture": "#pot"
+        },
+        "up": {
+          "texture": "#pot"
+        },
+        "west": {
+          "texture": "#pot"
+        }
+      },
+      "from": [
+        10,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        6,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#pot"
+        },
+        "north": {
+          "texture": "#pot"
+        },
+        "south": {
+          "texture": "#pot"
+        },
+        "up": {
+          "texture": "#pot"
+        }
+      },
+      "from": [
+        6,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10,
+        6,
+        6
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#pot"
+        },
+        "north": {
+          "texture": "#pot"
+        },
+        "south": {
+          "texture": "#pot"
+        },
+        "up": {
+          "texture": "#pot"
+        }
+      },
+      "from": [
+        6,
+        0,
+        10
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10,
+        6,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "cullface": "down",
+          "texture": "#pot",
+          "uv": [
+            6.0,
+            12.0,
+            10.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#dirt"
+        }
+      },
+      "from": [
+        6,
+        0,
+        6
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10,
+        4,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cactus",
+          "uv": [
+            0.0,
+            0.0,
+            4.0,
+            4.0
+          ]
+        },
+        "east": {
+          "texture": "#cactus",
+          "uv": [
+            4.0,
+            0.0,
+            8.0,
+            12.0
+          ]
+        },
+        "north": {
+          "texture": "#cactus",
+          "uv": [
+            0.0,
+            0.0,
+            4.0,
+            12.0
+          ]
+        },
+        "south": {
+          "texture": "#cactus",
+          "uv": [
+            8.0,
+            0.0,
+            12.0,
+            12.0
+          ]
+        },
+        "up": {
+          "texture": "#cactus"
+        },
+        "west": {
+          "texture": "#cactus",
+          "uv": [
+            12.0,
+            0.0,
+            16.0,
+            12.0
+          ]
+        }
+      },
+      "from": [
+        6,
+        4,
+        6
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10,
+        16,
+        10
+      ]
+    }
+  ]
+}

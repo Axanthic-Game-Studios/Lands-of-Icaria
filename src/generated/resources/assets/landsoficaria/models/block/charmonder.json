@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/charmonder_overlay",
+    "particle": "landsoficaria:block/charmonder_overlay",
+    "texture": "landsoficaria:block/charmonder"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cross": "landsoficaria:block/medium_grass",
+    "particle": "landsoficaria:block/medium_grass"
+  }
+}

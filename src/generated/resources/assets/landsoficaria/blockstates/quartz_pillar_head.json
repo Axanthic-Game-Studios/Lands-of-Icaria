@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "landsoficaria:block/quartz_pillar_head"
+    },
+    "facing=east": {
+      "model": "landsoficaria:block/quartz_pillar_head_inverted",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/quartz_pillar_head_inverted",
+      "x": 270
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/quartz_pillar_head",
+      "x": 270,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "landsoficaria:block/quartz_pillar_head_inverted",
+      "x": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/quartz_pillar_head",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

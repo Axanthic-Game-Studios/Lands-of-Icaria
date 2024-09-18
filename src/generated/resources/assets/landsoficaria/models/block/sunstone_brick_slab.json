@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/sunstone_bricks",
+    "particle": "landsoficaria:block/sunstone_bricks",
     "side": "landsoficaria:block/sunstone_bricks",
     "top": "landsoficaria:block/sunstone_bricks"
   }

@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/surface_chert"
+      },
+      {
+        "model": "landsoficaria:block/surface_chert",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_chert",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_chert",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "landsoficaria:block/template_twigs_1",
+  "textures": {
+    "texture": "landsoficaria:block/olive_twigs"
+  }
+}

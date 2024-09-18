@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "landsoficaria:block/droughtroot_planks",
+    "east": "landsoficaria:block/droughtroot_crafting_table_side",
+    "north": "landsoficaria:block/droughtroot_crafting_table_front",
+    "particle": "landsoficaria:block/droughtroot_crafting_table_front",
+    "south": "landsoficaria:block/droughtroot_crafting_table_side",
+    "up": "landsoficaria:block/droughtroot_crafting_table_top",
+    "west": "landsoficaria:block/droughtroot_crafting_table_front"
+  }
+}

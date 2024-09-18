@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/mondanos"
+      },
+      {
+        "model": "landsoficaria:block/mondanos",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/mondanos",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/mondanos",
+        "y": 270
+      }
+    ]
+  }
+}

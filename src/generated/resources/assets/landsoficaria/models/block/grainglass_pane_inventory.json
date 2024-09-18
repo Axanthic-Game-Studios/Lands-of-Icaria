@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_pane_inventory",
+  "textures": {
+    "edge": "landsoficaria:block/grainglass_pane",
+    "pane": "landsoficaria:block/grainglass",
+    "particle": "landsoficaria:block/grainglass"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/cypress_twigs_0"
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_0",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_1"
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_1",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_2"
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_2",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_2",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_2",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_3"
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_3",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_3",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_3",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_4"
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_4",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_4",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cypress_twigs_4",
+        "y": 270
+      }
+    ]
+  }
+}

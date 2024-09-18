@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_wilted_elm",
+  "textures": {
+    "particle": "landsoficaria:block/wilted_elm",
+    "texture": "landsoficaria:block/wilted_elm"
+  }
+}

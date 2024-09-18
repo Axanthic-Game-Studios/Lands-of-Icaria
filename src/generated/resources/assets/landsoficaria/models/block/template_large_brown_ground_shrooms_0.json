@@ -1,0 +1,236 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#stem",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#stem",
+          "uv": [
+            4.0,
+            0.0,
+            7.0,
+            7.0
+          ]
+        },
+        "north": {
+          "texture": "#stem",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            7.0
+          ]
+        },
+        "south": {
+          "texture": "#stem",
+          "uv": [
+            8.0,
+            0.0,
+            11.0,
+            7.0
+          ]
+        },
+        "up": {
+          "texture": "#stem",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#stem",
+          "uv": [
+            12.0,
+            0.0,
+            15.0,
+            7.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        4
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [
+          6.5,
+          8,
+          5.5
+        ]
+      },
+      "to": [
+        8,
+        7,
+        7
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            9.0
+          ]
+        },
+        "east": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            9.0
+          ]
+        },
+        "west": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            9.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        7,
+        1
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [
+          6.5,
+          8,
+          5.5
+        ]
+      },
+      "to": [
+        11,
+        9,
+        10
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            5.0
+          ]
+        },
+        "east": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            5.0
+          ]
+        },
+        "west": {
+          "texture": "#shroom",
+          "uv": [
+            0.0,
+            0.0,
+            5.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        4,
+        9,
+        3
+      ],
+      "rotation": {
+        "angle": -22.5,
+        "axis": "y",
+        "origin": [
+          6.5,
+          8,
+          5.5
+        ]
+      },
+      "to": [
+        9,
+        10,
+        8
+      ]
+    }
+  ]
+}

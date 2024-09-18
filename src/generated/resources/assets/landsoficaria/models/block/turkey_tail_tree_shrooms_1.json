@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_turkey_tail_tree_shrooms_1",
+  "textures": {
+    "particle": "landsoficaria:block/turkey_tail_tree_shrooms",
+    "texture": "landsoficaria:block/turkey_tail_tree_shrooms"
+  }
+}

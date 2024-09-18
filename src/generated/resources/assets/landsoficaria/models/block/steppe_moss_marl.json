@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "landsoficaria:block/marl",
+    "particle": "landsoficaria:block/marl",
+    "side": "landsoficaria:block/steppe_moss_marl",
+    "top": "landsoficaria:block/steppe_moss"
+  }
+}

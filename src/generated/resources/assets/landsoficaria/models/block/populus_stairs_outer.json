@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/populus_planks",
+    "particle": "landsoficaria:block/populus_planks",
     "side": "landsoficaria:block/populus_planks",
     "top": "landsoficaria:block/populus_planks"
   }

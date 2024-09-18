@@ -2,6 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "landsoficaria:block/sunstone",
+    "particle": "landsoficaria:block/sunstone",
     "side": "landsoficaria:block/sunstone",
     "top": "landsoficaria:block/sunstone"
   }

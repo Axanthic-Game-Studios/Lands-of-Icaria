@@ -1,0 +1,6 @@
+{
+  "parent": "landsoficaria:block/template_layer_2",
+  "textures": {
+    "texture": "landsoficaria:block/steppe_moss"
+  }
+}

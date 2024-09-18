@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/blurred_platoshale_overlay",
+    "particle": "landsoficaria:block/blurred_platoshale",
+    "texture": "landsoficaria:block/blurred_platoshale"
+  }
+}

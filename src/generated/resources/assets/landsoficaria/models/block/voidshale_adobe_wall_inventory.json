@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/voidshale_adobe",
+    "wall": "landsoficaria:block/voidshale_adobe"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/template_fire_side_alt",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "fire": "landsoficaria:block/greek_fire_0",
+    "particle": "landsoficaria:block/greek_fire_0"
+  }
+}

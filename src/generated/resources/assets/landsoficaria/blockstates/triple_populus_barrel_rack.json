@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,vertical_corner=bottom_left": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 90
+    },
+    "facing=east,vertical_corner=bottom_right": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 90
+    },
+    "facing=east,vertical_corner=top_left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
+      "y": 90
+    },
+    "facing=east,vertical_corner=top_right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
+      "y": 90
+    },
+    "facing=north,vertical_corner=bottom_left": {
+      "model": "landsoficaria:block/populus_barrel_rack"
+    },
+    "facing=north,vertical_corner=bottom_right": {
+      "model": "landsoficaria:block/populus_barrel_rack"
+    },
+    "facing=north,vertical_corner=top_left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_left"
+    },
+    "facing=north,vertical_corner=top_right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_right"
+    },
+    "facing=south,vertical_corner=bottom_left": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 180
+    },
+    "facing=south,vertical_corner=bottom_right": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 180
+    },
+    "facing=south,vertical_corner=top_left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
+      "y": 180
+    },
+    "facing=south,vertical_corner=top_right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
+      "y": 180
+    },
+    "facing=west,vertical_corner=bottom_left": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 270
+    },
+    "facing=west,vertical_corner=bottom_right": {
+      "model": "landsoficaria:block/populus_barrel_rack",
+      "y": 270
+    },
+    "facing=west,vertical_corner=top_left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
+      "y": 270
+    },
+    "facing=west,vertical_corner=top_right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
+      "y": 270
+    }
+  }
+}

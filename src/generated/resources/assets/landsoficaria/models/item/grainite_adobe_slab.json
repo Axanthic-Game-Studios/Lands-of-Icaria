@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/grainite_adobe",
-    "side": "landsoficaria:block/grainite_adobe",
-    "top": "landsoficaria:block/grainite_adobe"
-  }
+  "parent": "landsoficaria:block/grainite_adobe_slab"
 }

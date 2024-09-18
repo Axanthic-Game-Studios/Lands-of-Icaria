@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/laurel_planks",
-    "side": "landsoficaria:block/laurel_planks",
-    "top": "landsoficaria:block/laurel_planks"
-  }
+  "parent": "landsoficaria:block/laurel_stairs"
 }

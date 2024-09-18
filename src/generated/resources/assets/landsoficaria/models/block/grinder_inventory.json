@@ -1,0 +1,16 @@
+{
+  "parent": "landsoficaria:block/template_grinder_inventory",
+  "textures": {
+    "anthracite_block": "landsoficaria:block/anthracite_block",
+    "grinder": "landsoficaria:block/grinder",
+    "grinder_engine": "landsoficaria:block/grinder_engine",
+    "grinder_feeder": "landsoficaria:block/grinder_feeder",
+    "grinder_stone": "landsoficaria:block/grinder_stone",
+    "loam_bricks": "landsoficaria:block/loam_bricks",
+    "particle": "landsoficaria:block/sunstone_bricks",
+    "static_left_grinder_chain": "landsoficaria:block/static_left_grinder_chain",
+    "static_right_grinder_chain": "landsoficaria:block/static_right_grinder_chain",
+    "sunstone_bricks": "landsoficaria:block/sunstone_bricks",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

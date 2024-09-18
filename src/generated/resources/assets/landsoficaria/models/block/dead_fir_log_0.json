@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_dead_log_0",
+  "textures": {
+    "log": "landsoficaria:block/fir_log",
+    "log_top": "landsoficaria:block/fir_log_top",
+    "particle": "landsoficaria:block/fir_log",
+    "stripped_log": "landsoficaria:block/stripped_fir_log"
+  }
+}

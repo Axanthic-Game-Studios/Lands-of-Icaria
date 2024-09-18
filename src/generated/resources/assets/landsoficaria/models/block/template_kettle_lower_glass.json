@@ -1,0 +1,82 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        },
+        "north": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        },
+        "up": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#kettle",
+          "uv": [
+            13.0,
+            13.0,
+            15.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        13.7539,
+        0,
+        0.3945
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "y",
+        "origin": [
+          14.5,
+          0,
+          1.5
+        ]
+      },
+      "to": [
+        15.7539,
+        4,
+        2.3945
+      ]
+    }
+  ]
+}

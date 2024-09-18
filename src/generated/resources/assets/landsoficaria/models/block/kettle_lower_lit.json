@@ -1,0 +1,16 @@
+{
+  "parent": "landsoficaria:block/kettle_lower_solid_lit",
+  "children": {
+    "glass": {
+      "parent": "landsoficaria:block/kettle_lower_glass"
+    },
+    "solid": {
+      "parent": "landsoficaria:block/kettle_lower_solid_lit"
+    }
+  },
+  "item_render_order": [
+    "solid",
+    "glass"
+  ],
+  "loader": "neoforge:composite"
+}

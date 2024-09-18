@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/marl_lignite"
+    "all": "landsoficaria:block/marl_lignite",
+    "particle": "landsoficaria:block/marl_lignite"
   }
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_brown_ground_shrooms_1",
+  "textures": {
+    "particle": "landsoficaria:block/brown_ground_shrooms",
+    "shroom": "landsoficaria:block/brown_ground_shrooms",
+    "stem": "landsoficaria:block/stem_ground_shrooms"
+  }
+}

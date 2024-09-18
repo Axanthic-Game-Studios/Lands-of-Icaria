@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/vanadiumsteel_block"
+    "all": "landsoficaria:block/vanadiumsteel_block",
+    "particle": "landsoficaria:block/vanadiumsteel_block"
   }
 }

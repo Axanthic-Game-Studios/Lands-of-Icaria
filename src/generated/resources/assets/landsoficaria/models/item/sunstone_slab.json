@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/sunstone",
-    "side": "landsoficaria:block/sunstone",
-    "top": "landsoficaria:block/sunstone"
-  }
+  "parent": "landsoficaria:block/sunstone_slab"
 }

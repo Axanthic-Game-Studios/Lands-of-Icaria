@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/cypress_ladder",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/cypress_ladder"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/cypress_ladder",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/cypress_ladder",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#bush"
+        },
+        "west": {
+          "texture": "#bush"
+        }
+      },
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ]
+      },
+      "to": [
+        8,
+        8,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#bush"
+        },
+        "west": {
+          "texture": "#bush"
+        }
+      },
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": -45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ]
+      },
+      "to": [
+        8,
+        8,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#bush_horizontal"
+        },
+        "up": {
+          "texture": "#bush_horizontal"
+        }
+      },
+      "from": [
+        0,
+        2,
+        0
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          9,
+          8
+        ]
+      },
+      "to": [
+        16,
+        2,
+        16
+      ]
+    }
+  ]
+}

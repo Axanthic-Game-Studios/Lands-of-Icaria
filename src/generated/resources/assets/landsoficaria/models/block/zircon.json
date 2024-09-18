@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/zircon"
+    "all": "landsoficaria:block/zircon",
+    "particle": "landsoficaria:block/zircon"
   }
 }

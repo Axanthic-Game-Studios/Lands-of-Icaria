@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_kiln_upper",
+  "textures": {
+    "kiln": "landsoficaria:block/kiln",
+    "laurel_planks": "landsoficaria:block/laurel_planks",
+    "particle": "landsoficaria:block/yellowstone_bricks",
+    "yellowstone_bricks": "landsoficaria:block/yellowstone_bricks"
+  }
+}

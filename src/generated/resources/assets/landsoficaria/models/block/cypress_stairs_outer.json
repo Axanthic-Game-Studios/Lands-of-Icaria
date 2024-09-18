@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/cypress_planks",
+    "particle": "landsoficaria:block/cypress_planks",
     "side": "landsoficaria:block/cypress_planks",
     "top": "landsoficaria:block/cypress_planks"
   }

@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/budding_halite"
+    "all": "landsoficaria:block/budding_halite",
+    "particle": "landsoficaria:block/budding_halite"
   }
 }

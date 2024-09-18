@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/bolbos"
+      },
+      {
+        "model": "landsoficaria:block/bolbos",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/bolbos",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/bolbos",
+        "y": 270
+      }
+    ]
+  }
+}

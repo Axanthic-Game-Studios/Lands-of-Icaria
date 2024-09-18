@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/yellowstone_adobe"
+    "all": "landsoficaria:block/yellowstone_adobe",
+    "particle": "landsoficaria:block/yellowstone_adobe"
   }
 }

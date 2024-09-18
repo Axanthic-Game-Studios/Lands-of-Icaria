@@ -1,0 +1,6 @@
+{
+  "parent": "landsoficaria:block/template_twigs_3",
+  "textures": {
+    "texture": "landsoficaria:block/populus_twigs"
+  }
+}

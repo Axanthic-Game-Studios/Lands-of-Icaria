@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/sunstone_bricks",
-    "side": "landsoficaria:block/sunstone_bricks",
-    "top": "landsoficaria:block/sunstone_bricks"
-  }
+  "parent": "landsoficaria:block/sunstone_brick_stairs"
 }

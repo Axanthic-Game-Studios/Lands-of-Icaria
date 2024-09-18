@@ -1,6 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
   "textures": {
-    "all": "landsoficaria:block/aristone"
+    "all": "landsoficaria:block/aristone",
+    "particle": "landsoficaria:block/aristone"
   }
 }

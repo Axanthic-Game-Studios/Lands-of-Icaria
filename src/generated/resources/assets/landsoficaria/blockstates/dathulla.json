@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/dathulla"
+      },
+      {
+        "model": "landsoficaria:block/dathulla",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/dathulla",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/dathulla",
+        "y": 270
+      }
+    ]
+  }
+}

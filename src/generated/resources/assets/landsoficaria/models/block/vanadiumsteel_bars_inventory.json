@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_bars_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/vanadiumsteel_bars",
+    "texture": "landsoficaria:block/vanadiumsteel_bars"
+  }
+}

@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/relicstone_bricks",
-    "side": "landsoficaria:block/relicstone_bricks",
-    "top": "landsoficaria:block/relicstone_bricks"
-  }
+  "parent": "landsoficaria:block/relicstone_brick_stairs"
 }

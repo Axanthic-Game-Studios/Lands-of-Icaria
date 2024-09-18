@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_fence_gate",
   "textures": {
+    "particle": "landsoficaria:block/plane_planks",
     "texture": "landsoficaria:block/plane_planks"
   }
 }

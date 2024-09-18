@@ -1,0 +1,325 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#grainite_bricks"
+        },
+        "north": {
+          "texture": "#grainite_bricks"
+        },
+        "south": {
+          "texture": "#grainite_bricks"
+        },
+        "up": {
+          "texture": "#grainite_bricks"
+        }
+      },
+      "from": [
+        0,
+        0,
+        2
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        15,
+        4
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#grainite_bricks"
+        },
+        "up": {
+          "texture": "#grainite_bricks"
+        },
+        "west": {
+          "texture": "#grainite_bricks"
+        }
+      },
+      "from": [
+        2,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        15,
+        2
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 180,
+          "texture": "#grainite_bricks",
+          "uv": [
+            11.0,
+            3.0,
+            16.0,
+            5.0
+          ]
+        },
+        "east": {
+          "texture": "#grainite_bricks"
+        },
+        "north": {
+          "texture": "#grainite_bricks"
+        },
+        "south": {
+          "texture": "#grainite_bricks"
+        },
+        "up": {
+          "texture": "#grainite_bricks"
+        }
+      },
+      "from": [
+        0,
+        15,
+        3
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5,
+        16,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 180,
+          "texture": "#grainite_bricks",
+          "uv": [
+            11.0,
+            0.0,
+            13.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#grainite_bricks"
+        },
+        "up": {
+          "texture": "#grainite_bricks"
+        },
+        "west": {
+          "texture": "#grainite_bricks"
+        }
+      },
+      "from": [
+        3,
+        15,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5,
+        16,
+        3
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#grainite"
+        },
+        "north": {
+          "texture": "#grainite"
+        },
+        "south": {
+          "texture": "#grainite"
+        },
+        "up": {
+          "texture": "#grainite"
+        }
+      },
+      "from": [
+        4,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14,
+        6,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "south": {
+          "texture": "#grainite"
+        },
+        "up": {
+          "texture": "#grainite"
+        }
+      },
+      "from": [
+        0,
+        0,
+        4
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        6,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "south": {
+          "texture": "#grainite"
+        },
+        "up": {
+          "texture": "#grainite"
+        }
+      },
+      "from": [
+        0,
+        6,
+        4
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        14,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#grainite"
+        },
+        "north": {
+          "texture": "#grainite"
+        },
+        "south": {
+          "texture": "#grainite"
+        },
+        "up": {
+          "texture": "#grainite"
+        }
+      },
+      "from": [
+        4,
+        6,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        13,
+        14,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#loam_bricks"
+        },
+        "north": {
+          "texture": "#loam_bricks"
+        },
+        "south": {
+          "texture": "#loam_bricks"
+        },
+        "up": {
+          "texture": "#loam_bricks"
+        },
+        "west": {
+          "texture": "#loam_bricks"
+        }
+      },
+      "from": [
+        5,
+        14,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        16,
+        11
+      ]
+    }
+  ]
+}

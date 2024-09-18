@@ -1,6 +1,8 @@
 {
   "parent": "minecraft:block/template_orientable_trapdoor_top",
+  "render_type": "minecraft:cutout",
   "textures": {
+    "particle": "landsoficaria:block/cypress_trapdoor",
     "texture": "landsoficaria:block/cypress_trapdoor"
   }
 }

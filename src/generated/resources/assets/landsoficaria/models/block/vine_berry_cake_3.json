@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_cake_3",
+  "textures": {
+    "cake_bottom": "landsoficaria:block/cake_bottom",
+    "cake_inside": "landsoficaria:block/vine_berry_cake_inside",
+    "cake_side": "landsoficaria:block/vine_berry_cake_side",
+    "cake_top": "landsoficaria:block/vine_berry_cake_top",
+    "particle": "landsoficaria:block/vine_berry_cake_side"
+  }
+}

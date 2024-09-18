@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_bromelia",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/orange_bromelia_overlay",
+    "particle": "landsoficaria:block/orange_bromelia_overlay",
+    "texture": "landsoficaria:block/orange_bromelia"
+  }
+}

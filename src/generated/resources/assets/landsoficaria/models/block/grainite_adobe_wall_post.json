@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/template_wall_post",
   "textures": {
+    "particle": "landsoficaria:block/grainite_adobe",
     "wall": "landsoficaria:block/grainite_adobe"
   }
 }

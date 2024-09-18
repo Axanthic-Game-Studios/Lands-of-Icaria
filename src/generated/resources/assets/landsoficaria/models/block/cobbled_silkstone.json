@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/cobbled_silkstone"
+    "all": "landsoficaria:block/cobbled_silkstone",
+    "particle": "landsoficaria:block/cobbled_silkstone"
   }
 }

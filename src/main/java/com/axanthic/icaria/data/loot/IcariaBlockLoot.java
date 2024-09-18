@@ -53,10 +53,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	public void generate() {
-		for (var blocks : IcariaBlocks.SIMPLE_BLOCKS) {
-			this.dropThis(blocks.get());
-		}
-
 		this.dropElseWithSilk(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.MARL.get(), 1.0F, 0);
 		this.dropElseWithSilk(IcariaBlocks.MARL_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
 		this.dropElseWithSilk(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.CHERT.get(), 1.0F, 2);
@@ -129,10 +125,55 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
 
+		this.dropThis(IcariaBlocks.MARL.get());
+		this.dropThis(IcariaBlocks.COARSE_MARL.get());
+		this.dropThis(IcariaBlocks.DRY_LAKE_BED.get());
+		this.dropThis(IcariaBlocks.MARL_ADOBE.get());
+		this.dropThis(IcariaBlocks.LOAM_BRICKS.get());
+		this.dropThis(IcariaBlocks.DOLOMITE_ADOBE.get());
+		this.dropThis(IcariaBlocks.SMOOTH_DOLOMITE.get());
+		this.dropThis(IcariaBlocks.DOLOMITE_BRICKS.get());
 		this.dropThis(IcariaBlocks.DOLOMITE_PILLAR.get());
 		this.dropThis(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
+		this.dropThis(IcariaBlocks.GRAINEL.get());
+		this.dropThis(IcariaBlocks.GRAINITE_ADOBE.get());
+		this.dropThis(IcariaBlocks.GRAINITE.get());
+		this.dropThis(IcariaBlocks.GRAINITE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_GRAINITE.get());
+		this.dropThis(IcariaBlocks.YELLOWSTONE_ADOBE.get());
+		this.dropThis(IcariaBlocks.COBBLED_YELLOWSTONE.get());
+		this.dropThis(IcariaBlocks.YELLOWSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_YELLOWSTONE.get());
+		this.dropThis(IcariaBlocks.SILKSAND.get());
+		this.dropThis(IcariaBlocks.SILKSTONE_ADOBE.get());
+		this.dropThis(IcariaBlocks.COBBLED_SILKSTONE.get());
+		this.dropThis(IcariaBlocks.SILKSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_SILKSTONE.get());
+		this.dropThis(IcariaBlocks.SUNSTONE_ADOBE.get());
+		this.dropThis(IcariaBlocks.COBBLED_SUNSTONE.get());
+		this.dropThis(IcariaBlocks.SUNSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_SUNSTONE.get());
+		this.dropThis(IcariaBlocks.VOIDSHALE_ADOBE.get());
+		this.dropThis(IcariaBlocks.COBBLED_VOIDSHALE.get());
+		this.dropThis(IcariaBlocks.VOIDSHALE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_VOIDSHALE.get());
+		this.dropThis(IcariaBlocks.BAETYL_ADOBE.get());
+		this.dropThis(IcariaBlocks.COBBLED_BAETYL.get());
+		this.dropThis(IcariaBlocks.BAETYL_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_BAETYL.get());
+		this.dropThis(IcariaBlocks.RELICSTONE.get());
+		this.dropThis(IcariaBlocks.RELICSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get());
+		this.dropThis(IcariaBlocks.RELICSTONE_TILES.get());
+		this.dropThis(IcariaBlocks.CRACKED_RELICSTONE_TILES.get());
+		this.dropThis(IcariaBlocks.MOSSY_RELICSTONE_TILES.get());
+		this.dropThis(IcariaBlocks.CHISELED_RELICSTONE.get());
 		this.dropThis(IcariaBlocks.RELICSTONE_PILLAR.get());
 		this.dropThis(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
+		this.dropThis(IcariaBlocks.PLATOSHALE.get());
+		this.dropThis(IcariaBlocks.PLATOSHALE_BRICKS.get());
+		this.dropThis(IcariaBlocks.CHISELED_PLATOSHALE.get());
 		this.dropThis(IcariaBlocks.QUARTZ_WALL.get());
 		this.dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
 		this.dropThis(IcariaBlocks.CALCITE.get());
@@ -143,7 +184,39 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.BUDDING_JASPER.get());
 		this.dropThis(IcariaBlocks.ZIRCON.get());
 		this.dropThis(IcariaBlocks.BUDDING_ZIRCON.get());
+		this.dropThis(IcariaBlocks.ARISTONE.get());
+		this.dropThis(IcariaBlocks.PACKED_ARISTONE.get());
+		this.dropThis(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get());
+		this.dropThis(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get());
+		this.dropThis(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get());
+		this.dropThis(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get());
+		this.dropThis(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get());
+		this.dropThis(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
 		this.dropThis(IcariaBlocks.SPELT_BALE_BLOCK.get());
+		this.dropThis(IcariaBlocks.VINE_REED_BLOCK.get());
+		this.dropThis(IcariaBlocks.ROTTEN_BONES_BLOCK.get());
+		this.dropThis(IcariaBlocks.RAW_CHALKOS_BLOCK.get());
+		this.dropThis(IcariaBlocks.RAW_KASSITEROS_BLOCK.get());
+		this.dropThis(IcariaBlocks.RAW_VANADIUM_BLOCK.get());
+		this.dropThis(IcariaBlocks.RAW_SIDEROS_BLOCK.get());
+		this.dropThis(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get());
+		this.dropThis(IcariaBlocks.CALCITE_BLOCK.get());
+		this.dropThis(IcariaBlocks.HALITE_BLOCK.get());
+		this.dropThis(IcariaBlocks.JASPER_BLOCK.get());
+		this.dropThis(IcariaBlocks.ZIRCON_BLOCK.get());
+		this.dropThis(IcariaBlocks.CHERT_BLOCK.get());
+		this.dropThis(IcariaBlocks.LIGNITE_BLOCK.get());
+		this.dropThis(IcariaBlocks.CHALKOS_BLOCK.get());
+		this.dropThis(IcariaBlocks.KASSITEROS_BLOCK.get());
+		this.dropThis(IcariaBlocks.ORICHALCUM_BLOCK.get());
+		this.dropThis(IcariaBlocks.VANADIUM_BLOCK.get());
+		this.dropThis(IcariaBlocks.SLIVER_BLOCK.get());
+		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BLOCK.get());
+		this.dropThis(IcariaBlocks.SIDEROS_BLOCK.get());
+		this.dropThis(IcariaBlocks.ANTHRACITE_BLOCK.get());
+		this.dropThis(IcariaBlocks.MOLYBDENUM_BLOCK.get());
+		this.dropThis(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
+		this.dropThis(IcariaBlocks.BLURIDIUM_BLOCK.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
@@ -190,6 +263,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_CYPRESS_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get());
+		this.dropThis(IcariaBlocks.CYPRESS_PLANKS.get());
 		this.dropThis(IcariaBlocks.CYPRESS_TROUGH.get());
 		this.dropThis(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
@@ -203,6 +277,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
+		this.dropThis(IcariaBlocks.DROUGHTROOT_PLANKS.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TROUGH.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
@@ -216,6 +291,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_FIR_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_FIR_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get());
+		this.dropThis(IcariaBlocks.FIR_PLANKS.get());
 		this.dropThis(IcariaBlocks.FIR_TROUGH.get());
 		this.dropThis(IcariaBlocks.FIR_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
@@ -229,6 +305,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_LAUREL_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get());
+		this.dropThis(IcariaBlocks.LAUREL_PLANKS.get());
 		this.dropThis(IcariaBlocks.LAUREL_TROUGH.get());
 		this.dropThis(IcariaBlocks.LAUREL_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
@@ -242,6 +319,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_OLIVE_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get());
+		this.dropThis(IcariaBlocks.OLIVE_PLANKS.get());
 		this.dropThis(IcariaBlocks.OLIVE_TROUGH.get());
 		this.dropThis(IcariaBlocks.OLIVE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
@@ -255,6 +333,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_PLANE_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_PLANE_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get());
+		this.dropThis(IcariaBlocks.PLANE_PLANKS.get());
 		this.dropThis(IcariaBlocks.PLANE_TROUGH.get());
 		this.dropThis(IcariaBlocks.PLANE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
@@ -268,6 +347,7 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
 		this.dropThis(IcariaBlocks.DEAD_POPULUS_LOG.get());
 		this.dropThis(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get());
+		this.dropThis(IcariaBlocks.POPULUS_PLANKS.get());
 		this.dropThis(IcariaBlocks.POPULUS_TROUGH.get());
 		this.dropThis(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());

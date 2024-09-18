@@ -1,7 +1,8 @@
 {
   "parent": "minecraft:block/cube_column_horizontal",
   "textures": {
-    "end": "landsoficaria:block/fir_wood_end",
-    "side": "landsoficaria:block/fir_wood_side"
+    "end": "landsoficaria:block/fir_log",
+    "particle": "landsoficaria:block/fir_log",
+    "side": "landsoficaria:block/fir_log"
   }
 }

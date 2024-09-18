@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_0"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_1"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_2"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_3"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_4"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_5"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_6"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_7"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_8"
+      },
+      {
+        "model": "landsoficaria:block/cyan_loot_vase_9"
+      }
+    ]
+  }
+}

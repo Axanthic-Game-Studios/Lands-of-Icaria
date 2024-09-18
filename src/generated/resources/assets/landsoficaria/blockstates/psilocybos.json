@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/psilocybos"
+      },
+      {
+        "model": "landsoficaria:block/psilocybos",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/psilocybos",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/psilocybos",
+        "y": 270
+      }
+    ]
+  }
+}

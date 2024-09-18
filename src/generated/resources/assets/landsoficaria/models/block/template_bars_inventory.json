@@ -1,0 +1,180 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#texture"
+        },
+        "west": {
+          "texture": "#texture"
+        }
+      },
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          1,
+          0,
+          0
+        ]
+      },
+      "to": [
+        8,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#texture"
+        },
+        "up": {
+          "texture": "#texture",
+          "uv": [
+            9.0,
+            16.0,
+            7.0,
+            0.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          7,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        0,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#texture"
+        },
+        "up": {
+          "texture": "#texture",
+          "uv": [
+            9.0,
+            16.0,
+            7.0,
+            0.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        16,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          7,
+          16,
+          0
+        ]
+      },
+      "to": [
+        9,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#texture"
+        },
+        "south": {
+          "texture": "#texture",
+          "uv": [
+            9.0,
+            0.0,
+            7.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          7,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        16,
+        0
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#texture",
+          "uv": [
+            9.0,
+            0.0,
+            7.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#texture",
+          "uv": [
+            7.0,
+            -1.0,
+            9.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        0,
+        16
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          7,
+          0,
+          16
+        ]
+      },
+      "to": [
+        9,
+        16,
+        16
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/cobbled_baetyl",
+    "wall": "landsoficaria:block/cobbled_baetyl"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "landsoficaria:block/zircon_crystal",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "landsoficaria:block/zircon_crystal",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/zircon_crystal",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/zircon_crystal",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "landsoficaria:block/zircon_crystal"
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/zircon_crystal",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

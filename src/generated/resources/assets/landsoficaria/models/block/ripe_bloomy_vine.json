@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_vine",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/bloomy_vine_overlay",
+    "particle": "landsoficaria:block/ripe_bloomy_vine",
+    "texture": "landsoficaria:block/ripe_bloomy_vine"
+  }
+}

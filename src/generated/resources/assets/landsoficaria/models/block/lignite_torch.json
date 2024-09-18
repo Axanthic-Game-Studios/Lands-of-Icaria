@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_lignite_torch",
+  "textures": {
+    "particle": "landsoficaria:block/torch_bone",
+    "torch_bone": "landsoficaria:block/torch_bone",
+    "torch_coal": "landsoficaria:block/torch_coal"
+  }
+}

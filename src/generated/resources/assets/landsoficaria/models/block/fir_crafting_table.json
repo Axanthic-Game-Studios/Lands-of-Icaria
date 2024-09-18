@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "landsoficaria:block/fir_planks",
+    "east": "landsoficaria:block/fir_crafting_table_side",
+    "north": "landsoficaria:block/fir_crafting_table_front",
+    "particle": "landsoficaria:block/fir_crafting_table_front",
+    "south": "landsoficaria:block/fir_crafting_table_side",
+    "up": "landsoficaria:block/fir_crafting_table_top",
+    "west": "landsoficaria:block/fir_crafting_table_front"
+  }
+}

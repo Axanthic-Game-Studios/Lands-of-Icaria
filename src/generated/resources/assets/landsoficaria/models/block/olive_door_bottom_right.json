@@ -1,7 +1,9 @@
 {
   "parent": "minecraft:block/door_bottom_right",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "landsoficaria:block/olive_door_bottom",
+    "particle": "landsoficaria:block/olive_door_bottom",
     "top": "landsoficaria:block/olive_door_top"
   }
 }

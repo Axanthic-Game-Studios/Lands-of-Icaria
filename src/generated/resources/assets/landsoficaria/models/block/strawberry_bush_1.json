@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_strawberry_bush",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bush": "landsoficaria:block/strawberry_bush_1",
+    "bush_horizontal": "landsoficaria:block/strawberry_bush_horizontal_1",
+    "particle": "landsoficaria:block/strawberry_bush_horizontal_1"
+  }
+}

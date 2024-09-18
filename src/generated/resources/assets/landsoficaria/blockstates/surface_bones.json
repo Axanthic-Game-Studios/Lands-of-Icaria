@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/surface_bones"
+      },
+      {
+        "model": "landsoficaria:block/surface_bones",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_bones",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_bones",
+        "y": 270
+      }
+    ]
+  }
+}

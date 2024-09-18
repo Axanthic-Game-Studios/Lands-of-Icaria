@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/baetyl_adobe",
-    "side": "landsoficaria:block/baetyl_adobe",
-    "top": "landsoficaria:block/baetyl_adobe"
-  }
+  "parent": "landsoficaria:block/baetyl_adobe_slab"
 }

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "landsoficaria:block/olive_planks",
+    "east": "landsoficaria:block/olive_crafting_table_side",
+    "north": "landsoficaria:block/olive_crafting_table_front",
+    "particle": "landsoficaria:block/olive_crafting_table_front",
+    "south": "landsoficaria:block/olive_crafting_table_side",
+    "up": "landsoficaria:block/olive_crafting_table_top",
+    "west": "landsoficaria:block/olive_crafting_table_front"
+  }
+}

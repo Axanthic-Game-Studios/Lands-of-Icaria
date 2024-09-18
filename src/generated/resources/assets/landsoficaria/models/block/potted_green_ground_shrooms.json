@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_potted_green_ground_shrooms",
+  "textures": {
+    "dirt": "minecraft:block/dirt",
+    "particle": "minecraft:block/flower_pot",
+    "pot": "minecraft:block/flower_pot",
+    "shroom": "landsoficaria:block/green_ground_shrooms",
+    "stem": "landsoficaria:block/stem_ground_shrooms"
+  }
+}

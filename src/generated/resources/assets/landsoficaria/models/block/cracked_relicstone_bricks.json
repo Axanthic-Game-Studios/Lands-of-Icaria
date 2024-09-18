@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/cracked_relicstone_bricks"
+    "all": "landsoficaria:block/cracked_relicstone_bricks",
+    "particle": "landsoficaria:block/cracked_relicstone_bricks"
   }
 }

@@ -1,6 +1,8 @@
 {
   "parent": "minecraft:block/cube_all",
+  "render_type": "minecraft:translucent",
   "textures": {
-    "all": "landsoficaria:block/nature_jellyfish_jelly_block"
+    "all": "landsoficaria:block/nature_jellyfish_jelly_block",
+    "particle": "landsoficaria:block/nature_jellyfish_jelly_block"
   }
 }

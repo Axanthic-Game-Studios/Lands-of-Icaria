@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_forge_inventory",
+  "textures": {
+    "forge": "landsoficaria:block/forge",
+    "grainite": "landsoficaria:block/grainite",
+    "grainite_bricks": "landsoficaria:block/grainite_bricks",
+    "loam_bricks": "landsoficaria:block/loam_bricks",
+    "particle": "landsoficaria:block/grainite",
+    "stripped_cypress_log": "landsoficaria:block/stripped_cypress_log",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

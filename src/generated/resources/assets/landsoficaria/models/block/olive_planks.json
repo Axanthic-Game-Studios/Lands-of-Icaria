@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/olive_planks"
+    "all": "landsoficaria:block/olive_planks",
+    "particle": "landsoficaria:block/olive_planks"
   }
 }

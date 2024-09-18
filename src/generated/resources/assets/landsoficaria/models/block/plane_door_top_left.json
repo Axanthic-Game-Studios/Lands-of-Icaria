@@ -1,7 +1,9 @@
 {
   "parent": "minecraft:block/door_top_left",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "landsoficaria:block/plane_door_bottom",
+    "particle": "landsoficaria:block/plane_door_bottom",
     "top": "landsoficaria:block/plane_door_top"
   }
 }

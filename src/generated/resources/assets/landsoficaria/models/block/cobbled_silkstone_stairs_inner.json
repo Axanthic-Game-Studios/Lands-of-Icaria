@@ -2,6 +2,7 @@
   "parent": "minecraft:block/inner_stairs",
   "textures": {
     "bottom": "landsoficaria:block/cobbled_silkstone",
+    "particle": "landsoficaria:block/cobbled_silkstone",
     "side": "landsoficaria:block/cobbled_silkstone",
     "top": "landsoficaria:block/cobbled_silkstone"
   }

@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_tapped_barrel",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/droughtroot_barrel_back",
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "planks": "landsoficaria:block/droughtroot_planks"
+  }
+}

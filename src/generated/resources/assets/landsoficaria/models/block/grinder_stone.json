@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_grinder_stone",
+  "textures": {
+    "grinder_stone": "landsoficaria:block/grinder_stone",
+    "particle": "landsoficaria:block/voidshale",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

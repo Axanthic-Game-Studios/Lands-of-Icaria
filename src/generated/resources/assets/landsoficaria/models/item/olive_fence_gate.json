@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/template_fence_gate",
-  "textures": {
-    "texture": "landsoficaria:block/olive_planks"
-  }
+  "parent": "landsoficaria:block/olive_fence_gate"
 }

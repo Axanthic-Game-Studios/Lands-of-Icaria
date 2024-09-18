@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_triple_barrel_rack_inventory",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/plane_barrel_back",
+    "barrel_front": "landsoficaria:block/plane_barrel_front",
+    "log": "landsoficaria:block/plane_log",
+    "particle": "landsoficaria:block/plane_planks",
+    "planks": "landsoficaria:block/plane_planks"
+  }
+}

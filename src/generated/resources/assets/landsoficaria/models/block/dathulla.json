@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_dathulla",
+  "textures": {
+    "particle": "landsoficaria:block/dathulla",
+    "texture": "landsoficaria:block/dathulla"
+  }
+}

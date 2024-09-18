@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/fence_side",
   "textures": {
+    "particle": "landsoficaria:block/cypress_planks",
     "texture": "landsoficaria:block/cypress_planks"
   }
 }

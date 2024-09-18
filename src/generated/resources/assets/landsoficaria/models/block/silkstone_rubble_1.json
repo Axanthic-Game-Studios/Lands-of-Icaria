@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_rubble_1",
+  "textures": {
+    "particle": "landsoficaria:block/silkstone",
+    "texture": "landsoficaria:block/silkstone"
+  }
+}

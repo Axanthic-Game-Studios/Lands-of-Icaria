@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/fence_inventory",
-  "textures": {
-    "texture": "landsoficaria:block/plane_planks"
-  }
+  "parent": "landsoficaria:block/plane_fence_inventory"
 }

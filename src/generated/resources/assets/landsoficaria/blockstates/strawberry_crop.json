@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "landsoficaria:block/strawberry_crop_0"
+    },
+    "age=1": {
+      "model": "landsoficaria:block/strawberry_crop_1"
+    },
+    "age=2": {
+      "model": "landsoficaria:block/strawberry_crop_2"
+    },
+    "age=3": {
+      "model": "landsoficaria:block/strawberry_crop_3"
+    },
+    "age=4": {
+      "model": "landsoficaria:block/strawberry_crop_4"
+    },
+    "age=5": {
+      "model": "landsoficaria:block/strawberry_crop_5"
+    },
+    "age=6": {
+      "model": "landsoficaria:block/strawberry_crop_6"
+    },
+    "age=7": {
+      "model": "landsoficaria:block/strawberry_crop_7"
+    }
+  }
+}

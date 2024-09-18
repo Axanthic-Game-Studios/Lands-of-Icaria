@@ -1,6 +1,3 @@
 {
-  "parent": "minecraft:block/template_fence_gate",
-  "textures": {
-    "texture": "landsoficaria:block/droughtroot_planks"
-  }
+  "parent": "landsoficaria:block/droughtroot_fence_gate"
 }

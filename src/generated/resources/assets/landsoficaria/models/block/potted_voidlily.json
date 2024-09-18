@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_flower_pot_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "dirt": "minecraft:block/dirt",
+    "overlay": "landsoficaria:block/voidlily_overlay",
+    "particle": "minecraft:block/flower_pot",
+    "pot": "minecraft:block/flower_pot",
+    "texture": "landsoficaria:block/voidlily"
+  }
+}

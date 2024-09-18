@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_overlay_texture_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "overlay": "landsoficaria:block/medium_mixed_grain_overlay",
+    "particle": "landsoficaria:block/medium_mixed_grain_overlay",
+    "texture": "landsoficaria:block/medium_mixed_grain"
+  }
+}

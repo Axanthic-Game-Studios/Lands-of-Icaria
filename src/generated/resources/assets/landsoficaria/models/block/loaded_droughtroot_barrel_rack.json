@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_barrel_rack",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/droughtroot_barrel_back",
+    "barrel_front": "landsoficaria:block/loaded_droughtroot_barrel_front",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "planks": "landsoficaria:block/droughtroot_planks"
+  }
+}

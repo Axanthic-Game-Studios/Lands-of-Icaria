@@ -1,6 +1,8 @@
 Fixes
 
-- fix Troughs no longer emitting tinted breaking particles
+- fix missing hatch on Forge item model
+- fix missing texture on the underside of the pliers laying on the Forge
+- fix tinted breaking particles emitted from several blocks e.g. Grassy Marl, Troughs, Vines and potted plants
 - fix missing animal health, when an animal grows and increases its size, it also increases its max health, but not the health itself, e.g. an Aeternae when fully grown from a bred or spawned baby Aeternae would still only have one single health point instead of 16, this is fixed now
 
 Updates

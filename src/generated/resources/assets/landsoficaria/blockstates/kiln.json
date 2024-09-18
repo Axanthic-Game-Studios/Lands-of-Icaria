@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,half=lower": {
+      "model": "landsoficaria:block/kiln_lower",
+      "y": 90
+    },
+    "facing=east,half=upper": {
+      "model": "landsoficaria:block/kiln_upper",
+      "y": 90
+    },
+    "facing=north,half=lower": {
+      "model": "landsoficaria:block/kiln_lower"
+    },
+    "facing=north,half=upper": {
+      "model": "landsoficaria:block/kiln_upper"
+    },
+    "facing=south,half=lower": {
+      "model": "landsoficaria:block/kiln_lower",
+      "y": 180
+    },
+    "facing=south,half=upper": {
+      "model": "landsoficaria:block/kiln_upper",
+      "y": 180
+    },
+    "facing=west,half=lower": {
+      "model": "landsoficaria:block/kiln_lower",
+      "y": 270
+    },
+    "facing=west,half=upper": {
+      "model": "landsoficaria:block/kiln_upper",
+      "y": 270
+    }
+  }
+}

@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/dry_lake_bed"
+    "all": "landsoficaria:block/dry_lake_bed",
+    "particle": "landsoficaria:block/dry_lake_bed"
   }
 }

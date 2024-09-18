@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_potted_cardon_cactus",
+  "textures": {
+    "cactus": "landsoficaria:block/cardon_cactus_side",
+    "dirt": "minecraft:block/dirt",
+    "particle": "minecraft:block/flower_pot",
+    "pot": "minecraft:block/flower_pot"
+  }
+}

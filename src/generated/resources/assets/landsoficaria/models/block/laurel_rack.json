@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_rack",
+  "textures": {
+    "log": "landsoficaria:block/laurel_log",
+    "particle": "landsoficaria:block/laurel_log",
+    "planks": "landsoficaria:block/laurel_planks"
+  }
+}

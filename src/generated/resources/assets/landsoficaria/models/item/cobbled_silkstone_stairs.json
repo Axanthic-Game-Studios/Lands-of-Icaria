@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/cobbled_silkstone",
-    "side": "landsoficaria:block/cobbled_silkstone",
-    "top": "landsoficaria:block/cobbled_silkstone"
-  }
+  "parent": "landsoficaria:block/cobbled_silkstone_stairs"
 }

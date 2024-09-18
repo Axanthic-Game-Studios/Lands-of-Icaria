@@ -2,6 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "landsoficaria:block/marl_adobe",
+    "particle": "landsoficaria:block/marl_adobe",
     "side": "landsoficaria:block/marl_adobe",
     "top": "landsoficaria:block/marl_adobe"
   }

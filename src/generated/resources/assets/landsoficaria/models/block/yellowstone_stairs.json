@@ -2,6 +2,7 @@
   "parent": "minecraft:block/stairs",
   "textures": {
     "bottom": "landsoficaria:block/yellowstone",
+    "particle": "landsoficaria:block/yellowstone",
     "side": "landsoficaria:block/yellowstone",
     "top": "landsoficaria:block/yellowstone"
   }

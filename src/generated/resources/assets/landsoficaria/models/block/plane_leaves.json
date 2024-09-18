@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/plane_leaves"
+    "all": "landsoficaria:block/plane_leaves",
+    "particle": "landsoficaria:block/plane_leaves"
   }
 }

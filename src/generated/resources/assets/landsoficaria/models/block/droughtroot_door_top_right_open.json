@@ -1,7 +1,9 @@
 {
   "parent": "minecraft:block/door_top_right_open",
+  "render_type": "minecraft:cutout",
   "textures": {
     "bottom": "landsoficaria:block/droughtroot_door_bottom",
+    "particle": "landsoficaria:block/droughtroot_door_bottom",
     "top": "landsoficaria:block/droughtroot_door_top"
   }
 }

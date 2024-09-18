@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "landsoficaria:block/baetyl",
-    "side": "landsoficaria:block/baetyl",
-    "top": "landsoficaria:block/baetyl"
-  }
+  "parent": "landsoficaria:block/baetyl_stairs"
 }

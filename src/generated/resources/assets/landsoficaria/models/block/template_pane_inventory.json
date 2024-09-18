@@ -1,0 +1,58 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#edge",
+          "uv": [
+            9.0,
+            16.0,
+            7.0,
+            0.0
+          ]
+        },
+        "east": {
+          "texture": "#pane"
+        },
+        "north": {
+          "texture": "#edge"
+        },
+        "south": {
+          "texture": "#edge"
+        },
+        "up": {
+          "texture": "#edge",
+          "uv": [
+            9.0,
+            16.0,
+            7.0,
+            0.0
+          ]
+        },
+        "west": {
+          "texture": "#pane"
+        }
+      },
+      "from": [
+        7,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        16,
+        16
+      ]
+    }
+  ]
+}

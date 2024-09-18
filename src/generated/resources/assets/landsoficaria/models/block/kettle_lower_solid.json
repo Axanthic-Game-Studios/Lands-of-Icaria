@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_kettle_lower_solid",
+  "textures": {
+    "droughtroot_log": "landsoficaria:block/droughtroot_log",
+    "kettle": "landsoficaria:block/kettle",
+    "laurel_log": "landsoficaria:block/laurel_log",
+    "laurel_planks": "landsoficaria:block/laurel_planks",
+    "particle": "landsoficaria:block/laurel_log",
+    "red_loot_vase": "landsoficaria:block/red_loot_vase",
+    "yellowstone": "landsoficaria:block/yellowstone"
+  }
+}

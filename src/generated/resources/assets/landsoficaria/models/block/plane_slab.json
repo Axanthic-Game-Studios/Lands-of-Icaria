@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/plane_planks",
+    "particle": "landsoficaria:block/plane_planks",
     "side": "landsoficaria:block/plane_planks",
     "top": "landsoficaria:block/plane_planks"
   }

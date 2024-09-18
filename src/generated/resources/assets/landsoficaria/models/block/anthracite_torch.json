@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_anthracite_torch",
+  "textures": {
+    "particle": "landsoficaria:block/torch_bone",
+    "torch_bone": "landsoficaria:block/torch_bone",
+    "torch_coal": "landsoficaria:block/torch_coal",
+    "torch_metal": "landsoficaria:block/torch_metal"
+  }
+}

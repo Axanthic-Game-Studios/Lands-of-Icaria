@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_grinder_right",
+  "textures": {
+    "anthracite_block": "landsoficaria:block/anthracite_block",
+    "grinder": "landsoficaria:block/grinder",
+    "grinder_engine": "landsoficaria:block/grinder_engine",
+    "loam_bricks": "landsoficaria:block/loam_bricks",
+    "particle": "landsoficaria:block/sunstone_bricks",
+    "sunstone_bricks": "landsoficaria:block/sunstone_bricks",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

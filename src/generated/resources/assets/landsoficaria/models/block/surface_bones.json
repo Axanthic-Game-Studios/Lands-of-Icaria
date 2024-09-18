@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_surface_bones",
+  "textures": {
+    "particle": "landsoficaria:block/surface_bones",
+    "texture": "landsoficaria:block/surface_bones"
+  }
+}

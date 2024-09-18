@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/fence_side",
   "textures": {
+    "particle": "landsoficaria:block/droughtroot_planks",
     "texture": "landsoficaria:block/droughtroot_planks"
   }
 }

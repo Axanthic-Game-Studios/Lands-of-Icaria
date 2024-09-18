@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/chiseled_voidshale"
+    "all": "landsoficaria:block/chiseled_voidshale",
+    "particle": "landsoficaria:block/chiseled_voidshale"
   }
 }

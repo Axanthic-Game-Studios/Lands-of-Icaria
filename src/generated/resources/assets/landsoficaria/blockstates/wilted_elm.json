@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/wilted_elm"
+      },
+      {
+        "model": "landsoficaria:block/wilted_elm",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/wilted_elm",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/wilted_elm",
+        "y": 270
+      }
+    ]
+  }
+}

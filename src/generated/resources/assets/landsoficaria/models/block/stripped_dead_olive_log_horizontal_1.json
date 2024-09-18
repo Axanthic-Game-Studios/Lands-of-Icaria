@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_stripped_dead_log_horizontal_1",
+  "textures": {
+    "log": "landsoficaria:block/stripped_olive_log",
+    "log_top": "landsoficaria:block/stripped_olive_log_top",
+    "particle": "landsoficaria:block/stripped_olive_log"
+  }
+}

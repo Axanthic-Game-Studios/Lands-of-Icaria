@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/mossy_relicstone_bricks",
+    "wall": "landsoficaria:block/mossy_relicstone_bricks"
+  }
+}

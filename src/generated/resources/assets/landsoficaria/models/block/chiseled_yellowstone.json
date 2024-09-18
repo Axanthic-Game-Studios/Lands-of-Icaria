@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/chiseled_yellowstone"
+    "all": "landsoficaria:block/chiseled_yellowstone",
+    "particle": "landsoficaria:block/chiseled_yellowstone"
   }
 }

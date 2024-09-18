@@ -1,0 +1,354 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        4
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        6,
+        1,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cake_bottom"
+        },
+        "east": {
+          "texture": "#cake_side"
+        },
+        "north": {
+          "texture": "#cake_inside"
+        },
+        "south": {
+          "texture": "#cake_side"
+        },
+        "up": {
+          "texture": "#cake_top"
+        },
+        "west": {
+          "texture": "#cake_side"
+        }
+      },
+      "from": [
+        1,
+        0,
+        8
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          -7,
+          0,
+          0
+        ]
+      },
+      "to": [
+        15,
+        8,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        13,
+        0,
+        6
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14,
+        1,
+        7
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "north": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "south": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#cake_bottom",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        1,
+        6
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#cake_bottom",
+          "uv": [
+            13.0,
+            1.0,
+            14.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        9,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10,
+        1,
+        6
+      ]
+    }
+  ]
+}

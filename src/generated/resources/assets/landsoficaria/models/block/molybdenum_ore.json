@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/molybdenum_ore"
+    "all": "landsoficaria:block/molybdenum_ore",
+    "particle": "landsoficaria:block/molybdenum_ore"
   }
 }

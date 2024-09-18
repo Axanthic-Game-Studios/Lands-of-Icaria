@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/plane_trough",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/plane_trough"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/plane_trough",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/plane_trough",
+      "y": 270
+    }
+  }
+}

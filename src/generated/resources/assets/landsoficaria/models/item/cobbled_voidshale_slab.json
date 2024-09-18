@@ -1,8 +1,3 @@
 {
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "bottom": "landsoficaria:block/cobbled_voidshale",
-    "side": "landsoficaria:block/cobbled_voidshale",
-    "top": "landsoficaria:block/cobbled_voidshale"
-  }
+  "parent": "landsoficaria:block/cobbled_voidshale_slab"
 }

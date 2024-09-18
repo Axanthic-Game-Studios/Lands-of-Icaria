@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/calcite"
+    "all": "landsoficaria:block/calcite",
+    "particle": "landsoficaria:block/calcite"
   }
 }

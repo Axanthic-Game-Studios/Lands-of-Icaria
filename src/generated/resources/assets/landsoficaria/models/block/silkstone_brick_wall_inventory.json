@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/silkstone_bricks",
+    "wall": "landsoficaria:block/silkstone_bricks"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_moth_agaric",
+  "textures": {
+    "particle": "landsoficaria:block/moth_agaric",
+    "texture": "landsoficaria:block/moth_agaric"
+  }
+}

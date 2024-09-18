@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/baetyl_adobe"
+    "all": "landsoficaria:block/baetyl_adobe",
+    "particle": "landsoficaria:block/baetyl_adobe"
   }
 }

@@ -1,0 +1,158 @@
+package com.axanthic.icaria.data.model;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.Direction;
+
+import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class LargeBrownGroundShroomsModel {
+
+	public static void template0(BlockModelBuilder pBuilder, ModelFile.UncheckedModelFile pFile) {
+		pBuilder
+			.parent(pFile)
+		.element().from(5.0F, 0.0F, 4.0F).to(8.0F, 7.0F, 7.0F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 3.0F, 7.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 7.0F, 7.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 11.0F, 7.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 15.0F, 7.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.end()
+		.element().from(2.0F, 7.0F, 1.0F).to(11.0F, 9.0F, 10.0F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.end()
+		.element().from(4.0F, 9.0F, 3.0F).to(9.0F, 10.0F, 8.0F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.end();
+	}
+
+	public static void template1(BlockModelBuilder pBuilder, ModelFile.UncheckedModelFile pFile) {
+		pBuilder
+			.parent(pFile)
+		.element().from(5.0F, 0.0F, 4.0F).to(8.0F, 9.0F, 7.0F).rotation().angle(22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 3.0F, 9.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 7.0F, 9.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 11.0F, 9.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 15.0F, 9.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.end()
+		.element().from(2.0F, 9.0F, 1.0F).to(11.0F, 11.0F, 10.0F).rotation().angle(22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.end()
+		.element().from(4.0F, 11.0F, 3.0F).to(9.0F, 12.0F, 8.0F).rotation().angle(22.5F).axis(Direction.Axis.Y).origin(6.5F, 8.0F, 5.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.end()
+		.element().from(10.5F, 0.0F, 9.5F).to(12.5F, 6.0F, 11.5F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(11.5F, 8.0F, 10.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 2.0F, 6.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 6.0F, 6.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 10.0F, 6.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 14.0F, 6.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 2.0F, 2.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 2.0F, 2.0F).texture("#stem").end()
+			.end()
+		.element().from(7.5F, 6.0F, 6.5F).to(15.5F, 7.0F, 14.5F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(11.5F, 8.0F, 10.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 8.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 8.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 8.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 8.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 8.0F, 8.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 8.0F, 8.0F).texture("#shroom").end()
+			.end()
+		.element().from(9.5F, 7.0F, 8.5F).to(13.5F, 8.0F, 12.5F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(11.5F, 8.0F, 10.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 4.0F, 4.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 4.0F, 4.0F).texture("#shroom").end()
+			.end();
+	}
+
+	public static void template2(BlockModelBuilder pBuilder, ModelFile.UncheckedModelFile pFile) {
+		pBuilder
+			.parent(pFile)
+		.element().from(8.0F, -0.4F, 3.0F).to(11.0F, 8.6F, 6.0F).rotation().angle(-22.5F).axis(Direction.Axis.X).origin(8.5F, 8.0F, 6.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 3.0F, 9.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 7.0F, 9.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 11.0F, 9.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 15.0F, 9.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 3.0F, 3.0F).texture("#stem").end()
+			.end()
+		.element().from(5.0F, 8.6F, 0.0F).to(14.0F, 10.6F, 9.0F).rotation().angle(-22.5F).axis(Direction.Axis.X).origin(8.5F, 8.0F, 6.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 9.0F, 2.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 9.0F, 9.0F).texture("#shroom").end()
+			.end()
+		.element().from(7.0F, 10.6F, 2.0F).to(12.0F, 11.6F, 7.0F).rotation().angle(-22.5F).axis(Direction.Axis.X).origin(8.5F, 8.0F, 6.5F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.end()
+		.element().from(12.5F, 0.0F, 11.5F).to(13.5F, 3.0F, 12.5F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(13.0F, 8.0F, 12.0F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 1.0F, 3.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 5.0F, 3.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 9.0F, 3.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 13.0F, 3.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 1.0F, 1.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 1.0F, 1.0F).texture("#stem").end()
+			.end()
+		.element().from(10.5F, 3.0F, 9.5F).to(15.5F, 4.0F, 14.5F).rotation().angle(-22.5F).axis(Direction.Axis.Y).origin(13.0F, 8.0F, 12.0F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 5.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 5.0F, 5.0F).texture("#shroom").end()
+			.end()
+		.element().from(4.5F, 0.0F, 9.5F).to(5.5F, 2.0F, 10.5F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(5.0F, 8.0F, 10.0F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 1.0F, 2.0F).texture("#stem").end()
+			.face(Direction.EAST).uvs(4.0F, 0.0F, 5.0F, 2.0F).texture("#stem").end()
+			.face(Direction.SOUTH).uvs(8.0F, 0.0F, 9.0F, 2.0F).texture("#stem").end()
+			.face(Direction.WEST).uvs(12.0F, 0.0F, 13.0F, 2.0F).texture("#stem").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 1.0F, 1.0F).texture("#stem").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 1.0F, 1.0F).texture("#stem").end()
+			.end()
+		.element().from(3.0F, 2.0F, 8.0F).to(7.0F, 3.0F, 12.0F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(5.0F, 8.0F, 10.0F).end()
+			.face(Direction.NORTH).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.EAST).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.WEST).uvs(0.0F, 0.0F, 4.0F, 1.0F).texture("#shroom").end()
+			.face(Direction.UP).uvs(0.0F, 0.0F, 4.0F, 4.0F).texture("#shroom").end()
+			.face(Direction.DOWN).uvs(0.0F, 0.0F, 4.0F, 4.0F).texture("#shroom").end()
+			.end();
+	}
+}

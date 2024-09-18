@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_surface_chert",
+  "textures": {
+    "particle": "landsoficaria:block/surface_chert",
+    "texture": "landsoficaria:block/surface_chert"
+  }
+}

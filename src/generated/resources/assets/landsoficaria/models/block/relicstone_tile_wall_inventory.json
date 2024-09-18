@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "particle": "landsoficaria:block/relicstone_tiles",
+    "wall": "landsoficaria:block/relicstone_tiles"
+  }
+}

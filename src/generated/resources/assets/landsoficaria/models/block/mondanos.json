@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_mondanos",
+  "textures": {
+    "particle": "landsoficaria:block/mondanos",
+    "texture": "landsoficaria:block/mondanos"
+  }
+}

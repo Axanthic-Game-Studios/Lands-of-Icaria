@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/rowan"
+      },
+      {
+        "model": "landsoficaria:block/rowan",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/rowan",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/rowan",
+        "y": 270
+      }
+    ]
+  }
+}

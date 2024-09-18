@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_portal_z",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "particle": "landsoficaria:block/icaria_portal",
+    "texture": "landsoficaria:block/icaria_portal"
+  }
+}

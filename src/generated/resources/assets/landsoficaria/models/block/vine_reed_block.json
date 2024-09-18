@@ -1,6 +1,7 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "landsoficaria:block/vine_reed_block"
+    "all": "landsoficaria:block/vine_reed_block",
+    "particle": "landsoficaria:block/vine_reed_block"
   }
 }

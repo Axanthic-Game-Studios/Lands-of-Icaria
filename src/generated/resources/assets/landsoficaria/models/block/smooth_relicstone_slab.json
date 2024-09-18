@@ -2,6 +2,7 @@
   "parent": "minecraft:block/slab",
   "textures": {
     "bottom": "landsoficaria:block/smooth_relicstone",
+    "particle": "landsoficaria:block/smooth_relicstone",
     "side": "landsoficaria:block/smooth_relicstone",
     "top": "landsoficaria:block/smooth_relicstone"
   }

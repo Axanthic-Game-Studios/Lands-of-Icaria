@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/ladder",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "landsoficaria:block/olive_ladder",
+    "texture": "landsoficaria:block/olive_ladder"
+  }
+}

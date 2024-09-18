@@ -1,0 +1,81 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/surface_lignite_0"
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_0",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_1"
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_1",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_2"
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_2",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_2",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_2",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_3"
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_3",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_3",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_3",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_4"
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_4",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_4",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/surface_lignite_4",
+        "y": 270
+      }
+    ]
+  }
+}

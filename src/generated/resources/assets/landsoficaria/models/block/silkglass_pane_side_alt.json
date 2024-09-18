@@ -1,7 +1,9 @@
 {
   "parent": "minecraft:block/template_glass_pane_side_alt",
+  "render_type": "minecraft:cutout",
   "textures": {
     "edge": "landsoficaria:block/silkglass_pane",
-    "pane": "landsoficaria:block/silkglass"
+    "pane": "landsoficaria:block/silkglass",
+    "particle": "landsoficaria:block/silkglass"
   }
 }

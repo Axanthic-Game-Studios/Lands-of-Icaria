@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_tapped_barrel_rack",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "anvil": "minecraft:block/anvil",
+    "barrel_back": "landsoficaria:block/populus_barrel_back",
+    "log": "landsoficaria:block/populus_log",
+    "particle": "landsoficaria:block/populus_planks",
+    "planks": "landsoficaria:block/populus_planks"
+  }
+}

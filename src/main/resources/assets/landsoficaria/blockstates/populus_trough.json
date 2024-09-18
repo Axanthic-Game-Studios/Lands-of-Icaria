@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "landsoficaria:block/populus_trough", "y": 0 },
-    "facing=east": { "model": "landsoficaria:block/populus_trough", "y": 90 },
-    "facing=south": { "model": "landsoficaria:block/populus_trough", "y": 180 },
-    "facing=west": { "model": "landsoficaria:block/populus_trough", "y": 270 }
-  }
-}

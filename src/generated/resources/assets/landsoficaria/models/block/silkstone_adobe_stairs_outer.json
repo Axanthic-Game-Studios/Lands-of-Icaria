@@ -2,6 +2,7 @@
   "parent": "minecraft:block/outer_stairs",
   "textures": {
     "bottom": "landsoficaria:block/silkstone_adobe",
+    "particle": "landsoficaria:block/silkstone_adobe",
     "side": "landsoficaria:block/silkstone_adobe",
     "top": "landsoficaria:block/silkstone_adobe"
   }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "landsoficaria:block/dolomite_pillar_top",
+    "particle": "landsoficaria:block/dolomite_pillar_head_inverted",
+    "side": "landsoficaria:block/dolomite_pillar_head_inverted",
+    "top": "landsoficaria:block/smooth_dolomite"
+  }
+}
