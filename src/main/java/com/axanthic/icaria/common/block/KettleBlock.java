@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.tags.IcariaItemTags;

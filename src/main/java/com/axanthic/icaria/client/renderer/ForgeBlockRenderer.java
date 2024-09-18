@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

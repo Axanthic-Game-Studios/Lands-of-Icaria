@@ -1,4 +1,6 @@
-package com.axanthic.icaria.common.network;
+package com.axanthic.icaria.common.network.runnable;
+
+import com.axanthic.icaria.common.network.packet.TotemPacket;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;

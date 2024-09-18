@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.stack;
 
-import com.axanthic.icaria.common.block.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
-import com.axanthic.icaria.common.block.entity.ForgeRedirectorBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.entity.ForgeRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;

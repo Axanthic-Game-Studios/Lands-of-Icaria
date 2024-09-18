@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.container.data;
 
-import com.axanthic.icaria.common.block.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.inventory.ContainerData;

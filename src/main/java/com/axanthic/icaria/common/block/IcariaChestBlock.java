@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaChestBlockCombiner;
 

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.item.IcariaChestItem;
 
 import com.mojang.blaze3d.vertex.PoseStack;

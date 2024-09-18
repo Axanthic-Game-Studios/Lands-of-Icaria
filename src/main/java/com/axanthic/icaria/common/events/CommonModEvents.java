@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.events;
 
-import com.axanthic.icaria.common.block.entity.*;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.*;

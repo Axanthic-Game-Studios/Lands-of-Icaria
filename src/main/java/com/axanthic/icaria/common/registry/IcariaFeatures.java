@@ -3,10 +3,10 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.world.feature.*;
 import com.axanthic.icaria.common.world.feature.dead.*;
 import com.axanthic.icaria.common.world.feature.herb.*;
-import com.axanthic.icaria.common.world.feature.hidden.GrainelChertFeature;
-import com.axanthic.icaria.common.world.feature.hidden.MarlBonesFeature;
-import com.axanthic.icaria.common.world.feature.hidden.MarlChertFeature;
-import com.axanthic.icaria.common.world.feature.hidden.MarlLigniteFeature;
+import com.axanthic.icaria.common.world.feature.hidden.GrainelChertHiddenFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlBonesHiddenFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlChertHiddenFeature;
+import com.axanthic.icaria.common.world.feature.hidden.MarlLigniteHiddenFeature;
 import com.axanthic.icaria.common.world.feature.lake.DryLakeFeature;
 import com.axanthic.icaria.common.world.feature.lake.MediterraneanWaterLakeFeature;
 import com.axanthic.icaria.common.world.feature.pillar.FallenRelicstonePillarFeature;
@@ -35,10 +35,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaFeatures {
 	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaIdents.ID);
 
-	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new MarlChertFeature(NoneFeatureConfiguration.CODEC));
-	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new MarlBonesFeature(NoneFeatureConfiguration.CODEC));
-	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_LIGNITE = IcariaFeatures.FEATURES.register("marl_lignite", () -> new MarlLigniteFeature(NoneFeatureConfiguration.CODEC));
-	public static final Supplier<Feature<NoneFeatureConfiguration>> GRAINEL_CHERT = IcariaFeatures.FEATURES.register("grainel_chert", () -> new GrainelChertFeature(NoneFeatureConfiguration.CODEC));
+	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new MarlChertHiddenFeature(NoneFeatureConfiguration.CODEC));
+	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new MarlBonesHiddenFeature(NoneFeatureConfiguration.CODEC));
+	public static final Supplier<Feature<NoneFeatureConfiguration>> MARL_LIGNITE = IcariaFeatures.FEATURES.register("marl_lignite", () -> new MarlLigniteHiddenFeature(NoneFeatureConfiguration.CODEC));
+	public static final Supplier<Feature<NoneFeatureConfiguration>> GRAINEL_CHERT = IcariaFeatures.FEATURES.register("grainel_chert", () -> new GrainelChertHiddenFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final Supplier<Feature<NoneFeatureConfiguration>> GRAINITE_SPIKE = IcariaFeatures.FEATURES.register("grainite_spike", () -> new GrainiteSpikeFeature(NoneFeatureConfiguration.CODEC));
 

@@ -1,7 +1,7 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.network.TotemPacket;
+import com.axanthic.icaria.common.network.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

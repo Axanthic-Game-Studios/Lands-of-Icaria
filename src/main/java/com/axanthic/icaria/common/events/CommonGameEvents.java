@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.ScytheItem;
-import com.axanthic.icaria.common.network.TotemPacket;
+import com.axanthic.icaria.common.network.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;

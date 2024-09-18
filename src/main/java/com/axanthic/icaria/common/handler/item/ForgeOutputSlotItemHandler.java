@@ -1,6 +1,6 @@
-package com.axanthic.icaria.common.handler.slot;
+package com.axanthic.icaria.common.handler.item;
 
-import com.axanthic.icaria.common.block.entity.KilnBlockEntity;
+import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerPlayer;
@@ -15,14 +15,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class KilnOutputSlotItemHandler extends SlotItemHandler {
+public class ForgeOutputSlotItemHandler extends SlotItemHandler {
 	public int removeCount;
 
-	public KilnBlockEntity blockEntity;
+	public ForgeBlockEntity blockEntity;
 
 	public Player player;
 
-	public KilnOutputSlotItemHandler(IItemHandler pHandler, KilnBlockEntity pBlockEntity, Player pPlayer, int pIndex, int pX, int pY) {
+	public ForgeOutputSlotItemHandler(IItemHandler pHandler, ForgeBlockEntity pBlockEntity, Player pPlayer, int pIndex, int pX, int pY) {
 		super(pHandler, pIndex, pX, pY);
 		this.blockEntity = pBlockEntity;
 		this.player = pPlayer;

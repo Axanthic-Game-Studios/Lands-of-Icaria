@@ -4,7 +4,7 @@ import com.axanthic.icaria.client.model.*;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
 import com.axanthic.icaria.common.block.IcariaAbstractSkullBlock;
 import com.axanthic.icaria.common.block.IcariaWallSkullBlock;
-import com.axanthic.icaria.common.block.entity.IcariaSkullBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSkullBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;

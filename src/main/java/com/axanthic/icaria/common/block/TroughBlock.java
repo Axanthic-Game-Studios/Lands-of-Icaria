@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.TroughBlockEntity;
+import com.axanthic.icaria.common.entity.TroughBlockEntity;
 import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;

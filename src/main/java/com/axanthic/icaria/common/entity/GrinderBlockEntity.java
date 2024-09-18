@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.block.entity;
+package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;

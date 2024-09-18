@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.block.entity.IcariaSpawnerBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 

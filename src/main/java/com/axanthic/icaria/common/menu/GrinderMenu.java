@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.menu;
 
-import com.axanthic.icaria.common.block.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.handler.slot.GrinderOutputSlotItemHandler;
+import com.axanthic.icaria.common.entity.GrinderBlockEntity;
+import com.axanthic.icaria.common.handler.item.GrinderOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

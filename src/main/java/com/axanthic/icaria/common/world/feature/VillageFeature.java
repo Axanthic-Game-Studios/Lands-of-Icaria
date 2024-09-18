@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.block.entity.IcariaChestBlockEntity;
-import com.axanthic.icaria.common.block.entity.IcariaSpawnerBlockEntity;
-import com.axanthic.icaria.common.block.entity.StorageVaseBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
+import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaLootTables;

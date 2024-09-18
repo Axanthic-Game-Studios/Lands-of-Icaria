@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.stack;
 
-import com.axanthic.icaria.common.block.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;

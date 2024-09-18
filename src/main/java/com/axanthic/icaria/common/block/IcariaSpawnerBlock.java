@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.IcariaSpawnerBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
 import com.mojang.serialization.MapCodec;

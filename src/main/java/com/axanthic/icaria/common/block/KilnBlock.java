@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.block.entity.KilnBlockEntity;
-import com.axanthic.icaria.common.block.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.entity.KilnBlockEntity;
+import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;

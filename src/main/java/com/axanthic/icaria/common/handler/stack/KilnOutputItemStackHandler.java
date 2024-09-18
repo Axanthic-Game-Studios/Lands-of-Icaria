@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.handler.stack;
 
-import com.axanthic.icaria.common.block.entity.KilnBlockEntity;
+import com.axanthic.icaria.common.entity.KilnBlockEntity;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
