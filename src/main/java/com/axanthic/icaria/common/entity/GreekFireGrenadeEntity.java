@@ -54,9 +54,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 
 	@Override
 	public void onHit(HitResult pResult) {
-		if (this.level().isClientSide()) {
-			return;
-		} else {
+		if (!this.level().isClientSide()) {
 			if (this.spawnPortal(this.level(), BlockPos.containing(pResult.getLocation().x(), pResult.getLocation().y(), pResult.getLocation().z()))) {
 				this.discard();
 			} else {
