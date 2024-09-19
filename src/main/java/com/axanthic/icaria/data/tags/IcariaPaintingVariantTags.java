@@ -35,10 +35,12 @@ public class IcariaPaintingVariantTags extends PaintingVariantTagsProvider {
 		this.tag(IcariaPaintingVariantTags.PLACEABLE)
 			.add(IcariaPaintingVariants.BRIDGE)
 			.add(IcariaPaintingVariants.CACTUS)
+			.add(IcariaPaintingVariants.ENDER_JELLYFISH)
 			.add(IcariaPaintingVariants.MOONS)
 			.add(IcariaPaintingVariants.PERFECTION)
 			.add(IcariaPaintingVariants.PORTAL)
-			.add(IcariaPaintingVariants.PYRO);
+			.add(IcariaPaintingVariants.PYRO)
+			.add(IcariaPaintingVariants.WINDOW);
 	}
 
 	public static TagKey<PaintingVariant> bind(String pName) {

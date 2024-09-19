@@ -2,9 +2,11 @@
   "values": [
     "landsoficaria:bridge",
     "landsoficaria:cactus",
+    "landsoficaria:ender_jellyfish",
     "landsoficaria:moons",
     "landsoficaria:perfection",
     "landsoficaria:portal",
-    "landsoficaria:pyro"
+    "landsoficaria:pyro",
+    "landsoficaria:window"
   ]
 }

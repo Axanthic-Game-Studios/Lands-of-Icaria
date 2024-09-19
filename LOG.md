@@ -29,6 +29,7 @@ Additions
 - add Crocotta, a new monster that spawns in the dark during night, hunts in packs and drops new loot
 - add Raw and Cooked Crocotta Meat, two new meat variants dropped from the Crocotta
 - add the Crocotta Skull that can be obtained as a rare drop
+- add two new paintings, Ender Jellyfish and Window
 - add a recipe to craft Packed Mud with Spelt
 - add a recipe to craft Crafter with Icaria crafting tables
 - add subtitles for sounds, e.g. a Catoblepas uses vanilla sounds and therefore displays unfitting subtitles like "Cow moos" which is changed to the fitting subtitle "Catoblepas moos" now, also custom sounds are fitted with subtitles now, e.g. a Grinder grinding uses custom sounds but had no subtitles registered with them which is also changed now, this applies to all blocks, entities and items that have sounds tied to them

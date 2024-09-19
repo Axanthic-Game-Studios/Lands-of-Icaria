@@ -1135,17 +1135,21 @@ public class IcariaEnglish extends LanguageProvider {
 
 		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "author", "Axanthic Studios");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "ender_jellyfish" + "." + "author", "Axanthic Studios");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "author", "Axanthic Studios");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "author", "Axanthic Studios");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "author", "Axanthic Studios");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "author", "Axanthic Studios");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "window" + "." + "author", "Axanthic Studios");
 
 		this.add("painting" + "." + IcariaIdents.ID + "." + "bridge" + "." + "title", "Bridge");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "cactus" + "." + "title", "Cactus");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "ender_jellyfish" + "." + "title", "Ender Jellyfish");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "moons" + "." + "title", "Moons");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "perfection" + "." + "title", "Perfection");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "portal" + "." + "title", "Portal");
 		this.add("painting" + "." + IcariaIdents.ID + "." + "pyro" + "." + "title", "Pyro");
+		this.add("painting" + "." + IcariaIdents.ID + "." + "window" + "." + "title", "Window");
 
 		this.add("screen" + "." + IcariaIdents.ID + "." + "chest_label", "Chest Label");
 
