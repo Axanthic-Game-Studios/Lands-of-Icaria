@@ -318,6 +318,12 @@ public class IcariaItemTags extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_TOOLS.shovel.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_TOOLS.shovel.get());
 
+		this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
+			.add(IcariaItems.ONION.get())
+			.add(IcariaItems.SPELT_SEEDS.get())
+			.add(IcariaItems.STRAWBERRY_SEEDS.get())
+			.add(IcariaItems.PHYSALIS_SEEDS.get());
+
 		this.tag(ItemTags.SWORD_ENCHANTABLE)
 			.add(IcariaItems.CHERT_TOOLS.dagger.get())
 			.add(IcariaItems.CHERT_TOOLS.scythe.get())

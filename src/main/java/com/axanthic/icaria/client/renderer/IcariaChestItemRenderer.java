@@ -1,7 +1,9 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
+import com.axanthic.icaria.common.entity.IcariaTrappedChestBlockEntity;
 import com.axanthic.icaria.common.item.IcariaChestItem;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
@@ -28,8 +30,14 @@ public class IcariaChestItemRenderer extends BlockEntityWithoutLevelRenderer {
 	@Override
 	public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
 		if (pStack.getItem() instanceof IcariaChestItem chestItem) {
-			var entity = new IcariaChestBlockEntity(BlockPos.ZERO, chestItem.getBlock().defaultBlockState());
-			Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+			var state = chestItem.getBlock().defaultBlockState();
+			if (state.is(IcariaBlocks.CHEST.get())) {
+				var entity = new IcariaChestBlockEntity(BlockPos.ZERO, state);
+				Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+			} else if (state.is(IcariaBlocks.TRAPPED_CHEST.get())) {
+				var entity = new IcariaTrappedChestBlockEntity(BlockPos.ZERO, state);
+				Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+			}
 		}
 	}
 }
