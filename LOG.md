@@ -14,6 +14,7 @@ Updates
 - update Bubbles spawned from Bubble Spell to play a sound when they pop
 - update Bubbles spawned from Bubble Spell to pop at different times instead of all at once
 - update Kettle sound type from stone to wood since it is mostly made of wood instead of stone
+- update Kettle to be mined using any axe instead of a pickaxe since it is mostly made of wood instead of stone
 - update Pillar Heads to show a tooltip, hinting their placement can be inverted while sneaking
 - update spawn rates for Argan Hound and Cerver to spread out their appearance and make place for the newly added Crocotta, Argan Hounds mostly occur in Forests now and Cervers mostly occur in Scrublands now
 - update Troughs to be able to be filled with Water using Water Bottles and emptied using Glass Bottles, to be filled with Mediterranean Water using Mediterranean Water Buckets and emptied using Buckets, to be filled with Onions for Sows to feed from, to be filled with Spelt for Aeternae and Catoblepas to feed from, to be filled with Vineberries for Capella to feed from

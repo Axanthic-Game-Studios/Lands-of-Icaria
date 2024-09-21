@@ -283,6 +283,7 @@ public class IcariaBlockTags extends BlockTagsProvider {
 
 		this.tag(BlockTags.MINEABLE_WITH_AXE)
 			.add(IcariaBlocks.VINE_REED_BLOCK.get())
+			.add(IcariaBlocks.KETTLE.get())
 			.add(IcariaBlocks.CHEST.get())
 			.add(IcariaBlocks.TRAPPED_CHEST.get())
 			.add(IcariaBlocks.CYPRESS_WOOD.get())
@@ -531,7 +532,6 @@ public class IcariaBlockTags extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get())
-			.add(IcariaBlocks.KETTLE.get())
 			.add(IcariaBlocks.GRINDER.get())
 			.add(IcariaBlocks.KILN.get())
 			.add(IcariaBlocks.FORGE.get())
