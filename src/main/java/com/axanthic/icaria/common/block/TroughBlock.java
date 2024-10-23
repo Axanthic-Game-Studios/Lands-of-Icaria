@@ -101,7 +101,15 @@ public class TroughBlock extends Block implements EntityBlock {
 		var item = pPlayer.getItemInHand(pHand);
 
 		if (fill < 9) {
-			if (pStack.is(Items.WATER_BUCKET)) {
+			if (pStack.is(Items.POWDER_SNOW_BUCKET)) {
+				if (pState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.NONE) {
+					pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY_POWDER_SNOW, SoundSource.BLOCKS);
+					pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH, Trough.POWDER_SNOW).setValue(IcariaBlockStateProperties.TROUGH_FILL, 9));
+					pPlayer.awardStat(Stats.ITEM_USED.get(Items.POWDER_SNOW_BUCKET));
+					this.setStack(pHand, Items.BUCKET, pPlayer);
+					return ItemInteractionResult.CONSUME;
+				}
+			} else if (pStack.is(Items.WATER_BUCKET)) {
 				if (pState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.NONE) {
 					pLevel.playSound(null, pPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
 					pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, 9));
@@ -144,7 +152,13 @@ public class TroughBlock extends Block implements EntityBlock {
 			}
 		} else {
 			if (pStack.is(Items.BUCKET)) {
-				if (pState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.WATER) {
+				if (pState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.POWDER_SNOW) {
+					pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL_POWDER_SNOW, SoundSource.BLOCKS);
+					pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, 0));
+					pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
+					this.setStack(pHand, Items.POWDER_SNOW_BUCKET, pPlayer);
+					return ItemInteractionResult.CONSUME;
+				} else if (pState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.WATER) {
 					pLevel.playSound(null, pPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 					pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, 0));
 					pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));

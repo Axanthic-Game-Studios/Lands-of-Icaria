@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum Trough implements StringRepresentable {
 	NONE("none"),
+	POWDER_SNOW("powder_snow"),
 	WATER("water"),
 	MEDITERRANEAN_WATER("mediterranean_water"),
 	ONION("onion"),

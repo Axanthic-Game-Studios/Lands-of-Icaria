@@ -22,6 +22,7 @@ public class IcariaResourceLocations {
 
 	// BLOCK
 
+	public static final ResourceLocation POWDER_SNOW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "block/powder_snow");
 	public static final ResourceLocation WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "block/water_still");
 	public static final ResourceLocation CONCOCTION_FAST = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/kettle_concoction_fast");
 	public static final ResourceLocation CONCOCTION_SLOW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/kettle_concoction_slow");

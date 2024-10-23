@@ -67,7 +67,12 @@ public class TroughBlockRenderer implements BlockEntityRenderer<TroughBlockEntit
 
 			TextureAtlasSprite sprite;
 
-			if (state.getValue(IcariaBlockStateProperties.TROUGH) == Trough.WATER) {
+			if (state.getValue(IcariaBlockStateProperties.TROUGH) == Trough.POWDER_SNOW) {
+				r = 1.0F;
+				g = 1.0F;
+				b = 1.0F;
+				sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.POWDER_SNOW);
+			} else if (state.getValue(IcariaBlockStateProperties.TROUGH) == Trough.WATER) {
 				r = (waterColor >> 16 & 255) / 255.0F;
 				g = (waterColor >> 8 & 255) / 255.0F;
 				b = (waterColor & 255) / 255.0F;
