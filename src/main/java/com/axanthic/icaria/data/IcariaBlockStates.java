@@ -1298,7 +1298,7 @@ public class IcariaBlockStates extends BlockStateProvider {
 	}
 
 	public void horizontal(Block pBlock, ModelFile pModel) {
-		getVariantBuilder(pBlock)
+		this.getVariantBuilder(pBlock)
 			.forAllStatesExcept(state -> ConfiguredModel.builder()
 			.modelFile(pModel)
 			.rotationY(((state.getValue(BlockStateProperties.HORIZONTAL_FACING).get2DDataValue() * 90) + 180) % 360)
