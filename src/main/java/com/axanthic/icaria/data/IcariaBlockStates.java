@@ -909,6 +909,40 @@ public class IcariaBlockStates extends BlockStateProvider {
 
 	public void cake(Block pBlock) {
 		this.cake(pBlock,
+			this.models().getExistingFile(this.file("candle", pBlock)),
+			this.models().getExistingFile(this.file("candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("white_candle", pBlock)),
+			this.models().getExistingFile(this.file("white_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("light_gray_candle", pBlock)),
+			this.models().getExistingFile(this.file("light_gray_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("gray_candle", pBlock)),
+			this.models().getExistingFile(this.file("gray_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("black_candle", pBlock)),
+			this.models().getExistingFile(this.file("black_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("brown_candle", pBlock)),
+			this.models().getExistingFile(this.file("brown_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("red_candle", pBlock)),
+			this.models().getExistingFile(this.file("red_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("orange_candle", pBlock)),
+			this.models().getExistingFile(this.file("orange_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("yellow_candle", pBlock)),
+			this.models().getExistingFile(this.file("yellow_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("lime_candle", pBlock)),
+			this.models().getExistingFile(this.file("lime_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("green_candle", pBlock)),
+			this.models().getExistingFile(this.file("green_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("cyan_candle", pBlock)),
+			this.models().getExistingFile(this.file("cyan_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("light_blue_candle", pBlock)),
+			this.models().getExistingFile(this.file("light_blue_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("blue_candle", pBlock)),
+			this.models().getExistingFile(this.file("blue_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("purple_candle", pBlock)),
+			this.models().getExistingFile(this.file("purple_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("magenta_candle", pBlock)),
+			this.models().getExistingFile(this.file("magenta_candle", pBlock, "lit")),
+			this.models().getExistingFile(this.file("pink_candle", pBlock)),
+			this.models().getExistingFile(this.file("pink_candle", pBlock, "lit")),
 			this.models().getExistingFile(this.file(pBlock, "0")),
 			this.models().getExistingFile(this.file(pBlock, "1")),
 			this.models().getExistingFile(this.file(pBlock, "2")),
@@ -1271,12 +1305,54 @@ public class IcariaBlockStates extends BlockStateProvider {
 			.build(), IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.TROUGH, IcariaBlockStateProperties.TROUGH_FILL, BlockStateProperties.WATERLOGGED);
 	}
 
-	public void cake(Block pBlock, ModelFile pModel0, ModelFile pModel1, ModelFile pModel2, ModelFile pModel3) {
-		this.getVariantBuilder(pBlock)
-			.partialState().with(IcariaBlockStateProperties.CAKE_BITE, 0).addModels(new ConfiguredModel(pModel0))
-			.partialState().with(IcariaBlockStateProperties.CAKE_BITE, 1).addModels(new ConfiguredModel(pModel1))
-			.partialState().with(IcariaBlockStateProperties.CAKE_BITE, 2).addModels(new ConfiguredModel(pModel2))
-			.partialState().with(IcariaBlockStateProperties.CAKE_BITE, 3).addModels(new ConfiguredModel(pModel3));
+	public void cake(Block pBlock, ModelFile pCandle, ModelFile pCandleLit, ModelFile pWhiteCandle, ModelFile pWhiteCandleLit, ModelFile pLightGrayCandle, ModelFile pLightGrayCandleLit, ModelFile pGrayCandle, ModelFile pGrayCandleLit, ModelFile pBlackCandle, ModelFile pBlackCandleLit, ModelFile pBrownCandle, ModelFile pBrownCandleLit, ModelFile pRedCandle, ModelFile pRedCandleLit, ModelFile pOrangeCandle, ModelFile pOrangeCandleLit, ModelFile pYellowCandle, ModelFile pYellowCandleLit, ModelFile pLimeCandle, ModelFile pLimeCandleLit, ModelFile pGreenCandle, ModelFile pGreenCandleLit, ModelFile pCyanCandle, ModelFile pCyanCandleLit, ModelFile pLightBlueCandle, ModelFile pLightBlueCandleLit, ModelFile pBlueCandle, ModelFile pBlueCandleLit, ModelFile pPurpleCandle, ModelFile pPurpleCandleLit, ModelFile pMagentaCandle, ModelFile pMagentaCandleLit, ModelFile pPinkCandle, ModelFile pPinkCandleLit, ModelFile pModel0, ModelFile pModel1, ModelFile pModel2, ModelFile pModel3) {
+		this.getVariantBuilder(pBlock).forAllStatesExcept(
+			state -> {
+				var cakeBite = state.getValue(IcariaBlockStateProperties.CAKE_BITE);
+				var candle = state.getValue(IcariaBlockStateProperties.CANDLE);
+				var lit = state.getValue(BlockStateProperties.LIT);
+
+				var modelFile = cakeBite == 0 ? pModel0 : cakeBite == 1 ? pModel1 : cakeBite == 2 ? pModel2 : pModel3;
+
+				if (candle == Candle.CANDLE) {
+					modelFile =  lit ? pCandleLit : pCandle;
+				} else if (candle == Candle.WHITE_CANDLE) {
+					modelFile =  lit ? pWhiteCandleLit : pWhiteCandle;
+				} else if (candle == Candle.LIGHT_GRAY_CANDLE) {
+					modelFile =  lit ? pLightGrayCandleLit : pLightGrayCandle;
+				} else if (candle == Candle.GRAY_CANDLE) {
+					modelFile =  lit ? pGrayCandleLit : pGrayCandle;
+				} else if (candle == Candle.BLACK_CANDLE) {
+					modelFile =  lit ? pBlackCandleLit : pBlackCandle;
+				} else if (candle == Candle.BROWN_CANDLE) {
+					modelFile =  lit ? pBrownCandleLit : pBrownCandle;
+				} else if (candle == Candle.RED_CANDLE) {
+					modelFile =  lit ? pRedCandleLit : pRedCandle;
+				} else if (candle == Candle.ORANGE_CANDLE) {
+					modelFile =  lit ? pOrangeCandleLit : pOrangeCandle;
+				} else if (candle == Candle.YELLOW_CANDLE) {
+					modelFile =  lit ? pYellowCandleLit : pYellowCandle;
+				} else if (candle == Candle.LIME_CANDLE) {
+					modelFile =  lit ? pLimeCandleLit : pLimeCandle;
+				} else if (candle == Candle.GREEN_CANDLE) {
+					modelFile =  lit ? pGreenCandleLit : pGreenCandle;
+				} else if (candle == Candle.CYAN_CANDLE) {
+					modelFile =  lit ? pCyanCandleLit : pCyanCandle;
+				} else if (candle == Candle.LIGHT_BLUE_CANDLE) {
+					modelFile =  lit ? pLightBlueCandleLit : pLightBlueCandle;
+				} else if (candle == Candle.BLUE_CANDLE) {
+					modelFile =  lit ? pBlueCandleLit : pBlueCandle;
+				} else if (candle == Candle.PURPLE_CANDLE) {
+					modelFile =  lit ? pPurpleCandleLit : pPurpleCandle;
+				} else if (candle == Candle.MAGENTA_CANDLE) {
+					modelFile =  lit ? pMagentaCandleLit : pMagentaCandle;
+				} else if (candle == Candle.PINK_CANDLE) {
+					modelFile =  lit ? pPinkCandleLit : pPinkCandle;
+				}
+
+				return ConfiguredModel.builder().modelFile(modelFile).build();
+			}
+		);
 	}
 
 	public void layer(Block pBlock, ModelFile pModel0, ModelFile pModel1, ModelFile pModel2, ModelFile pModel3, ModelFile pModel4, ModelFile pModel5, ModelFile pModel6, ModelFile pModel7) {

@@ -1,5 +1,6 @@
 package com.axanthic.icaria.data.loot;
 
+import com.axanthic.icaria.common.properties.Candle;
 import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.properties.Vine;
@@ -424,11 +425,6 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.ARACHNE_SPAWNER.get());
 		this.dropNone(IcariaBlocks.REVENANT_SPAWNER.get());
-		this.dropNone(IcariaBlocks.LAUREL_CHERRY_CAKE.get());
-		this.dropNone(IcariaBlocks.STRAWBERRY_CAKE.get());
-		this.dropNone(IcariaBlocks.PHYSALIS_CAKE.get());
-		this.dropNone(IcariaBlocks.VINE_BERRY_CAKE.get());
-		this.dropNone(IcariaBlocks.VINE_SPROUT_CAKE.get());
 		this.dropNone(IcariaBlocks.SIMPLE_CYPRESS_RACK.get());
 		this.dropNone(IcariaBlocks.CYPRESS_RACK.get());
 		this.dropNone(IcariaBlocks.CYPRESS_BARREL.get());
@@ -476,6 +472,12 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.ICARIA_PORTAL.get());
 		this.dropNone(IcariaBlocks.GRINDER_SHAFT.get());
 		this.dropNone(IcariaBlocks.GRINDER_STONE.get());
+
+		this.dropCake(IcariaBlocks.LAUREL_CHERRY_CAKE.get());
+		this.dropCake(IcariaBlocks.STRAWBERRY_CAKE.get());
+		this.dropCake(IcariaBlocks.PHYSALIS_CAKE.get());
+		this.dropCake(IcariaBlocks.VINE_BERRY_CAKE.get());
+		this.dropCake(IcariaBlocks.VINE_SPROUT_CAKE.get());
 
 		this.dropPots(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), IcariaItems.CYPRESS_SAPLING.get());
 		this.dropPots(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), IcariaItems.DROUGHTROOT_SAPLING.get());
@@ -612,6 +614,11 @@ public class IcariaBlockLoot extends BlockLootSubProvider {
 	public void dropNone(Block pBlock) {
 		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
 		this.add(pBlock, LootTable.lootTable());
+	}
+
+	public void dropCake(Block pCake) {
+		var registryLookup = this.registries.lookupOrThrow(Registries.ENCHANTMENT);
+		this.add(pCake, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.WHITE_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.WHITE_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.LIGHT_GRAY_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.LIGHT_GRAY_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.GRAY_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.GRAY_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BLACK_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.BLACK_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BROWN_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.BROWN_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.RED_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.RED_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.ORANGE_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.ORANGE_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.YELLOW_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.YELLOW_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.LIME_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.LIME_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.GREEN_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.GREEN_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.CYAN_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.CYAN_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.LIGHT_BLUE_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.LIGHT_BLUE_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BLUE_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.BLUE_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.PURPLE_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.PURPLE_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.MAGENTA_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.MAGENTA_CANDLE)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.PINK_CANDLE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pCake).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CANDLE, Candle.PINK_CANDLE)))));
 	}
 
 	public void dropPots(Block pBlock, Item pItem) {

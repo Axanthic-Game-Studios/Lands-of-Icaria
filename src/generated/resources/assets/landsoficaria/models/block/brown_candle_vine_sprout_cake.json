@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/brown_candle_cake",
+  "textures": {
+    "bottom": "landsoficaria:block/cake_bottom",
+    "particle": "landsoficaria:block/vine_sprout_cake_side",
+    "side": "landsoficaria:block/vine_sprout_cake_side",
+    "top": "landsoficaria:block/vine_sprout_cake_top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/red_candle_cake",
+  "textures": {
+    "bottom": "landsoficaria:block/cake_bottom",
+    "particle": "landsoficaria:block/strawberry_cake_side",
+    "side": "landsoficaria:block/strawberry_cake_side",
+    "top": "landsoficaria:block/strawberry_cake_top"
+  }
+}

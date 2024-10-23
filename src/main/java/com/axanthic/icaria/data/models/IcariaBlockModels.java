@@ -1715,6 +1715,176 @@ public class IcariaBlockModels extends BlockModelProvider {
 	}
 
 	public void cake(Block pBlock) {
+		this.withExistingParent(this.name("candle", pBlock), this.file(IcariaIdents.MC, "candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("candle", pBlock, "lit"), this.file(IcariaIdents.MC, "candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("white_candle", pBlock), this.file(IcariaIdents.MC, "white_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("white_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "white_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("light_gray_candle", pBlock), this.file(IcariaIdents.MC, "light_gray_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("light_gray_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "light_gray_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("gray_candle", pBlock), this.file(IcariaIdents.MC, "gray_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("gray_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "gray_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("black_candle", pBlock), this.file(IcariaIdents.MC, "black_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("black_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "black_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("brown_candle", pBlock), this.file(IcariaIdents.MC, "brown_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("brown_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "brown_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("red_candle", pBlock), this.file(IcariaIdents.MC, "red_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("red_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "red_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("orange_candle", pBlock), this.file(IcariaIdents.MC, "orange_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("orange_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "orange_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("yellow_candle", pBlock), this.file(IcariaIdents.MC, "yellow_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("yellow_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "yellow_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("lime_candle", pBlock), this.file(IcariaIdents.MC, "lime_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("lime_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "lime_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("green_candle", pBlock), this.file(IcariaIdents.MC, "green_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("green_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "green_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("cyan_candle", pBlock), this.file(IcariaIdents.MC, "cyan_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("cyan_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "cyan_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("light_blue_candle", pBlock), this.file(IcariaIdents.MC, "light_blue_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("light_blue_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "light_blue_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("blue_candle", pBlock), this.file(IcariaIdents.MC, "blue_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("blue_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "blue_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("purple_candle", pBlock), this.file(IcariaIdents.MC, "purple_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("purple_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "purple_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("magenta_candle", pBlock), this.file(IcariaIdents.MC, "magenta_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("magenta_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "magenta_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("pink_candle", pBlock), this.file(IcariaIdents.MC, "pink_candle_cake"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
+		this.withExistingParent(this.name("pink_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "pink_candle_cake_lit"))
+			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
+			.texture("side", this.file(pBlock, "side"))
+			.texture("top", this.file(pBlock, "top"))
+			.texture("particle", this.file(pBlock, "side"));
 		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_cake_0"))
 			.texture("cake_bottom", this.file(IcariaIdents.ID, "cake_bottom"))
 			.texture("cake_side", this.file(pBlock, "side"))

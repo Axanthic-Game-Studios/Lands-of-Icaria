@@ -1,16 +1,436 @@
 {
   "variants": {
-    "cake_bite=0": {
+    "cake_bite=0,candle=black_candle,lit=false": {
+      "model": "landsoficaria:block/black_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=black_candle,lit=true": {
+      "model": "landsoficaria:block/black_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=blue_candle,lit=false": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=blue_candle,lit=true": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=brown_candle,lit=false": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=brown_candle,lit=true": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=candle,lit=false": {
+      "model": "landsoficaria:block/candle_physalis_cake"
+    },
+    "cake_bite=0,candle=candle,lit=true": {
+      "model": "landsoficaria:block/candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=cyan_candle,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=cyan_candle,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=gray_candle,lit=false": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=gray_candle,lit=true": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=green_candle,lit=false": {
+      "model": "landsoficaria:block/green_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=green_candle,lit=true": {
+      "model": "landsoficaria:block/green_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=light_blue_candle,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=light_blue_candle,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=light_gray_candle,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=light_gray_candle,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=lime_candle,lit=false": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=lime_candle,lit=true": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=magenta_candle,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=magenta_candle,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=none,lit=false": {
       "model": "landsoficaria:block/physalis_cake_0"
     },
-    "cake_bite=1": {
+    "cake_bite=0,candle=none,lit=true": {
+      "model": "landsoficaria:block/physalis_cake_0"
+    },
+    "cake_bite=0,candle=orange_candle,lit=false": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=orange_candle,lit=true": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=pink_candle,lit=false": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=pink_candle,lit=true": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=purple_candle,lit=false": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=purple_candle,lit=true": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=red_candle,lit=false": {
+      "model": "landsoficaria:block/red_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=red_candle,lit=true": {
+      "model": "landsoficaria:block/red_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=white_candle,lit=false": {
+      "model": "landsoficaria:block/white_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=white_candle,lit=true": {
+      "model": "landsoficaria:block/white_candle_physalis_cake_lit"
+    },
+    "cake_bite=0,candle=yellow_candle,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake"
+    },
+    "cake_bite=0,candle=yellow_candle,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=black_candle,lit=false": {
+      "model": "landsoficaria:block/black_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=black_candle,lit=true": {
+      "model": "landsoficaria:block/black_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=blue_candle,lit=false": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=blue_candle,lit=true": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=brown_candle,lit=false": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=brown_candle,lit=true": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=candle,lit=false": {
+      "model": "landsoficaria:block/candle_physalis_cake"
+    },
+    "cake_bite=1,candle=candle,lit=true": {
+      "model": "landsoficaria:block/candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=cyan_candle,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=cyan_candle,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=gray_candle,lit=false": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=gray_candle,lit=true": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=green_candle,lit=false": {
+      "model": "landsoficaria:block/green_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=green_candle,lit=true": {
+      "model": "landsoficaria:block/green_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=light_blue_candle,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=light_blue_candle,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=light_gray_candle,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=light_gray_candle,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=lime_candle,lit=false": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=lime_candle,lit=true": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=magenta_candle,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=magenta_candle,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=none,lit=false": {
       "model": "landsoficaria:block/physalis_cake_1"
     },
-    "cake_bite=2": {
+    "cake_bite=1,candle=none,lit=true": {
+      "model": "landsoficaria:block/physalis_cake_1"
+    },
+    "cake_bite=1,candle=orange_candle,lit=false": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=orange_candle,lit=true": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=pink_candle,lit=false": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=pink_candle,lit=true": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=purple_candle,lit=false": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=purple_candle,lit=true": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=red_candle,lit=false": {
+      "model": "landsoficaria:block/red_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=red_candle,lit=true": {
+      "model": "landsoficaria:block/red_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=white_candle,lit=false": {
+      "model": "landsoficaria:block/white_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=white_candle,lit=true": {
+      "model": "landsoficaria:block/white_candle_physalis_cake_lit"
+    },
+    "cake_bite=1,candle=yellow_candle,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake"
+    },
+    "cake_bite=1,candle=yellow_candle,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=black_candle,lit=false": {
+      "model": "landsoficaria:block/black_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=black_candle,lit=true": {
+      "model": "landsoficaria:block/black_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=blue_candle,lit=false": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=blue_candle,lit=true": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=brown_candle,lit=false": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=brown_candle,lit=true": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=candle,lit=false": {
+      "model": "landsoficaria:block/candle_physalis_cake"
+    },
+    "cake_bite=2,candle=candle,lit=true": {
+      "model": "landsoficaria:block/candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=cyan_candle,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=cyan_candle,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=gray_candle,lit=false": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=gray_candle,lit=true": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=green_candle,lit=false": {
+      "model": "landsoficaria:block/green_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=green_candle,lit=true": {
+      "model": "landsoficaria:block/green_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=light_blue_candle,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=light_blue_candle,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=light_gray_candle,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=light_gray_candle,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=lime_candle,lit=false": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=lime_candle,lit=true": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=magenta_candle,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=magenta_candle,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=none,lit=false": {
       "model": "landsoficaria:block/physalis_cake_2"
     },
-    "cake_bite=3": {
+    "cake_bite=2,candle=none,lit=true": {
+      "model": "landsoficaria:block/physalis_cake_2"
+    },
+    "cake_bite=2,candle=orange_candle,lit=false": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=orange_candle,lit=true": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=pink_candle,lit=false": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=pink_candle,lit=true": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=purple_candle,lit=false": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=purple_candle,lit=true": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=red_candle,lit=false": {
+      "model": "landsoficaria:block/red_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=red_candle,lit=true": {
+      "model": "landsoficaria:block/red_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=white_candle,lit=false": {
+      "model": "landsoficaria:block/white_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=white_candle,lit=true": {
+      "model": "landsoficaria:block/white_candle_physalis_cake_lit"
+    },
+    "cake_bite=2,candle=yellow_candle,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake"
+    },
+    "cake_bite=2,candle=yellow_candle,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=black_candle,lit=false": {
+      "model": "landsoficaria:block/black_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=black_candle,lit=true": {
+      "model": "landsoficaria:block/black_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=blue_candle,lit=false": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=blue_candle,lit=true": {
+      "model": "landsoficaria:block/blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=brown_candle,lit=false": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=brown_candle,lit=true": {
+      "model": "landsoficaria:block/brown_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=candle,lit=false": {
+      "model": "landsoficaria:block/candle_physalis_cake"
+    },
+    "cake_bite=3,candle=candle,lit=true": {
+      "model": "landsoficaria:block/candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=cyan_candle,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=cyan_candle,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=gray_candle,lit=false": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=gray_candle,lit=true": {
+      "model": "landsoficaria:block/gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=green_candle,lit=false": {
+      "model": "landsoficaria:block/green_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=green_candle,lit=true": {
+      "model": "landsoficaria:block/green_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=light_blue_candle,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=light_blue_candle,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=light_gray_candle,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=light_gray_candle,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=lime_candle,lit=false": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=lime_candle,lit=true": {
+      "model": "landsoficaria:block/lime_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=magenta_candle,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=magenta_candle,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=none,lit=false": {
       "model": "landsoficaria:block/physalis_cake_3"
+    },
+    "cake_bite=3,candle=none,lit=true": {
+      "model": "landsoficaria:block/physalis_cake_3"
+    },
+    "cake_bite=3,candle=orange_candle,lit=false": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=orange_candle,lit=true": {
+      "model": "landsoficaria:block/orange_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=pink_candle,lit=false": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=pink_candle,lit=true": {
+      "model": "landsoficaria:block/pink_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=purple_candle,lit=false": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=purple_candle,lit=true": {
+      "model": "landsoficaria:block/purple_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=red_candle,lit=false": {
+      "model": "landsoficaria:block/red_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=red_candle,lit=true": {
+      "model": "landsoficaria:block/red_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=white_candle,lit=false": {
+      "model": "landsoficaria:block/white_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=white_candle,lit=true": {
+      "model": "landsoficaria:block/white_candle_physalis_cake_lit"
+    },
+    "cake_bite=3,candle=yellow_candle,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake"
+    },
+    "cake_bite=3,candle=yellow_candle,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_physalis_cake_lit"
     }
   }
 }
