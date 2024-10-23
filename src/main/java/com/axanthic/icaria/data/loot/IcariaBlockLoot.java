@@ -42,8 +42,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockLoot extends BlockLootSubProvider {
-	public static final float[] CHERRY_CHANCES = new float[]{0.05F, 0.006666666666F, 0.008333333333F, 0.01F};
-	public static final float[] GARLIC_CHANCES = new float[]{0.05F, 0.006666666666F, 0.008333333333F, 0.01F};
+	public static final float[] CHERRY_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
+	public static final float[] GARLIC_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
 	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
 	public static final float[] SEED_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
 	public static final float[] STICK_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
