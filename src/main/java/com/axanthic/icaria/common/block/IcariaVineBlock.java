@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.IcariaVineShapes;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -300,19 +300,19 @@ public class IcariaVineBlock extends Block {
 		var voxelShape = Shapes.empty();
 
 		if (pState.getValue(BlockStateProperties.NORTH)) {
-			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.NORTH);
+			voxelShape = Shapes.or(voxelShape, IcariaVineShapes.NORTH);
 		}
 
 		if (pState.getValue(BlockStateProperties.EAST)) {
-			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.EAST);
+			voxelShape = Shapes.or(voxelShape, IcariaVineShapes.EAST);
 		}
 
 		if (pState.getValue(BlockStateProperties.SOUTH)) {
-			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.SOUTH);
+			voxelShape = Shapes.or(voxelShape, IcariaVineShapes.SOUTH);
 		}
 
 		if (pState.getValue(BlockStateProperties.WEST)) {
-			voxelShape = Shapes.or(voxelShape, IcariaShapes.IcariaVineShapes.WEST);
+			voxelShape = Shapes.or(voxelShape, IcariaVineShapes.WEST);
 		}
 
 		return voxelShape.isEmpty() ? Shapes.block() : voxelShape;

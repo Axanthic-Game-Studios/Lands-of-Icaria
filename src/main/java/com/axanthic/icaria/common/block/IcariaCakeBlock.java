@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.properties.Candle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.IcariaCakeShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -269,6 +269,6 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return IcariaShapes.CAKE[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)];
+		return pState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE ? IcariaCakeShapes.CAKE_SHAPES[pState.getValue(IcariaBlockStateProperties.CAKE_BITE)] : IcariaCakeShapes.CANDLE_CAKE;
 	}
 }

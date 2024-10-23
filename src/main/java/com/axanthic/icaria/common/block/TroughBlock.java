@@ -4,8 +4,8 @@ import com.axanthic.icaria.common.entity.TroughBlockEntity;
 import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaShapes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.shapes.TroughShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -218,10 +218,10 @@ public class TroughBlock extends Block implements EntityBlock {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> IcariaShapes.TroughShapes.NORTH;
-			case EAST -> IcariaShapes.TroughShapes.EAST;
-			case SOUTH -> IcariaShapes.TroughShapes.SOUTH;
-			default -> IcariaShapes.TroughShapes.WEST;
+			case NORTH -> TroughShapes.NORTH;
+			case EAST -> TroughShapes.EAST;
+			case SOUTH -> TroughShapes.SOUTH;
+			default -> TroughShapes.WEST;
 		};
 	}
 }

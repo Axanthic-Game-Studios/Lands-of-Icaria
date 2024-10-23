@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.IcariaWallSignShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -97,24 +97,24 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.ATTACH_FACE)) {
 			case FLOOR -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.WallSignShapes.FLOOR_NORTH;
-				case EAST -> IcariaShapes.WallSignShapes.FLOOR_EAST;
-				case SOUTH -> IcariaShapes.WallSignShapes.FLOOR_SOUTH;
-				default -> IcariaShapes.WallSignShapes.FLOOR_WEST;
+				case NORTH -> IcariaWallSignShapes.FLOOR_NORTH;
+				case EAST -> IcariaWallSignShapes.FLOOR_EAST;
+				case SOUTH -> IcariaWallSignShapes.FLOOR_SOUTH;
+				default -> IcariaWallSignShapes.FLOOR_WEST;
 			};
 
 			case WALL -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.WallSignShapes.WALL_NORTH;
-				case EAST -> IcariaShapes.WallSignShapes.WALL_EAST;
-				case SOUTH -> IcariaShapes.WallSignShapes.WALL_SOUTH;
-				default -> IcariaShapes.WallSignShapes.WALL_WEST;
+				case NORTH -> IcariaWallSignShapes.WALL_NORTH;
+				case EAST -> IcariaWallSignShapes.WALL_EAST;
+				case SOUTH -> IcariaWallSignShapes.WALL_SOUTH;
+				default -> IcariaWallSignShapes.WALL_WEST;
 			};
 
 			default -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.WallSignShapes.CEILING_NORTH;
-				case EAST -> IcariaShapes.WallSignShapes.CEILING_EAST;
-				case SOUTH -> IcariaShapes.WallSignShapes.CEILING_SOUTH;
-				default -> IcariaShapes.WallSignShapes.CEILING_WEST;
+				case NORTH -> IcariaWallSignShapes.CEILING_NORTH;
+				case EAST -> IcariaWallSignShapes.CEILING_EAST;
+				case SOUTH -> IcariaWallSignShapes.CEILING_SOUTH;
+				default -> IcariaWallSignShapes.CEILING_WEST;
 			};
 		};
 	}

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.DirectionShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -56,6 +56,6 @@ public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return IcariaShapes.UP;
+		return DirectionShapes.UP;
 	}
 }

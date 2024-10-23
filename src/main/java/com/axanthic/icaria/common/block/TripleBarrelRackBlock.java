@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaLootTables;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.TripleBarrelRackShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -134,31 +134,31 @@ public class TripleBarrelRackBlock extends Block {
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER)) {
 			case BOTTOM_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_LEFT_NORTH;
-				case EAST -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_LEFT_EAST;
-				case SOUTH -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_LEFT_SOUTH;
-				default -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_LEFT_WEST;
+				case NORTH -> TripleBarrelRackShapes.BOTTOM_LEFT_NORTH;
+				case EAST -> TripleBarrelRackShapes.BOTTOM_LEFT_EAST;
+				case SOUTH -> TripleBarrelRackShapes.BOTTOM_LEFT_SOUTH;
+				default -> TripleBarrelRackShapes.BOTTOM_LEFT_WEST;
 			};
 
 			case BOTTOM_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_RIGHT_NORTH;
-				case EAST -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_RIGHT_SOUTH;
-				default -> IcariaShapes.TripleBarrelRackShapes.BOTTOM_RIGHT_WEST;
+				case NORTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_NORTH;
+				case EAST -> TripleBarrelRackShapes.BOTTOM_RIGHT_EAST;
+				case SOUTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_SOUTH;
+				default -> TripleBarrelRackShapes.BOTTOM_RIGHT_WEST;
 			};
 
 			case TOP_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.TripleBarrelRackShapes.TOP_LEFT_NORTH;
-				case EAST -> IcariaShapes.TripleBarrelRackShapes.TOP_LEFT_EAST;
-				case SOUTH -> IcariaShapes.TripleBarrelRackShapes.TOP_LEFT_SOUTH;
-				default -> IcariaShapes.TripleBarrelRackShapes.TOP_LEFT_WEST;
+				case NORTH -> TripleBarrelRackShapes.TOP_LEFT_NORTH;
+				case EAST -> TripleBarrelRackShapes.TOP_LEFT_EAST;
+				case SOUTH -> TripleBarrelRackShapes.TOP_LEFT_SOUTH;
+				default -> TripleBarrelRackShapes.TOP_LEFT_WEST;
 			};
 
 			case TOP_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.TripleBarrelRackShapes.TOP_RIGHT_NORTH;
-				case EAST -> IcariaShapes.TripleBarrelRackShapes.TOP_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.TripleBarrelRackShapes.TOP_RIGHT_SOUTH;
-				default -> IcariaShapes.TripleBarrelRackShapes.TOP_RIGHT_WEST;
+				case NORTH -> TripleBarrelRackShapes.TOP_RIGHT_NORTH;
+				case EAST -> TripleBarrelRackShapes.TOP_RIGHT_EAST;
+				case SOUTH -> TripleBarrelRackShapes.TOP_RIGHT_SOUTH;
+				default -> TripleBarrelRackShapes.TOP_RIGHT_WEST;
 			};
 		};
 	}

@@ -4,6 +4,7 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.shapes.KettleShapes;
 import com.axanthic.icaria.data.tags.IcariaItemTags;
 
 import com.mojang.serialization.MapCodec;
@@ -283,17 +284,17 @@ public class KettleBlock extends BaseEntityBlock {
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
 			case UPPER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.KettleShapes.UPPER_NORTH;
-				case EAST -> IcariaShapes.KettleShapes.UPPER_EAST;
-				case SOUTH -> IcariaShapes.KettleShapes.UPPER_SOUTH;
-				default -> IcariaShapes.KettleShapes.UPPER_WEST;
+				case NORTH -> KettleShapes.UPPER_NORTH;
+				case EAST -> KettleShapes.UPPER_EAST;
+				case SOUTH -> KettleShapes.UPPER_SOUTH;
+				default -> KettleShapes.UPPER_WEST;
 			};
 
 			case LOWER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.KettleShapes.LOWER_NORTH;
-				case EAST -> IcariaShapes.KettleShapes.LOWER_EAST;
-				case SOUTH -> IcariaShapes.KettleShapes.LOWER_SOUTH;
-				default -> IcariaShapes.KettleShapes.LOWER_WEST;
+				case NORTH -> KettleShapes.LOWER_NORTH;
+				case EAST -> KettleShapes.LOWER_EAST;
+				case SOUTH -> KettleShapes.LOWER_SOUTH;
+				default -> KettleShapes.LOWER_WEST;
 			};
 		};
 	}

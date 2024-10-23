@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.DirectionShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -66,10 +66,10 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> IcariaShapes.NORTH;
-			case EAST -> IcariaShapes.EAST;
-			case SOUTH -> IcariaShapes.SOUTH;
-			default -> IcariaShapes.WEST;
+			case NORTH -> DirectionShapes.NORTH;
+			case EAST -> DirectionShapes.EAST;
+			case SOUTH -> DirectionShapes.SOUTH;
+			default -> DirectionShapes.WEST;
 		};
 	}
 }

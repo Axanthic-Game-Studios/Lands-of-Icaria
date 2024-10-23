@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.KilnShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -205,17 +205,17 @@ public class KilnBlock extends BaseEntityBlock {
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
 			case UPPER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.KilnShapes.UPPER_NORTH;
-				case EAST -> IcariaShapes.KilnShapes.UPPER_EAST;
-				case SOUTH -> IcariaShapes.KilnShapes.UPPER_SOUTH;
-				default -> IcariaShapes.KilnShapes.UPPER_WEST;
+				case NORTH -> KilnShapes.UPPER_NORTH;
+				case EAST -> KilnShapes.UPPER_EAST;
+				case SOUTH -> KilnShapes.UPPER_SOUTH;
+				default -> KilnShapes.UPPER_WEST;
 			};
 
 			case LOWER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.KilnShapes.LOWER_NORTH;
-				case EAST -> IcariaShapes.KilnShapes.LOWER_EAST;
-				case SOUTH -> IcariaShapes.KilnShapes.LOWER_SOUTH;
-				default -> IcariaShapes.KilnShapes.LOWER_WEST;
+				case NORTH -> KilnShapes.LOWER_NORTH;
+				case EAST -> KilnShapes.LOWER_EAST;
+				case SOUTH -> KilnShapes.LOWER_SOUTH;
+				default -> KilnShapes.LOWER_WEST;
 			};
 		};
 	}

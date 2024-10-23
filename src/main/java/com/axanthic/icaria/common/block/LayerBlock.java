@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.LayerShapes;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -94,6 +94,6 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return IcariaShapes.Y[pState.getValue(BlockStateProperties.LAYERS) - 1];
+		return LayerShapes.SHAPES[pState.getValue(BlockStateProperties.LAYERS) - 1];
 	}
 }

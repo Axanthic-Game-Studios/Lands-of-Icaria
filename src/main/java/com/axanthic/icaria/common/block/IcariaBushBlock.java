@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.DirectionShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -56,6 +56,6 @@ public class IcariaBushBlock extends BushBlock {
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		var vec3 = pState.getOffset(pLevel, pPos);
-		return IcariaShapes.UP.move(vec3.x, vec3.y, vec3.z);
+		return DirectionShapes.UP.move(vec3.x, vec3.y, vec3.z);
 	}
 }

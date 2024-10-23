@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.DirectionShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -99,12 +99,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	@Override
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(BlockStateProperties.FACING)) {
-			case NORTH -> IcariaShapes.NORTH;
-			case EAST -> IcariaShapes.EAST;
-			case SOUTH -> IcariaShapes.SOUTH;
-			case WEST -> IcariaShapes.WEST;
-			case UP -> IcariaShapes.UP;
-			case DOWN -> IcariaShapes.DOWN;
+			case NORTH -> DirectionShapes.NORTH;
+			case EAST -> DirectionShapes.EAST;
+			case SOUTH -> DirectionShapes.SOUTH;
+			case WEST -> DirectionShapes.WEST;
+			case UP -> DirectionShapes.UP;
+			case DOWN -> DirectionShapes.DOWN;
 		};
 	}
 }

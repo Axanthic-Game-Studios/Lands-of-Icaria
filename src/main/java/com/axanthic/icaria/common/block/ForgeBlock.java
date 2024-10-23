@@ -8,7 +8,7 @@ import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaShapes;
+import com.axanthic.icaria.common.shapes.ForgeShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -302,59 +302,59 @@ public class ForgeBlock extends BaseEntityBlock {
 	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
 		return switch (pState.getValue(IcariaBlockStateProperties.CORNER)) {
 			case BOTTOM_FRONT_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_LEFT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_LEFT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_LEFT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_LEFT_WEST;
+				case NORTH -> ForgeShapes.BOTTOM_FRONT_LEFT_NORTH;
+				case EAST -> ForgeShapes.BOTTOM_FRONT_LEFT_EAST;
+				case SOUTH -> ForgeShapes.BOTTOM_FRONT_LEFT_SOUTH;
+				default -> ForgeShapes.BOTTOM_FRONT_LEFT_WEST;
 			};
 
 			case BOTTOM_FRONT_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_RIGHT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_RIGHT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.BOTTOM_FRONT_RIGHT_WEST;
+				case NORTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_NORTH;
+				case EAST -> ForgeShapes.BOTTOM_FRONT_RIGHT_EAST;
+				case SOUTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_SOUTH;
+				default -> ForgeShapes.BOTTOM_FRONT_RIGHT_WEST;
 			};
 
 			case BOTTOM_BACK_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.BOTTOM_BACK_LEFT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.BOTTOM_BACK_LEFT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.BOTTOM_BACK_LEFT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.BOTTOM_BACK_LEFT_WEST;
+				case NORTH -> ForgeShapes.BOTTOM_BACK_LEFT_NORTH;
+				case EAST -> ForgeShapes.BOTTOM_BACK_LEFT_EAST;
+				case SOUTH -> ForgeShapes.BOTTOM_BACK_LEFT_SOUTH;
+				default -> ForgeShapes.BOTTOM_BACK_LEFT_WEST;
 			};
 
 			case BOTTOM_BACK_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.BOTTOM_BACK_RIGHT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.BOTTOM_BACK_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.BOTTOM_BACK_RIGHT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.BOTTOM_BACK_RIGHT_WEST;
+				case NORTH -> ForgeShapes.BOTTOM_BACK_RIGHT_NORTH;
+				case EAST -> ForgeShapes.BOTTOM_BACK_RIGHT_EAST;
+				case SOUTH -> ForgeShapes.BOTTOM_BACK_RIGHT_SOUTH;
+				default -> ForgeShapes.BOTTOM_BACK_RIGHT_WEST;
 			};
 
 			case TOP_FRONT_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.TOP_FRONT_LEFT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.TOP_FRONT_LEFT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.TOP_FRONT_LEFT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.TOP_FRONT_LEFT_WEST;
+				case NORTH -> ForgeShapes.TOP_FRONT_LEFT_NORTH;
+				case EAST -> ForgeShapes.TOP_FRONT_LEFT_EAST;
+				case SOUTH -> ForgeShapes.TOP_FRONT_LEFT_SOUTH;
+				default -> ForgeShapes.TOP_FRONT_LEFT_WEST;
 			};
 
 			case TOP_FRONT_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.TOP_FRONT_RIGHT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.TOP_FRONT_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.TOP_FRONT_RIGHT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.TOP_FRONT_RIGHT_WEST;
+				case NORTH -> ForgeShapes.TOP_FRONT_RIGHT_NORTH;
+				case EAST -> ForgeShapes.TOP_FRONT_RIGHT_EAST;
+				case SOUTH -> ForgeShapes.TOP_FRONT_RIGHT_SOUTH;
+				default -> ForgeShapes.TOP_FRONT_RIGHT_WEST;
 			};
 
 			case TOP_BACK_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.TOP_BACK_LEFT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.TOP_BACK_LEFT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.TOP_BACK_LEFT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.TOP_BACK_LEFT_WEST;
+				case NORTH -> ForgeShapes.TOP_BACK_LEFT_NORTH;
+				case EAST -> ForgeShapes.TOP_BACK_LEFT_EAST;
+				case SOUTH -> ForgeShapes.TOP_BACK_LEFT_SOUTH;
+				default -> ForgeShapes.TOP_BACK_LEFT_WEST;
 			};
 
 			case TOP_BACK_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> IcariaShapes.ForgeShapes.TOP_BACK_RIGHT_NORTH;
-				case EAST -> IcariaShapes.ForgeShapes.TOP_BACK_RIGHT_EAST;
-				case SOUTH -> IcariaShapes.ForgeShapes.TOP_BACK_RIGHT_SOUTH;
-				default -> IcariaShapes.ForgeShapes.TOP_BACK_RIGHT_WEST;
+				case NORTH -> ForgeShapes.TOP_BACK_RIGHT_NORTH;
+				case EAST -> ForgeShapes.TOP_BACK_RIGHT_EAST;
+				case SOUTH -> ForgeShapes.TOP_BACK_RIGHT_SOUTH;
+				default -> ForgeShapes.TOP_BACK_RIGHT_WEST;
 			};
 		};
 	}
