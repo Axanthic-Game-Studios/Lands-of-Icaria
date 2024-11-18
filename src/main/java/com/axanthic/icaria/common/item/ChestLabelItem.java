@@ -7,8 +7,10 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
@@ -88,7 +90,12 @@ public class ChestLabelItem extends Item {
 	@OnlyIn(Dist.CLIENT)
 	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
 		var stack = pPlayer.getItemInHand(pUsedHand);
-		Minecraft.getInstance().setScreen(new ChestLabelScreen(stack));
+
+		if (pPlayer instanceof LocalPlayer localPlayer) {
+			Minecraft.getInstance().setScreen(new ChestLabelScreen(stack));
+			localPlayer.awardStat(Stats.ITEM_USED.get(this));
+		}
+
 		return InteractionResultHolder.sidedSuccess(stack, pLevel.isClientSide());
 	}
 }
