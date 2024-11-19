@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.screen;
 
+import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;
@@ -14,6 +15,8 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+
+import net.neoforged.neoforge.network.PacketDistributor;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -38,7 +41,7 @@ public class ChestLabelScreen extends Screen {
 	}
 
 	public void done() {
-		this.stack.set(IcariaDataComponents.LABEL, this.box.getValue());
+		PacketDistributor.sendToServer(new ChestLabelPacket(this.stack, this.box.getValue()));
 		this.minecraft.setScreen(null);
 	}
 

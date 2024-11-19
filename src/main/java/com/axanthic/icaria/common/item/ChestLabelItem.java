@@ -92,8 +92,10 @@ public class ChestLabelItem extends Item {
 		var stack = pPlayer.getItemInHand(pUsedHand);
 
 		if (pPlayer instanceof LocalPlayer localPlayer) {
-			Minecraft.getInstance().setScreen(new ChestLabelScreen(stack));
-			localPlayer.awardStat(Stats.ITEM_USED.get(this));
+			if (pUsedHand.equals(InteractionHand.MAIN_HAND)) {
+				Minecraft.getInstance().setScreen(new ChestLabelScreen(stack));
+				localPlayer.awardStat(Stats.ITEM_USED.get(this));
+			}
 		}
 
 		return InteractionResultHolder.sidedSuccess(stack, pLevel.isClientSide());
