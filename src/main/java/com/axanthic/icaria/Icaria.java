@@ -1,6 +1,7 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
 import com.axanthic.icaria.common.network.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
 
@@ -94,6 +95,7 @@ public class Icaria {
 	public void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
 		var registrar = pEvent.registrar(IcariaIdents.ID);
 		registrar.playToClient(TotemPacket.TYPE, TotemPacket.STREAM_CODEC, TotemPacket::handler);
+		registrar.playToServer(ChestLabelPacket.TYPE, ChestLabelPacket.STREAM_CODEC, ChestLabelPacket::handler);
 	}
 
 	public void registerProperty(Item pItem) {

@@ -29,8 +29,8 @@ public class TotemPacket implements CustomPacketPayload {
 	public static final Type<TotemPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "totem"));
 
 	public TotemPacket(ItemStack pStack, Holder<SoundEvent> pSound) {
-		this.sound = pSound;
 		this.stack = pStack;
+		this.sound = pSound;
 	}
 
 	public TotemPacket(RegistryFriendlyByteBuf pBuffer) {
