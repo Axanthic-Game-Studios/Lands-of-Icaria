@@ -543,6 +543,8 @@ public class IcariaItems {
 	public static final RegistryObject<Item> CARDON_CACTUS = IcariaItems.register("cardon_cactus", () -> new BlockItem(IcariaBlocks.CARDON_CACTUS.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> STRAWBERRY_BUSH = IcariaItems.register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.propertiesItem()));
+	
+	public static final RegistryObject<Item> COBWEB = IcariaItems.register("cobweb", () -> new BlockItem(IcariaBlocks.COBWEB.get(), IcariaItems.propertiesItem()));
 
 	public static final RegistryObject<Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", () -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), IcariaItems.propertiesItem()));
 	public static final RegistryObject<Item> GRINDER_STONE = IcariaItems.register("grinder_stone", () -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), IcariaItems.propertiesItem()));

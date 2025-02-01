@@ -1,0 +1,167 @@
+{
+    "variants": {
+        "state=0,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_full",
+            "uvblock": true
+        },
+        "state=1,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_flat",
+            "uvblock": true
+        },
+        "state=2,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_top_hanging",
+            "uvblock": true
+        },
+        "state=3,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_vert_connecting",
+            "uvblock": true
+        },
+        "state=4,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_flat",
+            "x": 270,
+            "uvblock": true
+        },
+        "state=5,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_right",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=6,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_top_right",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=7,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_right_connecting",
+            "x": 180,
+            "uvblock": true
+        },
+        "state=8,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_flat",
+            "x": 90,
+            "uvblock": true
+        },
+        "state=9,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_left",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=10,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_top_left",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=11,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting",
+            "x": 180,
+            "uvblock": true
+        },
+        "state=12,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_side_connecting",
+            "uvblock": true
+        },
+        "state=13,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_connecting",
+            "uvblock": true
+        },
+        "state=14,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_top_connecting",
+            "uvblock": true
+        },
+        "state=15,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_full",
+            "uvblock": true
+        },
+        "state=16,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_flat",
+            "x": 90,
+            "y": 90,
+            "uvblock": true
+        },
+        "state=17,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_left",
+            "y": 270,
+            "uvblock": true
+        },
+        "state=18,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_top_left",
+            "y": 270,
+            "uvblock": true
+        },
+        "state=19,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting",
+            "y": 270, 
+            "uvblock": true
+        },
+        "state=20,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner",
+            "x": 180,
+            "y": 90,
+            "uvblock": true
+        },
+        "state=21,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner_deep",
+            "y": 270,
+            "uvblock": true
+        },
+        "state=22,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner_deep",
+            "x": 180,
+            "y": 180,
+            "uvblock": true
+        },
+        "state=23,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting_full",
+            "y": 270,
+            "uvblock": true
+        },
+        "state=24,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner",
+            "x": 180,
+            "uvblock": true
+        },
+        "state=25,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner_deep",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=26,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_corner_deep",
+            "x": 180,
+            "y": 90,
+            "uvblock": true
+        },
+        "state=27,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting_full",
+            "y": 180,
+            "uvblock": true
+        },
+        "state=28,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting",
+            "y": 270, 
+            "uvblock": true
+        },
+        "state=29,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_u",
+            "y":270,
+            "uvblock": true
+        },
+        "state=30,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_bottom_u",
+            "x": 180,
+            "y":90,
+            "uvblock": true
+        },
+        "state=31,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_left_connecting",
+            "y": 270, 
+            "uvblock": true
+        },
+        "state=32,parent_adjacent=false": {
+            "model": "landsoficaria:block/cobweb_flat",
+            "x": 270,
+            "y": 90,
+            "uvblock": true
+        }
+    }
+}

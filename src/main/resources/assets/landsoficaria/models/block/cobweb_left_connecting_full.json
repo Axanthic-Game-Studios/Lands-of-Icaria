@@ -1,0 +1,6 @@
+{
+    "parent": "landsoficaria:block/cobweb_connecting_full",
+    "textures": {
+        "cross": "landsoficaria:block/cobweb_left_connecting"
+    }
+}

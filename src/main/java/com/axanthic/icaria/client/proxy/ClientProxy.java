@@ -1,8 +1,111 @@
 package com.axanthic.icaria.client.proxy;
 
-import com.axanthic.icaria.client.model.*;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import com.axanthic.icaria.client.model.AeternaeModel;
+import com.axanthic.icaria.client.model.AeternaeSkullModel;
+import com.axanthic.icaria.client.model.ArachneDroneModel;
+import com.axanthic.icaria.client.model.ArachneModel;
+import com.axanthic.icaria.client.model.ArganHoundModel;
+import com.axanthic.icaria.client.model.ArganHoundSkullModel;
+import com.axanthic.icaria.client.model.CaptainRevenantModel;
+import com.axanthic.icaria.client.model.CatoblepasModel;
+import com.axanthic.icaria.client.model.CatoblepasSkullModel;
+import com.axanthic.icaria.client.model.CerverModel;
+import com.axanthic.icaria.client.model.CerverSkullModel;
+import com.axanthic.icaria.client.model.CivilianRevenantModel;
+import com.axanthic.icaria.client.model.CrawlerRevenantModel;
+import com.axanthic.icaria.client.model.CrystalSlugModel;
+import com.axanthic.icaria.client.model.CypressForestHagModel;
+import com.axanthic.icaria.client.model.CypressForestHagSkullModel;
+import com.axanthic.icaria.client.model.DroughtrootForestHagModel;
+import com.axanthic.icaria.client.model.DroughtrootForestHagSkullModel;
+import com.axanthic.icaria.client.model.EnderJellyfishModel;
+import com.axanthic.icaria.client.model.FirForestHagModel;
+import com.axanthic.icaria.client.model.FirForestHagSkullModel;
+import com.axanthic.icaria.client.model.FireJellyfishModel;
+import com.axanthic.icaria.client.model.ForestSnullModel;
+import com.axanthic.icaria.client.model.HyliasterModel;
+import com.axanthic.icaria.client.model.LaurelForestHagModel;
+import com.axanthic.icaria.client.model.LaurelForestHagSkullModel;
+import com.axanthic.icaria.client.model.MyrmekeDroneModel;
+import com.axanthic.icaria.client.model.MyrmekeQueenModel;
+import com.axanthic.icaria.client.model.MyrmekeSoldierModel;
+import com.axanthic.icaria.client.model.NatureJellyfishModel;
+import com.axanthic.icaria.client.model.NetherPyromancerRevenantModel;
+import com.axanthic.icaria.client.model.OliveForestHagModel;
+import com.axanthic.icaria.client.model.OliveForestHagSkullModel;
+import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
+import com.axanthic.icaria.client.model.OvergrownRevenantModel;
+import com.axanthic.icaria.client.model.PlaneForestHagModel;
+import com.axanthic.icaria.client.model.PlaneForestHagSkullModel;
+import com.axanthic.icaria.client.model.PopulusForestHagModel;
+import com.axanthic.icaria.client.model.PopulusForestHagSkullModel;
+import com.axanthic.icaria.client.model.PyromancerRevenantModel;
+import com.axanthic.icaria.client.model.RevenantSkullModel;
+import com.axanthic.icaria.client.model.ScorpionModel;
+import com.axanthic.icaria.client.model.SnullModel;
+import com.axanthic.icaria.client.model.SoldierRevenantModel;
+import com.axanthic.icaria.client.model.SolifugaeModel;
+import com.axanthic.icaria.client.model.SowModel;
+import com.axanthic.icaria.client.model.SowSkullModel;
+import com.axanthic.icaria.client.model.VinegaroonModel;
+import com.axanthic.icaria.client.model.VoidJellyfishModel;
+import com.axanthic.icaria.client.model.WaterJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.client.renderer.*;
+import com.axanthic.icaria.client.renderer.AeternaeRenderer;
+import com.axanthic.icaria.client.renderer.ArachneDroneRenderer;
+import com.axanthic.icaria.client.renderer.ArachneRenderer;
+import com.axanthic.icaria.client.renderer.ArganHoundRenderer;
+import com.axanthic.icaria.client.renderer.BidentRenderer;
+import com.axanthic.icaria.client.renderer.BubbleSpellRenderer;
+import com.axanthic.icaria.client.renderer.CaptainRevenantRenderer;
+import com.axanthic.icaria.client.renderer.CatoblepasRenderer;
+import com.axanthic.icaria.client.renderer.CerverRenderer;
+import com.axanthic.icaria.client.renderer.CivilianRevenantRenderer;
+import com.axanthic.icaria.client.renderer.CrawlerRevenantRenderer;
+import com.axanthic.icaria.client.renderer.CrystalBlockRenderer;
+import com.axanthic.icaria.client.renderer.CrystalSlugRenderer;
+import com.axanthic.icaria.client.renderer.CypressForestHagRenderer;
+import com.axanthic.icaria.client.renderer.DroughtrootForestHagRenderer;
+import com.axanthic.icaria.client.renderer.EnderJellyfishRenderer;
+import com.axanthic.icaria.client.renderer.FirForestHagRenderer;
+import com.axanthic.icaria.client.renderer.FireJellyfishRenderer;
+import com.axanthic.icaria.client.renderer.FloatingBlockRenderer;
+import com.axanthic.icaria.client.renderer.ForestSnullRenderer;
+import com.axanthic.icaria.client.renderer.ForgeBlockRenderer;
+import com.axanthic.icaria.client.renderer.GreekFireGrenadeRenderer;
+import com.axanthic.icaria.client.renderer.GrinderBlockRenderer;
+import com.axanthic.icaria.client.renderer.HyliasterRenderer;
+import com.axanthic.icaria.client.renderer.IcariaBarrelRenderer;
+import com.axanthic.icaria.client.renderer.IcariaChestBlockRenderer;
+import com.axanthic.icaria.client.renderer.IcariaSignBlockRenderer;
+import com.axanthic.icaria.client.renderer.IcariaSkullBlockRenderer;
+import com.axanthic.icaria.client.renderer.IcariaSpawnerBlockRenderer;
+import com.axanthic.icaria.client.renderer.KettleBlockRenderer;
+import com.axanthic.icaria.client.renderer.KilnBlockRenderer;
+import com.axanthic.icaria.client.renderer.LaurelForestHagRenderer;
+import com.axanthic.icaria.client.renderer.LootVaseRenderer;
+import com.axanthic.icaria.client.renderer.MyrmekeDroneRenderer;
+import com.axanthic.icaria.client.renderer.MyrmekeQueenRenderer;
+import com.axanthic.icaria.client.renderer.MyrmekeSoldierRenderer;
+import com.axanthic.icaria.client.renderer.NatureJellyfishRenderer;
+import com.axanthic.icaria.client.renderer.NetherPyromancerRevenantRenderer;
+import com.axanthic.icaria.client.renderer.OliveForestHagRenderer;
+import com.axanthic.icaria.client.renderer.OvergrownRevenantRenderer;
+import com.axanthic.icaria.client.renderer.PlaneForestHagRenderer;
+import com.axanthic.icaria.client.renderer.PopulusForestHagRenderer;
+import com.axanthic.icaria.client.renderer.PyromancerRevenantRenderer;
+import com.axanthic.icaria.client.renderer.ScorpionRenderer;
+import com.axanthic.icaria.client.renderer.SnullRenderer;
+import com.axanthic.icaria.client.renderer.SoldierRevenantRenderer;
+import com.axanthic.icaria.client.renderer.SolifugaeRenderer;
+import com.axanthic.icaria.client.renderer.SowRenderer;
+import com.axanthic.icaria.client.renderer.SpellRenderer;
+import com.axanthic.icaria.client.renderer.VinegarRenderer;
+import com.axanthic.icaria.client.renderer.VinegaroonRenderer;
+import com.axanthic.icaria.client.renderer.VoidJellyfishRenderer;
+import com.axanthic.icaria.client.renderer.WaterJellyfishRenderer;
 import com.axanthic.icaria.client.screen.ForgeScreen;
 import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.KilnScreen;
@@ -10,9 +113,20 @@ import com.axanthic.icaria.client.screen.StorageVaseScreen;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.IcariaSkullItem;
 import com.axanthic.icaria.common.proxy.CommonProxy;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaCreativeModeTabs;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaToolItems;
+import com.axanthic.icaria.common.registry.IcariaWoodTypes;
 import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.util.IcariaRegistrySetBuilder;
+import com.axanthic.icaria.common.util.mixininterfaces.IIcariaEntityMixin;
 import com.axanthic.icaria.data.IcariaBlockStates;
 import com.axanthic.icaria.data.IcariaBuiltinEntries;
 import com.axanthic.icaria.data.IcariaItemModels;
@@ -21,12 +135,19 @@ import com.axanthic.icaria.data.advancements.IcariaAdvancements;
 import com.axanthic.icaria.data.lang.IcariaEnglish;
 import com.axanthic.icaria.data.lang.IcariaGerman;
 import com.axanthic.icaria.data.loot.IcariaLoot;
-import com.axanthic.icaria.data.tags.*;
+import com.axanthic.icaria.data.tags.IcariaBiomeTags;
+import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.tags.IcariaFluidTags;
+import com.axanthic.icaria.data.tags.IcariaItemTags;
+import com.axanthic.icaria.data.tags.IcariaStructureTags;
+import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.Sheets;
@@ -34,16 +155,34 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.HangingSignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.client.resources.model.Material;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.BowItem;
+import net.minecraft.world.item.CrossbowItem;
+import net.minecraft.world.item.FishingRodItem;
+import net.minecraft.world.item.FlintAndSteelItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ShearsItem;
+import net.minecraft.world.item.ShieldItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.TieredItem;
+import net.minecraft.world.item.TridentItem;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
-
+import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RenderBlockScreenEffectEvent;
+import net.minecraftforge.client.event.RenderBlockScreenEffectEvent.OverlayType;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -51,13 +190,12 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityAttributeModificationEvent;
 import net.minecraftforge.event.entity.SpawnPlacementRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingTickEvent;
 import net.minecraftforge.event.entity.living.MobEffectEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 @ParametersAreNonnullByDefault
@@ -1234,6 +1372,7 @@ public class ClientProxy extends CommonProxy {
 		this.renderCutout(IcariaBlocks.PURPLE_BROMELIA.get());
 		this.renderCutout(IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 		this.renderCutout(IcariaBlocks.STRAWBERRY_BUSH.get());
+		this.renderCutout(IcariaBlocks.COBWEB.get( ));
 		this.renderCutout(IcariaBlocks.SPELT_CROP.get());
 		this.renderCutout(IcariaBlocks.STRAWBERRY_CROP.get());
 		this.renderCutout(IcariaBlocks.PHYSALIS_CROP.get());
@@ -1651,6 +1790,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void onRightClickBlock(PlayerInteractEvent.RightClickBlock pEvent) {
+		
+
+		BlockState state = pEvent.getLevel( ).getBlockState(pEvent.getPos( ));
+		System.out.println(state);
+		
 		var player = pEvent.getEntity();
 		var mainHandItem = player.getMainHandItem();
 		var offhandItem = player.getOffhandItem();
@@ -1684,6 +1828,15 @@ public class ClientProxy extends CommonProxy {
 				playerModel.head.visible = false;
 			}
 		}
+	}
+	
+	public static final Material GREEK_FIRE_0 = ForgeHooksClient.getBlockMaterial(new ResourceLocation(IcariaInfo.ID, "block/greek_fire_0"));
+	public static final Material GREEK_FIRE_1 = ForgeHooksClient.getBlockMaterial(new ResourceLocation(IcariaInfo.ID, "block/greek_fire_1"));
+	
+	@Override
+	public void onEntityTick(LivingTickEvent event) {
+		IIcariaEntityMixin ent = (IIcariaEntityMixin)event.getEntity();
+		ent.icaria$setGreekFireDuration(Math.max(ent.icaria$getGreekFireDuration( ) - 1, 0));	
 	}
 
 	public void grassColor(Block pBlock) {

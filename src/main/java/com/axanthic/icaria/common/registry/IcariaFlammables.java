@@ -168,5 +168,6 @@ public class IcariaFlammables {
 		IcariaFlammables.flammableBlock(IcariaBlocks.PINK_BROMELIA.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.PURPLE_BROMELIA.get(), 60, 100);
 		IcariaFlammables.flammableBlock(IcariaBlocks.STRAWBERRY_BUSH.get(), 60, 100);
+		IcariaFlammables.flammableBlock(IcariaBlocks.COBWEB.get( ), 60, 100);
 	}
 }

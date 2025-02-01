@@ -1,0 +1,7 @@
+{
+    "parent": "landsoficaria:block/cobweb_corner_deep",
+    "textures": {
+        "cross": "landsoficaria:block/cobweb_bottom_left_corner",
+        "base": "landsoficaria:block/cobweb_spike_bottom"
+    }
+}

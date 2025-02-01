@@ -6,10 +6,13 @@
   "mixins": [
     "AxeItemMixin",
     "FireBlockMixin",
-    "RecipeManagerMixin"
+    "RecipeManagerMixin",
+    "IcariaEntityMixin"
   ],
   "client": [
-    "CustomHeadLayerMixin"
+    "CustomHeadLayerMixin",
+    "IcariaScreenEffectRendererMixin",
+    "IcariaEntityRenderDispatcherMixin"
   ],
   "minVersion": "0.8"
 }

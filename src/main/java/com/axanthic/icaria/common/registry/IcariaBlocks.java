@@ -1,11 +1,75 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.util.IcariaInfo;
-import com.axanthic.icaria.common.block.*;
-import com.axanthic.icaria.common.block.LayerBlock;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Supplier;
+
+import com.axanthic.icaria.common.block.CardonCactusBlock;
+import com.axanthic.icaria.common.block.CobwebBlock;
+import com.axanthic.icaria.common.block.CrystalBlock;
+import com.axanthic.icaria.common.block.DamagingBushBlock;
+import com.axanthic.icaria.common.block.DamagingFlowerPotBlock;
+import com.axanthic.icaria.common.block.DeadLogBlock;
+import com.axanthic.icaria.common.block.FarmlandBlock;
+import com.axanthic.icaria.common.block.FertilizedFarmlandBlock;
+import com.axanthic.icaria.common.block.ForgeBlock;
+import com.axanthic.icaria.common.block.GrassyMarlBlock;
+import com.axanthic.icaria.common.block.GreekFireBlock;
+import com.axanthic.icaria.common.block.GrinderBlock;
+import com.axanthic.icaria.common.block.GroundDecoBlock;
+import com.axanthic.icaria.common.block.GroundFlowerBlock;
+import com.axanthic.icaria.common.block.GroundShroomBlock;
+import com.axanthic.icaria.common.block.HorizontalPaneBlock;
+import com.axanthic.icaria.common.block.HyliastrumOreBlock;
+import com.axanthic.icaria.common.block.IcariaBarrelBlock;
+import com.axanthic.icaria.common.block.IcariaBushBlock;
+import com.axanthic.icaria.common.block.IcariaCakeBlock;
+import com.axanthic.icaria.common.block.IcariaCeilingHangingSignBlock;
+import com.axanthic.icaria.common.block.IcariaChainBlock;
+import com.axanthic.icaria.common.block.IcariaChestBlock;
+import com.axanthic.icaria.common.block.IcariaCraftingTableBlock;
+import com.axanthic.icaria.common.block.IcariaDirtBlock;
+import com.axanthic.icaria.common.block.IcariaLeavesBlock;
+import com.axanthic.icaria.common.block.IcariaLogBlock;
+import com.axanthic.icaria.common.block.IcariaPortalBlock;
 import com.axanthic.icaria.common.block.IcariaSandBlock;
+import com.axanthic.icaria.common.block.IcariaSkullBlock;
+import com.axanthic.icaria.common.block.IcariaSpawnerBlock;
+import com.axanthic.icaria.common.block.IcariaStandingSignBlock;
+import com.axanthic.icaria.common.block.IcariaTrappedChestBlock;
+import com.axanthic.icaria.common.block.IcariaVineBlock;
+import com.axanthic.icaria.common.block.IcariaWallHangingSignBlock;
+import com.axanthic.icaria.common.block.IcariaWallSignBlock;
+import com.axanthic.icaria.common.block.IcariaWallSkullBlock;
+import com.axanthic.icaria.common.block.JellyfishJellyBlock;
+import com.axanthic.icaria.common.block.KettleBlock;
+import com.axanthic.icaria.common.block.KilnBlock;
+import com.axanthic.icaria.common.block.LayerBlock;
+import com.axanthic.icaria.common.block.LoamBlock;
+import com.axanthic.icaria.common.block.LootVaseBlock;
+import com.axanthic.icaria.common.block.OliveLeavesBlock;
+import com.axanthic.icaria.common.block.OnionCropBlock;
+import com.axanthic.icaria.common.block.PhysalisCropBlock;
+import com.axanthic.icaria.common.block.PillarHeadBlock;
+import com.axanthic.icaria.common.block.RackBlock;
+import com.axanthic.icaria.common.block.SpeltBaleBlock;
+import com.axanthic.icaria.common.block.SpeltCropBlock;
+import com.axanthic.icaria.common.block.StorageVaseBlock;
+import com.axanthic.icaria.common.block.StrawberryBushBlock;
+import com.axanthic.icaria.common.block.StrawberryCropBlock;
+import com.axanthic.icaria.common.block.TreeShroomBlock;
+import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
+import com.axanthic.icaria.common.block.TroughBlock;
+import com.axanthic.icaria.common.block.WaterloggedBushBlock;
+import com.axanthic.icaria.common.util.IcariaInfo;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
-import com.axanthic.icaria.common.world.tree.*;
+import com.axanthic.icaria.common.world.tree.CypressTreeGrower;
+import com.axanthic.icaria.common.world.tree.DroughtrootTreeGrower;
+import com.axanthic.icaria.common.world.tree.FirTreeGrower;
+import com.axanthic.icaria.common.world.tree.LaurelTreeGrower;
+import com.axanthic.icaria.common.world.tree.OliveTreeGrower;
+import com.axanthic.icaria.common.world.tree.PlaneTreeGrower;
+import com.axanthic.icaria.common.world.tree.PopulusTreeGrower;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -13,19 +77,29 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.AmethystBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.block.GlassBlock;
+import net.minecraft.world.level.block.HalfTransparentBlock;
+import net.minecraft.world.level.block.IronBarsBlock;
+import net.minecraft.world.level.block.LadderBlock;
+import net.minecraft.world.level.block.LiquidBlock;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.TorchBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
-
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Supplier;
 
 @SuppressWarnings("unused")
 @MethodsReturnNonnullByDefault
@@ -612,6 +686,8 @@ public class IcariaBlocks {
 	public static final RegistryObject<Block> POTTED_CARDON_CACTUS = IcariaBlocks.register("potted_cardon_cactus", () -> new DamagingFlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.CARDON_CACTUS, IcariaBlocks.propertiesPot(MapColor.NONE, SoundType.STONE)));
 
 	public static final RegistryObject<Block> STRAWBERRY_BUSH = IcariaBlocks.register("strawberry_bush", () -> new StrawberryBushBlock(IcariaBlocks.propertiesBush(MapColor.NONE, SoundType.GRASS)));
+	
+	public static final RegistryObject<Block> COBWEB = IcariaBlocks.register("cobweb", () -> new CobwebBlock(IcariaBlocks.propertiesWeb(MapColor.WOOL, SoundType.CAVE_VINES)));
 
 	public static final RegistryObject<Block> SPELT_CROP = IcariaBlocks.register("spelt_crop", () -> new SpeltCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
 	public static final RegistryObject<Block> STRAWBERRY_CROP = IcariaBlocks.register("strawberry_crop", () -> new StrawberryCropBlock(IcariaBlocks.propertiesCrop(MapColor.NONE, SoundType.CROP)));
@@ -885,6 +961,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesPortal(MapColor pColor, SoundType pSound) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pColor).pushReaction(PushReaction.BLOCK).sound(pSound).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel((pBlockState) -> 11).noCollission().randomTicks();
+	}
+	
+	public static BlockBehaviour.Properties propertiesWeb(MapColor pColor, SoundType pSound) {
+		return BlockBehaviour.Properties.of( ).instrument(NoteBlockInstrument.HARP).mapColor(MapColor.WOOL).sound(pSound).forceSolidOn( ).noCollission( ).requiresCorrectToolForDrops( ).strength(4.0F).pushReaction(PushReaction.DESTROY).dynamicShape( );
 	}
 
 	public static BlockBehaviour.Properties propertiesNone() {

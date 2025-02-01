@@ -1,10 +1,34 @@
 package com.axanthic.icaria;
 
+import javax.annotation.Nonnull;
+
 import com.axanthic.icaria.client.effects.IcariaSpecialEffects;
 import com.axanthic.icaria.client.proxy.ClientProxy;
+import com.axanthic.icaria.common.block.CobwebBlock;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.proxy.CommonProxy;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaArmorItems;
+import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaCreativeModeTabs;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaFeatures;
+import com.axanthic.icaria.common.registry.IcariaFluidTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.registry.IcariaMobEffects;
+import com.axanthic.icaria.common.registry.IcariaPoiTypes;
+import com.axanthic.icaria.common.registry.IcariaPotions;
+import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
+import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaStoneDecoBlocks;
+import com.axanthic.icaria.common.registry.IcariaStoneDecoItems;
+import com.axanthic.icaria.common.registry.IcariaStructureTypes;
+import com.axanthic.icaria.common.registry.IcariaToolItems;
+import com.axanthic.icaria.common.registry.IcariaWoodDecoBlocks;
+import com.axanthic.icaria.common.registry.IcariaWoodDecoItems;
 import com.axanthic.icaria.common.util.IcariaInfo;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -28,8 +52,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-
-import javax.annotation.Nonnull;
 
 @SuppressWarnings("unused")
 
@@ -93,6 +115,7 @@ public class Icaria {
 
 	public void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
 		this.proxy.onFMLCommonSetup(pEvent);
+		CobwebBlock.fill( );
 	}
 
 	public void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {

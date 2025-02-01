@@ -1,6 +1,9 @@
 package com.axanthic.icaria.common.block;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.util.mixininterfaces.IIcariaEntityMixin;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -12,7 +15,11 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,8 +27,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
@@ -73,6 +78,7 @@ public class GreekFireBlock extends Block {
             if (pEntity.getRemainingFireTicks() == 0) {
                 pEntity.setSecondsOnFire(8);
             }
+            ((IIcariaEntityMixin)(Object)pEntity).icaria$setGreekFireDuration(160);
         }
 
         pEntity.hurt(pLevel.damageSources().inFire(), 1.5F);
