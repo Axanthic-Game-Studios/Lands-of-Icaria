@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "landsoficaria:yellowstone",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cobbled_yellowstone"
+  },
+  "time": 200
+}

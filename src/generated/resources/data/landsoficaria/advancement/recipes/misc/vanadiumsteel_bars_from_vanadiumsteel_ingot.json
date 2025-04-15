@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadiumsteel_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadiumsteel_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_bars_from_vanadiumsteel_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_bars_from_vanadiumsteel_ingot"
+    ]
+  }
+}

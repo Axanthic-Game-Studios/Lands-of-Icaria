@@ -1,8 +1,17 @@
 {
   "values": [
     "landsoficaria:cobbled_sunstone",
+    "landsoficaria:cobbled_sunstone_stairs",
+    "landsoficaria:cobbled_sunstone_slab",
+    "landsoficaria:cobbled_sunstone_wall",
     "landsoficaria:sunstone",
+    "landsoficaria:sunstone_stairs",
+    "landsoficaria:sunstone_slab",
+    "landsoficaria:sunstone_wall",
     "landsoficaria:sunstone_bricks",
+    "landsoficaria:sunstone_brick_stairs",
+    "landsoficaria:sunstone_brick_slab",
+    "landsoficaria:sunstone_brick_wall",
     "landsoficaria:chiseled_sunstone",
     "landsoficaria:vanadium_ore",
     "landsoficaria:sliver_ore",
@@ -15,15 +24,6 @@
     "landsoficaria:vanadiumsteel_block",
     "landsoficaria:vanadiumsteel_bars",
     "landsoficaria:horizontal_vanadiumsteel_bars",
-    "landsoficaria:vanadiumsteel_chain",
-    "landsoficaria:cobbled_sunstone_slab",
-    "landsoficaria:cobbled_sunstone_stairs",
-    "landsoficaria:cobbled_sunstone_wall",
-    "landsoficaria:sunstone_slab",
-    "landsoficaria:sunstone_stairs",
-    "landsoficaria:sunstone_wall",
-    "landsoficaria:sunstone_brick_slab",
-    "landsoficaria:sunstone_brick_stairs",
-    "landsoficaria:sunstone_brick_wall"
+    "landsoficaria:vanadiumsteel_chain"
   ]
 }

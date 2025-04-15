@@ -8,31 +8,55 @@
           "type": "minecraft:item",
           "conditions": [
             {
+              "condition": "minecraft:match_tool",
+              "predicate": {
+                "items": "minecraft:shears"
+              }
+            },
+            {
               "block": "landsoficaria:reedy_vine",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "vine": "none"
               }
-            },
+            }
+          ],
+          "name": "landsoficaria:reedy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
             {
               "condition": "minecraft:match_tool",
               "predicate": {
                 "items": "minecraft:shears"
               }
-            }
-          ],
-          "name": "landsoficaria:reedy_vine"
-        },
-        {
-          "type": "minecraft:item",
-          "conditions": [
+            },
             {
               "block": "landsoficaria:reedy_vine",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "vine": "none"
+                "vine": "vine"
               }
-            },
+            }
+          ],
+          "name": "landsoficaria:reedy_vine"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
             {
               "condition": "minecraft:inverted",
               "term": {
@@ -40,6 +64,13 @@
                 "predicate": {
                   "items": "minecraft:shears"
                 }
+              }
+            },
+            {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "none"
               }
             }
           ],
@@ -65,38 +96,19 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "vine"
-              }
-            },
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "minecraft:shears"
-              }
-            }
-          ],
-          "name": "landsoficaria:reedy_vine"
-        },
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "vine"
-              }
-            },
-            {
               "condition": "minecraft:inverted",
               "term": {
                 "condition": "minecraft:match_tool",
                 "predicate": {
                   "items": "minecraft:shears"
                 }
+              }
+            },
+            {
+              "block": "landsoficaria:reedy_vine",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "vine": "vine"
               }
             }
           ],

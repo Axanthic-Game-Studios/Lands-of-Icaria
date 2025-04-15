@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:relicstone_bricks",
+    [
+      "minecraft:moss_block",
+      "minecraft:vine",
+      "landsoficaria:bloomy_vine",
+      "landsoficaria:branchy_vine",
+      "landsoficaria:brushy_vine",
+      "landsoficaria:dry_vine",
+      "landsoficaria:reedy_vine",
+      "landsoficaria:swirly_vine",
+      "landsoficaria:thorny_vine"
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:mossy_relicstone_bricks"
+  }
+}

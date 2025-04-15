@@ -2,15 +2,15 @@ package com.axanthic.icaria.common.util;
 
 import com.axanthic.icaria.common.menu.provider.IcariaChestMenuProvider;
 
+import java.util.Optional;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.CompoundContainer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.level.block.DoubleBlockCombiner;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
-
-import java.util.Optional;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

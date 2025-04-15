@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:chalkos_ingot"
-    },
-    "Y": {
-      "item": "minecraft:bone"
-    }
+    "A": "landsoficaria:chalkos_ingot",
+    "B": "minecraft:bone"
   },
   "pattern": [
-    "XXX",
-    " Y ",
-    " Y "
+    "AAA",
+    " B ",
+    " B "
   ],
   "result": {
     "count": 1,

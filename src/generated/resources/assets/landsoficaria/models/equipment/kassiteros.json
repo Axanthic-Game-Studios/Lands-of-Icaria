@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "landsoficaria:kassiteros"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "landsoficaria:kassiteros"
+      }
+    ]
+  }
+}

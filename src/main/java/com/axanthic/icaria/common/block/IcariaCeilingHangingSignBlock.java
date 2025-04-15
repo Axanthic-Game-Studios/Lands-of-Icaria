@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.entity.IcariaHangingSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -16,14 +18,12 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.FluidState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaCeilingHangingSignBlock extends CeilingHangingSignBlock implements MediterraneanWaterloggedBlock {
-	public IcariaCeilingHangingSignBlock(WoodType pType, Properties pProperties) {
-		super(pType, pProperties);
+	public IcariaCeilingHangingSignBlock(WoodType pWoodType, Properties pProperties) {
+		super(pWoodType, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACHED, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
@@ -33,17 +33,17 @@ public class IcariaCeilingHangingSignBlock extends CeilingHangingSignBlock imple
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new IcariaHangingSignBlockEntity(pPos, pState);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new IcariaHangingSignBlockEntity(pBlockPos, pBlockState);
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pContext.getLevel().getFluidState(pContext.getClickedPos()).getType() == IcariaFluids.MEDITERRANEAN_WATER.get());
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		return super.getStateForPlacement(pBlockPlaceContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType() == IcariaFluids.MEDITERRANEAN_WATER.get());
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pBlockState);
 	}
 }

@@ -3,12 +3,12 @@ package com.axanthic.icaria.common.handler.stack;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -22,8 +22,8 @@ public class GrinderFuelItemStackHandler extends ItemStackHandler {
 	}
 
 	@Override
-	public boolean isItemValid(int pIndex, ItemStack pStack) {
-		return pStack.getItem() == IcariaItems.SLIVER.get() || pStack.getItem() == IcariaItems.SLIVER_BLOCK.get();
+	public boolean isItemValid(int pIndex, ItemStack pItemStack) {
+		return pItemStack.getItem() == IcariaItems.SLIVER_BLOCK.get() || pItemStack.getItem() == IcariaItems.SLIVER.get();
 	}
 
 	@Override

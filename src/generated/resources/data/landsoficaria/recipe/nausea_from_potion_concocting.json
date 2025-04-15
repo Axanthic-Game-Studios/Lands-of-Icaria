@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:potion_concocting",
+  "colour": 5578058,
+  "duration": 220,
+  "ingredient": [
+    "landsoficaria:psilocybos",
+    "landsoficaria:moth_agaric",
+    "landsoficaria:psilocybos"
+  ],
+  "potion": {
+    "potion": "landsoficaria:nausea"
+  },
+  "radius": 5.0,
+  "time": 200
+}

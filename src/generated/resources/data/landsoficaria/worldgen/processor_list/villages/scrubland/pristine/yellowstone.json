@@ -27,6 +27,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -41,6 +42,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -53,6 +55,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -67,6 +70,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -79,6 +83,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -93,6 +98,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -105,6 +111,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -119,6 +126,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -131,6 +139,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -145,6 +154,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -157,6 +167,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -171,6 +182,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -183,6 +195,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -197,6 +210,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -209,6 +223,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -223,6 +238,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -235,6 +251,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -249,6 +266,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -261,6 +279,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -275,6 +294,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -287,6 +307,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -301,6 +322,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -313,6 +335,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -327,6 +350,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -339,6 +363,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -353,6 +378,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -365,6 +391,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -379,6 +406,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -391,6 +419,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -405,6 +434,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -417,6 +447,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -431,6 +462,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -443,6 +475,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -457,6 +490,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -469,6 +503,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -483,6 +518,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -495,6 +531,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -509,6 +546,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -521,6 +559,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -535,6 +574,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -547,6 +587,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -561,6 +602,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -573,6 +615,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -587,6 +630,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -599,6 +643,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -613,6 +658,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -625,6 +671,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -639,6 +686,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -651,6 +699,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -665,6 +714,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -677,6 +727,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -691,6 +742,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -703,6 +755,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -717,6 +770,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -729,6 +783,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -743,6 +798,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -755,6 +811,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -769,6 +826,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -781,6 +839,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -795,6 +854,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -807,6 +867,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -821,6 +882,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -833,6 +895,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -847,6 +910,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -859,6 +923,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -873,6 +938,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -885,6 +951,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -899,6 +966,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -911,6 +979,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -925,6 +994,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -937,6 +1007,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -951,6 +1022,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -963,6 +1035,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -977,6 +1050,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -989,6 +1063,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -1003,6 +1078,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -1015,6 +1091,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -1029,6 +1106,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -1041,6 +1119,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -1055,6 +1134,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -1071,6 +1151,7 @@
               "Name": "landsoficaria:yellowstone_adobe_slab",
               "Properties": {
                 "type": "top",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -1083,6 +1164,7 @@
             "Name": "landsoficaria:yellowstone_adobe_slab",
             "Properties": {
               "type": "top",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -1093,6 +1175,7 @@
               "Name": "landsoficaria:yellowstone_adobe_slab",
               "Properties": {
                 "type": "bottom",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -1105,6 +1188,7 @@
             "Name": "landsoficaria:yellowstone_adobe_slab",
             "Properties": {
               "type": "bottom",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -1115,6 +1199,7 @@
               "Name": "landsoficaria:yellowstone_adobe_slab",
               "Properties": {
                 "type": "double",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -1127,6 +1212,7 @@
             "Name": "landsoficaria:yellowstone_adobe_slab",
             "Properties": {
               "type": "double",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -1165,7 +1251,8 @@
             "block_state": {
               "Name": "landsoficaria:stripped_laurel_log",
               "Properties": {
-                "axis": "x"
+                "axis": "x",
+                "player_placed": "false"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -1176,7 +1263,8 @@
           "output_state": {
             "Name": "landsoficaria:stripped_laurel_log",
             "Properties": {
-              "axis": "x"
+              "axis": "x",
+              "player_placed": "false"
             }
           }
         },
@@ -1185,7 +1273,8 @@
             "block_state": {
               "Name": "landsoficaria:stripped_laurel_log",
               "Properties": {
-                "axis": "y"
+                "axis": "y",
+                "player_placed": "false"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -1196,7 +1285,8 @@
           "output_state": {
             "Name": "landsoficaria:stripped_laurel_log",
             "Properties": {
-              "axis": "y"
+              "axis": "y",
+              "player_placed": "false"
             }
           }
         },
@@ -1205,7 +1295,8 @@
             "block_state": {
               "Name": "landsoficaria:stripped_laurel_log",
               "Properties": {
-                "axis": "z"
+                "axis": "z",
+                "player_placed": "false"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -1216,7 +1307,8 @@
           "output_state": {
             "Name": "landsoficaria:stripped_laurel_log",
             "Properties": {
-              "axis": "z"
+              "axis": "z",
+              "player_placed": "false"
             }
           }
         }
@@ -1232,6 +1324,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1246,6 +1339,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1258,6 +1352,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1272,6 +1367,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1284,6 +1380,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1298,6 +1395,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1310,6 +1408,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1324,6 +1423,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1336,6 +1436,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1350,6 +1451,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1362,6 +1464,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1376,6 +1479,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1388,6 +1492,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1402,6 +1507,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1414,6 +1520,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "straight",
                 "waterlogged": "false"
               }
@@ -1428,6 +1535,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "straight",
               "waterlogged": "false"
             }
@@ -1440,6 +1548,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1454,6 +1563,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1466,6 +1576,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1480,6 +1591,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1492,6 +1604,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1506,6 +1619,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1518,6 +1632,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1532,6 +1647,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1544,6 +1660,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1558,6 +1675,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1570,6 +1688,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1584,6 +1703,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1596,6 +1716,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1610,6 +1731,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1622,6 +1744,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_left",
                 "waterlogged": "false"
               }
@@ -1636,6 +1759,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_left",
               "waterlogged": "false"
             }
@@ -1648,6 +1772,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1662,6 +1787,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1674,6 +1800,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1688,6 +1815,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1700,6 +1828,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1714,6 +1843,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1726,6 +1856,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1740,6 +1871,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1752,6 +1884,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1766,6 +1899,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1778,6 +1912,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1792,6 +1927,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1804,6 +1940,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1818,6 +1955,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1830,6 +1968,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "inner_right",
                 "waterlogged": "false"
               }
@@ -1844,6 +1983,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "inner_right",
               "waterlogged": "false"
             }
@@ -1856,6 +1996,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -1870,6 +2011,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -1882,6 +2024,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -1896,6 +2039,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -1908,6 +2052,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -1922,6 +2067,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -1934,6 +2080,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -1948,6 +2095,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -1960,6 +2108,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -1974,6 +2123,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -1986,6 +2136,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -2000,6 +2151,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -2012,6 +2164,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -2026,6 +2179,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -2038,6 +2192,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_left",
                 "waterlogged": "false"
               }
@@ -2052,6 +2207,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_left",
               "waterlogged": "false"
             }
@@ -2064,6 +2220,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2078,6 +2235,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2090,6 +2248,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2104,6 +2263,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2116,6 +2276,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2130,6 +2291,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2142,6 +2304,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2156,6 +2319,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2168,6 +2332,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2182,6 +2347,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2194,6 +2360,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2208,6 +2375,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2220,6 +2388,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2234,6 +2403,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2246,6 +2416,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "shape": "outer_right",
                 "waterlogged": "false"
               }
@@ -2260,6 +2431,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "shape": "outer_right",
               "waterlogged": "false"
             }
@@ -2276,6 +2448,7 @@
               "Name": "landsoficaria:laurel_slab",
               "Properties": {
                 "type": "top",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -2288,6 +2461,7 @@
             "Name": "landsoficaria:laurel_slab",
             "Properties": {
               "type": "top",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -2298,6 +2472,7 @@
               "Name": "landsoficaria:laurel_slab",
               "Properties": {
                 "type": "bottom",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -2310,6 +2485,7 @@
             "Name": "landsoficaria:laurel_slab",
             "Properties": {
               "type": "bottom",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -2320,6 +2496,7 @@
               "Name": "landsoficaria:laurel_slab",
               "Properties": {
                 "type": "double",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -2332,6 +2509,7 @@
             "Name": "landsoficaria:laurel_slab",
             "Properties": {
               "type": "double",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -5583,6 +5761,7 @@
               "Name": "landsoficaria:plane_slab",
               "Properties": {
                 "type": "top",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -5595,6 +5774,7 @@
             "Name": "landsoficaria:plane_slab",
             "Properties": {
               "type": "top",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -5605,6 +5785,7 @@
               "Name": "landsoficaria:plane_slab",
               "Properties": {
                 "type": "bottom",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -5617,6 +5798,7 @@
             "Name": "landsoficaria:plane_slab",
             "Properties": {
               "type": "bottom",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -5627,6 +5809,7 @@
               "Name": "landsoficaria:plane_slab",
               "Properties": {
                 "type": "double",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -5639,6 +5822,7 @@
             "Name": "landsoficaria:plane_slab",
             "Properties": {
               "type": "double",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -5654,6 +5838,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "false",
                 "waterlogged": "false",
@@ -5669,6 +5854,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "false",
               "waterlogged": "false",
@@ -5682,6 +5868,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "false",
                 "waterlogged": "false",
@@ -5697,6 +5884,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "false",
               "waterlogged": "false",
@@ -5710,6 +5898,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "false",
                 "waterlogged": "false",
@@ -5725,6 +5914,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "false",
               "waterlogged": "false",
@@ -5738,6 +5928,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "true",
                 "waterlogged": "false",
@@ -5753,6 +5944,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "true",
               "waterlogged": "false",
@@ -5766,6 +5958,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "false",
                 "waterlogged": "false",
@@ -5781,6 +5974,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "false",
               "waterlogged": "false",
@@ -5794,6 +5988,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "false",
                 "waterlogged": "false",
@@ -5809,6 +6004,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "false",
               "waterlogged": "false",
@@ -5822,6 +6018,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "true",
                 "waterlogged": "false",
@@ -5837,6 +6034,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "true",
               "waterlogged": "false",
@@ -5850,6 +6048,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "true",
                 "waterlogged": "false",
@@ -5865,6 +6064,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "true",
               "waterlogged": "false",
@@ -5878,6 +6078,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "false",
                 "waterlogged": "false",
@@ -5893,6 +6094,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "false",
               "waterlogged": "false",
@@ -5906,6 +6108,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "true",
                 "waterlogged": "false",
@@ -5921,6 +6124,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "true",
               "waterlogged": "false",
@@ -5934,6 +6138,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "false",
                 "waterlogged": "false",
@@ -5949,6 +6154,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "false",
               "waterlogged": "false",
@@ -5962,6 +6168,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "true",
                 "waterlogged": "false",
@@ -5977,6 +6184,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "true",
               "waterlogged": "false",
@@ -5990,6 +6198,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "false",
                 "south": "true",
                 "waterlogged": "false",
@@ -6005,6 +6214,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "false",
               "south": "true",
               "waterlogged": "false",
@@ -6018,6 +6228,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "false",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "true",
                 "waterlogged": "false",
@@ -6033,6 +6244,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "false",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "true",
               "waterlogged": "false",
@@ -6046,6 +6258,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "false",
                 "waterlogged": "false",
@@ -6061,6 +6274,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "false",
               "waterlogged": "false",
@@ -6074,6 +6288,7 @@
               "Name": "landsoficaria:plane_fence",
               "Properties": {
                 "east": "true",
+                "mediterranean_waterlogged": "false",
                 "north": "true",
                 "south": "true",
                 "waterlogged": "false",
@@ -6089,6 +6304,7 @@
             "Name": "landsoficaria:plane_fence",
             "Properties": {
               "east": "true",
+              "mediterranean_waterlogged": "false",
               "north": "true",
               "south": "true",
               "waterlogged": "false",
@@ -6578,6 +6794,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6593,6 +6810,7 @@
             "Properties": {
               "facing": "north",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6606,6 +6824,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6621,6 +6840,7 @@
             "Properties": {
               "facing": "east",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6634,6 +6854,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6649,6 +6870,7 @@
             "Properties": {
               "facing": "south",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6662,6 +6884,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "top",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6677,6 +6900,7 @@
             "Properties": {
               "facing": "west",
               "half": "top",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6690,6 +6914,7 @@
               "Properties": {
                 "facing": "north",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6705,6 +6930,7 @@
             "Properties": {
               "facing": "north",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6718,6 +6944,7 @@
               "Properties": {
                 "facing": "east",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6733,6 +6960,7 @@
             "Properties": {
               "facing": "east",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6746,6 +6974,7 @@
               "Properties": {
                 "facing": "south",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6761,6 +6990,7 @@
             "Properties": {
               "facing": "south",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6774,6 +7004,7 @@
               "Properties": {
                 "facing": "west",
                 "half": "bottom",
+                "mediterranean_waterlogged": "false",
                 "open": "false",
                 "powered": "false",
                 "waterlogged": "false"
@@ -6789,6 +7020,7 @@
             "Properties": {
               "facing": "west",
               "half": "bottom",
+              "mediterranean_waterlogged": "false",
               "open": "false",
               "powered": "false",
               "waterlogged": "false"
@@ -6806,6 +7038,7 @@
               "Name": "landsoficaria:plane_ladder",
               "Properties": {
                 "facing": "north",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -6818,6 +7051,7 @@
             "Name": "landsoficaria:plane_ladder",
             "Properties": {
               "facing": "north",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -6828,6 +7062,7 @@
               "Name": "landsoficaria:plane_ladder",
               "Properties": {
                 "facing": "east",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -6840,6 +7075,7 @@
             "Name": "landsoficaria:plane_ladder",
             "Properties": {
               "facing": "east",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -6850,6 +7086,7 @@
               "Name": "landsoficaria:plane_ladder",
               "Properties": {
                 "facing": "south",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -6862,6 +7099,7 @@
             "Name": "landsoficaria:plane_ladder",
             "Properties": {
               "facing": "south",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }
@@ -6872,6 +7110,7 @@
               "Name": "landsoficaria:plane_ladder",
               "Properties": {
                 "facing": "west",
+                "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
               }
             },
@@ -6884,6 +7123,7 @@
             "Name": "landsoficaria:plane_ladder",
             "Properties": {
               "facing": "west",
+              "mediterranean_waterlogged": "false",
               "waterlogged": "false"
             }
           }

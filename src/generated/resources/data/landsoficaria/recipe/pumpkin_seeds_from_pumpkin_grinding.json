@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "minecraft:pumpkin",
+  "result": {
+    "count": 12,
+    "id": "minecraft:pumpkin_seeds"
+  },
+  "time": 200
+}

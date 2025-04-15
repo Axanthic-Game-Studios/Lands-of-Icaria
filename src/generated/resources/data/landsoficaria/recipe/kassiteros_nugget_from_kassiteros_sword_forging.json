@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:kassiteros_sword",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:kassiteros_nugget"
+  },
+  "time": 100
+}

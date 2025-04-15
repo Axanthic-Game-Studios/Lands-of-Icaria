@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 4204555,
+  "entity": "landsoficaria:aeternae",
+  "ingredient": [
+    "landsoficaria:rowan",
+    "landsoficaria:namdrake",
+    "landsoficaria:wilted_elm"
+  ],
+  "time": 200
+}

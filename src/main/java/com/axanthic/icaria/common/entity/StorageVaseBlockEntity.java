@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.menu.StorageVaseMenu;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -17,8 +19,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -27,8 +27,8 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 
 	public NonNullList<ItemStack> items = NonNullList.withSize(this.size, ItemStack.EMPTY);
 
-	public StorageVaseBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pPos, pState);
+	public StorageVaseBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.STORAGE_VASE.get(), pBlockPos, pBlockState);
 	}
 
 	@Override
@@ -37,25 +37,24 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pTag, pProvider);
-		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-		if (!this.tryLoadLootTable(pTag)) {
-			ContainerHelper.loadAllItems(pTag, this.items, pProvider);
+	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pCompoundTag, pProvider);
+		if (!this.tryLoadLootTable(pCompoundTag)) {
+			ContainerHelper.loadAllItems(pCompoundTag, this.items, pProvider);
 		}
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pTag, pProvider);
-		if (!this.trySaveLootTable(pTag)) {
-			ContainerHelper.saveAllItems(pTag, this.items, pProvider);
+	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pCompoundTag, pProvider);
+		if (!this.trySaveLootTable(pCompoundTag)) {
+			ContainerHelper.saveAllItems(pCompoundTag, this.items, pProvider);
 		}
 	}
 
 	@Override
-	public void setItems(NonNullList<ItemStack> pItems) {
-		this.items = pItems;
+	public void setItems(NonNullList<ItemStack> pItemStacks) {
+		this.items = pItemStacks;
 	}
 
 	@Override

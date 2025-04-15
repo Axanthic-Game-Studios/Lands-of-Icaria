@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:physalis": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:physalis"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:physalis_seeds_from_physalis"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:physalis"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:physalis_seeds_from_physalis"
+    ]
+  }
+}

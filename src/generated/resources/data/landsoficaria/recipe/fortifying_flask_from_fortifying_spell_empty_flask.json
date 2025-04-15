@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:fortifying_spell",
+    "landsoficaria:empty_flask"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:fortifying_flask"
+  }
+}

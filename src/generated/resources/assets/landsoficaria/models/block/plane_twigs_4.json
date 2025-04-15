@@ -1,6 +1,7 @@
 {
   "parent": "landsoficaria:block/template_twigs_4",
   "textures": {
+    "particle": "landsoficaria:block/plane_twigs",
     "texture": "landsoficaria:block/plane_twigs"
   }
 }

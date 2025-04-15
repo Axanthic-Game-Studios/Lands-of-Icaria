@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:molybdenum_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:molybdenum_ingot"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadiumsteel_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadiumsteel_scythe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_scythe_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_scythe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_scythe_forging"
+    ]
+  }
+}

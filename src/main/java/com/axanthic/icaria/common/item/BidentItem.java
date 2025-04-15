@@ -3,96 +3,125 @@ package com.axanthic.icaria.common.item;
 import com.axanthic.icaria.common.entity.BidentEntity;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TieredItem;
-import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import net.neoforged.neoforge.common.SimpleTier;
-
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BidentItem extends TieredItem {
-	public BidentItem(SimpleTier pTier, Properties pProperties) {
-		super(pTier, pProperties);
+public class BidentItem extends Item implements ProjectileItem {
+	public float attackDamage;
+
+	public BidentItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed, Properties pProperties) {
+		super(pProperties.component(DataComponents.ATTRIBUTE_MODIFIERS, BidentItem.createAttributes(pToolMaterial, pAttackDamage, pAttackSpeed)).component(DataComponents.TOOL, BidentItem.createToolProperties()).durability(pToolMaterial.durability()).enchantable(pToolMaterial.enchantmentValue()).repairable(pToolMaterial.repairItems()));
+		this.attackDamage = pToolMaterial.attackDamageBonus() + pAttackDamage;
 	}
 
 	@Override
-	public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+	public boolean canAttackBlock(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer) {
 		return !pPlayer.isCreative();
 	}
 
 	@Override
-	public boolean hurtEnemy(ItemStack pStack, LivingEntity pTarget, LivingEntity pAttacker) {
-		pStack.hurtAndBreak(1, pAttacker, LivingEntity.getSlotForHand(InteractionHand.MAIN_HAND));
+	public boolean canPerformAction(ItemStack pItemStack, ItemAbility pItemAbility) {
+		return pItemAbility == ItemAbilities.TRIDENT_THROW;
+	}
+
+	@Override
+	public boolean hurtEnemy(ItemStack pItemStack, LivingEntity pTarget, LivingEntity pSource) {
 		return true;
 	}
 
 	@Override
-	public int getUseDuration(ItemStack pStack, LivingEntity pLivingEntity) {
+	public boolean releaseUsing(ItemStack pItemStack, Level pLevel, LivingEntity pLivingEntity, int pTimeLeft) {
+		if (this.getUseDuration(pItemStack, pLivingEntity) - pTimeLeft >= 10 && pLevel instanceof ServerLevel serverLevel && pLivingEntity instanceof Player player && !pItemStack.nextDamageWillBreak()) {
+			player.awardStat(Stats.ITEM_USED.get(this));
+			pLevel.playSound(null, player.blockPosition(), IcariaSoundEvents.BIDENT_THROW, SoundSource.PLAYERS);
+			pItemStack.hurtWithoutBreaking(1, player);
+			this.handlePickup(Projectile.spawnProjectileFromRotation(BidentEntity::new, serverLevel, pItemStack, player, 0.0F, 2.0F, 1.0F), pItemStack, player);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public float getAttackDamage() {
+		return this.attackDamage;
+	}
+
+	@Override
+	public int getUseDuration(ItemStack pItemStack, LivingEntity pLivingEntity) {
 		return 72000;
 	}
 
-	@Override
-	public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pLivingEntity, int pTimeCharged) {
-		if (pLivingEntity instanceof Player player && this.getUseDuration(pStack, pLivingEntity) - pTimeCharged >= 10) {
-			player.playSound(IcariaSoundEvents.BIDENT_THROW);
-			if (!pLevel.isClientSide()) {
-				player.awardStat(Stats.ITEM_USED.get(this));
-				pStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(pLivingEntity.getUsedItemHand()));
-				var entity = new BidentEntity(pLevel, player, pStack);
-				entity.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.0F);
-				pLevel.addFreshEntity(entity);
-				if (player.getAbilities().instabuild) {
-					entity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
-				} else {
-					player.getInventory().removeItem(pStack);
-				}
-			}
-		}
-	}
-
-	@Override
-	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		var itemStack = pPlayer.getItemInHand(pUsedHand);
-		if (itemStack.getDamageValue() >= itemStack.getMaxDamage() - 1) {
-			return InteractionResultHolder.fail(itemStack);
+	public void handlePickup(BidentEntity pEntity, ItemStack pItemStack, Player pPlayer) {
+		if (pPlayer.hasInfiniteMaterials()) {
+			pEntity.pickup = AbstractArrow.Pickup.CREATIVE_ONLY;
 		} else {
-			pPlayer.startUsingItem(pUsedHand);
-			return InteractionResultHolder.consume(itemStack);
+			pPlayer.getInventory().removeItem(pItemStack);
 		}
 	}
 
-	public static ItemAttributeModifiers createAttributes(SimpleTier pTier, float pAttackDamage, float pAttackSpeed) {
-		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, pAttackDamage + pTier.getAttackDamageBonus(), AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
+	@Override
+	public void postHurtEnemy(ItemStack pItemStack, LivingEntity pTarget, LivingEntity pSource) {
+		pItemStack.hurtAndBreak(1, pSource, EquipmentSlot.MAINHAND);
+	}
+
+	@Override
+	public InteractionResult use(Level pLevel, Player pPlayer, InteractionHand pInteractionHand) {
+		if (pPlayer.getItemInHand(pInteractionHand).nextDamageWillBreak()) {
+			return InteractionResult.FAIL;
+		} else {
+			pPlayer.startUsingItem(pInteractionHand);
+			return InteractionResult.CONSUME;
+		}
+	}
+
+	public static ItemAttributeModifiers createAttributes(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed) {
+		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, pToolMaterial.attackDamageBonus() + pAttackDamage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
+	}
+
+	@Override
+	public ItemUseAnimation getUseAnimation(ItemStack pItemStack) {
+		return ItemUseAnimation.SPEAR;
+	}
+
+	@Override
+	public Projectile asProjectile(Level pLevel, Position pBlockPos, ItemStack pItemStack, Direction pDirection) {
+		var bidentEntity = new BidentEntity(pLevel, pBlockPos.x(), pBlockPos.y(), pBlockPos.z(), pItemStack.copyWithCount(1));
+		bidentEntity.pickup = AbstractArrow.Pickup.ALLOWED;
+		return bidentEntity;
 	}
 
 	public static Tool createToolProperties() {
 		return new Tool(List.of(), 1.0F, 2);
-	}
-
-	@Override
-	public UseAnim getUseAnimation(ItemStack pStack) {
-		return UseAnim.SPEAR;
 	}
 }

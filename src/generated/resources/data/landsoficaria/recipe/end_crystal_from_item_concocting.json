@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 10711486,
+  "ingredient": [
+    "landsoficaria:arachne_venom_vial",
+    "landsoficaria:dathulla",
+    "landsoficaria:hyliastrum_vial"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:end_crystal"
+  },
+  "time": 200
+}

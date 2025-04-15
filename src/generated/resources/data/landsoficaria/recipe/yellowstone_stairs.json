@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:yellowstone"
-    }
+    "A": "landsoficaria:yellowstone"
   },
   "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
+    "A  ",
+    "AA ",
+    "AAA"
   ],
   "result": {
     "count": 4,

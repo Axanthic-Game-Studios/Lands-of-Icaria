@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 6307968,
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:bone_remains",
+    "landsoficaria:moth_agaric"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:magic_missile_spell"
+  },
+  "time": 200
+}

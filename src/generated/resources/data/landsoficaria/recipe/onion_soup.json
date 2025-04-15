@@ -2,21 +2,11 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "landsoficaria:onion"
-    },
-    {
-      "item": "landsoficaria:onion"
-    },
-    {
-      "item": "landsoficaria:onion"
-    },
-    {
-      "item": "landsoficaria:halite_dust"
-    },
-    {
-      "item": "landsoficaria:loam_bowl"
-    }
+    "landsoficaria:halite_dust",
+    "landsoficaria:onion",
+    "landsoficaria:onion",
+    "landsoficaria:onion",
+    "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,

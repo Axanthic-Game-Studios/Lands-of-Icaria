@@ -1,17 +1,62 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,mediterranean_waterlogged=false,waterlogged=false": {
       "model": "landsoficaria:block/olive_trough",
       "y": 90
     },
-    "facing=north": {
+    "facing=east,mediterranean_waterlogged=false,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 90
+    },
+    "facing=east,mediterranean_waterlogged=true,waterlogged=false": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 90
+    },
+    "facing=east,mediterranean_waterlogged=true,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 90
+    },
+    "facing=north,mediterranean_waterlogged=false,waterlogged=false": {
       "model": "landsoficaria:block/olive_trough"
     },
-    "facing=south": {
+    "facing=north,mediterranean_waterlogged=false,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough"
+    },
+    "facing=north,mediterranean_waterlogged=true,waterlogged=false": {
+      "model": "landsoficaria:block/olive_trough"
+    },
+    "facing=north,mediterranean_waterlogged=true,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough"
+    },
+    "facing=south,mediterranean_waterlogged=false,waterlogged=false": {
       "model": "landsoficaria:block/olive_trough",
       "y": 180
     },
-    "facing=west": {
+    "facing=south,mediterranean_waterlogged=false,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 180
+    },
+    "facing=south,mediterranean_waterlogged=true,waterlogged=false": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 180
+    },
+    "facing=south,mediterranean_waterlogged=true,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 180
+    },
+    "facing=west,mediterranean_waterlogged=false,waterlogged=false": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 270
+    },
+    "facing=west,mediterranean_waterlogged=false,waterlogged=true": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 270
+    },
+    "facing=west,mediterranean_waterlogged=true,waterlogged=false": {
+      "model": "landsoficaria:block/olive_trough",
+      "y": 270
+    },
+    "facing=west,mediterranean_waterlogged=true,waterlogged=true": {
       "model": "landsoficaria:block/olive_trough",
       "y": 270
     }

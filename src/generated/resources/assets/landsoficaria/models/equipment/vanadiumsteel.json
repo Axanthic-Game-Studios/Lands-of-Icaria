@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "landsoficaria:vanadiumsteel"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "landsoficaria:vanadiumsteel"
+      }
+    ]
+  }
+}

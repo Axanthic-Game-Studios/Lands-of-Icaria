@@ -17,6 +17,7 @@
     "description": {
       "translate": "advancement.landsoficaria.molybdenumsteel_pickaxe.description"
     },
+    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "landsoficaria:molybdenumsteel_pickaxe"

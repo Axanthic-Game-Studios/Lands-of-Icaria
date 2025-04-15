@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadium_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:deepslate_redstone_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:deepslate_redstone_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:redstone_from_deepslate_redstone_ore_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadium_gear",
+      "has_minecraft:deepslate_redstone_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:redstone_from_deepslate_redstone_ore_grinding"
+    ]
+  }
+}

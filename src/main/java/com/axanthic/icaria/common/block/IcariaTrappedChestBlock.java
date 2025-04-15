@@ -2,6 +2,10 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaTrappedChestBlockEntity;
 
+import java.util.function.Supplier;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -15,36 +19,32 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import java.util.function.Supplier;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaTrappedChestBlock extends IcariaChestBlock {
-	public IcariaTrappedChestBlock(Properties pProperties, Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType) {
-		super(pProperties, pBlockEntityType);
+	public IcariaTrappedChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, Properties pProperties) {
+		super(pBlockEntityType, pProperties);
 	}
 
 	@Override
-	public boolean isSignalSource(BlockState pState) {
+	public boolean isSignalSource(BlockState pBlockState) {
 		return true;
 	}
 
 	@Override
-	public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-		return pSide == Direction.UP ? pBlockState.getSignal(pBlockAccess, pPos, pSide) : 0;
+	public int getDirectSignal(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Direction pDirection) {
+		return pDirection == Direction.UP ? pBlockState.getSignal(pBlockGetter, pBlockPos, pDirection) : 0;
 	}
 
 	@Override
-	public int getSignal(BlockState pBlockState, BlockGetter pBlockAccess, BlockPos pPos, Direction pSide) {
-		return Mth.clamp(ChestBlockEntity.getOpenCount(pBlockAccess, pPos), 0, 15);
+	public int getSignal(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Direction pDirection) {
+		return Mth.clamp(ChestBlockEntity.getOpenCount(pBlockGetter, pBlockPos), 0, 15);
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new IcariaTrappedChestBlockEntity(pPos, pState);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new IcariaTrappedChestBlockEntity(pBlockPos, pBlockState);
 	}
 
 	@Override

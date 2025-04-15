@@ -1,13 +1,15 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.SoldierRevenantEntity;
+import com.axanthic.icaria.client.state.SoldierRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -18,13 +20,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntity> implements ArmedModel {
-	public ModelPart root;
+public class SoldierRevenantModel extends EntityModel<SoldierRevenantRenderState> implements ArmedModel {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart jawUpper;
@@ -44,7 +43,7 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 	public ModelPart legLeft;
 
 	public SoldierRevenantModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyUpper = this.root.getChild("bodyUpper");
 		this.headMain = this.bodyUpper.getChild("headMain");
 		this.jawUpper = this.headMain.getChild("jawUpper");
@@ -65,8 +64,10 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 	}
 
 	@Override
-	public void setupAnim(SoldierRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		var randomSource = RandomSource.create(pEntity.getId());
+	public void setupAnim(SoldierRevenantRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		var randomSource = RandomSource.create(pRenderState.id);
 
 		this.setRotateAngles(this.headMain, 0.0F, 0.0F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F);
 		this.setRotateAngles(this.jawLower, 0.1047F, 0.0F, 0.0F);
@@ -79,10 +80,10 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 		this.setRotateAngles(this.legRight, 0.2094F, 0.0F, 0.0F);
 		this.setRotateAngles(this.legLeft, 0.2094F, 0.0F, 0.0F);
 
-		this.attackAnim();
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+		this.attackAnim(pRenderState.attackTime);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
@@ -91,8 +92,8 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 		pModelPart.zRot = pZ;
 	}
 
-	public void attackAnim() {
-		this.armRightUpper.xRot -= Mth.sin(this.attackTime * Mth.PI);
+	public void attackAnim(float pAttackTime) {
+		this.armRightUpper.xRot -= Mth.sin(pAttackTime * Mth.PI);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -104,26 +105,27 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed;
 
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
-		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.5F * pLimbSwingAmount;
-		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.5F * pLimbSwingAmount;
-		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
-		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.armRightUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed;
+		this.armLeftUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed;
+		this.armRightLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.armLeftLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.thighRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.5F * pWalkAnimationSpeed;
+		this.thighLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.5F * pWalkAnimationSpeed;
+		this.legRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
+		this.legLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
 		this.armRightUpper.translateAndRotate(pPoseStack);
@@ -132,6 +134,7 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyUpper = partDefinition.addOrReplaceChild("bodyUpper", CubeListBuilder.create().texOffs(16, 50).addBox(-1.0F, -15.025F, -0.9875F, 2.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 9.775F, 1.3875F));
@@ -201,10 +204,5 @@ public class SoldierRevenantModel extends HierarchicalModel<SoldierRevenantEntit
 		bodyLower.addOrReplaceChild("skirtRear", CubeListBuilder.create().texOffs(25, 0).addBox(-3.5F, -3.5F, -0.5F, 7.0F, 7.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0125F, 2.953F, 1.4667F, 0.1745F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

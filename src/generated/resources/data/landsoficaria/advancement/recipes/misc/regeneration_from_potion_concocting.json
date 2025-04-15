@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bolbos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bolbos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:dathulla": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:dathulla"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:psilocybos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:psilocybos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:regeneration_from_potion_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:bolbos",
+      "has_landsoficaria:dathulla",
+      "has_landsoficaria:psilocybos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:regeneration_from_potion_concocting"
+    ]
+  }
+}

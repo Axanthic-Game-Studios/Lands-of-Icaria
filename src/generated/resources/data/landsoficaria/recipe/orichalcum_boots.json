@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:orichalcum_ingot"
-    }
+    "A": "landsoficaria:orichalcum_ingot"
   },
   "pattern": [
-    "X X",
-    "X X"
+    "A A",
+    "A A"
   ],
   "result": {
     "count": 1,

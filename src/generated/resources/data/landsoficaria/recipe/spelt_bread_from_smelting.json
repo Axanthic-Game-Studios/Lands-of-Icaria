@@ -3,9 +3,7 @@
   "category": "food",
   "cookingtime": 200,
   "experience": 0.3,
-  "ingredient": {
-    "item": "landsoficaria:spelt_flour"
-  },
+  "ingredient": "landsoficaria:spelt_flour",
   "result": {
     "count": 1,
     "id": "landsoficaria:spelt_bread"

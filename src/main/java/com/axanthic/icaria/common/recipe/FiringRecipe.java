@@ -1,18 +1,16 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -20,61 +18,62 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FiringRecipe implements Recipe<RecipeInput> {
 	public float experience;
 
-	public int burnTime;
+	public int time;
 
-	public List<Ingredient> ingredients;
+	public Ingredient ingredient;
 
-	public ItemStack output;
+	public ItemStack result;
 
-	public FiringRecipe(float pExperience, int pBurnTime, List<Ingredient> pIngredients, ItemStack pOutput) {
+	public FiringRecipe(float pExperience, int pTime, Ingredient pIngredient, ItemStack pResult) {
 		this.experience = pExperience;
-		this.burnTime = pBurnTime;
-		this.ingredients = pIngredients;
-		this.output = pOutput;
+		this.time = pTime;
+		this.ingredient = pIngredient;
+		this.result = pResult;
 	}
 
 	@Override
-	public boolean canCraftInDimensions(int pWidth, int pHeight) {
-		return true;
+	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
+		return this.ingredient.test(pRecipeInput.getItem(0));
 	}
 
-	@Override
-	public boolean matches(RecipeInput pInput, Level pLevel) {
-		return !pLevel.isClientSide() && this.ingredients.get(0).test(pInput.getItem(0));
-	}
-
-	public float getExperience() {
+	public float experience() {
 		return this.experience;
 	}
 
-	public int getBurnTime() {
-		return this.burnTime;
+	public int time() {
+		return this.time;
+	}
+
+	public Ingredient ingredient() {
+		return this.ingredient;
 	}
 
 	@Override
-	public ItemStack assemble(RecipeInput pInput, HolderLookup.Provider pProvider) {
-		return this.output;
+	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
+		return this.result.copy();
+	}
+
+	public ItemStack result() {
+		return this.result;
 	}
 
 	@Override
-	public ItemStack getResultItem(HolderLookup.Provider pProvider) {
-		return this.output.copy();
+	public PlacementInfo placementInfo() {
+		return PlacementInfo.create(this.ingredient);
 	}
 
 	@Override
-	public NonNullList<Ingredient> getIngredients() {
-		var list = NonNullList.<Ingredient>create();
-		list.addAll(this.ingredients);
-		return list;
+	public RecipeBookCategory recipeBookCategory() {
+		return IcariaRecipeBookCategories.KILN.get();
 	}
 
 	@Override
-	public RecipeSerializer<?> getSerializer() {
+	public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
 		return IcariaRecipeSerializers.FIRING.get();
 	}
 
 	@Override
-	public RecipeType<?> getType() {
+	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.FIRING.get();
 	}
 }

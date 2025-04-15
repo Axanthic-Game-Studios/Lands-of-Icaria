@@ -51,8 +51,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:raw_cerver_meat",
       "has_minecraft:carrot",
+      "has_landsoficaria:raw_cerver_meat",
       "has_landsoficaria:halite_dust",
       "has_landsoficaria:loam_bowl"
     ]

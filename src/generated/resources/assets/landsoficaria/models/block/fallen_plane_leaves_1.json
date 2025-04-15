@@ -2,6 +2,7 @@
   "parent": "landsoficaria:block/template_layer_1",
   "render_type": "minecraft:cutout",
   "textures": {
+    "particle": "landsoficaria:block/plane_leaves",
     "texture": "landsoficaria:block/plane_leaves"
   }
 }

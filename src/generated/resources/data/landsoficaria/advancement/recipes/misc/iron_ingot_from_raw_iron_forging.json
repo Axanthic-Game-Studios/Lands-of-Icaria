@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:raw_iron": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:raw_iron"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:iron_ingot_from_raw_iron_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:raw_iron"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:iron_ingot_from_raw_iron_forging"
+    ]
+  }
+}

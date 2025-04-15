@@ -1,13 +1,13 @@
 {
   "values": [
-    "landsoficaria:chert",
-    "landsoficaria:lignite",
-    "landsoficaria:dolomite",
-    "landsoficaria:sliver",
-    "landsoficaria:anthracite",
-    "landsoficaria:calcite_shard",
-    "landsoficaria:halite_shard",
-    "landsoficaria:jasper_shard",
-    "landsoficaria:zircon_shard"
+    "#c:gems/chert",
+    "#c:gems/calcite",
+    "#c:gems/halite",
+    "#c:gems/jasper",
+    "#c:gems/zircon",
+    "#c:gems/lignite",
+    "#c:gems/dolomite",
+    "#c:gems/sliver",
+    "#c:gems/anthracite"
   ]
 }

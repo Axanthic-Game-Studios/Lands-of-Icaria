@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_sideros": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_sideros"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:sideros_ingot_from_raw_sideros_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_sideros"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:sideros_ingot_from_raw_sideros_forging"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:cyan_dye",
+    "landsoficaria:unfired_storage_vase"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cyan_unfired_storage_vase"
+  }
+}

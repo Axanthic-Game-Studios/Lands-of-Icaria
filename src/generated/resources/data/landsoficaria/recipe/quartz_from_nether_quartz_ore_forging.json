@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:nether_quartz_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:quartz"
+  },
+  "time": 100
+}

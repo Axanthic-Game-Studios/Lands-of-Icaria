@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:calcite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:calcite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:vanadium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadium_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:calcite_shard_from_calcite_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadium_gear",
+      "has_landsoficaria:calcite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:calcite_shard_from_calcite_grinding"
+    ]
+  }
+}

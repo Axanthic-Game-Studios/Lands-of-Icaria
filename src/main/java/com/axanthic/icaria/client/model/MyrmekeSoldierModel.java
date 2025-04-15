@@ -1,11 +1,13 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
+import com.axanthic.icaria.client.state.MyrmekeSoldierRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -14,13 +16,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity> {
-	public ModelPart root;
+public class MyrmekeSoldierModel extends EntityModel<MyrmekeSoldierRenderState> {
 	public ModelPart head;
 	public ModelPart body;
 	public ModelPart legRightFront;
@@ -31,7 +30,7 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
 	public ModelPart legLeftRear;
 
 	public MyrmekeSoldierModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.head = this.root.getChild("head");
 		this.body = this.root.getChild("body");
 		this.legRightFront = this.root.getChild("legRightFront");
@@ -43,29 +42,31 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
 	}
 
 	@Override
-	public void setupAnim(MyrmekeSoldierEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.MYRMEKE_SOLDIER_ATTACK, pAgeInTicks);
+	public void setupAnim(MyrmekeSoldierRenderState pRenderState) {
+		super.setupAnim(pRenderState);
 
-		this.root.y -= pEntity.getTick() - pEntity.maxTick;
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.MYRMEKE_SOLDIER_ATTACK, pRenderState.ageInTicks);
+
+		this.root.y -= pRenderState.tick - pRenderState.maxTick;
 	}
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = IcariaMath.rad(pHeadPitch) + 0.2618F;
-		this.head.yRot = IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.head.xRot = IcariaMath.rad(pXRot) + 0.2618F;
+		this.head.yRot = IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float f0 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
-		float f1 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
-		float f2 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
-		float f3 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pLimbSwingAmount;
-		float f4 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
-		float f5 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
-		float f6 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
-		float f7 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.5F) * 0.4F) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		var f0 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pWalkAnimationSpeed;
+		var f1 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pWalkAnimationSpeed;
+		var f2 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pWalkAnimationSpeed;
+		var f3 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pWalkAnimationSpeed;
+		var f4 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.0F) * 0.4F) * pWalkAnimationSpeed;
+		var f5 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.0F) * 0.4F) * pWalkAnimationSpeed;
+		var f6 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.5F) * 0.4F) * pWalkAnimationSpeed;
+		var f7 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.5F) * 0.4F) * pWalkAnimationSpeed;
 
 		this.legRightFront.yRot = f3 + 2.2253F;
 		this.legLeftFront.yRot = -f4 + 0.829F;
@@ -83,6 +84,7 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(12, 21).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).texOffs(15, 12).addBox(-2.0F, 0.0F, -5.0F, 4.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)).texOffs(18, 4).addBox(-2.5F, -0.5F, -3.0F, 5.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 19.0F, -6.0F, 0.2618F, 0.0F, 0.0F));
@@ -130,10 +132,5 @@ public class MyrmekeSoldierModel extends HierarchicalModel<MyrmekeSoldierEntity>
 		legLeftRearCenter.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(23, 35).addBox(-0.2889F, -0.8F, 0.202F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.4894F, 0.2291F, -0.002F, 0.0F, 0.0F, 0.48F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

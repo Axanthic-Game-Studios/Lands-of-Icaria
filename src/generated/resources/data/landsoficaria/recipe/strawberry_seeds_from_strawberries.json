@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:strawberries"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:strawberry_seeds"
+  }
+}

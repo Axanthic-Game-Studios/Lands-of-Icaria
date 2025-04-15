@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bolbos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bolbos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:mondanos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:mondanos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:psilocybos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:psilocybos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:sniffer_egg_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:psilocybos",
+      "has_landsoficaria:mondanos",
+      "has_landsoficaria:bolbos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:sniffer_egg_from_item_concocting"
+    ]
+  }
+}

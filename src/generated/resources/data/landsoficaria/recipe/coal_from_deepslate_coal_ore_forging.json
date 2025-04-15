@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:deepslate_coal_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:coal"
+  },
+  "time": 100
+}

@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "landsoficaria:vine_reed",
+  "result": {
+    "count": 3,
+    "id": "minecraft:sugar"
+  },
+  "time": 200
+}

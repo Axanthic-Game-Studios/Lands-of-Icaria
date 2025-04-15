@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:moons",
+  "author": {
+    "translate": "painting.landsoficaria.moons.author"
+  },
   "height": 1,
+  "title": {
+    "translate": "painting.landsoficaria.moons.title"
+  },
   "width": 2
 }

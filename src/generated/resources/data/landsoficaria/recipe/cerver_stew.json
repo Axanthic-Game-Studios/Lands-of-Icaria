@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "landsoficaria:raw_cerver_meat"
-    },
-    {
-      "item": "minecraft:carrot"
-    },
-    {
-      "item": "landsoficaria:halite_dust"
-    },
-    {
-      "item": "landsoficaria:loam_bowl"
-    }
+    "minecraft:carrot",
+    "landsoficaria:raw_cerver_meat",
+    "landsoficaria:halite_dust",
+    "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,

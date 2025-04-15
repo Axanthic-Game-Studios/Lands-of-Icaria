@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bone_remains": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bone_remains"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:moth_agaric": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:moth_agaric"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:namdrake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:namdrake"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:magic_missile_spell_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:namdrake",
+      "has_landsoficaria:bone_remains",
+      "has_landsoficaria:moth_agaric"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:magic_missile_spell_from_item_concocting"
+    ]
+  }
+}

@@ -18,6 +18,7 @@
     "description": {
       "translate": "advancement.landsoficaria.kiln.description"
     },
+    "frame": "goal",
     "icon": {
       "count": 1,
       "id": "landsoficaria:kiln"

@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:dathulla": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:dathulla"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:mondanos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:mondanos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:psilocybos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:psilocybos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:heart_of_the_sea_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:psilocybos",
+      "has_landsoficaria:dathulla",
+      "has_landsoficaria:mondanos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:heart_of_the_sea_from_item_concocting"
+    ]
+  }
+}

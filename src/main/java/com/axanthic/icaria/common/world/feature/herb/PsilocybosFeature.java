@@ -6,6 +6,8 @@ import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,8 +19,6 @@ import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.Fluids;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -28,17 +28,18 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		int size = 2;
+		var size = 2;
 
-		for (int x = -size; x <= size; x++) {
-			for (int y = -size; y <= size; y++) {
-				for (int z = -size; z <= size; z++) {
+		for (var x = -size; x <= size; x++) {
+			for (var y = -size; y <= size; y++) {
+				for (var z = -size; z <= size; z++) {
 					this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
 				}
 			}
@@ -47,15 +48,15 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 
-	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeHerb(pLevel, pPos);
+	public void placeHerb(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHerb(pWorldGenLevel, pBlockPos);
 		}
 	}
 
-	public void placeHerb(WorldGenLevel pLevel, BlockPos pPos) {
-		if (pLevel.getBlockState(pPos.above()).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
-			this.setBlock(pLevel, pPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pLevel.getFluidState(pPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())).setValue(BlockStateProperties.WATERLOGGED, pLevel.getFluidState(pPos).is(Fluids.WATER)));
+	public void placeHerb(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
+		if (pWorldGenLevel.getBlockState(pBlockPos.above()).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) && pWorldGenLevel.getFluidState(pBlockPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
+			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pWorldGenLevel.getFluidState(pBlockPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())).setValue(BlockStateProperties.WATERLOGGED, pWorldGenLevel.getFluidState(pBlockPos).is(Fluids.WATER)));
 		}
 	}
 }

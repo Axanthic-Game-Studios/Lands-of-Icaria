@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:kassiteros_ingot"
-    }
+    "A": "landsoficaria:kassiteros_ingot"
   },
   "pattern": [
-    "XXX",
-    "X X"
+    "AAA",
+    "A A"
   ],
   "result": {
     "count": 1,

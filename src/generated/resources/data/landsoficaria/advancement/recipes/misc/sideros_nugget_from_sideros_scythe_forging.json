@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:sideros_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:sideros_scythe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:sideros_nugget_from_sideros_scythe_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:sideros_scythe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:sideros_nugget_from_sideros_scythe_forging"
+    ]
+  }
+}

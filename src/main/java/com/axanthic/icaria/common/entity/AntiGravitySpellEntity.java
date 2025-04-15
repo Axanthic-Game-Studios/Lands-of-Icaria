@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -14,8 +16,6 @@ import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -25,14 +25,14 @@ public class AntiGravitySpellEntity extends SpellEntity {
 	}
 
 	@Override
-	public void onHitBlock(BlockHitResult pResult) {
-		super.onHitBlock(pResult);
+	public void onHitBlock(BlockHitResult pBlockHitResult) {
+		super.onHitBlock(pBlockHitResult);
 		var level = this.level();
-		var blockPos = pResult.getBlockPos();
+		var blockPos = pBlockHitResult.getBlockPos();
 		var blockState = level.getBlockState(blockPos);
 		var block = blockState.getBlock();
 		var entity = new FloatingBlockEntity(IcariaEntityTypes.FLOATING_BLOCK.get(), level, blockState, blockPos);
-		if (level.getBlockState(blockPos).getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !(block instanceof DoorBlock) && !(block instanceof KettleBlock) && !(block instanceof TripleBarrelRackBlock)) {
+		if (blockState.getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !(block instanceof DoorBlock) && !(block instanceof KettleBlock) && !(block instanceof TripleBarrelRackBlock)) {
 			entity.moveTo(blockPos, 0.0F, 0.0F);
 			entity.setDeltaMovement(0.0D, 0.05D, 0.0D);
 			level.addFreshEntity(entity);
@@ -41,10 +41,11 @@ public class AntiGravitySpellEntity extends SpellEntity {
 	}
 
 	@Override
-	public void onHitEntity(EntityHitResult pResult) {
-		super.onHitEntity(pResult);
-		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-			livingEntity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 300));
+	public void onHitEntity(EntityHitResult pEntityHitResult) {
+		super.onHitEntity(pEntityHitResult);
+		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity) {
+			var mobEffectInstance = new MobEffectInstance(MobEffects.LEVITATION, 300);
+			livingEntity.addEffect(mobEffectInstance);
 		}
 	}
 }

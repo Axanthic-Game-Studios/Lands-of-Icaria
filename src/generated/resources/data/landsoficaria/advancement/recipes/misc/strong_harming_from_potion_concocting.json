@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bolbos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bolbos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:strong_harming_from_potion_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:bolbos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:strong_harming_from_potion_concocting"
+    ]
+  }
+}

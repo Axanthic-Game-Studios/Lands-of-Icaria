@@ -2,24 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:sugar"
-    },
-    {
-      "item": "landsoficaria:vineberries"
-    },
-    {
-      "item": "landsoficaria:strawberries"
-    },
-    {
-      "item": "landsoficaria:physalis"
-    },
-    {
-      "item": "landsoficaria:laurel_cherry"
-    },
-    {
-      "item": "landsoficaria:loam_bowl"
-    }
+    "minecraft:sugar",
+    "landsoficaria:vineberries",
+    "landsoficaria:strawberries",
+    "landsoficaria:physalis",
+    "landsoficaria:laurel_cherry",
+    "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,

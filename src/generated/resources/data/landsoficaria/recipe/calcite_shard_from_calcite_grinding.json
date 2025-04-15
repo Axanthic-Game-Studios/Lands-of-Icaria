@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "landsoficaria:calcite",
+  "result": {
+    "count": 4,
+    "id": "landsoficaria:calcite_shard"
+  },
+  "time": 200
+}

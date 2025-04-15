@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "minecraft:blue_orchid",
+  "result": {
+    "count": 2,
+    "id": "minecraft:light_blue_dye"
+  },
+  "time": 200
+}

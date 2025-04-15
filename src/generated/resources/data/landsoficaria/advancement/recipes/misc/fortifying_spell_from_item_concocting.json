@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:mondanos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:mondanos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:moth_agaric": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:moth_agaric"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:wilted_elm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:wilted_elm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:fortifying_spell_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:moth_agaric",
+      "has_landsoficaria:wilted_elm",
+      "has_landsoficaria:mondanos"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:fortifying_spell_from_item_concocting"
+    ]
+  }
+}

@@ -2,13 +2,13 @@ package com.axanthic.icaria.common.config;
 
 import com.axanthic.icaria.common.registry.IcariaIdents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -41,11 +41,11 @@ public class IcariaConfig {
 		IcariaConfig.RENDER_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_grinder").comment("Default: true. Whether a Grinder should render gears.").define("renderGrinder", true);
 		IcariaConfig.RENDER_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_kettle").comment("Default: true. Whether a Kettle should render items.").define("renderKettle", true);
 		IcariaConfig.RENDER_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_kiln").comment("Default: true. Whether a Kiln should render items.").define("renderKiln", true);
-		IcariaConfig.RENDER_DISTANCE_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance").comment("Default: 256. Whether a Crystal should render rays based on distance to a player.").defineInRange("crystalDistance", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "forge_distance").comment("Default: 256. Whether a Forge should render items based on distance to a player.").defineInRange("forgeDistance", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "grinder_distance").comment("Default: 256. Whether a Grinder should render gears based on distance to a player.").defineInRange("grinderDistance", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kettle_distance").comment("Default: 256. Whether a Kettle should render items based on distance to a player.").defineInRange("kettleDistance", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance").comment("Default: 256. Whether a Kiln should render items based on distance to a player.").defineInRange("kilnDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance").comment("Whether a Crystal should render rays based on distance to a player.").defineInRange("crystalDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "forge_distance").comment("Whether a Forge should render items based on distance to a player.").defineInRange("forgeDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "grinder_distance").comment("Whether a Grinder should render gears based on distance to a player.").defineInRange("grinderDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kettle_distance").comment("Whether a Kettle should render items based on distance to a player.").defineInRange("kettleDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance").comment("Whether a Kiln should render items based on distance to a player.").defineInRange("kilnDistance", 256, 64, 1024);
 
 		builder.pop();
 

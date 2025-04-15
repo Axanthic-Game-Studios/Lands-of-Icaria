@@ -5,8 +5,11 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.StorageVaseShapes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -27,8 +30,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -39,13 +40,13 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	}
 
 	@Override
-	public boolean hasAnalogOutputSignal(BlockState pState) {
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pPos));
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(pLevel.getBlockEntity(pBlockPos));
 	}
 
 	@Override
@@ -54,46 +55,44 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	}
 
 	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity blockEntity) {
-				Containers.dropContents(pLevel, pPos, blockEntity);
-				pLevel.updateNeighbourForOutputSignal(pPos, this);
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
+				Containers.dropContents(pLevel, pBlockPos, blockEntity);
+				pLevel.updateNeighbourForOutputSignal(pBlockPos, this);
+				pLevel.removeBlockEntity(pBlockPos);
 			}
 		}
-
-		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new StorageVaseBlockEntity(pPos, pState);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new StorageVaseBlockEntity(pBlockPos, pBlockState);
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
 	}
 
 	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		if (!pLevel.isClientSide()) {
-			if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity storageVaseBlockEntity) {
-				pPlayer.openMenu(storageVaseBlockEntity);
-			}
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		if (pLevel instanceof ServerLevel serverLevel && serverLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
+			pPlayer.openMenu(blockEntity);
+			return InteractionResult.SUCCESS_SERVER;
+		} else {
+			return InteractionResult.SUCCESS;
 		}
-
-		return InteractionResult.SUCCESS;
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return StorageVaseShapes.STORAGE_VASE;
 	}
 }

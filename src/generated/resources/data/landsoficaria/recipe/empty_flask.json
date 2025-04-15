@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:silkglass"
-    }
+    "A": "landsoficaria:silkglass"
   },
   "pattern": [
-    "X X",
-    " X "
+    "A A",
+    " A "
   ],
   "result": {
     "count": 3,

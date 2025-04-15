@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:cypress_planks"
-    },
-    "Y": {
-      "item": "landsoficaria:cypress_log"
-    }
+    "A": "landsoficaria:cypress_log",
+    "B": "landsoficaria:cypress_planks"
   },
   "pattern": [
-    "X X",
-    "YYY"
+    "B B",
+    "AAA"
   ],
   "result": {
     "count": 1,

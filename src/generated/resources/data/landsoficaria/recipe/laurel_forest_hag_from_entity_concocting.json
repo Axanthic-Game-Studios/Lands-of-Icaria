@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 4006938,
+  "entity": "landsoficaria:laurel_forest_hag",
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:rowan",
+    "landsoficaria:rowan"
+  ],
+  "time": 200
+}

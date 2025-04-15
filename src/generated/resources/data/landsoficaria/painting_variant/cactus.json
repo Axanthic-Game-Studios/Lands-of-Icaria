@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:cactus",
+  "author": {
+    "translate": "painting.landsoficaria.cactus.author"
+  },
   "height": 1,
+  "title": {
+    "translate": "painting.landsoficaria.cactus.title"
+  },
   "width": 1
 }

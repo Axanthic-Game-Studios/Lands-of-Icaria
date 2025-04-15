@@ -1,28 +1,22 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.CapellaEntity;
+import com.axanthic.icaria.client.state.CapellaRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CapellaModel extends HierarchicalModel<CapellaEntity> {
-	public CapellaEntity entity;
-
-	public ModelPart root;
+public class CapellaModel extends EntityModel<CapellaRenderState> {
 	public ModelPart body;
 	public ModelPart bodyFront;
 	public ModelPart neck;
@@ -47,7 +41,7 @@ public class CapellaModel extends HierarchicalModel<CapellaEntity> {
 	public ModelPart legLeftRear;
 
 	public CapellaModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.body = this.root.getChild("body");
 		this.bodyFront = this.body.getChild("bodyFront");
 		this.neck = this.bodyFront.getChild("neck");
@@ -73,99 +67,53 @@ public class CapellaModel extends HierarchicalModel<CapellaEntity> {
 	}
 
 	@Override
-	public void prepareMobModel(CapellaEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick) {
-		super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
-		this.entity = pEntity;
+	public void setupAnim(CapellaRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.CAPELLA_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.eatingAnimationState, IcariaAnimations.CAPELLA_EATING, pRenderState.ageInTicks);
+
+		this.hornRightBaby.visible = pRenderState.size == 1;
+		this.hornLeftBaby.visible = pRenderState.size == 1;
+		this.hornRightChild.visible = pRenderState.size == 2;
+		this.hornLeftChild.visible = pRenderState.size == 2;
+		this.hornRightTeen.visible = pRenderState.size == 3;
+		this.hornLeftTeen.visible = pRenderState.size == 3;
+		this.hornRightAdult.visible = pRenderState.size == 4;
+		this.hornLeftAdult.visible = pRenderState.size == 4;
 	}
 
-	@Override
-	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
-		if (this.entity.getSize() < 2) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = true;
-			this.hornLeftBaby.visible = true;
-			this.hornRightChild.visible = false;
-			this.hornLeftChild.visible = false;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 3) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightChild.visible = true;
-			this.hornLeftChild.visible = true;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 4) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightChild.visible = false;
-			this.hornLeftChild.visible = false;
-			this.hornRightTeen.visible = true;
-			this.hornLeftTeen.visible = true;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightChild.visible = false;
-			this.hornLeftChild.visible = false;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = true;
-			this.hornLeftAdult.visible = true;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		}
-	}
+	public void lookAnim(float pXRot, float pYRot) {
+		var xRot = IcariaMath.rad(pXRot) / 3.0F;
+		var yRot = IcariaMath.rad(pYRot) / 6.0F;
 
-	@Override
-	public void setupAnim(CapellaEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.CAPELLA_ATTACK, pAgeInTicks);
-		this.animate(pEntity.eatingAnimationState, IcariaAnimations.CAPELLA_EATING, pAgeInTicks);
-	}
-
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		float xRot = IcariaMath.rad(pHeadPitch) / 3.0F;
-		float yRot = IcariaMath.rad(pNetHeadYaw) / 6.0F;
 		this.neckFront.xRot = xRot - 0.1745F;
 		this.neckFront.yRot = yRot;
 		this.head.xRot = xRot + 1.3265F;
 		this.head.yRot = yRot;
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= Mth.lerp(this.entity.getSize(), 0.5F, 1.0F);
+	public void walkAnim(float pSize, float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		pWalkAnimationPos *= Mth.lerp(pSize, 0.5F, 1.0F);
 
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed * 0.5F;
 
-		this.thighRightFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + 0.3927F;
-		this.legRightFront.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.2618F;
-		this.thighLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + 0.3927F;
-		this.legLeftFront.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.2618F;
-		this.thighRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount;
-		this.legRightRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2182F;
-		this.thighLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount;
-		this.legLeftRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2182F;
+		this.thighRightFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed + 0.3927F;
+		this.legRightFront.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.2618F;
+		this.thighLeftFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed + 0.3927F;
+		this.legLeftFront.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.2618F;
+		this.thighRightRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed;
+		this.legRightRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2182F;
+		this.thighLeftRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed;
+		this.legLeftRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2182F;
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -12.0F, -2.0F, 6.0F, 6.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
@@ -215,10 +163,5 @@ public class CapellaModel extends HierarchicalModel<CapellaEntity> {
 		thighLeftRear.addOrReplaceChild("legLeftRear", CubeListBuilder.create().texOffs(0, 45).addBox(1.5F, -0.3414F, -0.9763F, 2.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 5.0F, 0.0F, 0.2182F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 80, 80);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

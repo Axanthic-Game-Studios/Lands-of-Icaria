@@ -1,18 +1,16 @@
 {
   "values": [
-    "landsoficaria:marl_chert",
-    "landsoficaria:marl_bones",
-    "landsoficaria:marl_lignite",
-    "landsoficaria:grainel_chert",
-    "landsoficaria:lignite_ore",
-    "landsoficaria:chalkos_ore",
-    "landsoficaria:kassiteros_ore",
-    "landsoficaria:dolomite_ore",
-    "landsoficaria:vanadium_ore",
-    "landsoficaria:sliver_ore",
-    "landsoficaria:sideros_ore",
-    "landsoficaria:anthracite_ore",
-    "landsoficaria:molybdenum_ore",
-    "landsoficaria:hyliastrum_ore"
+    "#c:ores/chert",
+    "#c:ores/bones",
+    "#c:ores/lignite",
+    "#c:ores/chalkos",
+    "#c:ores/kassiteros",
+    "#c:ores/dolomite",
+    "#c:ores/vanadium",
+    "#c:ores/sliver",
+    "#c:ores/sideros",
+    "#c:ores/anthracite",
+    "#c:ores/molybdenum",
+    "#c:ores/hyliastrum"
   ]
 }

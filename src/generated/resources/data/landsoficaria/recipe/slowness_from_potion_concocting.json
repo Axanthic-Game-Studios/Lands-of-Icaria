@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:potion_concocting",
+  "colour": 9154528,
+  "duration": 220,
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:namdrake",
+    "landsoficaria:namdrake"
+  ],
+  "potion": {
+    "potion": "minecraft:slowness"
+  },
+  "radius": 5.0,
+  "time": 200
+}

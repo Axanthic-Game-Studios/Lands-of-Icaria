@@ -3,11 +3,14 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.EnderJellyfishEmissiveLayer;
 import com.axanthic.icaria.client.model.EnderJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
-import com.axanthic.icaria.common.entity.JellyfishEntity;
+import com.axanthic.icaria.client.state.EnderJellyfishRenderState;
+import com.axanthic.icaria.common.entity.EnderJellyfishEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -15,47 +18,52 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class EnderJellyfishRenderer extends MobRenderer<JellyfishEntity, EnderJellyfishModel> {
+public class EnderJellyfishRenderer extends MobRenderer<EnderJellyfishEntity, EnderJellyfishRenderState, EnderJellyfishModel> {
 	public EnderJellyfishRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new EnderJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.ENDER_JELLYFISH)), 1.0F);
 		this.addLayer(new EnderJellyfishEmissiveLayer(this));
 	}
 
 	@Override
-	public float getShadowRadius(JellyfishEntity pEntity) {
-		return pEntity.getScaleForShadow();
+	public float getShadowRadius(EnderJellyfishRenderState pRenderState) {
+		return pRenderState.shadowScale;
 	}
 
 	@Override
-	public float getBob(JellyfishEntity pLivingBase, float pPartialTicks) {
-		return Mth.lerp(pPartialTicks, pLivingBase.oldTentacleAngle, pLivingBase.tentacleAngle);
+	public void extractRenderState(EnderJellyfishEntity pEntity, EnderJellyfishRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.renderScale = pEntity.getSizeForRender();
+		pRenderState.shadowScale = pEntity.getSizeForShadow();
+		pRenderState.tentacleAngle = Mth.lerp(pPartialTick, pEntity.tentacleAngleOld, pEntity.tentacleAngle);
+		pRenderState.xBodyRot = Mth.lerp(pPartialTick, pEntity.xBodyRotOld, pEntity.xBodyRot);
+		pRenderState.zBodyRot = Mth.lerp(pPartialTick, pEntity.zBodyRotOld, pEntity.zBodyRot);
+		pRenderState.livingEntity = pEntity;
 	}
 
 	@Override
-	public void scale(JellyfishEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	public void scale(EnderJellyfishRenderState pRenderState, PoseStack pPoseStack) {
+		pPoseStack.scale(pRenderState.renderScale, pRenderState.renderScale, pRenderState.renderScale);
 	}
 
 	@Override
-	public void setupRotations(JellyfishEntity pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, float pScale) {
-		float yRotation = 180.0F - pRotationYaw;
-		float xRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldXBodyRot, pEntityLiving.xBodyRot);
-		float zRotation = Mth.lerp(pPartialTicks, pEntityLiving.oldZBodyRot, pEntityLiving.zBodyRot);
-
-		pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * 0.5F, 0.0F);
-		pMatrixStack.mulPose(Axis.YP.rotationDegrees(yRotation));
-		pMatrixStack.mulPose(Axis.XP.rotationDegrees(xRotation));
-		pMatrixStack.mulPose(Axis.YP.rotationDegrees(zRotation));
-		pMatrixStack.translate(0.0F, pEntityLiving.getScaleForRender() * -1.0F, 0.0F);
+	public void setupRotations(EnderJellyfishRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pScale) {
+		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pScale);
+		pPoseStack.translate(0.0F, pRenderState.renderScale * 0.5F, 0.0F);
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(pRenderState.xBodyRot));
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.zBodyRot));
+		pPoseStack.translate(0.0F, pRenderState.renderScale * -1.0F, 0.0F);
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(JellyfishEntity pEntity) {
+	public EnderJellyfishRenderState createRenderState() {
+		return new EnderJellyfishRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(EnderJellyfishRenderState pRenderState) {
 		return IcariaResourceLocations.ENDER_JELLYFISH;
 	}
 }

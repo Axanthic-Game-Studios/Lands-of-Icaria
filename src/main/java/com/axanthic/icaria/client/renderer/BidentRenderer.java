@@ -1,9 +1,12 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.state.BidentRenderState;
 import com.axanthic.icaria.common.entity.BidentEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,17 +14,12 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.ItemDisplayContext;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BidentRenderer extends EntityRenderer<BidentEntity> {
+public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderState> {
 	public ItemRenderer itemRenderer;
 
 	public BidentRenderer(EntityRendererProvider.Context pContext) {
@@ -30,23 +28,27 @@ public class BidentRenderer extends EntityRenderer<BidentEntity> {
 	}
 
 	@Override
-	public void render(BidentEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-
-		var bakedModel = this.itemRenderer.getModel(pEntity.getStack(), pEntity.level(), null, pEntity.getId());
-
-		pMatrixStack.pushPose();
-		pMatrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.yRotO, pEntity.getYRot()) - 90.0F));
-		pMatrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(pPartialTicks, pEntity.xRotO, pEntity.getXRot()) - 45.0F));
-		pMatrixStack.translate(0.0D, 0.0D, 0.0D);
-
-		this.itemRenderer.render(pEntity.getStack(), ItemDisplayContext.NONE, false, pMatrixStack, pBuffer, pPackedLight, OverlayTexture.NO_OVERLAY, bakedModel);
-
-		pMatrixStack.popPose();
+	public void extractRenderState(BidentEntity pEntity, BidentRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.xRot = pEntity.getXRot(pPartialTick);
+		pRenderState.yRot = pEntity.getYRot(pPartialTick);
+		pRenderState.bakedModel = this.itemRenderer.getModel(pEntity.getStack(), pEntity.level(), null, pEntity.getId());
+		pRenderState.itemStack = pEntity.getStack();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(BidentEntity pEntity) {
-		return InventoryMenu.BLOCK_ATLAS;
+	public void render(BidentRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
+		pPoseStack.pushPose();
+		pPoseStack.translate(0.0F, 0.25F, 0.0F);
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.yRot - 90.0F));
+		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pRenderState.xRot - 45.0F));
+		this.itemRenderer.render(pRenderState.itemStack, ItemDisplayContext.NONE, false, pPoseStack, pMultiBufferSource, pPackedLight, OverlayTexture.NO_OVERLAY, pRenderState.bakedModel);
+		pPoseStack.popPose();
+		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+	}
+
+	@Override
+	public BidentRenderState createRenderState() {
+		return new BidentRenderState();
 	}
 }

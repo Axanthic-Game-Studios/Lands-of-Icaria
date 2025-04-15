@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:ender_jellyfish",
+  "author": {
+    "translate": "painting.landsoficaria.ender_jellyfish.author"
+  },
   "height": 2,
+  "title": {
+    "translate": "painting.landsoficaria.ender_jellyfish.title"
+  },
   "width": 1
 }

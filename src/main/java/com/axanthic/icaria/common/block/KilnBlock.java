@@ -10,12 +10,14 @@ import com.axanthic.icaria.common.shapes.KilnShapes;
 
 import com.mojang.serialization.MapCodec;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -40,9 +42,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 
@@ -55,39 +54,31 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public boolean canDropFromExplosion(BlockState pState, BlockGetter pLevel, BlockPos pPos, Explosion pExplosion) {
+	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
 		return false;
 	}
 
 	@Override
-	public boolean hasAnalogOutputSignal(BlockState pState) {
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return pLevel.getBlockEntity(KilnBlock.getBlockEntityPosition(pState, pPos)) instanceof KilnBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pLevel.getBlockEntity(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof KilnBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
 	@Override
-	public int getLightEmission(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		return pState.getValue(BlockStateProperties.LIT) ? 13 : 0;
+	public int getLightEmission(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
+		return pBlockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pState.getValue(BlockStateProperties.LIT)) {
-			if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-				pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-				if (IcariaConfig.KILN_SOUNDS.get() && pRandom.nextDouble() < 0.1D) {
-					pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-				}
-
-				if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
-					pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-					pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.75D, pPos.getZ() + 0.5D + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-				}
-			}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(BlockStateProperties.LIT)) {
+			this.particlesItems(pBlockPos, pLevel, pRandomSource);
+			this.particlesSmoke(pBlockPos, pLevel, pRandomSource);
+			this.sounds(pBlockPos, pLevel, pRandomSource);
 		}
 	}
 
@@ -97,98 +88,107 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		} else {
-			pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
+		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
 	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			if (pLevel.getBlockEntity(pPos) instanceof KilnBlockEntity blockEntity) {
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof KilnBlockEntity blockEntity) {
 				if (pLevel instanceof ServerLevel serverLevel) {
-					blockEntity.drops(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
-					Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.KILN.get()));
+					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
+					blockEntity.drop(serverLevel);
+					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
+					serverLevel.removeBlockEntity(pBlockPos);
 				}
 			}
 		}
-
-		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
 	}
 
-	@Override
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-		pLevel.setBlock(pPos.above(), pState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
-	}
-
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			return new KilnBlockEntity(pPos, pState);
-		} else {
-			return new KilnRedirectorBlockEntity(pPos, pState);
+	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
+			pLevel.addParticle(ParticleTypes.SMALL_FLAME, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+			pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockState pState, BlockPos pPos) {
-		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			return pPos;
-		} else {
-			return pPos.below();
+	public void particlesSmoke(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 2.0D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+	}
+
+	public void removeMultiBlock(BlockPos pBlockPos, Level pLevel) {
+		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+	}
+
+	@Override
+	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
+		pLevel.setBlock(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), 3);
+		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
+	}
+
+	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (IcariaConfig.KILN_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.above()).canBeReplaced(pContext)) {
-			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+			return new KilnBlockEntity(pBlockPos, pBlockState);
+		} else {
+			return new KilnRedirectorBlockEntity(pBlockPos, pBlockState);
+		}
+	}
+
+	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+			return pBlockPos;
+		} else {
+			return pBlockPos.below();
+		}
+	}
+
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var level = pBlockPlaceContext.getLevel();
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext)) {
+			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
 		}
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		if (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			pLevel.setBlock(pPos.above(), Blocks.AIR.defaultBlockState(), 3);
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pLevel);
+		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
+	}
+
+	@Override
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		var blockPos = KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		if (pLevel instanceof ServerLevel) {
+			pPlayer.openMenu(new KilnMenuProvider(blockPos), blockPos);
+			return InteractionResult.SUCCESS_SERVER;
 		} else {
-			pLevel.setBlock(pPos.below(), Blocks.AIR.defaultBlockState(), 3);
+			return InteractionResult.SUCCESS;
 		}
-
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
-	}
-
-	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-	}
-
-	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		var blockEntityPosition = KilnBlock.getBlockEntityPosition(pState, pPos);
-		var blockEntity = pLevel.getBlockEntity(blockEntityPosition);
-		if (!pLevel.isClientSide()) {
-			if (pPlayer instanceof ServerPlayer serverPlayer) {
-				if (blockEntity instanceof KilnBlockEntity || blockEntity instanceof KilnRedirectorBlockEntity) {
-					serverPlayer.openMenu(new KilnMenuProvider(blockEntityPosition), blockEntityPosition);
-				}
-			}
-		}
-
-		return InteractionResult.SUCCESS;
 	}
 
 	@Override
@@ -197,31 +197,39 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public RenderShape getRenderShape(BlockState pState) {
+	public RenderShape getRenderShape(BlockState pBlockState) {
 		return RenderShape.MODEL;
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
-			case UPPER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> KilnShapes.UPPER_NORTH;
-				case EAST -> KilnShapes.UPPER_EAST;
-				case SOUTH -> KilnShapes.UPPER_SOUTH;
-				default -> KilnShapes.UPPER_WEST;
-			};
-
-			case LOWER -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> KilnShapes.LOWER_NORTH;
-				case EAST -> KilnShapes.LOWER_EAST;
-				case SOUTH -> KilnShapes.LOWER_SOUTH;
-				default -> KilnShapes.LOWER_WEST;
-			};
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
+			case LOWER -> this.getLower(pBlockState);
+			case UPPER -> this.getUpper(pBlockState);
 		};
 	}
 
+	public VoxelShape getLower(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> KilnShapes.LOWER_NORTH;
+			case EAST -> KilnShapes.LOWER_EAST;
+			case SOUTH -> KilnShapes.LOWER_SOUTH;
+			default -> KilnShapes.LOWER_WEST;
+		};
+	}
+
+	public VoxelShape getUpper(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> KilnShapes.UPPER_NORTH;
+			case EAST -> KilnShapes.UPPER_EAST;
+			case SOUTH -> KilnShapes.UPPER_SOUTH;
+			default -> KilnShapes.UPPER_WEST;
+		};
+	}
+
+	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-		return !pLevel.isClientSide() ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KILN.get(), KilnBlockEntity::tick) : null;
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
+		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KILN.get(), (level, blockPos, blockState, blockEntity) -> KilnBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
 	}
 }

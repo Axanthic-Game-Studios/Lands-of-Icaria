@@ -2,8 +2,11 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -20,28 +23,20 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ArganHoundEntity extends Monster {
 	public AnimationState attackAnimationState = new AnimationState();
 
-	public ArganHoundEntity(EntityType<? extends ArganHoundEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 5;
+	public ArganHoundEntity(EntityType<? extends ArganHoundEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean doHurtTarget(Entity pEntity) {
+	public boolean doHurtTarget(ServerLevel pServerLevel, Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
-		return super.doHurtTarget(pEntity);
-	}
-
-	@Override
-	public float getVoicePitch() {
-		return 0.75F;
+		return super.doHurtTarget(pServerLevel, pEntity);
 	}
 
 	@Override
@@ -54,7 +49,7 @@ public class ArganHoundEntity extends Monster {
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.ARGAN_HOUND_STEP, 0.1F, 1.0F);
 	}
 
@@ -62,21 +57,21 @@ public class ArganHoundEntity extends Monster {
 	public void registerGoals() {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new LeapAtTargetGoal(this, 0.25F));
-		this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
-		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.0D, true));
+		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
+		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CaptainRevenantEntity.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CivilianRevenantEntity.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, CrawlerRevenantEntity.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, OvergrownRevenantEntity.class, true, true));
-		this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, SoldierRevenantEntity.class, true, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, CaptainRevenantEntity.class, true, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, CivilianRevenantEntity.class, true, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, CrawlerRevenantEntity.class, true, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, OvergrownRevenantEntity.class, true, true));
+		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, SoldierRevenantEntity.class, true, true));
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override

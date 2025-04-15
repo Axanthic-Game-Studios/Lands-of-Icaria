@@ -2,6 +2,9 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -19,9 +22,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -49,12 +49,12 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 
 	public NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
 
-	public IcariaChestBlockEntity(BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
-		super(pType, pPos, pBlockState);
+	public IcariaChestBlockEntity(BlockEntityType<?> pBlockEntityType, BlockPos pBlockPos, BlockState pBlockState) {
+		super(pBlockEntityType, pBlockPos, pBlockState);
 	}
 
-	public IcariaChestBlockEntity(BlockPos pPos, BlockState pState) {
-		this(IcariaBlockEntityTypes.CHEST.get(), pPos, pState);
+	public IcariaChestBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		this(IcariaBlockEntityTypes.CHEST.get(), pBlockPos, pBlockState);
 	}
 
 	public boolean hasLabelUp() {
@@ -127,89 +127,88 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pTag, pProvider);
+	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pCompoundTag, pProvider);
 
-		this.styleUp = pTag.getBoolean("StyleUp");
-		this.styleNorth = pTag.getBoolean("StyleNorth");
-		this.styleEast = pTag.getBoolean("StyleEast");
-		this.styleSouth = pTag.getBoolean("StyleSouth");
-		this.styleWest = pTag.getBoolean("StyleWest");
+		this.styleUp = pCompoundTag.getBoolean("StyleUp");
+		this.styleNorth = pCompoundTag.getBoolean("StyleNorth");
+		this.styleEast = pCompoundTag.getBoolean("StyleEast");
+		this.styleSouth = pCompoundTag.getBoolean("StyleSouth");
+		this.styleWest = pCompoundTag.getBoolean("StyleWest");
 
-		this.waxed = pTag.getBoolean("Waxed");
+		this.waxed = pCompoundTag.getBoolean("Waxed");
 
-		this.colorUp = pTag.getInt("ColorUp");
-		this.colorNorth = pTag.getInt("ColorNorth");
-		this.colorEast = pTag.getInt("ColorEast");
-		this.colorSouth = pTag.getInt("ColorSouth");
-		this.colorWest = pTag.getInt("ColorWest");
+		this.colorUp = pCompoundTag.getInt("ColorUp");
+		this.colorNorth = pCompoundTag.getInt("ColorNorth");
+		this.colorEast = pCompoundTag.getInt("ColorEast");
+		this.colorSouth = pCompoundTag.getInt("ColorSouth");
+		this.colorWest = pCompoundTag.getInt("ColorWest");
 
-		if (pTag.contains("LabelUp")) {
-			this.labelUp = pTag.getString("LabelUp");
+		if (pCompoundTag.contains("LabelUp")) {
+			this.labelUp = pCompoundTag.getString("LabelUp");
 		}
 
-		if (pTag.contains("LabelNorth")) {
-			this.labelNorth = pTag.getString("LabelNorth");
+		if (pCompoundTag.contains("LabelNorth")) {
+			this.labelNorth = pCompoundTag.getString("LabelNorth");
 		}
 
-		if (pTag.contains("LabelEast")) {
-			this.labelEast = pTag.getString("LabelEast");
+		if (pCompoundTag.contains("LabelEast")) {
+			this.labelEast = pCompoundTag.getString("LabelEast");
 		}
 
-		if (pTag.contains("LabelSouth")) {
-			this.labelSouth = pTag.getString("LabelSouth");
+		if (pCompoundTag.contains("LabelSouth")) {
+			this.labelSouth = pCompoundTag.getString("LabelSouth");
 		}
 
-		if (pTag.contains("LabelWest")) {
-			this.labelWest = pTag.getString("LabelWest");
+		if (pCompoundTag.contains("LabelWest")) {
+			this.labelWest = pCompoundTag.getString("LabelWest");
 		}
 
-		this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-		if (!this.tryLoadLootTable(pTag)) {
-			ContainerHelper.loadAllItems(pTag, this.items, pProvider);
+		if (!this.tryLoadLootTable(pCompoundTag)) {
+			ContainerHelper.loadAllItems(pCompoundTag, this.items, pProvider);
 		}
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pTag, pProvider);
+	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pCompoundTag, pProvider);
 
-		pTag.putBoolean("StyleUp", this.styleUp);
-		pTag.putBoolean("StyleNorth", this.styleNorth);
-		pTag.putBoolean("StyleEast", this.styleEast);
-		pTag.putBoolean("StyleSouth", this.styleSouth);
-		pTag.putBoolean("StyleWest", this.styleWest);
+		pCompoundTag.putBoolean("StyleUp", this.styleUp);
+		pCompoundTag.putBoolean("StyleNorth", this.styleNorth);
+		pCompoundTag.putBoolean("StyleEast", this.styleEast);
+		pCompoundTag.putBoolean("StyleSouth", this.styleSouth);
+		pCompoundTag.putBoolean("StyleWest", this.styleWest);
 
-		pTag.putBoolean("Waxed", this.waxed);
+		pCompoundTag.putBoolean("Waxed", this.waxed);
 
-		pTag.putInt("ColorUp", this.colorUp);
-		pTag.putInt("ColorNorth", this.colorNorth);
-		pTag.putInt("ColorEast", this.colorEast);
-		pTag.putInt("ColorSouth", this.colorSouth);
-		pTag.putInt("ColorWest", this.colorWest);
+		pCompoundTag.putInt("ColorUp", this.colorUp);
+		pCompoundTag.putInt("ColorNorth", this.colorNorth);
+		pCompoundTag.putInt("ColorEast", this.colorEast);
+		pCompoundTag.putInt("ColorSouth", this.colorSouth);
+		pCompoundTag.putInt("ColorWest", this.colorWest);
 
 		if (this.labelUp != null) {
-			pTag.putString("LabelUp", this.labelUp);
+			pCompoundTag.putString("LabelUp", this.labelUp);
 		}
 
 		if (this.labelNorth != null) {
-			pTag.putString("LabelNorth", this.labelNorth);
+			pCompoundTag.putString("LabelNorth", this.labelNorth);
 		}
 
 		if (this.labelEast != null) {
-			pTag.putString("LabelEast", this.labelEast);
+			pCompoundTag.putString("LabelEast", this.labelEast);
 		}
 
 		if (this.labelSouth != null) {
-			pTag.putString("LabelSouth", this.labelSouth);
+			pCompoundTag.putString("LabelSouth", this.labelSouth);
 		}
 
 		if (this.labelWest != null) {
-			pTag.putString("LabelWest", this.labelWest);
+			pCompoundTag.putString("LabelWest", this.labelWest);
 		}
 
-		if (!this.trySaveLootTable(pTag)) {
-			ContainerHelper.saveAllItems(pTag, this.items, pProvider);
+		if (!this.trySaveLootTable(pCompoundTag)) {
+			ContainerHelper.saveAllItems(pCompoundTag, this.items, pProvider);
 		}
 	}
 
@@ -278,13 +277,13 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 	}
 
 	@Override
-	public void setItems(NonNullList<ItemStack> pItems) {
-		this.items = pItems;
+	public void setItems(NonNullList<ItemStack> pItemStacks) {
+		this.items = pItemStacks;
 	}
 
 	@Override
-	public AbstractContainerMenu createMenu(int pId, Inventory pPlayer) {
-		return new ChestMenu(MenuType.GENERIC_9x2, pId, pPlayer, this, 2);
+	public AbstractContainerMenu createMenu(int pId, Inventory pInventory) {
+		return new ChestMenu(MenuType.GENERIC_9x2, pId, pInventory, this, 2);
 	}
 
 	@Override
@@ -302,22 +301,27 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 		return ClientboundBlockEntityDataPacket.create(this);
 	}
 
+	@Nullable
 	public String getLabelUp() {
 		return this.labelUp;
 	}
 
+	@Nullable
 	public String getLabelNorth() {
 		return this.labelNorth;
 	}
 
+	@Nullable
 	public String getLabelEast() {
 		return this.labelEast;
 	}
 
+	@Nullable
 	public String getLabelSouth() {
 		return this.labelSouth;
 	}
 
+	@Nullable
 	public String getLabelWest() {
 		return this.labelWest;
 	}

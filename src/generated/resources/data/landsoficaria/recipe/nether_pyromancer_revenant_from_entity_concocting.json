@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 5906455,
+  "entity": "landsoficaria:nether_pyromancer_revenant",
+  "ingredient": [
+    "landsoficaria:bolbos",
+    "landsoficaria:mondanos",
+    "landsoficaria:wilted_elm"
+  ],
+  "time": 200
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "particle": "landsoficaria:block/populus_planks",
+    "texture": "landsoficaria:block/populus_planks"
+  }
+}

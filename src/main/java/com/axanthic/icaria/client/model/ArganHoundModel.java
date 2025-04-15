@@ -1,11 +1,13 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.ArganHoundEntity;
+import com.axanthic.icaria.client.state.ArganHoundRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -14,13 +16,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ArganHoundModel extends HierarchicalModel<ArganHoundEntity> {
-	public ModelPart root;
+public class ArganHoundModel extends EntityModel<ArganHoundRenderState> {
 	public ModelPart head;
 	public ModelPart skull;
 	public ModelPart body;
@@ -34,7 +33,7 @@ public class ArganHoundModel extends HierarchicalModel<ArganHoundEntity> {
 	public ModelPart legLeftRearLower;
 
 	public ArganHoundModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.head = this.root.getChild("head");
 		this.skull = this.head.getChild("skull");
 		this.body = this.root.getChild("body");
@@ -49,33 +48,36 @@ public class ArganHoundModel extends HierarchicalModel<ArganHoundEntity> {
 	}
 
 	@Override
-	public void setupAnim(ArganHoundEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.ARGAN_HOUND_ATTACK, pAgeInTicks);
+	public void setupAnim(ArganHoundRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.ARGAN_HOUND_ATTACK, pRenderState.ageInTicks);
 	}
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.skull.xRot = IcariaMath.rad(pHeadPitch) + 0.3927F;
-		this.skull.yRot = IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.skull.xRot = IcariaMath.rad(pXRot) + 0.3927F;
+		this.skull.yRot = IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed * 0.5F;
 
-		this.legRightFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * 0.6F * pLimbSwingAmount + 0.1822F;
-		this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.3643F;
-		this.legLeftFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * 0.6F * pLimbSwingAmount + 0.1822F;
-		this.legLeftFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.3643F;
-		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 1.2F * pLimbSwingAmount - 0.2731F;
-		this.legRightRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2731F;
-		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 1.2F * pLimbSwingAmount - 0.2731F;
-		this.legLeftRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2731F;
+		this.legRightFront.xRot = -Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.0F) * 0.6F * pWalkAnimationSpeed + 0.1822F;
+		this.legRightFrontLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.3643F;
+		this.legLeftFront.xRot = -Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.0F) * 0.6F * pWalkAnimationSpeed + 0.1822F;
+		this.legLeftFrontLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.3643F;
+		this.legRightRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.5F) * 1.2F * pWalkAnimationSpeed - 0.2731F;
+		this.legRightRearLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2731F;
+		this.legLeftRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.5F) * 1.2F * pWalkAnimationSpeed - 0.2731F;
+		this.legLeftRearLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2731F;
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(19, 28).addBox(-2.0F, -6.0F, -4.0F, 4.0F, 6.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 16.3433F, -6.0869F, -0.3016F, 0.0F, 0.0F));
@@ -104,10 +106,5 @@ public class ArganHoundModel extends HierarchicalModel<ArganHoundEntity> {
 		legLeftRear.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0F, 0.0F, -1.0F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, -1.0F, 0.2731F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.shapes.DirectionShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -17,8 +19,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -35,27 +35,27 @@ public class IcariaSkullBlock extends IcariaAbstractSkullBlock {
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(BlockStateProperties.ROTATION_16, Mth.floor((pContext.getRotation() * 16.0F / 360.0F) + 0.5D) & 15);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		return this.defaultBlockState().setValue(BlockStateProperties.ROTATION_16, Mth.floor((pBlockPlaceContext.getRotation() * 16.0F / 360.0F) + 0.5D) & 15);
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.ROTATION_16, pMirror.mirror(pState.getValue(BlockStateProperties.ROTATION_16), 16));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.ROTATION_16, pMirror.mirror(pBlockState.getValue(BlockStateProperties.ROTATION_16), 16));
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.ROTATION_16, pRotation.rotate(pState.getValue(BlockStateProperties.ROTATION_16), 16));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.ROTATION_16, pRotation.rotate(pBlockState.getValue(BlockStateProperties.ROTATION_16), 16));
 	}
 
 	@Override
-	public VoxelShape getOcclusionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public VoxelShape getOcclusionShape(BlockState pBlockState) {
 		return Shapes.empty();
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return DirectionShapes.UP;
 	}
 }

@@ -2,11 +2,13 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.ScorpionEntity;
+import com.axanthic.icaria.client.state.ScorpionRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -15,13 +17,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
-	public ModelPart root;
+public class ScorpionModel extends EntityModel<ScorpionRenderState> {
 	public ModelPart bodyMain;
 	public ModelPart headMain;
 	public ModelPart legRightFrontUpper;
@@ -42,7 +41,7 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 	public ModelPart legLeftRearLower;
 
 	public ScorpionModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyMain = this.root.getChild("bodyMain");
 		this.headMain = this.bodyMain.getChild("headMain");
 		this.legRightFrontUpper = this.bodyMain.getChild("legRightFrontUpper");
@@ -64,11 +63,15 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 	}
 
 	@Override
-	public void setupAnim(ScorpionEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
+	public void setupAnim(ScorpionRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
 		this.setupRotateAngles();
-		this.setupAnim(pLimbSwing, pLimbSwingAmount, pNetHeadYaw, pHeadPitch);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.SCORPION_ATTACK, pAgeInTicks);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.SCORPION_ATTACK, pRenderState.ageInTicks);
 	}
 
 	public void setupRotateAngles() {
@@ -83,25 +86,20 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 		IcariaClientHelper.setRotateAngles(this.legLeftRearUpper, 0.0971F, -0.7866F, -0.2243F);
 	}
 
-	public void setupAnim(float pLimbSwing, float pLimbSwingAmount, float pNetHeadYaw, float pHeadPitch) {
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
-	}
-
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float frontY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pLimbSwingAmount;
-		float frontZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.5F) * 0.4F) * pLimbSwingAmount;
-		float centerFrontY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
-		float centerFrontZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
-		float centerRearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
-		float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
-		float rearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
-		float rearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		var frontY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pWalkAnimationSpeed;
+		var frontZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.5F) * 0.4F) * pWalkAnimationSpeed;
+		var centerFrontY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pWalkAnimationSpeed;
+		var centerFrontZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.5F) * 0.4F) * pWalkAnimationSpeed;
+		var centerRearY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pWalkAnimationSpeed;
+		var centerRearZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.0F) * 0.4F) * pWalkAnimationSpeed;
+		var rearY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pWalkAnimationSpeed;
+		var rearZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.0F) * 0.4F) * pWalkAnimationSpeed;
 
 		this.legRightFrontUpper.yRot += frontY;
 		this.legRightFrontUpper.zRot += frontZ;
@@ -123,6 +121,7 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyMain = partDefinition.addOrReplaceChild("bodyMain", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, -3.5F, -4.0F, 9.0F, 6.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 15.7F, 0.0F, 0.0911F, 0.0F, 0.0F));
@@ -166,10 +165,5 @@ public class ScorpionModel extends HierarchicalModel<ScorpionEntity> {
 		legLeftRearUpper.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(28, 26).addBox(-11.6852F, -0.822F, -0.7317F, 12.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.8F, 0.1F, 0.0F, 0.0F, 0.0F, -2.1468F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -1,23 +1,22 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.CrocottaEntity;
+import com.axanthic.icaria.client.state.CrocottaRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrocottaModel extends HierarchicalModel<CrocottaEntity> {
-	public ModelPart root;
+public class CrocottaModel extends EntityModel<CrocottaRenderState> {
 	public ModelPart body;
 	public ModelPart bodyFront;
 	public ModelPart neckRear;
@@ -42,7 +41,7 @@ public class CrocottaModel extends HierarchicalModel<CrocottaEntity> {
 	public ModelPart pawLeftRear;
 
 	public CrocottaModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.body = this.root.getChild("body");
 		this.bodyFront = this.body.getChild("bodyFront");
 		this.neckRear = this.bodyFront.getChild("neckRear");
@@ -68,44 +67,48 @@ public class CrocottaModel extends HierarchicalModel<CrocottaEntity> {
 	}
 
 	@Override
-	public void setupAnim(CrocottaEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.CROCOTTA_ATTACK, pAgeInTicks);
+	public void setupAnim(CrocottaRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.CROCOTTA_ATTACK, pRenderState.ageInTicks);
 	}
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		float xRot = IcariaMath.rad(pHeadPitch) / 1.5F;
-		float yRot = IcariaMath.rad(pNetHeadYaw) / 3.0F;
+	public void lookAnim(float pXRot, float pYRot) {
+		var xRot = IcariaMath.rad(pXRot) / 1.5F;
+		var yRot = IcariaMath.rad(pYRot) / 3.0F;
+
 		this.maneFront.xRot = xRot + 0.2182F;
 		this.maneFront.yRot = yRot;
 		this.neckCenter.xRot = xRot + 0.0873F;
 		this.neckCenter.yRot = yRot;
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= 1.375F;
-		pLimbSwingAmount *= 0.875F;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		pWalkAnimationPos *= 1.375F;
+		pWalkAnimationSpeed *= 0.875F;
 
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed * 0.5F;
 
-		this.thighRightFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * 0.6F * pLimbSwingAmount + 0.3054F;
-		this.legRightFront.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.1745F;
-		this.pawRightFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount + 0.0436F;
-		this.thighLeftFront.xRot = -Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * 0.6F * pLimbSwingAmount + 0.3054F;
-		this.legLeftFront.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount - pLimbSwingAmount - 0.1745F;
-		this.pawLeftFront.xRot = -Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount + 0.0436F;
-		this.thighRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * 1.2F * pLimbSwingAmount + 0.0436F;
-		this.legRightRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2182F;
-		this.pawRightRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount - 0.1309F;
-		this.thighLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * 1.2F * pLimbSwingAmount + 0.0436F;
-		this.legLeftRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.2182F;
-		this.pawLeftRear.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount - 0.1309F;
+		this.thighRightFront.xRot = -Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.0F) * 0.6F * pWalkAnimationSpeed + 0.3054F;
+		this.legRightFront.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.1745F;
+		this.pawRightFront.xRot = -Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.0436F;
+		this.thighLeftFront.xRot = -Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.0F) * 0.6F * pWalkAnimationSpeed + 0.3054F;
+		this.legLeftFront.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.1745F;
+		this.pawLeftFront.xRot = -Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.0436F;
+		this.thighRightRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.5F) * 1.2F * pWalkAnimationSpeed + 0.0436F;
+		this.legRightRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2182F;
+		this.pawRightRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.1309F;
+		this.thighLeftRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.5F) * 1.2F * pWalkAnimationSpeed + 0.0436F;
+		this.legLeftRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.2182F;
+		this.pawLeftRear.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.1309F;
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		PartDefinition body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -18.0F, 0.0F, 7.0F, 9.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, 0.0F));
@@ -141,10 +144,5 @@ public class CrocottaModel extends HierarchicalModel<CrocottaEntity> {
 		legLeftRear.addOrReplaceChild("pawLeftRear", CubeListBuilder.create().texOffs(22, 62).addBox(-1.5F, -0.0059F, -1.6865F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.04F, 0.0295F, -0.1309F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 80, 80);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -2,12 +2,18 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaLootTables;
 import com.axanthic.icaria.common.shapes.TripleBarrelRackShapes;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
+
+import java.util.List;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -22,17 +28,13 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import java.util.List;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -44,128 +46,145 @@ public class TripleBarrelRackBlock extends Block {
 	}
 
 	@Override
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
+		return false;
+	}
+
+	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.VERTICAL_CORNER);
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
+		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState);
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pServerLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		pServerLevel.setBlock(blockPos.offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pServerLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pServerLevel.setBlock(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
 	}
 
 	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			if (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
-				Block.dropResources(pState, pLevel, pPos);
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBockStateNew, boolean pMovedByPiston) {
+		if (pBlockStateOld.getBlock() != pBockStateNew.getBlock()) {
+			if (pBlockStateOld.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
+				Block.dropResources(pBlockStateOld, pLevel, pBlockPos);
 			}
 		}
-
-		super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_RIGHT), 3);
+		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_LEFT), 3);
+		pLevel.setBlock(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_RIGHT), 3);
 	}
 
-	@Override
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_RIGHT), 3);
-		pLevel.setBlock(pPos.above(), pState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_LEFT), 3);
-		pLevel.setBlock(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_RIGHT), 3);
-	}
-
-	public static BlockPos getPlacedBlockPosition(BlockState pState, BlockPos pPos) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_RIGHT) {
-			return pPos.below().offset(facing.getClockWise().getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_LEFT) {
-			return pPos.below();
-		} else if (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_RIGHT) {
-			return pPos.offset(facing.getClockWise().getNormal());
+	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_RIGHT) {
+			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_LEFT) {
+			return pBlockPos.below();
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_RIGHT) {
+			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
 		} else {
-			return pPos;
+			return pBlockPos;
 		}
 	}
 
+	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockPos = pContext.getClickedPos();
-		var facing = pContext.getHorizontalDirection().getOpposite();
-		var level = pContext.getLevel();
-		if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.above()).canBeReplaced(pContext) && level.getBlockState(blockPos.above().offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext)) {
-			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var direction = pBlockPlaceContext.getHorizontalDirection().getOpposite();
+		var level = pBlockPlaceContext.getLevel();
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
 		} else {
 			return null;
 		}
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-		return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, state.getValue(IcariaBlockStateProperties.VERTICAL_CORNER).getOpposite());
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		var blockState = pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, blockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER).getOpposite());
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState);
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
+		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
+		return lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootParams);
+	}
+
+	@Override
+	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
 		return Shapes.empty();
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER)) {
-			case BOTTOM_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> TripleBarrelRackShapes.BOTTOM_LEFT_NORTH;
-				case EAST -> TripleBarrelRackShapes.BOTTOM_LEFT_EAST;
-				case SOUTH -> TripleBarrelRackShapes.BOTTOM_LEFT_SOUTH;
-				default -> TripleBarrelRackShapes.BOTTOM_LEFT_WEST;
-			};
-
-			case BOTTOM_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_NORTH;
-				case EAST -> TripleBarrelRackShapes.BOTTOM_RIGHT_EAST;
-				case SOUTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_SOUTH;
-				default -> TripleBarrelRackShapes.BOTTOM_RIGHT_WEST;
-			};
-
-			case TOP_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> TripleBarrelRackShapes.TOP_LEFT_NORTH;
-				case EAST -> TripleBarrelRackShapes.TOP_LEFT_EAST;
-				case SOUTH -> TripleBarrelRackShapes.TOP_LEFT_SOUTH;
-				default -> TripleBarrelRackShapes.TOP_LEFT_WEST;
-			};
-
-			case TOP_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> TripleBarrelRackShapes.TOP_RIGHT_NORTH;
-				case EAST -> TripleBarrelRackShapes.TOP_RIGHT_EAST;
-				case SOUTH -> TripleBarrelRackShapes.TOP_RIGHT_SOUTH;
-				default -> TripleBarrelRackShapes.TOP_RIGHT_WEST;
-			};
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER)) {
+			case BOTTOM_LEFT -> this.getNorth(pBlockState);
+			case BOTTOM_RIGHT -> this.getEast(pBlockState);
+			case TOP_LEFT -> this.getSouth(pBlockState);
+			case TOP_RIGHT -> this.getWest(pBlockState);
 		};
 	}
 
-	@Override
-	public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
-		var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-		return lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext);
+	public VoxelShape getNorth(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> TripleBarrelRackShapes.BOTTOM_LEFT_NORTH;
+			case EAST -> TripleBarrelRackShapes.BOTTOM_LEFT_EAST;
+			case SOUTH -> TripleBarrelRackShapes.BOTTOM_LEFT_SOUTH;
+			default -> TripleBarrelRackShapes.BOTTOM_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getEast(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_NORTH;
+			case EAST -> TripleBarrelRackShapes.BOTTOM_RIGHT_EAST;
+			case SOUTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_SOUTH;
+			default -> TripleBarrelRackShapes.BOTTOM_RIGHT_WEST;
+		};
+	}
+
+	public VoxelShape getSouth(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> TripleBarrelRackShapes.TOP_LEFT_NORTH;
+			case EAST -> TripleBarrelRackShapes.TOP_LEFT_EAST;
+			case SOUTH -> TripleBarrelRackShapes.TOP_LEFT_SOUTH;
+			default -> TripleBarrelRackShapes.TOP_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getWest(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> TripleBarrelRackShapes.TOP_RIGHT_NORTH;
+			case EAST -> TripleBarrelRackShapes.TOP_RIGHT_EAST;
+			case SOUTH -> TripleBarrelRackShapes.TOP_RIGHT_SOUTH;
+			default -> TripleBarrelRackShapes.TOP_RIGHT_WEST;
+		};
 	}
 }

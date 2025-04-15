@@ -7,6 +7,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -17,8 +19,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -28,15 +28,16 @@ public class IcariaChestItemRenderer extends BlockEntityWithoutLevelRenderer {
 	}
 
 	@Override
-	public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-		if (pStack.getItem() instanceof IcariaChestItem chestItem) {
-			var state = chestItem.getBlock().defaultBlockState();
-			if (state.is(IcariaBlocks.CHEST.get())) {
-				var entity = new IcariaChestBlockEntity(BlockPos.ZERO, state);
-				Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
-			} else if (state.is(IcariaBlocks.TRAPPED_CHEST.get())) {
-				var entity = new IcariaTrappedChestBlockEntity(BlockPos.ZERO, state);
-				Minecraft.getInstance().getBlockEntityRenderDispatcher().renderItem(entity, pPoseStack, pBuffer, pPackedLight, pPackedOverlay);
+	public void renderByItem(ItemStack pItemStack, ItemDisplayContext pItemDisplayContext, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+		var blockEntityRenderDispatcher = Minecraft.getInstance().getBlockEntityRenderDispatcher();
+		if (pItemStack.getItem() instanceof IcariaChestItem chestItem) {
+			var blockState = chestItem.getBlock().defaultBlockState();
+			if (blockState.is(IcariaBlocks.CHEST.get())) {
+				var blockEntity = new IcariaChestBlockEntity(BlockPos.ZERO, blockState);
+				blockEntityRenderDispatcher.renderItem(blockEntity, pPoseStack, pMultiBufferSource, pPackedLight, pPackedOverlay);
+			} else if (blockState.is(IcariaBlocks.TRAPPED_CHEST.get())) {
+				var blockEntity = new IcariaTrappedChestBlockEntity(BlockPos.ZERO, blockState);
+				blockEntityRenderDispatcher.renderItem(blockEntity, pPoseStack, pMultiBufferSource, pPackedLight, pPackedOverlay);
 			}
 		}
 	}

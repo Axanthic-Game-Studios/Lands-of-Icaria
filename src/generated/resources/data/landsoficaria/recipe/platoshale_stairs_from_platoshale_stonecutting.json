@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:platoshale",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:platoshale_stairs"
+  }
+}

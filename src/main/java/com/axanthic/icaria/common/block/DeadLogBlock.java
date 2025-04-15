@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,12 +18,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -35,7 +36,12 @@ public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWat
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
+		return false;
+	}
+
+	@Override
+	public boolean propagatesSkylightDown(BlockState pBlockState) {
 		return false;
 	}
 
@@ -45,24 +51,24 @@ public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWat
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
-		return super.getStateForPlacement(pContext).setValue(BlockStateProperties.AXIS, pContext.getClickedFace().getAxis()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return super.getStateForPlacement(pBlockPlaceContext).setValue(BlockStateProperties.AXIS, pBlockPlaceContext.getClickedFace().getAxis()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
 		return Shapes.empty();
 	}
 
 	@Override
-	public VoxelShape getCollisionShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		if (pState.getValue(BlockStateProperties.AXIS).isHorizontal()) {
+	public VoxelShape getCollisionShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		if (pBlockState.getValue(BlockStateProperties.AXIS).isHorizontal()) {
 			return Shapes.block();
 		} else {
 			return DeadLogBlock.SHAPE;

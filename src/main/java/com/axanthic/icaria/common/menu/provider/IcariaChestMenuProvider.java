@@ -1,5 +1,8 @@
 package com.axanthic.icaria.common.menu.provider;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;
@@ -10,8 +13,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,12 +29,13 @@ public class IcariaChestMenuProvider implements MenuProvider {
 		this.container = pContainer;
 	}
 
+	@Nullable
 	@Override
-	public AbstractContainerMenu createMenu(int pContainerId, Inventory pPlayerInventory, Player pPlayer) {
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
 		if (this.first.canOpen(pPlayer) && this.second.canOpen(pPlayer)) {
-			this.first.unpackLootTable(pPlayerInventory.player);
-			this.second.unpackLootTable(pPlayerInventory.player);
-			return new ChestMenu(MenuType.GENERIC_9x4, pContainerId, pPlayerInventory, this.container, 4);
+			this.first.unpackLootTable(pInventory.player);
+			this.second.unpackLootTable(pInventory.player);
+			return new ChestMenu(MenuType.GENERIC_9x4, pContainerId, pInventory, this.container, 4);
 		} else {
 			return null;
 		}

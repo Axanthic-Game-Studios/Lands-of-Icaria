@@ -2,7 +2,10 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -18,28 +21,25 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class CerverEntity extends Monster {
 	public AnimationState attackAnimationState = new AnimationState();
 
-	public CerverEntity(EntityType<? extends CerverEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 5;
+	public CerverEntity(EntityType<? extends CerverEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean doHurtTarget(Entity pEntity) {
+	public boolean doHurtTarget(ServerLevel pServerLevel, Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
-		return super.doHurtTarget(pEntity);
+		return super.doHurtTarget(pServerLevel, pEntity);
 	}
 
 	@Override
 	public float getVoicePitch() {
-		return 0.25F;
+		return 0.5F;
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class CerverEntity extends Monster {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override

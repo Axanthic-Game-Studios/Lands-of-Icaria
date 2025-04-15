@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:sunstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:sunstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:sunstone_brick_slab_from_sunstone_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:sunstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:sunstone_brick_slab_from_sunstone_stonecutting"
+    ]
+  }
+}

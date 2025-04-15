@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 3680281,
+  "entity": "landsoficaria:vinegaroon",
+  "ingredient": [
+    "landsoficaria:mondanos",
+    "landsoficaria:mondanos",
+    "landsoficaria:psilocybos"
+  ],
+  "time": 200
+}

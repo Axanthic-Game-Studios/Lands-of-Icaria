@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:explosion_concocting",
+  "colour": 5083986,
+  "ingredient": [
+    "landsoficaria:psilocybos",
+    "landsoficaria:rowan",
+    "landsoficaria:namdrake"
+  ],
+  "radius": 6.0,
+  "time": 200
+}

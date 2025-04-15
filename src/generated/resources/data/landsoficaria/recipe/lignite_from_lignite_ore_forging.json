@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:lignite_ore",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:lignite"
+  },
+  "time": 100
+}

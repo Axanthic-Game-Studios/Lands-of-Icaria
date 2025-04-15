@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 7100247,
+  "entity": "landsoficaria:soldier_revenant",
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:namdrake",
+    "landsoficaria:hyliastrum_vial"
+  ],
+  "time": 200
+}

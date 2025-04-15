@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:silksand": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:silksand"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:silkglass_from_silksand_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:silksand"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:silkglass_from_silksand_firing"
+    ]
+  }
+}

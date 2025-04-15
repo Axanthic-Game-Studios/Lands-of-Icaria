@@ -1,14 +1,13 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.SowEntity;
+import com.axanthic.icaria.client.state.SowRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -17,15 +16,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SowModel extends HierarchicalModel<SowEntity> {
-	public SowEntity entity;
-
-	public ModelPart root;
+public class SowModel extends EntityModel<SowRenderState> {
 	public ModelPart body;
 	public ModelPart head;
 	public ModelPart mouth;
@@ -39,7 +33,7 @@ public class SowModel extends HierarchicalModel<SowEntity> {
 	public ModelPart legLeftRear;
 
 	public SowModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.body = this.root.getChild("body");
 		this.head = this.root.getChild("head");
 		this.mouth = this.head.getChild("mouth");
@@ -54,75 +48,40 @@ public class SowModel extends HierarchicalModel<SowEntity> {
 	}
 
 	@Override
-	public void prepareMobModel(SowEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick) {
-		super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
-		this.entity = pEntity;
+	public void setupAnim(SowRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.SOW_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.eatingAnimationState, IcariaAnimations.SOW_EATING, pRenderState.ageInTicks);
+
+		this.tuskRightTeen.visible = pRenderState.size == 3;
+		this.tuskLeftTeen.visible = pRenderState.size == 3;
+		this.tuskRightAdult.visible = pRenderState.size == 4;
+		this.tuskLeftAdult.visible = pRenderState.size == 4;
 	}
 
-	@Override
-	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, int pColor) {
-		if (this.entity.getSize() < 2) {
-			pPoseStack.pushPose();
-			this.tuskRightAdult.visible = false;
-			this.tuskLeftAdult.visible = false;
-			this.tuskRightTeen.visible = false;
-			this.tuskLeftTeen.visible = false;
-			this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 3) {
-			pPoseStack.pushPose();
-			this.tuskRightAdult.visible = false;
-			this.tuskLeftAdult.visible = false;
-			this.tuskRightTeen.visible = false;
-			this.tuskLeftTeen.visible = false;
-			this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 4) {
-			pPoseStack.pushPose();
-			this.tuskRightAdult.visible = false;
-			this.tuskLeftAdult.visible = false;
-			this.tuskRightTeen.visible = true;
-			this.tuskLeftTeen.visible = true;
-			this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else {
-			pPoseStack.pushPose();
-			this.tuskRightAdult.visible = true;
-			this.tuskLeftAdult.visible = true;
-			this.tuskRightTeen.visible = false;
-			this.tuskLeftTeen.visible = false;
-			this.root.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		}
+	public void lookAnim(float pXRot, float pYRot) {
+		this.head.xRot = IcariaMath.rad(pXRot) + 0.0834F;
+		this.head.yRot = IcariaMath.rad(pYRot);
 	}
 
-	@Override
-	public void setupAnim(SowEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.SOW_ATTACK, pAgeInTicks);
-		this.animate(pEntity.eatingAnimationState, IcariaAnimations.SOW_EATING, pAgeInTicks);
-	}
+	public void walkAnim(float pSize, float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		pWalkAnimationPos *= Mth.lerp(pSize, 0.5F, 1.0F);
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = IcariaMath.rad(pHeadPitch) + 0.0834F;
-		this.head.yRot = IcariaMath.rad(pNetHeadYaw);
-	}
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed * 0.5F;
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= Mth.lerp(this.entity.getSize(), 0.5F, 1.0F);
-
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
-
-		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount;
-		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount;
-		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount;
-		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount;
+		this.legRightFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed;
+		this.legLeftFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed;
+		this.legRightRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed;
+		this.legLeftRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed;
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -4.5352F, -7.0F, 8.0F, 8.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 15.0F, 0.0F, -0.0911F, 0.0F, 0.0F));
@@ -147,10 +106,5 @@ public class SowModel extends HierarchicalModel<SowEntity> {
 		partDefinition.addOrReplaceChild("legLeftRear", CubeListBuilder.create().texOffs(24, 38).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(2.5F, 18.0684F, 3.6006F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -1,10 +1,12 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.SnullEntity;
+import com.axanthic.icaria.client.state.ForestSnullRenderState;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -13,13 +15,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ForestSnullModel extends HierarchicalModel<SnullEntity> {
-	public ModelPart root;
+public class ForestSnullModel extends EntityModel<ForestSnullRenderState> {
 	public ModelPart bodyFront;
 	public ModelPart bodyFrontLower;
 	public ModelPart bodyFrontCenter;
@@ -32,7 +31,7 @@ public class ForestSnullModel extends HierarchicalModel<SnullEntity> {
 	public ModelPart skullFeelerLeft;
 
 	public ForestSnullModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyFront = this.root.getChild("bodyFront");
 		this.bodyFrontLower = this.bodyFront.getChild("bodyFrontLower");
 		this.bodyFrontCenter = this.bodyFrontLower.getChild("bodyFrontCenter");
@@ -46,14 +45,16 @@ public class ForestSnullModel extends HierarchicalModel<SnullEntity> {
 	}
 
 	@Override
-	public void setupAnim(SnullEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.idleAnim(pAgeInTicks);
-		this.animate(pEntity.hideAnimationState, IcariaAnimations.FOREST_SNULL_HIDE, pAgeInTicks);
-		this.animate(pEntity.hurtAnimationState, IcariaAnimations.FOREST_SNULL_HURT, pAgeInTicks);
-		this.animate(pEntity.idleAnimationState, IcariaAnimations.FOREST_SNULL_IDLE, pAgeInTicks);
-		this.animate(pEntity.moveAnimationState, IcariaAnimations.FOREST_SNULL_MOVE, pAgeInTicks);
-		this.animate(pEntity.showAnimationState, IcariaAnimations.FOREST_SNULL_SHOW, pAgeInTicks);
+	public void setupAnim(ForestSnullRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.idleAnim(pRenderState.ageInTicks);
+
+		this.animate(pRenderState.hideAnimationState, IcariaAnimations.FOREST_SNULL_HIDE, pRenderState.ageInTicks);
+		this.animate(pRenderState.hurtAnimationState, IcariaAnimations.FOREST_SNULL_HURT, pRenderState.ageInTicks);
+		this.animate(pRenderState.idleAnimationState, IcariaAnimations.FOREST_SNULL_IDLE, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimations.FOREST_SNULL_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.showAnimationState, IcariaAnimations.FOREST_SNULL_SHOW, pRenderState.ageInTicks);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -69,6 +70,7 @@ public class ForestSnullModel extends HierarchicalModel<SnullEntity> {
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyFront = partDefinition.addOrReplaceChild("bodyFront", CubeListBuilder.create().texOffs(0, 28).addBox(-2.5F, -4.0F, -4.0F, 5.0F, 4.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 24.0F, -4.0F));
@@ -108,10 +110,5 @@ public class ForestSnullModel extends HierarchicalModel<SnullEntity> {
 		bodyRearShroom.addOrReplaceChild("bodyRearShroomHat", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, -1.0F, -4.5F, 9.0F, 1.0F, 9.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.5F, -10.8F, 1.0F, 0.0F, -0.2618F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

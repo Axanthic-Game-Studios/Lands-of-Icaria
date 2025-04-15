@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:bridge",
+  "author": {
+    "translate": "painting.landsoficaria.bridge.author"
+  },
   "height": 2,
+  "title": {
+    "translate": "painting.landsoficaria.bridge.title"
+  },
   "width": 2
 }

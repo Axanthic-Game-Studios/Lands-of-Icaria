@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:cobbled_baetyl"
-    }
+    "A": "landsoficaria:cobbled_baetyl"
   },
   "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
+    "A  ",
+    "AA ",
+    "AAA"
   ],
   "result": {
     "count": 4,

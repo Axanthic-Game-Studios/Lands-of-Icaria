@@ -5,6 +5,8 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -20,8 +22,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -32,7 +32,7 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 	}
 
 	@Override
-	public boolean isRandomlyTicking(BlockState pState) {
+	public boolean isRandomlyTicking(BlockState pBlockState) {
 		return true;
 	}
 
@@ -42,31 +42,31 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		super.randomTick(pState, pLevel, pPos, pRandom);
-		if (pRandom.nextInt(100) == 0) {
-			if (!pState.getValue(BlockStateProperties.PERSISTENT)) {
-				if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.NONE) {
-					pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN), 2);
-				} else if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-					pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK), 2);
+	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		super.randomTick(pBlockState, pServerLevel, pBlockPos, pRandomSource);
+		if (pRandomSource.nextInt(100) == 0) {
+			if (!pBlockState.getValue(BlockStateProperties.PERSISTENT)) {
+				if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.NONE) {
+					pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN), 2);
+				} else if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
+					pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK), 2);
 				}
 			}
 		}
 	}
 
 	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-			pLevel.playSound(null, pPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
-			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
-			Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GREEN_OLIVES.get()));
-			return InteractionResult.sidedSuccess(pLevel.isClientSide());
-		} else if (pState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
-			pLevel.playSound(null, pPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
-			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
-			Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.BLACK_OLIVES.get()));
-			return InteractionResult.sidedSuccess(pLevel.isClientSide());
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
+			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.GREEN_OLIVES.get()));
+			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
+			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
+			return InteractionResult.SUCCESS;
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
+			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.BLACK_OLIVES.get()));
+			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
+			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
+			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.PASS;
 		}

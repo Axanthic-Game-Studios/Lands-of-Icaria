@@ -3,12 +3,12 @@ package com.axanthic.icaria.common.handler.stack;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -22,8 +22,8 @@ public class GrinderGearItemStackHandler extends ItemStackHandler {
 	}
 
 	@Override
-	public boolean isItemValid(int pIndex, ItemStack pStack) {
-		return pStack.getItem() == IcariaItems.YELLOWSTONE_GEAR.get() || pStack.getItem() == IcariaItems.LOAM_GEAR.get() || pStack.getItem() == IcariaItems.VOIDSHALE_GEAR.get() || pStack.getItem() == IcariaItems.VANADIUM_GEAR.get() || pStack.getItem() == IcariaItems.DAEDALIAN_GEAR.get();
+	public boolean isItemValid(int pIndex, ItemStack pItemStack) {
+		return pItemStack.getItem() == IcariaItems.YELLOWSTONE_GEAR.get() || pItemStack.getItem() == IcariaItems.LOAM_GEAR.get() || pItemStack.getItem() == IcariaItems.VOIDSHALE_GEAR.get() || pItemStack.getItem() == IcariaItems.VANADIUM_GEAR.get() || pItemStack.getItem() == IcariaItems.DAEDALIAN_GEAR.get();
 	}
 
 	@Override

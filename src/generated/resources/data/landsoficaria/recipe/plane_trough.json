@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:plane_planks"
-    },
-    "Y": {
-      "item": "landsoficaria:plane_log"
-    }
+    "A": "landsoficaria:plane_log",
+    "B": "landsoficaria:plane_planks"
   },
   "pattern": [
-    "X X",
-    "YYY"
+    "B B",
+    "AAA"
   ],
   "result": {
     "count": 1,

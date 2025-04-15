@@ -3,14 +3,13 @@ package com.axanthic.icaria.common.goal;
 import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.level.block.Blocks;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -21,19 +20,18 @@ public class ArachneHurtByTargetGoal extends HurtByTargetGoal {
 	}
 
 	@Override
-	public void alertOther(Mob pMob, LivingEntity pTarget) {
+	public void alertOther(Mob pMob, LivingEntity pLivingEntity) {
 		if (pMob instanceof ArachneDroneEntity) {
-			pMob.setTarget(pTarget);
+			pMob.setTarget(pLivingEntity);
 		}
 	}
 
 	@Override
 	public void tick() {
-		super.tick();
-		if (RandomSource.create().nextInt(100) == 0) {
-			var livingEntity = this.mob.getTarget();
-			if (livingEntity != null) {
-				if (this.mob.distanceTo(this.mob.getTarget()) <= 10.0D) {
+		var livingEntity = this.mob.getTarget();
+		if (livingEntity != null) {
+			if (this.mob.distanceTo(livingEntity) <= 10.0D) {
+				if (this.mob.getRandom().nextInt(100) == 0) {
 					this.mob.level().setBlockAndUpdate(livingEntity.blockPosition(), Blocks.COBWEB.defaultBlockState()); // TODO replace with Arachne web
 				}
 			}

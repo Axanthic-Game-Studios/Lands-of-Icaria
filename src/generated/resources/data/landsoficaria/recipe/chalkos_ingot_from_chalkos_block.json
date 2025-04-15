@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:chalkos_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:chalkos_ingot"
+  }
+}

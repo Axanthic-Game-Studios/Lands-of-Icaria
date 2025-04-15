@@ -1,221 +1,106 @@
 package com.axanthic.icaria.common.util;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+
+import java.util.stream.IntStream;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
-import net.minecraft.world.level.portal.PortalShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import net.minecraft.world.phys.AABB;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaPortalShape extends PortalShape {
-	public int height;
+public class IcariaPortalShape {
 	public int minHeight = 2;
 	public int maxHeight = 21;
-	public int width;
 	public int minWidth = 1;
 	public int maxWidth = 21;
-	public int numPortalBlocks;
-
-	public BlockPos bottomLeft;
-
-	public Direction leftDir;
-	public Direction rightDir;
 
 	public Direction.Axis axis;
 
-	public LevelAccessor level;
+	public BlockPos blockPos;
 
-	public IcariaPortalShape(LevelAccessor pLevel, BlockPos pPos, Direction.Axis pAxis) {
-		super(pLevel, pPos, pAxis);
+	public Level level;
+
+	public IcariaPortalShape(Direction.Axis pAxis, BlockPos pBlockPos, Level pLevel) {
+		super();
 		this.axis = pAxis;
+		this.blockPos = pBlockPos;
 		this.level = pLevel;
-		if (pAxis == Direction.Axis.X) {
-			this.leftDir = Direction.EAST;
-			this.rightDir = Direction.WEST;
-		} else {
-			this.leftDir = Direction.NORTH;
-			this.rightDir = Direction.SOUTH;
-		}
-
-		int i = this.getDistanceUntilEdgeAboveFrame(pPos, this.leftDir) - 1;
-		if (i >= 0) {
-			this.bottomLeft = pPos.relative(this.leftDir, i);
-			this.width = this.getDistanceUntilEdgeAboveFrame(this.bottomLeft, this.rightDir);
-			if (this.width < this.minWidth || this.width > this.maxWidth) {
-				this.bottomLeft = null;
-				this.width = 0;
-			}
-		}
-
-		if (this.bottomLeft != null) {
-			this.height = this.calculateHeight();
-		}
 	}
 
-	@Override
+	public boolean canSet() {
+		var ground = new AABB(this.getCorner().below().getX(), this.getCorner().below().getY(), this.getCorner().below().getZ(), this.getCorner().below().relative(this.getRight(), this.getWidth() - 1).getX(), this.getCorner().below().getY(), this.getCorner().below().relative(this.getRight(), this.getWidth() - 1).getZ());
+		var portal = new AABB(this.getCorner().getX(), this.getCorner().getY(), this.getCorner().getZ(), this.getCorner().relative(this.getRight(), this.getWidth() - 1).getX(), this.getCorner().above(this.getHeight() - 1).getY(), this.getCorner().relative(this.getRight(), this.getWidth() - 1).getZ());
+		return this.level.getBlockStates(ground).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && this.level.getBlockStates(portal).allMatch(BlockBehaviour.BlockStateBase::canBeReplaced);
+	}
+
 	public boolean isComplete() {
-		return this.isValid() && this.height * this.width == this.numPortalBlocks;
+		var bottomSlabEastAABB = new AABB(this.getCorner().above(this.getHeight()).getX(), this.getCorner().above(this.getHeight()).getY(), this.getCorner().above(this.getHeight()).getZ(), this.getCorner().above(this.getHeight()).relative(this.getLeft()).getX(), this.getCorner().above(this.getHeight()).relative(this.getLeft()).getY(), this.getCorner().above(this.getHeight()).relative(this.getLeft()).getZ());
+		var bottomSlabWestAABB = new AABB(this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth() - 1).getX(), this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth() - 1).getY(), this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth() - 1).getZ(), this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth()).getX(), this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth()).getY(), this.getCorner().above(this.getHeight()).relative(this.getRight(), this.getWidth()).getZ());
+		var pillarEastAABB = new AABB(this.getCorner().relative(this.getLeft()).getX(), this.getCorner().relative(this.getLeft()).getY(), this.getCorner().relative(this.getLeft()).getZ(), this.getCorner().relative(this.getLeft()).getX(), this.getCorner().above(this.getHeight() - 2).relative(this.getLeft()).getY(), this.getCorner().relative(this.getLeft()).getZ());
+		var pillarWestAABB = new AABB(this.getCorner().relative(this.getRight(), this.getWidth()).getX(), this.getCorner().relative(this.getRight(), this.getWidth()).getY(), this.getCorner().relative(this.getRight(), this.getWidth()).getZ(), this.getCorner().relative(this.getRight(), this.getWidth()).getX(), this.getCorner().above(this.getHeight() - 2).relative(this.getRight(), this.getWidth()).getY(), this.getCorner().relative(this.getRight(), this.getWidth()).getZ());
+
+		var bottomSlabEast = this.level.getBlockStates(bottomSlabEastAABB).allMatch((blockState) -> blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.SLAB_TYPE) == SlabType.BOTTOM));
+		var bottomSlabWest = this.level.getBlockStates(bottomSlabWestAABB).allMatch((blockState) -> blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.SLAB_TYPE) == SlabType.BOTTOM));
+		var pillarEast = this.level.getBlockStates(pillarEastAABB).allMatch((blockState) -> blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.AXIS) == Direction.Axis.Y));
+		var pillarWest = this.level.getBlockStates(pillarWestAABB).allMatch((blockState) -> blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.AXIS) == Direction.Axis.Y));
+
+		var pillarHeadEast = this.level.getBlockState(this.getCorner().above(this.getHeight() - 1).relative(this.getLeft())).is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR_HEAD, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.FACING) == Direction.DOWN);
+		var pillarHeadWest = this.level.getBlockState(this.getCorner().above(this.getHeight() - 1).relative(this.getRight(), this.getWidth())).is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR_HEAD, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.FACING) == Direction.DOWN);
+		var slabEast = this.level.getBlockState(this.getCorner().above(this.getHeight() - 1).relative(this.getLeft(), 2)).is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.SLAB_TYPE) == SlabType.TOP);
+		var slabWest = this.level.getBlockState(this.getCorner().above(this.getHeight() - 1).relative(this.getRight(), this.getWidth() + 1)).is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB, (blockStateBase) -> blockStateBase.getValue(BlockStateProperties.SLAB_TYPE) == SlabType.TOP);
+
+		return bottomSlabEast && bottomSlabWest && pillarEast && pillarWest && pillarHeadEast && pillarHeadWest && slabEast && slabWest;
 	}
 
-	public boolean isEmpty(BlockState pState) {
-		return !pState.canBeReplaced() && !pState.is(IcariaBlocks.GREEK_FIRE.get());
+	public boolean isPortalBlocks(BlockPos pBlockPos, Direction pDirection, int pDistance) {
+		var blockState = this.level.getBlockState(pBlockPos.relative(pDirection, pDistance));
+		return blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR) || blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR_HEAD) || blockState.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB);
 	}
 
-	@Override
-	public boolean isValid() {
-		return this.bottomLeft != null && this.height >= this.minHeight && this.height <= this.maxHeight && this.width >= this.minWidth && this.width <= this.maxWidth;
+	public int getHeight() {
+		return this.getHeightDistance(this.getCorner(), Direction.UP);
 	}
 
-	public int calculateHeight() {
-		label56:
-		for (this.height = 0; this.height <= this.maxHeight; ++this.height) {
-			for (int i = 0; i < this.width; ++i) {
-				var blockPos = this.bottomLeft.relative(this.rightDir, i).above(this.height);
-				var blockState = this.level.getBlockState(blockPos);
-				if (this.isEmpty(blockState)) {
-					break label56;
-				}
+	public int getHeightDistance(BlockPos pBlockPos, Direction pDirection) {
+		return IntStream.rangeClosed(this.minHeight, this.maxHeight).filter((i) -> this.isPortalBlocks(pBlockPos, pDirection, i)).findFirst().orElse(0);
+	}
 
-				var block = blockState.getBlock();
-				if (block == IcariaBlocks.ICARIA_PORTAL.get()) {
-					++this.numPortalBlocks;
-				}
+	public int getWidth() {
+		return this.getWidthDistance(this.getCorner(), this.getRight());
+	}
+
+	public int getWidthDistance(BlockPos pBlockPos, Direction pDirection) {
+		return IntStream.rangeClosed(this.minWidth, this.maxWidth).filter((i) -> this.isPortalBlocks(pBlockPos, pDirection, i)).findFirst().orElse(0);
+	}
+
+	public void createPortal() {
+		for (var h = 0; h < this.getHeight(); h++) {
+			for (var w = 0; w < this.getWidth(); w++) {
+				this.level.setBlock(this.getCorner().above(h).relative(this.getRight(), w), IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis), 18);
 			}
-		}
-
-		for (int h = 0; h < this.height - 1; ++h) {
-
-			// LEFT PILLARS
-
-			for (int w = -1; w < 0; ++w) {
-				var blockPos = this.bottomLeft.relative(this.rightDir, w).above(h);
-				if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_PILLAR.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y))) &&
-					!(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y)))) {
-					this.height = 0;
-					break;
-				}
-			}
-
-			// RIGHT PILLARS
-
-			for (int w = this.width; w < this.width + 1; ++w) {
-				var blockPos = this.bottomLeft.relative(this.rightDir, w).above(h);
-				if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_PILLAR.defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y))) &&
-					!(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y)))) {
-					this.height = 0;
-					break;
-				}
-			}
-		}
-
-		// LEFT PILLAR HEAD
-
-		for (int w = -1; w < 0; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
-			if (!(this.level.getBlockState(blockPos).equals(IcariaBlocks.QUARTZ_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		// RIGHT PILLAR HEAD
-
-		for (int w = this.width; w < this.width + 1; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
-			if (!(this.level.getBlockState(blockPos).equals(IcariaBlocks.QUARTZ_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		// LEFT UPPER SLABS
-
-		for (int w = -1; w < 1; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
-			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		// RIGHT UPPER SLABS
-
-		for (int w = this.width - 1; w < this.width + 1; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
-			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		// LEFT LOWER SLAB
-
-		for (int w = -2; w < -1; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
-			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		// RIGHT LOWER SLAB
-
-		for (int w = this.width + 1; w < this.width + 2; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
-			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
-				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
-				this.height = 0;
-				break;
-			}
-		}
-
-		if (this.height >= this.minHeight && this.height <= this.maxHeight) {
-			return this.height;
-		} else {
-			this.bottomLeft = null;
-			this.height = 0;
-			this.width = 0;
-			return 0;
 		}
 	}
 
-	public int getDistanceUntilEdgeAboveFrame(BlockPos pPos, Direction pDirection) {
-		int i;
-		for (i = 0; i <= this.maxWidth; ++i) {
-			var blockPos = pPos.relative(pDirection, i);
-			if (this.isEmpty(this.level.getBlockState(blockPos)) || !(this.level.getBlockState(blockPos.below()).isFaceSturdy(this.level, blockPos.below(), Direction.UP))) {
-				break;
-			}
-		}
-
-		var blockPos = pPos.relative(pDirection, i);
-		return this.level.getBlockState(blockPos).is(IcariaBlockTags.PORTAL_BLOCKS) ? i : 0;
+	public BlockPos getCorner() {
+		return this.blockPos.relative(this.getLeft(), this.getWidthDistance(this.blockPos, this.getLeft()) - 1);
 	}
 
-	@Override
-	public void createPortalBlocks() {
-		for (int w = 0; w < this.width; ++w) {
-			var blockPos = this.bottomLeft.relative(this.rightDir, w);
-			for (int h = 0; h < this.height; ++h) {
-				this.level.setBlock(blockPos.above(h), IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis), 18);
-			}
-		}
+	public Direction getLeft() {
+		return this.axis == Direction.Axis.Z ? Direction.NORTH : Direction.EAST;
+	}
+
+	public Direction getRight() {
+		return this.axis == Direction.Axis.Z ? Direction.SOUTH : Direction.WEST;
 	}
 }

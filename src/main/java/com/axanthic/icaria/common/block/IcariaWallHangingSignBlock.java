@@ -4,6 +4,9 @@ import com.axanthic.icaria.common.entity.IcariaHangingSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,14 +21,12 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaWallHangingSignBlock extends WallHangingSignBlock implements MediterraneanWaterloggedBlock {
-	public IcariaWallHangingSignBlock(WoodType pType, Properties pProperties) {
-		super(pType, pProperties);
+	public IcariaWallHangingSignBlock(WoodType pWoodType, Properties pProperties) {
+		super(pWoodType, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
@@ -35,25 +36,24 @@ public class IcariaWallHangingSignBlock extends WallHangingSignBlock implements 
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new IcariaHangingSignBlockEntity(pPos, pState);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new IcariaHangingSignBlockEntity(pBlockPos, pBlockState);
 	}
 
+	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockState = this.defaultBlockState();
-		var blockPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		var fluidState = level.getFluidState(blockPos);
-
-		for (var direction : pContext.getNearestLookingDirections()) {
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var level = pBlockPlaceContext.getLevel();
+		var fluid = level.getFluidState(blockPos).getType();
+		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
 			var axis = direction.getAxis();
 			if (axis.isHorizontal()) {
-				if (!axis.test(pContext.getClickedFace())) {
-					blockState = blockState.setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
+				if (!axis.test(pBlockPlaceContext.getClickedFace())) {
+					var blockState = this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
 					if (blockState.canSurvive(level, blockPos)) {
 						if (this.canPlace(blockState, level, blockPos)) {
-							return blockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState.getType() == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluidState.getType() == Fluids.WATER);
+							return blockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 						}
 					}
 				}
@@ -64,7 +64,7 @@ public class IcariaWallHangingSignBlock extends WallHangingSignBlock implements 
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : super.getFluidState(pBlockState);
 	}
 }

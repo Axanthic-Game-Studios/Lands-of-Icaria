@@ -1,14 +1,16 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.NetherPyromancerRevenantEntity;
+import com.axanthic.icaria.client.state.NetherPyromancerRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -19,13 +21,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyromancerRevenantEntity> implements ArmedModel {
-	public ModelPart root;
+public class NetherPyromancerRevenantModel extends EntityModel<NetherPyromancerRevenantRenderState> implements ArmedModel {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart jawUpper;
@@ -45,7 +44,7 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 	public ModelPart legLeft;
 
 	public NetherPyromancerRevenantModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyUpper = this.root.getChild("bodyUpper");
 		this.headMain = this.bodyUpper.getChild("headMain");
 		this.jawUpper = this.headMain.getChild("jawUpper");
@@ -66,8 +65,10 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 	}
 
 	@Override
-	public void setupAnim(NetherPyromancerRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		var randomSource = RandomSource.create(pEntity.getId());
+	public void setupAnim(NetherPyromancerRevenantRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		var randomSource = RandomSource.create(pRenderState.id);
 
 		this.setRotateAngles(this.headMain, 0.0F, 0.0F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F);
 		this.setRotateAngles(this.jawLower, 0.1047F, 0.0F, 0.0F);
@@ -80,14 +81,12 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 		this.setRotateAngles(this.legRight, 0.2094F, 0.0F, 0.0F);
 		this.setRotateAngles(this.legLeft, 0.2094F, 0.0F, 0.0F);
 
-		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-
-		this.animate(pEntity.reloadAnimationState, IcariaAnimations.PYROMANCER_REVENANT_RELOAD, pAgeInTicks);
-		this.animate(pEntity.thrownAnimationState, IcariaAnimations.PYROMANCER_REVENANT_THROWN, pAgeInTicks);
+		this.animate(pRenderState.reloadAnimationState, IcariaAnimations.PYROMANCER_REVENANT_RELOAD, pRenderState.ageInTicks);
+		this.animate(pRenderState.thrownAnimationState, IcariaAnimations.PYROMANCER_REVENANT_THROWN, pRenderState.ageInTicks);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
@@ -105,26 +104,27 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed;
 
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
-		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.5F * pLimbSwingAmount;
-		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.5F * pLimbSwingAmount;
-		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
-		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.armRightUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed;
+		this.armLeftUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed;
+		this.armRightLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.armLeftLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.thighRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.5F * pWalkAnimationSpeed;
+		this.thighLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.5F * pWalkAnimationSpeed;
+		this.legRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
+		this.legLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
 		this.armRightUpper.translateAndRotate(pPoseStack);
@@ -133,6 +133,7 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyUpper = partDefinition.addOrReplaceChild("bodyUpper", CubeListBuilder.create().texOffs(0, 42).addBox(-1.0F, -15.5F, -0.975F, 2.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 9.5F, 1.375F));
@@ -185,10 +186,5 @@ public class NetherPyromancerRevenantModel extends HierarchicalModel<NetherPyrom
 		thighLeft.addOrReplaceChild("legLeft", CubeListBuilder.create().texOffs(0, 0).addBox(-1.0125F, 0.0F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.1975F, 7.4022F, 0.421F, 0.2094F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

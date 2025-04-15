@@ -2,6 +2,12 @@ package com.axanthic.icaria.common.recipe.builder;
 
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
@@ -10,18 +16,12 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -29,46 +29,40 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FiringRecipeBuilder implements RecipeBuilder {
 	public float experience;
 
-	public int burnTime;
-	public int count;
-
-	public RecipeCategory category;
+	public int amount;
+	public int time;
 
 	public Ingredient ingredient;
 
-	public Item output;
+	public ItemLike result;
 
 	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-	public FiringRecipeBuilder(float pExperience, int pBurnTime, int pCount, Ingredient pIngredients, ItemLike pOutput, RecipeCategory pCategory) {
+	public RecipeCategory recipeCategory;
+
+	public FiringRecipeBuilder(float pExperience, int pAmount, int pTime, Ingredient pIngredient, ItemLike pResult, RecipeCategory pRecipeCategory) {
 		this.experience = pExperience;
-		this.burnTime = pBurnTime;
-		this.count = pCount;
-		this.ingredient = pIngredients;
-		this.output = pOutput.asItem();
-		this.category = pCategory;
-	}
-
-	public static FiringRecipeBuilder firing(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredient, float pExperience, int pBurnTime, int pCount) {
-		return new FiringRecipeBuilder(pExperience, pBurnTime, pCount, pIngredient, pOutput, pCategory);
-	}
-
-	public void ensureValid(ResourceLocation pId) {
-		if (this.criteria.isEmpty()) {
-			throw new IllegalStateException("No way of obtaining recipe " + pId);
-		}
+		this.amount = pAmount;
+		this.time = pTime;
+		this.ingredient = pIngredient;
+		this.result = pResult;
+		this.recipeCategory = pRecipeCategory;
 	}
 
 	@Override
-	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
-		this.ensureValid(pRecipeId);
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-		var recipe = new FiringRecipe(this.experience, this.burnTime, List.of(this.ingredient), new ItemStack(this.output, this.count));
-		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
+	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
+		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
+		this.criteria.forEach(builder::addCriterion);
+		pRecipeOutput.accept(pResourceKey, new FiringRecipe(this.experience, this.time, this.ingredient, new ItemStack(this.result, this.amount)), builder.build(pResourceKey.location().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
 	}
 
 	@Override
-	public FiringRecipeBuilder group(@Nullable String pGroupName) {
+	public Item getResult() {
+		return this.result.asItem();
+	}
+
+	@Override
+	public FiringRecipeBuilder group(@Nullable String pName) {
 		return this;
 	}
 
@@ -78,8 +72,7 @@ public class FiringRecipeBuilder implements RecipeBuilder {
 		return this;
 	}
 
-	@Override
-	public Item getResult() {
-		return this.output;
+	public static FiringRecipeBuilder firing(RecipeCategory pRecipeCategory, ItemLike pResult, Ingredient pIngredient, float pExperience, int pAmount, int pTime) {
+		return new FiringRecipeBuilder(pExperience, pAmount, pTime, pIngredient, pResult, pRecipeCategory);
 	}
 }

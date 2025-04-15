@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:stone_bricks",
+    [
+      "landsoficaria:bloomy_vine",
+      "landsoficaria:branchy_vine",
+      "landsoficaria:brushy_vine",
+      "landsoficaria:dry_vine",
+      "landsoficaria:reedy_vine",
+      "landsoficaria:swirly_vine",
+      "landsoficaria:thorny_vine"
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:mossy_stone_bricks"
+  }
+}

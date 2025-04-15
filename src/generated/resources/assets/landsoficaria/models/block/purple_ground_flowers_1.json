@@ -1,5 +1,5 @@
 {
-  "parent": "landsoficaria:block/template_ground_flower",
+  "parent": "landsoficaria:block/template_ground_flowers",
   "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/purple_ground_flowers_1",

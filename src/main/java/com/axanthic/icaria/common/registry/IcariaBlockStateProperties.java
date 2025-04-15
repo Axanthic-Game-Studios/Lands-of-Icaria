@@ -2,14 +2,13 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.properties.*;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
@@ -29,7 +28,7 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
 	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
 
-	public static final DirectionProperty BARREL_FACING = DirectionProperty.create("barrel_facing", (direction) -> direction != Direction.DOWN);
+	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, (direction) -> direction != Direction.DOWN);
 
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);

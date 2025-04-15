@@ -3,10 +3,10 @@ package com.axanthic.icaria.client.registry;
 import com.axanthic.icaria.client.shard.AdditiveTransparencyStateShard;
 import com.axanthic.icaria.client.shard.SubtractiveTransparencyStateShard;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderStateShard;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

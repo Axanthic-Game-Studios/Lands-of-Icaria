@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:window",
+  "author": {
+    "translate": "painting.landsoficaria.window.author"
+  },
   "height": 1,
+  "title": {
+    "translate": "painting.landsoficaria.window.title"
+  },
   "width": 2
 }

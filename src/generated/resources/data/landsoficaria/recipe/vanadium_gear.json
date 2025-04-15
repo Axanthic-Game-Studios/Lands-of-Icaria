@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:vanadium_ingot"
-    }
+    "A": "landsoficaria:vanadium_ingot"
   },
   "pattern": [
-    " X ",
-    "X X",
-    " X "
+    " A ",
+    "A A",
+    " A "
   ],
   "result": {
     "count": 1,

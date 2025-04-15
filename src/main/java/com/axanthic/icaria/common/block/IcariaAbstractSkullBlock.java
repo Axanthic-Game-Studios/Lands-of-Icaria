@@ -5,22 +5,20 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import com.mojang.serialization.MapCodec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.Equipable;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Equipable {
+public class IcariaAbstractSkullBlock extends BaseEntityBlock {
 	public float offset;
 
 	public IcariaSkullBlockType type;
@@ -33,12 +31,12 @@ public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Equipab
 
 	public IcariaAbstractSkullBlock(float pOffset, IcariaSkullBlockType pType, Properties pProperties) {
 		this(pProperties);
-		this.type = pType;
 		this.offset = pOffset;
+		this.type = pType;
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState pState, PathComputationType pType) {
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
 		return false;
 	}
 
@@ -47,13 +45,8 @@ public class IcariaAbstractSkullBlock extends BaseEntityBlock implements Equipab
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return new IcariaSkullBlockEntity(pPos, pState);
-	}
-
-	@Override
-	public EquipmentSlot getEquipmentSlot() {
-		return EquipmentSlot.HEAD;
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new IcariaSkullBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public IcariaSkullBlockType getType() {

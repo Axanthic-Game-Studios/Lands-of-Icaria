@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:namdrake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:namdrake"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:rowan": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:rowan"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:laurel_forest_hag_from_entity_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:namdrake",
+      "has_landsoficaria:rowan"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:laurel_forest_hag_from_entity_concocting"
+    ]
+  }
+}

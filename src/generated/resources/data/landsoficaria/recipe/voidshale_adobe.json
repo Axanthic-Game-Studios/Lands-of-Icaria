@@ -2,20 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:spelt"
-    },
-    "Y": {
-      "item": "landsoficaria:loam_lump"
-    },
-    "Z": {
-      "item": "landsoficaria:cobbled_voidshale"
-    }
+    "A": "landsoficaria:cobbled_voidshale",
+    "B": "landsoficaria:spelt",
+    "C": "landsoficaria:loam_lump"
   },
   "pattern": [
-    "XYX",
-    "YZY",
-    "XYX"
+    "BCB",
+    "CAC",
+    "BCB"
   ],
   "result": {
     "count": 4,

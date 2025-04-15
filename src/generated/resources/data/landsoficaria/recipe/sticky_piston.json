@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:piston",
+    "B": [
+      "landsoficaria:ender_jellyfish_jelly",
+      "landsoficaria:fire_jellyfish_jelly",
+      "landsoficaria:nature_jellyfish_jelly",
+      "landsoficaria:void_jellyfish_jelly",
+      "landsoficaria:water_jellyfish_jelly"
+    ]
+  },
+  "pattern": [
+    "B",
+    "A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sticky_piston"
+  }
+}

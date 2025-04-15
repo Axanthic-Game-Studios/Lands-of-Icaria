@@ -5,10 +5,14 @@ import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaLootTables;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import com.mojang.serialization.Codec;
+
+import java.util.ArrayList;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -22,10 +26,6 @@ import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
-import java.util.ArrayList;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -37,20 +37,20 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
 
 		this.placeWalk(level, origin);
 
 		this.setMobs();
 
-		for (int x = 0; x < 16; x++) {
-			int pX = origin.getX() + x;
-			for (int z = 0; z < 16; z++) {
-				int pZ = origin.getZ() + z;
-				for (int y = 8; y < 84; y++) {
+		for (var x = 0; x < 16; x++) {
+			var pX = origin.getX() + x;
+			for (var z = 0; z < 16; z++) {
+				var pZ = origin.getZ() + z;
+				for (var y = 8; y < 84; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
 					var oldState = level.getBlockState(belowPos);
@@ -59,7 +59,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 					this.replace(level, blockPos, newState);
 				}
 
-				for (int y = 84; y < 112; y++) {
+				for (var y = 84; y < 112; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
 					var oldState = level.getBlockState(belowPos);
@@ -78,67 +78,65 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 
-	public void replace(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getBlockState(pPos).is(Blocks.CYAN_CONCRETE) || pLevel.getBlockState(pPos).is(Blocks.LIME_CONCRETE) || pLevel.getBlockState(pPos).is(Blocks.BLUE_CONCRETE) || pLevel.getBlockState(pPos).is(Blocks.PINK_CONCRETE) || pLevel.getBlockState(pPos).is(IcariaBlocks.RELICSTONE.get()) || pLevel.getBlockState(pPos).is(IcariaBlocks.SMOOTH_RELICSTONE.get())) {
-			this.place(pLevel, pPos, pState);
-		} else if (pLevel.getBlockState(pPos).is(IcariaBlockTags.VILLAGE_REPLACE_BLOCKS)) {
-			this.place(pLevel, pPos, Blocks.AIR.defaultBlockState());
+	public void replace(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CYAN_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.LIME_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.BLUE_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.PINK_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RELICSTONE.get()) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.SMOOTH_RELICSTONE.get())) {
+			this.place(pWorldGenLevel, pBlockPos, pBlockState);
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTagsProvider.REPLACE_BLOCKS_ERODED_VILLAGE)) {
+			this.place(pWorldGenLevel, pBlockPos, Blocks.AIR.defaultBlockState());
 		}
 	}
 
-	public void replaceBlocks(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getBlockState(pPos).is(Blocks.CYAN_CONCRETE)) {
-			this.place(pLevel, pPos, pState);
-		} else if (pLevel.getBlockState(pPos).is(Blocks.LIME_CONCRETE)) {
-			this.placeGrainel(pLevel, pPos, pState);
-		} else if (pLevel.getBlockState(pPos).is(Blocks.BLUE_CONCRETE)) {
-			this.placeRelicstone(pLevel, pPos, pState);
-		} else if (pLevel.getBlockState(pPos).is(Blocks.PINK_CONCRETE) || pLevel.getBlockState(pPos).is(Blocks.GRAY_CONCRETE)) {
-			this.place(pLevel, pPos, IcariaBlocks.MARL_LIGNITE.get().defaultBlockState());
+	public void replaceBlocks(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CYAN_CONCRETE)) {
+			this.place(pWorldGenLevel, pBlockPos, pBlockState);
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.LIME_CONCRETE)) {
+			this.placeGrainel(pWorldGenLevel, pBlockPos, pBlockState);
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.BLUE_CONCRETE)) {
+			this.placeRelicstone(pWorldGenLevel, pBlockPos, pBlockState);
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.PINK_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.GRAY_CONCRETE)) {
+			this.place(pWorldGenLevel, pBlockPos, IcariaBlocks.MARL_LIGNITE.get().defaultBlockState());
 		}
 	}
 
-	public void replaceRuined(WorldGenLevel pLevel, BlockPos pPos) {
-		if (pLevel.getBlockState(pPos.below()).isAir() || pLevel.getBlockState(pPos.below()).is(Blocks.COBWEB)) {
-			if (pLevel.getBlockState(pPos).is(IcariaBlockTags.RUINED_VILLAGE_REPLACE_BLOCKS)) {
-				this.place(pLevel, pPos, Blocks.AIR.defaultBlockState());
+	public void replaceRuined(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
+		if (pWorldGenLevel.getBlockState(pBlockPos.below()).isAir() || pWorldGenLevel.getBlockState(pBlockPos.below()).is(Blocks.COBWEB)) { // TODO replace with Arachne web
+			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTagsProvider.REPLACE_BLOCKS_RUINED_VILLAGE)) {
+				this.place(pWorldGenLevel, pBlockPos, Blocks.AIR.defaultBlockState());
 			}
 		}
 	}
 
-	public void place(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		this.setBlock(pLevel, pPos, pState);
+	public void place(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		this.setBlock(pWorldGenLevel, pBlockPos, pBlockState);
 	}
 
-	public void placeGrainel(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getRandom().nextInt(10) == 0) {
-			this.place(pLevel, pPos, pState);
+	public void placeGrainel(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		if (pWorldGenLevel.getRandom().nextInt(10) == 0) {
+			this.place(pWorldGenLevel, pBlockPos, pBlockState);
 		} else {
-			this.place(pLevel, pPos, IcariaBlocks.GRAINEL.get().defaultBlockState());
+			this.place(pWorldGenLevel, pBlockPos, IcariaBlocks.GRAINEL.get().defaultBlockState());
 		}
 	}
 
-	public void placeRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getRandom().nextInt(10) == 0) {
-			this.place(pLevel, pPos, pState);
+	public void placeRelicstone(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		if (pWorldGenLevel.getRandom().nextInt(10) == 0) {
+			this.place(pWorldGenLevel, pBlockPos, pBlockState);
 		} else {
-			this.place(pLevel, pPos, IcariaBlocks.RELICSTONE.get().defaultBlockState());
+			this.place(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE.get().defaultBlockState());
 		}
 	}
 
-	public void placeWalk(WorldGenLevel pLevel, BlockPos pPos) {
-		for (int i = 0; i < 6; i++) {
-			for (int x = 0; x < 16; x++) {
-				for (int z = 0; z < 16; z++) {
-					for (int y = 84; y < 96; y++) {
-						for (int h = -1; h < 1; h++) {
-							for (var direction : Direction.Plane.HORIZONTAL) {
-								var blockPos = new BlockPos(pPos.getX() + x, y, pPos.getZ() + z);
-								if (pLevel.getBlockState(blockPos).is(IcariaBlocks.RELICSTONE.get())) {
-									var relative = blockPos.offset(0, h, 0).relative(direction);
-									if (pLevel.getBlockState(relative).is(Blocks.CYAN_CONCRETE)) {
-										this.place(pLevel, relative, IcariaBlocks.RELICSTONE.get().defaultBlockState());
-									}
+	public void placeWalk(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
+		for (var x = 0; x < 16; x++) {
+			for (var z = 0; z < 16; z++) {
+				for (var y = 84; y < 96; y++) {
+					for (var h = -1; h < 1; h++) {
+						for (var direction : Direction.Plane.HORIZONTAL) {
+							var blockPos = new BlockPos(pBlockPos.getX() + x, y, pBlockPos.getZ() + z);
+							if (pWorldGenLevel.getBlockState(blockPos).is(IcariaBlocks.RELICSTONE.get())) {
+								var relative = blockPos.offset(0, h, 0).relative(direction);
+								if (pWorldGenLevel.getBlockState(relative).is(Blocks.CYAN_CONCRETE)) {
+									this.place(pWorldGenLevel, relative, IcariaBlocks.RELICSTONE.get().defaultBlockState());
 								}
 							}
 						}
@@ -148,28 +146,28 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 		}
 	}
 
-	public void setLootForChest(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.getBlockEntity(pPos) instanceof IcariaChestBlockEntity blockEntity) {
-			blockEntity.setLootTable(IcariaLootTables.CHEST_LOOT, pRandom.nextLong());
+	public void setLootForChest(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaChestBlockEntity blockEntity) {
+			blockEntity.setLootTable(IcariaLootTables.CHEST_LOOT, pRandomSource.nextLong());
 		}
 	}
 
-	public void setLootForVases(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.getBlockEntity(pPos) instanceof StorageVaseBlockEntity blockEntity) {
-			if (pLevel.getBlockState(pPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE_LOOT, pRandom.nextLong());
-			} else if (pLevel.getBlockState(pPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE_LOOT, pRandom.nextLong());
+	public void setLootForVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
+			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
+				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE_LOOT, pRandomSource.nextLong());
+			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
+				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE_LOOT, pRandomSource.nextLong());
 			}
 		}
 	}
 
-	public void setMobsForSpawners(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
-			if (pLevel.getBlockState(pPos).is(IcariaBlocks.ARACHNE_SPAWNER.get())) {
-				blockEntity.setEntityId(IcariaEntityTypes.ARACHNE_DRONE.get(), pRandom);
-			} else if (pLevel.getBlockState(pPos).is(IcariaBlocks.REVENANT_SPAWNER.get())) {
-				blockEntity.setEntityId(this.getMob(pRandom), pRandom);
+	public void setMobsForSpawners(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.ARACHNE_SPAWNER.get())) {
+				blockEntity.setEntityId(IcariaEntityTypes.ARACHNE_DRONE.get(), pRandomSource);
+			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.REVENANT_SPAWNER.get())) {
+				blockEntity.setEntityId(this.getMob(pRandomSource), pRandomSource);
 			}
 		}
 	}
@@ -180,7 +178,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 		this.mobs.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
 	}
 
-	public EntityType<?> getMob(RandomSource pRandom) {
-		return this.mobs.get(pRandom.nextInt(this.mobs.size()));
+	public EntityType<?> getMob(RandomSource pRandomSource) {
+		return this.mobs.get(pRandomSource.nextInt(this.mobs.size()));
 	}
 }

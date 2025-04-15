@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:anti_gravity_spell",
+    "landsoficaria:empty_flask"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:anti_gravity_flask"
+  }
+}

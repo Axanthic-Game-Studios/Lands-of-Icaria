@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -20,8 +22,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -30,40 +30,39 @@ public class FreezingSpellEntity extends SpellEntity {
 		super(pEntityType, pLevel);
 	}
 
-	public boolean canSurvive(LevelReader pLevel, BlockPos pPos) {
-		var belowPos = pPos.below();
-		var blockState = pLevel.getBlockState(belowPos);
+	public boolean canSurvive(BlockPos pBlockPos, LevelReader pLevelReader) {
+		var blockPos = pBlockPos.below();
+		var blockState = pLevelReader.getBlockState(blockPos);
 		if (blockState.is(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON)) {
 			return false;
 		} else if (blockState.is(BlockTags.SNOW_LAYER_CAN_SURVIVE_ON)) {
 			return true;
 		} else {
-			return Block.isFaceFull(blockState.getCollisionShape(pLevel, belowPos), Direction.UP) || blockState.is(Blocks.SNOW) && blockState.getValue(SnowLayerBlock.LAYERS) == 8;
+			return Block.isFaceFull(blockState.getCollisionShape(pLevelReader, blockPos), Direction.UP) || blockState.is(Blocks.SNOW) && blockState.getValue(SnowLayerBlock.LAYERS) == 8;
 		}
 	}
 
 	@Override
-	public void onHitBlock(BlockHitResult pResult) {
-		super.onHitBlock(pResult);
+	public void onHitBlock(BlockHitResult pBlockHitResult) {
+		super.onHitBlock(pBlockHitResult);
 		var level = this.level();
-		var blockPos = pResult.getBlockPos();
-		var abovePos = blockPos.above();
+		var blockPos = pBlockHitResult.getBlockPos();
+		var blockPosAbove = blockPos.above();
 		if (level.getBlockState(blockPos).is(Blocks.SNOW) && level.getBlockState(blockPos).getValue(SnowLayerBlock.LAYERS) < 8) {
 			level.setBlockAndUpdate(blockPos, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, Math.min(level.getBlockState(blockPos).getValue(SnowLayerBlock.LAYERS) + 1, 8)));
-		} else if (level.getBlockState(abovePos).is(Blocks.SNOW) && level.getBlockState(abovePos).getValue(SnowLayerBlock.LAYERS) <= 2) {
-			level.setBlockAndUpdate(abovePos, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, 2));
-		} else if (!level.getBlockState(abovePos).is(Blocks.SNOW) && level.getBlockState(abovePos).canBeReplaced() && this.canSurvive(level, abovePos)) {
-			level.setBlockAndUpdate(abovePos, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, 1));
+		} else if (level.getBlockState(blockPosAbove).is(Blocks.SNOW) && level.getBlockState(blockPosAbove).getValue(SnowLayerBlock.LAYERS) <= 2) {
+			level.setBlockAndUpdate(blockPosAbove, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, 2));
+		} else if (!level.getBlockState(blockPosAbove).is(Blocks.SNOW) && level.getBlockState(blockPosAbove).canBeReplaced() && this.canSurvive(blockPosAbove, level)) {
+			level.setBlockAndUpdate(blockPosAbove, Blocks.SNOW.defaultBlockState().setValue(SnowLayerBlock.LAYERS, 1));
 		}
 	}
 
 	@Override
-	public void onHitEntity(EntityHitResult pResult) {
-		super.onHitEntity(pResult);
-		if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-			if (livingEntity.canFreeze()) {
-				livingEntity.addEffect(new MobEffectInstance(IcariaMobEffects.FREEZING, 300));
-			}
+	public void onHitEntity(EntityHitResult pEntityHitResult) {
+		super.onHitEntity(pEntityHitResult);
+		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity && livingEntity.canFreeze()) {
+			var mobEffectInstance = new MobEffectInstance(IcariaMobEffects.FREEZING, 300);
+			livingEntity.addEffect(mobEffectInstance);
 		}
 	}
 

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:mud",
+    "landsoficaria:spelt"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:packed_mud"
+  }
+}

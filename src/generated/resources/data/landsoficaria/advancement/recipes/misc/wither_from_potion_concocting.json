@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bone_remains": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bone_remains"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:moth_agaric": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:moth_agaric"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:rowan": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:rowan"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:wither_from_potion_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:bone_remains",
+      "has_landsoficaria:moth_agaric",
+      "has_landsoficaria:rowan"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:wither_from_potion_concocting"
+    ]
+  }
+}

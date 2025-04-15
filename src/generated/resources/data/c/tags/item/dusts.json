@@ -1,6 +1,6 @@
 {
   "values": [
-    "landsoficaria:calcite_dust",
-    "landsoficaria:halite_dust"
+    "#c:dusts/calcite",
+    "#c:dusts/halite"
   ]
 }

@@ -5,6 +5,10 @@ import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import java.util.Map;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.SkullModel;
 import net.minecraft.client.model.geom.EntityModelSet;
@@ -14,25 +18,21 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
-import java.util.Map;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSkullItemRenderer extends BlockEntityWithoutLevelRenderer {
 	public Map<IcariaSkullBlockType, SkullModel> map;
 
-	public IcariaSkullItemRenderer(BlockEntityRenderDispatcher pDispatcher, EntityModelSet pSet) {
-		super(pDispatcher, pSet);
-		this.map = IcariaSkullBlockRenderer.createRenderers(pSet);
+	public IcariaSkullItemRenderer(BlockEntityRenderDispatcher pBlockEntityRenderDispatcher, EntityModelSet pEntityModelSet) {
+		super(pBlockEntityRenderDispatcher, pEntityModelSet);
+		this.map = IcariaSkullBlockRenderer.createRenderers(pEntityModelSet);
 	}
 
 	@Override
-	public void renderByItem(ItemStack pStack, ItemDisplayContext pDisplayContext, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, int pPackedOverlay) {
-		if (pStack.getItem() instanceof IcariaSkullItem skullItem) {
-			IcariaSkullBlockRenderer.renderSkull(null, 180.0F, pPoseStack, pBuffer, pPackedLight, this.map, skullItem.getBlock());
+	public void renderByItem(ItemStack pItemStack, ItemDisplayContext pItemDisplayContext, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+		if (pItemStack.getItem() instanceof IcariaSkullItem skullItem) {
+			IcariaSkullBlockRenderer.renderSkull(skullItem.getBlock(), null, this.map, pMultiBufferSource, pPoseStack, 180.0F, pPackedLight);
 		}
 	}
 }

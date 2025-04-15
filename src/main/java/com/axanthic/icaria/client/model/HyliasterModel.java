@@ -1,10 +1,12 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.HyliasterEntity;
+import com.axanthic.icaria.client.state.HyliasterRenderState;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -12,30 +14,29 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HyliasterModel extends HierarchicalModel<HyliasterEntity> {
-	public ModelPart root;
+public class HyliasterModel extends EntityModel<HyliasterRenderState> {
 	public ModelPart head;
 	public ModelPart body;
 
 	public HyliasterModel(ModelPart pModelPart) {
-		this.root = pModelPart;
-		this.head = this.root;
-		this.body = this.root;
+		super(pModelPart);
+		this.head = this.root.getChild("head");
+		this.body = this.root.getChild("body");
 	}
 
 	@Override
-	public void setupAnim(HyliasterEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(pEntity.moveAnimationState, IcariaAnimations.HYLIASTER_MOVE, pAgeInTicks);
+	public void setupAnim(HyliasterRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.animate(pRenderState.moveAnimationState, IcariaAnimations.HYLIASTER_MOVE, pRenderState.ageInTicks);
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -3.5F, -3.5F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 18.0F, 0.0F));
@@ -44,10 +45,5 @@ public class HyliasterModel extends HierarchicalModel<HyliasterEntity> {
 		partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 14).addBox(-6.0F, -6.0F, -6.0F, 12.0F, 12.0F, 12.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 18.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 64, 48);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -5,22 +5,25 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -29,14 +32,20 @@ public class BidentEntity extends AbstractArrow {
 	public static final EntityDataAccessor<Boolean> DEALT = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<ItemStack> STACK = SynchedEntityData.defineId(BidentEntity.class, EntityDataSerializers.ITEM_STACK);
 
-	public BidentEntity(EntityType<? extends BidentEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+	public BidentEntity(EntityType<? extends BidentEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
-	public BidentEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-		super(IcariaEntityTypes.BIDENT.get(), pEntity, pLevel, pStack, null);
+	public BidentEntity(Level pLevel, LivingEntity pLivingEntity, ItemStack pItemStack) {
+		super(IcariaEntityTypes.BIDENT.get(), pLivingEntity, pLevel, pItemStack, null);
 		this.setDealt(false);
-		this.setStack(pStack);
+		this.setStack(pItemStack);
+	}
+
+	public BidentEntity(Level pLevel, double pX, double pY, double pZ, ItemStack pItemStack) {
+		super(IcariaEntityTypes.BIDENT.get(), pX, pY, pZ, pLevel, pItemStack, pItemStack);
+		this.setDealt(false);
+		this.setStack(pItemStack);
 	}
 
 	public boolean getDealt() {
@@ -59,10 +68,10 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putBoolean("Dealt", this.getDealt());
-		pCompound.put("Stack", this.getStack().save(this.registryAccess()));
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putBoolean("Dealt", this.getDealt());
+		pCompoundTag.put("Stack", this.getStack().save(this.registryAccess()));
 	}
 
 	@Override
@@ -73,49 +82,48 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void onHitEntity(EntityHitResult pResult) {
-		float damage = 1.0F;
-
-		var item = this.getStack();
+	public void onHitEntity(EntityHitResult pEntityHitResult) {
+		var vec3 = this.getDeltaMovement().multiply(0.02, 0.2, 0.02);
 		var owner = this.getOwner();
-
-		var target = pResult.getEntity();
-
-		if (item.getItem() instanceof BidentItem bidentItem) {
-			damage += bidentItem.getTier().getAttackDamageBonus() + 3.5F;
-		}
-
-		if (target.hurt(this.damageSources().trident(this, owner == null ? this : owner), damage)) {
-			if (target.getType() == EntityType.ENDERMAN) {
-				return;
+		var damageSource = this.damageSources().trident(this, owner == null ? this : owner);
+		var entity = pEntityHitResult.getEntity();
+		if (this.getStack().getItem() instanceof BidentItem bidentItem) {
+			if (this.level() instanceof ServerLevel serverLevel) {
+				if (entity instanceof LivingEntity livingEntity) {
+					if (entity.hurtServer(serverLevel, damageSource, bidentItem.getAttackDamage())) {
+						if (livingEntity.getType() != EntityType.ENDERMAN) {
+							this.deflect(ProjectileDeflection.REVERSE, entity, owner, false);
+							this.doKnockback(livingEntity, damageSource);
+							this.setDealt(true);
+							this.setDeltaMovement(vec3);
+							this.playSound(IcariaSoundEvents.BIDENT_HIT);
+						}
+					}
+				}
 			}
 		}
-
-		this.playSound(IcariaSoundEvents.BIDENT_HIT);
-		this.setDealt(true);
-		this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
 	}
 
 	@Override
-	public void playerTouch(Player pEntity) {
-		if (this.getOwner() == null || this.ownedBy(pEntity)) {
-			super.playerTouch(pEntity);
+	public void playerTouch(Player pPlayer) {
+		if (this.getOwner() == null || this.ownedBy(pPlayer)) {
+			super.playerTouch(pPlayer);
 		}
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setDealt(pCompound.getBoolean("Dealt"));
-		ItemStack.parse(this.registryAccess(), pCompound.getCompound("Stack")).ifPresent(this::setStack);
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setDealt(pCompoundTag.getBoolean("Dealt"));
+		this.setStack(ItemStack.parse(this.registryAccess(), pCompoundTag.getCompound("Stack")).orElseThrow());
 	}
 
 	public void setDealt(boolean pDealt) {
 		this.getEntityData().set(BidentEntity.DEALT, pDealt);
 	}
 
-	public void setStack(ItemStack pStack) {
-		this.getEntityData().set(BidentEntity.STACK, pStack.copy());
+	public void setStack(ItemStack pItemStack) {
+		this.getEntityData().set(BidentEntity.STACK, pItemStack);
 	}
 
 	@Override
@@ -125,9 +133,10 @@ public class BidentEntity extends AbstractArrow {
 		}
 	}
 
+	@Nullable
 	@Override
-	public EntityHitResult findHitEntity(Vec3 pStartVec, Vec3 pEndVec) {
-		return this.getDealt() ? null : super.findHitEntity(pStartVec, pEndVec);
+	public EntityHitResult findHitEntity(Vec3 pVec3Start, Vec3 pVec3End) {
+		return this.getDealt() ? null : super.findHitEntity(pVec3Start, pVec3End);
 	}
 
 	public ItemStack getStack() {
@@ -136,7 +145,7 @@ public class BidentEntity extends AbstractArrow {
 
 	@Override
 	public ItemStack getDefaultPickupItem() {
-		return new ItemStack(IcariaItems.CHERT_TOOLS.bident.get());
+		return new ItemStack(IcariaItems.CHERT_BIDENT.get());
 	}
 
 	@Override

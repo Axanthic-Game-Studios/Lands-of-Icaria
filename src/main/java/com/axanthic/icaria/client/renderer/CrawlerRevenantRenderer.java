@@ -4,10 +4,13 @@ import com.axanthic.icaria.client.layer.CrawlerRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.CrawlerRevenantItemLayer;
 import com.axanthic.icaria.client.model.CrawlerRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.state.CrawlerRevenantRenderState;
 import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -15,12 +18,10 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, CrawlerRevenantModel> {
+public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, CrawlerRevenantRenderState, CrawlerRevenantModel> {
 	public CrawlerRevenantRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CrawlerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CRAWLER_REVENANT_BODY)), 0.5F);
 		this.addLayer(new CrawlerRevenantEmissiveLayer(this));
@@ -28,18 +29,34 @@ public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, 
 	}
 
 	@Override
-	public void render(CrawlerRevenantEntity pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight) {
-		super.render(pEntity, pEntityYaw, pPartialTicks, pMatrixStack, pBuffer, pPackedLight);
-		this.shadowStrength = pEntity.getShadowStrength();
+	public void extractRenderState(CrawlerRevenantEntity pEntity, CrawlerRevenantRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+		pRenderState.shadowStrength = pEntity.getShadowStrength();
+		pRenderState.id = pEntity.getId();
+		pRenderState.maxTick = pEntity.maxTick;
+		pRenderState.tick = pEntity.getTick();
+		pRenderState.livingEntity = pEntity;
 	}
 
 	@Override
-	public void scale(CrawlerRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	public void render(CrawlerRevenantRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
+		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+		this.shadowStrength = pRenderState.shadowStrength;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CrawlerRevenantEntity pEntity) {
+	public void scale(CrawlerRevenantRenderState pRenderState, PoseStack pPoseStack) {
+		pPoseStack.scale(0.875F, 0.875F, 0.875F);
+	}
+
+	@Override
+	public CrawlerRevenantRenderState createRenderState() {
+		return new CrawlerRevenantRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(CrawlerRevenantRenderState pRenderState) {
 		return IcariaResourceLocations.CRAWLER_REVENANT;
 	}
 }

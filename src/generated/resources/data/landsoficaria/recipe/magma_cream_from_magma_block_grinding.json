@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "minecraft:magma_block",
+  "result": {
+    "count": 4,
+    "id": "minecraft:magma_cream"
+  },
+  "time": 200
+}

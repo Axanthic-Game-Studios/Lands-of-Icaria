@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:aeternae_hide"
-    }
+    "A": "landsoficaria:aeternae_hide"
   },
   "pattern": [
-    "X X",
-    "XXX",
-    "XXX"
+    "A A",
+    "AAA",
+    "AAA"
   ],
   "result": {
     "count": 1,

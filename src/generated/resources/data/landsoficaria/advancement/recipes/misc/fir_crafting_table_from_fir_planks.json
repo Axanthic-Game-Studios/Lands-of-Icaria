@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:fir_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:fir_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:fir_crafting_table_from_fir_planks"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:fir_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:fir_crafting_table_from_fir_planks"
+    ]
+  }
+}

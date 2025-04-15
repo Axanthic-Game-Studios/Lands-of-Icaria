@@ -2,11 +2,11 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.JellyfishEntity;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.util.Mth;
-import net.minecraft.world.entity.ai.goal.Goal;
-
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -25,11 +25,11 @@ public class JellyfishRandomMovementGoal extends Goal {
 
 	@Override
 	public void tick() {
+		var randomSource = this.entity.getRandom();
 		if (this.entity.getNoActionTime() > 100) {
-			this.entity.setMovementVector(0.0F, 0.0F, 0.0F);
-		} else if (this.entity.getRandom().nextInt(reducedTickDelay(50)) == 0 || !this.entity.hasMovementVector()) {
-			float random = this.entity.getRandom().nextFloat() * (Mth.PI * 2.0F);
-			this.entity.setMovementVector(Mth.cos(random) * 0.2F, this.entity.getRandom().nextFloat() * 0.2F - 0.1F, Mth.sin(random) * 0.2F);
+			this.entity.movementVector = new Vec3(0.0F, 0.0F, 0.0F);
+		} else if (this.entity.getRandom().nextInt(100) == 0) {
+			this.entity.movementVector = new Vec3(randomSource.nextFloat() * 0.2F - 0.1F, randomSource.nextFloat() * 0.2F - 0.1F, randomSource.nextFloat() * 0.2F - 0.1F);
 		}
 	}
 }

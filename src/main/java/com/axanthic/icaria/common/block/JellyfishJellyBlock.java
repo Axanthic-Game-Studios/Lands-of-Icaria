@@ -1,10 +1,10 @@
 package com.axanthic.icaria.common.block;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.SlimeBlock;
 import net.minecraft.world.level.block.state.BlockState;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -15,7 +15,7 @@ public class JellyfishJellyBlock extends SlimeBlock {
 	}
 
 	@Override
-	public boolean isStickyBlock(BlockState pState) {
+	public boolean isStickyBlock(BlockState pBlockState) {
 		return true;
 	}
 }

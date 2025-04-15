@@ -2,9 +2,9 @@ package com.axanthic.icaria.common.math;
 
 import com.axanthic.icaria.common.registry.IcariaValues;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

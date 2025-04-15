@@ -4,16 +4,16 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -24,28 +24,28 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
 		List<Direction> directions = new ArrayList<>();
 
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
 
-		int branchCount = random.nextIntBetweenInclusive(2, 3);
-		int heightTrunk = random.nextIntBetweenInclusive(1, 4);
-		int heightLimit = heightTrunk + 4;
-		int heightAxisY = heightLimit + origin.getY();
+		var branchCount = random.nextIntBetweenInclusive(2, 3);
+		var heightTrunk = random.nextIntBetweenInclusive(1, 4);
+		var heightLimit = heightTrunk + 4;
+		var heightAxisY = heightLimit + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
+		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
 			for (var direction : Direction.Plane.HORIZONTAL) {
 				directions.add(direction);
 			}
 
-			for (int i = 1; i <= heightTrunk; ++i) {
+			for (var i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
-			for (int i = 1; i <= branchCount; ++i) {
+			for (var i = 1; i <= branchCount; ++i) {
 				var front = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 				var right = front.getClockWise();
 				var back = front.getOpposite();
@@ -54,11 +54,11 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
 				var clockWise = direction.getClockWise();
 				var blockPos = new BlockPos(origin.below().above(heightTrunk));
 
-				int length = random.nextIntBetweenInclusive(2, 4);
+				var length = random.nextIntBetweenInclusive(2, 4);
 
 				directions.remove(direction);
 
-				for (int j = 1; j <= length; ++j) {
+				for (var j = 1; j <= length; ++j) {
 					blockPos = blockPos.relative(direction);
 					if (random.nextInt(3) == 0) {
 						blockPos = blockPos.relative(clockWise);

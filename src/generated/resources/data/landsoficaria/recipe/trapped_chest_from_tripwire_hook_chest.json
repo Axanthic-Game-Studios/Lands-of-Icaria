@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:tripwire_hook",
+    "landsoficaria:chest"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:trapped_chest"
+  }
+}

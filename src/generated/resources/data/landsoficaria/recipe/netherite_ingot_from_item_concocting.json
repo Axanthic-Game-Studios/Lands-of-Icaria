@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 4143419,
+  "ingredient": [
+    "landsoficaria:hyliastrum_vial",
+    "landsoficaria:bolbos",
+    "landsoficaria:dathulla"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:netherite_ingot"
+  },
+  "time": 200
+}

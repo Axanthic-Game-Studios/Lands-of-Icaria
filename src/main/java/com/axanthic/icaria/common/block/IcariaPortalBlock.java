@@ -1,9 +1,18 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaParticleTypes;
+import com.axanthic.icaria.common.registry.IcariaPoiTypes;
 import com.axanthic.icaria.common.shapes.IcariaPortalShapes;
-import com.axanthic.icaria.common.util.IcariaPortalShape;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+import com.axanthic.icaria.data.registry.IcariaDimensions;
+
+import java.util.Comparator;
+import java.util.Optional;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.BlockUtil;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -13,37 +22,33 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.Relative;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
-import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Portal;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.border.WorldBorder;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.level.portal.DimensionTransition;
+import net.minecraft.world.level.portal.PortalShape;
+import net.minecraft.world.level.portal.TeleportTransition;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.Comparator;
-import java.util.Optional;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation, OptionalUsedAsFieldOrParameterType")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -54,77 +59,57 @@ public class IcariaPortalBlock extends Block implements Portal {
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X));
 	}
 
-	public boolean canSet(ServerLevel pLevel, BlockPos pPos) {
-		var aabbNorth = AABB.ofSize(pPos.above(3).north().getCenter(), 2, 6, 2);
-		var aabbEast = AABB.ofSize(pPos.above(3).east().getCenter(), 2, 6, 2);
-		var aabbSouth = AABB.ofSize(pPos.above(3).south().getCenter(), 2, 6, 2);
-		var aabbWest = AABB.ofSize(pPos.above(3).west().getCenter(), 2, 6, 2);
-
-		boolean testNorth = pLevel.getBlockStates(aabbNorth).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
-		boolean testEast = pLevel.getBlockStates(aabbEast).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
-		boolean testSouth = pLevel.getBlockStates(aabbSouth).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
-		boolean testWest = pLevel.getBlockStates(aabbWest).allMatch((pState) -> pState.is(IcariaBlockTags.PORTAL_REPLACE_BLOCKS));
-
-		return testNorth && testEast && testSouth && testWest;
-	}
-
-	public boolean checkBelow(ServerLevel pLevel, BlockPos pPos) {
-		return pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) || pLevel.getBlockState(pPos.below()).is(BlockTags.SAND);
+	public boolean canSet(Direction.Axis pAxis, BlockPos pBlockPos, ServerLevel pServerLevel) {
+		var ground = new AABB(pBlockPos.below().relative(pAxis.getNegative(), 1).getX(), pBlockPos.below().getY(), pBlockPos.below().relative(pAxis.getNegative(), 1).getZ(), pBlockPos.below().relative(pAxis.getPositive(), 3).getX(), pBlockPos.below().getY(), pBlockPos.below().relative(pAxis.getPositive(), 3).getZ());
+		var portal = new AABB(pBlockPos.relative(pAxis.getNegative(), 2).getX(), pBlockPos.getY(), pBlockPos.relative(pAxis.getNegative(), 2).getZ(), pBlockPos.relative(pAxis.getPositive(), 4).getX(), pBlockPos.above(4).getY(), pBlockPos.relative(pAxis.getPositive(), 4).getZ());
+		return pServerLevel.getBlockStates(ground).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && pServerLevel.getBlockStates(portal).allMatch(BlockBehaviour.BlockStateBase::canBeReplaced);
 	}
 
 	@Override
-	public boolean skipRendering(BlockState pState, BlockState pAdjacentBlockState, Direction pDirection) {
-		return pAdjacentBlockState.is(this);
+	public boolean skipRendering(BlockState pBlockState, BlockState pBlockStateFaced, Direction pDirection) {
+		return pBlockStateFaced.is(this);
 	}
 
-	public int getY(ServerLevel pLevel, BlockPos pPos) {
-		return Mth.clamp(pLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pPos.getX(), pPos.getZ()), pLevel.dimension() == IcariaDimensions.ICARIA ? 84 : 64, pLevel.getHeight() - 5);
+	public double getX(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, int i) {
+		if (pLevel.getBlockState(pBlockPos.east()).is(this) || pLevel.getBlockState(pBlockPos.west()).is(this)) {
+			return pBlockPos.getX() + pRandomSource.nextDouble();
+		} else {
+			return pBlockPos.getX() + 0.5D + i * 0.25D;
+		}
+	}
+
+	public double getXSpeed(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, int i) {
+		if (pLevel.getBlockState(pBlockPos.east()).is(this) || pLevel.getBlockState(pBlockPos.west()).is(this)) {
+			return (pRandomSource.nextDouble() - 0.5D) * 0.5D;
+		} else {
+			return pRandomSource.nextDouble() * i * 2.0D;
+		}
+	}
+
+	public double getZ(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, int i) {
+		if (pLevel.getBlockState(pBlockPos.east()).is(this) || pLevel.getBlockState(pBlockPos.west()).is(this)) {
+			return pBlockPos.getZ() + 0.5D + i * 0.25D;
+		} else {
+			return pBlockPos.getZ() + pRandomSource.nextDouble();
+		}
+	}
+
+	public double getZSpeed(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, int i) {
+		if (pLevel.getBlockState(pBlockPos.east()).is(this) || pLevel.getBlockState(pBlockPos.west()).is(this)) {
+			return pRandomSource.nextDouble() * i * 2.0D;
+		} else {
+			return (pRandomSource.nextDouble() - 0.5D) * 0.5D;
+		}
+	}
+
+	public int getY(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		return Mth.clamp(pServerLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pBlockPos.getX(), pBlockPos.getZ()), pServerLevel.dimension() == IcariaDimensions.ICARIA ? 84 : 64, pServerLevel.getHeight() - 5);
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		var blockPos = pPos.below();
-		var revenant = IcariaEntityTypes.CIVILIAN_REVENANT.get();
-		if (pLevel.dimension() != IcariaDimensions.ICARIA) {
-			if (pLevel.dimensionType().natural()) {
-				if (pLevel.getBlockState(blockPos).isValidSpawn(pLevel, blockPos, revenant)) {
-					if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
-						if (pRandom.nextInt(2000) == 0) {
-							var spawn = revenant.spawn(pLevel, pPos, MobSpawnType.STRUCTURE);
-							if (spawn != null) {
-								spawn.setPortalCooldown();
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-
-	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pRandom.nextInt(100) == 0) {
-			pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5F, pRandom.nextFloat() * 0.4F + 0.8F, false);
-		}
-
-		for (int i = 0; i < 4; i++) {
-			double d0 = pPos.getX() + pRandom.nextDouble();
-			double d1 = pPos.getY() + pRandom.nextDouble();
-			double d2 = pPos.getZ() + pRandom.nextDouble();
-			double d3 = (pRandom.nextFloat() - 0.5D) * 0.5D;
-			double d4 = (pRandom.nextFloat() - 0.5D) * 0.5D;
-			double d5 = (pRandom.nextFloat() - 0.5D) * 0.5D;
-			int j = pRandom.nextInt(2) * 2 - 1;
-			if (!pLevel.getBlockState(pPos.west()).is(this) && !pLevel.getBlockState(pPos.east()).is(this)) {
-				d0 = pPos.getX() + 0.5D + 0.25D * j;
-				d3 = pRandom.nextFloat() * 2.0D * j;
-			} else {
-				d2 = pPos.getZ() + 0.5D + 0.25D * j;
-				d5 = pRandom.nextFloat() * 2.0D * j;
-			}
-
-			pLevel.addParticle(IcariaParticleTypes.PORTAL.get(), d0, d1, d2, d3, d4, d5);
-		}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		this.particles(pBlockPos, pLevel, pRandomSource);
+		this.sounds(pBlockPos, pLevel, pRandomSource);
 	}
 
 	@Override
@@ -133,224 +118,196 @@ public class IcariaPortalBlock extends Block implements Portal {
 	}
 
 	@Override
-	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
 		if (pEntity.canUsePortal(false)) {
-			pEntity.setAsInsidePortal(this, pPos);
+			pEntity.setAsInsidePortal(this, pBlockPos);
+		}
+	}
+
+	public void particles(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		for (var i = 0; i < 4; i++) {
+			var j = pRandomSource.nextInt(2) * 2 - 1;
+			var x = this.getX(pBlockPos, pLevel, pRandomSource, j);
+			var z = this.getZ(pBlockPos, pLevel, pRandomSource, j);
+			var xSpeed = this.getXSpeed(pBlockPos, pLevel, pRandomSource, j);
+			var zSpeed = this.getZSpeed(pBlockPos, pLevel, pRandomSource, j);
+			pLevel.addParticle(IcariaParticleTypes.PORTAL.get(), x, pBlockPos.getY() + pRandomSource.nextDouble(), z, xSpeed, (pRandomSource.nextDouble() - 0.5D) * 0.5D, zSpeed);
 		}
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return switch (pRotation) {
-			case CLOCKWISE_90, COUNTERCLOCKWISE_90 -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_AXIS)) {
-				case X -> pState.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.Z);
-				case Z -> pState.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X);
-				default -> pState;
-			};
+	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		var blockPos = pBlockPos.below();
+		var entityType = IcariaEntityTypes.CIVILIAN_REVENANT.get();
+		if (pServerLevel.dimension() != IcariaDimensions.ICARIA) {
+			if (pServerLevel.dimensionType().natural()) {
+				if (pServerLevel.getBlockState(blockPos).isValidSpawn(pServerLevel, blockPos, entityType)) {
+					if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
+						if (pRandomSource.nextInt(2000) == 0) {
+							var entity = entityType.spawn(pServerLevel, pBlockPos, EntitySpawnReason.STRUCTURE);
+							if (entity != null) {
+								entity.setPortalCooldown();
+								var vehicle = entity.getVehicle();
+								if (vehicle != null) {
+									vehicle.setPortalCooldown();
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 
-			default -> pState;
+	public void setBlock(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, int pMinH, int pMaxH, int pMinW, int pMaxW) {
+		for (var i = pMinH; i < pMaxH; ++i) {
+			for (var j = pMinW; j < pMaxW; ++j) {
+				pServerLevel.setBlock(pBlockPos.offset(pDirection.getStepX() * j, i, pDirection.getStepZ() * j), pBlockState, 3);
+			}
+		}
+	}
+
+	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (pRandomSource.nextInt(100) == 0) {
+			pLevel.playLocalSound(pBlockPos.getX() + 0.5D, pBlockPos.getY() + 0.5D, pBlockPos.getZ() + 0.5D, SoundEvents.PORTAL_AMBIENT, SoundSource.BLOCKS, 0.5F, pRandomSource.nextFloat() * 0.4F + 0.8F, false);
+		}
+	}
+
+	public BlockPos newPos(Direction.Axis pAxis, BlockPos pBlockPos, ServerLevel pServerLevel) {
+		var blockPos = BlockPos.ZERO;
+		var maxValue = Double.MAX_VALUE;
+		for (var mutableBlockPos : BlockPos.spiralAround(pBlockPos, 64, Direction.NORTH, Direction.EAST)) {
+			var y = this.getY(mutableBlockPos, pServerLevel);
+			mutableBlockPos.setY(y);
+			if (this.canSet(pAxis, mutableBlockPos, pServerLevel)) {
+				var distance = pBlockPos.distSqr(mutableBlockPos);
+				if (distance < maxValue) {
+					blockPos = mutableBlockPos.immutable();
+					maxValue = distance;
+				}
+			}
+		}
+
+		return blockPos;
+	}
+
+	public BlockState blockState(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS)) {
+			case X -> pBlockState.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.Z);
+			case Z -> pBlockState.setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X);
+			default -> pBlockState;
 		};
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pPos, BlockPos pNeighborPos) {
-		var axis = pDirection.getAxis();
-		var horizontalAxis = pState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-		var portalShape = new IcariaPortalShape(pLevel, pPos, horizontalAxis);
-		boolean flag = axis.isHorizontal() && horizontalAxis != axis;
-		return !flag && !portalShape.isComplete() && !pNeighborState.is(this) && !pNeighborState.is(IcariaBlockTags.PORTAL_BLOCKS) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pPos, pNeighborPos);
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return switch (pRotation) {
+			case CLOCKWISE_90, COUNTERCLOCKWISE_90 -> this.blockState(pBlockState);
+			default -> pBlockState;
+		};
 	}
 
 	@Override
-	public DimensionTransition getPortalDestination(ServerLevel pLevel, Entity pEntity, BlockPos pPos) {
-		var resourceKey = pLevel.dimension() == IcariaDimensions.ICARIA ? Level.OVERWORLD : IcariaDimensions.ICARIA;
-		var serverLevel = pLevel.getServer().getLevel(resourceKey);
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		var axis = pDirection.getAxis();
+		var flag = axis.isHorizontal() && axis != pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
+		return flag || pBlockStateFaced.is(this) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR_HEAD) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB) ? pBlockState : Blocks.AIR.defaultBlockState();
+	}
+
+	public BlockUtil.FoundRectangle rectangle(Direction.Axis pAxis, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
+		return BlockUtil.getLargestRectangleAround(pBlockPos, pAxis, 21, Direction.Axis.Y, 21, (blockPos) -> pServerLevel.getBlockState(blockPos) == pBlockState);
+	}
+
+	public BlockUtil.FoundRectangle portalRectangle(Optional<BlockPos> pOptional, BlockPos pEntrance, BlockPos pExit, Entity pEntity, ServerLevel pServerLevel) {
+		if (pOptional.isPresent()) {
+			var blockPos = pOptional.get();
+			var blockState = pServerLevel.getBlockState(blockPos);
+			return this.rectangle(blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS), blockPos, blockState, pServerLevel);
+		} else {
+			var axis = pEntity.level().getBlockState(pEntrance).getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
+			var newPortal = this.createPortal(axis, pExit, pServerLevel);
+			return newPortal.orElseThrow();
+		}
+	}
+
+	public Optional<BlockPos> oldPos(BlockPos pBlockPos, ServerLevel pServerLevel, WorldBorder pWorldBorder) {
+		var i = 128;
+		var poiManager = pServerLevel.getPoiManager();
+		poiManager.ensureLoadedAndValid(pServerLevel, pBlockPos, i);
+		return poiManager.getInSquare((holder) -> holder.is(IcariaPoiTypes.ICARIA_PORTAL), pBlockPos, i, PoiManager.Occupancy.ANY).map(PoiRecord::getPos).filter(pWorldBorder::isWithinBounds).filter((blockPos) -> pServerLevel.getBlockState(blockPos).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).min(Comparator.<BlockPos>comparingDouble((blockPos) -> blockPos.distSqr(pBlockPos)).thenComparingInt(Vec3i::getY));
+	}
+
+	public Optional<BlockUtil.FoundRectangle> createPortal(Direction.Axis pAxis, BlockPos pBlockPos, ServerLevel pServerLevel) {
+		var blockPos = this.newPos(pAxis, pBlockPos, pServerLevel);
+
+		var foundRectangle = new BlockUtil.FoundRectangle(blockPos, 3, 4);
+
+		this.setBlock(blockPos, IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y), pAxis.getPositive(), pServerLevel, 0, 3, -1, 0);
+		this.setBlock(blockPos, IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y), pAxis.getPositive(), pServerLevel, 0, 3, 3, 4);
+		this.setBlock(blockPos, IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN), pAxis.getPositive(), pServerLevel, 3, 4, -1, 0);
+		this.setBlock(blockPos, IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN), pAxis.getPositive(), pServerLevel, 3, 4, 3, 4);
+		this.setBlock(blockPos, IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get().defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM), pAxis.getPositive(), pServerLevel, 4, 5, -1, 1);
+		this.setBlock(blockPos, IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get().defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM), pAxis.getPositive(), pServerLevel, 4, 5, 2, 4);
+		this.setBlock(blockPos, IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get().defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP), pAxis.getPositive(), pServerLevel, 3, 4, -2, -1);
+		this.setBlock(blockPos, IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get().defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, SlabType.TOP), pAxis.getPositive(), pServerLevel, 3, 4, 4, 5);
+		this.setBlock(blockPos, IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, pAxis), pAxis.getPositive(), pServerLevel, 0, 4, 0, 3);
+
+		return Optional.of(foundRectangle);
+	}
+
+	public TeleportTransition createTeleportTransition(Direction.Axis pAxis, Entity pEntity, BlockUtil.FoundRectangle pFoundRectangle, TeleportTransition.PostTeleportTransition pPostTeleportTransition, ServerLevel pServerLevel, Vec3 pVe3) {
+		var blockPos = pFoundRectangle.minCorner;
+		var entityDimensions = pEntity.getDimensions(pEntity.getPose());
+		var axis = pServerLevel.getBlockState(blockPos).getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
+
+		var flag = axis == Direction.Axis.X;
+
+		var d = pVe3.x() * (pFoundRectangle.axis1Size - entityDimensions.width()) + entityDimensions.width() / 2.0D;
+		var e = pVe3.y() * (pFoundRectangle.axis2Size - entityDimensions.height());
+		var f = pVe3.z() + 0.5D;
+
+		var i = pAxis == axis ? 0 : 90;
+
+		var vec3 = new Vec3(blockPos.getX() + (flag ? d : f), blockPos.getY() + e, blockPos.getZ() + (flag ? f : d));
+
+		return new TeleportTransition(pServerLevel, PortalShape.findCollisionFreePosition(vec3, pServerLevel, pEntity, entityDimensions), Vec3.ZERO, i, 0.0F, Relative.union(Relative.DELTA, Relative.ROTATION), pPostTeleportTransition);
+	}
+
+	public TeleportTransition teleportTransition(BlockPos pBlockPos, Entity pEntity, BlockUtil.FoundRectangle pFoundRectangle, TeleportTransition.PostTeleportTransition pPostTeleportTransition, ServerLevel pServerLevel) {
+		var blockState = pEntity.level().getBlockState(pBlockPos);
+		var axis = blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
+		var foundRectangle = this.rectangle(axis, pBlockPos, blockState, pServerLevel);
+		var vec3 = pEntity.getRelativePortalPosition(axis, foundRectangle);
+		return this.createTeleportTransition(axis, pEntity, pFoundRectangle, pPostTeleportTransition, pServerLevel, vec3);
+	}
+
+	public TeleportTransition teleportTransition(BlockPos pEntrance, BlockPos pExit, Entity pEntity, ServerLevel pServerLevel, WorldBorder pWorldBorder) {
+		var optional = this.oldPos(pExit, pServerLevel, pWorldBorder);
+		var foundRectangle = this.portalRectangle(optional, pEntrance, pExit, pEntity, pServerLevel);
+		var postTeleportTransition = this.postTeleportTransition(optional);
+		return this.teleportTransition(pEntrance, pEntity, foundRectangle, postTeleportTransition, pServerLevel);
+	}
+
+	public TeleportTransition.PostTeleportTransition postTeleportTransition(Optional<BlockPos> pOptional) {
+		return pOptional.map(blockPos -> TeleportTransition.PLAY_PORTAL_SOUND.then((entity) -> entity.placePortalTicket(blockPos))).orElseGet(() -> TeleportTransition.PLAY_PORTAL_SOUND.then(TeleportTransition.PLACE_PORTAL_TICKET));
+	}
+
+	@Nullable
+	@Override
+	public TeleportTransition getPortalDestination(ServerLevel pServerLevel, Entity pEntity, BlockPos pBlockPos) {
+		var resourceKey = pServerLevel.dimension() != IcariaDimensions.ICARIA ? IcariaDimensions.ICARIA : Level.OVERWORLD;
+		var serverLevel = pServerLevel.getServer().getLevel(resourceKey);
 		if (serverLevel != null) {
 			var worldBorder = serverLevel.getWorldBorder();
 			var blockPos = worldBorder.clampToBounds(pEntity.getX(), pEntity.getY(), pEntity.getZ());
-			return this.getExitPortal(serverLevel, pEntity, pPos, blockPos, worldBorder);
+			return this.teleportTransition(pBlockPos, blockPos, pEntity, serverLevel, worldBorder);
 		} else {
 			return null;
 		}
 	}
 
-	public @Nullable DimensionTransition getExitPortal(ServerLevel pLevel, Entity pEntity, BlockPos pPos, BlockPos pExitPos, WorldBorder pWorldBorder) {
-		var oldPortal = this.findClosestPortalPosition(pLevel, pExitPos, pWorldBorder);
-		DimensionTransition.PostDimensionTransition dimensionTransition;
-		BlockUtil.FoundRectangle foundRectangle;
-		if (oldPortal.isPresent()) {
-			var blockPos = oldPortal.get();
-			var blockState = pLevel.getBlockState(blockPos);
-			dimensionTransition = DimensionTransition.PLAY_PORTAL_SOUND.then((entity) -> entity.placePortalTicket(blockPos));
-			foundRectangle = BlockUtil.getLargestRectangleAround(blockPos, blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS), 21, Direction.Axis.Y, 21, (pos) -> pLevel.getBlockState(pos) == blockState);
-		} else {
-			var axis = pEntity.level().getBlockState(pPos).getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
-			var newPortal = this.createPortal(pLevel, pExitPos, axis);
-			if (newPortal.isEmpty()) {
-				return null;
-			}
-
-			foundRectangle = newPortal.get();
-			dimensionTransition = DimensionTransition.PLAY_PORTAL_SOUND.then(DimensionTransition.PLACE_PORTAL_TICKET);
-		}
-
-		return this.getDimensionTransitionFromExit(pEntity, pPos, foundRectangle, pLevel, dimensionTransition);
-	}
-
-	public Optional<BlockUtil.FoundRectangle> createPortal(ServerLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-		double d = 0.0D;
-
-		var blockPos = BlockPos.ZERO;
-		var direction = Direction.get(Direction.AxisDirection.POSITIVE, pAxis);
-
-		for (var mutablePos : BlockPos.spiralAround(pPos, 64, Direction.NORTH, Direction.EAST)) {
-			int y = this.getY(pLevel, mutablePos);
-			mutablePos.setY(y);
-			if (this.checkBelow(pLevel, mutablePos) && this.canSet(pLevel, mutablePos)) {
-				double e = pPos.distSqr(mutablePos);
-				if (d > e || d == 0.0D) {
-					d = e;
-					blockPos = mutablePos.immutable();
-				}
-			}
-		}
-
-		var foundRectangle = new BlockUtil.FoundRectangle(blockPos.immutable(), 3, 4);
-		var mutablePos = pPos.mutable();
-
-		for (int i = -1; i < 4; ++i) {
-			for (int j = -1; j < 0; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, pLevel.getBlockState(blockPos.below()));
-			}
-		}
-
-		// LEFT PILLARS
-
-		for (int i = -1; i < 0; ++i) {
-			for (int j = 0; j < 3; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y));
-			}
-		}
-
-		// RIGHT PILLARS
-
-		for (int i = 3; i < 4; ++i) {
-			for (int j = 0; j < 3; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.DOLOMITE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, Direction.Axis.Y));
-			}
-		}
-
-		// LEFT PILLAR HEAD
-
-		for (int i = -1; i < 0; ++i) {
-			for (int j = 3; j < 4; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN));
-			}
-		}
-
-		// RIGHT PILLAR HEAD
-
-		for (int i = 3; i < 4; ++i) {
-			for (int j = 3; j < 4; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.DOLOMITE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, Direction.DOWN));
-			}
-		}
-
-		// LEFT UPPER SLABS
-
-		for (int i = -1; i < 1; ++i) {
-			for (int j = 4; j < 5; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM));
-			}
-		}
-
-		// RIGHT UPPER SLABS
-
-		for (int i = 2; i < 4; ++i) {
-			for (int j = 4; j < 5; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM));
-			}
-		}
-
-		// LEFT LOWER SLAB
-
-		for (int i = -2; i < -1; ++i) {
-			for (int j = 3; j < 4; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP));
-			}
-		}
-
-		// RIGHT LOWER SLAB
-
-		for (int i = 4; i < 5; ++i) {
-			for (int j = 3; j < 4; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP));
-			}
-		}
-
-		for (int i = 0; i < 3; ++i) {
-			for (int j = 0; j < 4; ++j) {
-				mutablePos.setWithOffset(blockPos, i * direction.getStepX(), j, i * direction.getStepZ());
-				pLevel.setBlockAndUpdate(mutablePos, this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, pAxis));
-			}
-		}
-
-		return Optional.of(foundRectangle);
-	}
-
-	public DimensionTransition getDimensionTransitionFromExit(Entity pEntity, BlockPos pPos, BlockUtil.FoundRectangle pRectangle, ServerLevel pLevel, DimensionTransition.PostDimensionTransition pPostDimensionTransition) {
-		var blockState = pEntity.level().getBlockState(pPos);
-		Direction.Axis axis;
-		Vec3 vec3;
-		if (blockState.hasProperty(BlockStateProperties.HORIZONTAL_AXIS)) {
-			axis = blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-			vec3 = pEntity.getRelativePortalPosition(axis, BlockUtil.getLargestRectangleAround(pPos, axis, 21, Direction.Axis.Y, 21, (pos) -> pEntity.level().getBlockState(pos) == blockState));
-		} else {
-			axis = Direction.Axis.X;
-			vec3 = new Vec3(0.5, 0.0, 0.0);
-		}
-
-		return this.createDimensionTransition(pLevel, pRectangle, axis, vec3, pEntity, pEntity.getDeltaMovement(), pEntity.getYRot(), pEntity.getXRot(), pPostDimensionTransition);
-	}
-
-	public DimensionTransition createDimensionTransition(ServerLevel pLevel, BlockUtil.FoundRectangle pRectangle, Direction.Axis pAxis, Vec3 pOffset, Entity pEntity, Vec3 pSpeed, float pYRot, float pXRot, DimensionTransition.PostDimensionTransition pPostDimensionTransition) {
-		var entityDimensions = pEntity.getDimensions(pEntity.getPose());
-		var blockPos = pRectangle.minCorner;
-		var blockState = pLevel.getBlockState(blockPos);
-		var axis = blockState.getOptionalValue(BlockStateProperties.HORIZONTAL_AXIS).orElse(Direction.Axis.X);
-
-		boolean flag = axis == Direction.Axis.X;
-
-		double d = pRectangle.axis1Size;
-		double e = pRectangle.axis2Size;
-		double f = pOffset.x() * (d - entityDimensions.width()) + entityDimensions.width() / 2.0D;
-		double g = pOffset.y() * (e - entityDimensions.height());
-		double h = pOffset.z() + 0.5D;
-
-		int i = pAxis == axis ? 0 : 90;
-
-		var vec3 = new Vec3(blockPos.getX() + (flag ? f : h), blockPos.getY() + g, blockPos.getZ() + (flag ? h : f));
-		return new DimensionTransition(pLevel, IcariaPortalShape.findCollisionFreePosition(vec3, pLevel, pEntity, entityDimensions), pAxis == axis ? pSpeed : new Vec3(pSpeed.z, pSpeed.y, -pSpeed.x), pYRot + i, pXRot, pPostDimensionTransition);
-	}
-
-	public Optional<BlockPos> findClosestPortalPosition(ServerLevel pLevel, BlockPos pExitPos, WorldBorder pWorldBorder) {
-		int i = 128;
-		var poiManager = pLevel.getPoiManager();
-		poiManager.ensureLoadedAndValid(pLevel, pExitPos, i);
-		return poiManager.getInSquare((type) -> type.is(IcariaPoiTypes.ICARIA_PORTAL), pExitPos, i, PoiManager.Occupancy.ANY).map(PoiRecord::getPos).filter(pWorldBorder::isWithinBounds).filter((pos) -> pLevel.getBlockState(pos).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).min(Comparator.<BlockPos>comparingDouble((pos) -> pos.distSqr(pExitPos)).thenComparingInt(Vec3i::getY));
-	}
-
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return pState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? IcariaPortalShapes.X : IcariaPortalShapes.Z;
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? IcariaPortalShapes.X : IcariaPortalShapes.Z;
 	}
 }

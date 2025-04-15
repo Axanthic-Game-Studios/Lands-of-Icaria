@@ -2,6 +2,7 @@
   "parent": "landsoficaria:block/template_layer_4",
   "render_type": "minecraft:cutout",
   "textures": {
+    "particle": "landsoficaria:block/droughtroot_leaves",
     "texture": "landsoficaria:block/droughtroot_leaves"
   }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:copper_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:copper_ingot"
+  },
+  "time": 100
+}

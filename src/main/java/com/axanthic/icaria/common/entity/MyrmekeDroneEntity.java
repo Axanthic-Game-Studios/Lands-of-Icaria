@@ -3,8 +3,11 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.MyrmekeDroneHurtByTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -17,23 +20,20 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
 	public AnimationState attackAnimationState = new AnimationState();
 
-	public MyrmekeDroneEntity(EntityType<? extends MyrmekeDroneEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 5;
+	public MyrmekeDroneEntity(EntityType<? extends MyrmekeDroneEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean doHurtTarget(Entity pEntity) {
+	public boolean doHurtTarget(ServerLevel pServerLevel, Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
-		return super.doHurtTarget(pEntity);
+		return super.doHurtTarget(pServerLevel, pEntity);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.MYRMEKE_DRONE_STEP, 0.1F, 1.0F);
 	}
 
@@ -61,7 +61,7 @@ public class MyrmekeDroneEntity extends MyrmekeQueenEntity {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.MAX_HEALTH, 12.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.MAX_HEALTH, 12.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override

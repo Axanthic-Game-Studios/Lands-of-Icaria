@@ -2,6 +2,9 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,18 +14,16 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import net.neoforged.neoforge.items.IItemHandler;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class GrinderRedirectorBlockEntity extends BlockEntity {
-	public GrinderRedirectorBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pPos, pState);
+	public GrinderRedirectorBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.GRINDER_REDIRECTOR.get(), pBlockPos, pBlockState);
 	}
 
-	public static @Nullable IItemHandler getCapability(GrinderRedirectorBlockEntity pBlockEntity, Direction pDirection) {
+	@Nullable
+	public static IItemHandler getCapability(GrinderRedirectorBlockEntity pBlockEntity, Direction pDirection) {
 		var blockPos = pBlockEntity.getBlockPos();
 		var level = pBlockEntity.getLevel();
 		if (level != null) {

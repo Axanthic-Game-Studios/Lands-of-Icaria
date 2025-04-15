@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bolbos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bolbos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:mondanos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:mondanos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:wilted_elm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:wilted_elm"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:nether_pyromancer_revenant_from_entity_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:bolbos",
+      "has_landsoficaria:mondanos",
+      "has_landsoficaria:wilted_elm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:nether_pyromancer_revenant_from_entity_concocting"
+    ]
+  }
+}

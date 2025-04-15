@@ -41,26 +41,6 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true,
-        "x": 270
-      },
-      "when": {
-        "up": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true,
-        "x": 90
-      },
-      "when": {
-        "down": "false"
-      }
-    },
-    {
-      "apply": {
         "model": "landsoficaria:block/cardon_cactus_stem",
         "uvlock": true
       },

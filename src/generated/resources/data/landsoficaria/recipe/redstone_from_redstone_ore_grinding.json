@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.2,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "minecraft:redstone_ore",
+  "result": {
+    "count": 4,
+    "id": "minecraft:redstone"
+  },
+  "time": 200
+}

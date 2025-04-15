@@ -4,12 +4,12 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -20,25 +20,25 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		int heightTrunk = random.nextIntBetweenInclusive(2, 4);
-		int heightLower = random.nextIntBetweenInclusive(1, 4);
-		int heightInner = random.nextIntBetweenInclusive(1, 4);
-		int heightUpper = random.nextIntBetweenInclusive(1, 4);
-		int heightTotal = heightTrunk + heightLower + heightInner + heightUpper;
-		int heightAxisY = heightTotal + origin.getY();
+		var heightTrunk = random.nextIntBetweenInclusive(2, 4);
+		var heightLower = random.nextIntBetweenInclusive(1, 4);
+		var heightInner = random.nextIntBetweenInclusive(1, 4);
+		var heightUpper = random.nextIntBetweenInclusive(1, 4);
+		var heightTotal = heightTrunk + heightLower + heightInner + heightUpper;
+		var heightAxisY = heightTotal + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (int i = 1; i <= heightTrunk; ++i) {
+		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
+			for (var i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
-			for (int i = 1; i <= heightLower; ++i) {
+			for (var i = 1; i <= heightLower; ++i) {
 				++heightTrunk;
 				direction = direction.getOpposite();
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
@@ -50,7 +50,7 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction).relative(direction.getCounterClockWise()));
 			}
 
-			for (int i = 1; i <= heightInner; ++i) {
+			for (var i = 1; i <= heightInner; ++i) {
 				++heightTrunk;
 				direction = direction.getOpposite();
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
@@ -59,7 +59,7 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getCounterClockWise()));
 			}
 
-			for (int i = 1; i <= heightUpper; ++i) {
+			for (var i = 1; i <= heightUpper; ++i) {
 				++heightTrunk;
 				direction = direction.getOpposite();
 				this.placeLeaves(level, origin.below().above(heightTrunk));

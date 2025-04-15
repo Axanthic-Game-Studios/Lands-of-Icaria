@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:relicstone_bricks"
-    },
-    "Y": {
-      "item": "landsoficaria:relicstone_pillar"
-    }
+    "A": "landsoficaria:relicstone_bricks",
+    "B": "landsoficaria:relicstone_pillar"
   },
   "pattern": [
-    "X",
-    "Y"
+    "A",
+    "B"
   ],
   "result": {
     "count": 2,

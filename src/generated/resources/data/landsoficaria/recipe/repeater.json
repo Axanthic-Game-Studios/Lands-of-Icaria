@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:redstone",
+    "B": "minecraft:redstone_torch",
+    "C": "landsoficaria:smooth_relicstone"
+  },
+  "pattern": [
+    "BAB",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:repeater"
+  }
+}

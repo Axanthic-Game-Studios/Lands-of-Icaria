@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:molybdenumsteel_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:molybdenumsteel_nugget"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:molybdenumsteel_ingot_from_molybdenumsteel_nugget"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:molybdenumsteel_nugget"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:molybdenumsteel_ingot_from_molybdenumsteel_nugget"
+    ]
+  }
+}

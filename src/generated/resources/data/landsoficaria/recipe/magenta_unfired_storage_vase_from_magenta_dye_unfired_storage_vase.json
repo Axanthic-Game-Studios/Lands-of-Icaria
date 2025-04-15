@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:magenta_dye",
+    "landsoficaria:unfired_storage_vase"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:magenta_unfired_storage_vase"
+  }
+}

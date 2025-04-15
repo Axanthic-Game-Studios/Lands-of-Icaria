@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:firing",
+  "experience": 0.2,
+  "ingredient": "minecraft:clay",
+  "result": {
+    "count": 1,
+    "id": "minecraft:terracotta"
+  },
+  "time": 200
+}

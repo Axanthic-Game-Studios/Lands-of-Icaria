@@ -1,10 +1,12 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.ForestHagEntity;
+import com.axanthic.icaria.client.state.DroughtrootForestHagRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -13,13 +15,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity> {
-	public ModelPart root;
+public class DroughtrootForestHagModel extends EntityModel<DroughtrootForestHagRenderState> {
 	public ModelPart bodyBase;
 	public ModelPart bodyLower;
 	public ModelPart bodyCenter;
@@ -45,7 +44,7 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 	public ModelPart legLeft;
 
 	public DroughtrootForestHagModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyBase = this.root.getChild("bodyBase");
 		this.bodyLower = this.bodyBase.getChild("bodyLower");
 		this.bodyCenter = this.bodyLower.getChild("bodyCenter");
@@ -72,21 +71,23 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 	}
 
 	@Override
-	public void setupAnim(ForestHagEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+	public void setupAnim(DroughtrootForestHagRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
 		this.armRightUpper.xRot = -0.3491F;
 		this.armRightUpper.zRot = 0.4427F;
 		this.armLeftUpper.xRot = -0.1745F;
 		this.armLeftUpper.zRot = -0.1745F;
 
-		this.attackAnim();
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+		this.attackAnim(pRenderState.attackTime);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 	}
 
-	public void attackAnim() {
-		float f = Mth.sin(this.attackTime * Mth.PI);
-		if (this.attackTime > 0.0F) {
+	public void attackAnim(float pAttackTime) {
+		var f = Mth.sin(pAttackTime * Mth.PI);
+		if (pAttackTime > 0.0F) {
 			this.armRightUpper.zRot -= f;
 			this.armLeftUpper.zRot += f;
 		}
@@ -113,22 +114,22 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 		this.wiggleRotateAngles(this.bodyUpperLeavesCenter, 0.015F, 0.7854F, -0.015F, pAgeInTicks);
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot = IcariaMath.rad(pHeadPitch) + 0.4363F;
-		this.headMain.yRot = IcariaMath.rad(pNetHeadYaw) - 0.0873F;
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot = IcariaMath.rad(pXRot) + 0.4363F;
+		this.headMain.yRot = IcariaMath.rad(pYRot) - 0.0873F;
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed;
 
-		this.armRightUpper.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount - 0.3491F;
-		this.armRightLower.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount - pLimbSwingAmount - 0.1745F;
-		this.thighRight.xRot = Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
-		this.legRight.xRot = Mth.sin(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount + 0.0873F;
-		this.armLeftUpper.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount - 0.1745F;
-		this.armLeftLower.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount - pLimbSwingAmount - 0.3491F;
-		this.thighLeft.xRot = Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
-		this.legLeft.xRot = Mth.sin(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
+		this.armRightUpper.xRot = Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed - 0.3491F;
+		this.armRightLower.xRot = Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.1745F;
+		this.thighRight.xRot = Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed;
+		this.legRight.xRot = Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.0873F;
+		this.armLeftUpper.xRot = Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed - 0.1745F;
+		this.armLeftLower.xRot = Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed - pWalkAnimationSpeed - 0.3491F;
+		this.thighLeft.xRot = Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed;
+		this.legLeft.xRot = Mth.sin(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed + pWalkAnimationSpeed;
 	}
 
 	public void wiggleRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ, float pAgeInTicks) {
@@ -139,6 +140,7 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyBase = partDefinition.addOrReplaceChild("bodyBase", CubeListBuilder.create().texOffs(34, 46).addBox(-5.5F, 0.0F, -2.5F, 11.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.8F, 3.5F, 0.5F, -0.1745F, 0.0F, -0.0873F));
@@ -173,10 +175,5 @@ public class DroughtrootForestHagModel extends HierarchicalModel<ForestHagEntity
 		footLeft.addOrReplaceChild("soleLeft", CubeListBuilder.create().texOffs(42, 55).addBox(-1.5F, 0.0F, -1.5F, 3.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.3F, 0.0F, 0.0873F, 0.0873F, 0.0436F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

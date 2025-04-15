@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:potion_concocting",
+  "colour": 8889187,
+  "duration": 220,
+  "ingredient": [
+    "landsoficaria:rowan",
+    "landsoficaria:arachne_venom_vial"
+  ],
+  "potion": {
+    "potion": "minecraft:poison"
+  },
+  "radius": 5.0,
+  "time": 200
+}

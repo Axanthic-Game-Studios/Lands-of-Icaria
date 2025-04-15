@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_landsoficaria:dead_olive_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:dead_olive_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_landsoficaria:olive_log": {
       "conditions": {
         "items": [
@@ -16,6 +26,16 @@
         "items": [
           {
             "items": "landsoficaria:olive_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:stripped_dead_olive_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:stripped_dead_olive_log"
           }
         ]
       },
@@ -54,7 +74,9 @@
       "has_landsoficaria:olive_wood",
       "has_landsoficaria:stripped_olive_wood",
       "has_landsoficaria:olive_log",
-      "has_landsoficaria:stripped_olive_log"
+      "has_landsoficaria:stripped_olive_log",
+      "has_landsoficaria:dead_olive_log",
+      "has_landsoficaria:stripped_dead_olive_log"
     ]
   ],
   "rewards": {

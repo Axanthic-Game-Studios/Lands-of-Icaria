@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:chalkos_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:chalkos_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:kassiteros_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:kassiteros_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:orichalcum_ingot_from_chalkos_ingot_chalkos_ingot_kassiteros_ingot_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:chalkos_ingot",
+      "has_landsoficaria:kassiteros_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:orichalcum_ingot_from_chalkos_ingot_chalkos_ingot_kassiteros_ingot_forging"
+    ]
+  }
+}

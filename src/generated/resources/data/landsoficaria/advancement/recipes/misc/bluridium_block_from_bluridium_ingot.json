@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bluridium_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bluridium_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:bluridium_block_from_bluridium_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:bluridium_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:bluridium_block_from_bluridium_ingot"
+    ]
+  }
+}

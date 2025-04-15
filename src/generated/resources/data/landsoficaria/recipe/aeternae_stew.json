@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "landsoficaria:raw_aeternae_meat"
-    },
-    {
-      "item": "minecraft:beetroot"
-    },
-    {
-      "item": "landsoficaria:halite_dust"
-    },
-    {
-      "item": "landsoficaria:loam_bowl"
-    }
+    "minecraft:beetroot",
+    "landsoficaria:raw_aeternae_meat",
+    "landsoficaria:halite_dust",
+    "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,

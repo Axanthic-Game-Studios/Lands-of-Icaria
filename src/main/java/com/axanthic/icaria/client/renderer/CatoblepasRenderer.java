@@ -2,38 +2,54 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.CatoblepasModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.state.CatoblepasRenderState;
 import com.axanthic.icaria.common.entity.CatoblepasEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, CatoblepasModel> {
+public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, CatoblepasRenderState, CatoblepasModel> {
 	public CatoblepasRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CatoblepasModel(pContext.bakeLayer(IcariaLayerLocations.CATOBLEPAS)), 1.0F);
 	}
 
 	@Override
-	public float getShadowRadius(CatoblepasEntity pEntity) {
-		return pEntity.getScaleForShadow();
+	public float getShadowRadius(CatoblepasRenderState pRenderState) {
+		return pRenderState.shadowScale;
 	}
 
 	@Override
-	public void scale(CatoblepasEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-		pMatrixStack.scale(pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender(), pLivingEntity.getScaleForRender());
+	public void extractRenderState(CatoblepasEntity pEntity, CatoblepasRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.renderScale = pEntity.getSizeForRender();
+		pRenderState.shadowScale = pEntity.getSizeForShadow();
+		pRenderState.size = pEntity.getSize();
+		pRenderState.attackAnimationState = pEntity.attackAnimationState;
+		pRenderState.eatingAnimationState = pEntity.eatingAnimationState;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CatoblepasEntity pEntity) {
+	public void scale(CatoblepasRenderState pRenderState, PoseStack pPoseStack) {
+		pPoseStack.scale(pRenderState.renderScale, pRenderState.renderScale, pRenderState.renderScale);
+	}
+
+	@Override
+	public CatoblepasRenderState createRenderState() {
+		return new CatoblepasRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(CatoblepasRenderState pRenderState) {
 		return IcariaResourceLocations.CATOBLEPAS;
 	}
 }

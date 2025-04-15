@@ -3,6 +3,9 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.shapes.DirectionShapes;
 import com.axanthic.icaria.common.util.IcariaSkullBlockType;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,8 +19,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -33,15 +34,14 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING);
 	}
 
+	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		for (var direction : pContext.getNearestLookingDirections()) {
-			if (!direction.getAxis().isHorizontal()) {
-				continue;
-			}
-
-			if (!pContext.getLevel().getBlockState(pContext.getClickedPos().relative(direction)).canBeReplaced(pContext)) {
-				return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
+			if (direction.getAxis().isHorizontal()) {
+				if (!pBlockPlaceContext.getLevel().getBlockState(pBlockPlaceContext.getClickedPos().relative(direction)).canBeReplaced(pBlockPlaceContext)) {
+					return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
+				}
 			}
 		}
 
@@ -49,23 +49,18 @@ public class IcariaWallSkullBlock extends IcariaAbstractSkullBlock {
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public String getDescriptionId() {
-		return this.asItem().getDescriptionId();
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> DirectionShapes.NORTH;
 			case EAST -> DirectionShapes.EAST;
 			case SOUTH -> DirectionShapes.SOUTH;

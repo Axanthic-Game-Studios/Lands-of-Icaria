@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:stick",
+    "B": "#minecraft:planks",
+    "C": "landsoficaria:smooth_relicstone_slab"
+  },
+  "pattern": [
+    "ACA",
+    "B B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:grindstone"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "landsoficaria:block/droughtroot_pressure_plate"
+    },
+    "powered=true": {
+      "model": "landsoficaria:block/droughtroot_pressure_plate_down"
+    }
+  }
+}

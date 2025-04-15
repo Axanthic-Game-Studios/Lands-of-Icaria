@@ -3,18 +3,12 @@
   "category": "misc",
   "ingredients": [
     [
-      {
-        "item": "landsoficaria:fir_wood"
-      },
-      {
-        "item": "landsoficaria:stripped_fir_wood"
-      },
-      {
-        "item": "landsoficaria:fir_log"
-      },
-      {
-        "item": "landsoficaria:stripped_fir_log"
-      }
+      "landsoficaria:fir_wood",
+      "landsoficaria:stripped_fir_wood",
+      "landsoficaria:fir_log",
+      "landsoficaria:stripped_fir_log",
+      "landsoficaria:dead_fir_log",
+      "landsoficaria:stripped_dead_fir_log"
     ]
   ],
   "result": {

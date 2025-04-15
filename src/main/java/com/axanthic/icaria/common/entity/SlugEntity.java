@@ -1,8 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -11,19 +15,19 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
@@ -32,8 +36,9 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -55,34 +60,22 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	public AnimationState moveAnimationState = new AnimationState();
 	public AnimationState showAnimationState = new AnimationState();
 
-	public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.BYTE);
-
+	public static final EntityDataAccessor<Boolean> CLIMBING = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.BOOLEAN);
 	public static final EntityDataAccessor<Integer> COOLDOWN = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> HIDE = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> SHOW = SynchedEntityData.defineId(SlugEntity.class, EntityDataSerializers.INT);
 
-	public SlugEntity(EntityType<? extends SlugEntity> pType, Level pLevel) {
-		super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
-	}
-
-	public boolean doHide() {
-		return !this.onCooldown() && !this.onHide() && !this.onShow() && this.getBlockStateOn().is(BlockTags.DIRT);
+	public SlugEntity(EntityType<? extends SlugEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel, 0.25F, 0.25F, 0.15F);
 	}
 
 	@Override
-	public boolean hurt(DamageSource pSource, float pAmount) {
-		if (this.doHide() && this.getHealth() < 4.0F) {
-			this.setHide(this.maxHide);
-		}
-
-		return super.hurt(pSource, pAmount);
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+		this.hide();
+		return super.hurtServer(pServerLevel, pDamageSource, pAmount);
 	}
 
-	public boolean isClimbing() {
-		return (this.entityData.get(SlugEntity.CLIMBING) & 1) != 0;
-	}
-
-	public boolean isMovingOnLand() {
+	public boolean isMovement() {
 		return this.onGround() && this.getDeltaMovement().horizontalDistanceSqr() > 0;
 	}
 
@@ -93,7 +86,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 
 	@Override
 	public boolean onClimbable() {
-		return this.isClimbing();
+		return this.getClimbing();
 	}
 
 	public boolean onCooldown() {
@@ -104,12 +97,24 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 		return this.getHide() > this.minHide;
 	}
 
-	public boolean onHurt() {
-		return this.hurtTime > 0;
-	}
-
 	public boolean onShow() {
 		return this.getShow() > this.minShow;
+	}
+
+	public boolean getClimbing() {
+		return this.getEntityData().get(SlugEntity.CLIMBING);
+	}
+
+	public int getCooldown() {
+		return this.getEntityData().get(SlugEntity.COOLDOWN);
+	}
+
+	public int getHide() {
+		return this.getEntityData().get(SlugEntity.HIDE);
+	}
+
+	public int getShow() {
+		return this.getEntityData().get(SlugEntity.SHOW);
 	}
 
 	public float getShadowStrength() {
@@ -125,42 +130,26 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	}
 
 	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() - 0.75F;
-	}
-
-	public int getCooldown() {
-		return this.entityData.get(SlugEntity.COOLDOWN);
-	}
-
-	public int getHide() {
-		return this.entityData.get(SlugEntity.HIDE);
-	}
-
-	public int getShow() {
-		return this.entityData.get(SlugEntity.SHOW);
-	}
-
-	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Cooldown", this.getCooldown());
-		pCompound.putInt("Hide", this.getHide());
-		pCompound.putInt("Show", this.getShow());
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putBoolean("Climbing", this.getClimbing());
+		pCompoundTag.putInt("Cooldown", this.getCooldown());
+		pCompoundTag.putInt("Hide", this.getHide());
+		pCompoundTag.putInt("Show", this.getShow());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.onHide()) {
-			int hide = this.getHide();
+			var hide = this.getHide();
 			if (hide > this.minHide) {
 				--hide;
 				this.setHide(hide);
 				this.setCooldown(this.maxCooldown);
 			}
 		} else if (this.onCooldown()) {
-			int cooldown = this.getCooldown();
+			var cooldown = this.getCooldown();
 			if (cooldown > this.minCooldown) {
 				--cooldown;
 				this.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, cooldown, 3, false, false));
@@ -168,7 +157,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 				this.setShow(this.maxShow);
 			}
 		} else if (this.onShow()) {
-			int show = this.getShow();
+			var show = this.getShow();
 			if (show > this.minShow) {
 				--show;
 				this.setShow(show);
@@ -179,18 +168,25 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(SlugEntity.CLIMBING, (byte) 0);
+		pBuilder.define(SlugEntity.CLIMBING, false);
 		pBuilder.define(SlugEntity.COOLDOWN, this.minCooldown);
 		pBuilder.define(SlugEntity.HIDE, this.minHide);
 		pBuilder.define(SlugEntity.SHOW, this.minShow);
 	}
 
+	public void hide() {
+		if (!this.onClimbable() && !this.onCooldown() && !this.onHide() && !this.onShow() && this.getBlockStateOn().is(BlockTags.DIRT)) {
+			this.setHide(this.maxHide);
+		}
+	}
+
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setCooldown(pCompound.getInt("Cooldown"));
-		this.setHide(pCompound.getInt("Hide"));
-		this.setShow(pCompound.getInt("Show"));
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
+		this.setCooldown(pCompoundTag.getInt("Cooldown"));
+		this.setHide(pCompoundTag.getInt("Hide"));
+		this.setShow(pCompoundTag.getInt("Show"));
 	}
 
 	@Override
@@ -200,91 +196,98 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	}
 
 	public void setClimbing(boolean pClimbing) {
-		byte b = this.entityData.get(SlugEntity.CLIMBING);
-		if (pClimbing) {
-			b = (byte) (b | 1);
-		} else {
-			b = (byte) (b & -2);
-		}
-
-		this.entityData.set(SlugEntity.CLIMBING, b);
+		this.getEntityData().set(SlugEntity.CLIMBING, pClimbing);
 	}
 
 	public void setCooldown(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minCooldown, this.maxCooldown);
-		this.entityData.set(SlugEntity.COOLDOWN, ticks);
+		this.getEntityData().set(SlugEntity.COOLDOWN, pCooldown);
 	}
 
-	public void setHide(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minHide, this.maxHide);
-		this.entityData.set(SlugEntity.HIDE, ticks);
+	public void setHide(int pHide) {
+		this.getEntityData().set(SlugEntity.HIDE, pHide);
 	}
 
-	public void setShow(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minShow, this.maxShow);
-		this.entityData.set(SlugEntity.SHOW, ticks);
+	public void setShow(int pShow) {
+		this.getEntityData().set(SlugEntity.SHOW, pShow);
+	}
+
+	public void setMovement() {
+		if (this.onHide() || this.onCooldown() || this.onShow()) {
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+		} else {
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1D);
+		}
 	}
 
 	@Override
 	public void setSize(int pSize) {
 		super.setSize(pSize);
-		int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
-	}
-
-	public void stopMove() {
-		if (this.onHide() || this.onCooldown() || this.onShow()) {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
-		} else {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.125D);
-		}
+		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
+			this.tickHide();
+			this.tickHurt();
+			this.tickMove();
+			this.tickShow();
 			this.tickParticlePlusSounds();
 			this.tickRegisterRaysValues();
-			if (this.isClimbing() || this.isMovingOnLand()) {
-				this.moveAnimationState.startIfStopped(this.tickCount);
-			} else {
-				this.moveAnimationState.stop();
-			}
-
-			if (this.onHide() || this.onCooldown()) {
-				this.hideAnimationState.startIfStopped(this.tickCount);
-				this.showAnimationState.stop();
-			} else {
-				this.showAnimationState.startIfStopped(this.tickCount);
-				this.hideAnimationState.stop();
-			}
-
-			if (this.onHurt()) {
-				this.hurtAnimationState.startIfStopped(this.tickCount);
-			} else {
-				this.hurtAnimationState.stop();
-			}
 		} else {
 			this.setClimbing(this.horizontalCollision);
-			this.stopMove();
+			this.setMovement();
+		}
+	}
+
+	public void tickHide() {
+		if (this.onHide() || this.onCooldown()) {
+			this.hideAnimationState.startIfStopped(this.tickCount);
+		} else {
+			this.hideAnimationState.stop();
+		}
+	}
+
+	public void tickHurt() {
+		if (this.hurtTime > 0) {
+			this.hurtAnimationState.startIfStopped(this.tickCount);
+		} else {
+			this.hurtAnimationState.stop();
+		}
+	}
+
+	public void tickMove() {
+		if (this.getClimbing() || this.isMovement()) {
+			this.moveAnimationState.startIfStopped(this.tickCount);
+		} else {
+			this.moveAnimationState.stop();
+		}
+	}
+
+	public void tickShow() {
+		if (!this.onCooldown() && !this.onHide()) {
+			this.showAnimationState.startIfStopped(this.tickCount);
+		} else {
+			this.showAnimationState.stop();
 		}
 	}
 
 	public void tickParticlePlusSounds() {
 		if ((this.onHide() && this.getHide() < 40) || (this.onShow() && this.getShow() > 40) && !this.onCooldown()) {
 			this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType(this.level(), this.blockPosition(), this).getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
-			for (int i = 0; i < 15; ++i) {
-				double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-				double y = this.getY();
-				double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-				this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
+			for (var i = 0; i < 15; ++i) {
+				var x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				var y = this.getY();
+				var z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				var blockParticleOption = new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn());
+				this.level().addParticle(blockParticleOption, x, y, z, 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
 
 	public void tickRegisterRaysValues() {
-		if (this.tickCount < 20) {
+		if (this.tickCount <= 20) {
 			this.red = IcariaClientHelper.getRed(this);
 			this.green = IcariaClientHelper.getGreen(this);
 			this.blue = IcariaClientHelper.getBlue(this);
@@ -292,30 +295,20 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
+		return Mob.createMobAttributes().add(Attributes.KNOCKBACK_RESISTANCE, 1.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.1D);
 	}
 
 	@Override
-	public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-		var itemStack = pPlayer.getItemInHand(pHand);
+	public InteractionResult mobInteract(Player pPlayer, InteractionHand pInteractionHand) {
+		var itemStack = pPlayer.getItemInHand(pInteractionHand);
 		if (itemStack.getItem() == IcariaItems.HALITE_DUST.get()) {
-			if (!this.level().isClientSide()) {
-				pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
-				this.hurt(this.damageSources().generic(), 1.0F);
-				if (this.doHide()) {
-					this.setHide(this.maxHide);
-				}
-
-				if (!pPlayer.isCreative()) {
-					itemStack.shrink(1);
-				}
-
-				return InteractionResult.SUCCESS;
-			} else {
-				return InteractionResult.CONSUME;
-			}
+			itemStack.consume(1, pPlayer);
+			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.HALITE_DUST.get()));
+			IcariaCommonHelper.hurt(this.damageSources().generic(), this, 1.0F);
+			this.hide();
+			return InteractionResult.SUCCESS;
 		} else {
-			return super.mobInteract(pPlayer, pHand);
+			return super.mobInteract(pPlayer, pInteractionHand);
 		}
 	}
 
@@ -337,5 +330,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
 		return IcariaSoundEvents.SLUG_HURT;
+	}
+
+	@Nullable
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
+		this.setSize(this.getRandom().nextIntBetweenInclusive(this.minSize, this.maxSize));
+		return super.finalizeSpawn(pServerLevelAccessor, pDifficultyInstance, pEntitySpawnReason, pSpawnGroupData);
 	}
 }

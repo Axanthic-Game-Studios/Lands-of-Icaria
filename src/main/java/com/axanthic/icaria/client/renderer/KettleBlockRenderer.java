@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.common.block.KettleBlock;
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
@@ -8,7 +8,8 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
@@ -18,25 +19,14 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntity> {
-	public long prevTime;
-
-	public KettleBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-
-	}
+public record KettleBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<KettleBlockEntity> {
 
 	@Override
 	public int getViewDistance() {
@@ -44,129 +34,72 @@ public class KettleBlockRenderer implements BlockEntityRenderer<KettleBlockEntit
 	}
 
 	@Override
-	public void render(KettleBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
-		var state = pBlockEntity.getBlockState();
-
-		var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
-
-		var ingA = pBlockEntity.getIngA();
-		var ingB = pBlockEntity.getIngB();
-		var ingC = pBlockEntity.getIngC();
-
+	public void render(KettleBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+		var blockState = pBlockEntity.getBlockState();
 		var level = pBlockEntity.getLevel();
 
+		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		var kettle = blockState.getValue(IcariaBlockStateProperties.KETTLE);
+
 		var minecraft = Minecraft.getInstance();
+		var vertexConsumer = pMultiBufferSource.getBuffer(Sheets.translucentItemSheet());
 
-		var itemRenderer = minecraft.getItemRenderer();
+		if (level != null && kettle != Kettle.EMPTY) {
+			var gameTime = level.getGameTime();
 
-		if (level != null) {
-			long gameTime = level.getGameTime();
+			var time = Mth.lerp(minecraft.getDeltaTracker().getGameTimeDeltaTicks(), pBlockEntity.prevTime, gameTime) * 2.0F;
 
-			float time = Mth.lerp(minecraft.getTimer().getGameTimeDeltaTicks(), this.prevTime, gameTime) * -2.0F;
+			var angle = 25.0F;
+			var range = 0.15F;
+			var scale = 0.15F;
+			var speed = 0.015F;
 
-			float radius = 0.15F;
-			float scale = 0.125F;
-			float speed = 0.025F;
+			var yLevel = 0.5625F;
+			var yRange = 0.04375F;
 
-			float yLevel = 0.550F;
-			float yRange = 0.025F;
-			float ySpeed = 0.025F;
+			var colour = BiomeColors.getAverageWaterColor(level, pBlockEntity.getBlockPos());
 
-			this.prevTime = gameTime;
+			var sprite = this.getSprite(kettle, minecraft);
 
-			if (state.getBlock() instanceof KettleBlock kettleBlock) {
-				double x = kettleBlock.getX(state);
-				double z = kettleBlock.getZ(state);
+			var r = this.getColour(kettle, pBlockEntity, colour, 16);
+			var g = this.getColour(kettle, pBlockEntity, colour, 8);
+			var b = this.getColour(kettle, pBlockEntity, colour, 0);
 
-				if (state.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
-					if (facing == Direction.NORTH) {
-						this.renderQuad(pBlockEntity, pPoseStack, pBufferSource, 0.25F, 0.75F, 0.09375F, 0.59375F, pPackedLight, pPackedOverlay);
-					} else if (facing == Direction.EAST) {
-						this.renderQuad(pBlockEntity, pPoseStack, pBufferSource, 0.40625F, 0.90625F, 0.25F, 0.75F, pPackedLight, pPackedOverlay);
-					} else if (facing == Direction.SOUTH) {
-						this.renderQuad(pBlockEntity, pPoseStack, pBufferSource, 0.25F, 0.75F, 0.40625F, 0.90625F, pPackedLight, pPackedOverlay);
-					} else if (facing == Direction.WEST) {
-						this.renderQuad(pBlockEntity, pPoseStack, pBufferSource, 0.09375F, 0.59375F, 0.25F, 0.75F, pPackedLight, pPackedOverlay);
-					}
+			var y = this.getHeight(kettle, pBlockEntity);
 
-					if (IcariaConfig.RENDER_KETTLE_ITEMS.get()) {
-						if (!ingA.isEmpty()) {
-							pPoseStack.pushPose();
-							pPoseStack.translate(Mth.sin(time * speed) * radius + x, Mth.sin(time * ySpeed) * yRange + yLevel, Mth.cos(time * speed) * radius + z);
-							pPoseStack.scale(scale, scale, scale);
-							pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(time * 0.05F) * 8.0F));
-							pPoseStack.mulPose(Axis.YP.rotationDegrees(time));
-							pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.cos(time * 0.05F) * 8.0F));
-							itemRenderer.renderStatic(ingA, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, level, 1);
-							pPoseStack.popPose();
-						}
+			pBlockEntity.prevTime = gameTime;
 
-						if (!ingB.isEmpty()) {
-							pPoseStack.pushPose();
-							pPoseStack.translate(Mth.sin(time * speed + 7.5F) * radius + x, Mth.sin(time * ySpeed + 7.5F) * yRange + yLevel, Mth.cos(time * speed + 7.5F) * radius + z);
-							pPoseStack.scale(scale, scale, scale);
-							pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(time * 0.05F + 45.0F) * 8.0F));
-							pPoseStack.mulPose(Axis.YP.rotationDegrees(time + 45.0F));
-							pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.cos(time * 0.05F + 45.0F) * 8.0F));
-							itemRenderer.renderStatic(ingB, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, level, 1);
-							pPoseStack.popPose();
-						}
+			IcariaClientHelper.renderQuad(vertexConsumer, sprite, pPoseStack.last().pose(), direction, pPackedLight, pPackedOverlay, 0.25F, 0.75F, 0.25F, 0.75F, 0.25F, 0.75F, 0.09375F, 0.59375F, y, r, g, b, 1.0F);
 
-						if (!ingC.isEmpty()) {
-							pPoseStack.pushPose();
-							pPoseStack.translate(Mth.sin(time * speed + 15.0F) * radius + x, Mth.sin(time * ySpeed + 15.0F) * yRange + yLevel, Mth.cos(time * speed + 15.0F) * radius + z);
-							pPoseStack.scale(scale, scale, scale);
-							pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.sin(time * 0.05F + 90.0F) * 8.0F));
-							pPoseStack.mulPose(Axis.YP.rotationDegrees(time + 90.0F));
-							pPoseStack.mulPose(Axis.ZP.rotationDegrees(Mth.cos(time * 0.05F + 90.0F) * 8.0F));
-							itemRenderer.renderStatic(ingC, ItemDisplayContext.FIXED, pPackedLight, pPackedOverlay, pPoseStack, pBufferSource, level, 1);
-							pPoseStack.popPose();
-						}
-					}
-				}
+			if (IcariaConfig.RENDER_KETTLE_ITEMS.get()) {
+				IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInputA(), direction, pBlockEntity, pPackedLight, 0.5F + Mth.cos(time * speed) * range, 0.5F - Mth.cos(time * speed) * range, yLevel + Mth.sin(time * speed) * yRange, 0.34375F - Mth.sin(time * speed) * range, 0.65625F + Mth.sin(time * speed) * range, Mth.sin(time * speed) * angle, time, Mth.cos(time * speed) * angle, scale, scale, scale);
+				IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInputB(), direction, pBlockEntity, pPackedLight, 0.5F + Mth.cos(time * speed + 7.5F) * range, 0.5F - Mth.cos(time * speed + 7.5F) * range, yLevel + Mth.sin(time * speed + 7.5F) * yRange, 0.34375F - Mth.sin(time * speed + 7.5F) * range, 0.65625F + Mth.sin(time * speed + 7.5F) * range, Mth.sin(time * speed + 45.0F) * angle, time + 45.0F, Mth.cos(time * speed + 45.0F) * angle, scale, scale, scale);
+				IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInputC(), direction, pBlockEntity, pPackedLight, 0.5F + Mth.cos(time * speed + 15.0F) * range, 0.5F - Mth.cos(time * speed + 15.0F) * range, yLevel + Mth.sin(time * speed + 15.0F) * yRange, 0.34375F - Mth.sin(time * speed + 15.0F) * range, 0.65625F + Mth.sin(time * speed + 15.0F) * range, Mth.sin(time * speed + 90.0F) * angle, time + 90.0F, Mth.cos(time * speed + 90.0F) * angle, scale, scale, scale);
 			}
 		}
 	}
 
-	public void renderQuad(KettleBlockEntity pBlockEntity, PoseStack pPoseStack, MultiBufferSource pBufferSource, float pMinX, float pMaxX, float pMinZ, float pMaxZ, int pPackedLight, int pPackedOverlay) {
-		if (pBlockEntity.getLevel() != null) {
-			float height;
-			float r;
-			float g;
-			float b;
+	public float getColour(Kettle pKettle, KettleBlockEntity pBlockEntity, int pColor, int pShift) {
+		if (pKettle == Kettle.BREWING) {
+			return Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (pColor >> pShift & 255) / 255.0F, (pBlockEntity.color >> pShift & 255) / 255.0F);
+		} else {
+			return (pColor >> pShift & 255) / 255.0F;
+		}
+	}
 
-			int endColor = pBlockEntity.color;
-			int startColor = BiomeColors.getAverageWaterColor(pBlockEntity.getLevel(), pBlockEntity.getBlockPos());
+	public float getHeight(Kettle pKettle, KettleBlockEntity pBlockEntity) {
+		if (pKettle == Kettle.BREWING) {
+			return 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.0625F;
+		} else {
+			return 0.6875F;
+		}
+	}
 
-			var consumer = pBufferSource.getBuffer(Sheets.translucentCullBlockSheet());
-			var matrix4f = pPoseStack.last().pose();
-			var minecraft = Minecraft.getInstance();
-			var state = pBlockEntity.getBlockState();
-
-			TextureAtlasSprite sprite;
-
-			if (state.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
-				height = 0.6875F + (float) pBlockEntity.progress / pBlockEntity.maxProgress * 0.0625F;
-				r = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 16 & 255) / 255.0F, (endColor >> 16 & 255) / 255.0F);
-				g = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor >> 8 & 255) / 255.0F, (endColor >> 8 & 255) / 255.0F);
-				b = Mth.lerp((float) pBlockEntity.progress / pBlockEntity.maxProgress, (startColor & 255) / 255.0F, (endColor & 255) / 255.0F);
-				sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
-			} else {
-				height = 0.6875F;
-				r = (startColor >> 16 & 255) / 255.0F;
-				g = (startColor >> 8 & 255) / 255.0F;
-				b = (startColor & 255) / 255.0F;
-				sprite = minecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
-			}
-
-			pPoseStack.pushPose();
-
-			consumer.addVertex(matrix4f, pMinX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMinX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.25F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMaxX, height, pMaxZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.75F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
-			consumer.addVertex(matrix4f, pMaxX, height, pMinZ).setColor(r, g, b, 1.0F).setUv(sprite.getU(0.25F), sprite.getV(0.75F)).setOverlay(pPackedOverlay).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F);
-
-			pPoseStack.popPose();
+	public TextureAtlasSprite getSprite(Kettle pKettle, Minecraft pMinecraft) {
+		if (pKettle == Kettle.BREWING) {
+			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
+		} else {
+			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
 		}
 	}
 }

@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "landsoficaria:voidlily",
+  "result": {
+    "count": 2,
+    "id": "minecraft:black_dye"
+  },
+  "time": 200
+}

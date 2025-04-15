@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 13609241,
+  "entity": "landsoficaria:captain_revenant",
+  "ingredient": [
+    "landsoficaria:bone_remains",
+    "landsoficaria:bone_remains",
+    "landsoficaria:bone_remains"
+  ],
+  "time": 200
+}

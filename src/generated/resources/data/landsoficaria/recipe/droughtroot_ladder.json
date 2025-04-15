@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:droughtroot_planks"
-    }
+    "A": "landsoficaria:droughtroot_planks"
   },
   "pattern": [
-    "X X",
-    "XXX",
-    "X X"
+    "A A",
+    "AAA",
+    "A A"
   ],
   "result": {
     "count": 6,

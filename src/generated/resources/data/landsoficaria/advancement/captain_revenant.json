@@ -21,9 +21,10 @@
     "description": {
       "translate": "advancement.landsoficaria.captain_revenant.description"
     },
+    "frame": "challenge",
     "icon": {
       "count": 1,
-      "id": "landsoficaria:revenant_skull"
+      "id": "minecraft:bone"
     },
     "title": {
       "translate": "advancement.landsoficaria.captain_revenant.title"
@@ -34,5 +35,8 @@
       "captain_revenant"
     ]
   ],
+  "rewards": {
+    "experience": 100
+  },
   "sends_telemetry_event": true
 }

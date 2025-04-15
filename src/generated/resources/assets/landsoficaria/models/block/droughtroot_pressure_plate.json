@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "texture": "landsoficaria:block/droughtroot_planks"
+  }
+}

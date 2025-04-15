@@ -2,12 +2,12 @@ package com.axanthic.icaria.common.handler.stack;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.items.ItemStackHandler;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -21,7 +21,7 @@ public class GrinderOutputItemStackHandler extends ItemStackHandler {
 	}
 
 	@Override
-	public boolean isItemValid(int pIndex, ItemStack pStack) {
+	public boolean isItemValid(int pIndex, ItemStack pItemStack) {
 		return false;
 	}
 

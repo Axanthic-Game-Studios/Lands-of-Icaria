@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadium_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:deepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:deepslate"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cobbled_deepslate_from_deepslate_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadium_gear",
+      "has_minecraft:deepslate"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cobbled_deepslate_from_deepslate_grinding"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.3,
+  "ingredient": [
+    "landsoficaria:raw_chalkos",
+    "landsoficaria:raw_chalkos",
+    "landsoficaria:raw_kassiteros"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:orichalcum_ingot"
+  },
+  "time": 200
+}

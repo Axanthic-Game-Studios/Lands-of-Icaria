@@ -1,8 +1,8 @@
 {
   "values": [
-    "landsoficaria:spelt",
-    "landsoficaria:strawberries",
-    "landsoficaria:physalis",
-    "landsoficaria:onion"
+    "#c:crops/spelt",
+    "#c:crops/strawberries",
+    "#c:crops/physalis",
+    "#c:crops/onion"
   ]
 }

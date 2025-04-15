@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 1467779,
+  "ingredient": [
+    "landsoficaria:psilocybos",
+    "landsoficaria:dathulla",
+    "landsoficaria:mondanos"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:heart_of_the_sea"
+  },
+  "time": 200
+}

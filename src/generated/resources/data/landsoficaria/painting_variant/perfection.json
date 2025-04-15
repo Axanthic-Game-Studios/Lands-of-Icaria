@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:perfection",
+  "author": {
+    "translate": "painting.landsoficaria.perfection.author"
+  },
   "height": 2,
+  "title": {
+    "translate": "painting.landsoficaria.perfection.title"
+  },
   "width": 2
 }

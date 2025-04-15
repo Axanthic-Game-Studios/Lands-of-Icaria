@@ -4,6 +4,9 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -12,7 +15,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stats;
-import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -28,13 +30,11 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("deprecation")
 
@@ -42,21 +42,19 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class HyliasterEntity extends Monster {
-	public int maxSize = 4;
-	public int minSize = 1;
-
-	public float aabbMult = 0.2F;
+	public float hitboxMult = 0.25F;
 	public float renderMult = 0.25F;
 	public float shadowMult = 0.15F;
-	public float sizeMult = 0.75F;
-	public float sizeMultInverted = 0.25F;
+
+	public int maxSize = 4;
+	public int minSize = 1;
 
 	public AnimationState moveAnimationState = new AnimationState();
 
 	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(HyliasterEntity.class, EntityDataSerializers.INT);
 
-	public HyliasterEntity(EntityType<? extends HyliasterEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+	public HyliasterEntity(EntityType<? extends HyliasterEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
@@ -64,7 +62,7 @@ public class HyliasterEntity extends Monster {
 		return this.getSize() < this.maxSize;
 	}
 
-	public boolean isMovingOnLand() {
+	public boolean isMovement() {
 		return this.onGround() && this.getDeltaMovement().horizontalDistanceSqr() > 0;
 	}
 
@@ -73,51 +71,26 @@ public class HyliasterEntity extends Monster {
 		return false;
 	}
 
-	public float getSizeInverted() {
-		return this.getSize() * -1.0F + 5.0F;
+	public float getSizeForHitbox() {
+		return this.getSize() * this.hitboxMult;
 	}
 
-	public float getScaleForRender() {
-		return this.getScaleFromSize() * this.renderMult;
+	public float getSizeForRender() {
+		return this.getSize() * this.renderMult;
 	}
 
-	public float getScaleForShadow() {
-		return this.getScaleFromSize() * this.shadowMult;
-	}
-
-	public float getScaleFromSize() {
-		return this.getSizeWithMultInverted() + this.getSizeWithMult();
-	}
-
-	public float getSizeWithMult() {
-		return this.getSize() * this.sizeMult;
-	}
-
-	public float getSizeWithMultInverted() {
-		return this.getSizeInverted() * this.sizeMultInverted;
-	}
-
-	@Override
-	public float getVoicePitch() {
-		return this.getSizeWithMultInverted() + 0.75F;
+	public float getSizeForShadow() {
+		return this.getSize() * this.shadowMult;
 	}
 
 	public int getSize() {
-		return this.entityData.get(HyliasterEntity.SIZE);
+		return this.getEntityData().get(HyliasterEntity.SIZE);
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Size", this.getSize());
-	}
-
-	@Override
-	public void aiStep() {
-		super.aiStep();
-		if (this.isAlive()) {
-			this.setSize(this.getSize());
-		}
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putInt("Size", this.getSize());
 	}
 
 	@Override
@@ -127,15 +100,13 @@ public class HyliasterEntity extends Monster {
 	}
 
 	@Override
-	public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-		super.onSyncedDataUpdated(pKey);
-		if (HyliasterEntity.SIZE.equals(pKey)) {
-			this.refreshDimensions();
-		}
+	public void onSyncedDataUpdated(EntityDataAccessor<?> pEntityDataAccessor) {
+		super.onSyncedDataUpdated(pEntityDataAccessor);
+		this.refreshDimensions();
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.HYLIASTER_SQUISH, 0.1F, 1.0F);
 	}
 
@@ -150,31 +121,24 @@ public class HyliasterEntity extends Monster {
 		this.goalSelector.addGoal(1, new FloatGoal(this));
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(3, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}
 
-	public void remove() {
-		if (this.getSize() == this.minSize) {
-			this.remove(RemovalReason.KILLED);
-		}
-	}
-
 	@Override
-	public void remove(Entity.RemovalReason pReason) {
-		super.remove(pReason);
-		if (!this.level().isClientSide()) {
-			int size = this.getSize();
-			if (size > this.minSize) {
-				if (this.isDeadOrDying()) {
-					for (int l = 0; l < size; ++l) {
-						float xOffset = ((float) (l % 2) - 0.5F) * size * 0.05F;
-						float zOffset = ((float) (l / 2) - 0.5F) * size * 0.05F;
-						var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level());
+	public void remove(Entity.RemovalReason pRemovalReason) {
+		super.remove(pRemovalReason);
+		var size = this.getSize();
+		if (size > this.minSize) {
+			if (this.isDeadOrDying()) {
+				if (!this.level().isClientSide()) {
+					for (var i = 0; i < size; ++i) {
+						var xOffset = ((float) (i % 2) - 0.5F) * 0.05F * size;
+						var zOffset = ((float) (i / 2) - 0.5F) * 0.05F * size;
+						var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level(), EntitySpawnReason.TRIGGERED);
 						if (entity != null) {
-							entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, this.random.nextFloat() * 360.0F, 0.0F);
-							entity.setCustomName(this.getCustomName());
+							entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, 0.0F, 0.0F);
 							entity.setSize(this.minSize);
 							this.level().addFreshEntity(entity);
 						}
@@ -185,51 +149,58 @@ public class HyliasterEntity extends Monster {
 	}
 
 	public void setSize(int pSize) {
-		int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-		this.refreshDimensions();
-		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
-		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((size * 0.04D) + 0.1D);
-		this.entityData.set(HyliasterEntity.SIZE, size);
-		this.xpReward = size + 1;
+		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(pSize);
+		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(pSize * 0.05D + 0.1D);
+		this.getEntityData().set(HyliasterEntity.SIZE, pSize);
+		this.xpReward = pSize;
+	}
+
+	public void shrinkOrRemove() {
+		if (this.getSize() == this.minSize) {
+			this.remove(RemovalReason.KILLED);
+		} else {
+			this.setSize(this.getSize() - 1);
+		}
 	}
 
 	@Override
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
-			if (this.isMovingOnLand()) {
-				this.moveAnimationState.startIfStopped(this.tickCount);
-			} else {
-				this.moveAnimationState.stop();
-			}
+			this.tickMove();
+		}
+	}
+
+	public void tickMove() {
+		if (this.isMovement()) {
+			this.moveAnimationState.startIfStopped(this.tickCount);
+		} else {
+			this.moveAnimationState.stop();
 		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.1D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.3D);
 	}
 
 	@Override
 	public EntityDimensions getDefaultDimensions(Pose pPose) {
-		float scale = this.getScaleFromSize() * this.aabbMult;
-		return this.getType().getDimensions().scale(scale);
+		return this.getType().getDimensions().scale(this.getSizeForHitbox());
 	}
 
 	@Override
-	public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
-		var itemStack = pPlayer.getItemInHand(pHand);
+	public InteractionResult mobInteract(Player pPlayer, InteractionHand pInteractionHand) {
+		var itemStack = pPlayer.getItemInHand(pInteractionHand);
 		if (itemStack.is(IcariaItems.EMPTY_VIAL.get())) {
-			var filledResult = ItemUtils.createFilledResult(itemStack, pPlayer, IcariaItems.HYLIASTRUM_VIAL.get().getDefaultInstance());
-			this.remove();
-			this.setSize(this.getSize() - 1);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.EMPTY_VIAL.get()));
 			pPlayer.playSound(IcariaSoundEvents.VIAL_FILL);
-			pPlayer.setItemInHand(pHand, filledResult);
-			return InteractionResult.sidedSuccess(this.level().isClientSide());
+			pPlayer.setItemInHand(pInteractionHand, ItemUtils.createFilledResult(itemStack, pPlayer, new ItemStack(IcariaItems.HYLIASTRUM_VIAL.get())));
+			this.shrinkOrRemove();
+			return InteractionResult.SUCCESS;
+		} else {
+			return super.mobInteract(pPlayer, pInteractionHand);
 		}
-
-		return super.mobInteract(pPlayer, pHand);
 	}
 
 	@Override
@@ -242,9 +213,10 @@ public class HyliasterEntity extends Monster {
 		return IcariaSoundEvents.HYLIASTER_HURT;
 	}
 
+	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
-		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
+		this.setSize(this.getRandom().nextIntBetweenInclusive(this.minSize, this.maxSize));
+		return super.finalizeSpawn(pServerLevelAccessor, pDifficultyInstance, pEntitySpawnReason, pSpawnGroupData);
 	}
 }

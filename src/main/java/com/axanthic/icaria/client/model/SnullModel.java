@@ -1,10 +1,12 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.SnullEntity;
+import com.axanthic.icaria.client.state.SnullRenderState;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -13,13 +15,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SnullModel extends HierarchicalModel<SnullEntity> {
-	public ModelPart root;
+public class SnullModel extends EntityModel<SnullRenderState> {
 	public ModelPart bodyFront;
 	public ModelPart chest;
 	public ModelPart neck;
@@ -34,7 +33,7 @@ public class SnullModel extends HierarchicalModel<SnullEntity> {
 	public ModelPart skullFeelerLeft;
 
 	public SnullModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyFront = this.root.getChild("bodyFront");
 		this.chest = this.bodyFront.getChild("chest");
 		this.neck = this.chest.getChild("neck");
@@ -50,14 +49,16 @@ public class SnullModel extends HierarchicalModel<SnullEntity> {
 	}
 
 	@Override
-	public void setupAnim(SnullEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.idleAnim(pAgeInTicks);
-		this.animate(pEntity.hideAnimationState, IcariaAnimations.SNULL_HIDE, pAgeInTicks);
-		this.animate(pEntity.hurtAnimationState, IcariaAnimations.SNULL_HURT, pAgeInTicks);
-		this.animate(pEntity.idleAnimationState, IcariaAnimations.SNULL_IDLE, pAgeInTicks);
-		this.animate(pEntity.moveAnimationState, IcariaAnimations.SNULL_MOVE, pAgeInTicks);
-		this.animate(pEntity.showAnimationState, IcariaAnimations.SNULL_SHOW, pAgeInTicks);
+	public void setupAnim(SnullRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.idleAnim(pRenderState.ageInTicks);
+
+		this.animate(pRenderState.hideAnimationState, IcariaAnimations.SNULL_HIDE, pRenderState.ageInTicks);
+		this.animate(pRenderState.hurtAnimationState, IcariaAnimations.SNULL_HURT, pRenderState.ageInTicks);
+		this.animate(pRenderState.idleAnimationState, IcariaAnimations.SNULL_IDLE, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimations.SNULL_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.showAnimationState, IcariaAnimations.SNULL_SHOW, pRenderState.ageInTicks);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -73,6 +74,7 @@ public class SnullModel extends HierarchicalModel<SnullEntity> {
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyFront = partDefinition.addOrReplaceChild("bodyFront", CubeListBuilder.create().texOffs(0, 29).addBox(-2.95F, -4.0F, -2.0F, 6.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 24.0F, -3.0F, -0.2618F, 0.0F, 0.0F));
@@ -104,10 +106,5 @@ public class SnullModel extends HierarchicalModel<SnullEntity> {
 		bodyRear.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(0, 35).addBox(-1.9F, -2.0F, 0.0F, 4.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 7.0F));
 
 		return LayerDefinition.create(meshDefinition, 96, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

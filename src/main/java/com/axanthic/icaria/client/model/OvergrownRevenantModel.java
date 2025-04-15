@@ -1,13 +1,15 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.OvergrownRevenantEntity;
+import com.axanthic.icaria.client.state.OvergrownRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -18,13 +20,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantEntity> implements ArmedModel {
-	public ModelPart root;
+public class OvergrownRevenantModel extends EntityModel<OvergrownRevenantRenderState> implements ArmedModel {
 	public ModelPart bodyUpper;
 	public ModelPart spineMain;
 	public ModelPart headMain;
@@ -45,7 +44,7 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 	public ModelPart legLeft;
 
 	public OvergrownRevenantModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyUpper = this.root.getChild("bodyUpper");
 		this.spineMain = this.bodyUpper.getChild("spineMain");
 		this.headMain = this.spineMain.getChild("headMain");
@@ -67,8 +66,10 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 	}
 
 	@Override
-	public void setupAnim(OvergrownRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		var randomSource = RandomSource.create(pEntity.getId());
+	public void setupAnim(OvergrownRevenantRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		var randomSource = RandomSource.create(pRenderState.id);
 
 		this.setRotateAngles(this.headMain, -0.2721F, 0.0F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F);
 		this.setRotateAngles(this.jawLower, 0.1047F, 0.0F, 0.0F);
@@ -81,10 +82,10 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 		this.setRotateAngles(this.legRight, 0.2094F, 0.0F, 0.0F);
 		this.setRotateAngles(this.legLeft, 0.2094F, 0.0F, 0.0F);
 
-		this.attackAnim();
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+		this.attackAnim(pRenderState.attackTime);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
@@ -93,8 +94,8 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 		pModelPart.zRot = pZ;
 	}
 
-	public void attackAnim() {
-		this.armRightUpper.xRot -= Mth.sin(this.attackTime * Mth.PI);
+	public void attackAnim(float pAttackTime) {
+		this.armRightUpper.xRot -= Mth.sin(pAttackTime * Mth.PI);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -106,33 +107,44 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed;
 
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
-		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.5F * pLimbSwingAmount;
-		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.5F * pLimbSwingAmount;
-		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
-		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.armRightUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed;
+		this.armLeftUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed;
+		this.armRightLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.armLeftLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.thighRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.5F * pWalkAnimationSpeed;
+		this.thighLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.5F * pWalkAnimationSpeed;
+		this.legRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
+		this.legLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
 	}
 
 	public void translateToBiceps(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.spineMain.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
 		this.armLeftUpper.translateAndRotate(pPoseStack);
 	}
 
+	public void translateToFoot(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
+		this.bodyLower.translateAndRotate(pPoseStack);
+		this.pelvisMain.translateAndRotate(pPoseStack);
+		this.pelvisLeft.translateAndRotate(pPoseStack);
+		this.thighLeft.translateAndRotate(pPoseStack);
+		this.legLeft.translateAndRotate(pPoseStack);
+	}
+
 	@Override
-	public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.spineMain.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
@@ -141,25 +153,20 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 	}
 
 	public void translateToHead(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.spineMain.translateAndRotate(pPoseStack);
 		this.headMain.translateAndRotate(pPoseStack);
 	}
 
-	public void translateToFoot(PoseStack pPoseStack) {
-		this.bodyLower.translateAndRotate(pPoseStack);
-		this.pelvisMain.translateAndRotate(pPoseStack);
-		this.pelvisLeft.translateAndRotate(pPoseStack);
-		this.thighLeft.translateAndRotate(pPoseStack);
-		this.legLeft.translateAndRotate(pPoseStack);
-	}
-
 	public void translateToPelvis(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyLower.translateAndRotate(pPoseStack);
 		this.pelvisMain.translateAndRotate(pPoseStack);
 	}
 
 	public void translateToShoulder(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.spineMain.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
@@ -167,6 +174,7 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyUpper = partDefinition.addOrReplaceChild("bodyUpper", CubeListBuilder.create().texOffs(8, 35).addBox(-1.0F, -7.05F, -1.0375F, 2.0F, 8.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(-0.02F, 9.9641F, 0.4459F));
@@ -237,10 +245,5 @@ public class OvergrownRevenantModel extends HierarchicalModel<OvergrownRevenantE
 		legLeft.addOrReplaceChild("crystalLegNorthEast", CubeListBuilder.create().texOffs(50, 57).addBox(-1.0F, -1.5F, -1.0F, 2.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.9325F, 3.9966F, -0.9238F, -2.0048F, 0.8001F, 0.0125F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

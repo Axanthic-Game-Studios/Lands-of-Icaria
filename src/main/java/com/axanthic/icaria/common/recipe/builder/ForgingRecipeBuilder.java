@@ -1,7 +1,12 @@
 package com.axanthic.icaria.common.recipe.builder;
 
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
-import com.axanthic.icaria.common.recipe.helper.IcariaRecipeHelper;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.AdvancementRequirements;
@@ -11,17 +16,12 @@ import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -29,50 +29,40 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ForgingRecipeBuilder implements RecipeBuilder {
 	public float experience;
 
-	public int burnTime;
-	public int count;
+	public int amount;
+	public int time;
 
-	public RecipeCategory category;
+	public Ingredient ingredient;
 
-	public Ingredient ingredientA;
-	public Ingredient ingredientB;
-	public Ingredient ingredientC;
-
-	public Item output;
+	public ItemLike result;
 
 	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
 
-	public ForgingRecipeBuilder(float pExperience, int pBurnTime, int pCount, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, ItemLike pOutput, RecipeCategory pCategory) {
+	public RecipeCategory recipeCategory;
+
+	public ForgingRecipeBuilder(float pExperience, int pAmount, int pTime, Ingredient pIngredient, ItemLike pResult, RecipeCategory pRecipeCategory) {
 		this.experience = pExperience;
-		this.burnTime = pBurnTime;
-		this.count = pCount;
-		this.ingredientA = pIngredientA;
-		this.ingredientB = pIngredientB;
-		this.ingredientC = pIngredientC;
-		this.output = pOutput.asItem();
-		this.category = pCategory;
-	}
-
-	public static ForgingRecipeBuilder forging(RecipeCategory pCategory, ItemLike pOutput, Ingredient pIngredientA, Ingredient pIngredientB, Ingredient pIngredientC, float pExperience, int pBurnTime, int pCount) {
-		return new ForgingRecipeBuilder(pExperience, pBurnTime, pCount, pIngredientA, pIngredientB, pIngredientC, pOutput, pCategory);
-	}
-
-	public void ensureValid(ResourceLocation pId) {
-		if (this.criteria.isEmpty()) {
-			throw new IllegalStateException("No way of obtaining recipe " + pId);
-		}
+		this.amount = pAmount;
+		this.time = pTime;
+		this.ingredient = pIngredient;
+		this.result = pResult;
+		this.recipeCategory = pRecipeCategory;
 	}
 
 	@Override
-	public void save(RecipeOutput pRecipeOutput, ResourceLocation pRecipeId) {
-		this.ensureValid(pRecipeId);
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pRecipeId));
-		var recipe = new ForgingRecipe(this.experience, this.burnTime, IcariaRecipeHelper.helper(this.ingredientA, this.ingredientB, this.ingredientC), new ItemStack(this.output, this.count));
-		pRecipeOutput.accept(pRecipeId, recipe, builder.build(pRecipeId.withPrefix("recipes" + "/" + this.category.getFolderName() + "/")));
+	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
+		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
+		this.criteria.forEach(builder::addCriterion);
+		pRecipeOutput.accept(pResourceKey, new ForgingRecipe(this.experience, this.time, this.ingredient, new ItemStack(this.result, this.amount)), builder.build(pResourceKey.location().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
 	}
 
 	@Override
-	public ForgingRecipeBuilder group(@Nullable String pGroupName) {
+	public Item getResult() {
+		return this.result.asItem();
+	}
+
+	@Override
+	public ForgingRecipeBuilder group(@Nullable String pName) {
 		return this;
 	}
 
@@ -82,8 +72,7 @@ public class ForgingRecipeBuilder implements RecipeBuilder {
 		return this;
 	}
 
-	@Override
-	public Item getResult() {
-		return this.output;
+	public static ForgingRecipeBuilder forging(RecipeCategory pRecipeCategory, ItemLike pResult, Ingredient pIngredient, float pExperience, int pAmount, int pTime) {
+		return new ForgingRecipeBuilder(pExperience, pAmount, pTime, pIngredient, pResult, pRecipeCategory);
 	}
 }

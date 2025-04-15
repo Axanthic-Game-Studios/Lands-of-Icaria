@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:grainel"
-    },
-    "Y": {
-      "item": "landsoficaria:marl"
-    }
+    "A": "landsoficaria:marl",
+    "B": "landsoficaria:grainel"
   },
   "pattern": [
-    "XY",
-    "YX"
+    "BA",
+    "AB"
   ],
   "result": {
     "count": 4,

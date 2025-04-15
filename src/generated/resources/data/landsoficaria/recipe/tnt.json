@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": [
+      "minecraft:red_sand",
+      "minecraft:sand"
+    ],
+    "B": "landsoficaria:greenpowder"
+  },
+  "pattern": [
+    "BAB",
+    "ABA",
+    "BAB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:tnt"
+  }
+}

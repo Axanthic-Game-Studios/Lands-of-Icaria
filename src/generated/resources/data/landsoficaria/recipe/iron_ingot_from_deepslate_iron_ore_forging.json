@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:deepslate_iron_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:iron_ingot"
+  },
+  "time": 100
+}

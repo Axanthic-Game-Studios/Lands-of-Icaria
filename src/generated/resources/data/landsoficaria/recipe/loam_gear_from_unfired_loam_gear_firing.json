@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:firing",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:unfired_loam_gear",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:loam_gear"
+  },
+  "time": 100
+}

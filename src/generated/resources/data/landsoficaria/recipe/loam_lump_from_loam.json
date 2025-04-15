@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:loam"
+  ],
+  "result": {
+    "count": 4,
+    "id": "landsoficaria:loam_lump"
+  }
+}

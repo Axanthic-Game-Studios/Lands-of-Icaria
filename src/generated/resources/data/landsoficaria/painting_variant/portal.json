@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:portal",
+  "author": {
+    "translate": "painting.landsoficaria.portal.author"
+  },
   "height": 2,
+  "title": {
+    "translate": "painting.landsoficaria.portal.title"
+  },
   "width": 2
 }

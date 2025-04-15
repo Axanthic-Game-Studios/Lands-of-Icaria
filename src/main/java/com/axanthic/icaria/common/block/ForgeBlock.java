@@ -12,12 +12,14 @@ import com.axanthic.icaria.common.shapes.ForgeShapes;
 
 import com.mojang.serialization.MapCodec;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
@@ -41,9 +43,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -56,33 +55,33 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public boolean canDropFromExplosion(BlockState pState, BlockGetter pLevel, BlockPos pPos, Explosion pExplosion) {
+	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
 		return false;
 	}
 
 	@Override
-	public boolean hasAnalogOutputSignal(BlockState pState) {
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
 
-	public double getFlameX(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getFlameX(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> 0.0D;
 			case EAST, WEST -> 0.5D;
 			default -> 1.0D;
 		};
 	}
 
-	public double getFlameZ(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getFlameZ(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH, SOUTH -> 0.5D;
 			case EAST -> 0.0D;
 			default -> 1.0D;
 		};
 	}
 
-	public double getLavaX(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getLavaX(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> -0.5625D;
 			case EAST -> 0.3125D;
 			case SOUTH -> 1.5625D;
@@ -90,8 +89,8 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public double getLavaZ(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getLavaZ(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> 0.6875D;
 			case EAST -> -0.5625D;
 			case SOUTH -> 0.3125D;
@@ -99,48 +98,37 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public double getSmokeX(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getSmokeX(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH, EAST -> 0.0D;
 			default -> 1.0D;
 		};
 	}
 
-	public double getSmokeZ(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getSmokeZ(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case EAST, SOUTH -> 0.0D;
 			default -> 1.0D;
 		};
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, pPos)) instanceof ForgeBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof ForgeBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
 	@Override
-	public int getLightEmission(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-		return pState.getValue(BlockStateProperties.LIT) ? 13 : 0;
+	public int getLightEmission(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
+		return pBlockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pState.getValue(BlockStateProperties.LIT)) {
-			if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
-				pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + this.getSmokeX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-				pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + this.getSmokeX(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 2.0D, pPos.getZ() + this.getSmokeZ(pState) + pRandom.nextDouble() / 8.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-				if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
-					pLevel.addParticle(ParticleTypes.FLAME, pPos.getX() + this.getFlameX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-					pLevel.addParticle(ParticleTypes.SMALL_FLAME, pPos.getX() + this.getFlameX(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), pPos.getY() + 0.25D, pPos.getZ() + this.getFlameZ(pState) + pRandom.nextDouble() / 4.0D * (pRandom.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-				}
-
-				if (pRandom.nextDouble() < 0.1D) {
-					pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + this.getLavaX(pState), pPos.getY() + 0.8125D, pPos.getZ() + this.getLavaZ(pState), 0.0D, 0.0D, 0.0D);
-					if (IcariaConfig.FORGE_SOUNDS.get()) {
-						pLevel.playLocalSound(pPos.getX() + this.getFlameX(pState), pPos.getY() + 1.0D, pPos.getZ() + this.getFlameZ(pState), SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
-					}
-				}
-			}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT && pBlockState.getValue(BlockStateProperties.LIT)) {
+			this.particlesEmber(pBlockPos, pBlockState, pLevel, pRandomSource);
+			this.particlesItems(pBlockPos, pBlockState, pLevel, pRandomSource);
+			this.particlesSmoke(pBlockPos, pBlockState, pLevel, pRandomSource);
+			this.sounds(pBlockPos, pLevel, pRandomSource);
 		}
 	}
 
@@ -150,142 +138,142 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-
-		if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
-			pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {
-			pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
 	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pMovedByPiston) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			if (pLevel.getBlockEntity(pPos) instanceof ForgeBlockEntity blockEntity) {
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof ForgeBlockEntity blockEntity) {
 				if (pLevel instanceof ServerLevel serverLevel) {
-					blockEntity.drops(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
-					Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.FORGE.get()));
+					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.FORGE.get()));
+					blockEntity.drop(serverLevel);
+					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
+					serverLevel.removeBlockEntity(pBlockPos);
 				}
 			}
 		}
-
-		super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
 	}
 
-	@Override
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT), 3);
-		pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT), 3);
-		pLevel.setBlock(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT), 3);
-		pLevel.setBlock(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT), 3);
-		pLevel.setBlock(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT), 3);
-		pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT), 3);
-		pLevel.setBlock(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT), 3);
-	}
-
-	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
-			return new ForgeBlockEntity(pPos, pState);
-		} else {
-			return new ForgeRedirectorBlockEntity(pPos, pState);
+	public void particlesEmber(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
+		if (pRandomSource.nextDouble() < 0.1D) {
+			pLevel.addParticle(ParticleTypes.LAVA, this.getLavaX(pBlockState) + pBlockPos.getX(), pBlockPos.getY() + 0.8125D, this.getLavaZ(pBlockState) + pBlockPos.getZ(), 0.0D, 0.0D, 0.0D);
 		}
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockState pState, BlockPos pPos) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_RIGHT) {
-			return pPos.below().offset(facing.getNormal()).offset(facing.getClockWise().getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_LEFT) {
-			return pPos.below().offset(facing.getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_RIGHT) {
-			return pPos.below().offset(facing.getClockWise().getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_LEFT) {
-			return pPos.below();
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_RIGHT) {
-			return pPos.offset(facing.getNormal()).offset(facing.getClockWise().getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_LEFT) {
-			return pPos.offset(facing.getNormal());
-		} else if (pState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_RIGHT) {
-			return pPos.offset(facing.getClockWise().getNormal());
-		} else {
-			return pPos;
+	public void particlesItems(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
+		if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
+			pLevel.addParticle(ParticleTypes.FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+			pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		}
+	}
+
+	public void particlesSmoke(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
+		pLevel.addParticle(ParticleTypes.LARGE_SMOKE, this.getSmokeX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 2.0D, this.getSmokeZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		pLevel.addParticle(ParticleTypes.SMOKE, this.getSmokeX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 2.0D, this.getSmokeZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+	}
+
+	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
+		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+	}
+
+	@Override
+	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT), 3);
+		pLevel.setBlock(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT), 3);
+		pLevel.setBlock(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT), 3);
+		pLevel.setBlock(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT), 3);
+		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT), 3);
+		pLevel.setBlock(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT), 3);
+		pLevel.setBlock(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT), 3);
+		pLevel.setBlock(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT), 3);
+	}
+
+	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (IcariaConfig.FORGE_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockPos = pContext.getClickedPos();
-		var facing = pContext.getHorizontalDirection().getOpposite();
-		var level = pContext.getLevel();
-		if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.offset(facing.getOpposite().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.above()).canBeReplaced(pContext) && level.getBlockState(blockPos.above().offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.above().offset(facing.getOpposite().getNormal())).canBeReplaced(pContext) && level.getBlockState(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext)) {
-			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
+			return new ForgeBlockEntity(pBlockPos, pBlockState);
+		} else {
+			return new ForgeRedirectorBlockEntity(pBlockPos, pBlockState);
+		}
+	}
+
+	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_RIGHT) {
+			return pBlockPos.below().offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_LEFT) {
+			return pBlockPos.below().offset(direction.getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_RIGHT) {
+			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_LEFT) {
+			return pBlockPos.below();
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_RIGHT) {
+			return pBlockPos.offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_LEFT) {
+			return pBlockPos.offset(direction.getUnitVec3i());
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_RIGHT) {
+			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
+		} else {
+			return pBlockPos;
+		}
+	}
+
+	@Nullable
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var direction = pBlockPlaceContext.getHorizontalDirection().getOpposite();
+		var level = pBlockPlaceContext.getLevel();
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
 		}
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-		return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.CORNER, state.getValue(IcariaBlockStateProperties.CORNER).getOpposite());
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		var blockState = pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.CORNER, blockState.getValue(IcariaBlockStateProperties.CORNER).getOpposite());
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		var blockPos = ForgeBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-
-		if (pLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity) {
-			pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		if (pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pState, blockPos)) == null) {
-			pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-			pLevel.setBlock(blockPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		}
-
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		var blockEntityPosition = ForgeBlock.getBlockEntityPosition(pState, pPos);
-		var blockEntity = pLevel.getBlockEntity(blockEntityPosition);
-		if (!pLevel.isClientSide()) {
-			if (pPlayer instanceof ServerPlayer serverPlayer) {
-				if (blockEntity instanceof ForgeBlockEntity || blockEntity instanceof ForgeRedirectorBlockEntity) {
-					serverPlayer.openMenu(new ForgeMenuProvider(blockEntityPosition), blockEntityPosition);
-				}
-			}
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		var blockPos = ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		if (pLevel instanceof ServerLevel) {
+			pPlayer.openMenu(new ForgeMenuProvider(blockPos), blockPos);
+			return InteractionResult.SUCCESS_SERVER;
+		} else {
+			return InteractionResult.SUCCESS;
 		}
-
-		return InteractionResult.SUCCESS;
 	}
 
 	@Override
@@ -294,73 +282,99 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public RenderShape getRenderShape(BlockState pState) {
+	public RenderShape getRenderShape(BlockState pBlockState) {
 		return RenderShape.MODEL;
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(IcariaBlockStateProperties.CORNER)) {
-			case BOTTOM_FRONT_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.BOTTOM_FRONT_LEFT_NORTH;
-				case EAST -> ForgeShapes.BOTTOM_FRONT_LEFT_EAST;
-				case SOUTH -> ForgeShapes.BOTTOM_FRONT_LEFT_SOUTH;
-				default -> ForgeShapes.BOTTOM_FRONT_LEFT_WEST;
-			};
-
-			case BOTTOM_FRONT_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_NORTH;
-				case EAST -> ForgeShapes.BOTTOM_FRONT_RIGHT_EAST;
-				case SOUTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_SOUTH;
-				default -> ForgeShapes.BOTTOM_FRONT_RIGHT_WEST;
-			};
-
-			case BOTTOM_BACK_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.BOTTOM_BACK_LEFT_NORTH;
-				case EAST -> ForgeShapes.BOTTOM_BACK_LEFT_EAST;
-				case SOUTH -> ForgeShapes.BOTTOM_BACK_LEFT_SOUTH;
-				default -> ForgeShapes.BOTTOM_BACK_LEFT_WEST;
-			};
-
-			case BOTTOM_BACK_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.BOTTOM_BACK_RIGHT_NORTH;
-				case EAST -> ForgeShapes.BOTTOM_BACK_RIGHT_EAST;
-				case SOUTH -> ForgeShapes.BOTTOM_BACK_RIGHT_SOUTH;
-				default -> ForgeShapes.BOTTOM_BACK_RIGHT_WEST;
-			};
-
-			case TOP_FRONT_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.TOP_FRONT_LEFT_NORTH;
-				case EAST -> ForgeShapes.TOP_FRONT_LEFT_EAST;
-				case SOUTH -> ForgeShapes.TOP_FRONT_LEFT_SOUTH;
-				default -> ForgeShapes.TOP_FRONT_LEFT_WEST;
-			};
-
-			case TOP_FRONT_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.TOP_FRONT_RIGHT_NORTH;
-				case EAST -> ForgeShapes.TOP_FRONT_RIGHT_EAST;
-				case SOUTH -> ForgeShapes.TOP_FRONT_RIGHT_SOUTH;
-				default -> ForgeShapes.TOP_FRONT_RIGHT_WEST;
-			};
-
-			case TOP_BACK_LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.TOP_BACK_LEFT_NORTH;
-				case EAST -> ForgeShapes.TOP_BACK_LEFT_EAST;
-				case SOUTH -> ForgeShapes.TOP_BACK_LEFT_SOUTH;
-				default -> ForgeShapes.TOP_BACK_LEFT_WEST;
-			};
-
-			case TOP_BACK_RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> ForgeShapes.TOP_BACK_RIGHT_NORTH;
-				case EAST -> ForgeShapes.TOP_BACK_RIGHT_EAST;
-				case SOUTH -> ForgeShapes.TOP_BACK_RIGHT_SOUTH;
-				default -> ForgeShapes.TOP_BACK_RIGHT_WEST;
-			};
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.CORNER)) {
+			case BOTTOM_FRONT_LEFT -> this.getBottomFrontLeft(pBlockState);
+			case BOTTOM_FRONT_RIGHT -> this.getBottomFrontRight(pBlockState);
+			case BOTTOM_BACK_LEFT -> this.getBottomBackLeft(pBlockState);
+			case BOTTOM_BACK_RIGHT -> this.getBottomBackRight(pBlockState);
+			case TOP_FRONT_LEFT -> this.getTopFrontLeft(pBlockState);
+			case TOP_FRONT_RIGHT -> this.getTopFrontRight(pBlockState);
+			case TOP_BACK_LEFT -> this.getTopBackLeft(pBlockState);
+			case TOP_BACK_RIGHT -> this.getTopBackRight(pBlockState);
 		};
 	}
 
+	public VoxelShape getBottomFrontLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.BOTTOM_FRONT_LEFT_NORTH;
+			case EAST -> ForgeShapes.BOTTOM_FRONT_LEFT_EAST;
+			case SOUTH -> ForgeShapes.BOTTOM_FRONT_LEFT_SOUTH;
+			default -> ForgeShapes.BOTTOM_FRONT_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getBottomFrontRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_NORTH;
+			case EAST -> ForgeShapes.BOTTOM_FRONT_RIGHT_EAST;
+			case SOUTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_SOUTH;
+			default -> ForgeShapes.BOTTOM_FRONT_RIGHT_WEST;
+		};
+	}
+
+	public VoxelShape getBottomBackLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.BOTTOM_BACK_LEFT_NORTH;
+			case EAST -> ForgeShapes.BOTTOM_BACK_LEFT_EAST;
+			case SOUTH -> ForgeShapes.BOTTOM_BACK_LEFT_SOUTH;
+			default -> ForgeShapes.BOTTOM_BACK_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getBottomBackRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.BOTTOM_BACK_RIGHT_NORTH;
+			case EAST -> ForgeShapes.BOTTOM_BACK_RIGHT_EAST;
+			case SOUTH -> ForgeShapes.BOTTOM_BACK_RIGHT_SOUTH;
+			default -> ForgeShapes.BOTTOM_BACK_RIGHT_WEST;
+		};
+	}
+
+	public VoxelShape getTopFrontLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.TOP_FRONT_LEFT_NORTH;
+			case EAST -> ForgeShapes.TOP_FRONT_LEFT_EAST;
+			case SOUTH -> ForgeShapes.TOP_FRONT_LEFT_SOUTH;
+			default -> ForgeShapes.TOP_FRONT_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getTopFrontRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.TOP_FRONT_RIGHT_NORTH;
+			case EAST -> ForgeShapes.TOP_FRONT_RIGHT_EAST;
+			case SOUTH -> ForgeShapes.TOP_FRONT_RIGHT_SOUTH;
+			default -> ForgeShapes.TOP_FRONT_RIGHT_WEST;
+		};
+	}
+
+	public VoxelShape getTopBackLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.TOP_BACK_LEFT_NORTH;
+			case EAST -> ForgeShapes.TOP_BACK_LEFT_EAST;
+			case SOUTH -> ForgeShapes.TOP_BACK_LEFT_SOUTH;
+			default -> ForgeShapes.TOP_BACK_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getTopBackRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeShapes.TOP_BACK_RIGHT_NORTH;
+			case EAST -> ForgeShapes.TOP_BACK_RIGHT_EAST;
+			case SOUTH -> ForgeShapes.TOP_BACK_RIGHT_SOUTH;
+			default -> ForgeShapes.TOP_BACK_RIGHT_WEST;
+		};
+	}
+
+	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-		return !pLevel.isClientSide() ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FORGE.get(), ForgeBlockEntity::tick) : null;
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
+		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FORGE.get(), (level, blockPos, blockState, blockEntity) -> ForgeBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
 	}
 }

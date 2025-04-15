@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:blue_ground_flowers"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:blue_dye"
+  }
+}

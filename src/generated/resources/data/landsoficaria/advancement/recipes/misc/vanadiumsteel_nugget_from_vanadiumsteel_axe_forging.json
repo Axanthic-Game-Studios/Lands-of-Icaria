@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadiumsteel_axe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadiumsteel_axe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_axe_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_axe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_axe_forging"
+    ]
+  }
+}

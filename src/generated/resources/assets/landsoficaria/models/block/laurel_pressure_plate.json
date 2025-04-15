@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/pressure_plate_up",
+  "textures": {
+    "particle": "landsoficaria:block/laurel_planks",
+    "texture": "landsoficaria:block/laurel_planks"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:marl_adobe",
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:marl_adobe_slab"
+  }
+}

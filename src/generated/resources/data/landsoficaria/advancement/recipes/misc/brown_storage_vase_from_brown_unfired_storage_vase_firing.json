@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:brown_unfired_storage_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:brown_unfired_storage_vase"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:brown_storage_vase_from_brown_unfired_storage_vase_firing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:brown_unfired_storage_vase"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:brown_storage_vase_from_brown_unfired_storage_vase_firing"
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 {
   "parent": "landsoficaria:block/template_twigs_1",
   "textures": {
+    "particle": "landsoficaria:block/droughtroot_twigs",
     "texture": "landsoficaria:block/droughtroot_twigs"
   }
 }

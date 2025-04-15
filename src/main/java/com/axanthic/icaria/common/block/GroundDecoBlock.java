@@ -1,9 +1,13 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.LayerShapes;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -15,8 +19,8 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -29,9 +33,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -42,26 +43,20 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	}
 
 	@Override
-	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
+	public boolean canBeReplaced(BlockState pBlockState, BlockPlaceContext pBlockPlaceContext) {
 		return true;
 	}
 
 	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var belowPos = pPos.below();
-		return Block.isFaceFull(pLevel.getBlockState(belowPos).getCollisionShape(pLevel, belowPos), Direction.UP);
+	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
+		return pLevelReader.getBlockState(pBlockPos.below()).isSolidRender();
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.isClientSide()) {
-			if (pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED)) {
-				if (pRandom.nextInt(10) == 0) {
-					pLevel.addParticle(ParticleTypes.LAVA, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
-				} else {
-					pLevel.addParticle(ParticleTypes.SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY(), pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
-				}
-			}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pBlockState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
+			this.particlesLava(pBlockPos, pLevel, pRandomSource);
+			this.particlesSmoke(pBlockPos, pLevel, pRandomSource);
 		}
 	}
 
@@ -71,35 +66,46 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	}
 
 	@Override
-	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		if (pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED)) {
-			pEntity.hurt(pLevel.damageSources().inFire(), 1.0F);
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
+		if (pBlockState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
+			IcariaCommonHelper.hurt(pLevel.damageSources().inFire(), pEntity, 1.5F);
 		}
 	}
 
-	@Override
-	public PathType getBlockPathType(BlockState pState, BlockGetter pLevel, BlockPos pPos, @Nullable Mob pMob) {
-		return pState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pState.getValue(BlockStateProperties.WATERLOGGED) ? PathType.DAMAGE_OTHER : super.getBlockPathType(pState, pLevel, pPos, pMob);
+	public void particlesLava(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (pRandomSource.nextDouble() < 0.1D) {
+			pLevel.addParticle(ParticleTypes.LAVA, pBlockPos.getX() + pRandomSource.nextDouble(), pBlockPos.getY(), pBlockPos.getZ() + pRandomSource.nextDouble(), 0.0D, 0.0D, 0.0D);
+		}
+	}
+
+	public void particlesSmoke(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + pRandomSource.nextDouble(), pBlockPos.getY(), pBlockPos.getZ() + pRandomSource.nextDouble(), 0.0D, 0.0D, 0.0D);
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
-		return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
+	}
+
+	@Nullable
+	@Override
+	public PathType getBlockPathType(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, @Nullable Mob pMob) {
+		return pBlockState.is(IcariaBlocks.SURFACE_LIGNITE.get()) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? PathType.DAMAGE_OTHER : super.getBlockPathType(pBlockState, pBlockGetter, pBlockPos, pMob);
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return LayerShapes.Y_02;
 	}
 }

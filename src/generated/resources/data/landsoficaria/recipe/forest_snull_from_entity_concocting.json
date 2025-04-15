@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 2691846,
+  "entity": "landsoficaria:forest_snull",
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:bone_remains"
+  ],
+  "time": 200
+}

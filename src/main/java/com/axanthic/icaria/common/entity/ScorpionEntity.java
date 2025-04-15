@@ -2,13 +2,16 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -23,11 +26,6 @@ import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -35,41 +33,38 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ScorpionEntity extends IcariaArachnidEntity {
 	public AnimationState attackAnimationState = new AnimationState();
 
-	public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(ScorpionEntity.class, EntityDataSerializers.BYTE);
+	public static final EntityDataAccessor<Boolean> CLIMBING = SynchedEntityData.defineId(ScorpionEntity.class, EntityDataSerializers.BOOLEAN);
 
-	public ScorpionEntity(EntityType<? extends ScorpionEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 5;
+	public ScorpionEntity(EntityType<? extends ScorpionEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean canBeAffected(MobEffectInstance pEffectInstance) {
-		return super.canBeAffected(pEffectInstance) && !pEffectInstance.is(MobEffects.POISON);
-	}
-
-	@Override
-	public boolean doHurtTarget(Entity pEntity) {
+	public boolean doHurtTarget(ServerLevel pServerLevel, Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
-		if (pEntity instanceof LivingEntity livingEntity) {
-			livingEntity.addEffect(new MobEffectInstance(MobEffects.POISON, 120, 0), this);
-		}
-
-		return super.doHurtTarget(pEntity);
+		this.poison(pEntity);
+		return super.doHurtTarget(pServerLevel, pEntity);
 	}
 
-	public boolean isClimbing() {
-		return (this.entityData.get(ScorpionEntity.CLIMBING) & 1) != 0;
+	public boolean getClimbing() {
+		return this.getEntityData().get(ScorpionEntity.CLIMBING);
 	}
 
 	@Override
 	public boolean onClimbable() {
-		return this.isClimbing();
+		return this.getClimbing();
+	}
+
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putBoolean("Climbing", this.getClimbing());
 	}
 
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(ScorpionEntity.CLIMBING, (byte) 0);
+		pBuilder.define(ScorpionEntity.CLIMBING, false);
 	}
 
 	@Override
@@ -82,15 +77,21 @@ public class ScorpionEntity extends IcariaArachnidEntity {
 	}
 
 	@Override
-	public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
-		if (!pState.is(IcariaBlockTags.COBWEB_BLOCKS)) {
-			super.makeStuckInBlock(pState, pMotionMultiplier);
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
+		this.playSound(IcariaSoundEvents.SCORPION_STEP, 0.1F, 1.0F);
+	}
+
+	public void poison(Entity pEntity) {
+		if (pEntity instanceof LivingEntity livingEntity) {
+			var mobEffectInstance = new MobEffectInstance(MobEffects.POISON, 120, 0);
+			livingEntity.addEffect(mobEffectInstance, this);
 		}
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
-		this.playSound(IcariaSoundEvents.SCORPION_STEP, 0.1F, 1.0F);
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
 	}
 
 	@Override
@@ -105,14 +106,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
 	}
 
 	public void setClimbing(boolean pClimbing) {
-		byte b = this.entityData.get(ScorpionEntity.CLIMBING);
-		if (pClimbing) {
-			b = (byte) (b | 1);
-		} else {
-			b = (byte) (b & -2);
-		}
-
-		this.entityData.set(ScorpionEntity.CLIMBING, b);
+		this.getEntityData().set(ScorpionEntity.CLIMBING, pClimbing);
 	}
 
 	@Override
@@ -124,7 +118,7 @@ public class ScorpionEntity extends IcariaArachnidEntity {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ARMOR, 6.0D).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ARMOR, 6.0D).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.MAX_HEALTH, 32.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override

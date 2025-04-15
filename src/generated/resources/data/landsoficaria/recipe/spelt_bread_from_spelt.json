@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:spelt"
+  },
+  "pattern": [
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:spelt_bread"
+  }
+}

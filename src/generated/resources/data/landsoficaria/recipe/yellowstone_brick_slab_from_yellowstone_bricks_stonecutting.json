@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:yellowstone_bricks",
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:yellowstone_brick_slab"
+  }
+}

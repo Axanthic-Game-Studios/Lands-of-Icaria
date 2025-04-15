@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:sunstone_bricks"
-    },
-    "Y": {
-      "item": "landsoficaria:orichalcum_ingot"
-    }
+    "A": "landsoficaria:sunstone_bricks",
+    "B": "landsoficaria:orichalcum_ingot"
   },
   "pattern": [
-    "XXX",
-    "XYX",
-    "XXX"
+    "AAA",
+    "ABA",
+    "AAA"
   ],
   "result": {
     "count": 1,

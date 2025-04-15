@@ -30,7 +30,7 @@
       "max_steps": 16,
       "target_condition": {
         "type": "minecraft:matching_block_tag",
-        "tag": "landsoficaria:rubble_spawns_on"
+        "tag": "landsoficaria:support_blocks/rubble"
       }
     },
     {

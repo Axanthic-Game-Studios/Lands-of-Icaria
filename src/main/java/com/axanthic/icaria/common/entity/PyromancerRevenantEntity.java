@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -22,8 +24,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -42,8 +42,8 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	public static final EntityDataAccessor<Integer> RELOAD = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> THROWN = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
 
-	public PyromancerRevenantEntity(EntityType<? extends PyromancerRevenantEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+	public PyromancerRevenantEntity(EntityType<? extends PyromancerRevenantEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	public boolean onAiming() {
@@ -64,37 +64,37 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	}
 
 	public int getAiming() {
-		return this.entityData.get(PyromancerRevenantEntity.AIMING);
+		return this.getEntityData().get(PyromancerRevenantEntity.AIMING);
 	}
 
 	public int getReload() {
-		return this.entityData.get(PyromancerRevenantEntity.RELOAD);
+		return this.getEntityData().get(PyromancerRevenantEntity.RELOAD);
 	}
 
 	public int getThrown() {
-		return this.entityData.get(PyromancerRevenantEntity.THROWN);
+		return this.getEntityData().get(PyromancerRevenantEntity.THROWN);
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Aiming", this.getAiming());
-		pCompound.putInt("Reload", this.getReload());
-		pCompound.putInt("Thrown", this.getThrown());
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putInt("Aiming", this.getAiming());
+		pCompoundTag.putInt("Reload", this.getReload());
+		pCompoundTag.putInt("Thrown", this.getThrown());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.onThrown()) {
-			int thrown = this.getThrown();
+			var thrown = this.getThrown();
 			if (thrown > this.minThrown) {
 				--thrown;
 				this.setThrown(thrown);
 				this.setReload(this.maxReload);
 			}
 		} else if (this.onReload()) {
-			int reload = this.getReload();
+			var reload = this.getReload();
 			if (reload > this.minReload) {
 				--reload;
 				this.setReload(reload);
@@ -104,7 +104,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 				}
 			}
 		} else if (this.onAiming()) {
-			int aiming = this.getAiming();
+			var aiming = this.getAiming();
 			if (aiming > this.minAiming) {
 				--aiming;
 				this.setAiming(aiming);
@@ -121,37 +121,39 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	}
 
 	@Override
-	public void performRangedAttack(LivingEntity pTarget, float pVelocity) {
+	public void performRangedAttack(LivingEntity pLivingEntity, float pVelocity) {
 		if (!this.onAiming()) {
-			var entity = new GreekFireGrenadeEntity(this.level(), this, this.useItem);
+			var x = pLivingEntity.getX() - this.getX();
+			var y = pLivingEntity.getY() - this.getY();
+			var z = pLivingEntity.getZ() - this.getZ();
+			var d = Math.sqrt(x * x + z * z) * 0.2D;
 
-			double d0 = pTarget.getX() - this.getX();
-			double d1 = pTarget.getY(0.3D) - entity.getY();
-			double d2 = pTarget.getZ() - this.getZ();
-			double d3 = Math.sqrt(d0 * d0 + d2 * d2);
+			var entity = new GreekFireGrenadeEntity(this.level(), this, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
 
-			entity.shoot(d0, d1 + d3 * 0.2D, d2, 1.0F, 8.0F);
+			entity.shoot(x, y + d, z, 1.0F, 8.0F);
 
 			this.level().addFreshEntity(entity);
+			this.level().playSound(null, this.blockPosition(), IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW, SoundSource.HOSTILE, 0.1F, 1.0F);
 			this.setItemSlot(EquipmentSlot.MAINHAND, ItemStack.EMPTY);
 			this.setThrown(this.maxThrown);
-			if (!this.isSilent()) {
-				this.level().playSound(null, this.blockPosition(), IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW, SoundSource.HOSTILE, 0.1F, 1.0F);
-			}
 		}
 	}
 
 	@Override
-	public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
+	public void populateDefaultEquipmentSlots(RandomSource pRandomSource, DifficultyInstance pDifficultyInstance) {
+		this.populateDefaultEquipmentSlots();
+	}
+
+	public void populateDefaultEquipmentSlots() {
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get()));
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setAiming(pCompound.getInt("Aiming"));
-		this.setReload(pCompound.getInt("Reload"));
-		this.setAiming(pCompound.getInt("Thrown"));
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setAiming(pCompoundTag.getInt("Aiming"));
+		this.setReload(pCompoundTag.getInt("Reload"));
+		this.setAiming(pCompoundTag.getInt("Thrown"));
 	}
 
 	@Override
@@ -166,16 +168,16 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}
 
-	public void setAiming(int pTick) {
-		this.entityData.set(PyromancerRevenantEntity.AIMING, pTick);
+	public void setAiming(int pAiming) {
+		this.getEntityData().set(PyromancerRevenantEntity.AIMING, pAiming);
 	}
 
-	public void setReload(int pTick) {
-		this.entityData.set(PyromancerRevenantEntity.RELOAD, pTick);
+	public void setReload(int pReload) {
+		this.getEntityData().set(PyromancerRevenantEntity.RELOAD, pReload);
 	}
 
-	public void setThrown(int pTick) {
-		this.entityData.set(PyromancerRevenantEntity.THROWN, pTick);
+	public void setThrown(int pThrown) {
+		this.getEntityData().set(PyromancerRevenantEntity.THROWN, pThrown);
 	}
 
 	@Override
@@ -193,6 +195,6 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 }

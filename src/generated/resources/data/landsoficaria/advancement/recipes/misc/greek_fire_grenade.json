@@ -42,8 +42,8 @@
     [
       "has_the_recipe",
       "has_landsoficaria:arachne_string",
-      "has_landsoficaria:kassiteros_nugget",
-      "has_landsoficaria:greenpowder"
+      "has_landsoficaria:greenpowder",
+      "has_landsoficaria:kassiteros_nugget"
     ]
   ],
   "rewards": {

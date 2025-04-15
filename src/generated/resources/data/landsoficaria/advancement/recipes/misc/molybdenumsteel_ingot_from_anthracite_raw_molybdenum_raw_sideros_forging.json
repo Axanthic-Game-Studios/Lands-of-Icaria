@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:anthracite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:anthracite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:raw_molybdenum": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_molybdenum"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:raw_sideros": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_sideros"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:molybdenumsteel_ingot_from_anthracite_raw_molybdenum_raw_sideros_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:anthracite",
+      "has_landsoficaria:raw_molybdenum",
+      "has_landsoficaria:raw_sideros"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:molybdenumsteel_ingot_from_anthracite_raw_molybdenum_raw_sideros_forging"
+    ]
+  }
+}

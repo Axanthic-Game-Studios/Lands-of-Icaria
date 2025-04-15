@@ -1,29 +1,29 @@
 package com.axanthic.icaria.client.particle;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaSteamParticle extends TextureSheetParticle {
-	public SpriteSet set;
+	public SpriteSet spriteSet;
 
-	public IcariaSteamParticle(ClientLevel pLevel, double pX, double pY, double pZ, double pSpeedX, double pSpeedY, double pSpeedZ, SpriteSet pSet) {
-		super(pLevel, pX, pY, pZ);
-		this.set = pSet;
-		this.xd = pSpeedX;
-		this.yd = pSpeedY;
-		this.zd = pSpeedZ;
+	public IcariaSteamParticle(ClientLevel pClientLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed, SpriteSet pSpriteSet) {
+		super(pClientLevel, pX, pY, pZ);
+		this.spriteSet = pSpriteSet;
+		this.xd = pXSpeed;
+		this.yd = pYSpeed;
+		this.zd = pZSpeed;
 		this.lifetime = 80;
 		this.quadSize = (this.random.nextFloat() * 0.5F + 0.5F) * 0.25F;
 		this.setSize(0.1F, 0.1F);
-		this.setSpriteFromAge(pSet);
+		this.setSpriteFromAge(pSpriteSet);
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class IcariaSteamParticle extends TextureSheetParticle {
 		} else {
 			this.yd += 0.0005D;
 			this.move(this.xd, this.yd, this.zd);
-			this.setSpriteFromAge(this.set);
+			this.setSpriteFromAge(this.spriteSet);
 		}
 	}
 

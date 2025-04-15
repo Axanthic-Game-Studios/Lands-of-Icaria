@@ -5,12 +5,11 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
@@ -54,6 +53,10 @@ public class IcariaRenderTypes {
 
 	public static final RenderType HYLIASTER_TRANSLUCENT = RenderType.entityTranslucent(IcariaResourceLocations.HYLIASTER_TRANSLUCENT);
 
-	public static final RenderType ADDITIVE_TRANSPARENT = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY).createCompositeState(false));
-	public static final RenderType SUBTRACTIVE_TRANSPARENT = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, true, RenderType.CompositeState.builder().setShaderState(new RenderStateShard.ShaderStateShard(GameRenderer::getRendertypeLightningShader)).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY).createCompositeState(false));
+	public static final RenderType ADDITIVE_TRANSPARENT = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder().setShaderState(RenderStateShard.RENDERTYPE_LIGHTNING_SHADER).setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY).setWriteMaskState(RenderStateShard.COLOR_WRITE).createCompositeState(false));
+	public static final RenderType SUBTRACTIVE_TRANSPARENT = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder().setShaderState(RenderStateShard.RENDERTYPE_LIGHTNING_SHADER).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY).setWriteMaskState(RenderStateShard.COLOR_WRITE).createCompositeState(false));
+
+	public static final RenderType ADDITIVE_TRANSPARENT_TEXTURE = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder().setShaderState(RenderStateShard.POSITION_TEXTURE_COLOR_SHADER).setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY).setWriteMaskState(RenderStateShard.COLOR_WRITE).createCompositeState(false));
+	public static final RenderType SUBTRACTIVE_TRANSPARENT_TEXTURE = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder().setShaderState(RenderStateShard.POSITION_TEXTURE_COLOR_SHADER).setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY).setWriteMaskState(RenderStateShard.COLOR_WRITE).createCompositeState(false));
+
 }

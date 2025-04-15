@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "landsoficaria:smooth_relicstone",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:relicstone"
+  },
+  "time": 200
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/button",
+  "textures": {
+    "particle": "landsoficaria:block/fir_planks",
+    "texture": "landsoficaria:block/fir_planks"
+  }
+}

@@ -1,127 +1,132 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.LayerShapes;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GreekFireBlock extends Block {
+public class GreekFireBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public GreekFireBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.AGE_15, 0));
+		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var belowPos = pPos.below();
-		return pLevel.getBlockState(belowPos).isFaceSturdy(pLevel, belowPos, Direction.UP);
-	}
-
-	public boolean isNearRain(Level pLevel, BlockPos pPos) {
-		return pLevel.isRainingAt(pPos) || pLevel.isRainingAt(pPos.west()) || pLevel.isRainingAt(pPos.east()) || pLevel.isRainingAt(pPos.north()) || pLevel.isRainingAt(pPos.south());
-	}
-
-	public int getFireTickDelay(RandomSource pRandom) {
-		return pRandom.nextInt(10) + 30;
+	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
+		var blockPos = pBlockPos.below();
+		return pLevelReader.getBlockState(blockPos).isFaceSturdy(pLevelReader, blockPos, Direction.UP);
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pRandom.nextInt(24) == 0) {
-			pLevel.playLocalSound(pPos.getX() + 0.5D, pPos.getY() + 0.5D, pPos.getZ() + 0.5D, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, pRandom.nextFloat() + 1.0F, pRandom.nextFloat() * 0.7F + 0.3F, false);
-		}
-
-		for (int i = 0; i < 3; ++i) {
-			pLevel.addParticle(ParticleTypes.LARGE_SMOKE, pPos.getX() + pRandom.nextDouble(), pPos.getY() + pRandom.nextDouble() * 0.5D + 0.5D, pPos.getZ() + pRandom.nextDouble(), 0.0D, 0.0D, 0.0D);
-		}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		var flag = pBlockState.getFluidState().is(FluidTags.WATER);
+		var chance = flag ? 2 : 24;
+		var particleType = flag ? ParticleTypes.BUBBLE_COLUMN_UP : ParticleTypes.LARGE_SMOKE;
+		var soundEvent = flag ? SoundEvents.BUBBLE_COLUMN_BUBBLE_POP : SoundEvents.FIRE_AMBIENT;
+		this.particles(pBlockPos, pLevel, pRandomSource, particleType);
+		this.sounds(pBlockPos, pLevel, pRandomSource, soundEvent, chance);
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.AGE_15);
+		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
-	public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-		super.entityInside(pState, pLevel, pPos, pEntity);
-		if (!pEntity.fireImmune()) {
-			pEntity.setRemainingFireTicks(pEntity.getRemainingFireTicks() + 1);
-			if (pEntity.getRemainingFireTicks() == 0) {
-				pEntity.igniteForSeconds(8);
-			}
-		}
-
-		pEntity.hurt(pLevel.damageSources().inFire(), 1.5F);
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
+		this.igniteEntity(pEntity);
+		IcariaCommonHelper.hurt(pLevel.damageSources().inFire(), pEntity, 1.5F);
 	}
 
-	@Override
-	public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-		pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
-	}
-
-	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
+	public void extinguish(BlockPos pBlockPos, Level pLevel) {
 		if (!pLevel.isClientSide()) {
-			pLevel.levelEvent(null, 1009, pPos, 0);
+			pLevel.levelEvent(null, 1009, pBlockPos, 0);
 		}
-
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
 	}
 
-	@Override
-	public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		pLevel.scheduleTick(pPos, this, this.getFireTickDelay(pLevel.random));
-		if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
-			int i = pState.getValue(BlockStateProperties.AGE_15);
-			if (pLevel.isRaining() && this.isNearRain(pLevel, pPos) && pRandom.nextFloat() < 0.2F + i * 0.03F) {
-				pLevel.removeBlock(pPos, false);
+	public void igniteEntity(Entity pEntity) {
+		var i = pEntity.getRemainingFireTicks();
+		if (!pEntity.fireImmune()) {
+			if (i < 0) {
+				pEntity.setRemainingFireTicks(i + 1);
 			} else {
-				int j = Math.min(15, i + pRandom.nextInt(3) / 2);
-				if (i != j) {
-					pLevel.setBlock(pPos, pState.setValue(BlockStateProperties.AGE_15, j), 4);
-				}
-
-				if (i > 3) {
-					pLevel.removeBlock(pPos, false);
-				}
+				pEntity.igniteForSeconds(8.0F);
 			}
 		}
 	}
 
-	public BlockState getStateWithAge(int pAge) {
-		var blockState = IcariaBlocks.GREEK_FIRE.get().defaultBlockState();
-		return blockState.is(IcariaBlocks.GREEK_FIRE.get()) ? blockState.setValue(BlockStateProperties.AGE_15, pAge) : blockState;
+	@Override
+	public void onPlace(BlockState pBlockStateNew, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateOld, boolean pMovedByPiston) {
+		pLevel.scheduleTick(pBlockPos, this, pLevel.getRandom().nextInt(300) + 300);
+	}
+
+	public void particles(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, SimpleParticleType pSimpleParticleType) {
+		for (var i = 0; i < 3; ++i) {
+			pLevel.addParticle(pSimpleParticleType, pBlockPos.getX() + pRandomSource.nextDouble(), pBlockPos.getY() + pRandomSource.nextDouble() * 0.5D + 0.5D, pBlockPos.getZ() + pRandomSource.nextDouble(), 0.0D, 0.0D, 0.0D);
+		}
+	}
+
+	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource, SoundEvent pSoundEvent, int pChance) {
+		if (pRandomSource.nextInt(pChance) == 0) {
+			pLevel.playLocalSound(pBlockPos.getX() + 0.5D, pBlockPos.getY() + 0.5D, pBlockPos.getZ() + 0.5D, pSoundEvent, SoundSource.BLOCKS, pRandomSource.nextFloat() + 1.0F, pRandomSource.nextFloat() * 0.7F + 0.3F, false);
+		}
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return this.canSurvive(pState, pLevel, pCurrentPos) ? this.getStateWithAge(pState.getValue(BlockStateProperties.AGE_15)) : Blocks.AIR.defaultBlockState();
+	public void tick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
+			pServerLevel.removeBlock(pBlockPos, false);
+		}
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.extinguish(pBlockPos, pLevel);
+		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return LayerShapes.Y_01;
 	}
 }

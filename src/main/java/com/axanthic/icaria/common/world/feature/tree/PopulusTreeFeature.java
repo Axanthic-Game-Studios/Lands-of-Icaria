@@ -4,12 +4,12 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -20,19 +20,19 @@ public class PopulusTreeFeature extends IcariaTreeFeature {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
 
-		int heightTrunk = random.nextIntBetweenInclusive(1, 2);
-		int heightCrown = random.nextIntBetweenInclusive(1, 2);
-		int heightTotal = heightTrunk + heightCrown * 2;
-		int heightLimit = heightTotal + 4;
-		int heightAxisY = heightLimit + origin.getY();
+		var heightTrunk = random.nextIntBetweenInclusive(1, 2);
+		var heightCrown = random.nextIntBetweenInclusive(1, 2);
+		var heightTotal = heightTrunk + heightCrown * 2;
+		var heightLimit = heightTotal + 4;
+		var heightAxisY = heightLimit + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (int i = 1; i <= heightTrunk; ++i) {
+		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
+			for (var i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
@@ -51,7 +51,7 @@ public class PopulusTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
 
-			for (int i = 1; i <= heightCrown; ++i) {
+			for (var i = 1; i <= heightCrown; ++i) {
 				++heightTrunk;
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 				this.placeLeaves(level, origin.below().above(heightTrunk).north());
@@ -91,7 +91,7 @@ public class PopulusTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
 
-			for (int i = 1; i <= heightCrown; ++i) {
+			for (var i = 1; i <= heightCrown; ++i) {
 				++heightTrunk;
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 				this.placeLeaves(level, origin.below().above(heightTrunk).north());

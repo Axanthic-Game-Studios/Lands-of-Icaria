@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:feather",
+    "B": "minecraft:stick",
+    "C": "landsoficaria:chert"
+  },
+  "pattern": [
+    "C",
+    "B",
+    "A"
+  ],
+  "result": {
+    "count": 4,
+    "id": "minecraft:arrow"
+  }
+}

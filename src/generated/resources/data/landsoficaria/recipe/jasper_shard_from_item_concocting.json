@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 6627110,
+  "ingredient": [
+    "landsoficaria:arachne_venom_vial",
+    "landsoficaria:bolbos"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:jasper_shard"
+  },
+  "time": 200
+}

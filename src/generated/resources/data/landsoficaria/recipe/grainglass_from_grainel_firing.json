@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:firing",
+  "experience": 0.2,
+  "ingredient": "landsoficaria:grainel",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:grainglass"
+  },
+  "time": 200
+}

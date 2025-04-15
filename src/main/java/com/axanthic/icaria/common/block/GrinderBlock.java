@@ -11,13 +11,15 @@ import com.axanthic.icaria.common.shapes.GrinderShapes;
 
 import com.mojang.serialization.MapCodec;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
@@ -39,9 +41,6 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -54,41 +53,41 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public boolean canDropFromExplosion(BlockState pState, BlockGetter pLevel, BlockPos pPos, Explosion pExplosion) {
+	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
 		return false;
 	}
 
 	@Override
-	public boolean hasAnalogOutputSignal(BlockState pState) {
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
 
-	public double getX(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getX(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case EAST -> 1.25D;
 			case WEST -> -0.25D;
 			default -> 0.5D;
 		};
 	}
 
-	public double getZ(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> -0.25D;
-			case SOUTH -> 1.25D;
-			default -> 0.5D;
-		};
-	}
-
-	public double getSpeedX(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getXSpeed(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case EAST -> 0.25D;
 			case WEST -> -0.25D;
 			default -> 0.0D;
 		};
 	}
 
-	public double getSpeedZ(BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public double getZ(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> -0.25D;
+			case SOUTH -> 1.25D;
+			default -> 0.5D;
+		};
+	}
+
+	public double getZSpeed(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> -0.25D;
 			case SOUTH -> 0.25D;
 			default -> 0.0D;
@@ -96,19 +95,17 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return pLevel.getBlockEntity(GrinderBlock.getBlockEntityPosition(pState, pPos)) instanceof GrinderBlockEntity blockEntity ? blockEntity.getComparatorInput() : 0;
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pLevel.getBlockEntity(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof GrinderBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
 	@Override
-	public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING)) {
-			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
-				var itemStack = blockEntity.inputHandler.getStackInSlot(0);
-				if (!itemStack.isEmpty()) {
-					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + 0.5D, pPos.getY() + 1.0D, pPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
-					pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pPos.getX() + this.getX(pState), pPos.getY() + 0.25D, pPos.getZ() + this.getZ(pState), this.getSpeedX(pState), -0.25D, this.getSpeedZ(pState));
-				}
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING) && pLevel.getBlockEntity(pBlockPos) instanceof GrinderBlockEntity blockEntity) {
+			var itemStack = blockEntity.inputHandler.getStackInSlot(0);
+			if (!itemStack.isEmpty()) {
+				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
+				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), this.getX(pBlockState) + pBlockPos.getX(), pBlockPos.getY() + 0.25D, this.getZ(pBlockState) + pBlockPos.getZ(), this.getXSpeed(pBlockState), -0.25D, this.getZSpeed(pBlockState));
 			}
 		}
 	}
@@ -119,98 +116,91 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
+	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.removeMultiBlock(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
 	@Override
-	public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-		if (pState.getBlock() != pNewState.getBlock()) {
-			if (pLevel.getBlockEntity(pPos) instanceof GrinderBlockEntity blockEntity) {
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof GrinderBlockEntity blockEntity) {
 				if (pLevel instanceof ServerLevel serverLevel) {
-					blockEntity.drops(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pPos));
-					Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.GRINDER.get()));
+					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.GRINDER.get()));
+					blockEntity.drop(serverLevel);
+					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
+					serverLevel.removeBlockEntity(pBlockPos);
 				}
 			}
 		}
+	}
 
-		super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
+	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
+		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
 	}
 
 	@Override
-	public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT), 3);
+	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
+		pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT), 3);
+		pLevel.setBlock(pBlockPos.offset(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT), 3);
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		if (pState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
-			return new GrinderBlockEntity(pPos, pState);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
+			return new GrinderBlockEntity(pBlockPos, pBlockState);
 		} else {
-			return new GrinderRedirectorBlockEntity(pPos, pState);
+			return new GrinderRedirectorBlockEntity(pBlockPos, pBlockState);
 		}
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockState pState, BlockPos pPos) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
-			return pPos;
+	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
+			return pBlockPos;
 		} else {
-			return pPos.offset(facing.getClockWise().getNormal());
+			return pBlockPos.offset(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise().getUnitVec3i());
 		}
 	}
 
+	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var blockPos = pContext.getClickedPos();
-		var facing = pContext.getHorizontalDirection().getOpposite();
-		var level = pContext.getLevel();
-		if (blockPos.getY() < level.getMaxBuildHeight() - 1 && level.getBlockState(blockPos.offset(facing.getCounterClockWise().getNormal())).canBeReplaced(pContext)) {
-			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pContext.getHorizontalDirection().getOpposite());
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var level = pBlockPlaceContext.getLevel();
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(pBlockPlaceContext.getHorizontalDirection().getOpposite().getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
 		}
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		var state = pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-		return pMirror == Mirror.NONE ? state : state.setValue(IcariaBlockStateProperties.SIDE, state.getValue(IcariaBlockStateProperties.SIDE).getOpposite());
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		var blockState = pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.SIDE, blockState.getValue(IcariaBlockStateProperties.SIDE).getOpposite());
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level pLevel, BlockPos pPos, BlockState pState, Player pPlayer) {
-		var blockPos = GrinderBlock.getBlockEntityPosition(pState, pPos);
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(facing.getCounterClockWise().getNormal()), Blocks.AIR.defaultBlockState(), 3);
-		return super.playerWillDestroy(pLevel, pPos, pState, pPlayer);
+	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.removeMultiBlock(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		var blockEntityPosition = GrinderBlock.getBlockEntityPosition(pState, pPos);
-		var blockEntity = pLevel.getBlockEntity(blockEntityPosition);
-		if (!pLevel.isClientSide()) {
-			if (pPlayer instanceof ServerPlayer serverPlayer) {
-				if (blockEntity instanceof GrinderBlockEntity || blockEntity instanceof GrinderRedirectorBlockEntity) {
-					serverPlayer.openMenu(new GrinderMenuProvider(blockEntityPosition), blockEntityPosition);
-				}
-			}
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		var blockPos = GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		if (pLevel instanceof ServerLevel) {
+			pPlayer.openMenu(new GrinderMenuProvider(blockPos), blockPos);
+			return InteractionResult.SUCCESS_SERVER;
+		} else {
+			return InteractionResult.SUCCESS;
 		}
-
-		return InteractionResult.SUCCESS;
 	}
 
 	@Override
@@ -219,31 +209,39 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public RenderShape getRenderShape(BlockState pState) {
+	public RenderShape getRenderShape(BlockState pBlockState) {
 		return RenderShape.MODEL;
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(IcariaBlockStateProperties.SIDE)) {
-			case LEFT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> GrinderShapes.LEFT_NORTH;
-				case EAST -> GrinderShapes.LEFT_EAST;
-				case SOUTH -> GrinderShapes.LEFT_SOUTH;
-				default -> GrinderShapes.LEFT_WEST;
-			};
-
-			case RIGHT -> switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-				case NORTH -> GrinderShapes.RIGHT_NORTH;
-				case EAST -> GrinderShapes.RIGHT_EAST;
-				case SOUTH -> GrinderShapes.RIGHT_SOUTH;
-				default -> GrinderShapes.RIGHT_WEST;
-			};
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.SIDE)) {
+			case LEFT -> this.getLeft(pBlockState);
+			case RIGHT -> this.getRight(pBlockState);
 		};
 	}
 
+	public VoxelShape getLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> GrinderShapes.LEFT_NORTH;
+			case EAST -> GrinderShapes.LEFT_EAST;
+			case SOUTH -> GrinderShapes.LEFT_SOUTH;
+			default -> GrinderShapes.LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> GrinderShapes.RIGHT_NORTH;
+			case EAST -> GrinderShapes.RIGHT_EAST;
+			case SOUTH -> GrinderShapes.RIGHT_SOUTH;
+			default -> GrinderShapes.RIGHT_WEST;
+		};
+	}
+
+	@Nullable
 	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-		return !pLevel.isClientSide() ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockEntity::tick) : null;
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
+		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.GRINDER.get(), (level, blockPos, blockState, blockEntity) -> GrinderBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
 	}
 }

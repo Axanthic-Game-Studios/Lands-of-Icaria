@@ -31,8 +31,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:vanadiumsteel_chain",
-      "has_landsoficaria:stripped_cypress_log"
+      "has_landsoficaria:stripped_cypress_log",
+      "has_landsoficaria:vanadiumsteel_chain"
     ]
   ],
   "rewards": {

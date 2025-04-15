@@ -2,18 +2,16 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaFollowParentGoal extends Goal {
 	public double speedModifier;
-
-	public int timeToRecalcPath;
 
 	public IcariaAnimalEntity entity;
 	public IcariaAnimalEntity parent;
@@ -25,47 +23,23 @@ public class IcariaFollowParentGoal extends Goal {
 
 	@Override
 	public boolean canContinueToUse() {
-		if (!this.entity.isBaby()) {
-			return false;
-		} else if (!this.parent.isAlive()) {
-			return false;
-		} else {
-			double d = this.entity.distanceToSqr(this.parent);
-			return !(d <= 8.0D) && !(d >= 256.0D);
-		}
+		return this.parent.isAlive() && this.entity.isBaby() && this.entity.distanceToSqr(this.parent) <= 8.0D;
 	}
 
 	@Override
 	public boolean canUse() {
-		if (!this.entity.isBaby()) {
-			return false;
-		} else {
-			double d0 = Double.MAX_VALUE;
-			IcariaAnimalEntity entity = null;
-			for (var parent : this.entity.level().getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 4.0D, 8.0D))) {
-				if (!parent.isBaby()) {
-					double d1 = this.entity.distanceToSqr(parent);
-					if (!(d1 > d0)) {
-						d0 = d1;
-						entity = parent;
+		for (var parent : this.entity.level().getEntitiesOfClass(this.entity.getClass(), this.entity.getBoundingBox().inflate(8.0D, 8.0D, 8.0D))) {
+			if (!parent.isBaby()) {
+				if (this.entity.distanceToSqr(parent) <= 8.0D) {
+					if (this.entity.isBaby()) {
+						this.parent = parent;
+						return true;
 					}
 				}
 			}
-
-			if (entity == null) {
-				return false;
-			} else if (d0 <= 8.0D) {
-				return false;
-			} else {
-				this.parent = entity;
-				return true;
-			}
 		}
-	}
 
-	@Override
-	public void start() {
-		this.timeToRecalcPath = 0;
+		return false;
 	}
 
 	@Override
@@ -75,9 +49,6 @@ public class IcariaFollowParentGoal extends Goal {
 
 	@Override
 	public void tick() {
-		if (--this.timeToRecalcPath <= 0) {
-			this.timeToRecalcPath = 10;
-			this.entity.getNavigation().moveTo(this.parent, this.speedModifier);
-		}
+		this.entity.getNavigation().moveTo(this.parent, this.speedModifier);
 	}
 }

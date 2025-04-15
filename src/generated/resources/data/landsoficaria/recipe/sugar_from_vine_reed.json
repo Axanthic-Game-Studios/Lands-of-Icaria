@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:vine_reed"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sugar"
+  }
+}

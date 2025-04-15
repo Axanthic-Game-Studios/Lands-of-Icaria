@@ -2,13 +2,16 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
@@ -19,22 +22,18 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class RevenantEntity extends Monster {
-	public RevenantEntity(EntityType<? extends RevenantEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 10;
+	public RevenantEntity(EntityType<? extends RevenantEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.REVENANT_STEP, 0.1F, 1.0F);
 	}
 
@@ -65,12 +64,11 @@ public class RevenantEntity extends Monster {
 		return IcariaSoundEvents.REVENANT_HURT;
 	}
 
+	@Nullable
 	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		var randomSource = pLevel.getRandom();
-		this.populateDefaultEquipmentEnchantments(pLevel, randomSource, pDifficulty);
-		this.populateDefaultEquipmentSlots(randomSource, pDifficulty);
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
+		this.populateDefaultEquipmentSlots(pServerLevelAccessor.getRandom(), pDifficultyInstance);
 		this.setCanPickUpLoot(true);
-		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+		return super.finalizeSpawn(pServerLevelAccessor, pDifficultyInstance, pEntitySpawnReason, pSpawnGroupData);
 	}
 }

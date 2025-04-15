@@ -1,8 +1,8 @@
 {
   "values": [
-    "landsoficaria:spelt_seeds",
-    "landsoficaria:strawberry_seeds",
-    "landsoficaria:physalis_seeds",
-    "landsoficaria:onion"
+    "#c:seeds/spelt",
+    "#c:seeds/strawberry",
+    "#c:seeds/physalis",
+    "#c:seeds/onion"
   ]
 }

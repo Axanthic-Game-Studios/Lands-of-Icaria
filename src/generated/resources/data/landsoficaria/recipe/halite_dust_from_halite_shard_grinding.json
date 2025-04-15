@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.2,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "landsoficaria:halite_shard",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:halite_dust"
+  },
+  "time": 200
+}

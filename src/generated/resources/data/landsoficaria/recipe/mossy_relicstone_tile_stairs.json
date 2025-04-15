@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:mossy_relicstone_tiles"
-    }
+    "A": "landsoficaria:mossy_relicstone_tiles"
   },
   "pattern": [
-    "X  ",
-    "XX ",
-    "XXX"
+    "A  ",
+    "AA ",
+    "AAA"
   ],
   "result": {
     "count": 4,

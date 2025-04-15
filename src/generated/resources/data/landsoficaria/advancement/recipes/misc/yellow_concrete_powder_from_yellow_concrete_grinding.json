@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:voidshale_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:voidshale_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:yellow_concrete": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:yellow_concrete"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:yellow_concrete_powder_from_yellow_concrete_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:voidshale_gear",
+      "has_minecraft:yellow_concrete"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:yellow_concrete_powder_from_yellow_concrete_grinding"
+    ]
+  }
+}

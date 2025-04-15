@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:blurred_platoshale_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:blurred_platoshale_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:daedalian_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:daedalian_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:bluridium_nugget_from_blurred_platoshale_bricks_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:daedalian_gear",
+      "has_landsoficaria:blurred_platoshale_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:bluridium_nugget_from_blurred_platoshale_bricks_grinding"
+    ]
+  }
+}

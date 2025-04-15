@@ -41,8 +41,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:onion",
       "has_landsoficaria:halite_dust",
+      "has_landsoficaria:onion",
       "has_landsoficaria:loam_bowl"
     ]
   ],

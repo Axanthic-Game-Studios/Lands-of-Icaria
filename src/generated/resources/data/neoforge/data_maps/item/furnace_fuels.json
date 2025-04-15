@@ -12,10 +12,16 @@
     "landsoficaria:chest": {
       "burn_time": 300
     },
+    "landsoficaria:cypress_button": {
+      "burn_time": 100
+    },
     "landsoficaria:cypress_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:cypress_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:cypress_trough": {
@@ -24,10 +30,16 @@
     "landsoficaria:cypress_twigs": {
       "burn_time": 100
     },
+    "landsoficaria:droughtroot_button": {
+      "burn_time": 100
+    },
     "landsoficaria:droughtroot_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:droughtroot_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:droughtroot_trough": {
@@ -36,10 +48,16 @@
     "landsoficaria:droughtroot_twigs": {
       "burn_time": 100
     },
+    "landsoficaria:fir_button": {
+      "burn_time": 100
+    },
     "landsoficaria:fir_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:fir_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:fir_trough": {
@@ -48,10 +66,16 @@
     "landsoficaria:fir_twigs": {
       "burn_time": 100
     },
+    "landsoficaria:laurel_button": {
+      "burn_time": 100
+    },
     "landsoficaria:laurel_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:laurel_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:laurel_trough": {
@@ -69,10 +93,16 @@
     "landsoficaria:lignite_block": {
       "burn_time": 7200
     },
+    "landsoficaria:olive_button": {
+      "burn_time": 100
+    },
     "landsoficaria:olive_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:olive_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:olive_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:olive_trough": {
@@ -81,10 +111,16 @@
     "landsoficaria:olive_twigs": {
       "burn_time": 100
     },
+    "landsoficaria:plane_button": {
+      "burn_time": 100
+    },
     "landsoficaria:plane_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:plane_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:plane_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:plane_trough": {
@@ -93,10 +129,16 @@
     "landsoficaria:plane_twigs": {
       "burn_time": 100
     },
+    "landsoficaria:populus_button": {
+      "burn_time": 100
+    },
     "landsoficaria:populus_crafting_table": {
       "burn_time": 300
     },
     "landsoficaria:populus_ladder": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_pressure_plate": {
       "burn_time": 300
     },
     "landsoficaria:populus_trough": {

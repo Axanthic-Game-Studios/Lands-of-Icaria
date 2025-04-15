@@ -2,10 +2,10 @@ package com.axanthic.icaria.client.registry;
 
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

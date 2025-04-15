@@ -1,25 +1,24 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.item.*;
+import com.axanthic.icaria.data.provider.tags.IcariaInstrumentTagsProvider;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.*;
-
-import net.neoforged.neoforge.common.DeferredSpawnEggItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
+import java.util.function.Function;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-@SuppressWarnings("unused")
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.*;
+import net.minecraft.world.item.equipment.ArmorType;
+
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -27,818 +26,933 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaItems {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaIdents.ID);
 
-	public static final Supplier<Item> GRASSY_MARL = IcariaItems.register("grassy_marl", () -> new BlockItem(IcariaBlocks.GRASSY_MARL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MARL = IcariaItems.register("marl", () -> new BlockItem(IcariaBlocks.MARL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MARL_CHERT = IcariaItems.register("marl_chert", () -> new BlockItem(IcariaBlocks.MARL_CHERT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SURFACE_CHERT = IcariaItems.register("surface_chert", () -> new BlockItem(IcariaBlocks.SURFACE_CHERT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MARL_BONES = IcariaItems.register("marl_bones", () -> new BlockItem(IcariaBlocks.MARL_BONES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SURFACE_BONES = IcariaItems.register("surface_bones", () -> new BlockItem(IcariaBlocks.SURFACE_BONES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MARL_LIGNITE = IcariaItems.register("marl_lignite", () -> new BlockItem(IcariaBlocks.MARL_LIGNITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SURFACE_LIGNITE = IcariaItems.register("surface_lignite", () -> new BlockItem(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> COARSE_MARL = IcariaItems.register("coarse_marl", () -> new BlockItem(IcariaBlocks.COARSE_MARL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DRY_LAKE_BED = IcariaItems.register("dry_lake_bed", () -> new BlockItem(IcariaBlocks.DRY_LAKE_BED.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> FARMLAND = IcariaItems.register("farmland", () -> new BlockItem(IcariaBlocks.FARMLAND.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FERTILIZED_FARMLAND = IcariaItems.register("fertilized_farmland", () -> new BlockItem(IcariaBlocks.FERTILIZED_FARMLAND.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> MARL_ADOBE = IcariaItems.register("marl_adobe", () -> new BlockItem(IcariaBlocks.MARL_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems MARL_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.MARL_ADOBE_DECO, IcariaItems.MARL_ADOBE);
-
-	public static final Supplier<Item> LOAM = IcariaItems.register("loam", () -> new BlockItem(IcariaBlocks.LOAM.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_BRICKS = IcariaItems.register("loam_bricks", () -> new BlockItem(IcariaBlocks.LOAM_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems LOAM_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.LOAM_BRICK_DECO, IcariaItems.LOAM_BRICKS);
-
-	public static final Supplier<Item> DOLOMITE_ADOBE = IcariaItems.register("dolomite_adobe", () -> new BlockItem(IcariaBlocks.DOLOMITE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems DOLOMITE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.DOLOMITE_ADOBE_DECO, IcariaItems.DOLOMITE_ADOBE);
-	public static final Supplier<Item> SMOOTH_DOLOMITE = IcariaItems.register("smooth_dolomite", () -> new BlockItem(IcariaBlocks.SMOOTH_DOLOMITE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SMOOTH_DOLOMITE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SMOOTH_DOLOMITE_DECO, IcariaItems.SMOOTH_DOLOMITE);
-	public static final Supplier<Item> DOLOMITE_BRICKS = IcariaItems.register("dolomite_bricks", () -> new BlockItem(IcariaBlocks.DOLOMITE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DOLOMITE_PILLAR = IcariaItems.register("dolomite_pillar", () -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", () -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> GRAINEL = IcariaItems.register("grainel", () -> new BlockItem(IcariaBlocks.GRAINEL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAINEL_CHERT = IcariaItems.register("grainel_chert", () -> new BlockItem(IcariaBlocks.GRAINEL_CHERT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAINGLASS = IcariaItems.register("grainglass", () -> new BlockItem(IcariaBlocks.GRAINGLASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAINGLASS_PANE = IcariaItems.register("grainglass_pane", () -> new BlockItem(IcariaBlocks.GRAINGLASS_PANE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HORIZONTAL_GRAINGLASS_PANE = IcariaItems.register("horizontal_grainglass_pane", () -> new BlockItem(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAINITE_ADOBE = IcariaItems.register("grainite_adobe", () -> new BlockItem(IcariaBlocks.GRAINITE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems GRAINITE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.GRAINITE_ADOBE_DECO, IcariaItems.GRAINITE_ADOBE);
-	public static final Supplier<Item> GRAINITE = IcariaItems.register("grainite", () -> new BlockItem(IcariaBlocks.GRAINITE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems GRAINITE_DECO = new IcariaStoneDecoItems(IcariaBlocks.GRAINITE_DECO, IcariaItems.GRAINITE);
-	public static final Supplier<Item> GRAINITE_BRICKS = IcariaItems.register("grainite_bricks", () -> new BlockItem(IcariaBlocks.GRAINITE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems GRAINITE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.GRAINITE_BRICK_DECO, IcariaItems.GRAINITE_BRICKS);
-	public static final Supplier<Item> CHISELED_GRAINITE = IcariaItems.register("chiseled_grainite", () -> new BlockItem(IcariaBlocks.CHISELED_GRAINITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAINITE_RUBBLE = IcariaItems.register("grainite_rubble", () -> new BlockItem(IcariaBlocks.GRAINITE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> YELLOWSTONE_ADOBE = IcariaItems.register("yellowstone_adobe", () -> new BlockItem(IcariaBlocks.YELLOWSTONE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems YELLOWSTONE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.YELLOWSTONE_ADOBE_DECO, IcariaItems.YELLOWSTONE_ADOBE);
-	public static final Supplier<Item> COBBLED_YELLOWSTONE = IcariaItems.register("cobbled_yellowstone", () -> new BlockItem(IcariaBlocks.COBBLED_YELLOWSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems COBBLED_YELLOWSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.COBBLED_YELLOWSTONE_DECO, IcariaItems.COBBLED_YELLOWSTONE);
-	public static final Supplier<Item> YELLOWSTONE = IcariaItems.register("yellowstone", () -> new BlockItem(IcariaBlocks.YELLOWSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems YELLOWSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.YELLOWSTONE_DECO, IcariaItems.YELLOWSTONE);
-	public static final Supplier<Item> YELLOWSTONE_BRICKS = IcariaItems.register("yellowstone_bricks", () -> new BlockItem(IcariaBlocks.YELLOWSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems YELLOWSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.YELLOWSTONE_BRICK_DECO, IcariaItems.YELLOWSTONE_BRICKS);
-	public static final Supplier<Item> CHISELED_YELLOWSTONE = IcariaItems.register("chiseled_yellowstone", () -> new BlockItem(IcariaBlocks.CHISELED_YELLOWSTONE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOWSTONE_RUBBLE = IcariaItems.register("yellowstone_rubble", () -> new BlockItem(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> SILKSAND = IcariaItems.register("silksand", () -> new BlockItem(IcariaBlocks.SILKSAND.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SILKGLASS = IcariaItems.register("silkglass", () -> new BlockItem(IcariaBlocks.SILKGLASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SILKGLASS_PANE = IcariaItems.register("silkglass_pane", () -> new BlockItem(IcariaBlocks.SILKGLASS_PANE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HORIZONTAL_SILKGLASS_PANE = IcariaItems.register("horizontal_silkglass_pane", () -> new BlockItem(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SILKSTONE_ADOBE = IcariaItems.register("silkstone_adobe", () -> new BlockItem(IcariaBlocks.SILKSTONE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SILKSTONE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SILKSTONE_ADOBE_DECO, IcariaItems.SILKSTONE_ADOBE);
-	public static final Supplier<Item> COBBLED_SILKSTONE = IcariaItems.register("cobbled_silkstone", () -> new BlockItem(IcariaBlocks.COBBLED_SILKSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems COBBLED_SILKSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.COBBLED_SILKSTONE_DECO, IcariaItems.COBBLED_SILKSTONE);
-	public static final Supplier<Item> SILKSTONE = IcariaItems.register("silkstone", () -> new BlockItem(IcariaBlocks.SILKSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SILKSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SILKSTONE_DECO, IcariaItems.SILKSTONE);
-	public static final Supplier<Item> SILKSTONE_BRICKS = IcariaItems.register("silkstone_bricks", () -> new BlockItem(IcariaBlocks.SILKSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SILKSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.SILKSTONE_BRICK_DECO, IcariaItems.SILKSTONE_BRICKS);
-	public static final Supplier<Item> CHISELED_SILKSTONE = IcariaItems.register("chiseled_silkstone", () -> new BlockItem(IcariaBlocks.CHISELED_SILKSTONE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SILKSTONE_RUBBLE = IcariaItems.register("silkstone_rubble", () -> new BlockItem(IcariaBlocks.SILKSTONE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> SUNSTONE_ADOBE = IcariaItems.register("sunstone_adobe", () -> new BlockItem(IcariaBlocks.SUNSTONE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SUNSTONE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SUNSTONE_ADOBE_DECO, IcariaItems.SUNSTONE_ADOBE);
-	public static final Supplier<Item> COBBLED_SUNSTONE = IcariaItems.register("cobbled_sunstone", () -> new BlockItem(IcariaBlocks.COBBLED_SUNSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems COBBLED_SUNSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.COBBLED_SUNSTONE_DECO, IcariaItems.COBBLED_SUNSTONE);
-	public static final Supplier<Item> SUNSTONE = IcariaItems.register("sunstone", () -> new BlockItem(IcariaBlocks.SUNSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SUNSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SUNSTONE_DECO, IcariaItems.SUNSTONE);
-	public static final Supplier<Item> SUNSTONE_BRICKS = IcariaItems.register("sunstone_bricks", () -> new BlockItem(IcariaBlocks.SUNSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SUNSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.SUNSTONE_BRICK_DECO, IcariaItems.SUNSTONE_BRICKS);
-	public static final Supplier<Item> CHISELED_SUNSTONE = IcariaItems.register("chiseled_sunstone", () -> new BlockItem(IcariaBlocks.CHISELED_SUNSTONE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SUNSTONE_RUBBLE = IcariaItems.register("sunstone_rubble", () -> new BlockItem(IcariaBlocks.SUNSTONE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> VOIDSHALE_ADOBE = IcariaItems.register("voidshale_adobe", () -> new BlockItem(IcariaBlocks.VOIDSHALE_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems VOIDSHALE_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.VOIDSHALE_ADOBE_DECO, IcariaItems.VOIDSHALE_ADOBE);
-	public static final Supplier<Item> COBBLED_VOIDSHALE = IcariaItems.register("cobbled_voidshale", () -> new BlockItem(IcariaBlocks.COBBLED_VOIDSHALE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems COBBLED_VOIDSHALE_DECO = new IcariaStoneDecoItems(IcariaBlocks.COBBLED_VOIDSHALE_DECO, IcariaItems.COBBLED_VOIDSHALE);
-	public static final Supplier<Item> VOIDSHALE = IcariaItems.register("voidshale", () -> new BlockItem(IcariaBlocks.VOIDSHALE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems VOIDSHALE_DECO = new IcariaStoneDecoItems(IcariaBlocks.VOIDSHALE_DECO, IcariaItems.VOIDSHALE);
-	public static final Supplier<Item> VOIDSHALE_BRICKS = IcariaItems.register("voidshale_bricks", () -> new BlockItem(IcariaBlocks.VOIDSHALE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems VOIDSHALE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.VOIDSHALE_BRICK_DECO, IcariaItems.VOIDSHALE_BRICKS);
-	public static final Supplier<Item> CHISELED_VOIDSHALE = IcariaItems.register("chiseled_voidshale", () -> new BlockItem(IcariaBlocks.CHISELED_VOIDSHALE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOIDSHALE_RUBBLE = IcariaItems.register("voidshale_rubble", () -> new BlockItem(IcariaBlocks.VOIDSHALE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> BAETYL_ADOBE = IcariaItems.register("baetyl_adobe", () -> new BlockItem(IcariaBlocks.BAETYL_ADOBE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems BAETYL_ADOBE_DECO = new IcariaStoneDecoItems(IcariaBlocks.BAETYL_ADOBE_DECO, IcariaItems.BAETYL_ADOBE);
-	public static final Supplier<Item> COBBLED_BAETYL = IcariaItems.register("cobbled_baetyl", () -> new BlockItem(IcariaBlocks.COBBLED_BAETYL.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems COBBLED_BAETYL_DECO = new IcariaStoneDecoItems(IcariaBlocks.COBBLED_BAETYL_DECO, IcariaItems.COBBLED_BAETYL);
-	public static final Supplier<Item> BAETYL = IcariaItems.register("baetyl", () -> new BlockItem(IcariaBlocks.BAETYL.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems BAETYL_DECO = new IcariaStoneDecoItems(IcariaBlocks.BAETYL_DECO, IcariaItems.BAETYL);
-	public static final Supplier<Item> BAETYL_BRICKS = IcariaItems.register("baetyl_bricks", () -> new BlockItem(IcariaBlocks.BAETYL_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems BAETYL_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.BAETYL_BRICK_DECO, IcariaItems.BAETYL_BRICKS);
-	public static final Supplier<Item> CHISELED_BAETYL = IcariaItems.register("chiseled_baetyl", () -> new BlockItem(IcariaBlocks.CHISELED_BAETYL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BAETYL_RUBBLE = IcariaItems.register("baetyl_rubble", () -> new BlockItem(IcariaBlocks.BAETYL_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> RELICSTONE = IcariaItems.register("relicstone", () -> new BlockItem(IcariaBlocks.RELICSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems RELICSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.RELICSTONE_DECO, IcariaItems.RELICSTONE);
-	public static final Supplier<Item> SMOOTH_RELICSTONE = IcariaItems.register("smooth_relicstone", () -> new BlockItem(IcariaBlocks.SMOOTH_RELICSTONE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems SMOOTH_RELICSTONE_DECO = new IcariaStoneDecoItems(IcariaBlocks.SMOOTH_RELICSTONE_DECO, IcariaItems.SMOOTH_RELICSTONE);
-	public static final Supplier<Item> RELICSTONE_BRICKS = IcariaItems.register("relicstone_bricks", () -> new BlockItem(IcariaBlocks.RELICSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems RELICSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.RELICSTONE_BRICK_DECO, IcariaItems.RELICSTONE_BRICKS);
-	public static final Supplier<Item> CRACKED_RELICSTONE_BRICKS = IcariaItems.register("cracked_relicstone_bricks", () -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems CRACKED_RELICSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.CRACKED_RELICSTONE_BRICK_DECO, IcariaItems.CRACKED_RELICSTONE_BRICKS);
-	public static final Supplier<Item> MOSSY_RELICSTONE_BRICKS = IcariaItems.register("mossy_relicstone_bricks", () -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems MOSSY_RELICSTONE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.MOSSY_RELICSTONE_BRICK_DECO, IcariaItems.MOSSY_RELICSTONE_BRICKS);
-	public static final Supplier<Item> RELICSTONE_TILES = IcariaItems.register("relicstone_tiles", () -> new BlockItem(IcariaBlocks.RELICSTONE_TILES.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems RELICSTONE_TILE_DECO = new IcariaStoneDecoItems(IcariaBlocks.RELICSTONE_TILE_DECO, IcariaItems.RELICSTONE_TILES);
-	public static final Supplier<Item> CRACKED_RELICSTONE_TILES = IcariaItems.register("cracked_relicstone_tiles", () -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems CRACKED_RELICSTONE_TILE_DECO = new IcariaStoneDecoItems(IcariaBlocks.CRACKED_RELICSTONE_TILE_DECO, IcariaItems.CRACKED_RELICSTONE_TILES);
-	public static final Supplier<Item> MOSSY_RELICSTONE_TILES = IcariaItems.register("mossy_relicstone_tiles", () -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems MOSSY_RELICSTONE_TILE_DECO = new IcariaStoneDecoItems(IcariaBlocks.MOSSY_RELICSTONE_TILE_DECO, IcariaItems.MOSSY_RELICSTONE_TILES);
-	public static final Supplier<Item> CHISELED_RELICSTONE = IcariaItems.register("chiseled_relicstone", () -> new BlockItem(IcariaBlocks.CHISELED_RELICSTONE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RELICSTONE_PILLAR = IcariaItems.register("relicstone_pillar", () -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", () -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RELICSTONE_RUBBLE = IcariaItems.register("relicstone_rubble", () -> new BlockItem(IcariaBlocks.RELICSTONE_RUBBLE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> PLATOSHALE = IcariaItems.register("platoshale", () -> new BlockItem(IcariaBlocks.PLATOSHALE.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems PLATOSHALE_DECO = new IcariaStoneDecoItems(IcariaBlocks.PLATOSHALE_DECO, IcariaItems.PLATOSHALE);
-	public static final Supplier<Item> BLURRED_PLATOSHALE = IcariaItems.register("blurred_platoshale", () -> new BlockItem(IcariaBlocks.BLURRED_PLATOSHALE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLATOSHALE_BRICKS = IcariaItems.register("platoshale_bricks", () -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaStoneDecoItems PLATOSHALE_BRICK_DECO = new IcariaStoneDecoItems(IcariaBlocks.PLATOSHALE_BRICK_DECO, IcariaItems.PLATOSHALE_BRICKS);
-	public static final Supplier<Item> BLURRED_PLATOSHALE_BRICKS = IcariaItems.register("blurred_platoshale_bricks", () -> new BlockItem(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHISELED_PLATOSHALE = IcariaItems.register("chiseled_platoshale", () -> new BlockItem(IcariaBlocks.CHISELED_PLATOSHALE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", () -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", () -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> LIGNITE_ORE = IcariaItems.register("lignite_ore", () -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHALKOS_ORE = IcariaItems.register("chalkos_ore", () -> new BlockItem(IcariaBlocks.CHALKOS_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_ORE = IcariaItems.register("kassiteros_ore", () -> new BlockItem(IcariaBlocks.KASSITEROS_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DOLOMITE_ORE = IcariaItems.register("dolomite_ore", () -> new BlockItem(IcariaBlocks.DOLOMITE_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_ORE = IcariaItems.register("vanadium_ore", () -> new BlockItem(IcariaBlocks.VANADIUM_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLIVER_ORE = IcariaItems.register("sliver_ore", () -> new BlockItem(IcariaBlocks.SLIVER_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_ORE = IcariaItems.register("sideros_ore", () -> new BlockItem(IcariaBlocks.SIDEROS_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTHRACITE_ORE = IcariaItems.register("anthracite_ore", () -> new BlockItem(IcariaBlocks.ANTHRACITE_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_ORE = IcariaItems.register("molybdenum_ore", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_ORE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HYLIASTRUM_ORE = IcariaItems.register("hyliastrum_ore", () -> new BlockItem(IcariaBlocks.HYLIASTRUM_ORE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CALCITE = IcariaItems.register("calcite", () -> new BlockItem(IcariaBlocks.CALCITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BUDDING_CALCITE = IcariaItems.register("budding_calcite", () -> new BlockItem(IcariaBlocks.BUDDING_CALCITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE = IcariaItems.register("halite", () -> new BlockItem(IcariaBlocks.HALITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BUDDING_HALITE = IcariaItems.register("budding_halite", () -> new BlockItem(IcariaBlocks.BUDDING_HALITE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> JASPER = IcariaItems.register("jasper", () -> new BlockItem(IcariaBlocks.JASPER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BUDDING_JASPER = IcariaItems.register("budding_jasper", () -> new BlockItem(IcariaBlocks.BUDDING_JASPER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ZIRCON = IcariaItems.register("zircon", () -> new BlockItem(IcariaBlocks.ZIRCON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BUDDING_ZIRCON = IcariaItems.register("budding_zircon", () -> new BlockItem(IcariaBlocks.BUDDING_ZIRCON.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CALCITE_CRYSTAL = IcariaItems.register("calcite_crystal", () -> new BlockItem(IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_CRYSTAL = IcariaItems.register("halite_crystal", () -> new BlockItem(IcariaBlocks.HALITE_CRYSTAL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> JASPER_CRYSTAL = IcariaItems.register("jasper_crystal", () -> new BlockItem(IcariaBlocks.JASPER_CRYSTAL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ZIRCON_CRYSTAL = IcariaItems.register("zircon_crystal", () -> new BlockItem(IcariaBlocks.ZIRCON_CRYSTAL.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> ARISTONE = IcariaItems.register("aristone", () -> new BlockItem(IcariaBlocks.ARISTONE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PACKED_ARISTONE = IcariaItems.register("packed_aristone", () -> new BlockItem(IcariaBlocks.PACKED_ARISTONE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> ENDER_JELLYFISH_JELLY_BLOCK = IcariaItems.register("ender_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIRE_JELLYFISH_JELLY_BLOCK = IcariaItems.register("fire_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NATURE_JELLYFISH_JELLY_BLOCK = IcariaItems.register("nature_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOID_JELLYFISH_JELLY_BLOCK = IcariaItems.register("void_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WATER_JELLYFISH_JELLY_BLOCK = IcariaItems.register("water_jellyfish_jelly_block", () -> new BlockItem(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_STRING_BLOCK = IcariaItems.register("arachne_string_block", () -> new BlockItem(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT_BALE_BLOCK = IcariaItems.register("spelt_bale_block", () -> new BlockItem(IcariaBlocks.SPELT_BALE_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VINE_REED_BLOCK = IcariaItems.register("vine_reed_block", () -> new BlockItem(IcariaBlocks.VINE_REED_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ROTTEN_BONES_BLOCK = IcariaItems.register("rotten_bones_block", () -> new BlockItem(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> RAW_CHALKOS_BLOCK = IcariaItems.register("raw_chalkos_block", () -> new BlockItem(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_KASSITEROS_BLOCK = IcariaItems.register("raw_kassiteros_block", () -> new BlockItem(IcariaBlocks.RAW_KASSITEROS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_VANADIUM_BLOCK = IcariaItems.register("raw_vanadium_block", () -> new BlockItem(IcariaBlocks.RAW_VANADIUM_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_SIDEROS_BLOCK = IcariaItems.register("raw_sideros_block", () -> new BlockItem(IcariaBlocks.RAW_SIDEROS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_MOLYBDENUM_BLOCK = IcariaItems.register("raw_molybdenum_block", () -> new BlockItem(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CALCITE_BLOCK = IcariaItems.register("calcite_block", () -> new BlockItem(IcariaBlocks.CALCITE_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_BLOCK = IcariaItems.register("halite_block", () -> new BlockItem(IcariaBlocks.HALITE_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> JASPER_BLOCK = IcariaItems.register("jasper_block", () -> new BlockItem(IcariaBlocks.JASPER_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ZIRCON_BLOCK = IcariaItems.register("zircon_block", () -> new BlockItem(IcariaBlocks.ZIRCON_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHERT_BLOCK = IcariaItems.register("chert_block", () -> new BlockItem(IcariaBlocks.CHERT_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGNITE_BLOCK = IcariaItems.register("lignite_block", () -> new BlockItem(IcariaBlocks.LIGNITE_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHALKOS_BLOCK = IcariaItems.register("chalkos_block", () -> new BlockItem(IcariaBlocks.CHALKOS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_BLOCK = IcariaItems.register("kassiteros_block", () -> new BlockItem(IcariaBlocks.KASSITEROS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORICHALCUM_BLOCK = IcariaItems.register("orichalcum_block", () -> new BlockItem(IcariaBlocks.ORICHALCUM_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_BLOCK = IcariaItems.register("vanadium_block", () -> new BlockItem(IcariaBlocks.VANADIUM_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLIVER_BLOCK = IcariaItems.register("sliver_block", () -> new BlockItem(IcariaBlocks.SLIVER_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUMSTEEL_BLOCK = IcariaItems.register("vanadiumsteel_block", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_BLOCK = IcariaItems.register("sideros_block", () -> new BlockItem(IcariaBlocks.SIDEROS_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTHRACITE_BLOCK = IcariaItems.register("anthracite_block", () -> new BlockItem(IcariaBlocks.ANTHRACITE_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_BLOCK = IcariaItems.register("molybdenum_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUMSTEEL_BLOCK = IcariaItems.register("molybdenumsteel_block", () -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLURIDIUM_BLOCK = IcariaItems.register("bluridium_block", () -> new BlockItem(IcariaBlocks.BLURIDIUM_BLOCK.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> VANADIUMSTEEL_BARS = IcariaItems.register("vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaItems.register("horizontal_vanadiumsteel_bars", () -> new BlockItem(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> VANADIUMSTEEL_CHAIN = IcariaItems.register("vanadiumsteel_chain", () -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> KETTLE = IcariaItems.register("kettle", () -> new BlockItem(IcariaBlocks.KETTLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRINDER = IcariaItems.register("grinder", () -> new BlockItem(IcariaBlocks.GRINDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KILN = IcariaItems.register("kiln", () -> new BlockItem(IcariaBlocks.KILN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FORGE = IcariaItems.register("forge", () -> new BlockItem(IcariaBlocks.FORGE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CHEST = IcariaItems.register("chest", () -> new IcariaChestItem(IcariaBlocks.CHEST.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRAPPED_CHEST = IcariaItems.register("trapped_chest", () -> new IcariaChestItem(IcariaBlocks.TRAPPED_CHEST.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> STORAGE_VASE = IcariaItems.register("storage_vase", () -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WHITE_STORAGE_VASE = IcariaItems.register("white_storage_vase", () -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_GRAY_STORAGE_VASE = IcariaItems.register("light_gray_storage_vase", () -> new BlockItem(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAY_STORAGE_VASE = IcariaItems.register("gray_storage_vase", () -> new BlockItem(IcariaBlocks.GRAY_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLACK_STORAGE_VASE = IcariaItems.register("black_storage_vase", () -> new BlockItem(IcariaBlocks.BLACK_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BROWN_STORAGE_VASE = IcariaItems.register("brown_storage_vase", () -> new BlockItem(IcariaBlocks.BROWN_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RED_STORAGE_VASE = IcariaItems.register("red_storage_vase", () -> new BlockItem(IcariaBlocks.RED_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORANGE_STORAGE_VASE = IcariaItems.register("orange_storage_vase", () -> new BlockItem(IcariaBlocks.ORANGE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOW_STORAGE_VASE = IcariaItems.register("yellow_storage_vase", () -> new BlockItem(IcariaBlocks.YELLOW_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIME_STORAGE_VASE = IcariaItems.register("lime_storage_vase", () -> new BlockItem(IcariaBlocks.LIME_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GREEN_STORAGE_VASE = IcariaItems.register("green_storage_vase", () -> new BlockItem(IcariaBlocks.GREEN_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYAN_STORAGE_VASE = IcariaItems.register("cyan_storage_vase", () -> new BlockItem(IcariaBlocks.CYAN_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_BLUE_STORAGE_VASE = IcariaItems.register("light_blue_storage_vase", () -> new BlockItem(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_STORAGE_VASE = IcariaItems.register("blue_storage_vase", () -> new BlockItem(IcariaBlocks.BLUE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_STORAGE_VASE = IcariaItems.register("purple_storage_vase", () -> new BlockItem(IcariaBlocks.PURPLE_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MAGENTA_STORAGE_VASE = IcariaItems.register("magenta_storage_vase", () -> new BlockItem(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_STORAGE_VASE = IcariaItems.register("pink_storage_vase", () -> new BlockItem(IcariaBlocks.PINK_STORAGE_VASE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> RED_LOOT_VASE = IcariaItems.register("red_loot_vase", () -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOST_LOOT_VASE = IcariaItems.register("lost_loot_vase", () -> new BlockItem(IcariaBlocks.LOST_LOOT_VASE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYAN_LOOT_VASE = IcariaItems.register("cyan_loot_vase", () -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", () -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> REVENANT_SPAWNER = IcariaItems.register("revenant_spawner", () -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", () -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", () -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> CAPELLA_SKULL = IcariaItems.register("capella_skull", () -> new IcariaSkullItem(IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> CATOBLEPAS_SKULL = IcariaItems.register("catoblepas_skull", () -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> CERVER_SKULL = IcariaItems.register("cerver_skull", () -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> CROCOTTA_SKULL = IcariaItems.register("crocotta_skull", () -> new IcariaSkullItem(IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> CYPRESS_FOREST_HAG_SKULL = IcariaItems.register("cypress_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> DROUGHTROOT_FOREST_HAG_SKULL = IcariaItems.register("droughtroot_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> FIR_FOREST_HAG_SKULL = IcariaItems.register("fir_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> LAUREL_FOREST_HAG_SKULL = IcariaItems.register("laurel_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> OLIVE_FOREST_HAG_SKULL = IcariaItems.register("olive_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> PLANE_FOREST_HAG_SKULL = IcariaItems.register("plane_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> POPULUS_FOREST_HAG_SKULL = IcariaItems.register("populus_forest_hag_skull", () -> new IcariaSkullItem(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", () -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-	public static final Supplier<Item> SOW_SKULL = IcariaItems.register("sow_skull", () -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), IcariaItems.propertiesItem(Rarity.UNCOMMON), Direction.DOWN));
-
-	public static final Supplier<Item> LIGNITE_TORCH = IcariaItems.register("lignite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-	public static final Supplier<Item> ANTHRACITE_TORCH = IcariaItems.register("anthracite_torch", () -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.propertiesItem(), Direction.DOWN));
-
-	public static final Supplier<Item> LAUREL_CHERRY_CAKE = IcariaItems.register("laurel_cherry_cake", () -> new BlockItem(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> STRAWBERRY_CAKE = IcariaItems.register("strawberry_cake", () -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> PHYSALIS_CAKE = IcariaItems.register("physalis_cake", () -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> VINE_BERRY_CAKE = IcariaItems.register("vine_berry_cake", () -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> VINE_SPROUT_CAKE = IcariaItems.register("vine_sprout_cake", () -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), IcariaItems.propertiesItem(1)));
-
-	public static final Supplier<Item> CYPRESS_SAPLING = IcariaItems.register("cypress_sapling", () -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_LEAVES = IcariaItems.register("cypress_leaves", () -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_CYPRESS_LEAVES = IcariaItems.register("fallen_cypress_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_TWIGS = IcariaItems.register("cypress_twigs", () -> new BlockItem(IcariaBlocks.CYPRESS_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_WOOD = IcariaItems.register("cypress_wood", () -> new BlockItem(IcariaBlocks.CYPRESS_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_CYPRESS_WOOD = IcariaItems.register("stripped_cypress_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_LOG = IcariaItems.register("cypress_log", () -> new BlockItem(IcariaBlocks.CYPRESS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_CYPRESS_LOG = IcariaItems.register("stripped_cypress_log", () -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_CYPRESS_LOG = IcariaItems.register("dead_cypress_log", () -> new BlockItem(IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_CYPRESS_LOG = IcariaItems.register("stripped_dead_cypress_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_PLANKS = IcariaItems.register("cypress_planks", () -> new BlockItem(IcariaBlocks.CYPRESS_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems CYPRESS_DECO = new IcariaWoodDecoItems(IcariaBlocks.CYPRESS_DECO, IcariaItems.CYPRESS_PLANKS);
-	public static final Supplier<Item> SIMPLE_CYPRESS_RACK = IcariaItems.register("simple_cypress_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_RACK = IcariaItems.register("cypress_rack", () -> new BlockItem(IcariaBlocks.CYPRESS_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_BARREL = IcariaItems.register("cypress_barrel", () -> new BlockItem(IcariaBlocks.CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_CYPRESS_BARREL = IcariaItems.register("loaded_cypress_barrel", () -> new BlockItem(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_CYPRESS_BARREL = IcariaItems.register("tapped_cypress_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_CYPRESS_BARREL_RACK = IcariaItems.register("triple_cypress_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_TROUGH = IcariaItems.register("cypress_trough", () -> new BlockItem(IcariaBlocks.CYPRESS_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_CRAFTING_TABLE = IcariaItems.register("cypress_crafting_table", () -> new BlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_DOOR = IcariaItems.register("cypress_door", () -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_TRAPDOOR = IcariaItems.register("cypress_trapdoor", () -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_LADDER = IcariaItems.register("cypress_ladder", () -> new BlockItem(IcariaBlocks.CYPRESS_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_SIGN = IcariaItems.register("cypress_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get()));
-	public static final Supplier<Item> CYPRESS_HANGING_SIGN = IcariaItems.register("cypress_hanging_sign", () -> new HangingSignItem(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> DROUGHTROOT_SAPLING = IcariaItems.register("droughtroot_sapling", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_LEAVES = IcariaItems.register("droughtroot_leaves", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_DROUGHTROOT_LEAVES = IcariaItems.register("fallen_droughtroot_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_TWIGS = IcariaItems.register("droughtroot_twigs", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_WOOD = IcariaItems.register("droughtroot_wood", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DROUGHTROOT_WOOD = IcariaItems.register("stripped_droughtroot_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_LOG = IcariaItems.register("droughtroot_log", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DROUGHTROOT_LOG = IcariaItems.register("stripped_droughtroot_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_DROUGHTROOT_LOG = IcariaItems.register("dead_droughtroot_log", () -> new BlockItem(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaItems.register("stripped_dead_droughtroot_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_PLANKS = IcariaItems.register("droughtroot_planks", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems DROUGHTROOT_DECO = new IcariaWoodDecoItems(IcariaBlocks.DROUGHTROOT_DECO, IcariaItems.DROUGHTROOT_PLANKS);
-	public static final Supplier<Item> SIMPLE_DROUGHTROOT_RACK = IcariaItems.register("simple_droughtroot_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_RACK = IcariaItems.register("droughtroot_rack", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_BARREL = IcariaItems.register("droughtroot_barrel", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_DROUGHTROOT_BARREL = IcariaItems.register("loaded_droughtroot_barrel", () -> new BlockItem(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_DROUGHTROOT_BARREL = IcariaItems.register("tapped_droughtroot_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_DROUGHTROOT_BARREL_RACK = IcariaItems.register("triple_droughtroot_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_TROUGH = IcariaItems.register("droughtroot_trough", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_CRAFTING_TABLE = IcariaItems.register("droughtroot_crafting_table", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_DOOR = IcariaItems.register("droughtroot_door", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_TRAPDOOR = IcariaItems.register("droughtroot_trapdoor", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_LADDER = IcariaItems.register("droughtroot_ladder", () -> new BlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_SIGN = IcariaItems.register("droughtroot_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get()));
-	public static final Supplier<Item> DROUGHTROOT_HANGING_SIGN = IcariaItems.register("droughtroot_hanging_sign", () -> new HangingSignItem(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> FIR_SAPLING = IcariaItems.register("fir_sapling", () -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_LEAVES = IcariaItems.register("fir_leaves", () -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_FIR_LEAVES = IcariaItems.register("fallen_fir_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_TWIGS = IcariaItems.register("fir_twigs", () -> new BlockItem(IcariaBlocks.FIR_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_WOOD = IcariaItems.register("fir_wood", () -> new BlockItem(IcariaBlocks.FIR_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_FIR_WOOD = IcariaItems.register("stripped_fir_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_FIR_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_LOG = IcariaItems.register("fir_log", () -> new BlockItem(IcariaBlocks.FIR_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_FIR_LOG = IcariaItems.register("stripped_fir_log", () -> new BlockItem(IcariaBlocks.STRIPPED_FIR_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_FIR_LOG = IcariaItems.register("dead_fir_log", () -> new BlockItem(IcariaBlocks.DEAD_FIR_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_FIR_LOG = IcariaItems.register("stripped_dead_fir_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_PLANKS = IcariaItems.register("fir_planks", () -> new BlockItem(IcariaBlocks.FIR_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems FIR_DECO = new IcariaWoodDecoItems(IcariaBlocks.FIR_DECO, IcariaItems.FIR_PLANKS);
-	public static final Supplier<Item> SIMPLE_FIR_RACK = IcariaItems.register("simple_fir_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_FIR_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_RACK = IcariaItems.register("fir_rack", () -> new BlockItem(IcariaBlocks.FIR_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_BARREL = IcariaItems.register("fir_barrel", () -> new BlockItem(IcariaBlocks.FIR_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_FIR_BARREL = IcariaItems.register("loaded_fir_barrel", () -> new BlockItem(IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_FIR_BARREL = IcariaItems.register("tapped_fir_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_FIR_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_FIR_BARREL_RACK = IcariaItems.register("triple_fir_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_TROUGH = IcariaItems.register("fir_trough", () -> new BlockItem(IcariaBlocks.FIR_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_CRAFTING_TABLE = IcariaItems.register("fir_crafting_table", () -> new BlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_DOOR = IcariaItems.register("fir_door", () -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_TRAPDOOR = IcariaItems.register("fir_trapdoor", () -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_LADDER = IcariaItems.register("fir_ladder", () -> new BlockItem(IcariaBlocks.FIR_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_SIGN = IcariaItems.register("fir_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get()));
-	public static final Supplier<Item> FIR_HANGING_SIGN = IcariaItems.register("fir_hanging_sign", () -> new HangingSignItem(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> LAUREL_SAPLING = IcariaItems.register("laurel_sapling", () -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_LEAVES = IcariaItems.register("laurel_leaves", () -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_LAUREL_LEAVES = IcariaItems.register("fallen_laurel_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_TWIGS = IcariaItems.register("laurel_twigs", () -> new BlockItem(IcariaBlocks.LAUREL_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_WOOD = IcariaItems.register("laurel_wood", () -> new BlockItem(IcariaBlocks.LAUREL_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_LAUREL_WOOD = IcariaItems.register("stripped_laurel_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_LOG = IcariaItems.register("laurel_log", () -> new BlockItem(IcariaBlocks.LAUREL_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_LAUREL_LOG = IcariaItems.register("stripped_laurel_log", () -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_LAUREL_LOG = IcariaItems.register("dead_laurel_log", () -> new BlockItem(IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_LAUREL_LOG = IcariaItems.register("stripped_dead_laurel_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_PLANKS = IcariaItems.register("laurel_planks", () -> new BlockItem(IcariaBlocks.LAUREL_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems LAUREL_DECO = new IcariaWoodDecoItems(IcariaBlocks.LAUREL_DECO, IcariaItems.LAUREL_PLANKS);
-	public static final Supplier<Item> SIMPLE_LAUREL_RACK = IcariaItems.register("simple_laurel_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_RACK = IcariaItems.register("laurel_rack", () -> new BlockItem(IcariaBlocks.LAUREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_BARREL = IcariaItems.register("laurel_barrel", () -> new BlockItem(IcariaBlocks.LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_LAUREL_BARREL = IcariaItems.register("loaded_laurel_barrel", () -> new BlockItem(IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_LAUREL_BARREL = IcariaItems.register("tapped_laurel_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_LAUREL_BARREL_RACK = IcariaItems.register("triple_laurel_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_TROUGH = IcariaItems.register("laurel_trough", () -> new BlockItem(IcariaBlocks.LAUREL_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_CRAFTING_TABLE = IcariaItems.register("laurel_crafting_table", () -> new BlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_DOOR = IcariaItems.register("laurel_door", () -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_TRAPDOOR = IcariaItems.register("laurel_trapdoor", () -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_LADDER = IcariaItems.register("laurel_ladder", () -> new BlockItem(IcariaBlocks.LAUREL_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_SIGN = IcariaItems.register("laurel_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get()));
-	public static final Supplier<Item> LAUREL_HANGING_SIGN = IcariaItems.register("laurel_hanging_sign", () -> new HangingSignItem(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> OLIVE_SAPLING = IcariaItems.register("olive_sapling", () -> new BlockItem(IcariaBlocks.OLIVE_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_LEAVES = IcariaItems.register("olive_leaves", () -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_OLIVE_LEAVES = IcariaItems.register("fallen_olive_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_TWIGS = IcariaItems.register("olive_twigs", () -> new BlockItem(IcariaBlocks.OLIVE_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_WOOD = IcariaItems.register("olive_wood", () -> new BlockItem(IcariaBlocks.OLIVE_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_OLIVE_WOOD = IcariaItems.register("stripped_olive_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_LOG = IcariaItems.register("olive_log", () -> new BlockItem(IcariaBlocks.OLIVE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_OLIVE_LOG = IcariaItems.register("stripped_olive_log", () -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_OLIVE_LOG = IcariaItems.register("dead_olive_log", () -> new BlockItem(IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_OLIVE_LOG = IcariaItems.register("stripped_dead_olive_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_PLANKS = IcariaItems.register("olive_planks", () -> new BlockItem(IcariaBlocks.OLIVE_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems OLIVE_DECO = new IcariaWoodDecoItems(IcariaBlocks.OLIVE_DECO, IcariaItems.OLIVE_PLANKS);
-	public static final Supplier<Item> SIMPLE_OLIVE_RACK = IcariaItems.register("simple_olive_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_RACK = IcariaItems.register("olive_rack", () -> new BlockItem(IcariaBlocks.OLIVE_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_BARREL = IcariaItems.register("olive_barrel", () -> new BlockItem(IcariaBlocks.OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_OLIVE_BARREL = IcariaItems.register("loaded_olive_barrel", () -> new BlockItem(IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_OLIVE_BARREL = IcariaItems.register("tapped_olive_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_OLIVE_BARREL_RACK = IcariaItems.register("triple_olive_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_TROUGH = IcariaItems.register("olive_trough", () -> new BlockItem(IcariaBlocks.OLIVE_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_CRAFTING_TABLE = IcariaItems.register("olive_crafting_table", () -> new BlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_DOOR = IcariaItems.register("olive_door", () -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_TRAPDOOR = IcariaItems.register("olive_trapdoor", () -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_LADDER = IcariaItems.register("olive_ladder", () -> new BlockItem(IcariaBlocks.OLIVE_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_SIGN = IcariaItems.register("olive_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get()));
-	public static final Supplier<Item> OLIVE_HANGING_SIGN = IcariaItems.register("olive_hanging_sign", () -> new HangingSignItem(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> PLANE_SAPLING = IcariaItems.register("plane_sapling", () -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_LEAVES = IcariaItems.register("plane_leaves", () -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_PLANE_LEAVES = IcariaItems.register("fallen_plane_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_TWIGS = IcariaItems.register("plane_twigs", () -> new BlockItem(IcariaBlocks.PLANE_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_WOOD = IcariaItems.register("plane_wood", () -> new BlockItem(IcariaBlocks.PLANE_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_PLANE_WOOD = IcariaItems.register("stripped_plane_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_LOG = IcariaItems.register("plane_log", () -> new BlockItem(IcariaBlocks.PLANE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_PLANE_LOG = IcariaItems.register("stripped_plane_log", () -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_PLANE_LOG = IcariaItems.register("dead_plane_log", () -> new BlockItem(IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_PLANE_LOG = IcariaItems.register("stripped_dead_plane_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_PLANKS = IcariaItems.register("plane_planks", () -> new BlockItem(IcariaBlocks.PLANE_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems PLANE_DECO = new IcariaWoodDecoItems(IcariaBlocks.PLANE_DECO, IcariaItems.PLANE_PLANKS);
-	public static final Supplier<Item> SIMPLE_PLANE_RACK = IcariaItems.register("simple_plane_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_PLANE_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_RACK = IcariaItems.register("plane_rack", () -> new BlockItem(IcariaBlocks.PLANE_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_BARREL = IcariaItems.register("plane_barrel", () -> new BlockItem(IcariaBlocks.PLANE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_PLANE_BARREL = IcariaItems.register("loaded_plane_barrel", () -> new BlockItem(IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_PLANE_BARREL = IcariaItems.register("tapped_plane_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_PLANE_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_PLANE_BARREL_RACK = IcariaItems.register("triple_plane_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_TROUGH = IcariaItems.register("plane_trough", () -> new BlockItem(IcariaBlocks.PLANE_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_CRAFTING_TABLE = IcariaItems.register("plane_crafting_table", () -> new BlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_DOOR = IcariaItems.register("plane_door", () -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_TRAPDOOR = IcariaItems.register("plane_trapdoor", () -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_LADDER = IcariaItems.register("plane_ladder", () -> new BlockItem(IcariaBlocks.PLANE_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_SIGN = IcariaItems.register("plane_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get()));
-	public static final Supplier<Item> PLANE_HANGING_SIGN = IcariaItems.register("plane_hanging_sign", () -> new HangingSignItem(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> POPULUS_SAPLING = IcariaItems.register("populus_sapling", () -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_LEAVES = IcariaItems.register("populus_leaves", () -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FALLEN_POPULUS_LEAVES = IcariaItems.register("fallen_populus_leaves", () -> new BlockItem(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_TWIGS = IcariaItems.register("populus_twigs", () -> new BlockItem(IcariaBlocks.POPULUS_TWIGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_WOOD = IcariaItems.register("populus_wood", () -> new BlockItem(IcariaBlocks.POPULUS_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_POPULUS_WOOD = IcariaItems.register("stripped_populus_wood", () -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_LOG = IcariaItems.register("populus_log", () -> new BlockItem(IcariaBlocks.POPULUS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_POPULUS_LOG = IcariaItems.register("stripped_populus_log", () -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DEAD_POPULUS_LOG = IcariaItems.register("dead_populus_log", () -> new BlockItem(IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRIPPED_DEAD_POPULUS_LOG = IcariaItems.register("stripped_dead_populus_log", () -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_PLANKS = IcariaItems.register("populus_planks", () -> new BlockItem(IcariaBlocks.POPULUS_PLANKS.get(), IcariaItems.propertiesItem()));
-	public static final IcariaWoodDecoItems POPULUS_DECO = new IcariaWoodDecoItems(IcariaBlocks.POPULUS_DECO, IcariaItems.POPULUS_PLANKS);
-	public static final Supplier<Item> SIMPLE_POPULUS_RACK = IcariaItems.register("simple_populus_rack", () -> new BlockItem(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_RACK = IcariaItems.register("populus_rack", () -> new BlockItem(IcariaBlocks.POPULUS_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_BARREL = IcariaItems.register("populus_barrel", () -> new BlockItem(IcariaBlocks.POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOADED_POPULUS_BARREL = IcariaItems.register("loaded_populus_barrel", () -> new BlockItem(IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TAPPED_POPULUS_BARREL = IcariaItems.register("tapped_populus_barrel", () -> new BlockItem(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TRIPLE_POPULUS_BARREL_RACK = IcariaItems.register("triple_populus_barrel_rack", () -> new BlockItem(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_TROUGH = IcariaItems.register("populus_trough", () -> new BlockItem(IcariaBlocks.POPULUS_TROUGH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_CRAFTING_TABLE = IcariaItems.register("populus_crafting_table", () -> new BlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_DOOR = IcariaItems.register("populus_door", () -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_TRAPDOOR = IcariaItems.register("populus_trapdoor", () -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_LADDER = IcariaItems.register("populus_ladder", () -> new BlockItem(IcariaBlocks.POPULUS_LADDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_SIGN = IcariaItems.register("populus_sign", () -> new IcariaSignItem(IcariaItems.propertiesItem(16), IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get()));
-	public static final Supplier<Item> POPULUS_HANGING_SIGN = IcariaItems.register("populus_hanging_sign", () -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.propertiesItem(16)));
-
-	public static final Supplier<Item> BLOOMY_VINE = IcariaItems.register("bloomy_vine", () -> new BlockItem(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BRANCHY_VINE = IcariaItems.register("branchy_vine", () -> new BlockItem(IcariaBlocks.BRANCHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BRUSHY_VINE = IcariaItems.register("brushy_vine", () -> new BlockItem(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DRY_VINE = IcariaItems.register("dry_vine", () -> new BlockItem(IcariaBlocks.DRY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> REEDY_VINE = IcariaItems.register("reedy_vine", () -> new BlockItem(IcariaBlocks.REEDY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SWIRLY_VINE = IcariaItems.register("swirly_vine", () -> new BlockItem(IcariaBlocks.SWIRLY_VINE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> THORNY_VINE = IcariaItems.register("thorny_vine", () -> new BlockItem(IcariaBlocks.THORNY_VINE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> FERN = IcariaItems.register("fern", () -> new BlockItem(IcariaBlocks.FERN.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> SMALL_GRASS = IcariaItems.register("small_grass", () -> new BlockItem(IcariaBlocks.SMALL_GRASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_GRASS = IcariaItems.register("medium_grass", () -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LARGE_GRASS = IcariaItems.register("large_grass", () -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> SMALL_MIXED_GRAIN = IcariaItems.register("small_mixed_grain", () -> new BlockItem(IcariaBlocks.SMALL_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_MIXED_GRAIN = IcariaItems.register("medium_mixed_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_BROWN_GRAIN = IcariaItems.register("medium_brown_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_WHITE_GRAIN = IcariaItems.register("medium_white_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MEDIUM_YELLOW_GRAIN = IcariaItems.register("medium_yellow_grain", () -> new BlockItem(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LARGE_BROWN_GRAIN = IcariaItems.register("large_brown_grain", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GRAIN.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> BLINDWEED = IcariaItems.register("blindweed", () -> new BlockItem(IcariaBlocks.BLINDWEED.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHAMEOMILE = IcariaItems.register("chameomile", () -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHARMONDER = IcariaItems.register("charmonder", () -> new BlockItem(IcariaBlocks.CHARMONDER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CLOVER = IcariaItems.register("clover", () -> new BlockItem(IcariaBlocks.CLOVER.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIREHILT = IcariaItems.register("firehilt", () -> new BlockItem(IcariaBlocks.FIREHILT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_HYDRACINTH = IcariaItems.register("blue_hydracinth", () -> new BlockItem(IcariaBlocks.BLUE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_HYDRACINTH = IcariaItems.register("purple_hydracinth", () -> new BlockItem(IcariaBlocks.PURPLE_HYDRACINTH.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIONFANGS = IcariaItems.register("lionfangs", () -> new BlockItem(IcariaBlocks.LIONFANGS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPEARDROPS = IcariaItems.register("speardrops", () -> new BlockItem(IcariaBlocks.SPEARDROPS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_STAGHORN = IcariaItems.register("purple_staghorn", () -> new BlockItem(IcariaBlocks.PURPLE_STAGHORN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOW_STAGHORN = IcariaItems.register("yellow_staghorn", () -> new BlockItem(IcariaBlocks.YELLOW_STAGHORN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_STORMCOTTON = IcariaItems.register("blue_stormcotton", () -> new BlockItem(IcariaBlocks.BLUE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_STORMCOTTON = IcariaItems.register("pink_stormcotton", () -> new BlockItem(IcariaBlocks.PINK_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_STORMCOTTON = IcariaItems.register("purple_stormcotton", () -> new BlockItem(IcariaBlocks.PURPLE_STORMCOTTON.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SUNKETTLE = IcariaItems.register("sunkettle", () -> new BlockItem(IcariaBlocks.SUNKETTLE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SUNSPONGE = IcariaItems.register("sunsponge", () -> new BlockItem(IcariaBlocks.SUNSPONGE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOIDLILY = IcariaItems.register("voidlily", () -> new BlockItem(IcariaBlocks.VOIDLILY.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> BOLBOS = IcariaItems.register("bolbos", () -> new BlockItem(IcariaBlocks.BOLBOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DATHULLA = IcariaItems.register("dathulla", () -> new BlockItem(IcariaBlocks.DATHULLA.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MONDANOS = IcariaItems.register("mondanos", () -> new BlockItem(IcariaBlocks.MONDANOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOTH_AGARIC = IcariaItems.register("moth_agaric", () -> new BlockItem(IcariaBlocks.MOTH_AGARIC.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NAMDRAKE = IcariaItems.register("namdrake", () -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PSILOCYBOS = IcariaItems.register("psilocybos", () -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ROWAN = IcariaItems.register("rowan", () -> new BlockItem(IcariaBlocks.ROWAN.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WILTED_ELM = IcariaItems.register("wilted_elm", () -> new BlockItem(IcariaBlocks.WILTED_ELM.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> BLUE_GROUND_FLOWERS = IcariaItems.register("blue_ground_flowers", () -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYAN_GROUND_FLOWERS = IcariaItems.register("cyan_ground_flowers", () -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_GROUND_FLOWERS = IcariaItems.register("pink_ground_flowers", () -> new BlockItem(IcariaBlocks.PINK_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_GROUND_FLOWERS = IcariaItems.register("purple_ground_flowers", () -> new BlockItem(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RED_GROUND_FLOWERS = IcariaItems.register("red_ground_flowers", () -> new BlockItem(IcariaBlocks.RED_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WHITE_GROUND_FLOWERS = IcariaItems.register("white_ground_flowers", () -> new BlockItem(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> FOREST_MOSS = IcariaItems.register("forest_moss", () -> new BlockItem(IcariaBlocks.FOREST_MOSS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SCRUBLAND_MOSS = IcariaItems.register("scrubland_moss", () -> new BlockItem(IcariaBlocks.SCRUBLAND_MOSS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STEPPE_MOSS = IcariaItems.register("steppe_moss", () -> new BlockItem(IcariaBlocks.STEPPE_MOSS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> PALM_FERN = IcariaItems.register("palm_fern", () -> new BlockItem(IcariaBlocks.PALM_FERN.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> WHITE_BROMELIA = IcariaItems.register("white_bromelia", () -> new BlockItem(IcariaBlocks.WHITE_BROMELIA.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORANGE_BROMELIA = IcariaItems.register("orange_bromelia", () -> new BlockItem(IcariaBlocks.ORANGE_BROMELIA.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_BROMELIA = IcariaItems.register("pink_bromelia", () -> new BlockItem(IcariaBlocks.PINK_BROMELIA.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_BROMELIA = IcariaItems.register("purple_bromelia", () -> new BlockItem(IcariaBlocks.PURPLE_BROMELIA.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> GREEN_GROUND_SHROOMS = IcariaItems.register("green_ground_shrooms", () -> new BlockItem(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BROWN_GROUND_SHROOMS = IcariaItems.register("brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.BROWN_GROUND_SHROOMS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LARGE_BROWN_GROUND_SHROOMS = IcariaItems.register("large_brown_ground_shrooms", () -> new BlockItem(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> TINDER_FUNGUS_TREE_SHROOMS = IcariaItems.register("tinder_fungus_tree_shrooms", () -> new BlockItem(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> TURKEY_TAIL_TREE_SHROOMS = IcariaItems.register("turkey_tail_tree_shrooms", () -> new BlockItem(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> UNNAMED_TREE_SHROOMS = IcariaItems.register("unnamed_tree_shrooms", () -> new BlockItem(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CARDON_CACTUS = IcariaItems.register("cardon_cactus", () -> new BlockItem(IcariaBlocks.CARDON_CACTUS.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> STRAWBERRY_BUSH = IcariaItems.register("strawberry_bush", () -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", () -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRINDER_STONE = IcariaItems.register("grinder_stone", () -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> PAINTING = IcariaItems.register("painting", () -> new IcariaPaintingItem(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> BONE_REMAINS = IcariaItems.register("bone_remains", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_LUMP = IcariaItems.register("loam_lump", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_BRICK = IcariaItems.register("loam_brick", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CHERT = IcariaItems.register("chert", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ENDER_JELLYFISH_JELLY = IcariaItems.register("ender_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIRE_JELLYFISH_JELLY = IcariaItems.register("fire_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NATURE_JELLYFISH_JELLY = IcariaItems.register("nature_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOID_JELLYFISH_JELLY = IcariaItems.register("void_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WATER_JELLYFISH_JELLY = IcariaItems.register("water_jellyfish_jelly", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_STRING = IcariaItems.register("arachne_string", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT = IcariaItems.register("spelt", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VINE_REED = IcariaItems.register("vine_reed", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ROTTEN_BONES = IcariaItems.register("rotten_bones", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GREENPOWDER = IcariaItems.register("greenpowder", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CALCITE_SHARD = IcariaItems.register("calcite_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_SHARD = IcariaItems.register("halite_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> JASPER_SHARD = IcariaItems.register("jasper_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ZIRCON_SHARD = IcariaItems.register("zircon_shard", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CALCITE_DUST = IcariaItems.register("calcite_dust", () -> new BoneMealItem(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HALITE_DUST = IcariaItems.register("halite_dust", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGNITE = IcariaItems.register("lignite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_CHALKOS = IcariaItems.register("raw_chalkos", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_KASSITEROS = IcariaItems.register("raw_kassiteros", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DOLOMITE = IcariaItems.register("dolomite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_VANADIUM = IcariaItems.register("raw_vanadium", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLIVER = IcariaItems.register("sliver", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_SIDEROS = IcariaItems.register("raw_sideros", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTHRACITE = IcariaItems.register("anthracite", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RAW_MOLYBDENUM = IcariaItems.register("raw_molybdenum", () -> new Item(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CHALKOS_NUGGET = IcariaItems.register("chalkos_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_NUGGET = IcariaItems.register("kassiteros_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORICHALCUM_NUGGET = IcariaItems.register("orichalcum_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_NUGGET = IcariaItems.register("vanadium_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUMSTEEL_NUGGET = IcariaItems.register("vanadiumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_NUGGET = IcariaItems.register("sideros_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_NUGGET = IcariaItems.register("molybdenum_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUMSTEEL_NUGGET = IcariaItems.register("molybdenumsteel_nugget", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLURIDIUM_NUGGET = IcariaItems.register("bluridium_nugget", () -> new Item(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> CHALKOS_INGOT = IcariaItems.register("chalkos_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> KASSITEROS_INGOT = IcariaItems.register("kassiteros_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORICHALCUM_INGOT = IcariaItems.register("orichalcum_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUM_INGOT = IcariaItems.register("vanadium_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VANADIUMSTEEL_INGOT = IcariaItems.register("vanadiumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SIDEROS_INGOT = IcariaItems.register("sideros_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUM_INGOT = IcariaItems.register("molybdenum_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MOLYBDENUMSTEEL_INGOT = IcariaItems.register("molybdenumsteel_ingot", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLURIDIUM_INGOT = IcariaItems.register("bluridium_ingot", () -> new Item(IcariaItems.propertiesItem()));
-
-	public static final IcariaToolItems CHERT_TOOLS = new IcariaToolItems("chert", IcariaTiers.CHERT);
-	public static final IcariaToolItems CHALKOS_TOOLS = new IcariaToolItems("chalkos", IcariaTiers.CHALKOS);
-	public static final IcariaToolItems KASSITEROS_TOOLS = new IcariaToolItems("kassiteros", IcariaTiers.KASSITEROS);
-	public static final IcariaToolItems ORICHALCUM_TOOLS = new IcariaToolItems("orichalcum", IcariaTiers.ORICHALCUM);
-	public static final IcariaToolItems VANADIUMSTEEL_TOOLS = new IcariaToolItems("vanadiumsteel", IcariaTiers.VANADIUMSTEEL);
-	public static final IcariaToolItems SIDEROS_TOOLS = new IcariaToolItems("sideros", IcariaTiers.SIDEROS);
-	public static final IcariaToolItems MOLYBDENUMSTEEL_TOOLS = new IcariaToolItems("molybdenumsteel", IcariaTiers.MOLYBDENUMSTEEL);
-
-	public static final IcariaArmorItems AETERNAE_HIDE_ARMOR = new IcariaArmorItems("aeternae_hide", IcariaArmorMaterials.AETERNAE_HIDE, 11);
-	public static final IcariaArmorItems CHALKOS_ARMOR = new IcariaArmorItems("chalkos", IcariaArmorMaterials.CHALKOS, 11);
-	public static final IcariaArmorItems KASSITEROS_ARMOR = new IcariaArmorItems("kassiteros", IcariaArmorMaterials.KASSITEROS, 15);
-	public static final IcariaArmorItems ORICHALCUM_ARMOR = new IcariaArmorItems("orichalcum", IcariaArmorMaterials.ORICHALCUM, 24);
-	public static final IcariaArmorItems VANADIUMSTEEL_ARMOR = new IcariaArmorItems("vanadiumsteel", IcariaArmorMaterials.VANADIUMSTEEL, 27);
-	public static final Supplier<Item> LAUREL_WREATH = IcariaItems.register("laurel_wreath", () -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorItem.Type.HELMET, IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> GREEK_FIRE_GRENADE = IcariaItems.register("greek_fire_grenade", () -> new GreekFireGrenadeItem(IcariaItems.propertiesItem()));
-
-	public static final Supplier<TotemItem> TOTEM_OF_STUFFING = IcariaItems.register("totem_of_stuffing", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNBLINDING = IcariaItems.register("totem_of_unblinding", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNDROWNING = IcariaItems.register("totem_of_undrowning", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNSHATTERING = IcariaItems.register("totem_of_unshattering", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-	public static final Supplier<TotemItem> TOTEM_OF_UNSINKING = IcariaItems.register("totem_of_unsinking", () -> new TotemItem(IcariaItems.propertiesItem(1, 4, Rarity.UNCOMMON)));
-
-	public static final Supplier<Item> UNFIRED_STORAGE_VASE = IcariaItems.register("unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WHITE_UNFIRED_STORAGE_VASE = IcariaItems.register("white_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("light_gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("gray_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLACK_UNFIRED_STORAGE_VASE = IcariaItems.register("black_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BROWN_UNFIRED_STORAGE_VASE = IcariaItems.register("brown_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RED_UNFIRED_STORAGE_VASE = IcariaItems.register("red_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ORANGE_UNFIRED_STORAGE_VASE = IcariaItems.register("orange_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> YELLOW_UNFIRED_STORAGE_VASE = IcariaItems.register("yellow_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIME_UNFIRED_STORAGE_VASE = IcariaItems.register("lime_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> GREEN_UNFIRED_STORAGE_VASE = IcariaItems.register("green_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYAN_UNFIRED_STORAGE_VASE = IcariaItems.register("cyan_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LIGHT_BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("light_blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("blue_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PURPLE_UNFIRED_STORAGE_VASE = IcariaItems.register("purple_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MAGENTA_UNFIRED_STORAGE_VASE = IcariaItems.register("magenta_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PINK_UNFIRED_STORAGE_VASE = IcariaItems.register("pink_unfired_storage_vase", () -> new Item(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> ANTI_GRAVITY_SCROLL = IcariaItems.register("anti_gravity_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> FORTIFYING_SCROLL = IcariaItems.register("fortifying_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> HEALING_SCROLL = IcariaItems.register("healing_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> BUBBLE_SCROLL = IcariaItems.register("bubble_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> FREEZING_SCROLL = IcariaItems.register("freezing_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> MAGIC_MISSILE_SCROLL = IcariaItems.register("magic_missile_scroll", () -> new ScrollItem(IcariaItems.propertiesItem(1)));
-
-	public static final Supplier<Item> ANTI_GRAVITY_SPELL = IcariaItems.register("anti_gravity_spell", () -> new AntiGravitySpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6919359, 20));
-	public static final Supplier<Item> FORTIFYING_SPELL = IcariaItems.register("fortifying_spell", () -> new FortifyingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 6316160, 20));
-	public static final Supplier<Item> HEALING_SPELL = IcariaItems.register("healing_spell", () -> new HealingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 16711680, 20));
-	public static final Supplier<Item> BUBBLE_SPELL = IcariaItems.register("bubble_spell", () -> new BubbleSpellItem(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FREEZING_SPELL = IcariaItems.register("freezing_spell", () -> new FreezingSpellItem(IcariaItems.propertiesItem(), 1.0F, 1.0F, 14277081, 20));
-	public static final Supplier<Item> MAGIC_MISSILE_SPELL = IcariaItems.register("magic_missile_spell", () -> new MagicMissileSpellItem(IcariaItems.propertiesItem(), 0.0F, 2.0F, 6307968, 40));
-
-	public static final Supplier<Item> EMPTY_FLASK = IcariaItems.register("empty_flask", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ANTI_GRAVITY_FLASK = IcariaItems.register("anti_gravity_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.LEVITATION, 600));
-	public static final Supplier<Item> FORTIFYING_FLASK = IcariaItems.register("fortifying_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.DAMAGE_RESISTANCE, 600));
-	public static final Supplier<Item> HEALING_FLASK = IcariaItems.register("healing_flask", () -> new ConcoctionFlaskItem(IcariaItems.propertiesItem(1), MobEffects.REGENERATION, 600));
-
-	public static final Supplier<Item> EMPTY_VIAL = IcariaItems.register("empty_vial", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_VENOM_VIAL = IcariaItems.register("arachne_venom_vial", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> HYLIASTRUM_VIAL = IcariaItems.register("hyliastrum_vial", () -> new HyliastrumVialItem(IcariaItems.propertiesItem(1)));
-
-	public static final Supplier<Item> CHEST_LABEL = IcariaItems.register("chest_label", () -> new ChestLabelItem(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> YELLOWSTONE_GEAR = IcariaItems.register("yellowstone_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 256)));
-	public static final Supplier<Item> UNFIRED_LOAM_GEAR = IcariaItems.register("unfired_loam_gear", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> LOAM_GEAR = IcariaItems.register("loam_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 512)));
-	public static final Supplier<Item> VOIDSHALE_GEAR = IcariaItems.register("voidshale_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 768)));
-	public static final Supplier<Item> VANADIUM_GEAR = IcariaItems.register("vanadium_gear", () -> new GearItem(IcariaItems.propertiesItem(1, 1024)));
-	public static final Supplier<Item> BLUE_GEARFRAGMENT = IcariaItems.register("blue_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> GREEN_GEARFRAGMENT = IcariaItems.register("green_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> YELLOW_GEARFRAGMENT = IcariaItems.register("yellow_gearfragment", () -> new Item(IcariaItems.propertiesItem(1)));
-	public static final Supplier<Item> DAEDALIAN_GEAR = IcariaItems.register("daedalian_gear", () -> new Item(IcariaItems.propertiesItem(1)));
-
-	public static final Supplier<Item> AETERNAE_HIDE = IcariaItems.register("aeternae_hide", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT_FLOUR = IcariaItems.register("spelt_flour", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SPELT_BREAD = IcariaItems.register("spelt_bread", () -> new Item(IcariaItems.propertiesFood(5, 0.6F)));
-	public static final Supplier<Item> VINE_SPROUT = IcariaItems.register("vine_sprout", () -> new VineSproutItem(IcariaItems.propertiesFood(2, 0.5F, 1, 12)));
-	public static final Supplier<Item> VINEBERRIES = IcariaItems.register("vineberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> STRAWBERRIES = IcariaItems.register("strawberries", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> PHYSALIS = IcariaItems.register("physalis", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> LAUREL_CHERRY = IcariaItems.register("laurel_cherry", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> BLACK_OLIVES = IcariaItems.register("black_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> GREEN_OLIVES = IcariaItems.register("green_olives", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> GARLIC = IcariaItems.register("garlic", () -> new Item(IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> ONION = IcariaItems.register("onion", () -> new ItemNameBlockItem(IcariaBlocks.ONION_CROP.get(), IcariaItems.propertiesFood(2, 0.5F)));
-	public static final Supplier<Item> RAW_AETERNAE_MEAT = IcariaItems.register("raw_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_AETERNAE_MEAT = IcariaItems.register("cooked_aeternae_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
-	public static final Supplier<Item> RAW_CAPELLA_MEAT = IcariaItems.register("raw_capella_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_CAPELLA_MEAT = IcariaItems.register("cooked_capella_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> RAW_CATOBLEPAS_MEAT = IcariaItems.register("raw_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_CATOBLEPAS_MEAT = IcariaItems.register("cooked_catoblepas_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> RAW_CERVER_MEAT = IcariaItems.register("raw_cerver_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(3, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
-	public static final Supplier<Item> COOKED_CERVER_MEAT = IcariaItems.register("cooked_cerver_meat", () -> new Item(IcariaItems.propertiesFood(8, 1.0F)));
-	public static final Supplier<Item> RAW_CROCOTTA_MEAT = IcariaItems.register("raw_crocotta_meat", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F)));
-	public static final Supplier<Item> COOKED_CROCOTTA_MEAT = IcariaItems.register("cooked_crocotta_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> RAW_SOW_MEAT = IcariaItems.register("raw_sow_meat", () -> new Item(IcariaItems.propertiesItem().food(IcariaItems.foodProperties(2, 0.5F, MobEffects.HUNGER, 200, 0, 0.5F))));
-	public static final Supplier<Item> COOKED_SOW_MEAT = IcariaItems.register("cooked_sow_meat", () -> new Item(IcariaItems.propertiesFood(7, 1.0F)));
-	public static final Supplier<Item> CAPELLA_HORN = IcariaItems.register("capella_horn", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SLUG_SCALES = IcariaItems.register("slug_scales", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SNULL_CREAM = IcariaItems.register("snull_cream", () -> new Item(IcariaItems.propertiesFood(2, 0.5F, MobEffects.HUNGER, 200, 0, 1.0F, MobEffects.CONFUSION, 200, 0, 1.0F)));
-	public static final Supplier<Item> VINEGAR = IcariaItems.register("vinegar", () -> new Item(IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> UNFIRED_LOAM_BOWL = IcariaItems.register("unfired_loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LOAM_BOWL = IcariaItems.register("loam_bowl", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FRUIT_SALAD = IcariaItems.register("fruit_salad", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, MobEffects.HEAL, 1, 0, 1.0F, 1)));
-	public static final Supplier<Item> ONION_SOUP = IcariaItems.register("onion_soup", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(4, 1.0F, 1)));
-	public static final Supplier<Item> AETERNAE_STEW = IcariaItems.register("aeternae_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
-	public static final Supplier<Item> CATOBLEPAS_STEW = IcariaItems.register("catoblepas_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
-	public static final Supplier<Item> CERVER_STEW = IcariaItems.register("cerver_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(9, 1.0F, 1)));
-	public static final Supplier<Item> SOW_STEW = IcariaItems.register("sow_stew", () -> new IcariaBowlFoodItem(IcariaItems.propertiesFood(8, 1.0F, 1)));
-
-	public static final Supplier<Item> SPELT_SEEDS = IcariaItems.register("spelt_seeds", () -> new ItemNameBlockItem(IcariaBlocks.SPELT_CROP.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STRAWBERRY_SEEDS = IcariaItems.register("strawberry_seeds", () -> new ItemNameBlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PHYSALIS_SEEDS = IcariaItems.register("physalis_seeds", () -> new ItemNameBlockItem(IcariaBlocks.PHYSALIS_CROP.get(), IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> AETERNAE_SPAWN_EGG = IcariaItems.register("aeternae_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.AETERNAE, 0x40280B, 0x88581F, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_SPAWN_EGG = IcariaItems.register("arachne_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.ARACHNE, 0x362E28, 0x6A8C97, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARACHNE_DRONE_SPAWN_EGG = IcariaItems.register("arachne_drone_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.ARACHNE_DRONE, 0x382F28, 0x6A8C97, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ARGAN_HOUND_SPAWN_EGG = IcariaItems.register("argan_hound_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.ARGAN_HOUND, 0x0B0D0E, 0x2C2F36, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CAPELLA_SPAWN_EGG = IcariaItems.register("capella_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CAPELLA, 0xCDCCC7, 0x6F8289, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CATOBLEPAS_SPAWN_EGG = IcariaItems.register("catoblepas_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CATOBLEPAS, 0x1D170E, 0x373024, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CERVER_SPAWN_EGG = IcariaItems.register("cerver_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CERVER, 0x0E0A05, 0x302C26, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CROCOTTA_SPAWN_EGG = IcariaItems.register("crocotta_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CROCOTTA, 0x8C7256, 0x41301F, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CYPRESS_FOREST_HAG_SPAWN_EGG = IcariaItems.register("cypress_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CYPRESS_FOREST_HAG, 0x615A52, 0x4F6712, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> DROUGHTROOT_FOREST_HAG_SPAWN_EGG = IcariaItems.register("droughtroot_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG, 0x302A2D, 0x5A621A, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIR_FOREST_HAG_SPAWN_EGG = IcariaItems.register("fir_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.FIR_FOREST_HAG, 0x574C39, 0x356342, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> LAUREL_FOREST_HAG_SPAWN_EGG = IcariaItems.register("laurel_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.LAUREL_FOREST_HAG, 0x3D241A, 0x42551A, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OLIVE_FOREST_HAG_SPAWN_EGG = IcariaItems.register("olive_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.OLIVE_FOREST_HAG, 0x697162, 0x817B32, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PLANE_FOREST_HAG_SPAWN_EGG = IcariaItems.register("plane_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.PLANE_FOREST_HAG, 0x6F716D, 0x516C40, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> POPULUS_FOREST_HAG_SPAWN_EGG = IcariaItems.register("populus_forest_hag_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.POPULUS_FOREST_HAG, 0xdD0C9C7, 0x4B8360, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> HYLIASTER_SPAWN_EGG = IcariaItems.register("hyliaster_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.HYLIASTER, 0x040706, 0x8B9590, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> ENDER_JELLYFISH_SPAWN_EGG = IcariaItems.register("ender_jellyfish_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.ENDER_JELLYFISH, 0X000000, 0xE079FA, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FIRE_JELLYFISH_SPAWN_EGG = IcariaItems.register("fire_jellyfish_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.FIRE_JELLYFISH, 0XF07D2A, 0xFFA531, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NATURE_JELLYFISH_SPAWN_EGG = IcariaItems.register("nature_jellyfish_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.NATURE_JELLYFISH, 0X00B78B, 0x04FFAC, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VOID_JELLYFISH_SPAWN_EGG = IcariaItems.register("void_jellyfish_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.VOID_JELLYFISH, 0X644D91, 0xA080E2, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> WATER_JELLYFISH_SPAWN_EGG = IcariaItems.register("water_jellyfish_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.WATER_JELLYFISH, 0X45A5BD, 0x5AECFE, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MYRMEKE_DRONE_SPAWN_EGG = IcariaItems.register("myrmeke_drone_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.MYRMEKE_DRONE, 0x501814, 0x241E19, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MYRMEKE_SOLDIER_SPAWN_EGG = IcariaItems.register("myrmeke_soldier_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.MYRMEKE_SOLDIER, 0x501814, 0x402816, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> MYRMEKE_QUEEN_SPAWN_EGG = IcariaItems.register("myrmeke_queen_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.MYRMEKE_QUEEN, 0x501814, 0xAB7E17, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CAPTAIN_REVENANT_SPAWN_EGG = IcariaItems.register("captain_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CAPTAIN_REVENANT, 0xCFA919, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CIVILIAN_REVENANT_SPAWN_EGG = IcariaItems.register("civilian_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CIVILIAN_REVENANT, 0x9C9C9C, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CRAWLER_REVENANT_SPAWN_EGG = IcariaItems.register("crawler_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CRAWLER_REVENANT, 0x2D2D19, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> OVERGROWN_REVENANT_SPAWN_EGG = IcariaItems.register("overgrown_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.OVERGROWN_REVENANT, 0x535C32, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> PYROMANCER_REVENANT_SPAWN_EGG = IcariaItems.register("pyromancer_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.PYROMANCER_REVENANT, 0x3C5E26, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> NETHER_PYROMANCER_REVENANT_SPAWN_EGG = IcariaItems.register("nether_pyromancer_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT, 0x5A2017, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SOLDIER_REVENANT_SPAWN_EGG = IcariaItems.register("soldier_revenant_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SOLDIER_REVENANT, 0x6C5757, 0x636363, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SCORPION_SPAWN_EGG = IcariaItems.register("scorpion_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SCORPION, 0x513B24, 0xD8A161, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> CRYSTAL_SLUG_SPAWN_EGG = IcariaItems.register("crystal_slug_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG, 0x24141A, 0x653D48, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> FOREST_SNULL_SPAWN_EGG = IcariaItems.register("forest_snull_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.FOREST_SNULL, 0x291306, 0x53641E, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SNULL_SPAWN_EGG = IcariaItems.register("snull_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SNULL, 0x291306, 0x8D694F, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SOLIFUGAE_SPAWN_EGG = IcariaItems.register("solifugae_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SOLIFUGAE, 0xE0CDBC, 0x91673F, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> SOW_SPAWN_EGG = IcariaItems.register("sow_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.SOW, 0x231A13, 0x6E554B, IcariaItems.propertiesItem()));
-	public static final Supplier<Item> VINEGAROON_SPAWN_EGG = IcariaItems.register("vinegaroon_spawn_egg", () -> new DeferredSpawnEggItem(IcariaEntityTypes.VINEGAROON, 0x382819, 0xC99559, IcariaItems.propertiesItem()));
-
-	public static final Supplier<Item> MEDITERRANEAN_WATER_BUCKET = IcariaItems.register("mediterranean_water_bucket", () -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER.get(), IcariaItems.propertiesItem(1).craftRemainder(Items.BUCKET)));
-
-	public static final Supplier<Item> LEFT_GRINDER_CHAIN = IcariaItems.register("left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STATIC_LEFT_GRINDER_CHAIN = IcariaItems.register("static_left_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> RIGHT_GRINDER_CHAIN = IcariaItems.register("right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
-	public static final Supplier<Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.register("static_right_grinder_chain", () -> new Item(IcariaItems.propertiesItem()));
+	public static final DeferredHolder<Item, Item> GRASSY_MARL = IcariaItems.register("grassy_marl", properties -> new BlockItem(IcariaBlocks.GRASSY_MARL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL = IcariaItems.register("marl", properties -> new BlockItem(IcariaBlocks.MARL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_CHERT = IcariaItems.register("marl_chert", properties -> new BlockItem(IcariaBlocks.MARL_CHERT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SURFACE_CHERT = IcariaItems.register("surface_chert", properties -> new BlockItem(IcariaBlocks.SURFACE_CHERT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_BONES = IcariaItems.register("marl_bones", properties -> new BlockItem(IcariaBlocks.MARL_BONES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SURFACE_BONES = IcariaItems.register("surface_bones", properties -> new BlockItem(IcariaBlocks.SURFACE_BONES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_LIGNITE = IcariaItems.register("marl_lignite", properties -> new BlockItem(IcariaBlocks.MARL_LIGNITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SURFACE_LIGNITE = IcariaItems.register("surface_lignite", properties -> new BlockItem(IcariaBlocks.SURFACE_LIGNITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COARSE_MARL = IcariaItems.register("coarse_marl", properties -> new BlockItem(IcariaBlocks.COARSE_MARL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DRY_LAKE_BED = IcariaItems.register("dry_lake_bed", properties -> new BlockItem(IcariaBlocks.DRY_LAKE_BED.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> FARMLAND = IcariaItems.register("farmland", properties -> new BlockItem(IcariaBlocks.FARMLAND.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FERTILIZED_FARMLAND = IcariaItems.register("fertilized_farmland", properties -> new BlockItem(IcariaBlocks.FERTILIZED_FARMLAND.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> MARL_ADOBE = IcariaItems.register("marl_adobe", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_ADOBE_STAIRS = IcariaItems.register("marl_adobe_stairs", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_ADOBE_SLAB = IcariaItems.register("marl_adobe_slab", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_ADOBE_WALL = IcariaItems.register("marl_adobe_wall", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> LOAM = IcariaItems.register("loam", properties -> new BlockItem(IcariaBlocks.LOAM.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOAM_BRICKS = IcariaItems.register("loam_bricks", properties -> new BlockItem(IcariaBlocks.LOAM_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOAM_BRICK_STAIRS = IcariaItems.register("loam_brick_stairs", properties -> new BlockItem(IcariaBlocks.LOAM_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOAM_BRICK_SLAB = IcariaItems.register("loam_brick_slab", properties -> new BlockItem(IcariaBlocks.LOAM_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOAM_BRICK_WALL = IcariaItems.register("loam_brick_wall", properties -> new BlockItem(IcariaBlocks.LOAM_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> DOLOMITE_ADOBE = IcariaItems.register("dolomite_adobe", properties -> new BlockItem(IcariaBlocks.DOLOMITE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_ADOBE_STAIRS = IcariaItems.register("dolomite_adobe_stairs", properties -> new BlockItem(IcariaBlocks.DOLOMITE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_ADOBE_SLAB = IcariaItems.register("dolomite_adobe_slab", properties -> new BlockItem(IcariaBlocks.DOLOMITE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_ADOBE_WALL = IcariaItems.register("dolomite_adobe_wall", properties -> new BlockItem(IcariaBlocks.DOLOMITE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_DOLOMITE = IcariaItems.register("smooth_dolomite", properties -> new BlockItem(IcariaBlocks.SMOOTH_DOLOMITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_DOLOMITE_STAIRS = IcariaItems.register("smooth_dolomite_stairs", properties -> new BlockItem(IcariaBlocks.SMOOTH_DOLOMITE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_DOLOMITE_SLAB = IcariaItems.register("smooth_dolomite_slab", properties -> new BlockItem(IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_DOLOMITE_WALL = IcariaItems.register("smooth_dolomite_wall", properties -> new BlockItem(IcariaBlocks.SMOOTH_DOLOMITE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_BRICKS = IcariaItems.register("dolomite_bricks", properties -> new BlockItem(IcariaBlocks.DOLOMITE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_DOLOMITE = IcariaItems.register("chiseled_dolomite", properties -> new BlockItem(IcariaBlocks.CHISELED_DOLOMITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR = IcariaItems.register("dolomite_pillar", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> GRAINEL = IcariaItems.register("grainel", properties -> new BlockItem(IcariaBlocks.GRAINEL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINEL_CHERT = IcariaItems.register("grainel_chert", properties -> new BlockItem(IcariaBlocks.GRAINEL_CHERT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINGLASS = IcariaItems.register("grainglass", properties -> new BlockItem(IcariaBlocks.GRAINGLASS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINGLASS_PANE = IcariaItems.register("grainglass_pane", properties -> new BlockItem(IcariaBlocks.GRAINGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HORIZONTAL_GRAINGLASS_PANE = IcariaItems.register("horizontal_grainglass_pane", properties -> new BlockItem(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_ADOBE = IcariaItems.register("grainite_adobe", properties -> new BlockItem(IcariaBlocks.GRAINITE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_ADOBE_STAIRS = IcariaItems.register("grainite_adobe_stairs", properties -> new BlockItem(IcariaBlocks.GRAINITE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_ADOBE_SLAB = IcariaItems.register("grainite_adobe_slab", properties -> new BlockItem(IcariaBlocks.GRAINITE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_ADOBE_WALL = IcariaItems.register("grainite_adobe_wall", properties -> new BlockItem(IcariaBlocks.GRAINITE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE = IcariaItems.register("grainite", properties -> new BlockItem(IcariaBlocks.GRAINITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_STAIRS = IcariaItems.register("grainite_stairs", properties -> new BlockItem(IcariaBlocks.GRAINITE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_SLAB = IcariaItems.register("grainite_slab", properties -> new BlockItem(IcariaBlocks.GRAINITE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_WALL = IcariaItems.register("grainite_wall", properties -> new BlockItem(IcariaBlocks.GRAINITE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_BRICKS = IcariaItems.register("grainite_bricks", properties -> new BlockItem(IcariaBlocks.GRAINITE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_BRICK_STAIRS = IcariaItems.register("grainite_brick_stairs", properties -> new BlockItem(IcariaBlocks.GRAINITE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_BRICK_SLAB = IcariaItems.register("grainite_brick_slab", properties -> new BlockItem(IcariaBlocks.GRAINITE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_BRICK_WALL = IcariaItems.register("grainite_brick_wall", properties -> new BlockItem(IcariaBlocks.GRAINITE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_GRAINITE = IcariaItems.register("chiseled_grainite", properties -> new BlockItem(IcariaBlocks.CHISELED_GRAINITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINITE_RUBBLE = IcariaItems.register("grainite_rubble", properties -> new BlockItem(IcariaBlocks.GRAINITE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_ADOBE = IcariaItems.register("yellowstone_adobe", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_ADOBE_STAIRS = IcariaItems.register("yellowstone_adobe_stairs", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_ADOBE_SLAB = IcariaItems.register("yellowstone_adobe_slab", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_ADOBE_WALL = IcariaItems.register("yellowstone_adobe_wall", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_YELLOWSTONE = IcariaItems.register("cobbled_yellowstone", properties -> new BlockItem(IcariaBlocks.COBBLED_YELLOWSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_YELLOWSTONE_STAIRS = IcariaItems.register("cobbled_yellowstone_stairs", properties -> new BlockItem(IcariaBlocks.COBBLED_YELLOWSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_YELLOWSTONE_SLAB = IcariaItems.register("cobbled_yellowstone_slab", properties -> new BlockItem(IcariaBlocks.COBBLED_YELLOWSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_YELLOWSTONE_WALL = IcariaItems.register("cobbled_yellowstone_wall", properties -> new BlockItem(IcariaBlocks.COBBLED_YELLOWSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE = IcariaItems.register("yellowstone", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_STAIRS = IcariaItems.register("yellowstone_stairs", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_SLAB = IcariaItems.register("yellowstone_slab", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_WALL = IcariaItems.register("yellowstone_wall", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_BRICKS = IcariaItems.register("yellowstone_bricks", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_BRICK_STAIRS = IcariaItems.register("yellowstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_BRICK_SLAB = IcariaItems.register("yellowstone_brick_slab", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_BRICK_WALL = IcariaItems.register("yellowstone_brick_wall", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_YELLOWSTONE = IcariaItems.register("chiseled_yellowstone", properties -> new BlockItem(IcariaBlocks.CHISELED_YELLOWSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_RUBBLE = IcariaItems.register("yellowstone_rubble", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> SILKSAND = IcariaItems.register("silksand", properties -> new BlockItem(IcariaBlocks.SILKSAND.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKGLASS = IcariaItems.register("silkglass", properties -> new BlockItem(IcariaBlocks.SILKGLASS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKGLASS_PANE = IcariaItems.register("silkglass_pane", properties -> new BlockItem(IcariaBlocks.SILKGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HORIZONTAL_SILKGLASS_PANE = IcariaItems.register("horizontal_silkglass_pane", properties -> new BlockItem(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_ADOBE = IcariaItems.register("silkstone_adobe", properties -> new BlockItem(IcariaBlocks.SILKSTONE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_ADOBE_STAIRS = IcariaItems.register("silkstone_adobe_stairs", properties -> new BlockItem(IcariaBlocks.SILKSTONE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_ADOBE_SLAB = IcariaItems.register("silkstone_adobe_slab", properties -> new BlockItem(IcariaBlocks.SILKSTONE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_ADOBE_WALL = IcariaItems.register("silkstone_adobe_wall", properties -> new BlockItem(IcariaBlocks.SILKSTONE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SILKSTONE = IcariaItems.register("cobbled_silkstone", properties -> new BlockItem(IcariaBlocks.COBBLED_SILKSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SILKSTONE_STAIRS = IcariaItems.register("cobbled_silkstone_stairs", properties -> new BlockItem(IcariaBlocks.COBBLED_SILKSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SILKSTONE_SLAB = IcariaItems.register("cobbled_silkstone_slab", properties -> new BlockItem(IcariaBlocks.COBBLED_SILKSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SILKSTONE_WALL = IcariaItems.register("cobbled_silkstone_wall", properties -> new BlockItem(IcariaBlocks.COBBLED_SILKSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE = IcariaItems.register("silkstone", properties -> new BlockItem(IcariaBlocks.SILKSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_STAIRS = IcariaItems.register("silkstone_stairs", properties -> new BlockItem(IcariaBlocks.SILKSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_SLAB = IcariaItems.register("silkstone_slab", properties -> new BlockItem(IcariaBlocks.SILKSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_WALL = IcariaItems.register("silkstone_wall", properties -> new BlockItem(IcariaBlocks.SILKSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_BRICKS = IcariaItems.register("silkstone_bricks", properties -> new BlockItem(IcariaBlocks.SILKSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_BRICK_STAIRS = IcariaItems.register("silkstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.SILKSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_BRICK_SLAB = IcariaItems.register("silkstone_brick_slab", properties -> new BlockItem(IcariaBlocks.SILKSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_BRICK_WALL = IcariaItems.register("silkstone_brick_wall", properties -> new BlockItem(IcariaBlocks.SILKSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_SILKSTONE = IcariaItems.register("chiseled_silkstone", properties -> new BlockItem(IcariaBlocks.CHISELED_SILKSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSTONE_RUBBLE = IcariaItems.register("silkstone_rubble", properties -> new BlockItem(IcariaBlocks.SILKSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> SUNSTONE_ADOBE = IcariaItems.register("sunstone_adobe", properties -> new BlockItem(IcariaBlocks.SUNSTONE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_ADOBE_STAIRS = IcariaItems.register("sunstone_adobe_stairs", properties -> new BlockItem(IcariaBlocks.SUNSTONE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_ADOBE_SLAB = IcariaItems.register("sunstone_adobe_slab", properties -> new BlockItem(IcariaBlocks.SUNSTONE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_ADOBE_WALL = IcariaItems.register("sunstone_adobe_wall", properties -> new BlockItem(IcariaBlocks.SUNSTONE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SUNSTONE = IcariaItems.register("cobbled_sunstone", properties -> new BlockItem(IcariaBlocks.COBBLED_SUNSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SUNSTONE_STAIRS = IcariaItems.register("cobbled_sunstone_stairs", properties -> new BlockItem(IcariaBlocks.COBBLED_SUNSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SUNSTONE_SLAB = IcariaItems.register("cobbled_sunstone_slab", properties -> new BlockItem(IcariaBlocks.COBBLED_SUNSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_SUNSTONE_WALL = IcariaItems.register("cobbled_sunstone_wall", properties -> new BlockItem(IcariaBlocks.COBBLED_SUNSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE = IcariaItems.register("sunstone", properties -> new BlockItem(IcariaBlocks.SUNSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_STAIRS = IcariaItems.register("sunstone_stairs", properties -> new BlockItem(IcariaBlocks.SUNSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_SLAB = IcariaItems.register("sunstone_slab", properties -> new BlockItem(IcariaBlocks.SUNSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_WALL = IcariaItems.register("sunstone_wall", properties -> new BlockItem(IcariaBlocks.SUNSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_BRICKS = IcariaItems.register("sunstone_bricks", properties -> new BlockItem(IcariaBlocks.SUNSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_BRICK_STAIRS = IcariaItems.register("sunstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.SUNSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_BRICK_SLAB = IcariaItems.register("sunstone_brick_slab", properties -> new BlockItem(IcariaBlocks.SUNSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_BRICK_WALL = IcariaItems.register("sunstone_brick_wall", properties -> new BlockItem(IcariaBlocks.SUNSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_SUNSTONE = IcariaItems.register("chiseled_sunstone", properties -> new BlockItem(IcariaBlocks.CHISELED_SUNSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSTONE_RUBBLE = IcariaItems.register("sunstone_rubble", properties -> new BlockItem(IcariaBlocks.SUNSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> VOIDSHALE_ADOBE = IcariaItems.register("voidshale_adobe", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_ADOBE_STAIRS = IcariaItems.register("voidshale_adobe_stairs", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_ADOBE_SLAB = IcariaItems.register("voidshale_adobe_slab", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_ADOBE_WALL = IcariaItems.register("voidshale_adobe_wall", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_VOIDSHALE = IcariaItems.register("cobbled_voidshale", properties -> new BlockItem(IcariaBlocks.COBBLED_VOIDSHALE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_VOIDSHALE_STAIRS = IcariaItems.register("cobbled_voidshale_stairs", properties -> new BlockItem(IcariaBlocks.COBBLED_VOIDSHALE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_VOIDSHALE_SLAB = IcariaItems.register("cobbled_voidshale_slab", properties -> new BlockItem(IcariaBlocks.COBBLED_VOIDSHALE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_VOIDSHALE_WALL = IcariaItems.register("cobbled_voidshale_wall", properties -> new BlockItem(IcariaBlocks.COBBLED_VOIDSHALE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE = IcariaItems.register("voidshale", properties -> new BlockItem(IcariaBlocks.VOIDSHALE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_STAIRS = IcariaItems.register("voidshale_stairs", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_SLAB = IcariaItems.register("voidshale_slab", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_WALL = IcariaItems.register("voidshale_wall", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_BRICKS = IcariaItems.register("voidshale_bricks", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_BRICK_STAIRS = IcariaItems.register("voidshale_brick_stairs", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_BRICK_SLAB = IcariaItems.register("voidshale_brick_slab", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_BRICK_WALL = IcariaItems.register("voidshale_brick_wall", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_VOIDSHALE = IcariaItems.register("chiseled_voidshale", properties -> new BlockItem(IcariaBlocks.CHISELED_VOIDSHALE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDSHALE_RUBBLE = IcariaItems.register("voidshale_rubble", properties -> new BlockItem(IcariaBlocks.VOIDSHALE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> BAETYL_ADOBE = IcariaItems.register("baetyl_adobe", properties -> new BlockItem(IcariaBlocks.BAETYL_ADOBE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_ADOBE_STAIRS = IcariaItems.register("baetyl_adobe_stairs", properties -> new BlockItem(IcariaBlocks.BAETYL_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_ADOBE_SLAB = IcariaItems.register("baetyl_adobe_slab", properties -> new BlockItem(IcariaBlocks.BAETYL_ADOBE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_ADOBE_WALL = IcariaItems.register("baetyl_adobe_wall", properties -> new BlockItem(IcariaBlocks.BAETYL_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_BAETYL = IcariaItems.register("cobbled_baetyl", properties -> new BlockItem(IcariaBlocks.COBBLED_BAETYL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_BAETYL_STAIRS = IcariaItems.register("cobbled_baetyl_stairs", properties -> new BlockItem(IcariaBlocks.COBBLED_BAETYL_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_BAETYL_SLAB = IcariaItems.register("cobbled_baetyl_slab", properties -> new BlockItem(IcariaBlocks.COBBLED_BAETYL_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> COBBLED_BAETYL_WALL = IcariaItems.register("cobbled_baetyl_wall", properties -> new BlockItem(IcariaBlocks.COBBLED_BAETYL_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL = IcariaItems.register("baetyl", properties -> new BlockItem(IcariaBlocks.BAETYL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_STAIRS = IcariaItems.register("baetyl_stairs", properties -> new BlockItem(IcariaBlocks.BAETYL_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_SLAB = IcariaItems.register("baetyl_slab", properties -> new BlockItem(IcariaBlocks.BAETYL_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_WALL = IcariaItems.register("baetyl_wall", properties -> new BlockItem(IcariaBlocks.BAETYL_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_BRICKS = IcariaItems.register("baetyl_bricks", properties -> new BlockItem(IcariaBlocks.BAETYL_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_BRICK_STAIRS = IcariaItems.register("baetyl_brick_stairs", properties -> new BlockItem(IcariaBlocks.BAETYL_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_BRICK_SLAB = IcariaItems.register("baetyl_brick_slab", properties -> new BlockItem(IcariaBlocks.BAETYL_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_BRICK_WALL = IcariaItems.register("baetyl_brick_wall", properties -> new BlockItem(IcariaBlocks.BAETYL_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_BAETYL = IcariaItems.register("chiseled_baetyl", properties -> new BlockItem(IcariaBlocks.CHISELED_BAETYL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BAETYL_RUBBLE = IcariaItems.register("baetyl_rubble", properties -> new BlockItem(IcariaBlocks.BAETYL_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> RELICSTONE = IcariaItems.register("relicstone", properties -> new BlockItem(IcariaBlocks.RELICSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_STAIRS = IcariaItems.register("relicstone_stairs", properties -> new BlockItem(IcariaBlocks.RELICSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_SLAB = IcariaItems.register("relicstone_slab", properties -> new BlockItem(IcariaBlocks.RELICSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_WALL = IcariaItems.register("relicstone_wall", properties -> new BlockItem(IcariaBlocks.RELICSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_RELICSTONE = IcariaItems.register("smooth_relicstone", properties -> new BlockItem(IcariaBlocks.SMOOTH_RELICSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_RELICSTONE_STAIRS = IcariaItems.register("smooth_relicstone_stairs", properties -> new BlockItem(IcariaBlocks.SMOOTH_RELICSTONE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_RELICSTONE_SLAB = IcariaItems.register("smooth_relicstone_slab", properties -> new BlockItem(IcariaBlocks.SMOOTH_RELICSTONE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMOOTH_RELICSTONE_WALL = IcariaItems.register("smooth_relicstone_wall", properties -> new BlockItem(IcariaBlocks.SMOOTH_RELICSTONE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_BRICKS = IcariaItems.register("relicstone_bricks", properties -> new BlockItem(IcariaBlocks.RELICSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_BRICK_STAIRS = IcariaItems.register("relicstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.RELICSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_BRICK_SLAB = IcariaItems.register("relicstone_brick_slab", properties -> new BlockItem(IcariaBlocks.RELICSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_BRICK_WALL = IcariaItems.register("relicstone_brick_wall", properties -> new BlockItem(IcariaBlocks.RELICSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_BRICKS = IcariaItems.register("cracked_relicstone_bricks", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_BRICK_STAIRS = IcariaItems.register("cracked_relicstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_BRICK_SLAB = IcariaItems.register("cracked_relicstone_brick_slab", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_BRICK_WALL = IcariaItems.register("cracked_relicstone_brick_wall", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_BRICKS = IcariaItems.register("mossy_relicstone_bricks", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_BRICK_STAIRS = IcariaItems.register("mossy_relicstone_brick_stairs", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_BRICK_SLAB = IcariaItems.register("mossy_relicstone_brick_slab", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_BRICK_WALL = IcariaItems.register("mossy_relicstone_brick_wall", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_TILES = IcariaItems.register("relicstone_tiles", properties -> new BlockItem(IcariaBlocks.RELICSTONE_TILES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_TILE_STAIRS = IcariaItems.register("relicstone_tile_stairs", properties -> new BlockItem(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_TILE_SLAB = IcariaItems.register("relicstone_tile_slab", properties -> new BlockItem(IcariaBlocks.RELICSTONE_TILE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_TILE_WALL = IcariaItems.register("relicstone_tile_wall", properties -> new BlockItem(IcariaBlocks.RELICSTONE_TILE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_TILES = IcariaItems.register("cracked_relicstone_tiles", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_TILE_STAIRS = IcariaItems.register("cracked_relicstone_tile_stairs", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_TILE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_TILE_SLAB = IcariaItems.register("cracked_relicstone_tile_slab", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_TILE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CRACKED_RELICSTONE_TILE_WALL = IcariaItems.register("cracked_relicstone_tile_wall", properties -> new BlockItem(IcariaBlocks.CRACKED_RELICSTONE_TILE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILES = IcariaItems.register("mossy_relicstone_tiles", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILE_STAIRS = IcariaItems.register("mossy_relicstone_tile_stairs", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILE_SLAB = IcariaItems.register("mossy_relicstone_tile_slab", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILE_WALL = IcariaItems.register("mossy_relicstone_tile_wall", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_RELICSTONE = IcariaItems.register("chiseled_relicstone", properties -> new BlockItem(IcariaBlocks.CHISELED_RELICSTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR = IcariaItems.register("relicstone_pillar", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_RUBBLE = IcariaItems.register("relicstone_rubble", properties -> new BlockItem(IcariaBlocks.RELICSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> PLATOSHALE = IcariaItems.register("platoshale", properties -> new BlockItem(IcariaBlocks.PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_STAIRS = IcariaItems.register("platoshale_stairs", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_SLAB = IcariaItems.register("platoshale_slab", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_WALL = IcariaItems.register("platoshale_wall", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLURRED_PLATOSHALE = IcariaItems.register("blurred_platoshale", properties -> new BlockItem(IcariaBlocks.BLURRED_PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_BRICKS = IcariaItems.register("platoshale_bricks", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_BRICK_STAIRS = IcariaItems.register("platoshale_brick_stairs", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_BRICK_SLAB = IcariaItems.register("platoshale_brick_slab", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATOSHALE_BRICK_WALL = IcariaItems.register("platoshale_brick_wall", properties -> new BlockItem(IcariaBlocks.PLATOSHALE_BRICK_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLURRED_PLATOSHALE_BRICKS = IcariaItems.register("blurred_platoshale_bricks", properties -> new BlockItem(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHISELED_PLATOSHALE = IcariaItems.register("chiseled_platoshale", properties -> new BlockItem(IcariaBlocks.CHISELED_PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", properties -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> LIGNITE_ORE = IcariaItems.register("lignite_ore", properties -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHALKOS_ORE = IcariaItems.register("chalkos_ore", properties -> new BlockItem(IcariaBlocks.CHALKOS_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> KASSITEROS_ORE = IcariaItems.register("kassiteros_ore", properties -> new BlockItem(IcariaBlocks.KASSITEROS_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_ORE = IcariaItems.register("dolomite_ore", properties -> new BlockItem(IcariaBlocks.DOLOMITE_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VANADIUM_ORE = IcariaItems.register("vanadium_ore", properties -> new BlockItem(IcariaBlocks.VANADIUM_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SLIVER_ORE = IcariaItems.register("sliver_ore", properties -> new BlockItem(IcariaBlocks.SLIVER_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIDEROS_ORE = IcariaItems.register("sideros_ore", properties -> new BlockItem(IcariaBlocks.SIDEROS_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ANTHRACITE_ORE = IcariaItems.register("anthracite_ore", properties -> new BlockItem(IcariaBlocks.ANTHRACITE_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOLYBDENUM_ORE = IcariaItems.register("molybdenum_ore", properties -> new BlockItem(IcariaBlocks.MOLYBDENUM_ORE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HYLIASTRUM_ORE = IcariaItems.register("hyliastrum_ore", properties -> new BlockItem(IcariaBlocks.HYLIASTRUM_ORE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> CALCITE = IcariaItems.register("calcite", properties -> new BlockItem(IcariaBlocks.CALCITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BUDDING_CALCITE = IcariaItems.register("budding_calcite", properties -> new BlockItem(IcariaBlocks.BUDDING_CALCITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HALITE = IcariaItems.register("halite", properties -> new BlockItem(IcariaBlocks.HALITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BUDDING_HALITE = IcariaItems.register("budding_halite", properties -> new BlockItem(IcariaBlocks.BUDDING_HALITE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> JASPER = IcariaItems.register("jasper", properties -> new BlockItem(IcariaBlocks.JASPER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BUDDING_JASPER = IcariaItems.register("budding_jasper", properties -> new BlockItem(IcariaBlocks.BUDDING_JASPER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ZIRCON = IcariaItems.register("zircon", properties -> new BlockItem(IcariaBlocks.ZIRCON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BUDDING_ZIRCON = IcariaItems.register("budding_zircon", properties -> new BlockItem(IcariaBlocks.BUDDING_ZIRCON.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> CALCITE_CRYSTAL = IcariaItems.register("calcite_crystal", properties -> new BlockItem(IcariaBlocks.CALCITE_CRYSTAL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HALITE_CRYSTAL = IcariaItems.register("halite_crystal", properties -> new BlockItem(IcariaBlocks.HALITE_CRYSTAL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> JASPER_CRYSTAL = IcariaItems.register("jasper_crystal", properties -> new BlockItem(IcariaBlocks.JASPER_CRYSTAL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ZIRCON_CRYSTAL = IcariaItems.register("zircon_crystal", properties -> new BlockItem(IcariaBlocks.ZIRCON_CRYSTAL.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> ARISTONE = IcariaItems.register("aristone", properties -> new BlockItem(IcariaBlocks.ARISTONE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PACKED_ARISTONE = IcariaItems.register("packed_aristone", properties -> new BlockItem(IcariaBlocks.PACKED_ARISTONE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> ENDER_JELLYFISH_JELLY_BLOCK = IcariaItems.register("ender_jellyfish_jelly_block", properties -> new BlockItem(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIRE_JELLYFISH_JELLY_BLOCK = IcariaItems.register("fire_jellyfish_jelly_block", properties -> new BlockItem(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> NATURE_JELLYFISH_JELLY_BLOCK = IcariaItems.register("nature_jellyfish_jelly_block", properties -> new BlockItem(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOID_JELLYFISH_JELLY_BLOCK = IcariaItems.register("void_jellyfish_jelly_block", properties -> new BlockItem(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> WATER_JELLYFISH_JELLY_BLOCK = IcariaItems.register("water_jellyfish_jelly_block", properties -> new BlockItem(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ARACHNE_STRING_BLOCK = IcariaItems.register("arachne_string_block", properties -> new BlockItem(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SPELT_BALE_BLOCK = IcariaItems.register("spelt_bale_block", properties -> new BlockItem(IcariaBlocks.SPELT_BALE_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VINE_REED_BLOCK = IcariaItems.register("vine_reed_block", properties -> new BlockItem(IcariaBlocks.VINE_REED_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ROTTEN_BONES_BLOCK = IcariaItems.register("rotten_bones_block", properties -> new BlockItem(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> RAW_CHALKOS_BLOCK = IcariaItems.register("raw_chalkos_block", properties -> new BlockItem(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RAW_KASSITEROS_BLOCK = IcariaItems.register("raw_kassiteros_block", properties -> new BlockItem(IcariaBlocks.RAW_KASSITEROS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RAW_VANADIUM_BLOCK = IcariaItems.register("raw_vanadium_block", properties -> new BlockItem(IcariaBlocks.RAW_VANADIUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RAW_SIDEROS_BLOCK = IcariaItems.register("raw_sideros_block", properties -> new BlockItem(IcariaBlocks.RAW_SIDEROS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RAW_MOLYBDENUM_BLOCK = IcariaItems.register("raw_molybdenum_block", properties -> new BlockItem(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> CALCITE_BLOCK = IcariaItems.register("calcite_block", properties -> new BlockItem(IcariaBlocks.CALCITE_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HALITE_BLOCK = IcariaItems.register("halite_block", properties -> new BlockItem(IcariaBlocks.HALITE_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> JASPER_BLOCK = IcariaItems.register("jasper_block", properties -> new BlockItem(IcariaBlocks.JASPER_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ZIRCON_BLOCK = IcariaItems.register("zircon_block", properties -> new BlockItem(IcariaBlocks.ZIRCON_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHERT_BLOCK = IcariaItems.register("chert_block", properties -> new BlockItem(IcariaBlocks.CHERT_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LIGNITE_BLOCK = IcariaItems.register("lignite_block", properties -> new BlockItem(IcariaBlocks.LIGNITE_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHALKOS_BLOCK = IcariaItems.register("chalkos_block", properties -> new BlockItem(IcariaBlocks.CHALKOS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> KASSITEROS_BLOCK = IcariaItems.register("kassiteros_block", properties -> new BlockItem(IcariaBlocks.KASSITEROS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_BLOCK = IcariaItems.register("orichalcum_block", properties -> new BlockItem(IcariaBlocks.ORICHALCUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VANADIUM_BLOCK = IcariaItems.register("vanadium_block", properties -> new BlockItem(IcariaBlocks.VANADIUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SLIVER_BLOCK = IcariaItems.register("sliver_block", properties -> new BlockItem(IcariaBlocks.SLIVER_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BLOCK = IcariaItems.register("vanadiumsteel_block", properties -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIDEROS_BLOCK = IcariaItems.register("sideros_block", properties -> new BlockItem(IcariaBlocks.SIDEROS_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ANTHRACITE_BLOCK = IcariaItems.register("anthracite_block", properties -> new BlockItem(IcariaBlocks.ANTHRACITE_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOLYBDENUM_BLOCK = IcariaItems.register("molybdenum_block", properties -> new BlockItem(IcariaBlocks.MOLYBDENUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_BLOCK = IcariaItems.register("molybdenumsteel_block", properties -> new BlockItem(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLURIDIUM_BLOCK = IcariaItems.register("bluridium_block", properties -> new BlockItem(IcariaBlocks.BLURIDIUM_BLOCK.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BARS = IcariaItems.register("vanadiumsteel_bars", properties -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_BARS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> HORIZONTAL_VANADIUMSTEEL_BARS = IcariaItems.register("horizontal_vanadiumsteel_bars", properties -> new BlockItem(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_CHAIN = IcariaItems.register("vanadiumsteel_chain", properties -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> KETTLE = IcariaItems.register("kettle", properties -> new BlockItem(IcariaBlocks.KETTLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRINDER = IcariaItems.register("grinder", properties -> new BlockItem(IcariaBlocks.GRINDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> KILN = IcariaItems.register("kiln", properties -> new BlockItem(IcariaBlocks.KILN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FORGE = IcariaItems.register("forge", properties -> new BlockItem(IcariaBlocks.FORGE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> CHEST = IcariaItems.register("chest", properties -> new IcariaChestItem(IcariaBlocks.CHEST.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRAPPED_CHEST = IcariaItems.register("trapped_chest", properties -> new IcariaChestItem(IcariaBlocks.TRAPPED_CHEST.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> STORAGE_VASE = IcariaItems.register("storage_vase", properties -> new BlockItem(IcariaBlocks.STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> WHITE_STORAGE_VASE = IcariaItems.register("white_storage_vase", properties -> new BlockItem(IcariaBlocks.WHITE_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LIGHT_GRAY_STORAGE_VASE = IcariaItems.register("light_gray_storage_vase", properties -> new BlockItem(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAY_STORAGE_VASE = IcariaItems.register("gray_storage_vase", properties -> new BlockItem(IcariaBlocks.GRAY_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLACK_STORAGE_VASE = IcariaItems.register("black_storage_vase", properties -> new BlockItem(IcariaBlocks.BLACK_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BROWN_STORAGE_VASE = IcariaItems.register("brown_storage_vase", properties -> new BlockItem(IcariaBlocks.BROWN_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RED_STORAGE_VASE = IcariaItems.register("red_storage_vase", properties -> new BlockItem(IcariaBlocks.RED_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ORANGE_STORAGE_VASE = IcariaItems.register("orange_storage_vase", properties -> new BlockItem(IcariaBlocks.ORANGE_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOW_STORAGE_VASE = IcariaItems.register("yellow_storage_vase", properties -> new BlockItem(IcariaBlocks.YELLOW_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LIME_STORAGE_VASE = IcariaItems.register("lime_storage_vase", properties -> new BlockItem(IcariaBlocks.LIME_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GREEN_STORAGE_VASE = IcariaItems.register("green_storage_vase", properties -> new BlockItem(IcariaBlocks.GREEN_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYAN_STORAGE_VASE = IcariaItems.register("cyan_storage_vase", properties -> new BlockItem(IcariaBlocks.CYAN_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LIGHT_BLUE_STORAGE_VASE = IcariaItems.register("light_blue_storage_vase", properties -> new BlockItem(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLUE_STORAGE_VASE = IcariaItems.register("blue_storage_vase", properties -> new BlockItem(IcariaBlocks.BLUE_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_STORAGE_VASE = IcariaItems.register("purple_storage_vase", properties -> new BlockItem(IcariaBlocks.PURPLE_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MAGENTA_STORAGE_VASE = IcariaItems.register("magenta_storage_vase", properties -> new BlockItem(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PINK_STORAGE_VASE = IcariaItems.register("pink_storage_vase", properties -> new BlockItem(IcariaBlocks.PINK_STORAGE_VASE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> RED_LOOT_VASE = IcariaItems.register("red_loot_vase", properties -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOST_LOOT_VASE = IcariaItems.register("lost_loot_vase", properties -> new BlockItem(IcariaBlocks.LOST_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYAN_LOOT_VASE = IcariaItems.register("cyan_loot_vase", properties -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", properties -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> REVENANT_SPAWNER = IcariaItems.register("revenant_spawner", properties -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", properties -> new IcariaSkullItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", properties -> new IcariaSkullItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> CAPELLA_SKULL = IcariaItems.register("capella_skull", properties -> new IcariaSkullItem(IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> CATOBLEPAS_SKULL = IcariaItems.register("catoblepas_skull", properties -> new IcariaSkullItem(IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> CERVER_SKULL = IcariaItems.register("cerver_skull", properties -> new IcariaSkullItem(IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> CROCOTTA_SKULL = IcariaItems.register("crocotta_skull", properties -> new IcariaSkullItem(IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> CYPRESS_FOREST_HAG_SKULL = IcariaItems.register("cypress_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FOREST_HAG_SKULL = IcariaItems.register("droughtroot_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> FIR_FOREST_HAG_SKULL = IcariaItems.register("fir_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> LAUREL_FOREST_HAG_SKULL = IcariaItems.register("laurel_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> OLIVE_FOREST_HAG_SKULL = IcariaItems.register("olive_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> PLANE_FOREST_HAG_SKULL = IcariaItems.register("plane_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> POPULUS_FOREST_HAG_SKULL = IcariaItems.register("populus_forest_hag_skull", properties -> new IcariaSkullItem(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> REVENANT_SKULL = IcariaItems.register("revenant_skull", properties -> new IcariaSkullItem(IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+	public static final DeferredHolder<Item, Item> SOW_SKULL = IcariaItems.register("sow_skull", properties -> new IcariaSkullItem(IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
+
+	public static final DeferredHolder<Item, Item> LIGNITE_TORCH = IcariaItems.register("lignite_torch", properties -> new StandingAndWallBlockItem(IcariaBlocks.LIGNITE_TORCH.get(), IcariaBlocks.LIGNITE_WALL_TORCH.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ANTHRACITE_TORCH = IcariaItems.register("anthracite_torch", properties -> new StandingAndWallBlockItem(IcariaBlocks.ANTHRACITE_TORCH.get(), IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> LAUREL_CHERRY_CAKE = IcariaItems.register("laurel_cherry_cake", properties -> new BlockItem(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+	public static final DeferredHolder<Item, Item> STRAWBERRY_CAKE = IcariaItems.register("strawberry_cake", properties -> new BlockItem(IcariaBlocks.STRAWBERRY_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+	public static final DeferredHolder<Item, Item> PHYSALIS_CAKE = IcariaItems.register("physalis_cake", properties -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+	public static final DeferredHolder<Item, Item> VINE_BERRY_CAKE = IcariaItems.register("vine_berry_cake", properties -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+	public static final DeferredHolder<Item, Item> VINE_SPROUT_CAKE = IcariaItems.register("vine_sprout_cake", properties -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+
+	public static final DeferredHolder<Item, Item> CYPRESS_SAPLING = IcariaItems.register("cypress_sapling", properties -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_LEAVES = IcariaItems.register("cypress_leaves", properties -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_CYPRESS_LEAVES = IcariaItems.register("fallen_cypress_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_TWIGS = IcariaItems.register("cypress_twigs", properties -> new BlockItem(IcariaBlocks.CYPRESS_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_WOOD = IcariaItems.register("cypress_wood", properties -> new BlockItem(IcariaBlocks.CYPRESS_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_CYPRESS_WOOD = IcariaItems.register("stripped_cypress_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_LOG = IcariaItems.register("cypress_log", properties -> new BlockItem(IcariaBlocks.CYPRESS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_CYPRESS_LOG = IcariaItems.register("stripped_cypress_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_CYPRESS_LOG = IcariaItems.register("dead_cypress_log", properties -> new BlockItem(IcariaBlocks.DEAD_CYPRESS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_CYPRESS_LOG = IcariaItems.register("stripped_dead_cypress_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_PLANKS = IcariaItems.register("cypress_planks", properties -> new BlockItem(IcariaBlocks.CYPRESS_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_STAIRS = IcariaItems.register("cypress_stairs", properties -> new BlockItem(IcariaBlocks.CYPRESS_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_SLAB = IcariaItems.register("cypress_slab", properties -> new BlockItem(IcariaBlocks.CYPRESS_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_FENCE = IcariaItems.register("cypress_fence", properties -> new BlockItem(IcariaBlocks.CYPRESS_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_FENCE_GATE = IcariaItems.register("cypress_fence_gate", properties -> new BlockItem(IcariaBlocks.CYPRESS_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_CYPRESS_RACK = IcariaItems.register("simple_cypress_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_RACK = IcariaItems.register("cypress_rack", properties -> new BlockItem(IcariaBlocks.CYPRESS_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_BARREL = IcariaItems.register("cypress_barrel", properties -> new BlockItem(IcariaBlocks.CYPRESS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_CYPRESS_BARREL = IcariaItems.register("loaded_cypress_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_CYPRESS_BARREL = IcariaItems.register("tapped_cypress_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_CYPRESS_BARREL_RACK = IcariaItems.register("triple_cypress_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_TROUGH = IcariaItems.register("cypress_trough", properties -> new BlockItem(IcariaBlocks.CYPRESS_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_CRAFTING_TABLE = IcariaItems.register("cypress_crafting_table", properties -> new BlockItem(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_DOOR = IcariaItems.register("cypress_door", properties -> new BlockItem(IcariaBlocks.CYPRESS_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_TRAPDOOR = IcariaItems.register("cypress_trapdoor", properties -> new BlockItem(IcariaBlocks.CYPRESS_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_PRESSURE_PLATE = IcariaItems.register("cypress_pressure_plate", properties -> new BlockItem(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_BUTTON = IcariaItems.register("cypress_button", properties -> new BlockItem(IcariaBlocks.CYPRESS_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_LADDER = IcariaItems.register("cypress_ladder", properties -> new BlockItem(IcariaBlocks.CYPRESS_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_SIGN = IcariaItems.register("cypress_sign", properties -> new IcariaSignItem(IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> CYPRESS_HANGING_SIGN = IcariaItems.register("cypress_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_SAPLING = IcariaItems.register("droughtroot_sapling", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_LEAVES = IcariaItems.register("droughtroot_leaves", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_DROUGHTROOT_LEAVES = IcariaItems.register("fallen_droughtroot_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_TWIGS = IcariaItems.register("droughtroot_twigs", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_WOOD = IcariaItems.register("droughtroot_wood", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DROUGHTROOT_WOOD = IcariaItems.register("stripped_droughtroot_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_LOG = IcariaItems.register("droughtroot_log", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DROUGHTROOT_LOG = IcariaItems.register("stripped_droughtroot_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_DROUGHTROOT_LOG = IcariaItems.register("dead_droughtroot_log", properties -> new BlockItem(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_DROUGHTROOT_LOG = IcariaItems.register("stripped_dead_droughtroot_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_PLANKS = IcariaItems.register("droughtroot_planks", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_STAIRS = IcariaItems.register("droughtroot_stairs", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_SLAB = IcariaItems.register("droughtroot_slab", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FENCE = IcariaItems.register("droughtroot_fence", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FENCE_GATE = IcariaItems.register("droughtroot_fence_gate", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_DROUGHTROOT_RACK = IcariaItems.register("simple_droughtroot_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_RACK = IcariaItems.register("droughtroot_rack", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_BARREL = IcariaItems.register("droughtroot_barrel", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_DROUGHTROOT_BARREL = IcariaItems.register("loaded_droughtroot_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_DROUGHTROOT_BARREL = IcariaItems.register("tapped_droughtroot_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_DROUGHTROOT_BARREL_RACK = IcariaItems.register("triple_droughtroot_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_TROUGH = IcariaItems.register("droughtroot_trough", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_CRAFTING_TABLE = IcariaItems.register("droughtroot_crafting_table", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_DOOR = IcariaItems.register("droughtroot_door", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_TRAPDOOR = IcariaItems.register("droughtroot_trapdoor", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_PRESSURE_PLATE = IcariaItems.register("droughtroot_pressure_plate", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_BUTTON = IcariaItems.register("droughtroot_button", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_LADDER = IcariaItems.register("droughtroot_ladder", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_SIGN = IcariaItems.register("droughtroot_sign", properties -> new IcariaSignItem(IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_HANGING_SIGN = IcariaItems.register("droughtroot_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> FIR_SAPLING = IcariaItems.register("fir_sapling", properties -> new BlockItem(IcariaBlocks.FIR_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_LEAVES = IcariaItems.register("fir_leaves", properties -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_FIR_LEAVES = IcariaItems.register("fallen_fir_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_FIR_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_TWIGS = IcariaItems.register("fir_twigs", properties -> new BlockItem(IcariaBlocks.FIR_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_WOOD = IcariaItems.register("fir_wood", properties -> new BlockItem(IcariaBlocks.FIR_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_FIR_WOOD = IcariaItems.register("stripped_fir_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_FIR_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_LOG = IcariaItems.register("fir_log", properties -> new BlockItem(IcariaBlocks.FIR_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_FIR_LOG = IcariaItems.register("stripped_fir_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_FIR_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_FIR_LOG = IcariaItems.register("dead_fir_log", properties -> new BlockItem(IcariaBlocks.DEAD_FIR_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_FIR_LOG = IcariaItems.register("stripped_dead_fir_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_PLANKS = IcariaItems.register("fir_planks", properties -> new BlockItem(IcariaBlocks.FIR_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_STAIRS = IcariaItems.register("fir_stairs", properties -> new BlockItem(IcariaBlocks.FIR_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_SLAB = IcariaItems.register("fir_slab", properties -> new BlockItem(IcariaBlocks.FIR_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_FENCE = IcariaItems.register("fir_fence", properties -> new BlockItem(IcariaBlocks.FIR_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_FENCE_GATE = IcariaItems.register("fir_fence_gate", properties -> new BlockItem(IcariaBlocks.FIR_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_FIR_RACK = IcariaItems.register("simple_fir_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_FIR_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_RACK = IcariaItems.register("fir_rack", properties -> new BlockItem(IcariaBlocks.FIR_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_BARREL = IcariaItems.register("fir_barrel", properties -> new BlockItem(IcariaBlocks.FIR_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_FIR_BARREL = IcariaItems.register("loaded_fir_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_FIR_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_FIR_BARREL = IcariaItems.register("tapped_fir_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_FIR_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_FIR_BARREL_RACK = IcariaItems.register("triple_fir_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_TROUGH = IcariaItems.register("fir_trough", properties -> new BlockItem(IcariaBlocks.FIR_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_CRAFTING_TABLE = IcariaItems.register("fir_crafting_table", properties -> new BlockItem(IcariaBlocks.FIR_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_DOOR = IcariaItems.register("fir_door", properties -> new BlockItem(IcariaBlocks.FIR_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_TRAPDOOR = IcariaItems.register("fir_trapdoor", properties -> new BlockItem(IcariaBlocks.FIR_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_PRESSURE_PLATE = IcariaItems.register("fir_pressure_plate", properties -> new BlockItem(IcariaBlocks.FIR_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_BUTTON = IcariaItems.register("fir_button", properties -> new BlockItem(IcariaBlocks.FIR_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_LADDER = IcariaItems.register("fir_ladder", properties -> new BlockItem(IcariaBlocks.FIR_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_SIGN = IcariaItems.register("fir_sign", properties -> new IcariaSignItem(IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> FIR_HANGING_SIGN = IcariaItems.register("fir_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> LAUREL_SAPLING = IcariaItems.register("laurel_sapling", properties -> new BlockItem(IcariaBlocks.LAUREL_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_LEAVES = IcariaItems.register("laurel_leaves", properties -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_LAUREL_LEAVES = IcariaItems.register("fallen_laurel_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_TWIGS = IcariaItems.register("laurel_twigs", properties -> new BlockItem(IcariaBlocks.LAUREL_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_WOOD = IcariaItems.register("laurel_wood", properties -> new BlockItem(IcariaBlocks.LAUREL_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_LAUREL_WOOD = IcariaItems.register("stripped_laurel_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_LOG = IcariaItems.register("laurel_log", properties -> new BlockItem(IcariaBlocks.LAUREL_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_LAUREL_LOG = IcariaItems.register("stripped_laurel_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_LAUREL_LOG = IcariaItems.register("dead_laurel_log", properties -> new BlockItem(IcariaBlocks.DEAD_LAUREL_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_LAUREL_LOG = IcariaItems.register("stripped_dead_laurel_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_PLANKS = IcariaItems.register("laurel_planks", properties -> new BlockItem(IcariaBlocks.LAUREL_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_STAIRS = IcariaItems.register("laurel_stairs", properties -> new BlockItem(IcariaBlocks.LAUREL_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_SLAB = IcariaItems.register("laurel_slab", properties -> new BlockItem(IcariaBlocks.LAUREL_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_FENCE = IcariaItems.register("laurel_fence", properties -> new BlockItem(IcariaBlocks.LAUREL_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_FENCE_GATE = IcariaItems.register("laurel_fence_gate", properties -> new BlockItem(IcariaBlocks.LAUREL_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_LAUREL_RACK = IcariaItems.register("simple_laurel_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_RACK = IcariaItems.register("laurel_rack", properties -> new BlockItem(IcariaBlocks.LAUREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_BARREL = IcariaItems.register("laurel_barrel", properties -> new BlockItem(IcariaBlocks.LAUREL_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_LAUREL_BARREL = IcariaItems.register("loaded_laurel_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_LAUREL_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_LAUREL_BARREL = IcariaItems.register("tapped_laurel_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_LAUREL_BARREL_RACK = IcariaItems.register("triple_laurel_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_TROUGH = IcariaItems.register("laurel_trough", properties -> new BlockItem(IcariaBlocks.LAUREL_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_CRAFTING_TABLE = IcariaItems.register("laurel_crafting_table", properties -> new BlockItem(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_DOOR = IcariaItems.register("laurel_door", properties -> new BlockItem(IcariaBlocks.LAUREL_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_TRAPDOOR = IcariaItems.register("laurel_trapdoor", properties -> new BlockItem(IcariaBlocks.LAUREL_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_PRESSURE_PLATE = IcariaItems.register("laurel_pressure_plate", properties -> new BlockItem(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_BUTTON = IcariaItems.register("laurel_button", properties -> new BlockItem(IcariaBlocks.LAUREL_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_LADDER = IcariaItems.register("laurel_ladder", properties -> new BlockItem(IcariaBlocks.LAUREL_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_SIGN = IcariaItems.register("laurel_sign", properties -> new IcariaSignItem(IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> LAUREL_HANGING_SIGN = IcariaItems.register("laurel_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> OLIVE_SAPLING = IcariaItems.register("olive_sapling", properties -> new BlockItem(IcariaBlocks.OLIVE_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_LEAVES = IcariaItems.register("olive_leaves", properties -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_OLIVE_LEAVES = IcariaItems.register("fallen_olive_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_TWIGS = IcariaItems.register("olive_twigs", properties -> new BlockItem(IcariaBlocks.OLIVE_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_WOOD = IcariaItems.register("olive_wood", properties -> new BlockItem(IcariaBlocks.OLIVE_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_OLIVE_WOOD = IcariaItems.register("stripped_olive_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_LOG = IcariaItems.register("olive_log", properties -> new BlockItem(IcariaBlocks.OLIVE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_OLIVE_LOG = IcariaItems.register("stripped_olive_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_OLIVE_LOG = IcariaItems.register("dead_olive_log", properties -> new BlockItem(IcariaBlocks.DEAD_OLIVE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_OLIVE_LOG = IcariaItems.register("stripped_dead_olive_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_PLANKS = IcariaItems.register("olive_planks", properties -> new BlockItem(IcariaBlocks.OLIVE_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_STAIRS = IcariaItems.register("olive_stairs", properties -> new BlockItem(IcariaBlocks.OLIVE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_SLAB = IcariaItems.register("olive_slab", properties -> new BlockItem(IcariaBlocks.OLIVE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_FENCE = IcariaItems.register("olive_fence", properties -> new BlockItem(IcariaBlocks.OLIVE_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_FENCE_GATE = IcariaItems.register("olive_fence_gate", properties -> new BlockItem(IcariaBlocks.OLIVE_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_OLIVE_RACK = IcariaItems.register("simple_olive_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_RACK = IcariaItems.register("olive_rack", properties -> new BlockItem(IcariaBlocks.OLIVE_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_BARREL = IcariaItems.register("olive_barrel", properties -> new BlockItem(IcariaBlocks.OLIVE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_OLIVE_BARREL = IcariaItems.register("loaded_olive_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_OLIVE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_OLIVE_BARREL = IcariaItems.register("tapped_olive_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_OLIVE_BARREL_RACK = IcariaItems.register("triple_olive_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_TROUGH = IcariaItems.register("olive_trough", properties -> new BlockItem(IcariaBlocks.OLIVE_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_CRAFTING_TABLE = IcariaItems.register("olive_crafting_table", properties -> new BlockItem(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_DOOR = IcariaItems.register("olive_door", properties -> new BlockItem(IcariaBlocks.OLIVE_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_TRAPDOOR = IcariaItems.register("olive_trapdoor", properties -> new BlockItem(IcariaBlocks.OLIVE_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_PRESSURE_PLATE = IcariaItems.register("olive_pressure_plate", properties -> new BlockItem(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_BUTTON = IcariaItems.register("olive_button", properties -> new BlockItem(IcariaBlocks.OLIVE_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_LADDER = IcariaItems.register("olive_ladder", properties -> new BlockItem(IcariaBlocks.OLIVE_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_SIGN = IcariaItems.register("olive_sign", properties -> new IcariaSignItem(IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> OLIVE_HANGING_SIGN = IcariaItems.register("olive_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> PLANE_SAPLING = IcariaItems.register("plane_sapling", properties -> new BlockItem(IcariaBlocks.PLANE_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_LEAVES = IcariaItems.register("plane_leaves", properties -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_PLANE_LEAVES = IcariaItems.register("fallen_plane_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_TWIGS = IcariaItems.register("plane_twigs", properties -> new BlockItem(IcariaBlocks.PLANE_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_WOOD = IcariaItems.register("plane_wood", properties -> new BlockItem(IcariaBlocks.PLANE_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_PLANE_WOOD = IcariaItems.register("stripped_plane_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_LOG = IcariaItems.register("plane_log", properties -> new BlockItem(IcariaBlocks.PLANE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_PLANE_LOG = IcariaItems.register("stripped_plane_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_PLANE_LOG = IcariaItems.register("dead_plane_log", properties -> new BlockItem(IcariaBlocks.DEAD_PLANE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_PLANE_LOG = IcariaItems.register("stripped_dead_plane_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_PLANKS = IcariaItems.register("plane_planks", properties -> new BlockItem(IcariaBlocks.PLANE_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_STAIRS = IcariaItems.register("plane_stairs", properties -> new BlockItem(IcariaBlocks.PLANE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_SLAB = IcariaItems.register("plane_slab", properties -> new BlockItem(IcariaBlocks.PLANE_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_FENCE = IcariaItems.register("plane_fence", properties -> new BlockItem(IcariaBlocks.PLANE_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_FENCE_GATE = IcariaItems.register("plane_fence_gate", properties -> new BlockItem(IcariaBlocks.PLANE_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_PLANE_RACK = IcariaItems.register("simple_plane_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_PLANE_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_RACK = IcariaItems.register("plane_rack", properties -> new BlockItem(IcariaBlocks.PLANE_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_BARREL = IcariaItems.register("plane_barrel", properties -> new BlockItem(IcariaBlocks.PLANE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_PLANE_BARREL = IcariaItems.register("loaded_plane_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_PLANE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_PLANE_BARREL = IcariaItems.register("tapped_plane_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_PLANE_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_PLANE_BARREL_RACK = IcariaItems.register("triple_plane_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_TROUGH = IcariaItems.register("plane_trough", properties -> new BlockItem(IcariaBlocks.PLANE_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_CRAFTING_TABLE = IcariaItems.register("plane_crafting_table", properties -> new BlockItem(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_DOOR = IcariaItems.register("plane_door", properties -> new BlockItem(IcariaBlocks.PLANE_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_TRAPDOOR = IcariaItems.register("plane_trapdoor", properties -> new BlockItem(IcariaBlocks.PLANE_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_PRESSURE_PLATE = IcariaItems.register("plane_pressure_plate", properties -> new BlockItem(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_BUTTON = IcariaItems.register("plane_button", properties -> new BlockItem(IcariaBlocks.PLANE_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_LADDER = IcariaItems.register("plane_ladder", properties -> new BlockItem(IcariaBlocks.PLANE_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_SIGN = IcariaItems.register("plane_sign", properties -> new IcariaSignItem(IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> PLANE_HANGING_SIGN = IcariaItems.register("plane_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> POPULUS_SAPLING = IcariaItems.register("populus_sapling", properties -> new BlockItem(IcariaBlocks.POPULUS_SAPLING.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_LEAVES = IcariaItems.register("populus_leaves", properties -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FALLEN_POPULUS_LEAVES = IcariaItems.register("fallen_populus_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_TWIGS = IcariaItems.register("populus_twigs", properties -> new BlockItem(IcariaBlocks.POPULUS_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_WOOD = IcariaItems.register("populus_wood", properties -> new BlockItem(IcariaBlocks.POPULUS_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_POPULUS_WOOD = IcariaItems.register("stripped_populus_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_LOG = IcariaItems.register("populus_log", properties -> new BlockItem(IcariaBlocks.POPULUS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_POPULUS_LOG = IcariaItems.register("stripped_populus_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DEAD_POPULUS_LOG = IcariaItems.register("dead_populus_log", properties -> new BlockItem(IcariaBlocks.DEAD_POPULUS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STRIPPED_DEAD_POPULUS_LOG = IcariaItems.register("stripped_dead_populus_log", properties -> new BlockItem(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_PLANKS = IcariaItems.register("populus_planks", properties -> new BlockItem(IcariaBlocks.POPULUS_PLANKS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_STAIRS = IcariaItems.register("populus_stairs", properties -> new BlockItem(IcariaBlocks.POPULUS_STAIRS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_SLAB = IcariaItems.register("populus_slab", properties -> new BlockItem(IcariaBlocks.POPULUS_SLAB.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_FENCE = IcariaItems.register("populus_fence", properties -> new BlockItem(IcariaBlocks.POPULUS_FENCE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_FENCE_GATE = IcariaItems.register("populus_fence_gate", properties -> new BlockItem(IcariaBlocks.POPULUS_FENCE_GATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SIMPLE_POPULUS_RACK = IcariaItems.register("simple_populus_rack", properties -> new BlockItem(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_RACK = IcariaItems.register("populus_rack", properties -> new BlockItem(IcariaBlocks.POPULUS_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_BARREL = IcariaItems.register("populus_barrel", properties -> new BlockItem(IcariaBlocks.POPULUS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOADED_POPULUS_BARREL = IcariaItems.register("loaded_populus_barrel", properties -> new BlockItem(IcariaBlocks.LOADED_POPULUS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TAPPED_POPULUS_BARREL = IcariaItems.register("tapped_populus_barrel", properties -> new BlockItem(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TRIPLE_POPULUS_BARREL_RACK = IcariaItems.register("triple_populus_barrel_rack", properties -> new BlockItem(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_TROUGH = IcariaItems.register("populus_trough", properties -> new BlockItem(IcariaBlocks.POPULUS_TROUGH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_CRAFTING_TABLE = IcariaItems.register("populus_crafting_table", properties -> new BlockItem(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_DOOR = IcariaItems.register("populus_door", properties -> new BlockItem(IcariaBlocks.POPULUS_DOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_TRAPDOOR = IcariaItems.register("populus_trapdoor", properties -> new BlockItem(IcariaBlocks.POPULUS_TRAPDOOR.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_PRESSURE_PLATE = IcariaItems.register("populus_pressure_plate", properties -> new BlockItem(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_BUTTON = IcariaItems.register("populus_button", properties -> new BlockItem(IcariaBlocks.POPULUS_BUTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_LADDER = IcariaItems.register("populus_ladder", properties -> new BlockItem(IcariaBlocks.POPULUS_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_SIGN = IcariaItems.register("populus_sign", properties -> new IcariaSignItem(IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_WALL_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+	public static final DeferredHolder<Item, Item> POPULUS_HANGING_SIGN = IcariaItems.register("populus_hanging_sign", properties -> new HangingSignItem(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), properties), IcariaItems.propertiesBlock().stacksTo(16));
+
+	public static final DeferredHolder<Item, Item> BLOOMY_VINE = IcariaItems.register("bloomy_vine", properties -> new BlockItem(IcariaBlocks.BLOOMY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BRANCHY_VINE = IcariaItems.register("branchy_vine", properties -> new BlockItem(IcariaBlocks.BRANCHY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BRUSHY_VINE = IcariaItems.register("brushy_vine", properties -> new BlockItem(IcariaBlocks.BRUSHY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DRY_VINE = IcariaItems.register("dry_vine", properties -> new BlockItem(IcariaBlocks.DRY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> REEDY_VINE = IcariaItems.register("reedy_vine", properties -> new BlockItem(IcariaBlocks.REEDY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SWIRLY_VINE = IcariaItems.register("swirly_vine", properties -> new BlockItem(IcariaBlocks.SWIRLY_VINE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> THORNY_VINE = IcariaItems.register("thorny_vine", properties -> new BlockItem(IcariaBlocks.THORNY_VINE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> FERN = IcariaItems.register("fern", properties -> new BlockItem(IcariaBlocks.FERN.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> SMALL_GRASS = IcariaItems.register("small_grass", properties -> new BlockItem(IcariaBlocks.SMALL_GRASS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MEDIUM_GRASS = IcariaItems.register("medium_grass", properties -> new BlockItem(IcariaBlocks.MEDIUM_GRASS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LARGE_GRASS = IcariaItems.register("large_grass", properties -> new BlockItem(IcariaBlocks.LARGE_GRASS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> SMALL_MIXED_GRAIN = IcariaItems.register("small_mixed_grain", properties -> new BlockItem(IcariaBlocks.SMALL_MIXED_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MEDIUM_MIXED_GRAIN = IcariaItems.register("medium_mixed_grain", properties -> new BlockItem(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MEDIUM_BROWN_GRAIN = IcariaItems.register("medium_brown_grain", properties -> new BlockItem(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MEDIUM_WHITE_GRAIN = IcariaItems.register("medium_white_grain", properties -> new BlockItem(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MEDIUM_YELLOW_GRAIN = IcariaItems.register("medium_yellow_grain", properties -> new BlockItem(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LARGE_BROWN_GRAIN = IcariaItems.register("large_brown_grain", properties -> new BlockItem(IcariaBlocks.LARGE_BROWN_GRAIN.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> BLINDWEED = IcariaItems.register("blindweed", properties -> new BlockItem(IcariaBlocks.BLINDWEED.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHAMEOMILE = IcariaItems.register("chameomile", properties -> new BlockItem(IcariaBlocks.CHAMEOMILE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHARMONDER = IcariaItems.register("charmonder", properties -> new BlockItem(IcariaBlocks.CHARMONDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CLOVER = IcariaItems.register("clover", properties -> new BlockItem(IcariaBlocks.CLOVER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIREHILT = IcariaItems.register("firehilt", properties -> new BlockItem(IcariaBlocks.FIREHILT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLUE_HYDRACINTH = IcariaItems.register("blue_hydracinth", properties -> new BlockItem(IcariaBlocks.BLUE_HYDRACINTH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_HYDRACINTH = IcariaItems.register("purple_hydracinth", properties -> new BlockItem(IcariaBlocks.PURPLE_HYDRACINTH.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LIONFANGS = IcariaItems.register("lionfangs", properties -> new BlockItem(IcariaBlocks.LIONFANGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SPEARDROPS = IcariaItems.register("speardrops", properties -> new BlockItem(IcariaBlocks.SPEARDROPS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_STAGHORN = IcariaItems.register("purple_staghorn", properties -> new BlockItem(IcariaBlocks.PURPLE_STAGHORN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> YELLOW_STAGHORN = IcariaItems.register("yellow_staghorn", properties -> new BlockItem(IcariaBlocks.YELLOW_STAGHORN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BLUE_STORMCOTTON = IcariaItems.register("blue_stormcotton", properties -> new BlockItem(IcariaBlocks.BLUE_STORMCOTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PINK_STORMCOTTON = IcariaItems.register("pink_stormcotton", properties -> new BlockItem(IcariaBlocks.PINK_STORMCOTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_STORMCOTTON = IcariaItems.register("purple_stormcotton", properties -> new BlockItem(IcariaBlocks.PURPLE_STORMCOTTON.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNKETTLE = IcariaItems.register("sunkettle", properties -> new BlockItem(IcariaBlocks.SUNKETTLE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUNSPONGE = IcariaItems.register("sunsponge", properties -> new BlockItem(IcariaBlocks.SUNSPONGE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> VOIDLILY = IcariaItems.register("voidlily", properties -> new BlockItem(IcariaBlocks.VOIDLILY.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> BOLBOS = IcariaItems.register("bolbos", properties -> new BlockItem(IcariaBlocks.BOLBOS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DATHULLA = IcariaItems.register("dathulla", properties -> new BlockItem(IcariaBlocks.DATHULLA.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MONDANOS = IcariaItems.register("mondanos", properties -> new BlockItem(IcariaBlocks.MONDANOS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MOTH_AGARIC = IcariaItems.register("moth_agaric", properties -> new BlockItem(IcariaBlocks.MOTH_AGARIC.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> NAMDRAKE = IcariaItems.register("namdrake", properties -> new BlockItem(IcariaBlocks.NAMDRAKE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PSILOCYBOS = IcariaItems.register("psilocybos", properties -> new BlockItem(IcariaBlocks.PSILOCYBOS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ROWAN = IcariaItems.register("rowan", properties -> new BlockItem(IcariaBlocks.ROWAN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> WILTED_ELM = IcariaItems.register("wilted_elm", properties -> new BlockItem(IcariaBlocks.WILTED_ELM.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> BLUE_GROUND_FLOWERS = IcariaItems.register("blue_ground_flowers", properties -> new BlockItem(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYAN_GROUND_FLOWERS = IcariaItems.register("cyan_ground_flowers", properties -> new BlockItem(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PINK_GROUND_FLOWERS = IcariaItems.register("pink_ground_flowers", properties -> new BlockItem(IcariaBlocks.PINK_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_GROUND_FLOWERS = IcariaItems.register("purple_ground_flowers", properties -> new BlockItem(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RED_GROUND_FLOWERS = IcariaItems.register("red_ground_flowers", properties -> new BlockItem(IcariaBlocks.RED_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> WHITE_GROUND_FLOWERS = IcariaItems.register("white_ground_flowers", properties -> new BlockItem(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> FOREST_MOSS = IcariaItems.register("forest_moss", properties -> new BlockItem(IcariaBlocks.FOREST_MOSS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SCRUBLAND_MOSS = IcariaItems.register("scrubland_moss", properties -> new BlockItem(IcariaBlocks.SCRUBLAND_MOSS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> STEPPE_MOSS = IcariaItems.register("steppe_moss", properties -> new BlockItem(IcariaBlocks.STEPPE_MOSS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> PALM_FERN = IcariaItems.register("palm_fern", properties -> new BlockItem(IcariaBlocks.PALM_FERN.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> WHITE_BROMELIA = IcariaItems.register("white_bromelia", properties -> new BlockItem(IcariaBlocks.WHITE_BROMELIA.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ORANGE_BROMELIA = IcariaItems.register("orange_bromelia", properties -> new BlockItem(IcariaBlocks.ORANGE_BROMELIA.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PINK_BROMELIA = IcariaItems.register("pink_bromelia", properties -> new BlockItem(IcariaBlocks.PINK_BROMELIA.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PURPLE_BROMELIA = IcariaItems.register("purple_bromelia", properties -> new BlockItem(IcariaBlocks.PURPLE_BROMELIA.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> GREEN_GROUND_SHROOMS = IcariaItems.register("green_ground_shrooms", properties -> new BlockItem(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> BROWN_GROUND_SHROOMS = IcariaItems.register("brown_ground_shrooms", properties -> new BlockItem(IcariaBlocks.BROWN_GROUND_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LARGE_BROWN_GROUND_SHROOMS = IcariaItems.register("large_brown_ground_shrooms", properties -> new BlockItem(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> TINDER_FUNGUS_TREE_SHROOMS = IcariaItems.register("tinder_fungus_tree_shrooms", properties -> new BlockItem(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> TURKEY_TAIL_TREE_SHROOMS = IcariaItems.register("turkey_tail_tree_shrooms", properties -> new BlockItem(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> UNNAMED_TREE_SHROOMS = IcariaItems.register("unnamed_tree_shrooms", properties -> new BlockItem(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> CARDON_CACTUS = IcariaItems.register("cardon_cactus", properties -> new BlockItem(IcariaBlocks.CARDON_CACTUS.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> STRAWBERRY_BUSH = IcariaItems.register("strawberry_bush", properties -> new BlockItem(IcariaBlocks.STRAWBERRY_BUSH.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> GRINDER_SHAFT = IcariaItems.register("grinder_shaft", properties -> new BlockItem(IcariaBlocks.GRINDER_SHAFT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRINDER_STONE = IcariaItems.register("grinder_stone", properties -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), properties), IcariaItems.propertiesBlock());
+
+	public static final DeferredHolder<Item, Item> PAINTING = IcariaItems.register("painting", IcariaPaintingItem::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> BONE_REMAINS = IcariaItems.register("bone_remains", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LOAM_LUMP = IcariaItems.register("loam_lump", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LOAM_BRICK = IcariaItems.register("loam_brick", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT = IcariaItems.register("chert", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ENDER_JELLYFISH_JELLY = IcariaItems.register("ender_jellyfish_jelly", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FIRE_JELLYFISH_JELLY = IcariaItems.register("fire_jellyfish_jelly", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> NATURE_JELLYFISH_JELLY = IcariaItems.register("nature_jellyfish_jelly", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VOID_JELLYFISH_JELLY = IcariaItems.register("void_jellyfish_jelly", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> WATER_JELLYFISH_JELLY = IcariaItems.register("water_jellyfish_jelly", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ARACHNE_STRING = IcariaItems.register("arachne_string", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SPELT = IcariaItems.register("spelt", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VINE_REED = IcariaItems.register("vine_reed", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ROTTEN_BONES = IcariaItems.register("rotten_bones", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> GREENPOWDER = IcariaItems.register("greenpowder", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CALCITE_SHARD = IcariaItems.register("calcite_shard", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> HALITE_SHARD = IcariaItems.register("halite_shard", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> JASPER_SHARD = IcariaItems.register("jasper_shard", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ZIRCON_SHARD = IcariaItems.register("zircon_shard", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CALCITE_DUST = IcariaItems.register("calcite_dust", BoneMealItem::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> HALITE_DUST = IcariaItems.register("halite_dust", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LIGNITE = IcariaItems.register("lignite", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RAW_CHALKOS = IcariaItems.register("raw_chalkos", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RAW_KASSITEROS = IcariaItems.register("raw_kassiteros", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> DOLOMITE = IcariaItems.register("dolomite", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RAW_VANADIUM = IcariaItems.register("raw_vanadium", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SLIVER = IcariaItems.register("sliver", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RAW_SIDEROS = IcariaItems.register("raw_sideros", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ANTHRACITE = IcariaItems.register("anthracite", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RAW_MOLYBDENUM = IcariaItems.register("raw_molybdenum", Item::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> CHALKOS_NUGGET = IcariaItems.register("chalkos_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_NUGGET = IcariaItems.register("kassiteros_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_NUGGET = IcariaItems.register("orichalcum_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUM_NUGGET = IcariaItems.register("vanadium_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_NUGGET = IcariaItems.register("vanadiumsteel_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_NUGGET = IcariaItems.register("sideros_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUM_NUGGET = IcariaItems.register("molybdenum_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_NUGGET = IcariaItems.register("molybdenumsteel_nugget", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BLURIDIUM_NUGGET = IcariaItems.register("bluridium_nugget", Item::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> CHALKOS_INGOT = IcariaItems.register("chalkos_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_INGOT = IcariaItems.register("kassiteros_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_INGOT = IcariaItems.register("orichalcum_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUM_INGOT = IcariaItems.register("vanadium_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_INGOT = IcariaItems.register("vanadiumsteel_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_INGOT = IcariaItems.register("sideros_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUM_INGOT = IcariaItems.register("molybdenum_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_INGOT = IcariaItems.register("molybdenumsteel_ingot", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BLURIDIUM_INGOT = IcariaItems.register("bluridium_ingot", Item::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> CHERT_SWORD = IcariaItems.register("chert_sword", properties -> new SwordItem(IcariaToolMaterials.CHERT, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_DAGGER = IcariaItems.register("chert_dagger", properties -> new DaggerItem(IcariaToolMaterials.CHERT, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_SHOVEL = IcariaItems.register("chert_shovel", properties -> new ShovelItem(IcariaToolMaterials.CHERT, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_PICKAXE = IcariaItems.register("chert_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.CHERT, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_AXE = IcariaItems.register("chert_axe", properties -> new AxeItem(IcariaToolMaterials.CHERT, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_SCYTHE = IcariaItems.register("chert_scythe", properties -> new ScytheItem(IcariaToolMaterials.CHERT, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_BIDENT = IcariaItems.register("chert_bident", properties -> new BidentItem(IcariaToolMaterials.CHERT, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> CHALKOS_SWORD = IcariaItems.register("chalkos_sword", properties -> new SwordItem(IcariaToolMaterials.CHALKOS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_DAGGER = IcariaItems.register("chalkos_dagger", properties -> new DaggerItem(IcariaToolMaterials.CHALKOS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_SHOVEL = IcariaItems.register("chalkos_shovel", properties -> new ShovelItem(IcariaToolMaterials.CHALKOS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_PICKAXE = IcariaItems.register("chalkos_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.CHALKOS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_AXE = IcariaItems.register("chalkos_axe", properties -> new AxeItem(IcariaToolMaterials.CHALKOS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_SCYTHE = IcariaItems.register("chalkos_scythe", properties -> new ScytheItem(IcariaToolMaterials.CHALKOS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_BIDENT = IcariaItems.register("chalkos_bident", properties -> new BidentItem(IcariaToolMaterials.CHALKOS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> KASSITEROS_SWORD = IcariaItems.register("kassiteros_sword", properties -> new SwordItem(IcariaToolMaterials.KASSITEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_DAGGER = IcariaItems.register("kassiteros_dagger", properties -> new DaggerItem(IcariaToolMaterials.KASSITEROS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_SHOVEL = IcariaItems.register("kassiteros_shovel", properties -> new ShovelItem(IcariaToolMaterials.KASSITEROS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_PICKAXE = IcariaItems.register("kassiteros_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.KASSITEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_AXE = IcariaItems.register("kassiteros_axe", properties -> new AxeItem(IcariaToolMaterials.KASSITEROS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_SCYTHE = IcariaItems.register("kassiteros_scythe", properties -> new ScytheItem(IcariaToolMaterials.KASSITEROS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_BIDENT = IcariaItems.register("kassiteros_bident", properties -> new BidentItem(IcariaToolMaterials.KASSITEROS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> ORICHALCUM_SWORD = IcariaItems.register("orichalcum_sword", properties -> new SwordItem(IcariaToolMaterials.ORICHALCUM, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = IcariaItems.register("orichalcum_dagger", properties -> new DaggerItem(IcariaToolMaterials.ORICHALCUM, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_SHOVEL = IcariaItems.register("orichalcum_shovel", properties -> new ShovelItem(IcariaToolMaterials.ORICHALCUM, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_PICKAXE = IcariaItems.register("orichalcum_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.ORICHALCUM, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_AXE = IcariaItems.register("orichalcum_axe", properties -> new AxeItem(IcariaToolMaterials.ORICHALCUM, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_SCYTHE = IcariaItems.register("orichalcum_scythe", properties -> new ScytheItem(IcariaToolMaterials.ORICHALCUM, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_BIDENT = IcariaItems.register("orichalcum_bident", properties -> new BidentItem(IcariaToolMaterials.ORICHALCUM, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SWORD = IcariaItems.register("vanadiumsteel_sword", properties -> new SwordItem(IcariaToolMaterials.VANADIUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_DAGGER = IcariaItems.register("vanadiumsteel_dagger", properties -> new DaggerItem(IcariaToolMaterials.VANADIUMSTEEL, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SHOVEL = IcariaItems.register("vanadiumsteel_shovel", properties -> new ShovelItem(IcariaToolMaterials.VANADIUMSTEEL, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_PICKAXE = IcariaItems.register("vanadiumsteel_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.VANADIUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_AXE = IcariaItems.register("vanadiumsteel_axe", properties -> new AxeItem(IcariaToolMaterials.VANADIUMSTEEL, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SCYTHE = IcariaItems.register("vanadiumsteel_scythe", properties -> new ScytheItem(IcariaToolMaterials.VANADIUMSTEEL, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BIDENT = IcariaItems.register("vanadiumsteel_bident", properties -> new BidentItem(IcariaToolMaterials.VANADIUMSTEEL, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> SIDEROS_SWORD = IcariaItems.register("sideros_sword", properties -> new SwordItem(IcariaToolMaterials.SIDEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_DAGGER = IcariaItems.register("sideros_dagger", properties -> new DaggerItem(IcariaToolMaterials.SIDEROS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_SHOVEL = IcariaItems.register("sideros_shovel", properties -> new ShovelItem(IcariaToolMaterials.SIDEROS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_PICKAXE = IcariaItems.register("sideros_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.SIDEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_AXE = IcariaItems.register("sideros_axe", properties -> new AxeItem(IcariaToolMaterials.SIDEROS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_SCYTHE = IcariaItems.register("sideros_scythe", properties -> new ScytheItem(IcariaToolMaterials.SIDEROS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_BIDENT = IcariaItems.register("sideros_bident", properties -> new BidentItem(IcariaToolMaterials.SIDEROS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SWORD = IcariaItems.register("molybdenumsteel_sword", properties -> new SwordItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_DAGGER = IcariaItems.register("molybdenumsteel_dagger", properties -> new DaggerItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SHOVEL = IcariaItems.register("molybdenumsteel_shovel", properties -> new ShovelItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_PICKAXE = IcariaItems.register("molybdenumsteel_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_AXE = IcariaItems.register("molybdenumsteel_axe", properties -> new AxeItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SCYTHE = IcariaItems.register("molybdenumsteel_scythe", properties -> new ScytheItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_BIDENT = IcariaItems.register("molybdenumsteel_bident", properties -> new BidentItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_HELMET = IcariaItems.register("aeternae_hide_helmet", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(11)));
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_CHESTPLATE = IcariaItems.register("aeternae_hide_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(11)));
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_LEGGINGS = IcariaItems.register("aeternae_hide_leggings", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(11)));
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_BOOTS = IcariaItems.register("aeternae_hide_boots", properties -> new AeternaeHideBootsItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(11)));
+
+	public static final DeferredHolder<Item, Item> CHALKOS_HELMET = IcariaItems.register("chalkos_helmet", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(11)));
+	public static final DeferredHolder<Item, Item> CHALKOS_CHESTPLATE = IcariaItems.register("chalkos_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(11)));
+	public static final DeferredHolder<Item, Item> CHALKOS_LEGGINGS = IcariaItems.register("chalkos_leggings", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(11)));
+	public static final DeferredHolder<Item, Item> CHALKOS_BOOTS = IcariaItems.register("chalkos_boots", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(11)));
+
+	public static final DeferredHolder<Item, Item> KASSITEROS_HELMET = IcariaItems.register("kassiteros_helmet", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(15)));
+	public static final DeferredHolder<Item, Item> KASSITEROS_CHESTPLATE = IcariaItems.register("kassiteros_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(15)));
+	public static final DeferredHolder<Item, Item> KASSITEROS_LEGGINGS = IcariaItems.register("kassiteros_leggings", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(15)));
+	public static final DeferredHolder<Item, Item> KASSITEROS_BOOTS = IcariaItems.register("kassiteros_boots", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(15)));
+
+	public static final DeferredHolder<Item, Item> ORICHALCUM_HELMET = IcariaItems.register("orichalcum_helmet", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(24)));
+	public static final DeferredHolder<Item, Item> ORICHALCUM_CHESTPLATE = IcariaItems.register("orichalcum_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(24)));
+	public static final DeferredHolder<Item, Item> ORICHALCUM_LEGGINGS = IcariaItems.register("orichalcum_leggings", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(24)));
+	public static final DeferredHolder<Item, Item> ORICHALCUM_BOOTS = IcariaItems.register("orichalcum_boots", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(24)));
+
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_HELMET = IcariaItems.register("vanadiumsteel_helmet", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(27)));
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_CHESTPLATE = IcariaItems.register("vanadiumsteel_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(27)));
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_LEGGINGS = IcariaItems.register("vanadiumsteel_leggings", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(27)));
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BOOTS = IcariaItems.register("vanadiumsteel_boots", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(27)));
+
+	public static final DeferredHolder<Item, Item> LAUREL_WREATH = IcariaItems.register("laurel_wreath", properties -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorType.HELMET, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> GREEK_FIRE_GRENADE = IcariaItems.register("greek_fire_grenade", GreekFireGrenadeItem::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> TOTEM_OF_STUFFING = IcariaItems.register("totem_of_stuffing", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> TOTEM_OF_UNBLINDING = IcariaItems.register("totem_of_unblinding", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> TOTEM_OF_UNDROWNING = IcariaItems.register("totem_of_undrowning", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> TOTEM_OF_UNDYING = IcariaItems.register("totem_of_undying", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> TOTEM_OF_UNSHATTERING = IcariaItems.register("totem_of_unshattering", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> TOTEM_OF_UNSINKING = IcariaItems.register("totem_of_unsinking", IcariaTotemItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(4).rarity(Rarity.UNCOMMON));
+
+	public static final DeferredHolder<Item, Item> UNFIRED_STORAGE_VASE = IcariaItems.register("unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> WHITE_UNFIRED_STORAGE_VASE = IcariaItems.register("white_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LIGHT_GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("light_gray_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> GRAY_UNFIRED_STORAGE_VASE = IcariaItems.register("gray_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BLACK_UNFIRED_STORAGE_VASE = IcariaItems.register("black_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BROWN_UNFIRED_STORAGE_VASE = IcariaItems.register("brown_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RED_UNFIRED_STORAGE_VASE = IcariaItems.register("red_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORANGE_UNFIRED_STORAGE_VASE = IcariaItems.register("orange_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> YELLOW_UNFIRED_STORAGE_VASE = IcariaItems.register("yellow_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LIME_UNFIRED_STORAGE_VASE = IcariaItems.register("lime_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> GREEN_UNFIRED_STORAGE_VASE = IcariaItems.register("green_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CYAN_UNFIRED_STORAGE_VASE = IcariaItems.register("cyan_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LIGHT_BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("light_blue_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BLUE_UNFIRED_STORAGE_VASE = IcariaItems.register("blue_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> PURPLE_UNFIRED_STORAGE_VASE = IcariaItems.register("purple_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MAGENTA_UNFIRED_STORAGE_VASE = IcariaItems.register("magenta_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> PINK_UNFIRED_STORAGE_VASE = IcariaItems.register("pink_unfired_storage_vase", Item::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> ANTI_GRAVITY_SCROLL = IcariaItems.register("anti_gravity_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> FORTIFYING_SCROLL = IcariaItems.register("fortifying_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> HEALING_SCROLL = IcariaItems.register("healing_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> BUBBLE_SCROLL = IcariaItems.register("bubble_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> FREEZING_SCROLL = IcariaItems.register("freezing_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> MAGIC_MISSILE_SCROLL = IcariaItems.register("magic_missile_scroll", ScrollItem::new, IcariaItems.propertiesItem().stacksTo(1));
+
+	public static final DeferredHolder<Item, Item> ANTI_GRAVITY_SPELL = IcariaItems.register("anti_gravity_spell", properties -> new AntiGravitySpellItem(1.0F, 1.0F, 6919359, 20, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FORTIFYING_SPELL = IcariaItems.register("fortifying_spell", properties -> new FortifyingSpellItem(1.0F, 1.0F, 6316160, 20, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> HEALING_SPELL = IcariaItems.register("healing_spell", properties -> new HealingSpellItem(1.0F, 1.0F, 16711680, 20, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> BUBBLE_SPELL = IcariaItems.register("bubble_spell", properties -> new BubbleSpellItem(20.0F, 0.1F, 6, 20, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FREEZING_SPELL = IcariaItems.register("freezing_spell", properties -> new FreezingSpellItem(1.0F, 1.0F, 14277081, 20, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MAGIC_MISSILE_SPELL = IcariaItems.register("magic_missile_spell", properties -> new MagicMissileSpellItem(0.0F, 2.0F, 6307968, 20, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> EMPTY_FLASK = IcariaItems.register("empty_flask", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ANTI_GRAVITY_FLASK = IcariaItems.register("anti_gravity_flask", ConcoctionFlaskItem::new, IcariaItems.propertiesItem().stacksTo(1).component(DataComponents.CONSUMABLE, IcariaConsumables.ANTI_GRAVITY_FLASK));
+	public static final DeferredHolder<Item, Item> FORTIFYING_FLASK = IcariaItems.register("fortifying_flask", ConcoctionFlaskItem::new, IcariaItems.propertiesItem().stacksTo(1).component(DataComponents.CONSUMABLE, IcariaConsumables.FORTIFYING_FLASK));
+	public static final DeferredHolder<Item, Item> HEALING_FLASK = IcariaItems.register("healing_flask", ConcoctionFlaskItem::new, IcariaItems.propertiesItem().stacksTo(1).component(DataComponents.CONSUMABLE, IcariaConsumables.HEALING_FLASK));
+
+	public static final DeferredHolder<Item, Item> EMPTY_VIAL = IcariaItems.register("empty_vial", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ARACHNE_VENOM_VIAL = IcariaItems.register("arachne_venom_vial", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> HYLIASTRUM_VIAL = IcariaItems.register("hyliastrum_vial", HyliastrumVialItem::new, IcariaItems.propertiesItem().stacksTo(1));
+
+	public static final DeferredHolder<Item, Item> CHEST_LABEL = IcariaItems.register("chest_label", ChestLabelItem::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_GEAR = IcariaItems.register("yellowstone_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(256));
+	public static final DeferredHolder<Item, Item> UNFIRED_LOAM_GEAR = IcariaItems.register("unfired_loam_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> LOAM_GEAR = IcariaItems.register("loam_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(512));
+	public static final DeferredHolder<Item, Item> VOIDSHALE_GEAR = IcariaItems.register("voidshale_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(768));
+	public static final DeferredHolder<Item, Item> VANADIUM_GEAR = IcariaItems.register("vanadium_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(1024));
+	public static final DeferredHolder<Item, Item> BLUE_GEARFRAGMENT = IcariaItems.register("blue_gearfragment", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> GREEN_GEARFRAGMENT = IcariaItems.register("green_gearfragment", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> YELLOW_GEARFRAGMENT = IcariaItems.register("yellow_gearfragment", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+	public static final DeferredHolder<Item, Item> DAEDALIAN_GEAR = IcariaItems.register("daedalian_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1));
+
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE = IcariaItems.register("aeternae_hide", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SPELT_FLOUR = IcariaItems.register("spelt_flour", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SPELT_BREAD = IcariaItems.register("spelt_bread", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.SPELT_BREAD));
+	public static final DeferredHolder<Item, Item> VINE_SPROUT = IcariaItems.register("vine_sprout", VineSproutItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(16).food(IcariaFoods.VINE_SPROUT, IcariaConsumables.VINE_SPROUT));
+	public static final DeferredHolder<Item, Item> VINEBERRIES = IcariaItems.register("vineberries", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.VINEBERRIES));
+	public static final DeferredHolder<Item, Item> STRAWBERRIES = IcariaItems.register("strawberries", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.STRAWBERRIES));
+	public static final DeferredHolder<Item, Item> PHYSALIS = IcariaItems.register("physalis", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.PHYSALIS));
+	public static final DeferredHolder<Item, Item> LAUREL_CHERRY = IcariaItems.register("laurel_cherry", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.LAUREL_CHERRY));
+	public static final DeferredHolder<Item, Item> BLACK_OLIVES = IcariaItems.register("black_olives", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.BLACK_OLIVES));
+	public static final DeferredHolder<Item, Item> GREEN_OLIVES = IcariaItems.register("green_olives", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.GREEN_OLIVES));
+	public static final DeferredHolder<Item, Item> GARLIC = IcariaItems.register("garlic", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.GARLIC));
+	public static final DeferredHolder<Item, Item> ONION = IcariaItems.register("onion", properties -> new BlockItem(IcariaBlocks.ONION_CROP.get(), properties), IcariaItems.propertiesItem().food(IcariaFoods.ONION));
+	public static final DeferredHolder<Item, Item> RAW_AETERNAE_MEAT = IcariaItems.register("raw_aeternae_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_AETERNAE_MEAT, IcariaConsumables.RAW_AETERNAE_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_AETERNAE_MEAT = IcariaItems.register("cooked_aeternae_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_AETERNAE_MEAT));
+	public static final DeferredHolder<Item, Item> RAW_CAPELLA_MEAT = IcariaItems.register("raw_capella_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_CAPELLA_MEAT, IcariaConsumables.RAW_CAPELLA_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_CAPELLA_MEAT = IcariaItems.register("cooked_capella_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_CAPELLA_MEAT));
+	public static final DeferredHolder<Item, Item> RAW_CATOBLEPAS_MEAT = IcariaItems.register("raw_catoblepas_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_CATOBLEPAS_MEAT, IcariaConsumables.RAW_CATOBLEPAS_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_CATOBLEPAS_MEAT = IcariaItems.register("cooked_catoblepas_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_CATOBLEPAS_MEAT));
+	public static final DeferredHolder<Item, Item> RAW_CERVER_MEAT = IcariaItems.register("raw_cerver_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_CERVER_MEAT, IcariaConsumables.RAW_CERVER_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_CERVER_MEAT = IcariaItems.register("cooked_cerver_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_CERVER_MEAT));
+	public static final DeferredHolder<Item, Item> RAW_CROCOTTA_MEAT = IcariaItems.register("raw_crocotta_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_CROCOTTA_MEAT, IcariaConsumables.RAW_CROCOTTA_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_CROCOTTA_MEAT = IcariaItems.register("cooked_crocotta_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_CROCOTTA_MEAT));
+	public static final DeferredHolder<Item, Item> RAW_SOW_MEAT = IcariaItems.register("raw_sow_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_SOW_MEAT, IcariaConsumables.RAW_SOW_MEAT));
+	public static final DeferredHolder<Item, Item> COOKED_SOW_MEAT = IcariaItems.register("cooked_sow_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_SOW_MEAT));
+	public static final DeferredHolder<Item, Item> CAPELLA_HORN = IcariaItems.register("capella_horn", properties -> new InstrumentItem(IcariaInstrumentTagsProvider.CAPELLA_HORNS, properties), IcariaItems.propertiesItem().stacksTo(1).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SLUG_SCALES = IcariaItems.register("slug_scales", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SNULL_CREAM = IcariaItems.register("snull_cream", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.SNULL_CREAM, IcariaConsumables.SNULL_CREAM));
+	public static final DeferredHolder<Item, Item> VINEGAR = IcariaItems.register("vinegar", Item::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> UNFIRED_LOAM_BOWL = IcariaItems.register("unfired_loam_bowl", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LOAM_BOWL = IcariaItems.register("loam_bowl", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FRUIT_SALAD = IcariaItems.register("fruit_salad", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.FRUIT_SALAD, IcariaConsumables.FRUIT_SALAD));
+	public static final DeferredHolder<Item, Item> ONION_SOUP = IcariaItems.register("onion_soup", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.ONION_SOUP, IcariaConsumables.ONION_SOUP));
+	public static final DeferredHolder<Item, Item> AETERNAE_STEW = IcariaItems.register("aeternae_stew", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.AETERNAE_STEW, IcariaConsumables.AETERNAE_STEW));
+	public static final DeferredHolder<Item, Item> CATOBLEPAS_STEW = IcariaItems.register("catoblepas_stew", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.CATOBLEPAS_STEW, IcariaConsumables.CATOBLEPAS_STEW));
+	public static final DeferredHolder<Item, Item> CERVER_STEW = IcariaItems.register("cerver_stew", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.CERVER_STEW, IcariaConsumables.CERVER_STEW));
+	public static final DeferredHolder<Item, Item> SOW_STEW = IcariaItems.register("sow_stew", IcariaBowlFoodItem::new, IcariaItems.propertiesItem().stacksTo(1).food(IcariaFoods.SOW_STEW, IcariaConsumables.SOW_STEW));
+
+	public static final DeferredHolder<Item, Item> SPELT_SEEDS = IcariaItems.register("spelt_seeds", properties -> new BlockItem(IcariaBlocks.SPELT_CROP.get(), properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> STRAWBERRY_SEEDS = IcariaItems.register("strawberry_seeds", properties -> new BlockItem(IcariaBlocks.STRAWBERRY_CROP.get(), properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> PHYSALIS_SEEDS = IcariaItems.register("physalis_seeds", properties -> new BlockItem(IcariaBlocks.PHYSALIS_CROP.get(), properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> AETERNAE_SPAWN_EGG = IcariaItems.register("aeternae_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.AETERNAE.get(), 0x40280B, 0x88581F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ARACHNE_SPAWN_EGG = IcariaItems.register("arachne_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.ARACHNE.get(), 0x362E28, 0x6A8C97, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ARACHNE_DRONE_SPAWN_EGG = IcariaItems.register("arachne_drone_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.ARACHNE_DRONE.get(), 0x382F28, 0x6A8C97, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ARGAN_HOUND_SPAWN_EGG = IcariaItems.register("argan_hound_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.ARGAN_HOUND.get(), 0x0B0D0E, 0x2C2F36, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CAPELLA_SPAWN_EGG = IcariaItems.register("capella_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CAPELLA.get(), 0xCDCCC7, 0x6F8289, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CATOBLEPAS_SPAWN_EGG = IcariaItems.register("catoblepas_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CATOBLEPAS.get(), 0x1D170E, 0x373024, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CERVER_SPAWN_EGG = IcariaItems.register("cerver_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CERVER.get(), 0x0E0A05, 0x302C26, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CROCOTTA_SPAWN_EGG = IcariaItems.register("crocotta_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CROCOTTA.get(), 0x8C7256, 0x41301F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CYPRESS_FOREST_HAG_SPAWN_EGG = IcariaItems.register("cypress_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 0x615A52, 0x4F6712, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FOREST_HAG_SPAWN_EGG = IcariaItems.register("droughtroot_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 0x302A2D, 0x5A621A, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FIR_FOREST_HAG_SPAWN_EGG = IcariaItems.register("fir_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.FIR_FOREST_HAG.get(), 0x574C39, 0x356342, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LAUREL_FOREST_HAG_SPAWN_EGG = IcariaItems.register("laurel_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 0x3D241A, 0x42551A, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> OLIVE_FOREST_HAG_SPAWN_EGG = IcariaItems.register("olive_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 0x697162, 0x817B32, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> PLANE_FOREST_HAG_SPAWN_EGG = IcariaItems.register("plane_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 0x6F716D, 0x516C40, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> POPULUS_FOREST_HAG_SPAWN_EGG = IcariaItems.register("populus_forest_hag_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 0xdD0C9C7, 0x4B8360, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> HYLIASTER_SPAWN_EGG = IcariaItems.register("hyliaster_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.HYLIASTER.get(), 0x040706, 0x8B9590, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ENDER_JELLYFISH_SPAWN_EGG = IcariaItems.register("ender_jellyfish_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.ENDER_JELLYFISH.get(), 0X000000, 0xE079FA, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FIRE_JELLYFISH_SPAWN_EGG = IcariaItems.register("fire_jellyfish_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.FIRE_JELLYFISH.get(), 0XF07D2A, 0xFFA531, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> NATURE_JELLYFISH_SPAWN_EGG = IcariaItems.register("nature_jellyfish_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.NATURE_JELLYFISH.get(), 0X00B78B, 0x04FFAC, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VOID_JELLYFISH_SPAWN_EGG = IcariaItems.register("void_jellyfish_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.VOID_JELLYFISH.get(), 0X644D91, 0xA080E2, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> WATER_JELLYFISH_SPAWN_EGG = IcariaItems.register("water_jellyfish_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.WATER_JELLYFISH.get(), 0X45A5BD, 0x5AECFE, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MYRMEKE_DRONE_SPAWN_EGG = IcariaItems.register("myrmeke_drone_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.MYRMEKE_DRONE.get(), 0x501814, 0x241E19, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MYRMEKE_SOLDIER_SPAWN_EGG = IcariaItems.register("myrmeke_soldier_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.MYRMEKE_SOLDIER.get(), 0x501814, 0x402816, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MYRMEKE_QUEEN_SPAWN_EGG = IcariaItems.register("myrmeke_queen_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.MYRMEKE_QUEEN.get(), 0x501814, 0xAB7E17, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CAPTAIN_REVENANT_SPAWN_EGG = IcariaItems.register("captain_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CAPTAIN_REVENANT.get(), 0xCFA919, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CIVILIAN_REVENANT_SPAWN_EGG = IcariaItems.register("civilian_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CIVILIAN_REVENANT.get(), 0x9C9C9C, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CRAWLER_REVENANT_SPAWN_EGG = IcariaItems.register("crawler_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CRAWLER_REVENANT.get(), 0x2D2D19, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> OVERGROWN_REVENANT_SPAWN_EGG = IcariaItems.register("overgrown_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 0x535C32, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> PYROMANCER_REVENANT_SPAWN_EGG = IcariaItems.register("pyromancer_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.PYROMANCER_REVENANT.get(), 0x3C5E26, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> NETHER_PYROMANCER_REVENANT_SPAWN_EGG = IcariaItems.register("nether_pyromancer_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), 0x5A2017, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SOLDIER_REVENANT_SPAWN_EGG = IcariaItems.register("soldier_revenant_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.SOLDIER_REVENANT.get(), 0x6C5757, 0x636363, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SCORPION_SPAWN_EGG = IcariaItems.register("scorpion_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.SCORPION.get(), 0x513B24, 0xD8A161, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CRYSTAL_SLUG_SPAWN_EGG = IcariaItems.register("crystal_slug_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.CRYSTAL_SLUG.get(), 0x24141A, 0x653D48, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> FOREST_SNULL_SPAWN_EGG = IcariaItems.register("forest_snull_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.FOREST_SNULL.get(), 0x291306, 0x53641E, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SNULL_SPAWN_EGG = IcariaItems.register("snull_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.SNULL.get(), 0x291306, 0x8D694F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SOLIFUGAE_SPAWN_EGG = IcariaItems.register("solifugae_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.SOLIFUGAE.get(), 0xE0CDBC, 0x91673F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SOW_SPAWN_EGG = IcariaItems.register("sow_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.SOW.get(), 0x231A13, 0x6E554B, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VINEGAROON_SPAWN_EGG = IcariaItems.register("vinegaroon_spawn_egg", properties -> new SpawnEggItem(IcariaEntityTypes.VINEGAROON.get(), 0x382819, 0xC99559, properties), IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> MEDITERRANEAN_WATER_BUCKET = IcariaItems.register("mediterranean_water_bucket", properties -> new BucketItem(IcariaFluids.MEDITERRANEAN_WATER.get(), properties), IcariaItems.propertiesItem().stacksTo(1).craftRemainder(Items.BUCKET));
+
+	public static final DeferredHolder<Item, Item> LEFT_GRINDER_CHAIN = IcariaItems.register("left_grinder_chain", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> STATIC_LEFT_GRINDER_CHAIN = IcariaItems.register("static_left_grinder_chain", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RIGHT_GRINDER_CHAIN = IcariaItems.register("right_grinder_chain", Item::new, IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.register("static_right_grinder_chain", Item::new, IcariaItems.propertiesItem());
 
 	public static Item.Properties propertiesItem() {
-		return new Item.Properties();
+		return new Item.Properties().useItemDescriptionPrefix();
 	}
 
-	public static Item.Properties propertiesItem(int pSize) {
-		return new Item.Properties().stacksTo(pSize);
+	public static Item.Properties propertiesBlock() {
+		return new Item.Properties().useBlockDescriptionPrefix();
 	}
 
-	public static Item.Properties propertiesItem(Rarity pRarity) {
-		return new Item.Properties().rarity(pRarity);
-	}
-
-	public static Item.Properties propertiesItem(int pSize, Rarity pRarity) {
-		return new Item.Properties().stacksTo(pSize).rarity(pRarity);
-	}
-
-	public static Item.Properties propertiesItem(int pSize, int pDurability) {
-		return new Item.Properties().stacksTo(pSize).durability(pDurability);
-	}
-
-	public static Item.Properties propertiesItem(int pSize, int pDurability, Rarity pRarity) {
-		return new Item.Properties().stacksTo(pSize).durability(pDurability).rarity(pRarity);
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, int pSize) {
-		return new Item.Properties().stacksTo(pSize).food(IcariaItems.foodProperties(pNutrition, pSaturation));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffect, int pDuration, int pAmplifier, float pProbability, int pSize) {
-		return new Item.Properties().stacksTo(pSize).food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffect, pDuration, pAmplifier, pProbability));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffectA, int pDurationA, int pAmplifierA, float pProbabilityA, Holder<MobEffect> pEffectB, int pDurationB, int pAmplifierB, float pProbabilityB, int pSize) {
-		return new Item.Properties().stacksTo(pSize).food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffectA, pDurationA, pAmplifierA, pProbabilityA, pEffectB, pDurationB, pAmplifierB, pProbabilityB));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, int pSize, int pDurability) {
-		return new Item.Properties().stacksTo(pSize).durability(pDurability).food(IcariaItems.foodProperties(pNutrition, pSaturation));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffect, int pDuration, int pAmplifier, float pProbability, int pSize, int pDurability) {
-		return new Item.Properties().stacksTo(pSize).durability(pDurability).food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffect, pDuration, pAmplifier, pProbability));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffectA, int pDurationA, int pAmplifierA, float pProbabilityA, Holder<MobEffect> pEffectB, int pDurationB, int pAmplifierB, float pProbabilityB, int pSize, int pDurability) {
-		return new Item.Properties().stacksTo(pSize).durability(pDurability).food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffectA, pDurationA, pAmplifierA, pProbabilityA, pEffectB, pDurationB, pAmplifierB, pProbabilityB));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation) {
-		return new Item.Properties().food(IcariaItems.foodProperties(pNutrition, pSaturation));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffect, int pDuration, int pAmplifier, float pProbability) {
-		return new Item.Properties().food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffect, pDuration, pAmplifier, pProbability));
-	}
-
-	public static Item.Properties propertiesFood(int pNutrition, float pSaturation, Holder<MobEffect> pEffectA, int pDurationA, int pAmplifierA, float pProbabilityA, Holder<MobEffect> pEffectB, int pDurationB, int pAmplifierB, float pProbabilityB) {
-		return new Item.Properties().food(IcariaItems.foodProperties(pNutrition, pSaturation, pEffectA, pDurationA, pAmplifierA, pProbabilityA, pEffectB, pDurationB, pAmplifierB, pProbabilityB));
-	}
-
-	public static FoodProperties foodProperties(int pNutrition, float pSaturation) {
-		return new FoodProperties.Builder().nutrition(pNutrition).saturationModifier(pSaturation).build();
-	}
-
-	public static FoodProperties foodProperties(int pNutrition, float pSaturation, Holder<MobEffect> pEffect, int pDuration, int pAmplifier, float pProbability) {
-		return new FoodProperties.Builder().nutrition(pNutrition).saturationModifier(pSaturation).effect(() -> new MobEffectInstance(pEffect, pDuration, pAmplifier), pProbability).build();
-	}
-
-	public static FoodProperties foodProperties(int pNutrition, float pSaturation, Holder<MobEffect> pEffectA, int pDurationA, int pAmplifierA, float pProbabilityA, Holder<MobEffect> pEffectB, int pDurationB, int pAmplifierB, float pProbabilityB) {
-		return new FoodProperties.Builder().nutrition(pNutrition).saturationModifier(pSaturation).effect(() -> new MobEffectInstance(pEffectA, pDurationA, pAmplifierA), pProbabilityA).effect(() -> new MobEffectInstance(pEffectB, pDurationB, pAmplifierB), pProbabilityB).build();
-	}
-
-	public static <T extends Item> Supplier<T> register(String pName, Supplier<T> pSupplier) {
-		return IcariaItems.ITEMS.register(pName, pSupplier);
+	public static <T extends Item> DeferredHolder<Item, T> register(String pName, Function<Item.Properties, T> pFunction, Item.Properties pProperties) {
+		return IcariaItems.ITEMS.register(pName, () -> pFunction.apply(pProperties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName)))));
 	}
 }

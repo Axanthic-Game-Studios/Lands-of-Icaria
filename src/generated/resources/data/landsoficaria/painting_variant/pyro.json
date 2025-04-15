@@ -1,5 +1,11 @@
 {
   "asset_id": "landsoficaria:pyro",
+  "author": {
+    "translate": "painting.landsoficaria.pyro.author"
+  },
   "height": 2,
+  "title": {
+    "translate": "painting.landsoficaria.pyro.title"
+  },
   "width": 1
 }

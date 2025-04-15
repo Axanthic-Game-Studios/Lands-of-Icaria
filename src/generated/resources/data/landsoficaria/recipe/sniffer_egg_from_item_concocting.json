@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 3169872,
+  "ingredient": [
+    "landsoficaria:psilocybos",
+    "landsoficaria:mondanos",
+    "landsoficaria:bolbos"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:sniffer_egg"
+  },
+  "time": 200
+}

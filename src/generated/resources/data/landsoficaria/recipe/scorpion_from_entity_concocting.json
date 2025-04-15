@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 5323556,
+  "entity": "landsoficaria:scorpion",
+  "ingredient": [
+    "landsoficaria:moth_agaric",
+    "landsoficaria:mondanos",
+    "landsoficaria:wilted_elm"
+  ],
+  "time": 200
+}

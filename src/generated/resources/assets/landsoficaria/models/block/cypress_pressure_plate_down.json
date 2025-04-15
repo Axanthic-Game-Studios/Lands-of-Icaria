@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/pressure_plate_down",
+  "textures": {
+    "particle": "landsoficaria:block/cypress_planks",
+    "texture": "landsoficaria:block/cypress_planks"
+  }
+}

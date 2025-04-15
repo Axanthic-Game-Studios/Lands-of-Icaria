@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:surface_chert": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:surface_chert"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:voidshale_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:voidshale_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:chert_from_surface_chert_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:voidshale_gear",
+      "has_landsoficaria:surface_chert"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:chert_from_surface_chert_grinding"
+    ]
+  }
+}

@@ -1,12 +1,17 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaLootTables;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.registry.IcariaValues;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -27,28 +32,30 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class LootVaseEntity extends Entity {
 	public static final EntityDataAccessor<BlockPos> BLOCK_POS = SynchedEntityData.defineId(LootVaseEntity.class, EntityDataSerializers.BLOCK_POS);
-
 	public static final EntityDataAccessor<BlockState> BLOCK_STATE = SynchedEntityData.defineId(LootVaseEntity.class, EntityDataSerializers.BLOCK_STATE);
 
-	public LootVaseEntity(EntityType<? extends LootVaseEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+	public LootVaseEntity(EntityType<? extends LootVaseEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
-	public LootVaseEntity(EntityType<? extends LootVaseEntity> pType, Level pLevel, BlockState pState, BlockPos pPos) {
-		this(pType, pLevel);
-		this.setBlockPos(pPos);
-		this.setBlockState(pState);
+	public LootVaseEntity(EntityType<? extends LootVaseEntity> pEntityType, Level pLevel, BlockState pBlockState, BlockPos pBlockPos) {
+		this(pEntityType, pLevel);
+		this.setBlockPos(pBlockPos);
+		this.setBlockState(pBlockState);
 	}
 
 	@Override
 	public boolean displayFireAnimation() {
+		return false;
+	}
+
+	@Override
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
 		return false;
 	}
 
@@ -58,18 +65,14 @@ public class LootVaseEntity extends Entity {
 	}
 
 	@Override
-	public boolean isIgnoringBlockTriggers() {
-		return true;
-	}
-
-	@Override
 	public boolean onlyOpCanSetNbt() {
 		return true;
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		pCompoundTag.put("BlockPos", NbtUtils.writeBlockPos(this.getBlockPos()));
+		pCompoundTag.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
 	}
 
 	@Override
@@ -83,7 +86,7 @@ public class LootVaseEntity extends Entity {
 			if (this.level() instanceof ServerLevel serverLevel) {
 				var lootContext = new LootParams.Builder(serverLevel).withOptionalParameter(LootContextParams.DIRECT_ATTACKING_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.ATTACKING_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
 				var lootTable = this.getBlockState().is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE_LOOT : this.getBlockState().is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTables.LOST_LOOT_VASE_LOOT : IcariaLootTables.CYAN_LOOT_VASE_LOOT;
-				lootContext.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootContext).forEach(this::spawnAtLocation);
+				lootContext.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootContext).forEach(itemStack -> this.spawnAtLocation(serverLevel, itemStack));
 			}
 		}
 	}
@@ -98,8 +101,9 @@ public class LootVaseEntity extends Entity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		this.setBlockPos(NbtUtils.readBlockPos(pCompoundTag, "BlockPos").orElseThrow());
+		this.setBlockState(NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), pCompoundTag.getCompound("BlockState")));
 	}
 
 	@Override
@@ -109,17 +113,17 @@ public class LootVaseEntity extends Entity {
 		if (entity != null) {
 			if (entity.isShiftKeyDown()) {
 				this.stopRiding();
-				this.setDeltaMovement(-Mth.sin(entity.getYRot() * (Mth.PI / 180.0F)), -Mth.sin(entity.getXRot() * (Mth.PI / 180.0F)), Mth.cos(entity.getYRot() * (Mth.PI / 180.0F)));
+				this.setDeltaMovement(-Mth.sin(entity.getYRot() / IcariaValues.DEG_2_RAD), -Mth.sin(entity.getXRot() / IcariaValues.DEG_2_RAD), Mth.cos(entity.getYRot() / IcariaValues.DEG_2_RAD));
 			}
 		}
 	}
 
-	public void setBlockPos(BlockPos pPos) {
-		this.entityData.set(LootVaseEntity.BLOCK_POS, pPos);
+	public void setBlockPos(BlockPos pBlockPos) {
+		this.entityData.set(LootVaseEntity.BLOCK_POS, pBlockPos);
 	}
 
-	public void setBlockState(BlockState pState) {
-		this.entityData.set(LootVaseEntity.BLOCK_STATE, pState);
+	public void setBlockState(BlockState pBlockState) {
+		this.entityData.set(LootVaseEntity.BLOCK_STATE, pBlockState);
 	}
 
 	@Override

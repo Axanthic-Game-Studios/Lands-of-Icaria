@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:explosion_concocting",
+  "colour": 5083986,
+  "ingredient": [
+    "landsoficaria:bone_remains",
+    "landsoficaria:moth_agaric"
+  ],
+  "radius": 3.0,
+  "time": 200
+}

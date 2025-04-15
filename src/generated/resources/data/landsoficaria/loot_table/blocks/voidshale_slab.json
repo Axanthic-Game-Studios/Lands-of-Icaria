@@ -53,14 +53,14 @@
               }
             }
           ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
           "name": "landsoficaria:voidshale_slab"
-        }
-      ],
-      "functions": [
-        {
-          "add": false,
-          "count": 2.0,
-          "function": "minecraft:set_count"
         }
       ],
       "rolls": 1.0

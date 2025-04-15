@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,8 +16,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
@@ -28,10 +28,11 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
 		this.placeArm(level, origin, direction, 1, 2);
@@ -54,51 +55,51 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 
-	public void placeArm(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pOffset, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeArm(pLevel, pPos, pDirection, pOffset);
+	public void placeArm(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pOffset, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeArm(pWorldGenLevel, pBlockPos, pDirection, pOffset);
 		}
 	}
 
-	public void placeArm(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pOffset) {
-		var posOx = pPos.above(pOffset).relative(pDirection);
-		var posOy = pPos.above(pOffset + 1).relative(pDirection);
-		var check = pLevel.getBlockState(posOx.below()).is(BlockTags.SAND);
+	public void placeArm(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pOffset) {
+		var posOx = pBlockPos.above(pOffset).relative(pDirection);
+		var posOy = pBlockPos.above(pOffset + 1).relative(pDirection);
+		var check = pWorldGenLevel.getBlockState(posOx.below()).is(BlockTags.SAND);
 
-		if (pLevel.getBlockState(posOx).isAir() && pLevel.getBlockState(posOy).isAir()) {
-			this.placeCactus(pLevel, posOx, IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, check).setValue(BlockStateProperties.NORTH, pDirection.equals(Direction.SOUTH) && !check).setValue(BlockStateProperties.EAST, pDirection.equals(Direction.WEST) && !check).setValue(BlockStateProperties.SOUTH, pDirection.equals(Direction.NORTH) && !check).setValue(BlockStateProperties.WEST, pDirection.equals(Direction.EAST) && !check));
-			this.placeCactus(pLevel, posOy, IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
+		if (pWorldGenLevel.getBlockState(posOx).isAir() && pWorldGenLevel.getBlockState(posOy).isAir()) {
+			this.placeCactus(pWorldGenLevel, posOx, IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, check).setValue(BlockStateProperties.NORTH, pDirection == Direction.SOUTH && !check).setValue(BlockStateProperties.EAST, pDirection == Direction.WEST && !check).setValue(BlockStateProperties.SOUTH, pDirection == Direction.NORTH && !check).setValue(BlockStateProperties.WEST, pDirection == Direction.EAST && !check));
+			this.placeCactus(pWorldGenLevel, posOy, IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
 		}
 	}
 
-	public void placeTrunk(WorldGenLevel pLevel, BlockPos pPos, int pOffset, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeTrunk(pLevel, pPos, pOffset);
+	public void placeTrunk(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pOffset, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeTrunk(pWorldGenLevel, pBlockPos, pOffset);
 		}
 	}
 
-	public void placeTrunk(WorldGenLevel pLevel, BlockPos pPos, int pOffset) {
-		var checkN = !pLevel.getBlockState(pPos.above(pOffset).below()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkBelowN = !pLevel.getBlockState(pPos.above(pOffset).below().north()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below().north()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkE = !pLevel.getBlockState(pPos.above(pOffset).below()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkBelowE = !pLevel.getBlockState(pPos.above(pOffset).below().east()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below().east()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkS = !pLevel.getBlockState(pPos.above(pOffset).below().south()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below().south()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkBelowS = !pLevel.getBlockState(pPos.above(pOffset).below()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkW = !pLevel.getBlockState(pPos.above(pOffset).below().west()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below().west()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var checkBelowW = !pLevel.getBlockState(pPos.above(pOffset).below()).is(BlockTags.SAND) && !pLevel.getBlockState(pPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pLevel.getBlockState(pPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
+	public void placeTrunk(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pOffset) {
+		var north = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var belowNorth = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var east = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var belowEast = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var south = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().south()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().south()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var belowSouth = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var west = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().west()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().west()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var belowWest = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
 
-		this.placeCactus(pLevel, pPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true).setValue(BlockStateProperties.NORTH, checkN || checkBelowN).setValue(BlockStateProperties.EAST, checkE || checkBelowE).setValue(BlockStateProperties.SOUTH, checkS || checkBelowS).setValue(BlockStateProperties.WEST, checkW || checkBelowW));
+		this.placeCactus(pWorldGenLevel, pBlockPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true).setValue(BlockStateProperties.NORTH, north || belowNorth).setValue(BlockStateProperties.EAST, east || belowEast).setValue(BlockStateProperties.SOUTH, south || belowSouth).setValue(BlockStateProperties.WEST, west || belowWest));
 	}
 
-	public void placeCactus(WorldGenLevel pLevel, BlockPos pPos, BlockState pState, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeCactus(pLevel, pPos, pState);
+	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pState, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeCactus(pWorldGenLevel, pBlockPos, pState);
 		}
 	}
 
-	public void placeCactus(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getBlockState(pPos).isAir()) {
-			this.setBlock(pLevel, pPos, pState);
+	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pState) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir()) {
+			this.setBlock(pWorldGenLevel, pBlockPos, pState);
 		}
 	}
 }

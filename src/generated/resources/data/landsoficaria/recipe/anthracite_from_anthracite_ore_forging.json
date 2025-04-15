@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:anthracite_ore",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:anthracite"
+  },
+  "time": 100
+}

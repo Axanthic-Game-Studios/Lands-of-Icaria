@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:plane_planks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:plane_button"
+  }
+}

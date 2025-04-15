@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:bolbos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:bolbos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:hyliastrum_vial": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:hyliastrum_vial"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:namdrake": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:namdrake"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:anti_gravity_spell_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:namdrake",
+      "has_landsoficaria:bolbos",
+      "has_landsoficaria:hyliastrum_vial"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:anti_gravity_spell_from_item_concocting"
+    ]
+  }
+}

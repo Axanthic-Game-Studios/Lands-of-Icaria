@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:charmonder": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:charmonder"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:light_blue_dye_from_charmonder"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:charmonder"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:light_blue_dye_from_charmonder"
+    ]
+  }
+}

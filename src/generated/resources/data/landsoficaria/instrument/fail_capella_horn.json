@@ -1,0 +1,10 @@
+{
+  "description": {
+    "translate": "instrument.landsoficaria.fail_capella_horn"
+  },
+  "range": 256.0,
+  "sound_event": {
+    "sound_id": "landsoficaria:item.capella_horn.fail"
+  },
+  "use_duration": 7.0
+}

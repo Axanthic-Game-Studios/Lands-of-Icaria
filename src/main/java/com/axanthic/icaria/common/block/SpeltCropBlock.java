@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.LayerShapes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -13,8 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -24,12 +24,12 @@ public class SpeltCropBlock extends CropBlock {
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(LevelReader pLevel, BlockPos pPos, BlockState pState) {
+	public ItemStack getCloneItemStack(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState) {
 		return new ItemStack(IcariaItems.SPELT_SEEDS.get());
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return LayerShapes.SHAPES[pState.getValue(this.getAgeProperty())];
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return LayerShapes.SHAPES[pBlockState.getValue(this.getAgeProperty())];
 	}
 }

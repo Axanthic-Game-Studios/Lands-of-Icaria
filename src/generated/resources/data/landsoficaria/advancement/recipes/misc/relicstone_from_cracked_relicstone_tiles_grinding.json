@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:cracked_relicstone_tiles": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:cracked_relicstone_tiles"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:yellowstone_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:yellowstone_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:relicstone_from_cracked_relicstone_tiles_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:yellowstone_gear",
+      "has_landsoficaria:cracked_relicstone_tiles"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:relicstone_from_cracked_relicstone_tiles_grinding"
+    ]
+  }
+}

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "landsoficaria:cobbled_yellowstone"
-  },
+  "ingredient": "landsoficaria:cobbled_yellowstone",
   "result": {
     "count": 1,
     "id": "landsoficaria:yellowstone"

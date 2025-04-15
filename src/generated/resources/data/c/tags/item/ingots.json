@@ -1,14 +1,13 @@
 {
   "values": [
-    "landsoficaria:loam_brick",
-    "landsoficaria:chalkos_ingot",
-    "landsoficaria:kassiteros_ingot",
-    "landsoficaria:orichalcum_ingot",
-    "landsoficaria:vanadium_ingot",
-    "landsoficaria:vanadiumsteel_ingot",
-    "landsoficaria:sideros_ingot",
-    "landsoficaria:molybdenum_ingot",
-    "landsoficaria:molybdenumsteel_ingot",
-    "landsoficaria:bluridium_ingot"
+    "#c:ingots/chalkos",
+    "#c:ingots/kassiteros",
+    "#c:ingots/orichalcum",
+    "#c:ingots/vanadium",
+    "#c:ingots/vanadiumsteel",
+    "#c:ingots/sideros",
+    "#c:ingots/molybdenum",
+    "#c:ingots/molybdenumsteel",
+    "#c:ingots/bluridium"
   ]
 }

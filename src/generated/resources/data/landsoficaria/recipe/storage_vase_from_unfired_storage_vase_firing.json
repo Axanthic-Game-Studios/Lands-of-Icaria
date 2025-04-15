@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:firing",
+  "experience": 0.2,
+  "ingredient": "landsoficaria:unfired_storage_vase",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:storage_vase"
+  },
+  "time": 200
+}

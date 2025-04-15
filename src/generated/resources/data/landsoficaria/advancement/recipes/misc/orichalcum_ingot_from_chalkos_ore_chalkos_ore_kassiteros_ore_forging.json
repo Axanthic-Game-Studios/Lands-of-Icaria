@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:chalkos_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:chalkos_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:kassiteros_ore": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:kassiteros_ore"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:orichalcum_ingot_from_chalkos_ore_chalkos_ore_kassiteros_ore_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:chalkos_ore",
+      "has_landsoficaria:kassiteros_ore"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:orichalcum_ingot_from_chalkos_ore_chalkos_ore_kassiteros_ore_forging"
+    ]
+  }
+}

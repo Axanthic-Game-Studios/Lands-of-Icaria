@@ -2,237 +2,77 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.JellyfishFleeGoal;
 import com.axanthic.icaria.common.goal.JellyfishRandomMovementGoal;
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+import com.axanthic.icaria.common.registry.IcariaValues;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.tags.DamageTypeTags;
-import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownPotion;
-import net.minecraft.world.item.alchemy.PotionContents;
-import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-
-import net.neoforged.neoforge.event.EventHooks;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 @SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class JellyfishEntity extends SizedFlyingMobEntity {
-	public float rotateSpeed;
-	public float speed;
+public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 	public float tentacleAngle;
-	public float oldTentacleAngle;
+	public float tentacleAngleOld;
 	public float tentacleMovement;
-	public float oldTentacleMovement;
-	public float tentacleSpeed;
-	public float tx;
-	public float ty;
-	public float tz;
+	public float tentacleMovementOld;
 	public float xBodyRot;
-	public float oldXBodyRot;
+	public float xBodyRotOld;
 	public float zBodyRot;
-	public float oldZBodyRot;
+	public float zBodyRotOld;
 
-	public JellyfishEntity(EntityType<? extends JellyfishEntity> pType, Level pLevel) {
-		super(pType, pLevel, 0.25F, 0.25F, 0.15F, 0.75F, 0.25F);
-		this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
-	}
+	public Vec3 movementVector;
 
-	public boolean hasMovementVector() {
-		return this.tx != 0.0F || this.ty != 0.0F || this.tz != 0.0F;
-	}
-
-	@Override
-	public boolean hurt(DamageSource pSource, float pAmount) {
-		if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-			if (this.isInvulnerableTo(pSource)) {
-				return false;
-			} else if (pSource.is(DamageTypeTags.IS_PROJECTILE)) {
-				boolean flag;
-				var entity = pSource.getDirectEntity();
-				if (entity instanceof ThrownPotion thrownPotion) {
-					flag = this.hurtWithCleanWater(pSource, thrownPotion, pAmount);
-				} else {
-					flag = false;
-				}
-
-				for (int i = 0; i < 64; ++i) {
-					if (this.teleport()) {
-						return true;
-					}
-				}
-
-				return flag;
-			} else {
-				if (!this.level().isClientSide()) {
-					if (this.random.nextInt(10) != 0) {
-						if (!(pSource.getEntity() instanceof LivingEntity)) {
-							this.teleport();
-						}
-					}
-				}
-
-				return super.hurt(pSource, pAmount);
-			}
-		} else {
-			return super.hurt(pSource, pAmount);
-		}
-	}
-
-	public boolean hurtWithCleanWater(DamageSource pSource, ThrownPotion pPotion, float pAmount) {
-		return super.hurt(pSource, pAmount) && pPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
-	}
-
-	@Override
-	public boolean isIgnoringBlockTriggers() {
-		return true;
-	}
-
-	@Override
-	public boolean isSensitiveToWater() {
-		return this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get();
-	}
-
-	public boolean teleport() {
-		if (!this.level().isClientSide() && this.isAlive()) {
-			return this.teleport(this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D, this.getY() + (this.random.nextInt(64) - 32), this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D);
-		} else {
-			return false;
-		}
-	}
-
-	public boolean teleport(double pX, double pY, double pZ) {
-		var mutablePos = new BlockPos.MutableBlockPos(pX, pY, pZ);
-		while (mutablePos.getY() > this.level().getMinBuildHeight() && !this.level().getBlockState(mutablePos).blocksMotion()) {
-			mutablePos.move(Direction.DOWN);
-		}
-
-		var blockState = this.level().getBlockState(mutablePos);
-		if (blockState.blocksMotion() && !blockState.getFluidState().is(FluidTags.WATER)) {
-			if (EventHooks.onEnderTeleport(this, pX, pY, pZ).isCanceled()) {
-				return false;
-			}
-
-			return this.randomTeleport(pX, pY, pZ, true);
-		} else {
-			return false;
-		}
+	public JellyfishEntity(EntityType<? extends JellyfishEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel, 0.25F, 0.25F, 0.15F);
+		this.setMovementVector();
+		this.setSeed();
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		this.oldTentacleAngle = this.tentacleAngle;
-		this.oldTentacleMovement = this.tentacleMovement;
-		this.tentacleMovement += this.tentacleSpeed;
-		this.oldXBodyRot = this.xBodyRot;
-		this.oldZBodyRot = this.zBodyRot;
-		if (this.tentacleMovement > (Mth.PI * 2.0D)) {
-			if (this.level().isClientSide()) {
-				this.tentacleMovement = (Mth.PI * 2.0F);
-			} else {
-				this.tentacleMovement -= (Mth.PI * 2.0F);
-				if (this.random.nextInt(10) == 0) {
-					this.tentacleSpeed = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
-				}
-
-				this.level().broadcastEntityEvent(this, (byte) 19);
-			}
-		}
-
-		if (this.tentacleMovement < Mth.PI) {
-			float f = this.tentacleMovement / Mth.PI;
-			this.tentacleAngle = Mth.sin(f * f * Mth.PI) * Mth.PI * 0.25F;
-			if (f > 0.75D) {
-				this.rotateSpeed = 1.0F;
-				this.speed = 1.0F;
-			} else {
-				this.rotateSpeed *= 0.8F;
-			}
-		} else {
-			this.rotateSpeed *= 0.99F;
-			this.speed *= 0.9F;
-			this.tentacleAngle = 0.0F;
-		}
-
-		if (!this.level().isClientSide()) {
-			this.setDeltaMovement((this.tx * this.speed), (this.ty * this.speed), (this.tz * this.speed));
-		}
 
 		var vec3 = this.getDeltaMovement();
-		this.xBodyRot += (float) ((-(Mth.atan2(vec3.horizontalDistance(), vec3.y)) * (180.0F / Mth.PI)) * 0.1F - this.xBodyRot * 0.1F);
-		this.yBodyRot += (float) ((-(Mth.atan2(vec3.x, vec3.z)) * (180.0F / Mth.PI) - this.yBodyRot) * 0.1F);
-		this.zBodyRot += Mth.PI * this.rotateSpeed * 1.5F;
+
+		this.tentacleAngleOld = this.tentacleAngle;
+		this.tentacleMovementOld = this.tentacleMovement;
+		this.xBodyRotOld = this.xBodyRot;
+		this.zBodyRotOld = this.zBodyRot;
+
+		this.setDeltaMovement();
+		this.setTentacleAngle();
+		this.setTentacleMovement();
+		this.setXBodyRot(vec3);
+		this.setXRot(this.xBodyRot);
+		this.setYBodyRot(vec3);
 		this.setYRot(this.yBodyRot);
-		if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-			if (this.level().isClientSide()) {
-				for (int i = 0; i < 2; ++i) {
-					this.level().addParticle(ParticleTypes.PORTAL, this.getRandomX(0.5D), this.getRandomY() - 0.25D, this.getRandomZ(0.5D), (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D);
-				}
-			}
-		}
-	}
-
-	@Override
-	public void customServerAiStep() {
-		super.customServerAiStep();
-		if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-			if (this.random.nextInt(100) == 0) {
-				this.teleport();
-			}
-		}
-	}
-
-	@Override
-	public void handleEntityEvent(byte pId) {
-		if (pId == 19) {
-			this.tentacleMovement = 0.0F;
-		} else {
-			super.handleEntityEvent(pId);
-		}
+		this.setZBodyRot();
 	}
 
 	@Override
 	public void playerTouch(Player pPlayer) {
-		if (pPlayer instanceof ServerPlayer) {
-			pPlayer.hurt(this.damageSources().mobAttack(this), this.getSize());
-			if (!pPlayer.isCreative()) {
-				if (this.getType() == IcariaEntityTypes.ENDER_JELLYFISH.get()) {
-					pPlayer.addEffect(new MobEffectInstance(MobEffects.WITHER, this.getSize() * 100, 0), this);
-				} else if (this.getType() == IcariaEntityTypes.FIRE_JELLYFISH.get()) {
-					pPlayer.igniteForSeconds(this.getSize() * 5);
-				} else if (this.getType() == IcariaEntityTypes.NATURE_JELLYFISH.get()) {
-					pPlayer.addEffect(new MobEffectInstance(MobEffects.POISON, this.getSize() * 100, 0), this);
-				} else if (this.getType() == IcariaEntityTypes.VOID_JELLYFISH.get()) {
-					pPlayer.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, this.getSize() * 100, 0), this);
-				} else if (this.getType() == IcariaEntityTypes.WATER_JELLYFISH.get()) {
-					pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, this.getSize() * 100, 0), this);
-				}
-			}
+		IcariaCommonHelper.hurt(this.damageSources().mobAttack(this), pPlayer, this.getSize());
+		if (!pPlayer.isCreative()) {
+			this.touch(pPlayer);
 		}
 	}
 
@@ -242,18 +82,72 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 		this.goalSelector.addGoal(2, new JellyfishFleeGoal(this));
 	}
 
-	public void setMovementVector(float pTx, float pTy, float pTz) {
-		this.tx = pTx;
-		this.ty = pTy;
-		this.tz = pTz;
+	public void setDeltaMovement() {
+		if (this.tentacleMovement < Mth.PI) {
+			this.setDeltaMovement(0.5D);
+		} else {
+			this.setDeltaMovement(1.0F);
+		}
+	}
+
+	public void setDeltaMovement(double pScale) {
+		if (this.isControlledByLocalInstance()) {
+			this.setDeltaMovement(this.movementVector.scale(pScale));
+		}
+	}
+
+	public void setMovementVector() {
+		this.movementVector = new Vec3(0.0D, 0.0D, 0.0D);
+	}
+
+	public void setSeed() {
+		this.getRandom().setSeed(this.getId());
 	}
 
 	@Override
 	public void setSize(int pSize) {
 		super.setSize(pSize);
-		int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(size);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(size * size);
+		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(pSize);
+		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+	}
+
+	public void setTentacleAngle() {
+		this.tentacleAngle = Mth.sin(this.tentacleMovement) * 0.5F;
+	}
+
+	public void setTentacleMovement() {
+		if (this.tentacleMovement > Mth.PI * 2.0F) {
+			this.tentacleMovement = 0.0F;
+		} else {
+			this.tentacleMovement = 0.1F + this.tentacleMovement;
+		}
+	}
+
+	public void setXBodyRot(Vec3 pVec3) {
+		this.xBodyRot += (float) (Mth.atan2(pVec3.horizontalDistance(), pVec3.y) / -IcariaValues.DEG_2_RAD - this.xBodyRot) * 0.1F;
+	}
+
+	public void setYBodyRot(Vec3 pVec3) {
+		this.yBodyRot += (float) (Mth.atan2(pVec3.x, pVec3.z) / -IcariaValues.DEG_2_RAD - this.yBodyRot) * 0.1F;
+	}
+
+	public void setZBodyRot() {
+		if (this.tentacleMovement < Mth.PI) {
+			this.setZBodyRot(2.5F);
+		} else {
+			this.setZBodyRot(5.0F);
+		}
+	}
+
+	public void setZBodyRot(float pRot) {
+		this.zBodyRot += pRot;
+	}
+
+	@Override
+	public void travel(Vec3 pVec3) {
+		if (this.isControlledByLocalInstance()) {
+			this.move(MoverType.SELF, this.getDeltaMovement());
+		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
@@ -284,4 +178,13 @@ public class JellyfishEntity extends SizedFlyingMobEntity {
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
 		return IcariaSoundEvents.JELLYFISH_HURT;
 	}
+
+	@Nullable
+	@Override
+	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
+		this.setSize(this.getRandom().nextIntBetweenInclusive(this.minSize, this.maxSize));
+		return super.finalizeSpawn(pServerLevelAccessor, pDifficultyInstance, pEntitySpawnReason, pSpawnGroupData);
+	}
+
+	public abstract void touch(Player pPlayer);
 }

@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:potion_concocting",
+  "colour": 2039587,
+  "duration": 220,
+  "ingredient": [
+    "landsoficaria:rowan",
+    "landsoficaria:rowan",
+    "landsoficaria:rowan"
+  ],
+  "potion": {
+    "potion": "landsoficaria:blindness"
+  },
+  "radius": 5.0,
+  "time": 200
+}

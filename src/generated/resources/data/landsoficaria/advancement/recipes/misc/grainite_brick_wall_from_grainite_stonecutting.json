@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:grainite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:grainite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:grainite_brick_wall_from_grainite_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:grainite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:grainite_brick_wall_from_grainite_stonecutting"
+    ]
+  }
+}

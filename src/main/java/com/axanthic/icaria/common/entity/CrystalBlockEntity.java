@@ -3,12 +3,12 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -22,12 +22,12 @@ public class CrystalBlockEntity extends BlockEntity {
 	public float green;
 	public float blue;
 
-	public CrystalBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.CRYSTAL.get(), pPos, pState);
+	public CrystalBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.CRYSTAL.get(), pBlockPos, pBlockState);
 	}
 
-	public CrystalBlockEntity(BlockPos pPos, BlockState pState, double pX, double pY, double pZ) {
-		this(pPos, pState);
+	public CrystalBlockEntity(BlockPos pBlockPos, BlockState pBlockState, double pX, double pY, double pZ) {
+		this(pBlockPos, pBlockState);
 		this.x = pX;
 		this.y = pY;
 		this.z = pZ;
@@ -36,9 +36,8 @@ public class CrystalBlockEntity extends BlockEntity {
 	@Override
 	public void onLoad() {
 		super.onLoad();
-		var level = this.getLevel();
-		if (level != null) {
-			if (level.isClientSide()) {
+		if (this.getLevel() != null) {
+			if (this.getLevel().isClientSide()) {
 				this.red = IcariaClientHelper.getRed(this);
 				this.green = IcariaClientHelper.getGreen(this);
 				this.blue = IcariaClientHelper.getBlue(this);

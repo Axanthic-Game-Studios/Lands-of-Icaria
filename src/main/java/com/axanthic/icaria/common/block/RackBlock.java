@@ -1,20 +1,27 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.LayerShapes;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
+
+import java.util.List;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -42,11 +49,6 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -57,13 +59,13 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public boolean hasAnalogOutputSignal(BlockState pState) {
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pState, Level pLevel, BlockPos pPos) {
-		return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? 15 : 0;
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? 15 : 0;
 	}
 
 	@Override
@@ -72,250 +74,119 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public void onBlockExploded(BlockState pState, Level pLevel, BlockPos pPos, Explosion pExplosion) {
-		var x = pPos.getX();
-		var y = pPos.getY();
-		var z = pPos.getZ();
-		if (!pLevel.isClientSide()) {
-			if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-				pExplosion.explode();
-				for (int i = -2; i <= 2; i++) {
-					var negPos = BlockPos.containing(x - i, y - i, z - i);
-					var posPos = BlockPos.containing(x + i, y + i, z + i);
-					for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-						var belowPos = blockPos.below();
-						if (pLevel.getRandom().nextInt(10) == 0) {
-							if (pLevel.getBlockState(blockPos).isAir()) {
-								if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-									pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
-								}
-							}
-						}
-					}
-				}
-			} else if (pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
-				for (int i = -1; i <= 1; i++) {
-					var negPos = BlockPos.containing(x - i, y - i, z - i);
-					var posPos = BlockPos.containing(x + i, y + i, z + i);
-					for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-						var belowPos = blockPos.below();
-						if (pLevel.getRandom().nextInt(10) == 0) {
-							if (pLevel.getBlockState(blockPos).isAir()) {
-								if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-									pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
-								}
-							}
-						}
-					}
-				}
-			}
+	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
+		IcariaCommonHelper.loadedOrTappedRack(pBlockPos, pBlockState, pServerLevel);
+	}
+
+	@Override
+	public void onProjectileHit(Level pLevel, BlockState pBlockState, BlockHitResult pBlockHitResult, Projectile pProjectile) {
+		if (!pLevel.isClientSide() && pProjectile.isOnFire() && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
+			IcariaCommonHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 		}
-
-		super.onBlockExploded(pState, pLevel, pPos, pExplosion);
 	}
 
 	@Override
-	public void onProjectileHit(Level pLevel, BlockState pState, BlockHitResult pHit, Projectile pProjectile) {
-		var pos = pHit.getBlockPos();
-		var x = pos.getX();
-		var y = pos.getY();
-		var z = pos.getZ();
-		if (!pLevel.isClientSide()) {
-			if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-				if (pProjectile.isOnFire()) {
-					pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
-					for (int i = -2; i <= 2; i++) {
-						var negPos = BlockPos.containing(x - i, y - i, z - i);
-						var posPos = BlockPos.containing(x + i, y + i, z + i);
-						for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-							var belowPos = blockPos.below();
-							if (pLevel.getRandom().nextInt(10) == 0) {
-								if (pLevel.getBlockState(blockPos).isAir()) {
-									if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-										pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
-									}
-								}
-							}
-						}
-					}
-				}
-			}
+	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
+		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
+		IcariaCommonHelper.loadedOrTappedRack(pBlockPos, pBlockState, pLevel);
+	}
+
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	}
+
+	@Override
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
+	}
+
+	@Override
+	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
+		if (Block.byItem(pItemStack.getItem()) instanceof IcariaBarrelBlock block && block.woodType() == this.woodType() && !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+			var blockState = block.defaultBlockState();
+			pLevel.playSound(null, pBlockPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_LOADED)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_TAPPED)));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FIRE_CHARGE) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
+			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FLINT_AND_STEEL) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
+			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pInteractionHand));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
-
-		super.onProjectileHit(pLevel, pState, pHit, pProjectile);
 	}
 
 	@Override
-	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pPos, BlockState pState, @Nullable BlockEntity pBlockEntity, ItemStack pTool) {
-		var x = pPos.getX();
-		var y = pPos.getY();
-		var z = pPos.getZ();
-		if (!pLevel.isClientSide()) {
-			if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-				pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
-				for (int i = -2; i <= 2; i++) {
-					var negPos = BlockPos.containing(x - i, y - i, z - i);
-					var posPos = BlockPos.containing(x + i, y + i, z + i);
-					for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-						var belowPos = blockPos.below();
-						if (pLevel.getRandom().nextInt(10) == 0) {
-							if (pLevel.getBlockState(blockPos).isAir()) {
-								if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-									pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
-								}
-							}
-						}
-					}
-				}
-			} else if (pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
-				for (int i = -1; i <= 1; i++) {
-					var negPos = BlockPos.containing(x - i, y - i, z - i);
-					var posPos = BlockPos.containing(x + i, y + i, z + i);
-					for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-						var belowPos = blockPos.below();
-						if (pLevel.getRandom().nextInt(10) == 0) {
-							if (pLevel.getBlockState(blockPos).isAir()) {
-								if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-									pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		super.playerDestroy(pLevel, pPlayer, pPos, pState, pBlockEntity, pTool);
-	}
-
-	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var fluidState = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
-		var horizontalDirection = pContext.getHorizontalDirection();
-		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluidState == Fluids.WATER);
-	}
-
-	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-	}
-
-	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-	}
-
-	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
-	}
-
-	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle() || !pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle() || !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
 			return InteractionResult.FAIL;
 		} else {
-			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pState, pPos);
+			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pBlockState, pBlockPos);
 			entity.moveTo(pPlayer.blockPosition(), 0, 0);
 			entity.startRiding(pPlayer);
-			pLevel.addFreshEntity(entity);
-			pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
+			pLevel.addFreshEntity(entity); // TODO not working as of 1.21.2
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
 			return InteractionResult.PASS;
 		}
 	}
 
 	@Override
-	public ItemInteractionResult useItemOn(ItemStack pStack, BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pResult) {
-		var item = pStack.getItem();
-		var x = pPos.getX();
-		var y = pPos.getY();
-		var z = pPos.getZ();
-		if (!pLevel.isClientSide()) {
-			if (pState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-				if (pStack.is(Items.FIRE_CHARGE) || pStack.is(Items.FLINT_AND_STEEL)) {
-					pLevel.explode(null, x, y, z, 2.0F, Level.ExplosionInteraction.BLOCK);
-					pPlayer.awardStat(Stats.ITEM_USED.get(item));
-					if (!pPlayer.isCreative()) {
-						if (pStack.is(Items.FIRE_CHARGE)) {
-							pStack.shrink(1);
-						} else {
-							pStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pHand));
-						}
-					}
-
-					for (int i = -2; i <= 2; i++) {
-						var negPos = BlockPos.containing(x - i, y - i, z - i);
-						var posPos = BlockPos.containing(x + i, y + i, z + i);
-						for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-							var belowPos = blockPos.below();
-							if (pLevel.getRandom().nextInt(10) == 0) {
-								if (pLevel.getBlockState(blockPos).isAir()) {
-									if (pLevel.getBlockState(belowPos).isSolidRender(pLevel, belowPos)) {
-										pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		if (!pState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
-			if (Block.byItem(item) instanceof IcariaBarrelBlock block) {
-				if (this.getType() == block.getType()) {
-					var state = block.defaultBlockState();
-					pLevel.playSound(null, pPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
-					pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, state.is(IcariaBlockTags.LOADED_BARRELS)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, state.is(IcariaBlockTags.TAPPED_BARRELS)));
-					if (!pPlayer.isCreative()) {
-						pStack.shrink(1);
-					}
-
-					return ItemInteractionResult.SUCCESS;
-				}
-			}
-		}
-
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
+		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL) || pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? List.of() : lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootParams) : List.of(new ItemStack(this));
 	}
 
 	@Override
-	public SoundType getSoundType(BlockState pState, LevelReader pLevel, BlockPos pPos, @Nullable Entity pEntity) {
-		return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? IcariaSoundTypes.BARREL : super.getSoundType(pState, pLevel, pPos, pEntity);
+	public SoundType getSoundType(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos, @Nullable Entity pEntity) {
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? IcariaSoundTypes.BARREL : super.getSoundType(pBlockState, pLevelReader, pBlockPos, pEntity);
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pPos) {
 		return Shapes.empty();
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : LayerShapes.Y_04;
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : LayerShapes.Y_04;
 	}
 
-	public WoodType getType() {
-		if (this.defaultBlockState().is(IcariaBlockTags.CYPRESS_RACKS)) {
+	public WoodType woodType() {
+		if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_CYPRESS)) {
 			return IcariaWoodTypes.CYPRESS;
-		} else if (this.defaultBlockState().is(IcariaBlockTags.DROUGHTROOT_RACKS)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_DROUGHTROOT)) {
 			return IcariaWoodTypes.DROUGHTROOT;
-		} else if (this.defaultBlockState().is(IcariaBlockTags.FIR_RACKS)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_FIR)) {
 			return IcariaWoodTypes.FIR;
-		} else if (this.defaultBlockState().is(IcariaBlockTags.LAUREL_RACKS)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_LAUREL)) {
 			return IcariaWoodTypes.LAUREL;
-		} else if (this.defaultBlockState().is(IcariaBlockTags.OLIVE_RACKS)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_OLIVE)) {
 			return IcariaWoodTypes.OLIVE;
-		} else if (this.defaultBlockState().is(IcariaBlockTags.PLANE_RACKS)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_PLANE)) {
 			return IcariaWoodTypes.PLANE;
 		} else {
 			return IcariaWoodTypes.POPULUS;
 		}
-	}
-
-	@Override
-	public List<ItemStack> getDrops(BlockState pState, LootParams.Builder pBuilder) {
-		var lootContext = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pState).create(LootContextParamSets.BLOCK);
-		return pState.getValue(IcariaBlockStateProperties.FULL_RACK) ? pState.getValue(IcariaBlockStateProperties.LOADED_BARREL) || pState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? List.of() : lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL_LOOT).getRandomItems(lootContext) : List.of(new ItemStack(this));
 	}
 }

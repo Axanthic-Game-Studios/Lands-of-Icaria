@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:sideros_dagger": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:sideros_dagger"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:sideros_nugget_from_sideros_dagger_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:sideros_dagger"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:sideros_nugget_from_sideros_dagger_forging"
+    ]
+  }
+}

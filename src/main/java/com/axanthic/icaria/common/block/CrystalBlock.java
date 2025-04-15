@@ -7,13 +7,16 @@ import com.axanthic.icaria.common.shapes.DirectionShapes;
 
 import com.mojang.serialization.MapCodec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,8 +26,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -38,13 +39,12 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	}
 
 	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var relativePos = pPos.relative(pState.getValue(BlockStateProperties.FACING).getOpposite());
-		return pLevel.getBlockState(relativePos).isSolidRender(pLevel, relativePos);
+	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
+		return pLevelReader.getBlockState(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.FACING).getOpposite())).isSolidRender();
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+	public boolean propagatesSkylightDown(BlockState pBlockState) {
 		return true;
 	}
 
@@ -54,41 +54,41 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-		return switch (pState.getValue(BlockStateProperties.FACING)) {
-			case NORTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 1.0D);
-			case EAST -> new CrystalBlockEntity(pPos, pState, 0.0D, 0.5D, 0.5D);
-			case SOUTH -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.5D, 0.0D);
-			case WEST -> new CrystalBlockEntity(pPos, pState, 1.0D, 0.5D, 0.5D);
-			case UP -> new CrystalBlockEntity(pPos, pState, 0.5D, 0.0D, 0.5D);
-			case DOWN -> new CrystalBlockEntity(pPos, pState, 0.5D, 1.0D, 0.5D);
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.FACING)) {
+			case NORTH -> new CrystalBlockEntity(pBlockPos, pBlockState, 0.5D, 0.5D, 1.0D);
+			case EAST -> new CrystalBlockEntity(pBlockPos, pBlockState, 0.0D, 0.5D, 0.5D);
+			case SOUTH -> new CrystalBlockEntity(pBlockPos, pBlockState, 0.5D, 0.5D, 0.0D);
+			case WEST -> new CrystalBlockEntity(pBlockPos, pBlockState, 1.0D, 0.5D, 0.5D);
+			case UP -> new CrystalBlockEntity(pBlockPos, pBlockState, 0.5D, 0.0D, 0.5D);
+			case DOWN -> new CrystalBlockEntity(pBlockPos, pBlockState, 0.5D, 1.0D, 0.5D);
 		};
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var fluid = pContext.getLevel().getFluidState(pContext.getClickedPos()).getType();
-		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getClickedFace()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pBlockPlaceContext.getClickedFace()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.FACING, pMirror.mirror(pState.getValue(BlockStateProperties.FACING)));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.FACING)));
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.FACING, pRotation.rotate(pState.getValue(BlockStateProperties.FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.FACING)));
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return pDirection == pState.getValue(BlockStateProperties.FACING).getOpposite() && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
 	}
 
 	@Override
@@ -97,8 +97,8 @@ public class CrystalBlock extends DirectionalBlock implements EntityBlock, Medit
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(BlockStateProperties.FACING)) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(BlockStateProperties.FACING)) {
 			case NORTH -> DirectionShapes.NORTH;
 			case EAST -> DirectionShapes.EAST;
 			case SOUTH -> DirectionShapes.SOUTH;

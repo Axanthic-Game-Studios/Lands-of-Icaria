@@ -2,6 +2,7 @@
   "parent": "minecraft:block/cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cross": "landsoficaria:block/populus_sapling"
+    "cross": "landsoficaria:block/populus_sapling",
+    "particle": "landsoficaria:block/populus_sapling"
   }
 }

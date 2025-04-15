@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 5249044,
+  "entity": "landsoficaria:myrmeke_soldier",
+  "ingredient": [
+    "landsoficaria:mondanos",
+    "landsoficaria:wilted_elm",
+    "landsoficaria:rowan"
+  ],
+  "time": 200
+}

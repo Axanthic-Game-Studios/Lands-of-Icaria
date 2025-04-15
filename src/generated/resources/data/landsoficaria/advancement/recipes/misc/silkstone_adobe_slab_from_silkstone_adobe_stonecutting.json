@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:silkstone_adobe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:silkstone_adobe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:silkstone_adobe_slab_from_silkstone_adobe_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:silkstone_adobe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:silkstone_adobe_slab_from_silkstone_adobe_stonecutting"
+    ]
+  }
+}

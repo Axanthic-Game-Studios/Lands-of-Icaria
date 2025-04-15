@@ -1,12 +1,14 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.SlugEntity;
+import com.axanthic.icaria.client.state.CrystalSlugRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -15,13 +17,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
-	public ModelPart root;
+public class CrystalSlugModel extends EntityModel<CrystalSlugRenderState> {
 	public ModelPart bodyFront;
 	public ModelPart neck;
 	public ModelPart neckCrystalCenter;
@@ -34,7 +33,7 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
 	public ModelPart bodyRearCrystal;
 
 	public CrystalSlugModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyFront = this.root.getChild("bodyFront");
 		this.neck = this.bodyFront.getChild("neck");
 		this.neckCrystalCenter = this.neck.getChild("neckCrystalCenter");
@@ -48,13 +47,15 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
 	}
 
 	@Override
-	public void setupAnim(SlugEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.idleAnim(pAgeInTicks);
-		this.animate(pEntity.hideAnimationState, IcariaAnimations.CRYSTAL_SLUG_HIDE, pAgeInTicks);
-		this.animate(pEntity.hurtAnimationState, IcariaAnimations.CRYSTAL_SLUG_HURT, pAgeInTicks);
-		this.animate(pEntity.moveAnimationState, IcariaAnimations.CRYSTAL_SLUG_MOVE, pAgeInTicks);
-		this.animate(pEntity.showAnimationState, IcariaAnimations.CRYSTAL_SLUG_SHOW, pAgeInTicks);
+	public void setupAnim(CrystalSlugRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.idleAnim(pRenderState.ageInTicks);
+
+		this.animate(pRenderState.hideAnimationState, IcariaAnimations.CRYSTAL_SLUG_HIDE, pRenderState.ageInTicks);
+		this.animate(pRenderState.hurtAnimationState, IcariaAnimations.CRYSTAL_SLUG_HURT, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimations.CRYSTAL_SLUG_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.showAnimationState, IcariaAnimations.CRYSTAL_SLUG_SHOW, pRenderState.ageInTicks);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -64,22 +65,26 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
 		this.feelerLeft.zRot = -Mth.cos(pAgeInTicks * 0.075F + 4.0F) * 0.075F - 0.7854F;
 	}
 
+	public void translateToCenter(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
+		this.bodyCenterCrystal.translateAndRotate(pPoseStack);
+	}
+
 	public void translateToNeck(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyFront.translateAndRotate(pPoseStack);
 		this.neck.translateAndRotate(pPoseStack);
 		this.neckCrystalCenter.translateAndRotate(pPoseStack);
 	}
 
-	public void translateToCenter(PoseStack pPoseStack) {
-		this.bodyCenterCrystal.translateAndRotate(pPoseStack);
-	}
-
 	public void translateToRear(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyRearCrystal.translateAndRotate(pPoseStack);
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyFront = partDefinition.addOrReplaceChild("bodyFront", CubeListBuilder.create().texOffs(0, 20).addBox(-3.5F, -5.0F, -6.0F, 7.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 24.0F, -12.0F, -0.3927F, 0.0F, 0.0F));
@@ -112,10 +117,5 @@ public class CrystalSlugModel extends HierarchicalModel<SlugEntity> {
 		bodyRearCrystal.addOrReplaceChild("bodyRearCrystalWest", CubeListBuilder.create().texOffs(62, 37).addBox(2.5F, -0.88F, 1.0F, 2.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.2618F, 0.0654F, 0.3054F));
 
 		return LayerDefinition.create(meshDefinition, 80, 80);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

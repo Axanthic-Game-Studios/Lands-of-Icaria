@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:dandelion": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dandelion"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:yellow_dye_from_dandelion_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_gear",
+      "has_minecraft:dandelion"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:yellow_dye_from_dandelion_grinding"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 3550760,
+  "entity": "landsoficaria:arachne",
+  "ingredient": [
+    "landsoficaria:arachne_venom_vial",
+    "landsoficaria:hyliastrum_vial",
+    "landsoficaria:psilocybos"
+  ],
+  "time": 200
+}

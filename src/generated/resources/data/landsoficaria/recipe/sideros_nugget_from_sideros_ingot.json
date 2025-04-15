@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:sideros_ingot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:sideros_nugget"
+  }
+}

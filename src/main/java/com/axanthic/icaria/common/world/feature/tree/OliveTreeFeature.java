@@ -6,6 +6,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -13,8 +15,6 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -25,18 +25,19 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		int heightTrunk = random.nextIntBetweenInclusive(1, 2);
-		int heightLimit = heightTrunk + 4;
-		int heightAxisY = heightLimit + origin.getY();
+		var heightTrunk = random.nextIntBetweenInclusive(1, 2);
+		var heightLimit = heightTrunk + 4;
+		var heightAxisY = heightLimit + origin.getY();
 
-		if (heightAxisY < level.getMaxBuildHeight() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (int i = 1; i <= heightTrunk; ++i) {
+		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
+			for (var i = 1; i <= heightTrunk; ++i) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
@@ -221,18 +222,18 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 	}
 
 	@Override
-	public void placeLeaves(WorldGenLevel pLevel, BlockPos pPos) {
-		if (pLevel.getBlockState(pPos).isAir()) {
-			if (pLevel.getRandom().nextBoolean()) {
-				if (pLevel.getRandom().nextInt(3) == 0) {
-					this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
-				} else if (pLevel.getRandom().nextInt(3) == 1) {
-					this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
-				} else if (pLevel.getRandom().nextInt(3) == 2) {
-					this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK));
+	public void placeLeaves(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir()) {
+			if (pWorldGenLevel.getRandom().nextBoolean()) {
+				if (pWorldGenLevel.getRandom().nextInt(3) == 0) {
+					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
+				} else if (pWorldGenLevel.getRandom().nextInt(3) == 1) {
+					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
+				} else if (pWorldGenLevel.getRandom().nextInt(3) == 2) {
+					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK));
 				}
 			} else {
-				this.setBlock(pLevel, pPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.LEAVES));
+				this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.LEAVES));
 			}
 		}
 	}

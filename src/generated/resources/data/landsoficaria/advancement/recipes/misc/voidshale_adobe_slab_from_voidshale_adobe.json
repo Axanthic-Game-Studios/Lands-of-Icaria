@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:voidshale_adobe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:voidshale_adobe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:voidshale_adobe_slab_from_voidshale_adobe"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:voidshale_adobe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:voidshale_adobe_slab_from_voidshale_adobe"
+    ]
+  }
+}

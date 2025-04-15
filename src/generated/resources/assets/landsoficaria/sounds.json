@@ -927,6 +927,12 @@
     ],
     "subtitle": "subtitle.landsoficaria.calcite.fertilize"
   },
+  "item.capella_horn.fail": {
+    "sounds": [
+      "landsoficaria:item/capella_horn/fail_00"
+    ],
+    "subtitle": "subtitle.landsoficaria.capella_horn.fail"
+  },
   "item.chalkos_armor.equip": {
     "sounds": [
       {

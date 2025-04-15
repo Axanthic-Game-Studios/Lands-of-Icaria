@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 3682088,
+  "entity": "landsoficaria:arachne_drone",
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:bolbos",
+    "landsoficaria:bolbos"
+  ],
+  "time": 200
+}

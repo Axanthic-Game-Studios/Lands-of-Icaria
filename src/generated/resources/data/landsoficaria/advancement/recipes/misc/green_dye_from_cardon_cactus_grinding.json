@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:cardon_cactus": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:cardon_cactus"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:green_dye_from_cardon_cactus_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_gear",
+      "has_landsoficaria:cardon_cactus"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:green_dye_from_cardon_cactus_grinding"
+    ]
+  }
+}

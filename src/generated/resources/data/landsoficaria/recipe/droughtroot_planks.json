@@ -3,18 +3,12 @@
   "category": "misc",
   "ingredients": [
     [
-      {
-        "item": "landsoficaria:droughtroot_wood"
-      },
-      {
-        "item": "landsoficaria:stripped_droughtroot_wood"
-      },
-      {
-        "item": "landsoficaria:droughtroot_log"
-      },
-      {
-        "item": "landsoficaria:stripped_droughtroot_log"
-      }
+      "landsoficaria:droughtroot_wood",
+      "landsoficaria:stripped_droughtroot_wood",
+      "landsoficaria:droughtroot_log",
+      "landsoficaria:stripped_droughtroot_log",
+      "landsoficaria:dead_droughtroot_log",
+      "landsoficaria:stripped_dead_droughtroot_log"
     ]
   ],
   "result": {

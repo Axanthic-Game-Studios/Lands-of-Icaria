@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:vanadiumsteel_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:vanadiumsteel_ingot"
+  }
+}

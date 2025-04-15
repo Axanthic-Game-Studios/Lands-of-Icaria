@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "landsoficaria:aeternae_hide"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "landsoficaria:aeternae_hide"
+      }
+    ]
+  }
+}

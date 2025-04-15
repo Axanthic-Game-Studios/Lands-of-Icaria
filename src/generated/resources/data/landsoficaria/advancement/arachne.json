@@ -21,6 +21,7 @@
     "description": {
       "translate": "advancement.landsoficaria.arachne.description"
     },
+    "frame": "challenge",
     "icon": {
       "count": 1,
       "id": "landsoficaria:arachne_string"
@@ -34,5 +35,8 @@
       "arachne"
     ]
   ],
+  "rewards": {
+    "experience": 100
+  },
   "sends_telemetry_event": true
 }

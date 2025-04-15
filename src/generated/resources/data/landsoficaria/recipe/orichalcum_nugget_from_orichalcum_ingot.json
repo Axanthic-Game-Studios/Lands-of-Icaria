@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:orichalcum_ingot"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:orichalcum_nugget"
+  }
+}

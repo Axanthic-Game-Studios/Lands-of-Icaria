@@ -51,8 +51,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:raw_catoblepas_meat",
       "has_landsoficaria:onion",
+      "has_landsoficaria:raw_catoblepas_meat",
       "has_landsoficaria:halite_dust",
       "has_landsoficaria:loam_bowl"
     ]

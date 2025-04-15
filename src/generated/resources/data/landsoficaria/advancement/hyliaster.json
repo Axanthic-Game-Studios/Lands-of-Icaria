@@ -1,0 +1,39 @@
+{
+  "parent": "landsoficaria:sideros_pickaxe",
+  "criteria": {
+    "hyliaster": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "landsoficaria:hyliaster"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "display": {
+    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "description": {
+      "translate": "advancement.landsoficaria.hyliaster.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "landsoficaria:hyliastrum_vial"
+    },
+    "title": {
+      "translate": "advancement.landsoficaria.hyliaster.title"
+    }
+  },
+  "requirements": [
+    [
+      "hyliaster"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "landsoficaria:cobbled_voidshale"
-  },
+  "ingredient": "landsoficaria:cobbled_voidshale",
   "result": {
     "count": 1,
     "id": "landsoficaria:voidshale"

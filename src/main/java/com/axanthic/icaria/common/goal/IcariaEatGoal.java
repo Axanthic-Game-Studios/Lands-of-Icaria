@@ -5,19 +5,19 @@ import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
-
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.entity.ai.goal.Goal;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-
-import net.neoforged.neoforge.event.EventHooks;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
 import java.util.EnumSet;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.level.block.Block;
+
+import net.neoforged.neoforge.event.EventHooks;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -27,40 +27,34 @@ public class IcariaEatGoal extends Goal {
 
 	public IcariaAnimalEntity entity;
 
-	public Level level;
-
 	public Trough trough;
 
 	public IcariaEatGoal(IcariaAnimalEntity pEntity, Trough pTrough) {
 		this.entity = pEntity;
-		this.level = pEntity.level();
 		this.trough = pTrough;
-		this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.LOOK, Goal.Flag.JUMP));
+		this.setFlags(EnumSet.of(Goal.Flag.JUMP, Goal.Flag.LOOK, Goal.Flag.MOVE));
 	}
 
 	@Override
 	public boolean canContinueToUse() {
-		return this.eatAnimationTick > 0;
+		return this.eatAnimationTick < 20;
 	}
 
 	@Override
 	public boolean canUse() {
 		var blockPos = this.entity.blockPosition();
 		var direction = this.entity.getDirection();
-		var checkTrough = this.level.getBlockState(blockPos.relative(direction)).is(IcariaBlockTags.TROUGHS) && this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0;
-		var checkBlocks = this.level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get()) || this.level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS) || checkTrough;
-		return this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) == 0 && checkBlocks;
-	}
-
-	public int getEatAnimationTick() {
-		return this.eatAnimationTick;
+		var level = this.entity.level();
+		var trough = level.getBlockState(blockPos.relative(direction)).is(IcariaBlockTagsProvider.TROUGHS) && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0;
+		var blocks = level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get()) || level.getBlockState(blockPos).is(IcariaBlockTagsProvider.GRASS_BLOCKS);
+		var check = blocks || trough;
+		return this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) == 0 && check;
 	}
 
 	@Override
 	public void start() {
-		this.eatAnimationTick = this.adjustedTickDelay(40);
-		this.level.broadcastEntityEvent(this.entity, (byte) 10);
 		this.entity.getNavigation().stop();
+		this.entity.level().broadcastEntityEvent(this.entity, (byte) 10);
 	}
 
 	@Override
@@ -70,27 +64,28 @@ public class IcariaEatGoal extends Goal {
 
 	@Override
 	public void tick() {
-		this.eatAnimationTick = Math.max(0, this.eatAnimationTick - 1);
 		var blockPos = this.entity.blockPosition();
 		var direction = this.entity.getDirection();
-		if (EventHooks.canEntityGrief(this.level, this.entity)) {
-			if (this.eatAnimationTick == this.adjustedTickDelay(4)) {
-				if (this.level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS)) {
-					this.entity.ate();
-					this.level.destroyBlock(blockPos, false);
-				} else if (this.level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
-					this.entity.ate();
-					this.level.levelEvent(2001, blockPos.below(), Block.getId(IcariaBlocks.MARL.get().defaultBlockState()));
-					this.level.setBlockAndUpdate(blockPos.below(), IcariaBlocks.MARL.get().defaultBlockState());
-				} else if (this.level.getBlockState(blockPos.relative(direction)).is(IcariaBlockTags.TROUGHS) && this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough) {
-					if (this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 1) {
+		var level = this.entity.level();
+		this.eatAnimationTick++;
+		if (this.eatAnimationTick == 16) {
+			if (level instanceof ServerLevel serverLevel) {
+				if (EventHooks.canEntityGrief(serverLevel, this.entity)) {
+					if (level.getBlockState(blockPos).is(IcariaBlockTagsProvider.GRASS_BLOCKS)) {
+						level.destroyBlock(blockPos, false);
 						this.entity.ate();
-						this.level.playSound(null, blockPos.relative(direction), IcariaSoundEvents.TROUGH_EMPTY, SoundSource.BLOCKS);
-						this.level.setBlockAndUpdate(blockPos.relative(direction), this.level.getBlockState(blockPos.relative(direction)).setValue(IcariaBlockStateProperties.TROUGH, this.trough).setValue(IcariaBlockStateProperties.TROUGH_FILL, this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) - 1));
-					} else if (this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0) {
+					} else if (level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
+						level.levelEvent(2001, blockPos.below(), Block.getId(IcariaBlocks.MARL.get().defaultBlockState()));
+						level.setBlockAndUpdate(blockPos.below(), IcariaBlocks.MARL.get().defaultBlockState());
 						this.entity.ate();
-						this.level.playSound(null, blockPos.relative(direction), IcariaSoundEvents.TROUGH_EMPTY, SoundSource.BLOCKS);
-						this.level.setBlockAndUpdate(blockPos.relative(direction), this.level.getBlockState(blockPos.relative(direction)).setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, this.level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) - 1));
+					} else if (level.getBlockState(blockPos.relative(direction)).is(IcariaBlockTagsProvider.TROUGHS) && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 1) {
+						level.playSound(null, blockPos.relative(direction), IcariaSoundEvents.TROUGH_EMPTY, SoundSource.BLOCKS);
+						level.setBlockAndUpdate(blockPos.relative(direction), level.getBlockState(blockPos.relative(direction)).setValue(IcariaBlockStateProperties.TROUGH, this.trough).setValue(IcariaBlockStateProperties.TROUGH_FILL, level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) - 1));
+						this.entity.ate();
+					} else if (level.getBlockState(blockPos.relative(direction)).is(IcariaBlockTagsProvider.TROUGHS) && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0) {
+						level.playSound(null, blockPos.relative(direction), IcariaSoundEvents.TROUGH_EMPTY, SoundSource.BLOCKS);
+						level.setBlockAndUpdate(blockPos.relative(direction), level.getBlockState(blockPos.relative(direction)).setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) - 1));
+						this.entity.ate();
 					}
 				}
 			}

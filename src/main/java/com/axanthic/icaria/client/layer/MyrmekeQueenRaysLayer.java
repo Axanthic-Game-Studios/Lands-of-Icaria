@@ -2,32 +2,32 @@ package com.axanthic.icaria.client.layer;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenEntity, MyrmekeQueenModel> {
-	public MyrmekeQueenRaysLayer(RenderLayerParent<MyrmekeQueenEntity, MyrmekeQueenModel> pRenderer) {
-		super(pRenderer);
+public class MyrmekeQueenRaysLayer extends RenderLayer<MyrmekeQueenRenderState, MyrmekeQueenModel> {
+	public MyrmekeQueenRaysLayer(RenderLayerParent<MyrmekeQueenRenderState, MyrmekeQueenModel> pRenderLayerParent) {
+		super(pRenderLayerParent);
 	}
 
 	@Override
-	public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight, MyrmekeQueenEntity pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+	public void render(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, MyrmekeQueenRenderState pRenderState, float pYRot, float pXRot) {
 		pPoseStack.pushPose();
 		this.getParentModel().translateToHead(pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().head);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, -0.010F, -1.265F, 0.185F, 0.375F);
-		IcariaClientHelper.renderRays(pPoseStack, pBuffer, pLivingEntity, pPartialTick, pLivingEntity.red, pLivingEntity.green, pLivingEntity.blue);
+		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRenderState.livingEntity, pRenderState.partialTick, pRenderState.red, pRenderState.green, pRenderState.blue);
 		pPoseStack.popPose();
 	}
 }

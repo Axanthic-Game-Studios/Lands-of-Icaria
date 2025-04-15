@@ -1,78 +1,52 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaPortalShape;
+
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.phys.HitResult;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GreekFireGrenadeEntity extends AbstractArrow {
-	public ItemStack stack = new ItemStack(IcariaItems.GREEK_FIRE_GRENADE.get());
-
-	public GreekFireGrenadeEntity(EntityType<? extends GreekFireGrenadeEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+public class GreekFireGrenadeEntity extends ThrowableItemProjectile {
+	public GreekFireGrenadeEntity(EntityType<? extends GreekFireGrenadeEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
-	public GreekFireGrenadeEntity(Level pLevel, LivingEntity pEntity, ItemStack pStack) {
-		super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pEntity, pLevel, pStack, null);
-		this.stack = pStack.copy();
+	public GreekFireGrenadeEntity(Level pLevel, LivingEntity pLivingEntity, ItemStack pItemStack) {
+		super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pLivingEntity, pLevel, pItemStack);
 	}
 
-	@Override
-	public boolean displayFireAnimation() {
-		return false;
-	}
-
-	public boolean spawnPortal(LevelAccessor pLevel, BlockPos pPos) {
-		var portalShape = this.getPortalShape(pLevel, pPos);
-		if (portalShape != null) {
-			portalShape.createPortalBlocks();
-			return true;
-		} else {
-			return false;
-		}
+	public GreekFireGrenadeEntity(Level pLevel, double pX, double pY, double pZ, ItemStack pItemStack) {
+		super(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), pX, pY, pZ, pLevel, pItemStack);
 	}
 
 	@Override
-	public void onHit(HitResult pResult) {
+	public void onHit(HitResult pHitResult) {
+		var vec3 = pHitResult.getLocation();
+		var icariaPortalShape = this.getIcariaPortalShape(BlockPos.containing(vec3.x(), vec3.y(), vec3.z()), this.level());
 		if (!this.level().isClientSide()) {
-			if (this.spawnPortal(this.level(), BlockPos.containing(pResult.getLocation().x(), pResult.getLocation().y(), pResult.getLocation().z()))) {
-				this.discard();
+			this.discard();
+			this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
+			if (icariaPortalShape != null) {
+				icariaPortalShape.createPortal();
 			} else {
-				this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
-				this.discard();
-				for (int i = -2; i <= 2; i++) {
-					var negPos = BlockPos.containing(this.getX() - i, this.getY() - i, this.getZ() - i);
-					var posPos = BlockPos.containing(this.getX() + i, this.getY() + i, this.getZ() + i);
-					for (var blockPos : BlockPos.betweenClosed(negPos, posPos)) {
-						if (this.getRandom().nextInt(10) == 0) {
-							if (this.level().getBlockState(blockPos).isAir()) {
-								if (this.level().getBlockState(blockPos.below()).isSolidRender(this.level(), blockPos.below())) {
-									this.level().setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
-								}
-							}
-						}
-					}
-				}
+				IcariaCommonHelper.fire(this.blockPosition(), this.level(), 2, 10);
 			}
 		}
 	}
@@ -85,12 +59,13 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 		}
 	}
 
-	public @Nullable IcariaPortalShape getPortalShape(LevelAccessor pLevel, BlockPos pPos) {
-		var icariaPortalShapeX = new IcariaPortalShape(pLevel, pPos, Direction.Axis.X);
-		var icariaPortalShapeZ = new IcariaPortalShape(pLevel, pPos, Direction.Axis.Z);
-		if (icariaPortalShapeX.isValid() && icariaPortalShapeX.numPortalBlocks == 0) {
+	@Nullable
+	public IcariaPortalShape getIcariaPortalShape(BlockPos pBlockPos, Level pLevel) {
+		var icariaPortalShapeX = new IcariaPortalShape(Direction.Axis.X, pBlockPos, pLevel);
+		var icariaPortalShapeZ = new IcariaPortalShape(Direction.Axis.Z, pBlockPos, pLevel);
+		if (icariaPortalShapeX.canSet() && icariaPortalShapeX.isComplete()) {
 			return icariaPortalShapeX;
-		} else if (icariaPortalShapeZ.isValid() && icariaPortalShapeZ.numPortalBlocks == 0) {
+		} else if (icariaPortalShapeZ.canSet() && icariaPortalShapeZ.isComplete()) {
 			return icariaPortalShapeZ;
 		} else {
 			return null;
@@ -98,16 +73,7 @@ public class GreekFireGrenadeEntity extends AbstractArrow {
 	}
 
 	@Override
-	public ItemStack getDefaultPickupItem() {
-		return ItemStack.EMPTY;
-	}
-
-	public ItemStack getItem() {
-		return this.stack;
-	}
-
-	@Override
-	public SoundEvent getDefaultHitGroundSoundEvent() {
-		return SoundEvents.GENERIC_EXPLODE.value();
+	public Item getDefaultItem() {
+		return IcariaItems.GREEK_FIRE_GRENADE.get();
 	}
 }

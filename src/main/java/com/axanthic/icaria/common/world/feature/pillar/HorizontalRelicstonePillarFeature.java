@@ -1,9 +1,11 @@
 package com.axanthic.icaria.common.world.feature.pillar;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
 import com.mojang.serialization.Codec;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -13,8 +15,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
@@ -27,18 +27,19 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		int length = random.nextIntBetweenInclusive(2, 4);
-		int offset = 0;
+		var length = random.nextIntBetweenInclusive(2, 4);
+		var offset = 0;
 
 		this.placeHead(level, origin, direction);
 
-		for (int i = 1; i <= length; ++i) {
+		for (var i = 1; i <= length; ++i) {
 			++offset;
 			this.placePillar(level, origin.relative(direction, offset), direction);
 		}
@@ -49,27 +50,27 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
 		return true;
 	}
 
-	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeHead(pLevel, pPos, pDirection);
+	public void placeHead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeHead(pWorldGenLevel, pBlockPos, pDirection);
 		}
 	}
 
-	public void placeHead(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
+	public void placeHead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
+			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
 		}
 	}
 
-	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placePillar(pLevel, pPos, pDirection);
+	public void placePillar(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placePillar(pWorldGenLevel, pBlockPos, pDirection);
 		}
 	}
 
-	public void placePillar(WorldGenLevel pLevel, BlockPos pPos, Direction pDirection) {
-		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(IcariaBlockTags.DIRT_AND_SAND)) {
-			this.setBlock(pLevel, pPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
+	public void placePillar(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
+			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
 		}
 	}
 }

@@ -4,6 +4,10 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 
 import com.mojang.serialization.MapCodec;
 
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
@@ -20,10 +24,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
 
@@ -36,8 +36,8 @@ public class PillarHeadBlock extends DirectionalBlock {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, Item.TooltipContext pContext, List<Component> pList, TooltipFlag pFlag) {
-		pList.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title").withStyle(ChatFormatting.GRAY));
+	public void appendHoverText(ItemStack pItemStack, Item.TooltipContext pTooltipContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title").withStyle(ChatFormatting.GRAY));
 	}
 
 	@Override
@@ -46,24 +46,24 @@ public class PillarHeadBlock extends DirectionalBlock {
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		if (pContext.getPlayer() != null) {
-			if (pContext.getPlayer().isShiftKeyDown()) {
-				return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection().getOpposite());
-			}
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var direction = pBlockPlaceContext.getNearestLookingDirection();
+		var player = pBlockPlaceContext.getPlayer();
+		if (player != null && player.isShiftKeyDown()) {
+			return this.defaultBlockState().setValue(BlockStateProperties.FACING, direction.getOpposite());
+		} else {
+			return this.defaultBlockState().setValue(BlockStateProperties.FACING, direction);
 		}
-
-		return this.defaultBlockState().setValue(BlockStateProperties.FACING, pContext.getNearestLookingDirection());
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.FACING, pMirror.mirror(pState.getValue(BlockStateProperties.FACING)));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.FACING)));
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.FACING, pRotation.rotate(pState.getValue(BlockStateProperties.FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.FACING)));
 	}
 
 	@Override

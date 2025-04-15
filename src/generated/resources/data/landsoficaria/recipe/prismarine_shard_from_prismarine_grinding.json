@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:vanadium_gear",
+  "ingredient": "minecraft:prismarine",
+  "result": {
+    "count": 4,
+    "id": "minecraft:prismarine_shard"
+  },
+  "time": 200
+}

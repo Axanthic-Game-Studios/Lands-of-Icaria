@@ -41,9 +41,9 @@
   "requirements": [
     [
       "has_the_recipe",
+      "has_landsoficaria:marl",
       "has_landsoficaria:spelt",
-      "has_landsoficaria:loam_lump",
-      "has_landsoficaria:marl"
+      "has_landsoficaria:loam_lump"
     ]
   ],
   "rewards": {

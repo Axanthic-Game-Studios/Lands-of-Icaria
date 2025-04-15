@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:deepslate_redstone_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:redstone"
+  },
+  "time": 100
+}

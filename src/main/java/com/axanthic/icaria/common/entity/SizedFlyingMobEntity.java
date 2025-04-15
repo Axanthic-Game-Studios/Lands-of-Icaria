@@ -1,49 +1,41 @@
 package com.axanthic.icaria.common.entity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.ServerLevelAccessor;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation, unused")
+@SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class SizedFlyingMobEntity extends FlyingMob {
+	public float hitboxMult;
+	public float renderMult;
+	public float shadowMult;
+
 	public int maxSize = 4;
 	public int minSize = 1;
 
-	public float aabbMult;
-	public float renderMult;
-	public float shadowMult;
-	public float sizeMult;
-	public float sizeMultInverted;
-
 	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(SizedFlyingMobEntity.class, EntityDataSerializers.INT);
 
-	public SizedFlyingMobEntity(EntityType<? extends SizedFlyingMobEntity> pType, Level pLevel, float pAabbMult, float pRenderMult, float pShadowMult, float pSizeMult, float pSizeMultInverted) {
-		super(pType, pLevel);
-		this.aabbMult = pAabbMult;
+	public SizedFlyingMobEntity(EntityType<? extends SizedFlyingMobEntity> pEntityType, Level pLevel, float pHitboxMult, float pRenderMult, float pShadowMult) {
+		super(pEntityType, pLevel);
+		this.hitboxMult = pHitboxMult;
 		this.renderMult = pRenderMult;
 		this.shadowMult = pShadowMult;
-		this.sizeMult = pSizeMult;
-		this.sizeMultInverted = pSizeMultInverted;
 	}
 
-	public static boolean checkMobSpawnRules(EntityType<? extends Mob> pType, LevelAccessor pLevel, MobSpawnType pSpawnType, BlockPos pPos, RandomSource pRandom) {
+	public static boolean checkMobSpawnRules(EntityType<? extends Mob> pEntityType, LevelAccessor pLevelAccessor, EntitySpawnReason pEntitySpawnReason, BlockPos pBlockPos, RandomSource pRandomSource) {
 		return true;
 	}
 
@@ -52,51 +44,26 @@ public class SizedFlyingMobEntity extends FlyingMob {
 		return this.getSize() < this.maxSize;
 	}
 
-	public float getSizeInverted() {
-		return this.getSize() * -1.0F + 5.0F;
+	public float getSizeForHitbox() {
+		return this.getSize() * this.hitboxMult;
 	}
 
-	public float getScaleForRender() {
-		return this.getScaleFromSize() * this.renderMult;
+	public float getSizeForRender() {
+		return this.getSize() * this.renderMult;
 	}
 
-	public float getScaleForShadow() {
-		return this.getScaleFromSize() * this.shadowMult;
-	}
-
-	public float getScaleFromSize() {
-		return this.getSizeWithMultInverted() + this.getSizeWithMult();
-	}
-
-	public float getSizeWithMult() {
-		return this.getSize() * this.sizeMult;
-	}
-
-	public float getSizeWithMultInverted() {
-		return this.getSizeInverted() * this.sizeMultInverted;
-	}
-
-	@Override
-	public float getVoicePitch() {
-		return this.getSizeWithMultInverted() + 0.75F;
+	public float getSizeForShadow() {
+		return this.getSize() * this.shadowMult;
 	}
 
 	public int getSize() {
-		return this.entityData.get(SizedFlyingMobEntity.SIZE);
+		return this.getEntityData().get(SizedFlyingMobEntity.SIZE);
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Size", this.getSize());
-	}
-
-	@Override
-	public void aiStep() {
-		super.aiStep();
-		if (this.isAlive()) {
-			this.setSize(this.getSize());
-		}
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putInt("Size", this.getSize());
 	}
 
 	@Override
@@ -106,35 +73,25 @@ public class SizedFlyingMobEntity extends FlyingMob {
 	}
 
 	@Override
-	public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-		super.onSyncedDataUpdated(pKey);
-		if (SizedFlyingMobEntity.SIZE.equals(pKey)) {
-			this.refreshDimensions();
-		}
+	public void onSyncedDataUpdated(EntityDataAccessor<?> pEntityDataAccessor) {
+		super.onSyncedDataUpdated(pEntityDataAccessor);
+		this.refreshDimensions();
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setSize(pCompound.getInt("Size"));
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setSize(pCompoundTag.getInt("Size"));
 	}
 
 	public void setSize(int pSize) {
-		int size = Mth.clamp(pSize, this.minSize, this.maxSize);
-		this.refreshDimensions();
-		this.entityData.set(SizedFlyingMobEntity.SIZE, size);
-		this.xpReward = size + 1;
+		this.getEntityData().set(SizedFlyingMobEntity.SIZE, pSize);
+		this.xpReward = pSize;
 	}
 
 	@Override
 	public EntityDimensions getDefaultDimensions(Pose pPose) {
-		float scale = this.getScaleFromSize() * this.aabbMult;
-		return this.getType().getDimensions().scale(scale);
-	}
-
-	@Override
-	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty, MobSpawnType pReason, @Nullable SpawnGroupData pSpawnData) {
-		this.setSize(this.random.nextIntBetweenInclusive(1, 4));
-		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData);
+		var size = this.getSizeForHitbox();
+		return this.getType().getDimensions().scale(size);
 	}
 }

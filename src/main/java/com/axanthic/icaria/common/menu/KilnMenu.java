@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.handler.item.KilnOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -16,8 +18,6 @@ import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.items.SlotItemHandler;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -26,9 +26,9 @@ public class KilnMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public KilnMenu(int pContainerId, BlockPos pPos, Inventory pInventory, Player pPlayer) {
+	public KilnMenu(int pContainerId, BlockPos pBlockPos, Inventory pInventory, Player pPlayer) {
 		super(IcariaMenus.KILN.get(), pContainerId);
-		if (pPlayer.getCommandSenderWorld().getBlockEntity(pPos) instanceof KilnBlockEntity kilnBlockEntity) {
+		if (pPlayer.getCommandSenderWorld().getBlockEntity(pBlockPos) instanceof KilnBlockEntity kilnBlockEntity) {
 			this.blockEntity = kilnBlockEntity;
 			this.containerData = kilnBlockEntity.getData();
 			this.addDataSlots(this.containerData);
@@ -62,39 +62,40 @@ public class KilnMenu extends AbstractContainerMenu {
 	}
 
 	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
-		for (int x = 0; x < pCountX; x++) {
-			for (int y = 0; y < pCountY; y++) {
+		for (var x = 0; x < pCountX; x++) {
+			for (var y = 0; y < pCountY; y++) {
 				this.addSlot(new Slot(pContainer, pStartIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
 			}
 		}
 	}
 
+	public void entityPlayer(ItemStack pItemStack, int pIndex) {
+		if (pIndex < 3) {
+			this.moveItemStackTo(pItemStack, 3, 39, true);
+		} else {
+			this.moveItemStackTo(pItemStack, 0, 2, false);
+		}
+	}
+
+	public void hotbarPlayer(ItemStack pItemStack, int pIndex) {
+		if (pIndex > 2 && pIndex < 30) {
+			this.moveItemStackTo(pItemStack, 30, 39, true);
+		} else {
+			this.moveItemStackTo(pItemStack, 3, 30, false);
+		}
+	}
+
 	@Override
 	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-		var emptyStack = ItemStack.EMPTY;
 		var slot = this.slots.get(pIndex);
-		if (slot.hasItem()) {
-			var itemStack = slot.getItem();
-			emptyStack = itemStack.copy();
-			if (pIndex < 3) {
-				this.moveItemStackTo(itemStack, 3, 39, true);
-			} else {
-				this.moveItemStackTo(itemStack, 0, 2, false);
-			}
 
-			if (pIndex > 2 && pIndex < 30) {
-				this.moveItemStackTo(itemStack, 30, 39, true);
-			} else {
-				this.moveItemStackTo(itemStack, 3, 30, false);
-			}
+		var itemStack = slot.getItem();
 
-			if (itemStack.getCount() == emptyStack.getCount()) {
-				return ItemStack.EMPTY;
-			}
+		this.entityPlayer(itemStack, pIndex);
+		this.hotbarPlayer(itemStack, pIndex);
 
-			slot.onTake(pPlayer, itemStack);
-		}
+		slot.onTake(pPlayer, itemStack);
 
-		return emptyStack;
+		return ItemStack.EMPTY;
 	}
 }

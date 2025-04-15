@@ -4,13 +4,19 @@ import com.axanthic.icaria.client.screen.ChestLabelScreen;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 
+import java.util.List;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,10 +25,6 @@ import net.minecraft.world.level.Level;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -41,17 +43,35 @@ public class ChestLabelItem extends Item {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pList, TooltipFlag pFlag) {
-		var color = pStack.getOrDefault(IcariaDataComponents.COLOR, 0);
-		var label = pStack.getOrDefault(IcariaDataComponents.LABEL, "");
-		var style = pStack.getOrDefault(IcariaDataComponents.STYLE, false);
+	public void appendHoverText(ItemStack pItemStack, TooltipContext pTooltipContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+		var color = pItemStack.getOrDefault(IcariaDataComponents.COLOR, 0);
+		var label = pItemStack.getOrDefault(IcariaDataComponents.LABEL, "");
+		var style = pItemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 
-		pList.add(Component.translatable(this.getLabelByLabel(label)).withStyle(ChatFormatting.GRAY));
-		pList.add(CommonComponents.EMPTY);
-		pList.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color").withStyle(ChatFormatting.GRAY));
-		pList.add(Component.translatable(this.getNameByColor(color)).withColor(this.getColorByColor(color)));
-		pList.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style").withStyle(ChatFormatting.GRAY));
-		pList.add(Component.translatable(this.getNameByStyle(style)).withColor(this.getColorByStyle(style)));
+		pTooltipComponents.add(Component.translatable(this.getLabelByLabel(label)).withStyle(ChatFormatting.GRAY));
+		pTooltipComponents.add(CommonComponents.EMPTY);
+		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color").withStyle(ChatFormatting.GRAY));
+		pTooltipComponents.add(Component.translatable(this.getNameByColor(color)).withColor(this.getColorByColor(color)));
+		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style").withStyle(ChatFormatting.GRAY));
+		pTooltipComponents.add(Component.translatable(this.getNameByStyle(style)).withColor(this.getColorByStyle(style)));
+	}
+
+	@OnlyIn(Dist.CLIENT)
+	public void handleAction(InteractionHand pInteractionHand, Player pPlayer, ChestLabelScreen pScreen) {
+		if (pPlayer instanceof LocalPlayer localPlayer) {
+			if (pInteractionHand == InteractionHand.MAIN_HAND) {
+				localPlayer.awardStat(Stats.ITEM_USED.get(this));
+				Minecraft.getInstance().setScreen(pScreen);
+			}
+		}
+	}
+
+	@Override
+	@OnlyIn(Dist.CLIENT)
+	public InteractionResult use(Level pLevel, Player pPlayer, InteractionHand pInteractionHand) {
+		var chestLabelScreen = new ChestLabelScreen(pPlayer.getItemInHand(pInteractionHand));
+		this.handleAction(pInteractionHand, pPlayer, chestLabelScreen);
+		return InteractionResult.SUCCESS;
 	}
 
 	public String getLabelByLabel(String pLabel) {
@@ -82,13 +102,5 @@ public class ChestLabelItem extends Item {
 
 	public String getNameByStyle(boolean pStyle) {
 		return pStyle ? "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing" : "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic";
-	}
-
-	@Override
-	@OnlyIn(Dist.CLIENT)
-	public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-		var stack = pPlayer.getItemInHand(pUsedHand);
-		Minecraft.getInstance().setScreen(new ChestLabelScreen(stack));
-		return InteractionResultHolder.sidedSuccess(stack, pLevel.isClientSide());
 	}
 }

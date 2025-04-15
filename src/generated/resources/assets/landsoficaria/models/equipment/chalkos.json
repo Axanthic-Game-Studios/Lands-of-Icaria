@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "landsoficaria:chalkos"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "landsoficaria:chalkos"
+      }
+    ]
+  }
+}

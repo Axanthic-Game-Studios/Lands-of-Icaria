@@ -1,12 +1,14 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
+import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -15,13 +17,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
-	public ModelPart root;
+public class MyrmekeQueenModel extends EntityModel<MyrmekeQueenRenderState> {
 	public ModelPart head;
 	public ModelPart body;
 	public ModelPart legRightFront;
@@ -32,7 +31,7 @@ public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
 	public ModelPart legLeftRear;
 
 	public MyrmekeQueenModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.head = this.root.getChild("head");
 		this.body = this.root.getChild("body");
 		this.legRightFront = this.root.getChild("legRightFront");
@@ -44,25 +43,27 @@ public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
 	}
 
 	@Override
-	public void setupAnim(MyrmekeQueenEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+	public void setupAnim(MyrmekeQueenRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 	}
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = IcariaMath.rad(pHeadPitch) + 0.2618F;
-		this.head.yRot = IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.head.xRot = IcariaMath.rad(pXRot) + 0.2618F;
+		this.head.yRot = IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float f0 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
-		float f1 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
-		float f2 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
-		float f3 = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pLimbSwingAmount;
-		float f4 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
-		float f5 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
-		float f6 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
-		float f7 = Mth.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.5F) * 0.4F) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		var f0 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pWalkAnimationSpeed;
+		var f1 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pWalkAnimationSpeed;
+		var f2 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pWalkAnimationSpeed;
+		var f3 = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.5F) * 0.4F * pWalkAnimationSpeed;
+		var f4 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.0F) * 0.4F) * pWalkAnimationSpeed;
+		var f5 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.0F) * 0.4F) * pWalkAnimationSpeed;
+		var f6 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.5F) * 0.4F) * pWalkAnimationSpeed;
+		var f7 = Mth.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.5F) * 0.4F) * pWalkAnimationSpeed;
 
 		this.legRightFront.yRot = f3 + 2.2253F;
 		this.legLeftFront.yRot = -f4 + 0.829F;
@@ -79,11 +80,13 @@ public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
 	}
 
 	public void translateToHead(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.head.translateAndRotate(pPoseStack);
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(42, 21).addBox(-3.0F, -1.0F, -2.0F, 6.0F, 3.0F, 2.0F, new CubeDeformation(0.0F)).texOffs(42, 15).addBox(-2.99F, 0.0F, -6.0F, 6.0F, 2.0F, 4.0F, new CubeDeformation(0.0F)).texOffs(40, 26).addBox(-3.5F, -0.5F, -4.0F, 7.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 19.0F, -6.0F, 0.2618F, 0.0F, 0.0F));
@@ -130,10 +133,5 @@ public class MyrmekeQueenModel extends HierarchicalModel<MyrmekeQueenEntity> {
 		legLeftRearCenter.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(23, 35).addBox(-0.2889F, -0.8F, 0.202F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.4894F, 0.2291F, -0.002F, 0.0F, 0.0F, 0.48F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

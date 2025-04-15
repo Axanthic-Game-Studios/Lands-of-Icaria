@@ -6,23 +6,18 @@ import com.axanthic.icaria.common.entity.CrystalBlockEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.phys.AABB;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("unused")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEntity> {
-	public CrystalBlockRenderer(BlockEntityRendererProvider.Context pContext) {
-
-	}
+public record CrystalBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<CrystalBlockEntity> {
 
 	@Override
 	public int getViewDistance() {
@@ -30,10 +25,10 @@ public class CrystalBlockRenderer implements BlockEntityRenderer<CrystalBlockEnt
 	}
 
 	@Override
-	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
+	public void render(CrystalBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
 		pPoseStack.pushPose();
 		IcariaClientHelper.setPositionAndSize(pPoseStack, pBlockEntity.x, pBlockEntity.y, pBlockEntity.z, 1.0F);
-		IcariaClientHelper.renderRays(pPoseStack, pBufferSource, pBlockEntity.red, pBlockEntity.green, pBlockEntity.blue);
+		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pBlockEntity.red, pBlockEntity.green, pBlockEntity.blue);
 		pPoseStack.popPose();
 	}
 

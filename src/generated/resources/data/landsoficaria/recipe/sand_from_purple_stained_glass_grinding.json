@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:yellowstone_gear",
+  "ingredient": "minecraft:purple_stained_glass",
+  "result": {
+    "count": 1,
+    "id": "minecraft:sand"
+  },
+  "time": 100
+}

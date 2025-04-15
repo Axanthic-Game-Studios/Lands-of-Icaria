@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:lignite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:lignite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:raw_kassiteros": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_kassiteros"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:raw_vanadium": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_vanadium"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_ingot_from_lignite_raw_kassiteros_raw_vanadium_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:lignite",
+      "has_landsoficaria:raw_kassiteros",
+      "has_landsoficaria:raw_vanadium"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_ingot_from_lignite_raw_kassiteros_raw_vanadium_forging"
+    ]
+  }
+}

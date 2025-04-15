@@ -4,63 +4,64 @@ import com.axanthic.icaria.common.menu.ForgeMenu;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
-	public ForgeScreen(ForgeMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
-		super(pMenu, pPlayerInventory, pTitle);
+	public ForgeScreen(ForgeMenu pMenu, Inventory pInventory, Component pComponent) {
+		super(pMenu, pInventory, pComponent);
 		this.imageHeight = 176;
 		this.imageWidth = 176;
 	}
 
 	@Override
-	public void render(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBg(pGraphics, pPartialTick, pMouseX, pMouseY);
-		super.render(pGraphics, pMouseX, pMouseY, pPartialTick);
-		this.renderTooltip(pGraphics, pMouseX, pMouseY);
+	public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+		this.renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
+		super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+		this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
 	}
 
 	@Override
-	public void renderBg(GuiGraphics pGraphics, float pPartialTick, int pMouseX, int pMouseY) {
-		int x = (this.width - this.imageWidth) / 2;
-		int y = (this.height - this.imageHeight) / 2;
-		pGraphics.blit(IcariaResourceLocations.FORGE, x, y, 0, 0, this.imageWidth, this.imageHeight);
-		this.renderFuel(pGraphics, x, y);
-		this.renderProgress(pGraphics, x, y);
+	public void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+		var x = (this.width - this.imageWidth) / 2;
+		var y = (this.height - this.imageHeight) / 2;
+		pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.FORGE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		this.renderFuel(pGuiGraphics, x, y);
+		this.renderProgress(pGuiGraphics, x, y);
 	}
 
 	@Override
-	public void renderLabels(GuiGraphics pGraphics, int pMouseX, int pMouseY) {
-		pGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaColors.TEXT, false);
-		pGraphics.drawString(this.font, this.playerInventoryTitle, 7, 80, IcariaColors.TEXT, false);
+	public void renderLabels(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
+		pGuiGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaColors.TEXT, false);
+		pGuiGraphics.drawString(this.font, this.playerInventoryTitle, 7, 80, IcariaColors.TEXT, false);
 	}
 
-	public void renderFuel(GuiGraphics pGraphics, int pX, int pY) {
-		int fuel = this.menu.getFuel();
-		int heightFuel = 14;
-		int maxFuel = this.menu.getMaxFuel();
+	public void renderFuel(GuiGraphics pGuiGraphics, int pX, int pY) {
+		var fuelHeight = 14;
+		var fuel = this.menu.getFuel();
+		var maxFuel = this.menu.getMaxFuel();
 		if (maxFuel != 0) {
-			int height = fuel * heightFuel / maxFuel;
-			pGraphics.blit(IcariaResourceLocations.FORGE, pX + 53, pY + 41 + heightFuel - height, this.imageWidth, 16 + heightFuel - height, 16, height);
+			var height = fuel * fuelHeight / maxFuel;
+			pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.FORGE, 53 + pX, 41 + pY + height, this.imageWidth, 16 + height, 16, fuelHeight, 256, 256);
 		}
 	}
 
-	public void renderProgress(GuiGraphics pGraphics, int pX, int pY) {
-		int maxProgress = this.menu.getMaxProgress();
-		int progress = this.menu.getProgress();
-		int widthProgress = 22;
+	public void renderProgress(GuiGraphics pGuiGraphics, int pX, int pY) {
+		var progressWidth = 22;
+		var progress = this.menu.getProgress();
+		var maxProgress = this.menu.getMaxProgress();
 		if (maxProgress != 0) {
-			int width = widthProgress * progress / maxProgress;
-			pGraphics.blit(IcariaResourceLocations.FORGE, pX + 82, pY + 40, this.imageWidth, 0, width, 16);
+			var width = progress * progressWidth / maxProgress;
+			pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.FORGE, 82 + pX, 40 + pY, this.imageWidth, 0, width, 16, 256, 256);
 		}
 	}
 }

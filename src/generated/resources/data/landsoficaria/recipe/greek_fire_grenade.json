@@ -2,20 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:arachne_string"
-    },
-    "Y": {
-      "item": "landsoficaria:kassiteros_nugget"
-    },
-    "Z": {
-      "item": "landsoficaria:greenpowder"
-    }
+    "A": "landsoficaria:arachne_string",
+    "B": "landsoficaria:greenpowder",
+    "C": "landsoficaria:kassiteros_nugget"
   },
   "pattern": [
-    " X ",
-    "YYY",
-    "ZZZ"
+    " A ",
+    "CCC",
+    "BBB"
   ],
   "result": {
     "count": 1,

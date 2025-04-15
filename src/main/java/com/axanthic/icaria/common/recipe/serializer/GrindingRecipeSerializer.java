@@ -6,15 +6,14 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.NonNullList;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -23,10 +22,10 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
 	public static final MapCodec<GrindingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
 			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-			Codec.INT.fieldOf("burnTime").forGetter(recipe -> recipe.burnTime),
+			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
 			Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
-			Ingredient.LIST_CODEC.fieldOf("ingredients").forGetter(recipe -> recipe.ingredients),
-			ItemStack.CODEC.fieldOf("output").forGetter(recipe -> recipe.output)
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
+			ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
 		).apply(instance, GrindingRecipe::new)
 	);
 
@@ -35,37 +34,30 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
 		GrindingRecipeSerializer::fromNetwork
 	);
 
+	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, GrindingRecipe pRecipe) {
+		pRegistryFriendlyByteBuf.writeFloat(pRecipe.experience);
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.gear);
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
+		ItemStack.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.result);
+	}
+
+	public static GrindingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {
+		var experience = pRegistryFriendlyByteBuf.readFloat();
+		var time = pRegistryFriendlyByteBuf.readInt();
+		var gear = Ingredient.CONTENTS_STREAM_CODEC.decode(pRegistryFriendlyByteBuf);
+		var ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(pRegistryFriendlyByteBuf);
+		var result = ItemStack.STREAM_CODEC.decode(pRegistryFriendlyByteBuf);
+		return new GrindingRecipe(experience, time, gear, ingredient, result);
+	}
+
 	@Override
 	public MapCodec<GrindingRecipe> codec() {
-		return CODEC;
+		return GrindingRecipeSerializer.CODEC;
 	}
 
 	@Override
 	public StreamCodec<RegistryFriendlyByteBuf, GrindingRecipe> streamCodec() {
-		return STREAM_CODEC;
-	}
-
-	public static GrindingRecipe fromNetwork(RegistryFriendlyByteBuf pBuffer) {
-		float experience = pBuffer.readFloat();
-		int burnTime = pBuffer.readInt();
-		var gear = Ingredient.CONTENTS_STREAM_CODEC.decode(pBuffer);
-		var output = ItemStack.OPTIONAL_STREAM_CODEC.decode(pBuffer);
-		var ingredients = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
-		for (int i = 0; i < ingredients.size(); i++) {
-			ingredients.set(i, Ingredient.CONTENTS_STREAM_CODEC.decode(pBuffer));
-		}
-
-		return new GrindingRecipe(experience, burnTime, gear, ingredients, output);
-	}
-
-	public static void toNetwork(RegistryFriendlyByteBuf pBuffer, GrindingRecipe pRecipe) {
-		pBuffer.writeFloat(pRecipe.experience);
-		pBuffer.writeInt(pRecipe.burnTime);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pBuffer, pRecipe.gear);
-		ItemStack.OPTIONAL_STREAM_CODEC.encode(pBuffer, pRecipe.output);
-		pBuffer.writeInt(pRecipe.getIngredients().size());
-		for (var ingredient : pRecipe.getIngredients()) {
-			Ingredient.CONTENTS_STREAM_CODEC.encode(pBuffer, ingredient);
-		}
+		return GrindingRecipeSerializer.STREAM_CODEC;
 	}
 }

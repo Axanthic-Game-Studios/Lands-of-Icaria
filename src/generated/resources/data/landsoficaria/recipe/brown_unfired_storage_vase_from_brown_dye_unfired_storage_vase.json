@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:brown_dye",
+    "landsoficaria:unfired_storage_vase"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:brown_unfired_storage_vase"
+  }
+}

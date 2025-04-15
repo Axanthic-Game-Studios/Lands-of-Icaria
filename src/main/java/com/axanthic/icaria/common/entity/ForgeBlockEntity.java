@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
+
 import com.axanthic.icaria.common.container.data.ForgeContainerData;
 import com.axanthic.icaria.common.handler.stack.ForgeFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.ForgeInputItemStackHandler;
@@ -11,18 +13,23 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
-import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -32,9 +39,10 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -43,11 +51,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -65,231 +69,189 @@ public class ForgeBlockEntity extends BlockEntity {
 	public ItemStackHandler inputHandlerC = new ForgeInputItemStackHandler(1, this);
 	public ItemStackHandler outputHandler = new ForgeOutputItemStackHandler(2, this);
 
-	public Object2IntOpenHashMap<ResourceLocation> recipesUsed = new Object2IntOpenHashMap<>();
+	public Reference2IntOpenHashMap<ResourceKey<Recipe<?>>> recipes = new Reference2IntOpenHashMap<>();
 
 	public SimpleContainer simpleContainer = new SimpleContainer(this.size);
 
-	public ForgeBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.FORGE.get(), pPos, pState);
+	public ForgeBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.FORGE.get(), pBlockPos, pBlockState);
 	}
 
-	public boolean canInsertInSlot(SimpleContainer pContainer, ForgingRecipe pRecipe, int pSlot) {
-		return (pContainer.getItem(pSlot).getItem() == pRecipe.getResultItem(null).getItem() || pContainer.getItem(pSlot).isEmpty()) && pContainer.getItem(pSlot).getCount() + pRecipe.getResultItem(null).getCount() <= 64;
+	public boolean canAddCount(ServerLevel pServerLevel, int pSlot) {
+		return this.getRecipe(pServerLevel).isPresent() && this.getRecipe(pServerLevel).get().value().result().getCount() + this.simpleContainer.getItem(pSlot).getCount() <= 64;
+	}
+
+	public boolean canAddItems(ServerLevel pServerLevel, int pSlot) {
+		return this.getRecipe(pServerLevel).isPresent() && this.getRecipe(pServerLevel).get().value().result().getItem() == this.simpleContainer.getItem(pSlot).getItem() || this.simpleContainer.getItem(pSlot).isEmpty();
+	}
+
+	public boolean canAddStack(ServerLevel pServerLevel, int pSlot) {
+		return this.canAddCount(pServerLevel, pSlot) && this.canAddItems(pServerLevel, pSlot);
 	}
 
 	public boolean hasFuel() {
 		return this.fuel > 0;
 	}
 
-	public boolean hasRecipe() {
+	public boolean hasSlot(ServerLevel pServerLevel) {
+		return this.canAddStack(pServerLevel, 4) || this.canAddStack(pServerLevel, 5);
+	}
+
+	public int getFuelTime(ServerLevel pServerLevel) {
+		return this.fuelHandler.getStackInSlot(0).getBurnTime(IcariaRecipeTypes.FORGING.get(), pServerLevel.fuelValues());
+	}
+
+	public int getRedstoneStrength() {
+		var i = this.fuelHandler.getStackInSlot(0).getCount() * 15 / 64;
+		var j = this.inputHandlerA.getStackInSlot(0).getCount() * 15 / 64;
+		var k = this.inputHandlerB.getStackInSlot(0).getCount() * 15 / 64;
+		var l = this.inputHandlerC.getStackInSlot(0).getCount() * 15 / 64;
+		var m = this.outputHandler.getStackInSlot(0).getCount() * 15 / 64;
+		var n = this.outputHandler.getStackInSlot(1).getCount() * 15 / 64;
+		var o = i + j + k + l + m + n;
+		return o / this.size;
+	}
+
+	public void awardUsedRecipesAndPopExperience(ServerPlayer pServerPlayer) {
+		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.serverLevel(), pServerPlayer.position()));
+		this.recipes.clear();
+	}
+
+	public void drop(ServerLevel pServerLevel) {
+		Containers.dropContents(pServerLevel, this.worldPosition, this.simpleContainer);
+	}
+
+	@Override
+	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pCompoundTag, pProvider);
+		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("FuelHandler"));
+		this.inputHandlerA.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerA"));
+		this.inputHandlerB.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerB"));
+		this.inputHandlerC.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerC"));
+		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("OutputHandler"));
+		this.fuel = pCompoundTag.getInt("FuelTick");
+		this.maxFuel = pCompoundTag.getInt("MaxFuelTick");
+		this.progress = pCompoundTag.getInt("ProgressTick");
+		this.maxProgress = pCompoundTag.getInt("MaxProgressTick");
+		var compoundTag = pCompoundTag.getCompound("Recipes");
+		for (var key : compoundTag.getAllKeys()) {
+			this.recipes.put(ResourceKey.create(Registries.RECIPE, ResourceLocation.parse(key)), compoundTag.getInt(key));
+		}
+	}
+
+	@Override
+	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pCompoundTag, pProvider);
+		pCompoundTag.put("FuelHandler", this.fuelHandler.serializeNBT(pProvider));
+		pCompoundTag.put("InputHandlerA", this.inputHandlerA.serializeNBT(pProvider));
+		pCompoundTag.put("InputHandlerB", this.inputHandlerB.serializeNBT(pProvider));
+		pCompoundTag.put("InputHandlerC", this.inputHandlerC.serializeNBT(pProvider));
+		pCompoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
+		pCompoundTag.putInt("FuelTick", this.fuel);
+		pCompoundTag.putInt("MaxFuelTick", this.maxFuel);
+		pCompoundTag.putInt("ProgressTick", this.progress);
+		pCompoundTag.putInt("MaxProgressTick", this.maxProgress);
+		var compoundTag = new CompoundTag();
+		this.recipes.forEach((resourceKey, integer) -> compoundTag.putInt(resourceKey.location().toString(), integer));
+		pCompoundTag.put("Recipes", compoundTag);
+	}
+
+	public void setContainer() {
 		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
 		this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
 		this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
 		this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
 		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
 		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
-
-		Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
-		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.getRecipeInput(), this.level);
-		}
-
-		int burnTime = 0;
-		if (recipe.isPresent()) {
-			burnTime = recipe.get().value().getBurnTime();
-		}
-
-		if (this.maxProgress != burnTime) {
-			this.maxProgress = burnTime;
-		}
-
-		return (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) || (recipe.isPresent() && this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5));
 	}
 
-	public int getComparatorInput() {
-		int i = (this.fuelHandler.getStackInSlot(0).getCount() * 15) / 64;
-		int j = (this.inputHandlerA.getStackInSlot(0).getCount() * 15) / 64;
-		int k = (this.inputHandlerB.getStackInSlot(0).getCount() * 15) / 64;
-		int l = (this.inputHandlerC.getStackInSlot(0).getCount() * 15) / 64;
-		int m = (this.outputHandler.getStackInSlot(0).getCount() * 15) / 64;
-		int n = (this.outputHandler.getStackInSlot(1).getCount() * 15) / 64;
-		return (i + j + k + l + m + n) / this.size;
+	public static void tick(ForgeBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
+		var recipe = pBlockEntity.getRecipe(pServerLevel);
+		pBlockEntity.setContainer();
+		pBlockEntity.tickFuel(recipe, pServerLevel);
+		pBlockEntity.tickProgress(recipe, pServerLevel);
+		pBlockEntity.tickRecipe(recipe, pServerLevel);
+		pBlockEntity.update(pBlockPos, pBlockState, pServerLevel);
+		pBlockEntity.updateStates(pBlockPos, pBlockState, pServerLevel, pBlockEntity.hasFuel());
 	}
 
-	public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
-		pPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pPlayer.serverLevel(), pPlayer.position()));
-		this.recipesUsed.clear();
-	}
-
-	public void craftItem() {
-		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
-		this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
-		this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
-		this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
-		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
-		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
-
-		Optional<RecipeHolder<ForgingRecipe>> recipe = Optional.empty();
-		if (this.level != null) {
-			recipe = this.level.getRecipeManager().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.getRecipeInput(), this.level);
+	public void tickFuel(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
+		if (this.fuel < this.maxFuel) {
+			this.fuel++;
+		} else if (pRecipe.isPresent() && this.getFuelTime(pServerLevel) > 0 && this.hasSlot(pServerLevel)) {
+			this.fuel = 1;
+			this.maxFuel = this.getFuelTime(pServerLevel);
+			this.fuelHandler.extractItem(0, 1, false);
+		} else {
+			this.fuel = 0;
+			this.maxFuel = 0;
 		}
+	}
 
-		if (this.hasRecipe() && recipe.isPresent()) {
+	public void tickProgress(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
+		if (this.progress < this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
+			this.progress++;
+		} else if (pRecipe.isPresent() && pRecipe.get().value().time() > 0 && this.hasFuel() && this.hasSlot(pServerLevel)) {
+			this.progress = 1;
+			this.maxProgress = pRecipe.get().value().time();
+		} else {
+			this.progress = 0;
+			this.maxProgress = 0;
+		}
+	}
+
+	public void tickRecipe(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
+		if (this.progress == this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
+			this.recipes.addTo(pRecipe.get().id(), 1);
 			this.inputHandlerA.extractItem(0, 1, false);
 			this.inputHandlerB.extractItem(0, 1, false);
 			this.inputHandlerC.extractItem(0, 1, false);
-			if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 5)) {
-				this.outputHandler.setStackInSlot(1, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(1).getCount()));
-			} else if (this.canInsertInSlot(this.simpleContainer, recipe.get().value(), 4)) {
-				this.outputHandler.setStackInSlot(0, new ItemStack(recipe.get().value().getResultItem(null).getItem(), recipe.get().value().getResultItem(null).getCount() + this.outputHandler.getStackInSlot(0).getCount()));
-			}
-
-			this.resetProgress();
-			this.setRecipeUsed(recipe.get());
-		}
-	}
-
-	public void createExperience(ServerLevel pLevel, Vec3 pPopVec, int pRecipeIndex, float pExperience) {
-		float f = Mth.frac(pRecipeIndex * pExperience);
-		int i = Mth.floor(pRecipeIndex * pExperience);
-		if (f != 0.0F && Math.random() < f) {
-			++i;
-		}
-
-		ExperienceOrb.award(pLevel, pPopVec, i);
-	}
-
-	public void drops(Level pLevel) {
-		this.simpleContainer.setItem(0, this.fuelHandler.getStackInSlot(0));
-		this.simpleContainer.setItem(1, this.inputHandlerA.getStackInSlot(0));
-		this.simpleContainer.setItem(2, this.inputHandlerB.getStackInSlot(0));
-		this.simpleContainer.setItem(3, this.inputHandlerC.getStackInSlot(0));
-		this.simpleContainer.setItem(4, this.outputHandler.getStackInSlot(0));
-		this.simpleContainer.setItem(5, this.outputHandler.getStackInSlot(1));
-		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
-	}
-
-	@Override
-	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pTag, pProvider);
-		this.fuelHandler.deserializeNBT(pProvider, pTag.getCompound("FuelInventory"));
-		this.inputHandlerA.deserializeNBT(pProvider, pTag.getCompound("InputInventoryA"));
-		this.inputHandlerB.deserializeNBT(pProvider, pTag.getCompound("InputInventoryB"));
-		this.inputHandlerC.deserializeNBT(pProvider, pTag.getCompound("InputInventoryC"));
-		this.outputHandler.deserializeNBT(pProvider, pTag.getCompound("OutputInventory"));
-		this.fuel = pTag.getInt("CurrentFuelTime");
-		this.maxFuel = pTag.getInt("TotalFuelTime");
-		this.progress = pTag.getInt("CurrentProgressTime");
-		this.maxProgress = pTag.getInt("TotalProgressTime");
-		var compoundTag = pTag.getCompound("RecipesUsed");
-		for (var string : compoundTag.getAllKeys()) {
-			this.recipesUsed.put(ResourceLocation.parse(string), compoundTag.getInt(string));
-		}
-	}
-
-	public void resetFuel() {
-		this.fuel = 0;
-		this.maxFuel = 0;
-	}
-
-	public void resetProgress() {
-		this.progress = 0;
-		this.maxProgress = 0;
-	}
-
-	@Override
-	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pTag, pProvider);
-		pTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
-		pTag.put("InputInventoryA", this.inputHandlerA.serializeNBT(pProvider));
-		pTag.put("InputInventoryB", this.inputHandlerB.serializeNBT(pProvider));
-		pTag.put("InputInventoryC", this.inputHandlerC.serializeNBT(pProvider));
-		pTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
-		pTag.putInt("CurrentFuelTime", this.fuel);
-		pTag.putInt("TotalFuelTime", this.maxFuel);
-		pTag.putInt("CurrentProgressTime", this.progress);
-		pTag.putInt("TotalProgressTime", this.maxProgress);
-		var compoundTag = new CompoundTag();
-		this.recipesUsed.forEach((resourceLocation, index) -> compoundTag.putInt(resourceLocation.toString(), index));
-		pTag.put("RecipesUsed", compoundTag);
-	}
-
-	public void setRecipeUsed(RecipeHolder<?> pRecipe) {
-		this.recipesUsed.addTo(pRecipe.id(), 1);
-	}
-
-	public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ForgeBlockEntity pBlockEntity) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		var fuelSlot = pBlockEntity.fuelHandler.getStackInSlot(0);
-		var fuelTime = fuelSlot.getBurnTime(IcariaRecipeTypes.FORGING.get());
-		if (!pLevel.isClientSide()) {
-			pBlockEntity.update(pPos, pState);
-			if (!pBlockEntity.hasFuel() && pBlockEntity.hasRecipe() && fuelTime > 0) {
-				pBlockEntity.fuelHandler.extractItem(0, 1, false);
-				pBlockEntity.fuel = fuelTime + 1;
-				pBlockEntity.maxFuel = fuelTime;
-			}
-
-			if (pBlockEntity.hasFuel()) {
-				pBlockEntity.fuel--;
-				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, true));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, true));
-			} else {
-				pBlockEntity.resetFuel();
-				pLevel.setBlockAndUpdate(pPos, pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.above(), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, false));
-				pLevel.setBlockAndUpdate(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, false));
-			}
-
-			if (pBlockEntity.hasRecipe() && pState.getValue(BlockStateProperties.LIT)) {
-				pBlockEntity.progress++;
-				if (pBlockEntity.progress >= pBlockEntity.maxProgress) {
-					pBlockEntity.craftItem();
-				}
-			} else {
-				pBlockEntity.resetProgress();
+			if (this.canAddStack(pServerLevel, 5)) {
+				this.outputHandler.setStackInSlot(1, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(1).getCount()));
+			} else if (this.canAddStack(pServerLevel, 4)) {
+				this.outputHandler.setStackInSlot(0, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(0).getCount()));
 			}
 		}
 	}
 
-	public void update(BlockPos pPos, BlockState pState) {
-		var facing = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (this.getLevel() != null) {
-			this.getLevel().sendBlockUpdated(pPos, pState, pState, 3);
-			this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getOpposite().getNormal()), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.above(), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getOpposite().getNormal()), pState.getBlock());
-			this.getLevel().updateNeighbourForOutputSignal(pPos.above().offset(facing.getOpposite().getNormal()).offset(facing.getCounterClockWise().getNormal()), pState.getBlock());
-			this.setChanged();
-		}
+	public void update(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pServerLevel.blockEntityChanged(pBlockPos);
+		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, 3);
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.above(), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.getBlock());
+		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.getBlock());
+	}
+
+	public void updateStates(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, boolean pLit) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT).setValue(BlockStateProperties.LIT, pLit));
 	}
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
 		var compoundTag = new CompoundTag();
-		compoundTag.put("FuelInventory", this.fuelHandler.serializeNBT(pProvider));
-		compoundTag.put("InputInventoryA", this.inputHandlerA.serializeNBT(pProvider));
-		compoundTag.put("InputInventoryB", this.inputHandlerB.serializeNBT(pProvider));
-		compoundTag.put("InputInventoryC", this.inputHandlerC.serializeNBT(pProvider));
-		compoundTag.put("OutputInventory", this.outputHandler.serializeNBT(pProvider));
-		compoundTag.putInt("CurrentFuelTime", this.fuel);
-		compoundTag.putInt("TotalFuelTime", this.maxFuel);
-		compoundTag.putInt("CurrentProgressTime", this.progress);
-		compoundTag.putInt("TotalProgressTime", this.maxProgress);
+		compoundTag.put("FuelHandler", this.fuelHandler.serializeNBT(pProvider));
+		compoundTag.put("InputHandlerA", this.inputHandlerA.serializeNBT(pProvider));
+		compoundTag.put("InputHandlerB", this.inputHandlerB.serializeNBT(pProvider));
+		compoundTag.put("InputHandlerC", this.inputHandlerC.serializeNBT(pProvider));
+		compoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
+		compoundTag.putInt("FuelTick", this.fuel);
+		compoundTag.putInt("MaxFuelTick", this.maxFuel);
+		compoundTag.putInt("ProgressTick", this.progress);
+		compoundTag.putInt("MaxProgressTick", this.maxProgress);
 		return compoundTag;
 	}
 
@@ -297,7 +259,8 @@ public class ForgeBlockEntity extends BlockEntity {
 		return new ForgeContainerData(this);
 	}
 
-	public static @Nullable IItemHandler getCapability(ForgeBlockEntity pBlockEntity, Direction pDirection) {
+	@Nullable
+	public static IItemHandler getCapability(ForgeBlockEntity pBlockEntity, Direction pDirection) {
 		if (pDirection == pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING).getClockWise()) {
 			return pBlockEntity.fuelHandler;
 		} else if (pDirection == Direction.DOWN) {
@@ -319,20 +282,24 @@ public class ForgeBlockEntity extends BlockEntity {
 		return this.outputHandler.getStackInSlot(0);
 	}
 
-	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pLevel, Vec3 pPopVec) {
-		List<RecipeHolder<?>> list = Lists.newArrayList();
-		for (var entry : this.recipesUsed.object2IntEntrySet()) {
-			pLevel.getRecipeManager().byKey(entry.getKey()).ifPresent(
-				(recipe) -> {
-					list.add(recipe);
-					if (recipe.value() instanceof ForgingRecipe forgingRecipe) {
-						this.createExperience(pLevel, pPopVec, entry.getIntValue(), forgingRecipe.getExperience());
+	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pServerLevel, Vec3 pVec3) {
+		var arrayList = new ArrayList<RecipeHolder<?>>();
+		for (var entry : this.recipes.reference2IntEntrySet()) {
+			pServerLevel.recipeAccess().byKey(entry.getKey()).ifPresent(
+				(recipeHolder) -> {
+					arrayList.add(recipeHolder);
+					if (recipeHolder.value() instanceof ForgingRecipe forgingRecipe) {
+						ExperienceOrb.award(pServerLevel, pVec3, Mth.ceil(entry.getIntValue() * forgingRecipe.experience()));
 					}
 				}
 			);
 		}
 
-		return list;
+		return arrayList;
+	}
+
+	public Optional<RecipeHolder<ForgingRecipe>> getRecipe(ServerLevel pServerLevel) {
+		return RecipeManager.createCheck(IcariaRecipeTypes.FORGING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
 	}
 
 	@Override

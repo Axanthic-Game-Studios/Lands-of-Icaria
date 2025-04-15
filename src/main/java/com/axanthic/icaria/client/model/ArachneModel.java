@@ -1,11 +1,13 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.ArachneEntity;
+import com.axanthic.icaria.client.state.ArachneRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -14,13 +16,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ArachneModel extends HierarchicalModel<ArachneEntity> {
-	public ModelPart root;
+public class ArachneModel extends EntityModel<ArachneRenderState> {
 	public ModelPart head;
 	public ModelPart abdomen;
 	public ModelPart chest;
@@ -35,7 +34,7 @@ public class ArachneModel extends HierarchicalModel<ArachneEntity> {
 	public ModelPart legLeftRear;
 
 	public ArachneModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.head = this.root.getChild("head");
 		this.abdomen = this.head.getChild("abdomen");
 		this.chest = this.abdomen.getChild("chest");
@@ -51,25 +50,27 @@ public class ArachneModel extends HierarchicalModel<ArachneEntity> {
 	}
 
 	@Override
-	public void setupAnim(ArachneEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.ARACHNE_ATTACK, pAgeInTicks);
+	public void setupAnim(ArachneRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.ARACHNE_ATTACK, pRenderState.ageInTicks);
 	}
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.skull.xRot = IcariaMath.rad(pHeadPitch) + 1.3963F;
-		this.skull.zRot = IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.skull.xRot = IcariaMath.rad(pXRot) + 1.3963F;
+		this.skull.zRot = IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float f0 = -Mth.cos(pLimbSwing + Mth.PI * 1.0F) * 0.5F * pLimbSwingAmount;
-		float f1 = -Mth.cos(pLimbSwing + Mth.PI * 0.5F) * 0.5F * pLimbSwingAmount;
-		float f2 = -Mth.cos(pLimbSwing + Mth.PI * 1.5F) * 0.5F * pLimbSwingAmount;
-		float f3 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.0F) * 0.5F) * pLimbSwingAmount;
-		float f4 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 0.5F) * 0.5F) * pLimbSwingAmount;
-		float f5 = Mth.abs(Mth.sin(pLimbSwing + Mth.PI * 1.5F) * 0.5F) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		var f0 = -Mth.cos(pWalkAnimationPos + Mth.PI * 1.0F) * 0.5F * pWalkAnimationSpeed;
+		var f1 = -Mth.cos(pWalkAnimationPos + Mth.PI * 0.5F) * 0.5F * pWalkAnimationSpeed;
+		var f2 = -Mth.cos(pWalkAnimationPos + Mth.PI * 1.5F) * 0.5F * pWalkAnimationSpeed;
+		var f3 = Mth.abs(Mth.sin(pWalkAnimationPos + Mth.PI * 1.0F) * 0.5F) * pWalkAnimationSpeed;
+		var f4 = Mth.abs(Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F) * 0.5F) * pWalkAnimationSpeed;
+		var f5 = Mth.abs(Mth.sin(pWalkAnimationPos + Mth.PI * 1.5F) * 0.5F) * pWalkAnimationSpeed;
 
 		this.legRightFront.yRot = f2 - 0.576F;
 		this.legRightCenter.yRot = f1;
@@ -87,6 +88,7 @@ public class ArachneModel extends HierarchicalModel<ArachneEntity> {
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(114, 151).addBox(-3.5F, -4.0F, -3.0F, 7.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 13.5F, -2.0F, -0.3927F, 0.0F, 0.0F));
@@ -130,10 +132,5 @@ public class ArachneModel extends HierarchicalModel<ArachneEntity> {
 		legLeftRear.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(60, 137).addBox(-0.75F, 3.0F, -1.0F, 2.0F, 9.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(13.0F, 2.5F, 1.0F, 0.0F, 0.0F, 0.2618F));
 
 		return LayerDefinition.create(meshDefinition, 160, 160);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

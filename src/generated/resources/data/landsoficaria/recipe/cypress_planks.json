@@ -3,18 +3,12 @@
   "category": "misc",
   "ingredients": [
     [
-      {
-        "item": "landsoficaria:cypress_wood"
-      },
-      {
-        "item": "landsoficaria:stripped_cypress_wood"
-      },
-      {
-        "item": "landsoficaria:cypress_log"
-      },
-      {
-        "item": "landsoficaria:stripped_cypress_log"
-      }
+      "landsoficaria:cypress_wood",
+      "landsoficaria:stripped_cypress_wood",
+      "landsoficaria:cypress_log",
+      "landsoficaria:stripped_cypress_log",
+      "landsoficaria:dead_cypress_log",
+      "landsoficaria:stripped_dead_cypress_log"
     ]
   ],
   "result": {

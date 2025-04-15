@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "landsoficaria:orichalcum"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "landsoficaria:orichalcum"
+      }
+    ]
+  }
+}

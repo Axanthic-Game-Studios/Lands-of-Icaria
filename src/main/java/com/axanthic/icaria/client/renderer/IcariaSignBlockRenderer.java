@@ -1,25 +1,27 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.client.model.IcariaSignModel;
+
 import com.google.common.collect.ImmutableMap;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+
+import java.util.Map;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.model.Model;
-import net.minecraft.client.model.geom.ModelLayers;
+import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.resources.model.Material;
-import net.minecraft.core.BlockPos;
 import net.minecraft.util.FormattedCharSequence;
-import net.minecraft.util.Mth;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.SignBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
@@ -28,11 +30,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.phys.Vec3;
-
-import java.util.Map;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -40,152 +37,109 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaSignBlockRenderer extends SignRenderer {
 	public Font font;
 
-	public Map<WoodType, SignModel> map;
+	public Map<WoodType, IcariaSignModel> map;
 
 	public IcariaSignBlockRenderer(BlockEntityRendererProvider.Context pContext) {
 		super(pContext);
 		this.font = pContext.getFont();
-		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap((pWoodType) -> pWoodType, (pWoodType) -> new SignModel(pContext.bakeLayer(ModelLayers.createSignModelName(pWoodType)))));
+		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> woodType, (woodType) -> new IcariaSignModel(SignRenderer.createSignModel(pContext.getModelSet(), woodType, true), SignRenderer.createSignModel(pContext.getModelSet(), woodType, false))));
 	}
 
-	public boolean isOutlineVisible(BlockPos pBlockPos, int pColor) {
-		if (pColor == DyeColor.BLACK.getTextColor()) {
-			return true;
+	public void drawFont(FormattedCharSequence pFormattedCharSequence, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, float pX, float pY, int pPackedLight) {
+		if (pSignText.hasGlowingText()) {
+			this.font.drawInBatch8xOutline(pFormattedCharSequence, -pX, pY, pSignText.getColor().getTextColor(), SignRenderer.getDarkColor(pSignText), pPoseStack.last().pose(), pMultiBufferSource, LightTexture.FULL_BRIGHT);
 		} else {
-			var minecraft = Minecraft.getInstance();
-			var localPlayer = minecraft.player;
-			if (localPlayer != null && minecraft.options.getCameraType().isFirstPerson() && localPlayer.isScoping()) {
-				return true;
-			} else {
-				var entity = minecraft.getCameraEntity();
-				return entity != null && entity.distanceToSqr(Vec3.atCenterOf(pBlockPos)) < Mth.square(16);
-			}
+			this.font.drawInBatch(pFormattedCharSequence, -pX, pY, SignRenderer.getDarkColor(pSignText), false, pPoseStack.last().pose(), pMultiBufferSource, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
 		}
 	}
 
 	@Override
-	public void render(SignBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay) {
+	public void render(SignBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
 		var blockState = pBlockEntity.getBlockState();
-		var block = (SignBlock) blockState.getBlock();
-		var woodType = SignBlock.getWoodType(block);
-		var model = this.map.get(woodType);
-
-		model.stick.visible = blockState.getBlock() instanceof StandingSignBlock;
-
-		this.renderSignWithText(pBlockEntity, pPoseStack, pBufferSource, pPackedLight, pPackedOverlay, blockState, woodType, model);
+		if (blockState.getBlock() instanceof SignBlock signBlock) {
+			var woodType = this.getWoodType(signBlock);
+			var signModel = this.map.get(woodType);
+			var model = signBlock instanceof StandingSignBlock ? signModel.pModelStanding() : signModel.pModelWall();
+			this.renderSignWithText(blockState, model, pMultiBufferSource, pPoseStack, signBlock, pBlockEntity, woodType, pPackedLight, pPackedOverlay);
+		}
 	}
 
-	public void renderSign(PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay, WoodType pWoodType, Model pModel) {
-		float scale = this.getSignModelRenderScale();
-
+	public void renderSign(Model pModel, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, WoodType pWoodType, int pPackedLight, int pPackedOverlay) {
+		var scale = this.getSignModelRenderScale();
+		var vertexConsumer = this.getSignMaterial(pWoodType).buffer(pMultiBufferSource, pModel::renderType);
 		pPoseStack.pushPose();
 		pPoseStack.scale(scale, -scale, -scale);
-
-		this.renderSignModel(pPoseStack, pPackedLight, pPackedOverlay, pModel, this.getSignMaterial(pWoodType).buffer(pBufferSource, pModel::renderType));
-
+		pModel.renderToBuffer(pPoseStack, vertexConsumer, pPackedLight, pPackedOverlay);
 		pPoseStack.popPose();
 	}
 
-	public void renderSignModel(PoseStack pPoseStack, int pPackedLight, int pPackedOverlay, Model pModel, VertexConsumer pVertexConsumer) {
-		if (pModel instanceof SignModel signModel) {
-			signModel.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay);
-		}
+	public void renderSignText(MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, boolean pBack, int pLineHeight, int pLineWidth, int pPackedLight) {
+		pPoseStack.pushPose();
+		this.translateSignText(pPoseStack, pBack);
+		this.renderText(pMultiBufferSource, pPoseStack, pSignText, pLineHeight, pLineWidth, pPackedLight);
+		pPoseStack.popPose();
 	}
 
-	public void renderSignText(BlockPos pBlockPos, SignText pSignText, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pLineHeight, int pLineWidth, boolean pBack) {
-		boolean outline;
-
-		int darkColor = SignRenderer.getDarkColor(pSignText);
-		int lineHeight = pLineHeight * 2;
-		int packedLight;
-		int textColor;
-
-		var formattedCharSequences = pSignText.getRenderMessages(
-			Minecraft.getInstance().isTextFilteringEnabled(), (pComponent) -> {
-				var list = this.font.split(pComponent, pLineWidth);
-				return list.isEmpty() ? FormattedCharSequence.EMPTY : list.getFirst();
-			}
-		);
-
+	public void renderSignWithText(BlockState pBlockState, Model pModel, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignBlock pSignBlock, SignBlockEntity pBlockEntity, WoodType pWoodType, int pPackedLight, int pPackedOverlay) {
 		pPoseStack.pushPose();
+		this.translateSign(pBlockState, pPoseStack, pSignBlock.getYRotationDegrees(pBlockState));
+		this.renderSign(pModel, pMultiBufferSource, pPoseStack, pWoodType, pPackedLight, pPackedOverlay);
+		this.renderSignText(pMultiBufferSource, pPoseStack, pBlockEntity.getFrontText(), false, pBlockEntity.getTextLineHeight(), pBlockEntity.getMaxTextLineWidth(), pPackedLight);
+		this.renderSignText(pMultiBufferSource, pPoseStack, pBlockEntity.getBackText(), true, pBlockEntity.getTextLineHeight(), pBlockEntity.getMaxTextLineWidth(), pPackedLight);
+		pPoseStack.popPose();
+	}
 
-		this.translateSignText(pPoseStack, pBack, this.getTextOffset());
-
-		if (pSignText.hasGlowingText()) {
-			textColor = pSignText.getColor().getTextColor();
-			packedLight = 15728880;
-			outline = this.isOutlineVisible(pBlockPos, textColor);
-		} else {
-			textColor = darkColor;
-			packedLight = pPackedLight;
-			outline = false;
-		}
-
-		for (int line = 0; line < 4; ++line) {
+	public void renderText(MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, int pLineHeight, int pLineWidth, int pPackedLight) {
+		var formattedCharSequences = pSignText.getRenderMessages(Minecraft.getInstance().isTextFilteringEnabled(), (component) -> this.font.split(component, pLineWidth).stream().findFirst().orElse(FormattedCharSequence.EMPTY));
+		for (var line = 0; line < 4; ++line) {
 			var formattedCharSequence = formattedCharSequences[line];
-
-			float width = (float) (this.font.width(formattedCharSequence) / -2);
-
-			if (outline) {
-				this.font.drawInBatch8xOutline(formattedCharSequence, width, (line * pLineHeight - lineHeight), textColor, darkColor, pPoseStack.last().pose(), pBufferSource, packedLight);
-			} else {
-				this.font.drawInBatch(formattedCharSequence, width, (line * pLineHeight - lineHeight), textColor, false, pPoseStack.last().pose(), pBufferSource, Font.DisplayMode.POLYGON_OFFSET, 0, packedLight);
-			}
+			this.drawFont(formattedCharSequence, pMultiBufferSource, pPoseStack, pSignText, this.font.width(formattedCharSequence) * 0.5F, line * pLineHeight - pLineHeight * 2.0F, pPackedLight);
 		}
-
-		pPoseStack.popPose();
 	}
 
-	public void renderSignWithText(SignBlockEntity pBlockEntity, PoseStack pPoseStack, MultiBufferSource pBufferSource, int pPackedLight, int pPackedOverlay, BlockState pBlockState, WoodType pWoodType, Model pModel) {
-		pPoseStack.pushPose();
-		this.translateSign(pPoseStack, pBlockState);
-		this.renderSign(pPoseStack, pBufferSource, pPackedLight, pPackedOverlay, pWoodType, pModel);
-		this.renderSignText(pBlockEntity.getBlockPos(), pBlockEntity.getFrontText(), pPoseStack, pBufferSource, pPackedLight, pBlockEntity.getTextLineHeight(), pBlockEntity.getMaxTextLineWidth(), true);
-		this.renderSignText(pBlockEntity.getBlockPos(), pBlockEntity.getBackText(), pPoseStack, pBufferSource, pPackedLight, pBlockEntity.getTextLineHeight(), pBlockEntity.getMaxTextLineWidth(), false);
-		pPoseStack.popPose();
-	}
-
-	public void translateSign(PoseStack pPoseStack, BlockState pBlockState) {
+	public void translateSign(BlockState pBlockState, PoseStack pPoseStack, float pYRot) {
 		if (pBlockState.getBlock() instanceof StandingSignBlock) {
-			pPoseStack.translate(0.5D, 0.75D * this.getSignModelRenderScale(), 0.5D);
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(((pBlockState.getValue(BlockStateProperties.ROTATION_16) * -360.0F) / 16.0F)));
+			this.translateStandingSign(pPoseStack, pYRot);
 		} else {
-			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.WALL) {
-				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() * -1.0F));
-				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
-			}
-			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.CEILING) {
-				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1.0F));
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
-				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
-			}
-			if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.FLOOR) {
-				pPoseStack.translate(0.5D, 0.5D, 0.5D);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot() * -1.0F));
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(-90.0F));
-				pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
-			}
+			this.translateWallSign(pBlockState, pPoseStack);
 		}
 	}
 
-	public void translateSignText(PoseStack pPoseStack, boolean pBack, Vec3 pVec3) {
-		float scale = this.getSignTextRenderScale() * 0.015625F;
+	public void translateSignText(PoseStack pPoseStack, boolean pBack) {
+		var scale = this.getSignTextRenderScale() * 0.015625F;
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(pBack ? 180.0F : 0.0F));
+		pPoseStack.translate(0.0D, 0.33333334D, 0.046666667D);
+		pPoseStack.scale(scale, -scale, -scale);
+	}
 
-		if (!pBack) {
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+	public void translateStandingSign(PoseStack pPoseStack, float pYRot) {
+		pPoseStack.translate(0.5D, this.getSignModelRenderScale() * 0.75D, 0.5D);
+		pPoseStack.mulPose(Axis.YN.rotationDegrees(pYRot));
+	}
+
+	public void translateWallSign(BlockState pBlockState, PoseStack pPoseStack) {
+		if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.CEILING) {
+			pPoseStack.translate(0.5D, 0.5D, 0.5D);
+			pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot()));
+			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+			pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
+		} else if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.FLOOR) {
+			pPoseStack.translate(0.5D, 0.5D, 0.5D);
+			pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite().toYRot()));
+			pPoseStack.mulPose(Axis.XP.rotationDegrees(-90.0F));
+			pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
+		} else if (pBlockState.getValue(BlockStateProperties.ATTACH_FACE) == AttachFace.WALL) {
+			pPoseStack.translate(0.5D, 0.5D, 0.5D);
+			pPoseStack.mulPose(Axis.YN.rotationDegrees(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot()));
+			pPoseStack.translate(0.0D, -0.3125D, -0.4375D);
 		}
-
-		pPoseStack.translate(pVec3.x, pVec3.y, pVec3.z);
-		pPoseStack.scale(scale, -scale, scale);
 	}
 
 	public Material getSignMaterial(WoodType pWoodType) {
 		return Sheets.getSignMaterial(pWoodType);
 	}
 
-	public Vec3 getTextOffset() {
-		return new Vec3(0.0D, 0.33333334D, 0.046666667D);
+	public WoodType getWoodType(SignBlock pSignBlock) {
+		return SignBlock.getWoodType(pSignBlock);
 	}
 }

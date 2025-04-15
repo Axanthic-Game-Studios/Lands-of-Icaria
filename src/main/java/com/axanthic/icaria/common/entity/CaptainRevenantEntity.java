@@ -3,7 +3,8 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.CaptainRevenantSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.util.IcariaSummonSpellTypes;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -11,8 +12,8 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -31,46 +32,35 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class CaptainRevenantEntity extends RevenantEntity {
-	public int maxUnequips = 40;
-	public int minUnequips = 0;
 	public int maxRallying = 120;
 	public int minRallying = 0;
 	public int maxReequips = 40;
 	public int minReequips = 0;
+	public int maxUnequips = 40;
+	public int minUnequips = 0;
 
-	public AnimationState unequipsAnimationState = new AnimationState();
 	public AnimationState rallyingAnimationState = new AnimationState();
 	public AnimationState reequipsAnimationState = new AnimationState();
+	public AnimationState unequipsAnimationState = new AnimationState();
 
-	public static final EntityDataAccessor<Byte> SPELL = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.BYTE);
-
-	public static final EntityDataAccessor<Integer> UNEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> RALLYING = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> REEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> UNEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 
 	public TargetingConditions targetingConditions = TargetingConditions.forCombat().range(16.0D);
 
-	public CaptainRevenantEntity(EntityType<? extends CaptainRevenantEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-	}
-
-	public boolean doSummoning() {
-		return !this.onUnequips() && !this.onRallying() && !this.onReequips() && this.getLastHurtByPlayerTime() > 0 && this.level().getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2;
+	public CaptainRevenantEntity(EntityType<? extends CaptainRevenantEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean hurt(DamageSource pSource, float pAmount) {
-		if (this.doSummoning()) {
-			this.setUnequips(this.maxUnequips);
-		}
-
-		return super.hurt(pSource, pAmount);
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+		this.summon(pServerLevel);
+		return super.hurtServer(pServerLevel, pDamageSource, pAmount);
 	}
 
 	@Override
@@ -100,44 +90,44 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	public int getRallying() {
-		return this.entityData.get(CaptainRevenantEntity.RALLYING);
+		return this.getEntityData().get(CaptainRevenantEntity.RALLYING);
 	}
 
 	public int getReequips() {
-		return this.entityData.get(CaptainRevenantEntity.REEQUIPS);
+		return this.getEntityData().get(CaptainRevenantEntity.REEQUIPS);
 	}
 
 	public int getUnequips() {
-		return this.entityData.get(CaptainRevenantEntity.UNEQUIPS);
+		return this.getEntityData().get(CaptainRevenantEntity.UNEQUIPS);
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Unequips", this.getUnequips());
-		pCompound.putInt("Rallying", this.getRallying());
-		pCompound.putInt("Reequips", this.getReequips());
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putInt("Rallying", this.getRallying());
+		pCompoundTag.putInt("Reequips", this.getReequips());
+		pCompoundTag.putInt("Unequips", this.getUnequips());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
 		if (this.onUnequips()) {
-			int unequips = this.getUnequips();
+			var unequips = this.getUnequips();
 			if (unequips > this.minUnequips) {
 				--unequips;
 				this.setUnequips(unequips);
 				this.setRallying(this.maxRallying);
 			}
 		} else if (this.onRallying()) {
-			int rallying = this.getRallying();
+			var rallying = this.getRallying();
 			if (rallying > this.minRallying) {
 				--rallying;
 				this.setRallying(rallying);
 				this.setReequips(this.maxReequips);
 			}
 		} else if (this.onReequips()) {
-			int reequips = this.getReequips();
+			var reequips = this.getReequips();
 			if (reequips > this.minReequips) {
 				--reequips;
 				this.setReequips(reequips);
@@ -148,34 +138,37 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(CaptainRevenantEntity.SPELL, (byte) 0);
-		pBuilder.define(CaptainRevenantEntity.UNEQUIPS, this.minUnequips);
 		pBuilder.define(CaptainRevenantEntity.RALLYING, this.minRallying);
 		pBuilder.define(CaptainRevenantEntity.REEQUIPS, this.minReequips);
+		pBuilder.define(CaptainRevenantEntity.UNEQUIPS, this.minUnequips);
 	}
 
 	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.CAPTAIN_REVENANT_STEP, 0.1F, 1.0F);
 	}
 
 	@Override
-	public void populateDefaultEquipmentSlots(RandomSource pRandom, DifficultyInstance pDifficulty) {
-		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(IcariaItems.ORICHALCUM_ARMOR.helmet.get()));
-		this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IcariaItems.ORICHALCUM_ARMOR.chestplate.get()));
-		if (pRandom.nextInt(6) == 0) {
-			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.bident.get()));
+	public void populateDefaultEquipmentSlots(RandomSource pRandomSource, DifficultyInstance pDifficultyInstance) {
+		this.populateDefaultEquipmentSlots();
+	}
+
+	public void populateDefaultEquipmentSlots() {
+		this.setItemSlot(EquipmentSlot.HEAD, new ItemStack(IcariaItems.ORICHALCUM_HELMET.get()));
+		this.setItemSlot(EquipmentSlot.CHEST, new ItemStack(IcariaItems.ORICHALCUM_CHESTPLATE.get()));
+		if (this.getRandom().nextInt(6) == 0) {
+			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_BIDENT.get()));
 		} else {
-			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_TOOLS.sword.get()));
+			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.ORICHALCUM_SWORD.get()));
 		}
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setUnequips(pCompound.getInt("Unequips"));
-		this.setRallying(pCompound.getInt("Rallying"));
-		this.setReequips(pCompound.getInt("Reequips"));
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setRallying(pCompoundTag.getInt("Rallying"));
+		this.setReequips(pCompoundTag.getInt("Reequips"));
+		this.setUnequips(pCompoundTag.getInt("Unequips"));
 	}
 
 	@Override
@@ -191,30 +184,29 @@ public class CaptainRevenantEntity extends RevenantEntity {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}
 
-	public void setCasting(IcariaSummonSpellTypes pSpell) {
-		this.entityData.set(CaptainRevenantEntity.SPELL, (byte) pSpell.id);
-	}
-
-	public void setRallying(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minRallying, this.maxRallying);
-		this.entityData.set(CaptainRevenantEntity.RALLYING, ticks);
-	}
-
-	public void setReequips(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minReequips, this.maxReequips);
-		this.entityData.set(CaptainRevenantEntity.REEQUIPS, ticks);
-	}
-
-	public void setUnequips(int pCooldown) {
-		int ticks = Mth.clamp(pCooldown, this.minUnequips, this.maxUnequips);
-		this.entityData.set(CaptainRevenantEntity.UNEQUIPS, ticks);
-	}
-
-	public void stopMove() {
-		if (this.onUnequips() || this.onRallying() || this.onReequips()) {
+	public void setMovement() {
+		if (this.onRallying() || this.onReequips() || this.onUnequips()) {
 			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
 		} else {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.25D);
+			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+		}
+	}
+
+	public void setRallying(int pRallying) {
+		this.getEntityData().set(CaptainRevenantEntity.RALLYING, pRallying);
+	}
+
+	public void setReequips(int pReequips) {
+		this.getEntityData().set(CaptainRevenantEntity.REEQUIPS, pReequips);
+	}
+
+	public void setUnequips(int pUnequips) {
+		this.getEntityData().set(CaptainRevenantEntity.UNEQUIPS, pUnequips);
+	}
+
+	public void summon(ServerLevel pServerLevel) {
+		if (!this.onRallying() && !this.onReequips() && !this.onUnequips() && this.getLastHurtByPlayerTime() > 0 && pServerLevel.getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2) {
+			this.setUnequips(this.maxUnequips);
 		}
 	}
 
@@ -233,12 +225,12 @@ public class CaptainRevenantEntity extends RevenantEntity {
 				this.rallyingAnimationState.stop();
 			}
 		} else {
-			this.stopMove();
+			this.setMovement();
 		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 100.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ARMOR, 4.0D).add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 100.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override

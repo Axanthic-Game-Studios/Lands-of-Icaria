@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:yellowstone_gear",
+  "ingredient": "minecraft:cracked_deepslate_bricks",
+  "result": {
+    "count": 1,
+    "id": "minecraft:cobbled_deepslate"
+  },
+  "time": 200
+}

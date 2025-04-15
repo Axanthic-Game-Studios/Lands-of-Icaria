@@ -1,76 +1,88 @@
 package com.axanthic.icaria.client.screen;
 
+import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.GameNarrator;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ChestLabelScreen extends Screen {
-	public Button cancelButton;
-	public Button doneButton;
+	public int imageHeight;
+	public int imageWidth;
 
-	public EditBox box;
+	public Button cancel;
+	public Button done;
 
-	public ItemStack stack;
+	public EditBox editBox;
 
-	public ChestLabelScreen(ItemStack pStack) {
-		super(GameNarrator.NO_TITLE);
-		this.stack = pStack;
+	public ItemStack itemStack;
+
+	public ChestLabelScreen(ItemStack pItemStack) {
+		super(Component.empty());
+		this.imageHeight = 54;
+		this.imageWidth = 176;
+		this.itemStack = pItemStack;
 	}
 
 	public void cancel() {
-		this.minecraft.setScreen(null);
+		if (this.minecraft != null) {
+			this.minecraft.setScreen(null);
+		}
 	}
 
 	public void done() {
-		this.stack.set(IcariaDataComponents.LABEL, this.box.getValue());
-		this.minecraft.setScreen(null);
+		if (this.minecraft != null) {
+			this.minecraft.setScreen(null);
+			PacketDistributor.sendToServer(new ChestLabelPacket(this.itemStack, this.editBox.getValue()));
+		}
 	}
 
 	@Override
 	public void init() {
-		this.cancelButton = this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, p_98157_ -> this.cancel()).bounds(this.width / 2 + 2, this.height / 2 + 64, 98, 20).build());
-		this.doneButton = this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, p_280852_ -> this.done()).bounds(this.width / 2 - 100, this.height / 2 + 64, 98, 20).build());
-		this.box = new EditBox(this.font, this.width / 2 - 35, this.height / 2 - 3, 200, 20, Component.translatable("screen" + "." + IcariaIdents.ID + "." + "chest_label"));
-		this.box.setBordered(false);
-		this.box.setMaxLength(12);
-		this.box.setTextColor(IcariaColors.TEXT);
-		this.box.setTextShadow(false);
-		this.box.setValue(this.stack.getOrDefault(IcariaDataComponents.LABEL, ""));
-		this.addWidget(this.box);
+		this.cancel = this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (button) -> this.cancel()).bounds(this.width / 2 + 2, this.height / 2 + 64, 98, 20).build());
+		this.done = this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) -> this.done()).bounds(this.width / 2 - 100, this.height / 2 + 64, 98, 20).build());
+		this.editBox = new EditBox(this.font, this.width / 2 - 35, this.height / 2 - 3, 196, 20, Component.translatable("screen" + "." + IcariaIdents.ID + "." + "chest_label"));
+		this.editBox.setBordered(false);
+		this.editBox.setMaxLength(12);
+		this.editBox.setTextColor(IcariaColors.TEXT);
+		this.editBox.setTextShadow(false);
+		this.editBox.setValue(this.itemStack.getOrDefault(IcariaDataComponents.LABEL, ""));
+		this.addWidget(this.editBox);
 	}
 
 	@Override
-	public void render(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		super.render(pGraphics, pMouseX, pMouseY, pPartialTick);
-		this.box.render(pGraphics, pMouseX, pMouseY, pPartialTick);
+	public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+		super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+		this.editBox.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
 	}
 
 	@Override
-	public void renderBackground(GuiGraphics pGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		int x = (this.width - 216) / 2;
-		int y = (this.height - 80) / 2;
-		this.renderTransparentBackground(pGraphics);
-		pGraphics.blit(IcariaResourceLocations.CHEST_LABEL, x, y, 0, 0, 216, 80);
+	public void renderBackground(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
+		var x = (this.width - this.imageWidth) / 2;
+		var y = (this.height - this.imageHeight) / 2;
+		this.renderTransparentBackground(pGuiGraphics);
+		pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.CHEST_LABEL, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 	}
 
 	@Override
 	public void setInitialFocus() {
-		this.setInitialFocus(this.box);
+		this.setInitialFocus(this.editBox);
 	}
 }

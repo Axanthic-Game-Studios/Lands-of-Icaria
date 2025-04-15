@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:ink_sac": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:ink_sac"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:black_dye_from_ink_sac_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_gear",
+      "has_minecraft:ink_sac"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:black_dye_from_ink_sac_grinding"
+    ]
+  }
+}

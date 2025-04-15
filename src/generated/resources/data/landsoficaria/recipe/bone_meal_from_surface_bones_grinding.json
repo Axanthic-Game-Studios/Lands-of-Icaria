@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.2,
+  "gear": "landsoficaria:voidshale_gear",
+  "ingredient": "landsoficaria:surface_bones",
+  "result": {
+    "count": 12,
+    "id": "minecraft:bone_meal"
+  },
+  "time": 200
+}

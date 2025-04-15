@@ -1,18 +1,16 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-
-import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -20,77 +18,74 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ForgingRecipe implements Recipe<RecipeInput> {
 	public float experience;
 
-	public int burnTime;
+	public int time;
 
-	public List<Ingredient> ingredients;
+	public Ingredient ingredient;
 
-	public ItemStack output;
+	public ItemStack result;
 
-	public ForgingRecipe(float pExperience, int pBurnTime, List<Ingredient> pIngredients, ItemStack pOutput) {
+	public ForgingRecipe(float pExperience, int pTime, Ingredient pIngredient, ItemStack pResult) {
 		this.experience = pExperience;
-		this.burnTime = pBurnTime;
-		this.ingredients = pIngredients;
-		this.output = pOutput;
+		this.time = pTime;
+		this.ingredient = pIngredient;
+		this.result = pResult;
 	}
 
 	@Override
-	public boolean canCraftInDimensions(int pWidth, int pHeight) {
-		return true;
+	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
+		return this.ingredient.items().size() < 3 ? this.ingredient.items().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
 	}
 
-	@Override
-	public boolean matches(RecipeInput pInput, Level pLevel) {
-		return this.matches(pInput) && !pLevel.isClientSide();
+	public boolean matchesSingle(RecipeInput pRecipeInput) {
+		return (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty()) || (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(2).isEmpty() && pRecipeInput.getItem(1).isEmpty()) || (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(0).isEmpty() && pRecipeInput.getItem(2).isEmpty()) || (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty() && pRecipeInput.getItem(0).isEmpty()) || (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(2).getItem() && pRecipeInput.getItem(0).isEmpty() && pRecipeInput.getItem(1).isEmpty()) || (this.ingredient.items().getFirst().value() == pRecipeInput.getItem(2).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(0).isEmpty());
 	}
 
-	public boolean matches(RecipeInput pInput) {
-		return this.ingredients.size() < 3 ? this.ingredients.size() < 2 ? this.matchesSingle(pInput) : this.matchesDouble(pInput) : this.matchesTriple(pInput);
+	public boolean matchesDouble(RecipeInput pRecipeInput) {
+		return (this.ingredient.items().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(2).getItem() && pRecipeInput.getItem(1).isEmpty()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(2).isEmpty()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(2).getItem() && pRecipeInput.getItem(0).isEmpty()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(0).isEmpty());
 	}
 
-	public boolean matchesSingle(RecipeInput pInput) {
-		return (this.ingredients.get(0).test(pInput.getItem(0)) && pInput.getItem(1).isEmpty() && pInput.getItem(2).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(0)) && pInput.getItem(2).isEmpty() && pInput.getItem(1).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(1)) && pInput.getItem(0).isEmpty() && pInput.getItem(2).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(1)) && pInput.getItem(2).isEmpty() && pInput.getItem(0).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(2)) && pInput.getItem(0).isEmpty() && pInput.getItem(1).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(2)) && pInput.getItem(1).isEmpty() && pInput.getItem(0).isEmpty());
+	public boolean matchesTriple(RecipeInput pRecipeInput) {
+		return (this.ingredient.items().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(2).getItem()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(1).getItem()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(2).getItem()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(0).getItem()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(1).getItem()) || (this.ingredient.items().get(0).value() == pRecipeInput.getItem(2).getItem() && this.ingredient.items().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.items().get(2).value() == pRecipeInput.getItem(0).getItem());
 	}
 
-	public boolean matchesDouble(RecipeInput pInput) {
-		return (this.ingredients.get(0).test(pInput.getItem(0)) && this.ingredients.get(1).test(pInput.getItem(1)) && pInput.getItem(2).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(0)) && this.ingredients.get(1).test(pInput.getItem(2)) && pInput.getItem(1).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(1)) && this.ingredients.get(1).test(pInput.getItem(0)) && pInput.getItem(2).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(1)) && this.ingredients.get(1).test(pInput.getItem(2)) && pInput.getItem(0).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(2)) && this.ingredients.get(1).test(pInput.getItem(0)) && pInput.getItem(1).isEmpty()) || (this.ingredients.get(0).test(pInput.getItem(2)) && this.ingredients.get(1).test(pInput.getItem(1)) && pInput.getItem(0).isEmpty());
-	}
-
-	public boolean matchesTriple(RecipeInput pInput) {
-		return (this.ingredients.get(0).test(pInput.getItem(0)) && this.ingredients.get(1).test(pInput.getItem(1)) && this.ingredients.get(2).test(pInput.getItem(2))) || (this.ingredients.get(0).test(pInput.getItem(0)) && this.ingredients.get(1).test(pInput.getItem(2)) && this.ingredients.get(2).test(pInput.getItem(1))) || (this.ingredients.get(0).test(pInput.getItem(1)) && this.ingredients.get(1).test(pInput.getItem(0)) && this.ingredients.get(2).test(pInput.getItem(2))) || (this.ingredients.get(0).test(pInput.getItem(1)) && this.ingredients.get(1).test(pInput.getItem(2)) && this.ingredients.get(2).test(pInput.getItem(0))) || (this.ingredients.get(0).test(pInput.getItem(2)) && this.ingredients.get(1).test(pInput.getItem(0)) && this.ingredients.get(2).test(pInput.getItem(1))) || (this.ingredients.get(0).test(pInput.getItem(2)) && this.ingredients.get(1).test(pInput.getItem(1)) && this.ingredients.get(2).test(pInput.getItem(0)));
-	}
-
-	public float getExperience() {
+	public float experience() {
 		return this.experience;
 	}
 
-	public int getBurnTime() {
-		return this.burnTime;
+	public int time() {
+		return this.time;
+	}
+
+	public Ingredient ingredient() {
+		return this.ingredient;
 	}
 
 	@Override
-	public ItemStack assemble(RecipeInput pInput, HolderLookup.Provider pProvider) {
-		return this.output;
+	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
+		return this.result.copy();
+	}
+
+	public ItemStack result() {
+		return this.result;
 	}
 
 	@Override
-	public ItemStack getResultItem(HolderLookup.Provider pProvider) {
-		return this.output.copy();
+	public PlacementInfo placementInfo() {
+		return PlacementInfo.create(this.ingredient);
 	}
 
 	@Override
-	public NonNullList<Ingredient> getIngredients() {
-		var list = NonNullList.<Ingredient>create();
-		list.addAll(this.ingredients);
-		return list;
+	public RecipeBookCategory recipeBookCategory() {
+		return IcariaRecipeBookCategories.FORGE.get();
 	}
 
 	@Override
-	public RecipeSerializer<?> getSerializer() {
+	public RecipeSerializer<? extends Recipe<RecipeInput>> getSerializer() {
 		return IcariaRecipeSerializers.FORGING.get();
 	}
 
 	@Override
-	public RecipeType<?> getType() {
+	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.FORGING.get();
 	}
 }

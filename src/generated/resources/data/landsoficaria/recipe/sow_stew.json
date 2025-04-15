@@ -2,41 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "landsoficaria:raw_sow_meat"
-    },
-    [
-      {
-        "item": "minecraft:brown_mushroom"
-      },
-      {
-        "item": "minecraft:red_mushroom"
-      },
-      {
-        "item": "landsoficaria:brown_ground_shrooms"
-      },
-      {
-        "item": "landsoficaria:green_ground_shrooms"
-      },
-      {
-        "item": "landsoficaria:large_brown_ground_shrooms"
-      },
-      {
-        "item": "landsoficaria:tinder_fungus_tree_shrooms"
-      },
-      {
-        "item": "landsoficaria:turkey_tail_tree_shrooms"
-      },
-      {
-        "item": "landsoficaria:unnamed_tree_shrooms"
-      }
-    ],
-    {
-      "item": "landsoficaria:halite_dust"
-    },
-    {
-      "item": "landsoficaria:loam_bowl"
-    }
+    "#c:mushrooms",
+    "landsoficaria:halite_dust",
+    "landsoficaria:raw_sow_meat",
+    "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,

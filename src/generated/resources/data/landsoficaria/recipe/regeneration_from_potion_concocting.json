@@ -1,0 +1,15 @@
+{
+  "type": "landsoficaria:potion_concocting",
+  "colour": 220,
+  "duration": 440,
+  "ingredient": [
+    "landsoficaria:bolbos",
+    "landsoficaria:dathulla",
+    "landsoficaria:psilocybos"
+  ],
+  "potion": {
+    "potion": "minecraft:regeneration"
+  },
+  "radius": 5.0,
+  "time": 200
+}

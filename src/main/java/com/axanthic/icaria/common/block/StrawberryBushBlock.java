@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -19,8 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.BlockHitResult;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -31,7 +31,7 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 	}
 
 	@Override
-	public boolean isRandomlyTicking(BlockState pState) {
+	public boolean isRandomlyTicking(BlockState pBlockState) {
 		return true;
 	}
 
@@ -41,22 +41,21 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 	}
 
 	@Override
-	public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		super.randomTick(pState, pLevel, pPos, pRandom);
-		if (pRandom.nextInt(100) == 0) {
-			if (pState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.NONE) {
-				pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.RIPE, Ripe.RIPE), 2);
+	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pRandomSource.nextInt(100) == 0) {
+			if (pBlockState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.NONE) {
+				pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE, Ripe.RIPE), 2);
 			}
 		}
 	}
 
 	@Override
-	public InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pResult) {
-		if (pState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.RIPE) {
-			pLevel.playSound(null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-			pLevel.setBlock(pPos, pState.setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE), 2);
-			Block.popResource(pLevel, pPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
-			return InteractionResult.sidedSuccess(pLevel.isClientSide());
+	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.RIPE) {
+			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
+			pLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
+			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE), 2);
+			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.PASS;
 		}

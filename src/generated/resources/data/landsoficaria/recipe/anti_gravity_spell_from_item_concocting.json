@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 6919359,
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:bolbos",
+    "landsoficaria:hyliastrum_vial"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:anti_gravity_spell"
+  },
+  "time": 200
+}

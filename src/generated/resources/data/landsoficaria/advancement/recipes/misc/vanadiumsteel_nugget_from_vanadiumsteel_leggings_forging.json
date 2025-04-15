@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadiumsteel_leggings": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadiumsteel_leggings"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_leggings_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadiumsteel_leggings"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_leggings_forging"
+    ]
+  }
+}

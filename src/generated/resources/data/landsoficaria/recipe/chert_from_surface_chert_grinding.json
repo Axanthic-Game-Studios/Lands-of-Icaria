@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.2,
+  "gear": "landsoficaria:voidshale_gear",
+  "ingredient": "landsoficaria:surface_chert",
+  "result": {
+    "count": 4,
+    "id": "landsoficaria:chert"
+  },
+  "time": 200
+}

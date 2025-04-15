@@ -2,6 +2,8 @@ package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -12,16 +14,14 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class StorageVaseMenu extends AbstractContainerMenu {
 	public Container container;
 
-	public StorageVaseMenu(MenuType<?> pType, int pId, Inventory pInventory, Container pContainer) {
-		super(pType, pId);
+	public StorageVaseMenu(MenuType<?> pMenuType, int pId, Inventory pInventory, Container pContainer) {
+		super(pMenuType, pId);
 		this.container = pContainer;
 		this.addSlots(pContainer, 0, 5, 1, 44, 22);
 		this.addSlots(pContainer, 5, 7, 1, 26, 40);
@@ -33,16 +33,8 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		this.addSlots(pInventory, 0, 9, 1, 8, 206);
 	}
 
-	public StorageVaseMenu(MenuType<?> pType, int pId, Inventory pInventory) {
-		this(pType, pId, pInventory, new SimpleContainer(32));
-	}
-
-	public static StorageVaseMenu menu(int pId, Inventory pInventory) {
-		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory);
-	}
-
-	public static StorageVaseMenu menu(int pId, Inventory pInventory, Container pContainer) {
-		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory, pContainer);
+	public StorageVaseMenu(MenuType<?> pMenuType, int pId, Inventory pInventory) {
+		this(pMenuType, pId, pInventory, new SimpleContainer(32));
 	}
 
 	@Override
@@ -51,39 +43,48 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 	}
 
 	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
-		for (int x = 0; x < pCountX; x++) {
-			for (int y = 0; y < pCountY; y++) {
+		for (var x = 0; x < pCountX; x++) {
+			for (var y = 0; y < pCountY; y++) {
 				this.addSlot(new Slot(pContainer, pStartIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
 			}
 		}
 	}
 
+	public void entityPlayer(ItemStack pItemStack, int pIndex) {
+		if (pIndex < 32) {
+			this.moveItemStackTo(pItemStack, 32, 68, true);
+		} else {
+			this.moveItemStackTo(pItemStack, 0, 32, false);
+		}
+	}
+
+	public void hotbarPlayer(ItemStack pItemStack, int pIndex) {
+		if (pIndex > 31 && pIndex < 59) {
+			this.moveItemStackTo(pItemStack, 59, 68, true);
+		} else {
+			this.moveItemStackTo(pItemStack, 32, 59, false);
+		}
+	}
+
 	@Override
 	public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-		var emptyStack = ItemStack.EMPTY;
 		var slot = this.slots.get(pIndex);
-		if (slot.hasItem()) {
-			var itemStack = slot.getItem();
-			emptyStack = itemStack.copy();
-			if (pIndex < 32) {
-				this.moveItemStackTo(itemStack, 32, 68, true);
-			} else {
-				this.moveItemStackTo(itemStack, 0, 32, false);
-			}
 
-			if (pIndex > 31 && pIndex < 59) {
-				this.moveItemStackTo(itemStack, 59, 68, true);
-			} else {
-				this.moveItemStackTo(itemStack, 32, 59, false);
-			}
+		var itemStack = slot.getItem();
 
-			if (itemStack.getCount() == emptyStack.getCount()) {
-				return ItemStack.EMPTY;
-			}
+		this.entityPlayer(itemStack, pIndex);
+		this.hotbarPlayer(itemStack, pIndex);
 
-			slot.setChanged();
-		}
+		slot.onTake(pPlayer, itemStack);
 
-		return emptyStack;
+		return ItemStack.EMPTY;
+	}
+
+	public static StorageVaseMenu menu(int pId, Inventory pInventory, Container pContainer) {
+		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory, pContainer);
+	}
+
+	public static StorageVaseMenu menu(int pId, Inventory pInventory) {
+		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory);
 	}
 }

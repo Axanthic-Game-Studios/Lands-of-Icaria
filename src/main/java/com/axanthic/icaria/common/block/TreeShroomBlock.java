@@ -2,14 +2,18 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.shapes.DirectionShapes;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Mirror;
@@ -19,8 +23,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,13 +34,13 @@ public class TreeShroomBlock extends Block {
 	}
 
 	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var direction = pState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		return direction.getAxis().isHorizontal() && pLevel.getBlockState(pPos.relative(direction.getOpposite())).is(BlockTags.LOGS);
+	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
+		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		return direction.getAxis().isHorizontal() && pLevelReader.getBlockState(pBlockPos.relative(direction.getOpposite())).is(BlockTags.LOGS);
 	}
 
 	@Override
-	public boolean propagatesSkylightDown(BlockState pState, BlockGetter pReader, BlockPos pPos) {
+	public boolean propagatesSkylightDown(BlockState pBlockState) {
 		return true;
 	}
 
@@ -47,13 +49,13 @@ public class TreeShroomBlock extends Block {
 		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING);
 	}
 
+	@Nullable
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		for (var direction : pContext.getNearestLookingDirections()) {
-			var blockState = this.defaultBlockState();
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
-				blockState = blockState.setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
-				if (blockState.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
+				var blockState = this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite());
+				if (blockState.canSurvive(pBlockPlaceContext.getLevel(), pBlockPlaceContext.getClickedPos())) {
 					return blockState;
 				}
 			}
@@ -63,23 +65,23 @@ public class TreeShroomBlock extends Block {
 	}
 
 	@Override
-	public BlockState mirror(BlockState pState, Mirror pMirror) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public BlockState rotate(BlockState pState, Rotation pRotation) {
-		return pState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return pDirection.getOpposite() == pState.getValue(BlockStateProperties.HORIZONTAL_FACING) && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return switch (pState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> DirectionShapes.NORTH;
 			case EAST -> DirectionShapes.EAST;
 			case SOUTH -> DirectionShapes.SOUTH;

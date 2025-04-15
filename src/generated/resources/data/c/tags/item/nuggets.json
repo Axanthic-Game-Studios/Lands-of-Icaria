@@ -1,13 +1,13 @@
 {
   "values": [
-    "landsoficaria:chalkos_nugget",
-    "landsoficaria:kassiteros_nugget",
-    "landsoficaria:orichalcum_nugget",
-    "landsoficaria:vanadium_nugget",
-    "landsoficaria:vanadiumsteel_nugget",
-    "landsoficaria:sideros_nugget",
-    "landsoficaria:molybdenum_nugget",
-    "landsoficaria:molybdenumsteel_nugget",
-    "landsoficaria:bluridium_nugget"
+    "#c:nuggets/chalkos",
+    "#c:nuggets/kassiteros",
+    "#c:nuggets/orichalcum",
+    "#c:nuggets/vanadium",
+    "#c:nuggets/vanadiumsteel",
+    "#c:nuggets/sideros",
+    "#c:nuggets/molybdenum",
+    "#c:nuggets/molybdenumsteel",
+    "#c:nuggets/bluridium"
   ]
 }

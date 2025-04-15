@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:vanadiumsteel_chain"
-    },
-    "Y": {
-      "item": "landsoficaria:stripped_droughtroot_log"
-    }
+    "A": "landsoficaria:stripped_droughtroot_log",
+    "B": "landsoficaria:vanadiumsteel_chain"
   },
   "pattern": [
-    "X X",
-    "YYY",
-    "YYY"
+    "B B",
+    "AAA",
+    "AAA"
   ],
   "result": {
     "count": 6,

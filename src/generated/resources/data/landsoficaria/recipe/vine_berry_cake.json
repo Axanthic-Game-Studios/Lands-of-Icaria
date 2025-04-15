@@ -2,25 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": {
-      "item": "landsoficaria:void_jellyfish_jelly"
-    },
-    "B": {
-      "item": "landsoficaria:vineberries"
-    },
-    "C": {
-      "item": "minecraft:sugar"
-    },
-    "D": {
-      "item": "minecraft:milk_bucket"
-    },
-    "E": {
-      "item": "landsoficaria:spelt_flour"
-    }
+    "A": "landsoficaria:void_jellyfish_jelly",
+    "B": "landsoficaria:vineberries",
+    "C": "minecraft:milk_bucket",
+    "D": "minecraft:sugar",
+    "E": "landsoficaria:spelt_flour"
   },
   "pattern": [
     "ABA",
-    "CDC",
+    "DCD",
     "EEE"
   ],
   "result": {

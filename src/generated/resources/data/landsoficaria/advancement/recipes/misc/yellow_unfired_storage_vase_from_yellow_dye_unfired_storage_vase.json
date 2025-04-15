@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:unfired_storage_vase": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:unfired_storage_vase"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:yellow_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:yellow_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:yellow_unfired_storage_vase_from_yellow_dye_unfired_storage_vase"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:yellow_dye",
+      "has_landsoficaria:unfired_storage_vase"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:yellow_unfired_storage_vase_from_yellow_dye_unfired_storage_vase"
+    ]
+  }
+}

@@ -4,13 +4,16 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.LayerShapes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -23,8 +26,6 @@ import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -35,11 +36,11 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public boolean canBeReplaced(BlockState pState, BlockPlaceContext pUseContext) {
-		int i = pState.getValue(BlockStateProperties.LAYERS);
-		if (pUseContext.getItemInHand().is(this.asItem()) && i < 8) {
-			if (pUseContext.replacingClickedOnBlock()) {
-				return pUseContext.getClickedFace() == Direction.UP;
+	public boolean canBeReplaced(BlockState pBlockState, BlockPlaceContext pBlockPlaceContext) {
+		int i = pBlockState.getValue(BlockStateProperties.LAYERS);
+		if (pBlockPlaceContext.getItemInHand().is(this.asItem()) && i < 8) {
+			if (pBlockPlaceContext.replacingClickedOnBlock()) {
+				return pBlockPlaceContext.getClickedFace() == Direction.UP;
 			} else {
 				return true;
 			}
@@ -49,18 +50,19 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-		var belowState = pLevel.getBlockState(pPos.below());
-		return Block.isFaceFull(belowState.getCollisionShape(pLevel, pPos.below()), Direction.UP) || belowState.is(this) && belowState.getValue(BlockStateProperties.LAYERS) == 8;
+	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
+		var blockPos = pBlockPos.below();
+		var blockState = pLevelReader.getBlockState(blockPos);
+		return Block.isFaceFull(blockState.getCollisionShape(pLevelReader, blockPos), Direction.UP) || blockState.is(this) && blockState.getValue(BlockStateProperties.LAYERS) == 8;
 	}
 
 	@Override
-	public boolean isPathfindable(BlockState pState, PathComputationType pType) {
-		return pType == PathComputationType.LAND && pState.getValue(BlockStateProperties.LAYERS) <= 4;
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
+		return pPathComputationType == PathComputationType.LAND && pBlockState.getValue(BlockStateProperties.LAYERS) <= 4;
 	}
 
 	@Override
-	public boolean useShapeForLightOcclusion(BlockState pState) {
+	public boolean useShapeForLightOcclusion(BlockState pBlockState) {
 		return true;
 	}
 
@@ -70,30 +72,30 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		var clickedPos = pContext.getClickedPos();
-		var level = pContext.getLevel();
-		var clickedState = level.getBlockState(clickedPos);
-		var fluid = level.getFluidState(clickedPos).getType();
-		if (clickedState.is(this)) {
-			return clickedState.setValue(BlockStateProperties.LAYERS, Math.min(clickedState.getValue(BlockStateProperties.LAYERS) + 1, 8));
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var level = pBlockPlaceContext.getLevel();
+		var blockState = level.getBlockState(blockPos);
+		var fluid = level.getFluidState(blockPos).getType();
+		if (blockState.is(this)) {
+			return blockState.setValue(BlockStateProperties.LAYERS, Math.min(blockState.getValue(BlockStateProperties.LAYERS) + 1, 8));
 		} else {
-			return super.getStateForPlacement(pContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+			return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 		}
 	}
 
 	@Override
-	public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-		return !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 
 	@Override
-	public FluidState getFluidState(BlockState pState) {
-		return pState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
+	public FluidState getFluidState(BlockState pBlockState) {
+		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-		return LayerShapes.SHAPES[pState.getValue(BlockStateProperties.LAYERS) - 1];
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return LayerShapes.SHAPES[pBlockState.getValue(BlockStateProperties.LAYERS) - 1];
 	}
 }

@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:firing",
+  "experience": 0.2,
+  "ingredient": "landsoficaria:silksand",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:silkglass"
+  },
+  "time": 200
+}

@@ -1,16 +1,15 @@
 package com.axanthic.icaria.common.registry;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.resources.ResourceLocation;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaResourceLocations {
 	public static final ResourceLocation ICARIA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "icaria");
-	public static final ResourceLocation THROWING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "throwing");
 
 	// ADVANCEMENT
 
@@ -116,20 +115,32 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation MOON = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "textures/environment/moon_phases.png");
 	public static final ResourceLocation SUN = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "textures/environment/sun.png");
 
+	// EQUIPMENT
+
+	public static final ResourceLocation AETERNAE_HIDE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "aeternae_hide");
+	public static final ResourceLocation CHALKOS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "chalkos");
+	public static final ResourceLocation KASSITEROS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "kassiteros");
+	public static final ResourceLocation ORICHALCUM = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "orichalcum");
+	public static final ResourceLocation VANADIUMSTEEL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "vanadiumsteel");
+	public static final ResourceLocation LAUREL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "laurel");
+
 	// GUI
 
 	public static final ResourceLocation CHEST_LABEL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/chest_label.png");
 	public static final ResourceLocation FORGE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/forge.png");
-	public static final ResourceLocation FORGE_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/jei/forge.png");
 	public static final ResourceLocation GRINDER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/grinder.png");
-	public static final ResourceLocation GRINDER_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/jei/grinder.png");
 	public static final ResourceLocation KILN = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/kiln.png");
-	public static final ResourceLocation KILN_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/jei/kiln.png");
 	public static final ResourceLocation STORAGE_VASE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/storage_vase.png");
 
 	// ITEM
 
 	public static final ResourceLocation SCROLL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item/scroll");
+	public static final ResourceLocation SPELL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item/spell");
+
+	// ITEM PROPERTY
+
+	public static final ResourceLocation THROWING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "throwing");
+	public static final ResourceLocation TOOTING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "tooting");
 
 	// LAYER
 
@@ -214,6 +225,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation ARGAN_HOUND_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.argan_hound.step");
 	public static final ResourceLocation CAPELLA_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.ambient");
 	public static final ResourceLocation CAPELLA_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.death");
+	public static final ResourceLocation CAPELLA_HORN_FAIL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.capella_horn.fail");
 	public static final ResourceLocation CAPELLA_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.hurt");
 	public static final ResourceLocation CAPELLA_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.step");
 	public static final ResourceLocation CATOBLEPAS_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.catoblepas.ambient");

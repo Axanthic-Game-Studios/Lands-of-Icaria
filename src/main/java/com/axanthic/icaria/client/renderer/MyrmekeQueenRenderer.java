@@ -4,20 +4,21 @@ import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveLayer;
 import com.axanthic.icaria.client.layer.MyrmekeQueenRaysLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenModel> {
+public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenRenderState, MyrmekeQueenModel> {
 	public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
 		this.addLayer(new MyrmekeQueenEmissiveLayer(this));
@@ -25,7 +26,21 @@ public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, Myrmek
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(MyrmekeQueenEntity pEntity) {
+	public void extractRenderState(MyrmekeQueenEntity pEntity, MyrmekeQueenRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.blue = pEntity.blue;
+		pRenderState.green = pEntity.green;
+		pRenderState.red = pEntity.red;
+		pRenderState.livingEntity = pEntity;
+	}
+
+	@Override
+	public MyrmekeQueenRenderState createRenderState() {
+		return new MyrmekeQueenRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(MyrmekeQueenRenderState pRenderState) {
 		return IcariaResourceLocations.MYRMEKE_QUEEN;
 	}
 }

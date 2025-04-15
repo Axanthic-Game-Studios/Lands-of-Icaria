@@ -6,6 +6,10 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import com.mojang.serialization.Codec;
 
+import java.util.ArrayList;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
@@ -15,10 +19,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import java.util.ArrayList;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,18 +31,18 @@ public class RuinFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
 
 		this.setMobs();
 
-		for (int x = 0; x < 16; x++) {
-			int pX = origin.getX() + x;
-			for (int z = 0; z < 16; z++) {
-				int pZ = origin.getZ() + z;
-				for (int y = 40; y < 48; y++) {
+		for (var x = 0; x < 16; x++) {
+			var pX = origin.getX() + x;
+			for (var z = 0; z < 16; z++) {
+				var pZ = origin.getZ() + z;
+				for (var y = 40; y < 48; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
 					var oldState = level.getBlockState(belowPos);
@@ -58,21 +58,21 @@ public class RuinFeature extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 
-	public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.replaceRelicstone(pLevel, pPos, pState);
+	public void replaceRelicstone(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.replaceRelicstone(pWorldGenLevel, pBlockPos, pBlockState);
 		}
 	}
 
-	public void replaceRelicstone(WorldGenLevel pLevel, BlockPos pPos, BlockState pState) {
-		if (pLevel.getBlockState(pPos).is(IcariaBlocks.RELICSTONE.get())) {
-			this.setBlock(pLevel, pPos, pState);
+	public void replaceRelicstone(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RELICSTONE.get())) {
+			this.setBlock(pWorldGenLevel, pBlockPos, pBlockState);
 		}
 	}
 
-	public void setMobsForSpawners(WorldGenLevel pLevel, BlockPos pPos, RandomSource pRandom) {
-		if (pLevel.getBlockEntity(pPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
-			blockEntity.setEntityId(this.getMob(pRandom), pRandom);
+	public void setMobsForSpawners(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+			blockEntity.setEntityId(this.getMob(pRandomSource), pRandomSource);
 		}
 	}
 
@@ -82,7 +82,7 @@ public class RuinFeature extends Feature<NoneFeatureConfiguration> {
 		this.mobs.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
 	}
 
-	public EntityType<?> getMob(RandomSource pRandom) {
-		return this.mobs.get(pRandom.nextInt(this.mobs.size()));
+	public EntityType<?> getMob(RandomSource pRandomSource) {
+		return this.mobs.get(pRandomSource.nextInt(this.mobs.size()));
 	}
 }

@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:loam_gear",
+  "ingredient": "minecraft:melon",
+  "result": {
+    "count": 12,
+    "id": "minecraft:melon_seeds"
+  },
+  "time": 200
+}

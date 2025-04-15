@@ -2,13 +2,11 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:loam_lump"
-    }
+    "A": "landsoficaria:loam_lump"
   },
   "pattern": [
-    "X X",
-    " X "
+    "A A",
+    " A "
   ],
   "result": {
     "count": 4,

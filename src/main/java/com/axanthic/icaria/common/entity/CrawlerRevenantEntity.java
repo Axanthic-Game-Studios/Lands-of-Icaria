@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -16,8 +18,6 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -27,12 +27,12 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 
 	public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(CrawlerRevenantEntity.class, EntityDataSerializers.INT);
 
-	public CrawlerRevenantEntity(EntityType<? extends CrawlerRevenantEntity> pType, Level pLevel) {
-		super(pType, pLevel);
+	public CrawlerRevenantEntity(EntityType<? extends CrawlerRevenantEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean canRide(Entity pVehicle) {
+	public boolean canRide(Entity pEntity) {
 		return false;
 	}
 
@@ -45,25 +45,19 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 	}
 
 	public int getTick() {
-		return this.entityData.get(CrawlerRevenantEntity.TICK);
+		return this.getEntityData().get(CrawlerRevenantEntity.TICK);
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompound) {
-		super.addAdditionalSaveData(pCompound);
-		pCompound.putInt("Tick", this.getTick());
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putInt("Tick", this.getTick());
 	}
 
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		if (this.isAlive()) {
-			int tick = this.getTick();
-			if (tick < this.maxTick) {
-				++tick;
-				this.setTick(tick);
-			}
-		}
+		this.tickTick();
 	}
 
 	@Override
@@ -73,14 +67,13 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setTick(pCompound.getInt("Tick"));
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setTick(pCompoundTag.getInt("Tick"));
 	}
 
-	public void setTick(int pSize) {
-		int tick = Mth.clamp(pSize, this.minTick, this.maxTick);
-		this.entityData.set(CrawlerRevenantEntity.TICK, tick);
+	public void setTick(int pTick) {
+		this.getEntityData().set(CrawlerRevenantEntity.TICK, pTick);
 	}
 
 	@Override
@@ -91,19 +84,30 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 		}
 	}
 
+	public void tickTick() {
+		if (this.isAlive()) {
+			var tick = this.getTick();
+			if (tick < this.maxTick) {
+				++tick;
+				this.setTick(tick);
+			}
+		}
+	}
+
 	public void tickParticlePlusSounds() {
 		if (this.onTick()) {
 			this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), this.getBlockStateOn().getSoundType(this.level(), this.blockPosition(), this).getBreakSound(), SoundSource.BLOCKS, 1.0F, 1.0F, false);
-			for (int i = 0; i < 15; ++i) {
-				double x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-				double y = this.getY();
-				double z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
-				this.level().addParticle(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn()), x, y, z, 0.0D, 0.0D, 0.0D);
+			for (var i = 0; i < 15; ++i) {
+				var x = this.getX() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				var y = this.getY();
+				var z = this.getZ() + Mth.randomBetween(this.getRandom(), -0.75F, 0.75F);
+				var blockParticleOption = new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn());
+				this.level().addParticle(blockParticleOption, x, y, z, 0.0D, 0.0D, 0.0D);
 			}
 		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.125D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.FOLLOW_RANGE, 32.0D).add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.MOVEMENT_SPEED, 0.1D);
 	}
 }

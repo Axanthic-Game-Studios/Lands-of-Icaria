@@ -2,17 +2,17 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.tags.IcariaBlockTags;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -24,53 +24,47 @@ import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class SolifugaeEntity extends IcariaArachnidEntity {
-	public static final EntityDataAccessor<Byte> CLIMBING = SynchedEntityData.defineId(SolifugaeEntity.class, EntityDataSerializers.BYTE);
+	public static final EntityDataAccessor<Boolean> CLIMBING = SynchedEntityData.defineId(SolifugaeEntity.class, EntityDataSerializers.BOOLEAN);
 
-	public SolifugaeEntity(EntityType<? extends SolifugaeEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 5;
+	public SolifugaeEntity(EntityType<? extends SolifugaeEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
-	@Override
-	public boolean canBeAffected(MobEffectInstance pEffectInstance) {
-		return super.canBeAffected(pEffectInstance) && !pEffectInstance.is(MobEffects.POISON);
-	}
-
-	public boolean isClimbing() {
-		return (this.entityData.get(SolifugaeEntity.CLIMBING) & 1) != 0;
+	public boolean getClimbing() {
+		return this.getEntityData().get(SolifugaeEntity.CLIMBING);
 	}
 
 	@Override
 	public boolean onClimbable() {
-		return this.isClimbing();
+		return this.getClimbing();
+	}
+
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		pCompoundTag.putBoolean("Climbing", this.getClimbing());
 	}
 
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(SolifugaeEntity.CLIMBING, (byte) 0);
+		pBuilder.define(SolifugaeEntity.CLIMBING, false);
 	}
 
 	@Override
-	public void makeStuckInBlock(BlockState pState, Vec3 pMotionMultiplier) {
-		if (!pState.is(IcariaBlockTags.COBWEB_BLOCKS)) {
-			super.makeStuckInBlock(pState, pMotionMultiplier);
-		}
-	}
-
-	@Override
-	public void playStepSound(BlockPos pPos, BlockState pState) {
+	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
 		this.playSound(IcariaSoundEvents.SOLIFUGAE_STEP, 0.1F, 1.0F);
+	}
+
+	@Override
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
 	}
 
 	@Override
@@ -85,14 +79,7 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 	}
 
 	public void setClimbing(boolean pClimbing) {
-		byte b = this.entityData.get(SolifugaeEntity.CLIMBING);
-		if (pClimbing) {
-			b = (byte) (b | 1);
-		} else {
-			b = (byte) (b & -2);
-		}
-
-		this.entityData.set(SolifugaeEntity.CLIMBING, b);
+		this.getEntityData().set(SolifugaeEntity.CLIMBING, pClimbing);
 	}
 
 	@Override
@@ -104,7 +91,7 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 24.0D).add(Attributes.MOVEMENT_SPEED, 0.375D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 24.0D).add(Attributes.MOVEMENT_SPEED, 0.3D);
 	}
 
 	@Override

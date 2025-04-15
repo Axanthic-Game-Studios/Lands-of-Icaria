@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:molybdenum_ingot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:molybdenum_ingot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:molybdenum_block_from_molybdenum_ingot"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:molybdenum_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:molybdenum_block_from_molybdenum_ingot"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:plane_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:plane_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:plane_wood_from_plane_log"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:plane_log"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:plane_wood_from_plane_log"
+    ]
+  }
+}

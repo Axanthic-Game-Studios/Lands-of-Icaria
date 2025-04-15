@@ -2,18 +2,18 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class TroughBlockEntity extends BlockEntity {
-	public TroughBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.TROUGH.get(), pPos, pState);
+	public TroughBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.TROUGH.get(), pBlockPos, pBlockState);
 	}
 }

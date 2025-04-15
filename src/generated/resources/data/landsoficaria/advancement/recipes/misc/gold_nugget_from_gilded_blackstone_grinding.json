@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:vanadium_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:vanadium_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:gilded_blackstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:gilded_blackstone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:gold_nugget_from_gilded_blackstone_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:vanadium_gear",
+      "has_minecraft:gilded_blackstone"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:gold_nugget_from_gilded_blackstone_grinding"
+    ]
+  }
+}

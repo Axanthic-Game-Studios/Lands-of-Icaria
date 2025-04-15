@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.4,
+  "gear": "landsoficaria:daedalian_gear",
+  "ingredient": "landsoficaria:blurred_platoshale_bricks",
+  "result": {
+    "count": 6,
+    "id": "landsoficaria:bluridium_nugget"
+  },
+  "time": 400
+}

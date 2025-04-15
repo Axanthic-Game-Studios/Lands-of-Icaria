@@ -3,9 +3,7 @@
   "category": "blocks",
   "cookingtime": 200,
   "experience": 0.1,
-  "ingredient": {
-    "item": "landsoficaria:relicstone_tiles"
-  },
+  "ingredient": "landsoficaria:relicstone_tiles",
   "result": {
     "count": 1,
     "id": "landsoficaria:cracked_relicstone_tiles"

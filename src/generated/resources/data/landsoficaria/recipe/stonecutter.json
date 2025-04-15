@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:iron_ingot",
+    "B": "landsoficaria:smooth_relicstone"
+  },
+  "pattern": [
+    " A ",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:stonecutter"
+  }
+}

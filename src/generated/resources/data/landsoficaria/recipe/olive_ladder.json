@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:olive_planks"
-    }
+    "A": "landsoficaria:olive_planks"
   },
   "pattern": [
-    "X X",
-    "XXX",
-    "X X"
+    "A A",
+    "AAA",
+    "A A"
   ],
   "result": {
     "count": 6,

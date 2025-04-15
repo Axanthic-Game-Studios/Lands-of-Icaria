@@ -1,6 +1,16 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
+    "has_landsoficaria:dead_laurel_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:dead_laurel_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_landsoficaria:laurel_log": {
       "conditions": {
         "items": [
@@ -16,6 +26,16 @@
         "items": [
           {
             "items": "landsoficaria:laurel_wood"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:stripped_dead_laurel_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:stripped_dead_laurel_log"
           }
         ]
       },
@@ -54,7 +74,9 @@
       "has_landsoficaria:laurel_wood",
       "has_landsoficaria:stripped_laurel_wood",
       "has_landsoficaria:laurel_log",
-      "has_landsoficaria:stripped_laurel_log"
+      "has_landsoficaria:stripped_laurel_log",
+      "has_landsoficaria:dead_laurel_log",
+      "has_landsoficaria:stripped_dead_laurel_log"
     ]
   ],
   "rewards": {

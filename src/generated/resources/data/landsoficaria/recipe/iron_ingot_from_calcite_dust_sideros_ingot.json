@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:calcite_dust",
+    "landsoficaria:sideros_ingot"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:iron_ingot"
+  }
+}

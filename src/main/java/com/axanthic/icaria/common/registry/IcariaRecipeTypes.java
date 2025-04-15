@@ -3,15 +3,14 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.recipe.*;
 import com.axanthic.icaria.common.recipe.type.*;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeType;
 
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-
-import java.util.function.Supplier;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -19,11 +18,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class IcariaRecipeTypes {
 	public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, IcariaIdents.ID);
 
-	public static final Supplier<RecipeType<ConcoctingEntityRecipe>> CONCOCTING_ENTITY = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_entity", ConcoctingEntityRecipeType::new);
-	public static final Supplier<RecipeType<ConcoctingExplosionsRecipe>> CONCOCTING_EXPLOSIONS = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_explosions", ConcoctingExplosionsRecipeType::new);
-	public static final Supplier<RecipeType<ConcoctingItemRecipe>> CONCOCTING_ITEM = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_item", ConcoctingItemRecipeType::new);
-	public static final Supplier<RecipeType<ConcoctingPotionRecipe>> CONCOCTING_POTION = IcariaRecipeTypes.RECIPE_TYPES.register("concocting_potion", ConcoctingPotionRecipeType::new);
-	public static final Supplier<RecipeType<FiringRecipe>> FIRING = IcariaRecipeTypes.RECIPE_TYPES.register("firing", FiringRecipeType::new);
-	public static final Supplier<RecipeType<ForgingRecipe>> FORGING = IcariaRecipeTypes.RECIPE_TYPES.register("forging", ForgingRecipeType::new);
-	public static final Supplier<RecipeType<GrindingRecipe>> GRINDING = IcariaRecipeTypes.RECIPE_TYPES.register("grinding", GrindingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<EntityConcoctingRecipe>> ENTITY_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("entity_concocting", EntityConcoctingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("explosion_concocting", ExplosionConcoctingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<FiringRecipe>> FIRING = IcariaRecipeTypes.RECIPE_TYPES.register("firing", FiringRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<ForgingRecipe>> FORGING = IcariaRecipeTypes.RECIPE_TYPES.register("forging", ForgingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<GrindingRecipe>> GRINDING = IcariaRecipeTypes.RECIPE_TYPES.register("grinding", GrindingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<ItemConcoctingRecipe>> ITEM_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("item_concocting", ItemConcoctingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<PotionConcoctingRecipe>> POTION_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("potion_concocting", PotionConcoctingRecipeType::new);
 }

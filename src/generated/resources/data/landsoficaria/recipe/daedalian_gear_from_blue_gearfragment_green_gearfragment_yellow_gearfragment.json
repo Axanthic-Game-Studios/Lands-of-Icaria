@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:blue_gearfragment",
+    "landsoficaria:green_gearfragment",
+    "landsoficaria:yellow_gearfragment"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:daedalian_gear"
+  }
+}

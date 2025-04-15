@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:blue_hydracinth": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:blue_hydracinth"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:blue_dye_from_blue_hydracinth_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_gear",
+      "has_landsoficaria:blue_hydracinth"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:blue_dye_from_blue_hydracinth_grinding"
+    ]
+  }
+}

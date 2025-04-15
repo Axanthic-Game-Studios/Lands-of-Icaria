@@ -287,21 +287,6 @@
               "function": "minecraft:set_damage"
             }
           ],
-          "name": "landsoficaria:vanadiumsteel_dagger"
-        },
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "damage": {
-                "type": "minecraft:uniform",
-                "max": 0.9,
-                "min": 0.1
-              },
-              "function": "minecraft:set_damage"
-            }
-          ],
           "name": "landsoficaria:sideros_dagger"
         },
         {

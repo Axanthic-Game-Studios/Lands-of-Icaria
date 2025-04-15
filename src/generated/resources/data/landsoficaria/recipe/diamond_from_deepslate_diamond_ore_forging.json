@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:deepslate_diamond_ore",
+  "result": {
+    "count": 1,
+    "id": "minecraft:diamond"
+  },
+  "time": 100
+}

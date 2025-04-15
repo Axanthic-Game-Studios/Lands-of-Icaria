@@ -1,0 +1,14 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 668733,
+  "ingredient": [
+    "landsoficaria:rowan",
+    "landsoficaria:hyliastrum_vial",
+    "landsoficaria:namdrake"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:echo_shard"
+  },
+  "time": 200
+}

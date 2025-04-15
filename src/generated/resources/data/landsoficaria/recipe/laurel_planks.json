@@ -3,18 +3,12 @@
   "category": "misc",
   "ingredients": [
     [
-      {
-        "item": "landsoficaria:laurel_wood"
-      },
-      {
-        "item": "landsoficaria:stripped_laurel_wood"
-      },
-      {
-        "item": "landsoficaria:laurel_log"
-      },
-      {
-        "item": "landsoficaria:stripped_laurel_log"
-      }
+      "landsoficaria:laurel_wood",
+      "landsoficaria:stripped_laurel_wood",
+      "landsoficaria:laurel_log",
+      "landsoficaria:stripped_laurel_log",
+      "landsoficaria:dead_laurel_log",
+      "landsoficaria:stripped_dead_laurel_log"
     ]
   ],
   "result": {

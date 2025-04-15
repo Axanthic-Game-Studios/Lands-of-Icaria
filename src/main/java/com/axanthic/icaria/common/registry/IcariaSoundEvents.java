@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvent;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -33,6 +33,7 @@ public class IcariaSoundEvents {
 	public static final SoundEvent ARGAN_HOUND_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.ARGAN_HOUND_STEP);
 	public static final SoundEvent CAPELLA_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_AMBIENT);
 	public static final SoundEvent CAPELLA_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_DEATH);
+	public static final SoundEvent CAPELLA_HORN_FAIL = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_HORN_FAIL);
 	public static final SoundEvent CAPELLA_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_HURT);
 	public static final SoundEvent CAPELLA_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_STEP);
 	public static final SoundEvent CATOBLEPAS_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CATOBLEPAS_AMBIENT);

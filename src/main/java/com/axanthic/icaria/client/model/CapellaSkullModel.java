@@ -1,7 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.SkullModel;
@@ -9,26 +8,17 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class CapellaSkullModel extends SkullModel {
-	public ModelPart head;
-
 	public CapellaSkullModel(ModelPart pModelPart) {
 		super(pModelPart);
-		this.head = pModelPart.getChild("head");
-	}
-
-	@Override
-	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
-		this.head.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		PartDefinition head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(56, 0).addBox(-2.5F, -4.0F, -3.0F, 5.0F, 4.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));

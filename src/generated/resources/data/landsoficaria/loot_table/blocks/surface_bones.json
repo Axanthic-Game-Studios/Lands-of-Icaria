@@ -65,6 +65,14 @@
                   "add": false,
                   "count": 1.0,
                   "function": "minecraft:set_count"
+                },
+                {
+                  "enchantment": "minecraft:fortune",
+                  "formula": "minecraft:uniform_bonus_count",
+                  "function": "minecraft:apply_bonus",
+                  "parameters": {
+                    "bonusMultiplier": 2
+                  }
                 }
               ],
               "name": "landsoficaria:bone_remains"

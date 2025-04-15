@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:dolomite_bricks"
-    },
-    "Y": {
-      "item": "landsoficaria:dolomite_pillar"
-    }
+    "A": "landsoficaria:dolomite_bricks",
+    "B": "landsoficaria:dolomite_pillar"
   },
   "pattern": [
-    "X",
-    "Y"
+    "A",
+    "B"
   ],
   "result": {
     "count": 2,

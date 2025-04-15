@@ -1,10 +1,10 @@
 package com.axanthic.icaria.common.registry;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,7 +28,7 @@ public class IcariaWoodTypes {
 		WoodType.register(IcariaWoodTypes.POPULUS);
 	}
 
-	public static WoodType register(String pName, BlockSetType pType) {
-		return new WoodType(IcariaIdents.ID + ":" + pName, pType);
+	public static WoodType register(String pName, BlockSetType pBlockSetType) {
+		return new WoodType(IcariaIdents.ID + ":" + pName, pBlockSetType);
 	}
 }

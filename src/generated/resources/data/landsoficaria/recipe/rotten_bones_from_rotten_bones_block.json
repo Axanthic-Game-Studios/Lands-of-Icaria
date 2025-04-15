@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "landsoficaria:rotten_bones_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:rotten_bones"
+  }
+}

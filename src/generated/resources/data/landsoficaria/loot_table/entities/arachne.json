@@ -48,6 +48,10 @@
         },
         {
           "type": "minecraft:item",
+          "name": "landsoficaria:totem_of_undying"
+        },
+        {
+          "type": "minecraft:item",
           "name": "landsoficaria:totem_of_unshattering"
         },
         {

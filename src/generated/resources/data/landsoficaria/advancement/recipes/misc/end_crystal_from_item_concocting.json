@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:arachne_venom_vial": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:arachne_venom_vial"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:dathulla": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:dathulla"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:hyliastrum_vial": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:hyliastrum_vial"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:end_crystal_from_item_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:arachne_venom_vial",
+      "has_landsoficaria:dathulla",
+      "has_landsoficaria:hyliastrum_vial"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:end_crystal_from_item_concocting"
+    ]
+  }
+}

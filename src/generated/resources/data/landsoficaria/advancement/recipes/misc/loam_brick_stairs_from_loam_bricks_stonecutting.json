@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:loam_bricks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_bricks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:loam_brick_stairs_from_loam_bricks_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_bricks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:loam_brick_stairs_from_loam_bricks_stonecutting"
+    ]
+  }
+}

@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:molybdenumsteel_ingot"
-    },
-    "Y": {
-      "item": "minecraft:bone"
-    }
+    "A": "landsoficaria:molybdenumsteel_ingot",
+    "B": "minecraft:bone"
   },
   "pattern": [
-    "X X",
-    " Y ",
-    " Y "
+    "A A",
+    " B ",
+    " B "
   ],
   "result": {
     "count": 1,

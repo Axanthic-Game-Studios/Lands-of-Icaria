@@ -3,10 +3,10 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.goal.ForestHagPlaceSaplingGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -24,82 +24,36 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.Level;
 
-import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ForestHagEntity extends Monster {
-	public int targetChangeTime;
-	public int targetSoundsTime = Integer.MIN_VALUE;
+	public int tick;
 
-	public static final EntityDataAccessor<Boolean> TARGETING = SynchedEntityData.defineId(ForestHagEntity.class, EntityDataSerializers.BOOLEAN);
-
-	public ForestHagEntity(EntityType<? extends ForestHagEntity> pType, Level pLevel) {
-		super(pType, pLevel);
-		this.xpReward = 10;
+	public ForestHagEntity(EntityType<? extends ForestHagEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
 	}
 
 	@Override
-	public boolean doHurtTarget(Entity pEntity) {
-		boolean flag = pEntity.hurt(this.damageSources().mobAttack(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+	public boolean doHurtTarget(ServerLevel pServerLevel, Entity pEntity) {
 		this.level().broadcastEntityEvent(this, (byte) 4);
-		if (pEntity instanceof LivingEntity livingEntity) {
-			double knockback = this.getAttributeValue(Attributes.ATTACK_KNOCKBACK) - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
-			if (flag) {
-				if (knockback > 0.0D) {
-					pEntity.push(0.0D, knockback * 0.5D, 0.0D);
-				}
-			}
-		}
-
-		return pEntity instanceof LivingEntity && flag;
-	}
-
-	public boolean isTargeting() {
-		return this.entityData.get(ForestHagEntity.TARGETING);
+		this.sling(pEntity, pServerLevel);
+		return super.doHurtTarget(pServerLevel, pEntity);
 	}
 
 	@Override
-	public void actuallyHurt(DamageSource pDamageSource, float pDamageAmount) {
-		if (pDamageSource.getEntity() instanceof LivingEntity livingEntity) {
-			if (livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
-				pDamageAmount *= 2;
-			}
-		}
-
-		if (pDamageSource.is(DamageTypes.ON_FIRE)) {
-			pDamageAmount *= 2;
-		}
-
-		super.actuallyHurt(pDamageSource, pDamageAmount);
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+		var damage = this.damage(pDamageSource, pAmount);
+		return super.hurtServer(pServerLevel, pDamageSource, damage);
 	}
 
-	@Override
-	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-		super.defineSynchedData(pBuilder);
-		pBuilder.define(ForestHagEntity.TARGETING, false);
-	}
-
-	@Override
-	public void onSyncedDataUpdated(EntityDataAccessor<?> pKey) {
-		super.onSyncedDataUpdated(pKey);
-		if (ForestHagEntity.TARGETING.equals(pKey)) {
-			if (this.isTargeting()) {
-				if (this.level().isClientSide()) {
-					this.playTargetSounds();
-				}
-			}
-		}
-	}
-
-	public void playTargetSounds() {
-		if (this.tickCount >= this.targetSoundsTime + 400) {
-			this.targetSoundsTime = this.tickCount;
-			if (!this.isSilent()) {
-				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), IcariaSoundEvents.FOREST_HAG_TARGET, SoundSource.HOSTILE, 1.0F, 1.0F, false);
-			}
+	public float damage(DamageSource pDamageSource, float pAmount) {
+		if (pDamageSource.getEntity() instanceof LivingEntity livingEntity && livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
+			return pAmount * 2;
+		} else if (pDamageSource.is(DamageTypes.ON_FIRE)) {
+			return pAmount * 2;
+		} else {
+			return pAmount;
 		}
 	}
 
@@ -114,25 +68,46 @@ public class ForestHagEntity extends Monster {
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 	}
 
+	public void sling(Entity pEntity, ServerLevel pServerLevel) {
+		pEntity.hurtServer(pServerLevel, this.damageSources().mobAttack(this), (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE));
+		if (pEntity instanceof LivingEntity livingEntity) {
+			var d = this.getAttributeValue(Attributes.ATTACK_KNOCKBACK) - livingEntity.getAttributeValue(Attributes.KNOCKBACK_RESISTANCE);
+			if (d > 0.0D) {
+				livingEntity.push(0.0D, d * 0.5D, 0.0D);
+			}
+		}
+	}
+
 	@Override
-	public void setTarget(@Nullable LivingEntity pTarget) {
-		super.setTarget(pTarget);
-		if (pTarget == null) {
-			this.targetChangeTime = 0;
-			this.entityData.set(ForestHagEntity.TARGETING, false);
+	public void tick() {
+		super.tick();
+		this.tickPlay();
+		this.tickTick();
+	}
+
+	public void tickPlay() {
+		if (this.isAggressive()) {
+			if (this.tick == 0) {
+				this.level().playLocalSound(this.getX(), this.getY(), this.getZ(), IcariaSoundEvents.FOREST_HAG_TARGET, SoundSource.HOSTILE, 1.0F, 1.0F, false);
+			}
+		}
+	}
+
+	public void tickTick() {
+		if (this.isAggressive()) {
+			this.tick++;
 		} else {
-			this.targetChangeTime = this.tickCount;
-			this.entityData.set(ForestHagEntity.TARGETING, true);
+			this.tick = -1;
 		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 16.0D).add(Attributes.ATTACK_KNOCKBACK, 1.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D).add(Attributes.MAX_HEALTH, 48.0D).add(Attributes.MOVEMENT_SPEED, 0.25D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 16.0D).add(Attributes.ATTACK_KNOCKBACK, 1.0D).add(Attributes.FOLLOW_RANGE, 64.0D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D).add(Attributes.MAX_HEALTH, 48.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 	}
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return this.isTargeting() ? IcariaSoundEvents.FOREST_HAG_SCREAM : IcariaSoundEvents.FOREST_HAG_AMBIENT;
+		return this.isAggressive() ? IcariaSoundEvents.FOREST_HAG_SCREAM : IcariaSoundEvents.FOREST_HAG_AMBIENT;
 	}
 
 	@Override

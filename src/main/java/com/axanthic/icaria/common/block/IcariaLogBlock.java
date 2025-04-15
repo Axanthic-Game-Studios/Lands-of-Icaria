@@ -1,11 +1,19 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+import com.axanthic.icaria.data.registry.IcariaBiomes;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -18,8 +26,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.AABB;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -30,50 +36,9 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	public boolean onDestroyedByPlayer(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, boolean pWillHarvest, FluidState pFluid) {
-		if (pLevel.getRandom().nextInt(50) == 0) {
-			if (!pPlayer.isCreative()) {
-				if (!pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(IcariaItems.LAUREL_WREATH.get())) {
-					if (!pState.getValue(IcariaBlockStateProperties.PLAYER_PLACED)) {
-						var entityType = IcariaEntityTypes.CYPRESS_FOREST_HAG.get();
-						if (pState.is(IcariaBlocks.DROUGHTROOT_LOG.get())) {
-							entityType = IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get();
-						} else if (pState.is(IcariaBlocks.FIR_LOG.get())) {
-							entityType = IcariaEntityTypes.FIR_FOREST_HAG.get();
-						} else if (pState.is(IcariaBlocks.LAUREL_LOG.get())) {
-							entityType = IcariaEntityTypes.LAUREL_FOREST_HAG.get();
-						} else if (pState.is(IcariaBlocks.OLIVE_LOG.get())) {
-							entityType = IcariaEntityTypes.OLIVE_FOREST_HAG.get();
-						} else if (pState.is(IcariaBlocks.PLANE_LOG.get())) {
-							entityType = IcariaEntityTypes.PLANE_FOREST_HAG.get();
-						} else if (pState.is(IcariaBlocks.POPULUS_LOG.get())) {
-							entityType = IcariaEntityTypes.POPULUS_FOREST_HAG.get();
-						}
-
-						var entity = entityType.create(pLevel);
-						var blockPos = pPlayer.blockPosition();
-						var direction = pPlayer.getDirection();
-						var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 12).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 12).getZ());
-						if (entity != null) {
-							if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
-								if (pLevel.getBlockState(spawnPos).isAir()) {
-									entity.moveTo(spawnPos, 0.0F, 0.0F);
-									entity.setTarget(pPlayer);
-									entity.spawnAnim();
-									pLevel.addFreshEntity(entity);
-								}
-							}
-						}
-					}
-
-					for (var entity : pLevel.getEntitiesOfClass(ForestHagEntity.class, new AABB(pPos).inflate(12))) {
-						entity.setTarget(pPlayer);
-					}
-				}
-			}
-		}
-
-		return super.onDestroyedByPlayer(pState, pLevel, pPos, pPlayer, pWillHarvest, pFluid);
+	public boolean onDestroyedByPlayer(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, boolean pWillHarvest, FluidState pFluidState) {
+		this.handleAction(pBlockPos, pBlockState, pLevel, pPlayer);
+		return super.onDestroyedByPlayer(pBlockState, pLevel, pBlockPos, pPlayer, pWillHarvest, pFluidState);
 	}
 
 	@Override
@@ -81,8 +46,62 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 		pBuilder.add(BlockStateProperties.AXIS, IcariaBlockStateProperties.PLAYER_PLACED);
 	}
 
+	public void handleAction(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, Player pPlayer) {
+		if (!pPlayer.getItemBySlot(EquipmentSlot.HEAD).is(IcariaItems.LAUREL_WREATH.get())) {
+			if (!pPlayer.isCreative()) {
+				if (!pBlockState.getValue(IcariaBlockStateProperties.PLAYER_PLACED)) {
+					this.summon(pBlockState, pLevel, pPlayer);
+					this.target(pBlockPos, pLevel, pPlayer);
+				}
+			}
+		}
+	}
+
+	public void summon(BlockState pBlockState, Level pLevel, Player pPlayer) {
+		if (pLevel.getRandom().nextInt(50) == 0) {
+			var blockPos = pPlayer.blockPosition();
+			var direction = pPlayer.getDirection();
+			var entity = this.entityType(pBlockState).create(pLevel, EntitySpawnReason.TRIGGERED);
+			var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 12).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 12).getZ());
+			if (entity != null) {
+				if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
+					if (pLevel.getBlockState(spawnPos).isAir()) {
+						entity.moveTo(spawnPos, 0.0F, 0.0F);
+						entity.setTarget(pPlayer);
+						entity.spawnAnim();
+						pLevel.addFreshEntity(entity);
+					}
+				}
+			}
+		}
+	}
+
+	public void target(BlockPos pBlockPos, Level pLevel, Player pPlayer) {
+		for (var entity : pLevel.getEntitiesOfClass(ForestHagEntity.class, new AABB(pBlockPos).inflate(12))) {
+			entity.setTarget(pPlayer);
+		}
+	}
+
 	@Override
-	public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-		return this.defaultBlockState().setValue(BlockStateProperties.AXIS, pContext.getClickedFace().getAxis()).setValue(IcariaBlockStateProperties.PLAYER_PLACED, true);
+	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
+		return this.defaultBlockState().setValue(BlockStateProperties.AXIS, pBlockPlaceContext.getClickedFace().getAxis()).setValue(IcariaBlockStateProperties.PLAYER_PLACED, true);
+	}
+
+	public EntityType<ForestHagEntity> entityType(BlockState pBlockState) {
+		if (pBlockState.is(IcariaBlockTagsProvider.LOGS_CYPRESS)) {
+			return IcariaEntityTypes.CYPRESS_FOREST_HAG.get();
+		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_DROUGHTROOT)) {
+			return IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get();
+		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_FIR)) {
+			return IcariaEntityTypes.FIR_FOREST_HAG.get();
+		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_LAUREL)) {
+			return IcariaEntityTypes.LAUREL_FOREST_HAG.get();
+		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_OLIVE)) {
+			return IcariaEntityTypes.OLIVE_FOREST_HAG.get();
+		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_PLANE)) {
+			return IcariaEntityTypes.PLANE_FOREST_HAG.get();
+		} else {
+			return IcariaEntityTypes.POPULUS_FOREST_HAG.get();
+		}
 	}
 }

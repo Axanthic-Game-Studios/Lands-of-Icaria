@@ -1,14 +1,13 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.CatoblepasEntity;
+import com.axanthic.icaria.client.state.CatoblepasRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -17,21 +16,16 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
-	public CatoblepasEntity entity;
-
-	public ModelPart root;
+public class CatoblepasModel extends EntityModel<CatoblepasRenderState> {
 	public ModelPart head;
 	public ModelPart skull;
 	public ModelPart hornRightBaby;
 	public ModelPart hornLeftBaby;
-	public ModelPart hornRightKid;
-	public ModelPart hornLeftKid;
+	public ModelPart hornRightChild;
+	public ModelPart hornLeftChild;
 	public ModelPart hornRightTeen;
 	public ModelPart hornLeftTeen;
 	public ModelPart hornRightAdult;
@@ -47,13 +41,13 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 	public ModelPart legLeftRearLower;
 
 	public CatoblepasModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.head = this.root.getChild("head");
 		this.skull = this.head.getChild("skull");
 		this.hornRightBaby = this.skull.getChild("hornRightBaby");
 		this.hornLeftBaby = this.skull.getChild("hornLeftBaby");
-		this.hornRightKid = this.skull.getChild("hornRightKid");
-		this.hornLeftKid = this.skull.getChild("hornLeftKid");
+		this.hornRightChild = this.skull.getChild("hornRightChild");
+		this.hornLeftChild = this.skull.getChild("hornLeftChild");
 		this.hornRightTeen = this.skull.getChild("hornRightTeen");
 		this.hornLeftTeen = this.skull.getChild("hornLeftTeen");
 		this.hornRightAdult = this.skull.getChild("hornRightAdult");
@@ -70,95 +64,48 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 	}
 
 	@Override
-	public void prepareMobModel(CatoblepasEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTick) {
-		super.prepareMobModel(pEntity, pLimbSwing, pLimbSwingAmount, pPartialTick);
-		this.entity = pEntity;
+	public void setupAnim(CatoblepasRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.CATOBLEPAS_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.eatingAnimationState, IcariaAnimations.CATOBLEPAS_EATING, pRenderState.ageInTicks);
+
+		this.hornRightBaby.visible = pRenderState.size == 1;
+		this.hornLeftBaby.visible = pRenderState.size == 1;
+		this.hornRightChild.visible = pRenderState.size == 2;
+		this.hornLeftChild.visible = pRenderState.size == 2;
+		this.hornRightTeen.visible = pRenderState.size == 3;
+		this.hornLeftTeen.visible = pRenderState.size == 3;
+		this.hornRightAdult.visible = pRenderState.size == 4;
+		this.hornLeftAdult.visible = pRenderState.size == 4;
 	}
 
-	@Override
-	public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pVertexConsumer, int pPackedLight, int pPackedOverlay, int pColor) {
-		if (this.entity.getSize() < 2) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = true;
-			this.hornLeftBaby.visible = true;
-			this.hornRightKid.visible = false;
-			this.hornLeftKid.visible = false;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 3) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightKid.visible = true;
-			this.hornLeftKid.visible = true;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else if (this.entity.getSize() < 4) {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightKid.visible = false;
-			this.hornLeftKid.visible = false;
-			this.hornRightTeen.visible = true;
-			this.hornLeftTeen.visible = true;
-			this.hornRightAdult.visible = false;
-			this.hornLeftAdult.visible = false;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		} else {
-			pPoseStack.pushPose();
-			this.hornRightBaby.visible = false;
-			this.hornLeftBaby.visible = false;
-			this.hornRightKid.visible = false;
-			this.hornLeftKid.visible = false;
-			this.hornRightTeen.visible = false;
-			this.hornLeftTeen.visible = false;
-			this.hornRightAdult.visible = true;
-			this.hornLeftAdult.visible = true;
-			this.root.render(pPoseStack, pVertexConsumer, pPackedLight, pPackedOverlay, pColor);
-			pPoseStack.popPose();
-		}
+	public void lookAnim(float pXRot, float pYRot) {
+		this.skull.xRot = IcariaMath.rad(pXRot) + 0.3927F;
+		this.skull.yRot = IcariaMath.rad(pYRot);
 	}
 
-	@Override
-	public void setupAnim(CatoblepasEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.lookAnim(pNetHeadYaw, pHeadPitch);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.CATOBLEPAS_ATTACK, pAgeInTicks);
-		this.animate(pEntity.eatingAnimationState, IcariaAnimations.CATOBLEPAS_EATING, pAgeInTicks);
-	}
+	public void walkAnim(float pSize, float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		pWalkAnimationPos *= Mth.lerp(pSize, 0.5F, 1.0F);
 
-	public void lookAnim(float pNetHeadYaw, float pHeadPitch) {
-		this.skull.xRot = IcariaMath.rad(pHeadPitch) + 0.3927F;
-		this.skull.yRot = IcariaMath.rad(pNetHeadYaw);
-	}
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed * 0.5F;
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		pLimbSwing *= Mth.lerp(this.entity.getSize(), 0.5F, 1.0F);
-
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount * 0.5F;
-
-		this.legRightFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + 0.0911F;
-		this.legRightFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.182F;
-		this.legLeftFront.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + 0.0911F;
-		this.legLeftFrontLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pLimbSwingAmount + pLimbSwingAmount - 0.182F;
-		this.legRightRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount - 0.0911F;
-		this.legRightRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.182F;
-		this.legLeftRear.xRot = Mth.cos(pLimbSwing * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount - 0.0911F;
-		this.legLeftRearLower.xRot = Mth.sin((pLimbSwing + Mth.sin(pLimbSwing + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pLimbSwingAmount + pLimbSwingAmount + 0.182F;
+		this.legRightFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed + 0.0911F;
+		this.legRightFrontLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.0F)) * 0.5F + Mth.PI * 0.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.182F;
+		this.legLeftFront.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed + 0.0911F;
+		this.legLeftFrontLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.5F)) * 0.5F + Mth.PI * 1.0F) * pWalkAnimationSpeed + pWalkAnimationSpeed - 0.182F;
+		this.legRightRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed - 0.0911F;
+		this.legRightRearLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.75F)) * 0.5F + Mth.PI * 1.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.182F;
+		this.legLeftRear.xRot = Mth.cos(pWalkAnimationPos * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed - 0.0911F;
+		this.legLeftRearLower.xRot = Mth.sin((pWalkAnimationPos + Mth.sin(pWalkAnimationPos + Mth.PI * 0.25F)) * 0.5F + Mth.PI * 0.5F) * pWalkAnimationSpeed + pWalkAnimationSpeed + 0.182F;
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var head = partDefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(46, 27).addBox(-3.5F, -4.1F, -4.65F, 7.0F, 7.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 8.416F, -6.2573F, -0.3927F, 0.0F, 0.0F));
@@ -173,10 +120,10 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 		hornRightBaby.addOrReplaceChild("hornRightBabyOuter", CubeListBuilder.create().texOffs(49, 2).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, -0.1367F));
 		var hornLeftBaby = skull.addOrReplaceChild("hornLeftBaby", CubeListBuilder.create().texOffs(0, 10).addBox(6.3F, -0.5F, 1.5F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.85F, -5.925F, -3.25F, 0.0F, 0.2731F, 0.4554F));
 		hornLeftBaby.addOrReplaceChild("hornLeftBabyOuter", CubeListBuilder.create().texOffs(44, 12).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, 0.1367F));
-		var hornRightKid = skull.addOrReplaceChild("hornRightKid", CubeListBuilder.create().texOffs(0, 7).addBox(6.3F, -0.5F, 1.5F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.8F, -6.0F, -3.225F, 0.0F, 0.2731F, 2.6721F));
-		hornRightKid.addOrReplaceChild("hornRightKidOuter", CubeListBuilder.create().texOffs(49, 2).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, -0.1367F));
-		var hornLeftKid = skull.addOrReplaceChild("hornLeftKid", CubeListBuilder.create().texOffs(0, 10).addBox(6.3F, -0.5F, 1.5F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.85F, -5.925F, -3.25F, 0.0F, 0.2731F, 0.4554F));
-		hornLeftKid.addOrReplaceChild("hornLeftKidOuter", CubeListBuilder.create().texOffs(44, 12).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, 0.1367F));
+		var hornRightChild = skull.addOrReplaceChild("hornRightChild", CubeListBuilder.create().texOffs(0, 7).addBox(6.3F, -0.5F, 1.5F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.8F, -6.0F, -3.225F, 0.0F, 0.2731F, 2.6721F));
+		hornRightChild.addOrReplaceChild("hornRightChildOuter", CubeListBuilder.create().texOffs(49, 2).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, -0.1367F));
+		var hornLeftChild = skull.addOrReplaceChild("hornLeftChild", CubeListBuilder.create().texOffs(0, 10).addBox(6.3F, -0.5F, 1.5F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.85F, -5.925F, -3.25F, 0.0F, 0.2731F, 0.4554F));
+		hornLeftChild.addOrReplaceChild("hornLeftChildOuter", CubeListBuilder.create().texOffs(44, 12).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(9.3F, 0.0F, 3.1F, 0.0F, 0.5463F, 0.1367F));
 		var hornRightTeen = skull.addOrReplaceChild("hornRightTeen", CubeListBuilder.create().texOffs(41, 8).addBox(2.8F, -0.5F, 0.4F, 4.0F, 1.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.625F, -4.425F, -3.6F, 0.0F, 0.2731F, 2.6721F));
 		var hornRightTeenCenter = hornRightTeen.addOrReplaceChild("hornRightTeenCenter", CubeListBuilder.create().texOffs(0, 7).addBox(0.0F, -0.5F, -1.0F, 4.0F, 1.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.3F, 0.0F, 2.5F, 0.0F, 0.5463F, -0.1367F));
 		hornRightTeenCenter.addOrReplaceChild("hornRightTeenOuter", CubeListBuilder.create().texOffs(49, 2).addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, 0.0F, 0.6F, 0.0F, 0.5463F, -0.1367F));
@@ -212,10 +159,5 @@ public class CatoblepasModel extends HierarchicalModel<CatoblepasEntity> {
 		legLeftRear.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(76, 15).addBox(0.0F, 0.0F, -2.0F, 3.0F, 8.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.5F, 6.7F, 0.2F, 0.182F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 128, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

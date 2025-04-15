@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:loam_gear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:loam_gear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:orange_tulip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:orange_tulip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:orange_dye_from_orange_tulip_grinding"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:loam_gear",
+      "has_minecraft:orange_tulip"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:orange_dye_from_orange_tulip_grinding"
+    ]
+  }
+}

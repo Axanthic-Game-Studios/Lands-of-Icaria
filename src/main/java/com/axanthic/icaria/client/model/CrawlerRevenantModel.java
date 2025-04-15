@@ -1,13 +1,15 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
+import com.axanthic.icaria.client.state.CrawlerRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -18,13 +20,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntity> implements ArmedModel {
-	public ModelPart root;
+public class CrawlerRevenantModel extends EntityModel<CrawlerRevenantRenderState> implements ArmedModel {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart shoulderMain;
@@ -34,7 +33,7 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 	public ModelPart armLeftLower;
 
 	public CrawlerRevenantModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyUpper = this.root.getChild("bodyUpper");
 		this.headMain = this.bodyUpper.getChild("headMain");
 		this.shoulderMain = this.bodyUpper.getChild("shoulderMain");
@@ -45,8 +44,10 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 	}
 
 	@Override
-	public void setupAnim(CrawlerRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		var randomSource = RandomSource.create(pEntity.getId());
+	public void setupAnim(CrawlerRevenantRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		var randomSource = RandomSource.create(pRenderState.id);
 
 		this.setRotateAngles(this.headMain, -1.2625F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F - 0.0242F, 0.0395F);
 		this.setRotateAngles(this.armRightUpper, -1.8284F, 0.0873F, 0.0F);
@@ -54,14 +55,12 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 		this.setRotateAngles(this.armLeftUpper, -1.6408F, -0.6545F, -0.1745F);
 		this.setRotateAngles(this.armLeftLower, -1.1985F, 0.1268F, 0.0036F);
 
-		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.attackAnim(pRenderState.attackTime);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.attackAnim();
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-
-		this.root.y -= pEntity.getTick() - pEntity.maxTick;
+		this.root.y -= pRenderState.tick - pRenderState.maxTick;
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
@@ -70,28 +69,29 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 		pModelPart.zRot = pZ;
 	}
 
-	public void attackAnim() {
-		this.armRightUpper.xRot -= Mth.sin(this.attackTime * Mth.PI);
+	public void attackAnim(float pAttackTime) {
+		this.armRightUpper.xRot -= Mth.sin(pAttackTime * Mth.PI);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
 		this.headMain.xRot += Mth.sin(pAgeInTicks * 0.06F) * 0.05F;
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.zRot -= IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.zRot -= IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing + Mth.PI) * pLimbSwingAmount;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing + Mth.PI) * pLimbSwingAmount * pLimbSwingAmount;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing) * pLimbSwingAmount;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing) * pLimbSwingAmount * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.armRightUpper.xRot += Mth.cos(pWalkAnimationPos + Mth.PI) * pWalkAnimationSpeed;
+		this.armRightLower.xRot -= Mth.cos(pWalkAnimationPos + Mth.PI) * pWalkAnimationSpeed * pWalkAnimationSpeed;
+		this.armLeftUpper.xRot += Mth.cos(pWalkAnimationPos) * pWalkAnimationSpeed;
+		this.armLeftLower.xRot -= Mth.cos(pWalkAnimationPos) * pWalkAnimationSpeed * pWalkAnimationSpeed;
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
 		this.armRightUpper.translateAndRotate(pPoseStack);
@@ -100,6 +100,7 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyUpper = partDefinition.addOrReplaceChild("bodyUpper", CubeListBuilder.create().texOffs(32, 9).addBox(-0.9999F, -14.9948F, -1.1447F, 2.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.2125F, 19.4625F, 7.925F, 1.3659F, 0.0F, 0.0911F));
@@ -145,10 +146,5 @@ public class CrawlerRevenantModel extends HierarchicalModel<CrawlerRevenantEntit
 		pelvisLeft.addOrReplaceChild("thighLeft", CubeListBuilder.create().texOffs(8, 40).addBox(-0.6F, 0.0625F, -1.0F, 2.0F, 7.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.3736F, -0.0342F, 0.3995F, -0.2979F, 0.0911F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

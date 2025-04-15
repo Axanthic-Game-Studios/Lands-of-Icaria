@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:vanadiumsteel_bident",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:vanadiumsteel_nugget"
+  },
+  "time": 100
+}

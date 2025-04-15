@@ -4,22 +4,23 @@ import com.axanthic.icaria.client.layer.CaptainRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.CaptainRevenantItemLayer;
 import com.axanthic.icaria.client.model.CaptainRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.state.CaptainRevenantRenderState;
 import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, CaptainRevenantModel> {
+public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, CaptainRevenantRenderState, CaptainRevenantModel> {
 	public CaptainRevenantRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CaptainRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CAPTAIN_REVENANT_BODY)), 0.5F);
 		this.addLayer(new CaptainRevenantEmissiveLayer(this));
@@ -27,12 +28,33 @@ public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, 
 	}
 
 	@Override
-	public void scale(CaptainRevenantEntity pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime) {
-		pMatrixStack.scale(0.875F, 0.875F, 0.875F);
+	public void extractRenderState(CaptainRevenantEntity pEntity, CaptainRevenantRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.onRallying = pEntity.onRallying();
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+		pRenderState.id = pEntity.getId();
+		pRenderState.maxReequips = pEntity.maxReequips;
+		pRenderState.maxUnequips = pEntity.maxUnequips;
+		pRenderState.reequips = pEntity.getReequips();
+		pRenderState.unequips = pEntity.getUnequips();
+		pRenderState.rallyingAnimationState = pEntity.rallyingAnimationState;
+		pRenderState.reequipsAnimationState = pEntity.reequipsAnimationState;
+		pRenderState.unequipsAnimationState = pEntity.unequipsAnimationState;
+		pRenderState.livingEntity = pEntity;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CaptainRevenantEntity pEntity) {
+	public void scale(CaptainRevenantRenderState pRenderState, PoseStack pPoseStack) {
+		pPoseStack.scale(0.875F, 0.875F, 0.875F);
+	}
+
+	@Override
+	public CaptainRevenantRenderState createRenderState() {
+		return new CaptainRevenantRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(CaptainRevenantRenderState pRenderState) {
 		return IcariaResourceLocations.CAPTAIN_REVENANT;
 	}
 }

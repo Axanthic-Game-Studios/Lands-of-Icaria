@@ -30,7 +30,7 @@
                   -1,
                   0
                 ],
-                "tag": "landsoficaria:relicstone_rubble_spawns_on"
+                "tag": "landsoficaria:support_blocks/relicstone_rubble"
               },
               {
                 "type": "minecraft:matching_blocks",

@@ -6,6 +6,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import com.mojang.serialization.Codec;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -16,8 +18,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
@@ -42,14 +42,15 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pContext) {
-		var level = pContext.level();
-		var origin = pContext.origin();
-		var random = pContext.random();
+	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+		var level = pFeaturePlaceContext.level();
+		var origin = pFeaturePlaceContext.origin();
+		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		int length = random.nextIntBetweenInclusive(2, 4);
-		int offset = 2;
+		var length = random.nextIntBetweenInclusive(2, 4);
+		var offset = 2;
 
 		this.placeMoss(level, origin.relative(direction, -2), 1, 4);
 		this.placeMoss(level, origin.relative(direction, -2).relative(direction.getClockWise(), 1), 1, 4);
@@ -89,7 +90,7 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 		this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
 		this.placeTwigs(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
 
-		for (int i = 1; i <= length; ++i) {
+		for (var i = 1; i <= length; ++i) {
 			++offset;
 			this.placeDead(level, origin.relative(direction, offset), direction.getAxis());
 			this.placeMoss(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 2, 4);
@@ -133,54 +134,54 @@ public class IcariaDeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 		return true;
 	}
 
-	public void placeDead(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeDead(pLevel, pPos, pAxis);
+	public void placeDead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeDead(pWorldGenLevel, pBlockPos, pAxis);
 		}
 	}
 
-	public void placeDead(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-		if (pLevel.getBlockState(pPos).isAir() && (pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) || pLevel.getBlockState(pPos.below()).is(BlockTags.LOGS))) {
-			this.setBlock(pLevel, pPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
+	public void placeDead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.LOGS))) {
+			this.setBlock(pWorldGenLevel, pBlockPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
 
-	public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeLog(pLevel, pPos, pAxis);
+	public void placeLog(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeLog(pWorldGenLevel, pBlockPos, pAxis);
 		}
 	}
 
-	public void placeLog(WorldGenLevel pLevel, BlockPos pPos, Direction.Axis pAxis) {
-		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
-			this.setBlock(pLevel, pPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
+	public void placeLog(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+			this.setBlock(pWorldGenLevel, pBlockPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
 
-	public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeMoss(pLevel, pPos, pHeight);
+	public void placeMoss(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pHeight, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeMoss(pWorldGenLevel, pBlockPos, pHeight);
 		}
 	}
 
-	public void placeMoss(WorldGenLevel pLevel, BlockPos pPos, int pHeight) {
-		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT) && this.moss.defaultBlockState().hasProperty(BlockStateProperties.LAYERS)) {
-			this.setBlock(pLevel, pPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
-			if (pLevel.getBlockState(pPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
-				this.setBlock(pLevel, pPos.below(), IcariaBlocks.GRASSY_MARL.get().defaultBlockState().setValue(IcariaBlockStateProperties.MOSS, this.property));
+	public void placeMoss(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pHeight) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) && this.moss.defaultBlockState().hasProperty(BlockStateProperties.LAYERS)) {
+			this.setBlock(pWorldGenLevel, pBlockPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
+			if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
+				this.setBlock(pWorldGenLevel, pBlockPos.below(), IcariaBlocks.GRASSY_MARL.get().defaultBlockState().setValue(IcariaBlockStateProperties.MOSS, this.property));
 			}
 		}
 	}
 
-	public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos, int pChance) {
-		if (pLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeTwigs(pLevel, pPos);
+	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
+		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
+			this.placeTwigs(pWorldGenLevel, pBlockPos);
 		}
 	}
 
-	public void placeTwigs(WorldGenLevel pLevel, BlockPos pPos) {
-		if (pLevel.getBlockState(pPos).isAir() && pLevel.getBlockState(pPos.below()).is(BlockTags.DIRT)) {
-			this.setBlock(pLevel, pPos, this.twigs.defaultBlockState());
+	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+			this.setBlock(pWorldGenLevel, pBlockPos, this.twigs.defaultBlockState());
 		}
 	}
 }

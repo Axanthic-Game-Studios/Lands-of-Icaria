@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:moth_agaric": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:moth_agaric"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:psilocybos": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:psilocybos"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:nausea_from_potion_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:psilocybos",
+      "has_landsoficaria:moth_agaric"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:nausea_from_potion_concocting"
+    ]
+  }
+}

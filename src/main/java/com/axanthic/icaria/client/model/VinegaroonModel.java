@@ -2,11 +2,13 @@ package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.VinegaroonEntity;
+import com.axanthic.icaria.client.state.VinegaroonRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -15,13 +17,10 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.util.Mth;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
-	public ModelPart root;
+public class VinegaroonModel extends EntityModel<VinegaroonRenderState> {
 	public ModelPart bodyMain;
 	public ModelPart headMain;
 	public ModelPart armRightRear;
@@ -40,7 +39,7 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 	public ModelPart legLeftRearLower;
 
 	public VinegaroonModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyMain = this.root.getChild("bodyMain");
 		this.headMain = this.bodyMain.getChild("headMain");
 		this.armRightRear = this.headMain.getChild("armRightRear");
@@ -60,11 +59,16 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 	}
 
 	@Override
-	public void setupAnim(VinegaroonEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.root().getAllParts().forEach(ModelPart::resetPose);
+	public void setupAnim(VinegaroonRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
 		this.setupRotateAngles();
-		this.setupAnim(pEntity, pLimbSwing, pLimbSwingAmount, pNetHeadYaw, pHeadPitch);
-		this.animate(pEntity.attackAnimationState, IcariaAnimations.VINEGAROON_ATTACK, pAgeInTicks);
+
+		this.attackAnim(pRenderState.isRidden);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
+
+		this.animate(pRenderState.attackAnimationState, IcariaAnimations.VINEGAROON_ATTACK, pRenderState.ageInTicks);
 	}
 
 	public void setupRotateAngles() {
@@ -79,14 +83,8 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 		IcariaClientHelper.setRotateAngles(this.legLeftRearUpper, 0.2664F, -0.9177F, -0.375F);
 	}
 
-	public void setupAnim(VinegaroonEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pNetHeadYaw, float pHeadPitch) {
-		this.attackAnim(pEntity);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
-	}
-
-	public void attackAnim(VinegaroonEntity pEntity) {
-		if (pEntity.hasExactlyOnePlayerPassenger()) {
+	public void attackAnim(boolean pIsRidden) {
+		if (pIsRidden) {
 			this.armRightRear.yRot -= 0.75F;
 			this.armLeftRear.yRot += 0.75F;
 		} else {
@@ -95,18 +93,18 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 		}
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		float centerFrontY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pLimbSwingAmount;
-		float centerFrontZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.5F) * 0.4F) * pLimbSwingAmount;
-		float centerRearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pLimbSwingAmount;
-		float centerRearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 1.0F) * 0.4F) * pLimbSwingAmount;
-		float rearY = -Mth.cos(pLimbSwing * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pLimbSwingAmount;
-		float rearZ = Math.abs(Mth.sin(pLimbSwing * 0.6F + Mth.PI * 0.0F) * 0.4F) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		var centerFrontY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.5F) * 0.4F * pWalkAnimationSpeed;
+		var centerFrontZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.5F) * 0.4F) * pWalkAnimationSpeed;
+		var centerRearY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 1.0F) * 0.4F * pWalkAnimationSpeed;
+		var centerRearZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 1.0F) * 0.4F) * pWalkAnimationSpeed;
+		var rearY = -Mth.cos(pWalkAnimationPos * 0.6F * 2.0F + Mth.PI * 0.0F) * 0.4F * pWalkAnimationSpeed;
+		var rearZ = Math.abs(Mth.sin(pWalkAnimationPos * 0.6F + Mth.PI * 0.0F) * 0.4F) * pWalkAnimationSpeed;
 
 		this.legRightCenterFrontUpper.yRot += centerFrontY;
 		this.legRightCenterFrontUpper.zRot += centerFrontZ;
@@ -124,6 +122,7 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyMain = partDefinition.addOrReplaceChild("bodyMain", CubeListBuilder.create().texOffs(56, 0).addBox(-4.5F, -3.5F, -4.0F, 9.0F, 6.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 15.7F, 0.0F));
@@ -164,10 +163,5 @@ public class VinegaroonModel extends HierarchicalModel<VinegaroonEntity> {
 		legLeftRearUpper.addOrReplaceChild("legLeftRearLower", CubeListBuilder.create().texOffs(56, 41).addBox(-11.4826F, -0.982F, -0.9876F, 12.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.8F, 0.1F, 0.0F, 0.0F, 0.0F, -2.1468F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

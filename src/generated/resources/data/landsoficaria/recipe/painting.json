@@ -2,17 +2,13 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "minecraft:stick"
-    },
-    "Y": {
-      "item": "landsoficaria:arachne_string_block"
-    }
+    "A": "minecraft:stick",
+    "B": "landsoficaria:arachne_string_block"
   },
   "pattern": [
-    "XXX",
-    "XYX",
-    "XXX"
+    "AAA",
+    "ABA",
+    "AAA"
   ],
   "result": {
     "count": 1,

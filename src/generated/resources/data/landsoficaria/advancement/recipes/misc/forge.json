@@ -31,8 +31,8 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:grainite_bricks",
-      "has_landsoficaria:loam_bricks"
+      "has_landsoficaria:loam_bricks",
+      "has_landsoficaria:grainite_bricks"
     ]
   ],
   "rewards": {

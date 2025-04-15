@@ -1,10 +1,12 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.common.entity.JellyfishEntity;
+import com.axanthic.icaria.client.state.EnderJellyfishRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -12,13 +14,10 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class EnderJellyfishModel extends HierarchicalModel<JellyfishEntity> {
-	public ModelPart root;
+public class EnderJellyfishModel extends EntityModel<EnderJellyfishRenderState> {
 	public ModelPart body;
 	public ModelPart bell;
 	public ModelPart bellNorth;
@@ -38,7 +37,7 @@ public class EnderJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 	public ModelPart armOuterNorthWestLower;
 
 	public EnderJellyfishModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.body = this.root.getChild("body");
 		this.bell = this.body.getChild("bell");
 		this.bellNorth = this.bell.getChild("bellNorth");
@@ -59,30 +58,34 @@ public class EnderJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 	}
 
 	@Override
-	public void setupAnim(JellyfishEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.swimAnim(pAgeInTicks);
+	public void setupAnim(EnderJellyfishRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		this.swimAnim(pRenderState.tentacleAngle);
 	}
 
-	public void swimAnim(float pAgeInTicks) {
-		this.root.xScale = pAgeInTicks / 5.0F + 0.85F;
-		this.root.yScale = -pAgeInTicks / 7.5F + 1.15F;
-		this.root.zScale = pAgeInTicks / 5.0F + 0.85F;
-		this.tentacleNorth.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.tentacleEast.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
-		this.tentacleSouth.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
-		this.tentacleWest.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.armOuterNorthEastUpper.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.armOuterNorthEastLower.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
-		this.armOuterSouthEastUpper.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.armOuterSouthEastLower.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
-		this.armOuterSouthWestUpper.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.armOuterSouthWestLower.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
-		this.armOuterNorthWestUpper.xRot = -pAgeInTicks * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
-		this.armOuterNorthWestLower.xRot = pAgeInTicks * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+	public void swimAnim(float pTentacleAngle) {
+		this.root.xScale = pTentacleAngle / 5.0F + 0.85F;
+		this.root.yScale = -pTentacleAngle / 7.5F + 1.15F;
+		this.root.zScale = pTentacleAngle / 5.0F + 0.85F;
+
+		this.tentacleNorth.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.tentacleEast.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+		this.tentacleSouth.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+		this.tentacleWest.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.armOuterNorthEastUpper.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.armOuterNorthEastLower.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+		this.armOuterSouthEastUpper.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.armOuterSouthEastLower.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+		this.armOuterSouthWestUpper.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.armOuterSouthWestLower.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
+		this.armOuterNorthWestUpper.xRot = -pTentacleAngle * IcariaMath.rad(11.25F) - IcariaMath.rad(11.25F);
+		this.armOuterNorthWestLower.xRot = pTentacleAngle * IcariaMath.rad(11.25F) + IcariaMath.rad(11.25F);
 	}
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var body = partDefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 9).addBox(-3.0F, -1.0F, -3.0F, 6.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 0.0F));
@@ -109,10 +112,5 @@ public class EnderJellyfishModel extends HierarchicalModel<JellyfishEntity> {
 		armOuterNorthWestUpper.addOrReplaceChild("armOuterNorthWestLower", CubeListBuilder.create().texOffs(12, 40).addBox(-0.5F, 0.0F, -0.5F, 1.0F, 10.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 10.9F, -1.0F, 0.1963F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 64, 64);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -3,27 +3,40 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.ArachneEmissiveLayer;
 import com.axanthic.icaria.client.model.ArachneModel;
 import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.state.ArachneRenderState;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneModel> {
+public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneRenderState, ArachneModel> {
 	public ArachneRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new ArachneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE)), 1.25F);
 		this.addLayer(new ArachneEmissiveLayer(this));
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(ArachneEntity pEntity) {
+	public void extractRenderState(ArachneEntity pEntity, ArachneRenderState pRenderState, float pPartialTick) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+		pRenderState.attackAnimationState = pEntity.attackAnimationState;
+		pRenderState.livingEntity = pEntity;
+	}
+
+	@Override
+	public ArachneRenderState createRenderState() {
+		return new ArachneRenderState();
+	}
+
+	@Override
+	public ResourceLocation getTextureLocation(ArachneRenderState pRenderState) {
 		return IcariaResourceLocations.ARACHNE;
 	}
 }

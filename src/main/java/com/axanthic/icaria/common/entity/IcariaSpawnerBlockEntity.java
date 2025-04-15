@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.util.IcariaBaseSpawner;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -13,21 +15,20 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.Spawner;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaSpawnerBlockEntity extends BlockEntity {
+public class IcariaSpawnerBlockEntity extends BlockEntity implements Spawner {
 	public IcariaBaseSpawner baseSpawner = new IcariaBaseSpawner();
 
-	public IcariaSpawnerBlockEntity(BlockPos pPos, BlockState pState) {
-		super(IcariaBlockEntityTypes.SPAWNER.get(), pPos, pState);
+	public IcariaSpawnerBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		super(IcariaBlockEntityTypes.SPAWNER.get(), pBlockPos, pBlockState);
 	}
 
 	@Override
@@ -40,30 +41,31 @@ public class IcariaSpawnerBlockEntity extends BlockEntity {
 		return this.level != null && this.baseSpawner.onEventTriggered(this.level, pId);
 	}
 
-	public static void clientTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
-		pBlockEntity.baseSpawner.clientTick(pLevel, pPos);
+	public static void clientTick(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, IcariaSpawnerBlockEntity pBlockEntity) {
+		pBlockEntity.baseSpawner.clientTick(pLevel, pBlockPos);
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pTag, pProvider);
-		this.baseSpawner.load(this.level, this.worldPosition, pTag);
+	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.loadAdditional(pCompoundTag, pProvider);
+		this.baseSpawner.load(this.level, this.worldPosition, pCompoundTag);
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pTag, pProvider);
-		this.baseSpawner.save(pTag);
+	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
+		super.saveAdditional(pCompoundTag, pProvider);
+		this.baseSpawner.save(pCompoundTag);
 	}
 
-	public static void serverTick(Level pLevel, BlockPos pPos, BlockState pState, IcariaSpawnerBlockEntity pBlockEntity) {
+	public static void serverTick(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, IcariaSpawnerBlockEntity pBlockEntity) {
 		if (pLevel instanceof ServerLevel serverLevel) {
-			pBlockEntity.baseSpawner.serverTick(serverLevel, pPos);
+			pBlockEntity.baseSpawner.serverTick(serverLevel, pBlockPos);
 		}
 	}
 
-	public void setEntityId(EntityType<?> pType, RandomSource pRandom) {
-		this.baseSpawner.setEntityId(pType, this.level, pRandom, this.worldPosition);
+	public void setEntityId(EntityType<?> pEntityType, RandomSource pRandomSource) {
+		this.baseSpawner.setEntityId(pEntityType, this.level, pRandomSource, this.worldPosition);
+		this.setChanged();
 	}
 
 	public BaseSpawner getSpawner() {

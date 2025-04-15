@@ -2,14 +2,12 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "X": {
-      "item": "landsoficaria:laurel_planks"
-    }
+    "A": "landsoficaria:laurel_planks"
   },
   "pattern": [
-    "XXX",
-    "X X",
-    "XXX"
+    "AAA",
+    "A A",
+    "AAA"
   ],
   "result": {
     "count": 1,

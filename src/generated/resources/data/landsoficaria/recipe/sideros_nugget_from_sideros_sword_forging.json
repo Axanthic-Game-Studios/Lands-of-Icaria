@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:sideros_sword",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:sideros_nugget"
+  },
+  "time": 100
+}

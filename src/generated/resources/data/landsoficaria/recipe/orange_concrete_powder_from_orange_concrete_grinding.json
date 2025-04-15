@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:voidshale_gear",
+  "ingredient": "minecraft:orange_concrete",
+  "result": {
+    "count": 1,
+    "id": "minecraft:orange_concrete_powder"
+  },
+  "time": 200
+}

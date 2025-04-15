@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 263942,
+  "entity": "landsoficaria:hyliaster",
+  "ingredient": [
+    "landsoficaria:hyliastrum_vial",
+    "landsoficaria:bone_remains",
+    "landsoficaria:hyliastrum_vial"
+  ],
+  "time": 200
+}

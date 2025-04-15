@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:arachne_venom_vial": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:arachne_venom_vial"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:rowan": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:rowan"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:poison_from_potion_concocting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:rowan",
+      "has_landsoficaria:arachne_venom_vial"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:poison_from_potion_concocting"
+    ]
+  }
+}

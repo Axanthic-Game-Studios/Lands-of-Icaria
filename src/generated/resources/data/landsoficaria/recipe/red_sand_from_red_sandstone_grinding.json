@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:grinding",
+  "experience": 0.1,
+  "gear": "landsoficaria:yellowstone_gear",
+  "ingredient": "minecraft:red_sandstone",
+  "result": {
+    "count": 1,
+    "id": "minecraft:red_sand"
+  },
+  "time": 200
+}

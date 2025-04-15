@@ -1,14 +1,16 @@
 package com.axanthic.icaria.client.model;
 
 import com.axanthic.icaria.client.registry.IcariaAnimations;
-import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
+import com.axanthic.icaria.client.state.CaptainRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.ArmedModel;
-import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
@@ -19,13 +21,10 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.HumanoidArm;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntity> implements ArmedModel {
-	public ModelPart root;
+public class CaptainRevenantModel extends EntityModel<CaptainRevenantRenderState> implements ArmedModel {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart jawUpper;
@@ -47,7 +46,7 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 	public ModelPart legLeft;
 
 	public CaptainRevenantModel(ModelPart pModelPart) {
-		this.root = pModelPart;
+		super(pModelPart);
 		this.bodyUpper = this.root.getChild("bodyUpper");
 		this.headMain = this.bodyUpper.getChild("headMain");
 		this.jawUpper = this.headMain.getChild("jawUpper");
@@ -70,8 +69,10 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 	}
 
 	@Override
-	public void setupAnim(CaptainRevenantEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		var randomSource = RandomSource.create(pEntity.getId());
+	public void setupAnim(CaptainRevenantRenderState pRenderState) {
+		super.setupAnim(pRenderState);
+
+		var randomSource = RandomSource.create(pRenderState.id);
 
 		this.setRotateAngles(this.headMain, 0.0F, 0.0F, randomSource.nextIntBetweenInclusive(-50, 50) * 0.005F);
 		this.setRotateAngles(this.jawLower, 0.1047F, 0.0F, 0.0F);
@@ -84,14 +85,14 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 		this.setRotateAngles(this.legRight, 0.2094F, 0.0F, 0.0F);
 		this.setRotateAngles(this.legLeft, 0.2094F, 0.0F, 0.0F);
 
-		this.attackAnim();
-		this.idleAnim(pAgeInTicks);
-		this.lookAnim(pHeadPitch, pNetHeadYaw);
-		this.walkAnim(pLimbSwing, pLimbSwingAmount);
+		this.attackAnim(pRenderState.attackTime);
+		this.idleAnim(pRenderState.ageInTicks);
+		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
+		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pEntity.unequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pAgeInTicks);
-		this.animate(pEntity.rallyingAnimationState, IcariaAnimations.CAPTAIN_REVENANT_RALLYING, pAgeInTicks);
-		this.animate(pEntity.reequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pAgeInTicks);
+		this.animate(pRenderState.unequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
+		this.animate(pRenderState.rallyingAnimationState, IcariaAnimations.CAPTAIN_REVENANT_RALLYING, pRenderState.ageInTicks);
+		this.animate(pRenderState.reequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {
@@ -100,8 +101,8 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 		pModelPart.zRot = pZ;
 	}
 
-	public void attackAnim() {
-		this.armRightUpper.xRot -= Mth.sin(this.attackTime * Mth.PI);
+	public void attackAnim(float pAttackTime) {
+		this.armRightUpper.xRot -= Mth.sin(pAttackTime * Mth.PI);
 	}
 
 	public void idleAnim(float pAgeInTicks) {
@@ -113,33 +114,35 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 		this.armLeftUpper.zRot -= Mth.cos(pAgeInTicks * 0.09F) * 0.05F + 0.05F;
 	}
 
-	public void lookAnim(float pHeadPitch, float pNetHeadYaw) {
-		this.headMain.xRot += IcariaMath.rad(pHeadPitch);
-		this.headMain.yRot += IcariaMath.rad(pNetHeadYaw);
+	public void lookAnim(float pXRot, float pYRot) {
+		this.headMain.xRot += IcariaMath.rad(pXRot);
+		this.headMain.yRot += IcariaMath.rad(pYRot);
 	}
 
-	public void walkAnim(float pLimbSwing, float pLimbSwingAmount) {
-		this.root.y = Mth.sin(pLimbSwing) * pLimbSwingAmount;
+	public void walkAnim(float pWalkAnimationPos, float pWalkAnimationSpeed) {
+		this.root.y = Mth.sin(pWalkAnimationPos) * pWalkAnimationSpeed;
 
-		this.armRightUpper.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount;
-		this.armLeftUpper.xRot += Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount;
-		this.armRightLower.xRot -= Mth.cos(pLimbSwing * 0.6F + Mth.PI) * pLimbSwingAmount + pLimbSwingAmount;
-		this.armLeftLower.xRot -= Mth.cos(pLimbSwing * 0.6F) * pLimbSwingAmount + pLimbSwingAmount;
-		this.thighRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.5F * pLimbSwingAmount;
-		this.thighLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.5F * pLimbSwingAmount;
-		this.legRight.xRot += Mth.cos(pLimbSwing * 0.6F + Mth.PI) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
-		this.legLeft.xRot += Mth.cos(pLimbSwing * 0.6F) * 0.8F * pLimbSwingAmount + 0.8F * pLimbSwingAmount;
+		this.armRightUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed;
+		this.armLeftUpper.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed;
+		this.armRightLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.armLeftLower.xRot -= Mth.cos(pWalkAnimationPos * 0.6F) * pWalkAnimationSpeed + pWalkAnimationSpeed;
+		this.thighRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.5F * pWalkAnimationSpeed;
+		this.thighLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.5F * pWalkAnimationSpeed;
+		this.legRight.xRot += Mth.cos(pWalkAnimationPos * 0.6F + Mth.PI) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
+		this.legLeft.xRot += Mth.cos(pWalkAnimationPos * 0.6F) * 0.8F * pWalkAnimationSpeed + 0.8F * pWalkAnimationSpeed;
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pSide, PoseStack pPoseStack) {
+	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);
 		this.armRightUpper.translateAndRotate(pPoseStack);
 		this.armRightLower.translateAndRotate(pPoseStack);
 	}
 
-	public void translateToBelt(PoseStack pPoseStack) {
+	public void translateToBack(PoseStack pPoseStack) {
+		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.chestplateUpper.translateAndRotate(pPoseStack);
 		this.beltMain.translateAndRotate(pPoseStack);
@@ -147,6 +150,7 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 
 	public static LayerDefinition createLayer() {
 		var meshDefinition = new MeshDefinition();
+
 		var partDefinition = meshDefinition.getRoot();
 
 		var bodyUpper = partDefinition.addOrReplaceChild("bodyUpper", CubeListBuilder.create().texOffs(53, 62).addBox(-1.0F, -2.0F, 0.4F, 2.0F, 16.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -4.0F, 0.0F));
@@ -222,10 +226,5 @@ public class CaptainRevenantModel extends HierarchicalModel<CaptainRevenantEntit
 		bodyLower.addOrReplaceChild("skirtRear", CubeListBuilder.create().texOffs(25, 0).addBox(-1.0F, -3.0F, 1.6F, 8.0F, 8.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, 18.0F, 0.0F, 0.1047F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshDefinition, 128, 128);
-	}
-
-	@Override
-	public ModelPart root() {
-		return this.root;
 	}
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:quartz",
+    "B": "minecraft:redstone_torch",
+    "C": "landsoficaria:smooth_relicstone"
+  },
+  "pattern": [
+    " B ",
+    "BAB",
+    "CCC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:comparator"
+  }
+}
