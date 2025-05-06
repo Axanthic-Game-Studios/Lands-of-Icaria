@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.ForestSnullRenderState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -50,11 +50,11 @@ public class ForestSnullModel extends EntityModel<ForestSnullRenderState> {
 
 		this.idleAnim(pRenderState.ageInTicks);
 
-		this.animate(pRenderState.hideAnimationState, IcariaAnimations.FOREST_SNULL_HIDE, pRenderState.ageInTicks);
-		this.animate(pRenderState.hurtAnimationState, IcariaAnimations.FOREST_SNULL_HURT, pRenderState.ageInTicks);
-		this.animate(pRenderState.idleAnimationState, IcariaAnimations.FOREST_SNULL_IDLE, pRenderState.ageInTicks);
-		this.animate(pRenderState.moveAnimationState, IcariaAnimations.FOREST_SNULL_MOVE, pRenderState.ageInTicks);
-		this.animate(pRenderState.showAnimationState, IcariaAnimations.FOREST_SNULL_SHOW, pRenderState.ageInTicks);
+		this.animate(pRenderState.hideAnimationState, IcariaAnimationDefinitions.FOREST_SNULL_HIDE, pRenderState.ageInTicks);
+		this.animate(pRenderState.hurtAnimationState, IcariaAnimationDefinitions.FOREST_SNULL_HURT, pRenderState.ageInTicks);
+		this.animate(pRenderState.idleAnimationState, IcariaAnimationDefinitions.FOREST_SNULL_IDLE, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimationDefinitions.FOREST_SNULL_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.showAnimationState, IcariaAnimationDefinitions.FOREST_SNULL_SHOW, pRenderState.ageInTicks);
 	}
 
 	public void idleAnim(float pAgeInTicks) {

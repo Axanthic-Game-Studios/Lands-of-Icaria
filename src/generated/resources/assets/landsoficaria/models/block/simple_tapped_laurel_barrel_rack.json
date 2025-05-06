@@ -1,5 +1,5 @@
 {
-  "parent": "landsoficaria:block/template_simple_tapped_rack",
+  "parent": "landsoficaria:block/template_simple_tapped_barrel_rack",
   "render_type": "minecraft:cutout",
   "textures": {
     "anvil": "minecraft:block/anvil",

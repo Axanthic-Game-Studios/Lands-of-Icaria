@@ -39,14 +39,15 @@ public record GrinderBlockRenderer(BlockEntityRendererProvider.Context pContext)
 		var grinding = blockState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING);
 
 		if (IcariaConfig.RENDER_GRINDER_GEARS.get() && level != null) {
+			var flag = grinding && pBlockEntity.tickClient;
 			var gameTime = level.getGameTime();
-			var rotation = grinding ? Mth.lerp(Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaTicks(), pBlockEntity.prevTime, gameTime) * 16.0F : 0.0F;
+			var rotation = flag ? Mth.lerp(Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaTicks(), pBlockEntity.prevTime, gameTime) * 16.0F : 0.0F;
 			pBlockEntity.prevTime = gameTime;
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getGear(), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.34375F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot() + rotation, 0.625F, 1.0F, 0.625F);
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, new ItemStack(IcariaItems.GRINDER_SHAFT.get()), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.5F, 0.5F, 0.5F, 0.0F, 180.0F + direction.toYRot() - rotation, 0.0F, 2.0F, 2.0F, 2.0F);
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, new ItemStack(IcariaItems.GRINDER_STONE.get()), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.0F, 180.0F + direction.toYRot() - rotation, 0.0F, 2.0F, 2.0F, 2.0F);
-			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, grinding ? new ItemStack(IcariaItems.LEFT_GRINDER_CHAIN.get()) : new ItemStack(IcariaItems.STATIC_LEFT_GRINDER_CHAIN.get()), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.375F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 1.0F, 1.0F, 1.0F);
-			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, grinding ? new ItemStack(IcariaItems.RIGHT_GRINDER_CHAIN.get()) : new ItemStack(IcariaItems.STATIC_RIGHT_GRINDER_CHAIN.get()), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.375F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 1.0F, 1.0F, 1.0F);
+			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, flag ? new ItemStack(IcariaItems.LEFT_GRINDER_CHAIN.get()) : new ItemStack(IcariaItems.STATIC_LEFT_GRINDER_CHAIN.get()), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.40625F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 1.0F, 1.0F, 1.0F);
+			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, flag ? new ItemStack(IcariaItems.RIGHT_GRINDER_CHAIN.get()) : new ItemStack(IcariaItems.STATIC_RIGHT_GRINDER_CHAIN.get()), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.40625F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 1.0F, 1.0F, 1.0F);
 		}
 	}
 

@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.ArganHoundEmissiveLayer;
 import com.axanthic.icaria.client.model.ArganHoundModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ArganHoundRenderState;
 import com.axanthic.icaria.common.entity.ArganHoundEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -19,7 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHoundRenderState, ArganHoundModel> {
 	public ArganHoundRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new ArganHoundModel(pContext.bakeLayer(IcariaLayerLocations.ARGAN_HOUND)), 0.75F);
+		super(pContext, new ArganHoundModel(pContext.bakeLayer(IcariaModelLayerLocations.ARGAN_HOUND)), 0.75F);
 		this.addLayer(new ArganHoundEmissiveLayer(this));
 	}
 

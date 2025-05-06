@@ -4,7 +4,7 @@ import com.axanthic.icaria.client.layer.OvergrownRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantItemLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantRaysLayer;
 import com.axanthic.icaria.client.model.OvergrownRevenantModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.OvergrownRevenantRenderState;
 import com.axanthic.icaria.common.entity.OvergrownRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -23,7 +23,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEntity, OvergrownRevenantRenderState, OvergrownRevenantModel> {
 	public OvergrownRevenantRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new OvergrownRevenantModel(pContext.bakeLayer(IcariaLayerLocations.OVERGROWN_REVENANT_BODY)), 0.5F);
+		super(pContext, new OvergrownRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.OVERGROWN_REVENANT_BODY)), 0.5F);
 		this.addLayer(new OvergrownRevenantEmissiveLayer(this));
 		this.addLayer(new OvergrownRevenantItemLayer(this));
 		this.addLayer(new OvergrownRevenantRaysLayer(this));

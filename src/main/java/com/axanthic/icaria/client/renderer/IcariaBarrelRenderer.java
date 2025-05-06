@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.state.IcariaBarrelRenderState;
+import com.axanthic.icaria.client.state.BarrelRenderState;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -23,7 +23,7 @@ import net.neoforged.neoforge.client.model.data.ModelData;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaBarrelRenderer extends EntityRenderer<IcariaBarrelEntity, IcariaBarrelRenderState> {
+public class IcariaBarrelRenderer extends EntityRenderer<IcariaBarrelEntity, BarrelRenderState> {
 	public BlockRenderDispatcher blockRenderDispatcher;
 
 	public IcariaBarrelRenderer(EntityRendererProvider.Context pContext) {
@@ -31,14 +31,14 @@ public class IcariaBarrelRenderer extends EntityRenderer<IcariaBarrelEntity, Ica
 		this.blockRenderDispatcher = pContext.getBlockRenderDispatcher();
 	}
 
-	public void block(BakedModel pBakedModel, BlockState pBlockState, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, IcariaBarrelRenderState pRenderState) {
+	public void block(BakedModel pBakedModel, BlockState pBlockState, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, BarrelRenderState pRenderState) {
 		for (var renderType : pBakedModel.getRenderTypes(pBlockState, RandomSource.create(), ModelData.EMPTY)) {
 			this.blockRenderDispatcher.getModelRenderer().tesselateBlock(pRenderState.level, pBakedModel, pBlockState, BlockPos.containing(pRenderState.x, pRenderState.aabb.maxY, pRenderState.z), pPoseStack, pMultiBufferSource.getBuffer(renderType), false, RandomSource.create(), pBlockState.getSeed(pRenderState.blockPos), OverlayTexture.NO_OVERLAY, ModelData.EMPTY, renderType);
 		}
 	}
 
 	@Override
-	public void extractRenderState(IcariaBarrelEntity pEntity, IcariaBarrelRenderState pRenderState, float pPartialTick) {
+	public void extractRenderState(IcariaBarrelEntity pEntity, BarrelRenderState pRenderState, float pPartialTick) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTick);
 		pRenderState.aabb = pEntity.getBoundingBox();
 		pRenderState.blockPos = pEntity.getBlockPos();
@@ -47,7 +47,7 @@ public class IcariaBarrelRenderer extends EntityRenderer<IcariaBarrelEntity, Ica
 	}
 
 	@Override
-	public void render(IcariaBarrelRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
+	public void render(BarrelRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
 		var blockState = pRenderState.blockState;
 
 		pPoseStack.pushPose();
@@ -62,7 +62,7 @@ public class IcariaBarrelRenderer extends EntityRenderer<IcariaBarrelEntity, Ica
 	}
 
 	@Override
-	public IcariaBarrelRenderState createRenderState() {
-		return new IcariaBarrelRenderState();
+	public BarrelRenderState createRenderState() {
+		return new BarrelRenderState();
 	}
 }

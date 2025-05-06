@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -51,9 +52,10 @@ public class IcariaSpawnerBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
-		if (itemStack.getItem() instanceof SpawnEggItem spawnEggItem && pLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+		if (pLevel instanceof ServerLevel serverLevel && itemStack.getItem() instanceof SpawnEggItem spawnEggItem && pLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+			var entityType = spawnEggItem.getType(serverLevel.registryAccess(), itemStack);
 			blockEntity.setChanged();
-			blockEntity.setEntityId(spawnEggItem.getType(itemStack), pLevel.getRandom());
+			blockEntity.setEntityId(entityType, pLevel.getRandom());
 			itemStack.consume(1, pPlayer);
 			pLevel.gameEvent(pPlayer, GameEvent.BLOCK_CHANGE, pBlockPos);
 			pLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, 3);

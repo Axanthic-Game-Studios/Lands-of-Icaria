@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
+import com.axanthic.icaria.common.network.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
@@ -36,6 +37,8 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import net.neoforged.neoforge.network.PacketDistributor;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -93,15 +96,15 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle()) {
+		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE)) {
 			return InteractionResult.FAIL;
 		} else {
-			var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pLevel, pBlockState, pBlockPos);
-			entity.moveTo(pPlayer.blockPosition(), 0, 0);
-			entity.startRiding(pPlayer); // TODO not working as of 1.21.2
-			pLevel.addFreshEntity(entity);
 			pLevel.removeBlock(pBlockPos, false);
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "loot_vase"), true);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
+			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pBlockPos, pBlockState));
 			return InteractionResult.PASS;
 		}
 	}

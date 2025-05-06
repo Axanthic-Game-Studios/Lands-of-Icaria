@@ -103,7 +103,7 @@ public class GrinderBlock extends BaseEntityBlock {
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING) && pLevel.getBlockEntity(pBlockPos) instanceof GrinderBlockEntity blockEntity) {
 			var itemStack = blockEntity.inputHandler.getStackInSlot(0);
-			if (!itemStack.isEmpty()) {
+			if (blockEntity.tickClient && !itemStack.isEmpty()) {
 				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
 				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), this.getX(pBlockState) + pBlockPos.getX(), pBlockPos.getY() + 0.25D, this.getZ(pBlockState) + pBlockPos.getZ(), this.getXSpeed(pBlockState), -0.25D, this.getZSpeed(pBlockState));
 			}

@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.CrocottaModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrocottaRenderState;
 import com.axanthic.icaria.common.entity.CrocottaEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CrocottaRenderer extends MobRenderer<CrocottaEntity, CrocottaRenderState, CrocottaModel> {
 	public CrocottaRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CrocottaModel(pContext.bakeLayer(IcariaLayerLocations.CROCOTTA)), 0.75F);
+		super(pContext, new CrocottaModel(pContext.bakeLayer(IcariaModelLayerLocations.CROCOTTA)), 0.75F);
 	}
 
 	@Override

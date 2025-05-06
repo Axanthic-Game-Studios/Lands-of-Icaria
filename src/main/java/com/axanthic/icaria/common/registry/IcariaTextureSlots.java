@@ -1,0 +1,89 @@
+package com.axanthic.icaria.common.registry;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.data.models.model.TextureSlot;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class IcariaTextureSlots {
+	public static final TextureSlot ALL = TextureSlot.create("all");
+	public static final TextureSlot ANTHRACITE_BLOCK = TextureSlot.create("anthracite_block");
+	public static final TextureSlot ANVIL = TextureSlot.create("anvil");
+	public static final TextureSlot BARREL_BACK = TextureSlot.create("barrel_back");
+	public static final TextureSlot BARREL_FRONT = TextureSlot.create("barrel_front");
+	public static final TextureSlot BARS = TextureSlot.create("bars");
+	public static final TextureSlot BOTTOM = TextureSlot.create("bottom");
+	public static final TextureSlot BROWN_GROUND_SHROOMS = TextureSlot.create("brown_ground_shrooms");
+	public static final TextureSlot BUSH = TextureSlot.create("bush");
+	public static final TextureSlot BUSH_HORIZONTAL = TextureSlot.create("bush_horizontal");
+	public static final TextureSlot CACTUS = TextureSlot.create("cactus");
+	public static final TextureSlot CAKE_BOTTOM = TextureSlot.create("cake_bottom");
+	public static final TextureSlot CAKE_INSIDE = TextureSlot.create("cake_inside");
+	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
+	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
+	public static final TextureSlot CROP = TextureSlot.create("crop");
+	public static final TextureSlot CROSS = TextureSlot.create("cross");
+	public static final TextureSlot DARK = TextureSlot.create("dark");
+	public static final TextureSlot DIRT = TextureSlot.create("dirt");
+	public static final TextureSlot DOWN = TextureSlot.create("down");
+	public static final TextureSlot DROUGHTROOT_LOG = TextureSlot.create("droughtroot_log");
+	public static final TextureSlot EAST = TextureSlot.create("east");
+	public static final TextureSlot EDGE = TextureSlot.create("edge");
+	public static final TextureSlot END = TextureSlot.create("end");
+	public static final TextureSlot FIRE = TextureSlot.create("fire");
+	public static final TextureSlot FORGE = TextureSlot.create("forge");
+	public static final TextureSlot GRAINITE = TextureSlot.create("grainite");
+	public static final TextureSlot GRAINITE_BRICKS = TextureSlot.create("grainite_bricks");
+	public static final TextureSlot GRINDER = TextureSlot.create("grinder");
+	public static final TextureSlot GRINDER_ENGINE = TextureSlot.create("grinder_engine");
+	public static final TextureSlot GRINDER_FEEDER = TextureSlot.create("grinder_feeder");
+	public static final TextureSlot GRINDER_STONE = TextureSlot.create("grinder_stone");
+	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
+	public static final TextureSlot KETTLE_FIREWOOD = TextureSlot.create("kettle_firewood");
+	public static final TextureSlot KILN = TextureSlot.create("kiln");
+	public static final TextureSlot LAUREL_LOG = TextureSlot.create("laurel_log");
+	public static final TextureSlot LAUREL_PLANKS = TextureSlot.create("laurel_planks");
+	public static final TextureSlot LAVA_FLOW = TextureSlot.create("lava_flow");
+	public static final TextureSlot LAVA_STILL = TextureSlot.create("lava_still");
+	public static final TextureSlot LITE = TextureSlot.create("lite");
+	public static final TextureSlot LOAM_BRICKS = TextureSlot.create("loam_bricks");
+	public static final TextureSlot LOG = TextureSlot.create("log");
+	public static final TextureSlot LOG_TOP = TextureSlot.create("log_top");
+	public static final TextureSlot MARL = TextureSlot.create("marl");
+	public static final TextureSlot MOSS = TextureSlot.create("moss");
+	public static final TextureSlot NECK = TextureSlot.create("neck");
+	public static final TextureSlot NORTH = TextureSlot.create("north");
+	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
+	public static final TextureSlot PANE = TextureSlot.create("pane");
+	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
+	public static final TextureSlot PLANKS = TextureSlot.create("planks");
+	public static final TextureSlot PLANT = TextureSlot.create("plant");
+	public static final TextureSlot POT = TextureSlot.create("pot");
+	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");
+	public static final TextureSlot SHROOM = TextureSlot.create("shroom");
+	public static final TextureSlot SIDE = TextureSlot.create("side");
+	public static final TextureSlot SOUTH = TextureSlot.create("south");
+	public static final TextureSlot STATIC_LEFT_GRINDER_CHAIN = TextureSlot.create("static_left_grinder_chain");
+	public static final TextureSlot STATIC_RIGHT_GRINDER_CHAIN = TextureSlot.create("static_right_grinder_chain");
+	public static final TextureSlot STEM = TextureSlot.create("stem");
+	public static final TextureSlot STEM_GROUND_SHROOMS = TextureSlot.create("stem_ground_shrooms");
+	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
+	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
+	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
+	public static final TextureSlot TEXTURE = TextureSlot.create("texture");
+	public static final TextureSlot TOP = TextureSlot.create("top");
+	public static final TextureSlot TORCH_BONE = TextureSlot.create("torch_bone");
+	public static final TextureSlot TORCH_COAL = TextureSlot.create("torch_coal");
+	public static final TextureSlot TORCH_METAL = TextureSlot.create("torch_metal");
+	public static final TextureSlot UP = TextureSlot.create("up");
+	public static final TextureSlot VASE = TextureSlot.create("vase");
+	public static final TextureSlot VINE = TextureSlot.create("vine");
+	public static final TextureSlot VOIDSHALE = TextureSlot.create("voidshale");
+	public static final TextureSlot WALL = TextureSlot.create("wall");
+	public static final TextureSlot WEST = TextureSlot.create("west");
+	public static final TextureSlot YELLOWSTONE = TextureSlot.create("yellowstone");
+	public static final TextureSlot YELLOWSTONE_BRICKS = TextureSlot.create("yellowstone_bricks");
+}

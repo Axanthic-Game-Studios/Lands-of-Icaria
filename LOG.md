@@ -11,8 +11,9 @@ Fixes
 - Revenants spawned from the Kettle don't spawn with Armor
 - Forest Hags don't get aggressive towards the Player when said Player breaks Logs
 - Silksand doesn't mine faster with Shovels
+- Coarse Marl and Dry Lake Bed can't be tilled when another Block is above
 - Kettle doesn't yield a resulting Item when an attached Output Inventory below isn't able to take in the resulting Item, the resulting Item now gets saved in an internal Output Inventory, as long as this Inventory is full, new Ingredients can still be added but no concocting Process will start
-- waxing an Icaria Chests with Honeycombs doesn't consume the Honeycomb in Survival Mode
+- waxing an Icaria Chest with Honeycombs doesn't consume the Honeycomb in Survival Mode
 - Arrow Recipe with Chert only returns one Arrow instead of four like with Flint
 - Book Recipe with Aeternae Hide isn't shapeless like with Leather
 - Mossy Cobblestone Recipe with Icaria Vines doesn't accept Icaria Cobblestones
@@ -25,33 +26,33 @@ Updates
 
 - Capella Horn plays a Sound when used
 - Totem of Unblinding removes Blindness and Darkness effects when the Totem gets equipped AFTER the Effect has already been applied, prior it would only remove the Effects when already equipped BEFORE any Effects were added to the Player
-- Totem of Unblinding no longer triggers when hit with a Blindness or Darkness Effect despite the Player already has a running Blindness Immunity Effect
-- Totem of Unshattering repairs and prevent Mace from shattering
+- Totem of Unblinding no longer triggers when hit with a Blindness or Darkness Effect despite the Player already having a running Blindness Immunity Effect
+- Totem of Unshattering repairs and prevents Mace from shattering
 - Totem of Unshattering is only consumed when Damage would be dealt to an Item, prior it would also trigger when the damaging Action was canceled
-- Icaria Cake variants support placing Candles on them, Candle Cakes can be lit and extinguished in different Ways 
+- Icaria Cake variants support placing Candles on them, Candle Cakes can be lit and extinguished in different Ways
 - Troughs support filling them with Powder Snow from Powder Snow Buckets, emptying Powder Snow out of them with Buckets
 - Greek Fire is waterlogged and doesn't extinguish in Rain
 - Vanadiumsteel Bars, Grainglass Pane, Silkglass Pane, Troughs, Icaria Fences, Ladders, Slabs, Stairs, Trapdoors and Walls are waterlogged in Mediterranean Water
 - Lignite Block, Anthracite Block, Forest Moss, Scrubland Moss and Steppe Moss catch Fire and burn to be in line with vanilla Coal Blocks and Moss Blocks
 - Forest Hags have a Chance of spawning and getting aggressive toward the Player when said Player breaks stripped Logs
-- Dead Logs, Fertilized Farmland, Horizontal Grainglass Pane, Horizontal Silksand Pane, Horizontal Vanadiumsteel Bars, Triple Barrel Racks and Troughs no more trick Mobs into thinking they could path them, therefore Mobs no longer get stuck behind them
+- Dead Logs, Fertilized Farmland, Horizontal Grainglass Pane, Horizontal Silksand Pane, Horizontal Vanadiumsteel Bars, Triple Barrel Racks and Troughs no longer trick Mobs into thinking they could path them, therefore Mobs no longer get stuck behind them
 - Arachne, Arachne Drone, Myrmeke Drone, Myrmeke Queen, Myrmeke Soldier, Scorpion, Solifugae and Vinegaroon are considered Arthropods now, this means they take more Damage from Bane of Arthropods enchanted Tools and Weapons
-- Revenants are considered Undead now, this means they now longer take Damage when running out of Air underwater, they ignore Poison and Regeneration Effects, invert Heal and Harm Effects, don't get attacked from the Wither, get more damage from Smite enchanted Tools and Weapons and scare Armadillos in their Vicinity
+- Revenants are considered Undead now, this means they no longer take Damage when running out of Air underwater, they ignore Poison and Regeneration Effects, invert Heal and Harm Effects, don't get attacked by the Wither, take more Damage from Smite enchanted Tools and Weapons and scare Armadillos in their Vicinity
 - Cardon Cactus can be picked, carried and placed by Enderman, similar to how they do with Vanilla Cactus
 - Onion, Physalis, Spelt and Strawberries can be harvested and planted by Villagers
 - Spelt, Onion, Strawberries, Garlic and Physalis Crops can be picked up by Villagers
 - Icaria Farmland and Fertilized Farmland can be used by Villagers to plant Crops on
 - Dry Lake Bed turns into Coarse Marl instead of Farmland when tilled, so all Marl Variants can be obtained from it, since Coarse Marl can be tilled into Marl, and Marl finally into Farmland
-- Fallen Leaves, Moss and Vines are mined a little faster using Swords, similar to how Leaves and Vanilla Moss and Vines are mined faster using Swords
+- Fallen Leaves and Vines are mined a little faster using Swords, similar to how Leaves and Vanilla Vines are mined faster using Swords
 - thrown Bidents break Decorated Pots when hit
 - thrown Tridents and Bidents break Loot Vases when hit
 - Bidents, Daggers and Scythes break Decorated Pots
-- Icaria Pickaxes yields the maximum Drop Amount for Amethyst Clusters, just like vanilla Pickaxes
+- Icaria Pickaxes yield the maximum Drop Amount for Amethyst Clusters, just like vanilla Pickaxes
 - Laurel Wreath can be enchanted with Curse of Binding and Curse of Vanishing like other Equipables
 - Aeternae Hide Boots allow walking on Powder Snow without sinking in, this also grants the Light as a Rabbit Advancement just like Leather Boots do
 - Grainite can be used as an Alternative Crafting and Repair Material to Cobblestone
 - Fletching Table Recipe with Chert can use Bamboo Planks, Cherry Planks and other modded Planks
-- Ground Flowers can be used by Bees to collect Pollen from
+- Ground Flowers attract Bees and can be fed to Bees
 - Loam can be used by Sniffers to dig Items from
 - Hyliaster can be eaten by Frogs
 - Cardon Cactus can be fed to Camels
@@ -61,11 +62,12 @@ Updates
 - Spelt Bale can be fed to Horses and Llamas
 - Spelt Bale can be used to tempt Llamas
 - Laurel Cherry Cake, Strawberry Cake, Physalis Cake, Vine Berry Cake and Vine Sprout Cake can be fed to Pandas
-- Onion and Garlic ca be fed to Pigs
+- Onion and Garlic can be fed to Pigs
 - Aeternae Stew, Catoblepas Stew, Cerver Stew and Sow Stew can be fed to Wolves
 - the Advancements for placing a Forge, Grinder, Kettle, Kiln, obtaining a Molybdenumsteel Pickaxe and killing a Hyliaster are Goals instead of Tasks
 - the Advancements for killing an Arachne and a Captain Revenant are Challenges instead of Tasks, these also return 100 Experience as an additional Reward
 - Potion Effects from Kettle concocting last longer
+- carried Barrels and Loot Vases no longer dismount from the Player when said Player leaves the World or disconnects from the Server
 
 Additions
 
@@ -78,6 +80,7 @@ Additions
 - Stonecutter Recipes to cut Tile Stairs, Tile Slabs and Tile Walls from Relicstone and Relicstone Bricks respectively
 - Stonecutter Recipes to cut Brick Stairs, Brick Slabs and Brick Walls from Grainite, Yellowstone, Silkstone, Sunstone, Voidshale, Baetyl, Relicstone and Platoshale respectively
 - Forge Recipes to forge vanilla Ores into their respective Ingots, vanilla raw Materials into their respective Ingots, vanilla Tools into their respective Nuggets and vanilla Armor into their respective Nuggets
+- Grinder Recipes to grind Closed Eyeblossoms into Gray Dye and Open Eyeblossoms into Orange Dye
 - Kiln Recipes to fire Clay into Terracotta, Clay Ball into Brick, Red Sand into Glass and Sand into Glass
 - an Advancement for finding and killing a Hyliaster
 - the /heal Command, primarily for Debug Purposes

@@ -18,7 +18,6 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @MethodsReturnNonnullByDefault
@@ -64,17 +63,17 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context pContext) 
 
 	public TextureAtlasSprite getSprite(Minecraft pMinecraft, Trough pTrough) {
 		if (pTrough == Trough.POWDER_SNOW) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.POWDER_SNOW);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.POWDER_SNOW);
 		} else if (pTrough == Trough.WATER) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.WATER);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.WATER);
 		} else if (pTrough == Trough.MEDITERRANEAN_WATER) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.MEDITERRANEAN_WATER);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.MEDITERRANEAN_WATER);
 		} else if (pTrough == Trough.ONION) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.ONION);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.ONION);
 		} else if (pTrough == Trough.SPELT) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.SPELT);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.SPELT);
 		} else {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.VINEBERRIES);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.VINEBERRIES);
 		}
 	}
 }

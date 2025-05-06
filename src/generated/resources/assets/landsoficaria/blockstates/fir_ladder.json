@@ -1,62 +1,18 @@
 {
   "variants": {
-    "facing=east,mediterranean_waterlogged=false,waterlogged=false": {
+    "facing=east": {
       "model": "landsoficaria:block/fir_ladder",
       "y": 90
     },
-    "facing=east,mediterranean_waterlogged=false,waterlogged=true": {
+    "facing=north": {
       "model": "landsoficaria:block/fir_ladder",
-      "y": 90
+      "y": 0
     },
-    "facing=east,mediterranean_waterlogged=true,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 90
-    },
-    "facing=east,mediterranean_waterlogged=true,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 90
-    },
-    "facing=north,mediterranean_waterlogged=false,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder"
-    },
-    "facing=north,mediterranean_waterlogged=false,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder"
-    },
-    "facing=north,mediterranean_waterlogged=true,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder"
-    },
-    "facing=north,mediterranean_waterlogged=true,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder"
-    },
-    "facing=south,mediterranean_waterlogged=false,waterlogged=false": {
+    "facing=south": {
       "model": "landsoficaria:block/fir_ladder",
       "y": 180
     },
-    "facing=south,mediterranean_waterlogged=false,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 180
-    },
-    "facing=south,mediterranean_waterlogged=true,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 180
-    },
-    "facing=south,mediterranean_waterlogged=true,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 180
-    },
-    "facing=west,mediterranean_waterlogged=false,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 270
-    },
-    "facing=west,mediterranean_waterlogged=false,waterlogged=true": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 270
-    },
-    "facing=west,mediterranean_waterlogged=true,waterlogged=false": {
-      "model": "landsoficaria:block/fir_ladder",
-      "y": 270
-    },
-    "facing=west,mediterranean_waterlogged=true,waterlogged=true": {
+    "facing=west": {
       "model": "landsoficaria:block/fir_ladder",
       "y": 270
     }

@@ -2,7 +2,8 @@
   "variants": {
     "layers=1": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_1"
+        "model": "landsoficaria:block/fallen_fir_leaves_1",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_1",
@@ -19,7 +20,8 @@
     ],
     "layers=2": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_2"
+        "model": "landsoficaria:block/fallen_fir_leaves_2",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_2",
@@ -36,7 +38,8 @@
     ],
     "layers=3": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_3"
+        "model": "landsoficaria:block/fallen_fir_leaves_3",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_3",
@@ -53,7 +56,8 @@
     ],
     "layers=4": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_4"
+        "model": "landsoficaria:block/fallen_fir_leaves_4",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_4",
@@ -70,7 +74,8 @@
     ],
     "layers=5": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_5"
+        "model": "landsoficaria:block/fallen_fir_leaves_5",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_5",
@@ -87,7 +92,8 @@
     ],
     "layers=6": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_6"
+        "model": "landsoficaria:block/fallen_fir_leaves_6",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_6",
@@ -104,7 +110,8 @@
     ],
     "layers=7": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_7"
+        "model": "landsoficaria:block/fallen_fir_leaves_7",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_7",
@@ -121,7 +128,8 @@
     ],
     "layers=8": [
       {
-        "model": "landsoficaria:block/fallen_fir_leaves_8"
+        "model": "landsoficaria:block/fallen_fir_leaves_8",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/fallen_fir_leaves_8",

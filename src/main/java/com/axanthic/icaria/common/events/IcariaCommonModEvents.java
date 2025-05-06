@@ -4,12 +4,11 @@ import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.IcariaRecipeRunner;
 import com.axanthic.icaria.data.provider.*;
+import com.axanthic.icaria.data.provider.advancement.IcariaAdvancementProvider;
 import com.axanthic.icaria.data.provider.language.IcariaEnglishLanguageProvider;
 import com.axanthic.icaria.data.provider.language.IcariaGermanLanguageProvider;
 import com.axanthic.icaria.data.provider.loot.IcariaLootTableProvider;
-import com.axanthic.icaria.data.provider.model.IcariaBlockModelProvider;
-import com.axanthic.icaria.data.provider.model.IcariaEquipmentModelProvider;
-import com.axanthic.icaria.data.provider.model.IcariaItemModelProvider;
+import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 import com.axanthic.icaria.data.provider.tags.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -85,43 +84,38 @@ public class IcariaCommonModEvents {
 	}
 
 	@SubscribeEvent
-	public static void onGatherData(GatherDataEvent pEvent) {
-		var existingFileHelper = pEvent.getExistingFileHelper();
+	public static void onGatherData(GatherDataEvent.Client pEvent) {
 		var generator = pEvent.getGenerator();
 		var lookupProvider = pEvent.getLookupProvider();
-		var includeClient = pEvent.includeClient();
-		var includeServer = pEvent.includeServer();
 
 		var packOutput = generator.getPackOutput();
 
-		var blockTags = new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID, existingFileHelper);
+		var blockTags = new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID);
 		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaIdents.ID);
 
 		var registryProvider = builtinEntries.getRegistryProvider();
 		var tagLookup = blockTags.contentsGetter();
 
-		generator.addProvider(includeClient, new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
-		generator.addProvider(includeClient, new IcariaGermanLanguageProvider(packOutput, IcariaIdents.ID, "de_de"));
-		generator.addProvider(includeClient, new IcariaBlockModelProvider(packOutput, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeClient, new IcariaEquipmentModelProvider(packOutput));
-		generator.addProvider(includeClient, new IcariaItemModelProvider(packOutput, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeClient, new IcariaBlockStateProvider(packOutput, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeClient, new IcariaParticleDescriptionProvider(packOutput, existingFileHelper));
-		generator.addProvider(includeClient, new IcariaSoundDefinitionsProvider(packOutput, IcariaIdents.ID, existingFileHelper));
-
-		generator.addProvider(includeServer, new IcariaLootTableProvider(packOutput, lookupProvider));
-		generator.addProvider(includeServer, new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, blockTags);
-		generator.addProvider(includeServer, new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaItemTagsProvider(packOutput, lookupProvider, tagLookup, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaPaintingTagsProvider(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaAdvancementProvider(packOutput, lookupProvider, existingFileHelper));
-		generator.addProvider(includeServer, new IcariaDataMapProvider(packOutput, lookupProvider));
-		generator.addProvider(includeServer, builtinEntries);
-		generator.addProvider(includeServer, new IcariaRecipeRunner(packOutput, lookupProvider));
+		generator.addProvider(true, new IcariaAdvancementProvider(packOutput, lookupProvider));
+		generator.addProvider(true, new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
+		generator.addProvider(true, new IcariaGermanLanguageProvider(packOutput, IcariaIdents.ID, "de_de"));
+		generator.addProvider(true, new IcariaLootTableProvider(packOutput, lookupProvider));
+		generator.addProvider(true, new IcariaModelProvider(packOutput, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		generator.addProvider(true, blockTags);
+		generator.addProvider(true, new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaItemTagsProvider(packOutput, lookupProvider, tagLookup, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaDataMapProvider(packOutput, lookupProvider));
+		generator.addProvider(true, builtinEntries);
+		generator.addProvider(true, new IcariaEquipmentAssetProvider(packOutput));
+		generator.addProvider(true, new IcariaParticleDescriptionProvider(packOutput));
+		generator.addProvider(true, new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaSoundDefinitionsProvider(packOutput, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaRecipeRunner(packOutput, lookupProvider));
 	}
 
 	@SubscribeEvent

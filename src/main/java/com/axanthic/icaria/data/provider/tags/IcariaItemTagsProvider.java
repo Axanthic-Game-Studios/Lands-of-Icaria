@@ -19,7 +19,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -172,8 +171,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.cKey("storage_blocks/molybdenumsteel");
 	public static final TagKey<Item> STORAGE_BLOCKS_BLURIDIUM = IcariaItemTagsProvider.cKey("storage_blocks/bluridium");
 
-	public IcariaItemTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, CompletableFuture<TagLookup<Block>> pBlockTags, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pBlockTags, pId, pExistingFileHelper);
+	public IcariaItemTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, CompletableFuture<TagLookup<Block>> pBlockTags, String pId) {
+		super(pPackOutput, pProvider, pBlockTags, pId);
 	}
 
 	@Override
@@ -189,6 +188,35 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.VANADIUMSTEEL_AXE.get())
 			.add(IcariaItems.SIDEROS_AXE.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_AXE.get());
+
+		this.tag(ItemTags.BEE_FOOD)
+			.add(IcariaItems.BLINDWEED.get())
+			.add(IcariaItems.CHAMEOMILE.get())
+			.add(IcariaItems.CHARMONDER.get())
+			.add(IcariaItems.CLOVER.get())
+			.add(IcariaItems.FIREHILT.get())
+			.add(IcariaItems.BLUE_HYDRACINTH.get())
+			.add(IcariaItems.PURPLE_HYDRACINTH.get())
+			.add(IcariaItems.LIONFANGS.get())
+			.add(IcariaItems.SPEARDROPS.get())
+			.add(IcariaItems.PURPLE_STAGHORN.get())
+			.add(IcariaItems.YELLOW_STAGHORN.get())
+			.add(IcariaItems.BLUE_STORMCOTTON.get())
+			.add(IcariaItems.PINK_STORMCOTTON.get())
+			.add(IcariaItems.PURPLE_STORMCOTTON.get())
+			.add(IcariaItems.SUNKETTLE.get())
+			.add(IcariaItems.SUNSPONGE.get())
+			.add(IcariaItems.VOIDLILY.get())
+			.add(IcariaItems.BLUE_GROUND_FLOWERS.get())
+			.add(IcariaItems.CYAN_GROUND_FLOWERS.get())
+			.add(IcariaItems.PINK_GROUND_FLOWERS.get())
+			.add(IcariaItems.PURPLE_GROUND_FLOWERS.get())
+			.add(IcariaItems.RED_GROUND_FLOWERS.get())
+			.add(IcariaItems.WHITE_GROUND_FLOWERS.get())
+			.add(IcariaItems.WHITE_BROMELIA.get())
+			.add(IcariaItems.ORANGE_BROMELIA.get())
+			.add(IcariaItems.PINK_BROMELIA.get())
+			.add(IcariaItems.PURPLE_BROMELIA.get());
 
 		this.tag(ItemTags.BREAKS_DECORATED_POTS)
 			.add(IcariaItems.CHERT_DAGGER.get())
@@ -489,6 +517,11 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.addTag(IcariaItemTagsProvider.CROPS_STRAWBERRIES)
 			.addTag(IcariaItemTagsProvider.CROPS_PHYSALIS)
 			.addTag(IcariaItemTagsProvider.CROPS_ONION);
+
+		this.tag(Tags.Items.DRINKS_MAGIC)
+			.add(IcariaItems.ANTI_GRAVITY_FLASK.get())
+			.add(IcariaItems.FORTIFYING_FLASK.get())
+			.add(IcariaItems.HEALING_FLASK.get());
 
 		this.tag(Tags.Items.DUSTS)
 			.addTag(IcariaItemTagsProvider.DUSTS_CALCITE)
@@ -885,18 +918,6 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.DRY_LAKE_BED.get())
 			.add(IcariaItems.LOAM.get());
 
-		this.tag(ItemTags.FLOWERS)
-			.add(IcariaItems.BLUE_GROUND_FLOWERS.get())
-			.add(IcariaItems.CYAN_GROUND_FLOWERS.get())
-			.add(IcariaItems.PINK_GROUND_FLOWERS.get())
-			.add(IcariaItems.PURPLE_GROUND_FLOWERS.get())
-			.add(IcariaItems.RED_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_BROMELIA.get())
-			.add(IcariaItems.ORANGE_BROMELIA.get())
-			.add(IcariaItems.PINK_BROMELIA.get())
-			.add(IcariaItems.PURPLE_BROMELIA.get());
-
 		this.tag(ItemTags.LEAVES)
 			.add(IcariaItems.CYPRESS_LEAVES.get())
 			.add(IcariaItems.DROUGHTROOT_LEAVES.get())
@@ -1272,6 +1293,25 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.PLANE_CRAFTING_TABLE.get())
 			.add(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 
+		this.tag(Tags.Items.FLOWERS_SMALL)
+			.add(IcariaItems.BLINDWEED.get())
+			.add(IcariaItems.CHAMEOMILE.get())
+			.add(IcariaItems.CHARMONDER.get())
+			.add(IcariaItems.CLOVER.get())
+			.add(IcariaItems.FIREHILT.get())
+			.add(IcariaItems.BLUE_HYDRACINTH.get())
+			.add(IcariaItems.PURPLE_HYDRACINTH.get())
+			.add(IcariaItems.LIONFANGS.get())
+			.add(IcariaItems.SPEARDROPS.get())
+			.add(IcariaItems.PURPLE_STAGHORN.get())
+			.add(IcariaItems.YELLOW_STAGHORN.get())
+			.add(IcariaItems.BLUE_STORMCOTTON.get())
+			.add(IcariaItems.PINK_STORMCOTTON.get())
+			.add(IcariaItems.PURPLE_STORMCOTTON.get())
+			.add(IcariaItems.SUNKETTLE.get())
+			.add(IcariaItems.SUNSPONGE.get())
+			.add(IcariaItems.VOIDLILY.get());
+
 		this.tag(Tags.Items.STONES)
 			.add(IcariaItems.YELLOWSTONE.get())
 			.add(IcariaItems.SILKSTONE.get())
@@ -1577,6 +1617,11 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM)
 			.add(IcariaItems.BLURIDIUM_BLOCK.get());
+	}
+
+	@Override
+	public String getName() {
+		return "Item Tags";
 	}
 
 	public static TagKey<Item> cKey(String pName) {

@@ -17,16 +17,14 @@ import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaFluidTagsProvider extends FluidTagsProvider {
-	public IcariaFluidTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaFluidTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
@@ -34,6 +32,11 @@ public class IcariaFluidTagsProvider extends FluidTagsProvider {
 		this.tag(FluidTags.WATER)
 			.add(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get())
 			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+	}
+
+	@Override
+	public String getName() {
+		return "Fluid Tags";
 	}
 
 	public static TagKey<Fluid> cKey(String pName) {

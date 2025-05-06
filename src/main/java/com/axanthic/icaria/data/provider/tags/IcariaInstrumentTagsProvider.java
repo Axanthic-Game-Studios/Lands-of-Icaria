@@ -16,8 +16,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Instrument;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
@@ -26,14 +24,19 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 public class IcariaInstrumentTagsProvider extends InstrumentTagsProvider {
 	public static final TagKey<Instrument> CAPELLA_HORNS = IcariaInstrumentTagsProvider.icariaKey("capella_horns");
 
-	public IcariaInstrumentTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaInstrumentTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(IcariaInstrumentTagsProvider.CAPELLA_HORNS)
 			.add(IcariaInstruments.FAIL_CAPELLA_HORN);
+	}
+
+	@Override
+	public String getName() {
+		return "Instrument Tags";
 	}
 
 	public static TagKey<Instrument> cKey(String pName) {

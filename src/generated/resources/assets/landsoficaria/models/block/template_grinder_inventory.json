@@ -1153,15 +1153,6 @@
     },
     {
       "faces": {
-        "east": {
-          "texture": "minecraft:missingno",
-          "uv": [
-            12.0,
-            4.0,
-            13.0,
-            12.0
-          ]
-        },
         "south": {
           "texture": "#sunstone_bricks",
           "uv": [

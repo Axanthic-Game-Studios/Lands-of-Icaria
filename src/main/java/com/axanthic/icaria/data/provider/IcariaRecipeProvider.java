@@ -566,6 +566,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.grinding(0.2F, 6, 200, Items.GOLD_NUGGET, Items.GILDED_BLACKSTONE, IcariaItems.VANADIUM_GEAR.get());
 		this.grinding(0.2F, 6, 200, Items.GOLD_NUGGET, Items.NETHER_GOLD_ORE, IcariaItems.VANADIUM_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.GRAVEL, Items.COBBLESTONE, IcariaItems.YELLOWSTONE_GEAR.get());
+		this.grinding(0.1F, 2, 200, Items.GRAY_DYE, Items.CLOSED_EYEBLOSSOM, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.GRAY_CONCRETE_POWDER, Items.GRAY_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.GREEN_CONCRETE_POWDER, Items.GREEN_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.GREEN_DYE, Items.CACTUS, IcariaItems.LOAM_GEAR.get());
@@ -588,6 +589,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.grinding(0.1F, 4, 200, Items.MAGMA_CREAM, Items.MAGMA_BLOCK, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 12, 200, Items.MELON_SEEDS, Items.MELON, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.ORANGE_CONCRETE_POWDER, Items.ORANGE_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
+		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, Items.OPEN_EYEBLOSSOM, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, Items.ORANGE_TULIP, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, Items.TORCHFLOWER, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, IcariaItems.SUNSPONGE.get(), IcariaItems.LOAM_GEAR.get());

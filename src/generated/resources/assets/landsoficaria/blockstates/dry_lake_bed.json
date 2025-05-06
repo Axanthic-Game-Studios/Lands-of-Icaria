@@ -2,23 +2,29 @@
   "variants": {
     "": [
       {
-        "model": "landsoficaria:block/dry_lake_bed"
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 0,
+        "y": 0
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",
+        "x": 90,
+        "y": 0
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 180,
+        "y": 0
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 270,
+        "y": 0
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 0,
         "y": 90
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "y": 270
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 90
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",
@@ -27,36 +33,8 @@
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",
-        "x": 90,
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 90,
-        "y": 270
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 180
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
         "x": 180,
         "y": 90
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 180,
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 180,
-        "y": 270
-      },
-      {
-        "model": "landsoficaria:block/dry_lake_bed",
-        "x": 270
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",
@@ -65,8 +43,38 @@
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",
+        "x": 0,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
         "x": 270,
         "y": 180
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 0,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/dry_lake_bed",
+        "x": 180,
+        "y": 270
       },
       {
         "model": "landsoficaria:block/dry_lake_bed",

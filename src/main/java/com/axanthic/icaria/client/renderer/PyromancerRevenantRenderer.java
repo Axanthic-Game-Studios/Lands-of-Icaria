@@ -3,7 +3,7 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.PyromancerRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.PyromancerRevenantItemLayer;
 import com.axanthic.icaria.client.model.PyromancerRevenantModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PyromancerRevenantRenderState;
 import com.axanthic.icaria.common.entity.PyromancerRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class PyromancerRevenantRenderer extends MobRenderer<PyromancerRevenantEntity, PyromancerRevenantRenderState, PyromancerRevenantModel> {
 	public PyromancerRevenantRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new PyromancerRevenantModel(pContext.bakeLayer(IcariaLayerLocations.PYROMANCER_REVENANT_BODY)), 0.5F);
+		super(pContext, new PyromancerRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.PYROMANCER_REVENANT_BODY)), 0.5F);
 		this.addLayer(new PyromancerRevenantEmissiveLayer(this));
 		this.addLayer(new PyromancerRevenantItemLayer(this));
 	}

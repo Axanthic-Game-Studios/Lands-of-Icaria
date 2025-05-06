@@ -2,3323 +2,3470 @@ package com.axanthic.icaria.data.provider.model;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.model.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.world.level.block.Block;
 
-import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
-import net.neoforged.neoforge.client.model.generators.ModelProvider;
 import net.neoforged.neoforge.client.model.generators.loaders.CompositeModelBuilder;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaBlockModelProvider extends BlockModelProvider {
-	public IcariaBlockModelProvider(PackOutput pPackOutput, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pId, pExistingFileHelper);
-	}
-
-	@Override
-	public void registerModels() {
-		this.template();
-		this.provider();
-	}
-
-	public void provider() {
-		this.anthraciteTorch();
-		this.anthraciteWallTorch();
-		this.axis();
-		this.barrel();
-		this.bars();
-		this.block();
-		this.blockCutout();
-		this.blockTranslucent();
-		this.bloomyVine();
-		this.bolbos();
-		this.bromelia();
-		this.brownGroundShrooms();
-		this.brushyVine();
-		this.button();
-		this.cake();
-		this.calciteCrystal();
-		this.cardonCactus();
-		this.chain();
-		this.craftingTable();
-		this.crop();
-		this.cross();
-		this.dathulla();
-		this.deadDroughtrootLog();
-		this.deadLog();
-		this.dolomitePillarHead();
-		this.door();
-		this.fallenLeaves();
-		this.farmland();
-		this.fence();
-		this.fenceGate();
-		this.fertilizedFarmland();
-		this.fire();
-		this.flowerPotCross();
-		this.forge();
-		this.grassyMarl();
-		this.greenGroundShrooms();
-		this.grinder();
-		this.grinderShaft();
-		this.grinderStone();
-		this.groundFlowers();
-		this.haliteCrystal();
-		this.horizontalBars();
-		this.horizontalPane();
-		this.jasperCrystal();
-		this.kettle();
-		this.kiln();
-		this.ladder();
-		this.largeBrownGroundShrooms();
-		this.ligniteTorch();
-		this.ligniteWallTorch();
-		this.loadedBarrel();
-		this.lootVase();
-		this.mondanos();
-		this.moss();
-		this.mothAgaric();
-		this.namdrake();
-		this.oliveLeaves();
-		this.overlayTextureBlock();
-		this.overlayTextureCross();
-		this.overlayTextureFlowerPotCross();
-		this.overlayTextureVine();
-		this.palmFern();
-		this.pane();
-		this.particle();
-		this.physalisCrop();
-		this.portal();
-		this.pottedBromelia();
-		this.pottedBrownGroundShrooms();
-		this.pottedCardonCactus();
-		this.pottedGreenGroundShrooms();
-		this.pottedLargeBrownGroundShrooms();
-		this.pottedPalmFern();
-		this.pressurePlate();
-		this.psilocybos();
-		this.quartzPillarHead();
-		this.quartzWall();
-		this.rack();
-		this.relicstonePillarHead();
-		this.rowan();
-		this.rubble();
-		this.simpleRack();
-		this.slab();
-		this.stairs();
-		this.storageVase();
-		this.strawberryBush();
-		this.strawberryCrop();
-		this.strippedDeadLog();
-		this.surfaceBones();
-		this.surfaceChert();
-		this.tappedBarrel();
-		this.tinderFungusTreeShrooms();
-		this.tintedCross();
-		this.tintedFlowerPotCross();
-		this.trapdoor();
-		this.tripleBarrelRack();
-		this.trough();
-		this.turkeyTailTreeShrooms();
-		this.twigs();
-		this.unnamedTreeShrooms();
-		this.vine();
-		this.wall();
-		this.water();
-		this.wiltedElm();
-		this.wood();
-		this.zirconCrystal();
-	}
-
-	public void template() {
-		this.anthraciteTorchModel();
-		this.anthraciteWallTorchModel();
-		this.barrelModel();
-		this.barsInventoryModel();
-		this.bolbosModel();
-		this.bromeliaModel();
-		this.brownGroundShroomsModel();
-		this.cakeModel();
-		this.calciteCrystalModel();
-		this.cardonCactusModel();
-		this.cardonCactusInventoryModel();
-		this.dathullaModel();
-		this.deadLogModel();
-		this.deadVineModel();
-		this.forgeModel();
-		this.forgeInventoryModel();
-		this.greenGroundShroomsModel();
-		this.grinderModel();
-		this.grinderInventoryModel();
-		this.grinderShaftModel();
-		this.grinderStoneModel();
-		this.groundFlowersModel();
-		this.haliteCrystalModel();
-		this.horizontalBarsModel();
-		this.horizontalPaneModel();
-		this.jasperCrystalModel();
-		this.kettleModel();
-		this.kettleInventoryModel();
-		this.kilnModel();
-		this.kilnInventoryModel();
-		this.largeBrownGroundShroomsModel();
-		this.layerModel();
-		this.ligniteTorchModel();
-		this.ligniteWallTorchModel();
-		this.lootVaseModel();
-		this.mondanosModel();
-		this.mothAgaricModel();
-		this.namdrakeModel();
-		this.overlayTextureBlockModel();
-		this.overlayTextureCrossModel();
-		this.overlayTextureFlowerPotCrossModel();
-		this.overlayTextureVineModel();
-		this.palmFernModel();
-		this.paneInventoryModel();
-		this.physalisCropModel();
-		this.portalModel();
-		this.pottedBromeliaModel();
-		this.pottedBrownGroundShroomsModel();
-		this.pottedCardonCactusModel();
-		this.pottedGreenGroundShroomsModel();
-		this.pottedLargeBrownGroundShroomsModel();
-		this.pottedPalmFernModel();
-		this.psilocybosModel();
-		this.rackModel();
-		this.rowanModel();
-		this.rubbleModel();
-		this.simpleRackModel();
-		this.storageVaseModel();
-		this.strawberryBushModel();
-		this.strippedDeadLogModel();
-		this.surfaceBonesModel();
-		this.surfaceChertModel();
-		this.tappedBarrelModel();
-		this.tinderFungusTreeShroomsModel();
-		this.tripleBarrelRackModel();
-		this.tripleBarrelRackInventoryModel();
-		this.troughModel();
-		this.turkeyTailTreeShroomsModel();
-		this.twigsModel();
-		this.unnamedTreeShroomsModel();
-		this.wiltedElmModel();
-		this.zirconCrystalModel();
-	}
-
-	public void anthraciteTorch() {
-		this.anthraciteTorch(IcariaBlocks.ANTHRACITE_TORCH.get());
-	}
-
-	public void anthraciteWallTorch() {
-		this.anthraciteWallTorch(IcariaBlocks.ANTHRACITE_WALL_TORCH.get());
-	}
-
-	public void axis() {
-		this.axis(IcariaBlocks.DOLOMITE_PILLAR.get());
-		this.axis(IcariaBlocks.RELICSTONE_PILLAR.get());
-		this.axis(IcariaBlocks.SPELT_BALE_BLOCK.get());
-		this.axis(IcariaBlocks.CYPRESS_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		this.axis(IcariaBlocks.DROUGHTROOT_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		this.axis(IcariaBlocks.FIR_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_FIR_LOG.get());
-		this.axis(IcariaBlocks.LAUREL_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		this.axis(IcariaBlocks.OLIVE_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		this.axis(IcariaBlocks.PLANE_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		this.axis(IcariaBlocks.POPULUS_LOG.get());
-		this.axis(IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-	}
-
-	public void barrel() {
-		this.barrel(IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.barrel(IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.barrel(IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.barrel(IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.barrel(IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.barrel(IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.barrel(IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void bars() {
-		this.bars(IcariaBlocks.VANADIUMSTEEL_BARS.get());
-	}
-
-	public void block() {
-		this.block(IcariaBlocks.MARL.get());
-		this.block(IcariaBlocks.MARL_CHERT.get());
-		this.block(IcariaBlocks.MARL_BONES.get());
-		this.block(IcariaBlocks.MARL_LIGNITE.get());
-		this.block(IcariaBlocks.COARSE_MARL.get());
-		this.block(IcariaBlocks.DRY_LAKE_BED.get());
-		this.block(IcariaBlocks.MARL_ADOBE.get());
-		this.block(IcariaBlocks.LOAM.get());
-		this.block(IcariaBlocks.LOAM_BRICKS.get());
-		this.block(IcariaBlocks.DOLOMITE_ADOBE.get());
-		this.block(IcariaBlocks.SMOOTH_DOLOMITE.get());
-		this.block(IcariaBlocks.DOLOMITE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_DOLOMITE.get());
-		this.block(IcariaBlocks.GRAINEL.get());
-		this.block(IcariaBlocks.GRAINEL_CHERT.get());
-		this.block(IcariaBlocks.GRAINITE_ADOBE.get());
-		this.block(IcariaBlocks.GRAINITE.get());
-		this.block(IcariaBlocks.GRAINITE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_GRAINITE.get());
-		this.block(IcariaBlocks.YELLOWSTONE_ADOBE.get());
-		this.block(IcariaBlocks.COBBLED_YELLOWSTONE.get());
-		this.block(IcariaBlocks.YELLOWSTONE.get());
-		this.block(IcariaBlocks.YELLOWSTONE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_YELLOWSTONE.get());
-		this.block(IcariaBlocks.SILKSAND.get());
-		this.block(IcariaBlocks.SILKSTONE_ADOBE.get());
-		this.block(IcariaBlocks.COBBLED_SILKSTONE.get());
-		this.block(IcariaBlocks.SILKSTONE.get());
-		this.block(IcariaBlocks.SILKSTONE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_SILKSTONE.get());
-		this.block(IcariaBlocks.SUNSTONE_ADOBE.get());
-		this.block(IcariaBlocks.COBBLED_SUNSTONE.get());
-		this.block(IcariaBlocks.SUNSTONE.get());
-		this.block(IcariaBlocks.SUNSTONE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_SUNSTONE.get());
-		this.block(IcariaBlocks.VOIDSHALE_ADOBE.get());
-		this.block(IcariaBlocks.COBBLED_VOIDSHALE.get());
-		this.block(IcariaBlocks.VOIDSHALE.get());
-		this.block(IcariaBlocks.VOIDSHALE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_VOIDSHALE.get());
-		this.block(IcariaBlocks.BAETYL_ADOBE.get());
-		this.block(IcariaBlocks.COBBLED_BAETYL.get());
-		this.block(IcariaBlocks.BAETYL.get());
-		this.block(IcariaBlocks.BAETYL_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_BAETYL.get());
-		this.block(IcariaBlocks.RELICSTONE.get());
-		this.block(IcariaBlocks.SMOOTH_RELICSTONE.get());
-		this.block(IcariaBlocks.RELICSTONE_BRICKS.get());
-		this.block(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get());
-		this.block(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get());
-		this.block(IcariaBlocks.RELICSTONE_TILES.get());
-		this.block(IcariaBlocks.CRACKED_RELICSTONE_TILES.get());
-		this.block(IcariaBlocks.MOSSY_RELICSTONE_TILES.get());
-		this.block(IcariaBlocks.CHISELED_RELICSTONE.get());
-		this.block(IcariaBlocks.PLATOSHALE.get());
-		this.block(IcariaBlocks.PLATOSHALE_BRICKS.get());
-		this.block(IcariaBlocks.CHISELED_PLATOSHALE.get());
-		this.block(IcariaBlocks.LIGNITE_ORE.get());
-		this.block(IcariaBlocks.CHALKOS_ORE.get());
-		this.block(IcariaBlocks.KASSITEROS_ORE.get());
-		this.block(IcariaBlocks.DOLOMITE_ORE.get());
-		this.block(IcariaBlocks.VANADIUM_ORE.get());
-		this.block(IcariaBlocks.SLIVER_ORE.get());
-		this.block(IcariaBlocks.SIDEROS_ORE.get());
-		this.block(IcariaBlocks.ANTHRACITE_ORE.get());
-		this.block(IcariaBlocks.MOLYBDENUM_ORE.get());
-		this.block(IcariaBlocks.HYLIASTRUM_ORE.get());
-		this.block(IcariaBlocks.CALCITE.get());
-		this.block(IcariaBlocks.BUDDING_CALCITE.get());
-		this.block(IcariaBlocks.HALITE.get());
-		this.block(IcariaBlocks.BUDDING_HALITE.get());
-		this.block(IcariaBlocks.JASPER.get());
-		this.block(IcariaBlocks.BUDDING_JASPER.get());
-		this.block(IcariaBlocks.ZIRCON.get());
-		this.block(IcariaBlocks.BUDDING_ZIRCON.get());
-		this.block(IcariaBlocks.PACKED_ARISTONE.get());
-		this.block(IcariaBlocks.ARACHNE_STRING_BLOCK.get());
-		this.block(IcariaBlocks.VINE_REED_BLOCK.get());
-		this.block(IcariaBlocks.ROTTEN_BONES_BLOCK.get());
-		this.block(IcariaBlocks.RAW_CHALKOS_BLOCK.get());
-		this.block(IcariaBlocks.RAW_KASSITEROS_BLOCK.get());
-		this.block(IcariaBlocks.RAW_VANADIUM_BLOCK.get());
-		this.block(IcariaBlocks.RAW_SIDEROS_BLOCK.get());
-		this.block(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get());
-		this.block(IcariaBlocks.JASPER_BLOCK.get());
-		this.block(IcariaBlocks.CHERT_BLOCK.get());
-		this.block(IcariaBlocks.LIGNITE_BLOCK.get());
-		this.block(IcariaBlocks.CHALKOS_BLOCK.get());
-		this.block(IcariaBlocks.KASSITEROS_BLOCK.get());
-		this.block(IcariaBlocks.ORICHALCUM_BLOCK.get());
-		this.block(IcariaBlocks.VANADIUM_BLOCK.get());
-		this.block(IcariaBlocks.SLIVER_BLOCK.get());
-		this.block(IcariaBlocks.VANADIUMSTEEL_BLOCK.get());
-		this.block(IcariaBlocks.SIDEROS_BLOCK.get());
-		this.block(IcariaBlocks.ANTHRACITE_BLOCK.get());
-		this.block(IcariaBlocks.MOLYBDENUM_BLOCK.get());
-		this.block(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get());
-		this.block(IcariaBlocks.BLURIDIUM_BLOCK.get());
-		this.block(IcariaBlocks.CYPRESS_LEAVES.get());
-		this.block(IcariaBlocks.CYPRESS_PLANKS.get());
-		this.block(IcariaBlocks.DROUGHTROOT_LEAVES.get());
-		this.block(IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.block(IcariaBlocks.FIR_LEAVES.get());
-		this.block(IcariaBlocks.FIR_PLANKS.get());
-		this.block(IcariaBlocks.LAUREL_LEAVES.get());
-		this.block(IcariaBlocks.LAUREL_PLANKS.get());
-		this.block(IcariaBlocks.OLIVE_PLANKS.get());
-		this.block(IcariaBlocks.PLANE_LEAVES.get());
-		this.block(IcariaBlocks.PLANE_PLANKS.get());
-		this.block(IcariaBlocks.POPULUS_LEAVES.get());
-		this.block(IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void blockCutout() {
-		this.blockCutout(IcariaBlocks.GRAINGLASS.get());
-		this.blockCutout(IcariaBlocks.SILKGLASS.get());
-		this.blockCutout(IcariaBlocks.ARACHNE_SPAWNER.get());
-		this.blockCutout(IcariaBlocks.REVENANT_SPAWNER.get());
-	}
-
-	public void blockTranslucent() {
-		this.blockTranslucent(IcariaBlocks.ARISTONE.get());
-		this.blockTranslucent(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.CALCITE_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.HALITE_BLOCK.get());
-		this.blockTranslucent(IcariaBlocks.ZIRCON_BLOCK.get());
-	}
-
-	public void bloomyVine() {
-		this.bloomyVine(IcariaBlocks.BLOOMY_VINE.get());
-	}
-
-	public void bolbos() {
-		this.bolbos(IcariaBlocks.BOLBOS.get());
-	}
-
-	public void bromelia() {
-		this.bromelia(IcariaBlocks.WHITE_BROMELIA.get());
-		this.bromelia(IcariaBlocks.ORANGE_BROMELIA.get());
-		this.bromelia(IcariaBlocks.PINK_BROMELIA.get());
-		this.bromelia(IcariaBlocks.PURPLE_BROMELIA.get());
-	}
-
-	public void brownGroundShrooms() {
-		this.brownGroundShrooms(IcariaBlocks.BROWN_GROUND_SHROOMS.get());
-	}
-
-	public void brushyVine() {
-		this.brushyVine(IcariaBlocks.BRUSHY_VINE.get());
-	}
-
-	public void button() {
-		this.button(IcariaBlocks.CYPRESS_BUTTON.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.button(IcariaBlocks.DROUGHTROOT_BUTTON.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.button(IcariaBlocks.FIR_BUTTON.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.button(IcariaBlocks.LAUREL_BUTTON.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.button(IcariaBlocks.OLIVE_BUTTON.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.button(IcariaBlocks.PLANE_BUTTON.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.button(IcariaBlocks.POPULUS_BUTTON.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void cake() {
-		this.cake(IcariaBlocks.LAUREL_CHERRY_CAKE.get());
-		this.cake(IcariaBlocks.STRAWBERRY_CAKE.get());
-		this.cake(IcariaBlocks.PHYSALIS_CAKE.get());
-		this.cake(IcariaBlocks.VINE_BERRY_CAKE.get());
-		this.cake(IcariaBlocks.VINE_SPROUT_CAKE.get());
-	}
-
-	public void calciteCrystal() {
-		this.calciteCrystal(IcariaBlocks.CALCITE_CRYSTAL.get());
-	}
-
-	public void cardonCactus() {
-		this.cardonCactus(IcariaBlocks.CARDON_CACTUS.get());
-	}
-
-	public void chain() {
-		this.chain(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
-	}
-
-	public void craftingTable() {
-		this.craftingTable(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.craftingTable(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.craftingTable(IcariaBlocks.FIR_CRAFTING_TABLE.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.craftingTable(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.craftingTable(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.craftingTable(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.craftingTable(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void crop() {
-		this.crop(IcariaBlocks.SPELT_CROP.get());
-		this.crop(IcariaBlocks.ONION_CROP.get());
-	}
-
-	public void cross() {
-		this.cross(IcariaBlocks.CYPRESS_SAPLING.get());
-		this.cross(IcariaBlocks.DROUGHTROOT_SAPLING.get());
-		this.cross(IcariaBlocks.FIR_SAPLING.get());
-		this.cross(IcariaBlocks.LAUREL_SAPLING.get());
-		this.cross(IcariaBlocks.OLIVE_SAPLING.get());
-		this.cross(IcariaBlocks.PLANE_SAPLING.get());
-		this.cross(IcariaBlocks.POPULUS_SAPLING.get());
-	}
-
-	public void dathulla() {
-		this.dathulla(IcariaBlocks.DATHULLA.get());
-	}
-
-	public void deadDroughtrootLog() {
-		this.deadDroughtrootLog(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-	}
-
-	public void deadLog() {
-		this.deadLog(IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get());
-		this.deadLog(IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), IcariaBlocks.FOREST_MOSS.get());
-		this.deadLog(IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get());
-		this.deadLog(IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get());
-		this.deadLog(IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get());
-		this.deadLog(IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), IcariaBlocks.FOREST_MOSS.get());
-	}
-
-	public void dolomitePillarHead() {
-		this.dolomitePillarHead(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get());
-	}
-
-	public void door() {
-		this.door(IcariaBlocks.CYPRESS_DOOR.get());
-		this.door(IcariaBlocks.DROUGHTROOT_DOOR.get());
-		this.door(IcariaBlocks.FIR_DOOR.get());
-		this.door(IcariaBlocks.LAUREL_DOOR.get());
-		this.door(IcariaBlocks.OLIVE_DOOR.get());
-		this.door(IcariaBlocks.PLANE_DOOR.get());
-		this.door(IcariaBlocks.POPULUS_DOOR.get());
-	}
-
-	public void fallenLeaves() {
-		this.fallenLeaves(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get());
-		this.fallenLeaves(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get());
-	}
-
-	public void farmland() {
-		this.farmland(IcariaBlocks.FARMLAND.get());
-	}
-
-	public void fence() {
-		this.fence(IcariaBlocks.CYPRESS_FENCE.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.fence(IcariaBlocks.DROUGHTROOT_FENCE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.fence(IcariaBlocks.FIR_FENCE.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.fence(IcariaBlocks.LAUREL_FENCE.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.fence(IcariaBlocks.OLIVE_FENCE.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.fence(IcariaBlocks.PLANE_FENCE.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.fence(IcariaBlocks.POPULUS_FENCE.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void fenceGate() {
-		this.fenceGate(IcariaBlocks.CYPRESS_FENCE_GATE.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.fenceGate(IcariaBlocks.DROUGHTROOT_FENCE_GATE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.fenceGate(IcariaBlocks.FIR_FENCE_GATE.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.fenceGate(IcariaBlocks.LAUREL_FENCE_GATE.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.fenceGate(IcariaBlocks.OLIVE_FENCE_GATE.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.fenceGate(IcariaBlocks.PLANE_FENCE_GATE.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.fenceGate(IcariaBlocks.POPULUS_FENCE_GATE.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void fertilizedFarmland() {
-		this.fertilizedFarmland(IcariaBlocks.FERTILIZED_FARMLAND.get());
-	}
-
-	public void fire() {
-		this.fire(IcariaBlocks.GREEK_FIRE.get());
-	}
-
-	public void flowerPotCross() {
-		this.flowerPotCross(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), IcariaBlocks.CYPRESS_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_FIR_SAPLING.get(), IcariaBlocks.FIR_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_LAUREL_SAPLING.get(), IcariaBlocks.LAUREL_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), IcariaBlocks.OLIVE_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_PLANE_SAPLING.get(), IcariaBlocks.PLANE_SAPLING.get());
-		this.flowerPotCross(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), IcariaBlocks.POPULUS_SAPLING.get());
-	}
-
-	public void forge() {
-		this.forge(IcariaBlocks.FORGE.get());
-	}
-
-	public void grassyMarl() {
-		this.grassyMarl(IcariaBlocks.GRASSY_MARL.get());
-	}
-
-	public void greenGroundShrooms() {
-		this.greenGroundShrooms(IcariaBlocks.GREEN_GROUND_SHROOMS.get());
-	}
-
-	public void grinder() {
-		this.grinder(IcariaBlocks.GRINDER.get());
-	}
-
-	public void grinderShaft() {
-		this.grinderShaft(IcariaBlocks.GRINDER_SHAFT.get());
-	}
-
-	public void grinderStone() {
-		this.grinderStone(IcariaBlocks.GRINDER_STONE.get());
-	}
-
-	public void groundFlowers() {
-		this.groundFlowers(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
-		this.groundFlowers(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
-		this.groundFlowers(IcariaBlocks.PINK_GROUND_FLOWERS.get());
-		this.groundFlowers(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
-		this.groundFlowers(IcariaBlocks.RED_GROUND_FLOWERS.get());
-		this.groundFlowers(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
-	}
-
-	public void haliteCrystal() {
-		this.haliteCrystal(IcariaBlocks.HALITE_CRYSTAL.get());
-	}
-
-	public void horizontalBars() {
-		this.horizontalBars(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), IcariaBlocks.VANADIUMSTEEL_BARS.get());
-	}
-
-	public void horizontalPane() {
-		this.horizontalPane(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get());
-		this.horizontalPane(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get());
-	}
-
-	public void jasperCrystal() {
-		this.jasperCrystal(IcariaBlocks.JASPER_CRYSTAL.get());
-	}
-
-	public void kettle() {
-		this.kettle(IcariaBlocks.KETTLE.get());
-	}
-
-	public void kiln() {
-		this.kiln(IcariaBlocks.KILN.get());
-	}
-
-	public void ladder() {
-		this.ladder(IcariaBlocks.CYPRESS_LADDER.get());
-		this.ladder(IcariaBlocks.DROUGHTROOT_LADDER.get());
-		this.ladder(IcariaBlocks.FIR_LADDER.get());
-		this.ladder(IcariaBlocks.LAUREL_LADDER.get());
-		this.ladder(IcariaBlocks.OLIVE_LADDER.get());
-		this.ladder(IcariaBlocks.PLANE_LADDER.get());
-		this.ladder(IcariaBlocks.POPULUS_LADDER.get());
-	}
-
-	public void largeBrownGroundShrooms() {
-		this.largeBrownGroundShrooms(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get());
-	}
-
-	public void ligniteTorch() {
-		this.ligniteTorch(IcariaBlocks.LIGNITE_TORCH.get());
-	}
-
-	public void ligniteWallTorch() {
-		this.ligniteWallTorch(IcariaBlocks.LIGNITE_WALL_TORCH.get());
-	}
-
-	public void loadedBarrel() {
-		this.loadedBarrel(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.loadedBarrel(IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void lootVase() {
-		this.lootVase(IcariaBlocks.RED_LOOT_VASE.get());
-		this.lootVase(IcariaBlocks.LOST_LOOT_VASE.get());
-		this.lootVase(IcariaBlocks.CYAN_LOOT_VASE.get());
-	}
-
-	public void mondanos() {
-		this.mondanos(IcariaBlocks.MONDANOS.get());
-	}
-
-	public void moss() {
-		this.moss(IcariaBlocks.FOREST_MOSS.get());
-		this.moss(IcariaBlocks.SCRUBLAND_MOSS.get());
-		this.moss(IcariaBlocks.STEPPE_MOSS.get());
-	}
-
-	public void mothAgaric() {
-		this.mothAgaric(IcariaBlocks.MOTH_AGARIC.get());
-	}
-
-	public void namdrake() {
-		this.namdrake(IcariaBlocks.NAMDRAKE.get());
-	}
-
-	public void oliveLeaves() {
-		this.oliveLeaves(IcariaBlocks.OLIVE_LEAVES.get());
-	}
-
-	public void overlayTextureBlock() {
-		this.overlayTextureBlock(IcariaBlocks.BLURRED_PLATOSHALE.get());
-		this.overlayTextureBlock(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get());
-	}
-
-	public void overlayTextureCross() {
-		this.overlayTextureCross(IcariaBlocks.SMALL_MIXED_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.LARGE_BROWN_GRAIN.get());
-		this.overlayTextureCross(IcariaBlocks.BLINDWEED.get());
-		this.overlayTextureCross(IcariaBlocks.CHAMEOMILE.get());
-		this.overlayTextureCross(IcariaBlocks.CHARMONDER.get());
-		this.overlayTextureCross(IcariaBlocks.CLOVER.get());
-		this.overlayTextureCross(IcariaBlocks.FIREHILT.get());
-		this.overlayTextureCross(IcariaBlocks.BLUE_HYDRACINTH.get());
-		this.overlayTextureCross(IcariaBlocks.PURPLE_HYDRACINTH.get());
-		this.overlayTextureCross(IcariaBlocks.LIONFANGS.get());
-		this.overlayTextureCross(IcariaBlocks.SPEARDROPS.get());
-		this.overlayTextureCross(IcariaBlocks.PURPLE_STAGHORN.get());
-		this.overlayTextureCross(IcariaBlocks.YELLOW_STAGHORN.get());
-		this.overlayTextureCross(IcariaBlocks.BLUE_STORMCOTTON.get());
-		this.overlayTextureCross(IcariaBlocks.PINK_STORMCOTTON.get());
-		this.overlayTextureCross(IcariaBlocks.PURPLE_STORMCOTTON.get());
-		this.overlayTextureCross(IcariaBlocks.SUNKETTLE.get());
-		this.overlayTextureCross(IcariaBlocks.SUNSPONGE.get());
-		this.overlayTextureCross(IcariaBlocks.VOIDLILY.get());
-	}
-
-	public void overlayTextureFlowerPotCross() {
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.BLINDWEED.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.CHAMEOMILE.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.CHARMONDER.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.CLOVER.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.FIREHILT.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.BLUE_HYDRACINTH.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.PURPLE_HYDRACINTH.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.LIONFANGS.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.SPEARDROPS.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.PURPLE_STAGHORN.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.YELLOW_STAGHORN.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.BLUE_STORMCOTTON.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.PINK_STORMCOTTON.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.PURPLE_STORMCOTTON.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.SUNKETTLE.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.SUNSPONGE.get());
-		this.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.VOIDLILY.get());
-	}
-
-	public void overlayTextureVine() {
-		this.overlayTextureVine(IcariaBlocks.BRANCHY_VINE.get());
-		this.overlayTextureVine(IcariaBlocks.REEDY_VINE.get());
-	}
-
-	public void palmFern() {
-		this.palmFern(IcariaBlocks.PALM_FERN.get());
-	}
-
-	public void pane() {
-		this.pane(IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get());
-		this.pane(IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get());
-	}
-
-	public void particle() {
-		this.particle(IcariaBlocks.CHEST.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.particle(IcariaBlocks.TRAPPED_CHEST.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.particle(IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.particle(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.particle(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		this.particle(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		this.particle(IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.particle(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.particle(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		this.particle(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		this.particle(IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.particle(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.particle(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_FIR_LOG.get());
-		this.particle(IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_FIR_LOG.get());
-		this.particle(IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.particle(IcariaBlocks.LAUREL_WALL_SIGN.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.particle(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		this.particle(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		this.particle(IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.particle(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.particle(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		this.particle(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		this.particle(IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.particle(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.particle(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		this.particle(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		this.particle(IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_PLANKS.get());
-		this.particle(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaBlocks.POPULUS_PLANKS.get());
-		this.particle(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-		this.particle(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-	}
-
-	public void physalisCrop() {
-		this.physalisCrop(IcariaBlocks.PHYSALIS_CROP.get());
-	}
-
-	public void portal() {
-		this.portal(IcariaBlocks.ICARIA_PORTAL.get());
-	}
-
-	public void pottedBromelia() {
-		this.pottedBromelia(IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.WHITE_BROMELIA.get());
-		this.pottedBromelia(IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.ORANGE_BROMELIA.get());
-		this.pottedBromelia(IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.PINK_BROMELIA.get());
-		this.pottedBromelia(IcariaBlocks.POTTED_PURPLE_BROMELIA.get(), IcariaBlocks.PURPLE_BROMELIA.get());
-	}
-
-	public void pottedBrownGroundShrooms() {
-		this.pottedBrownGroundShrooms(IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.BROWN_GROUND_SHROOMS.get());
-	}
-
-	public void pottedCardonCactus() {
-		this.pottedCardonCactus(IcariaBlocks.POTTED_CARDON_CACTUS.get(), IcariaBlocks.CARDON_CACTUS.get());
-	}
-
-	public void pottedGreenGroundShrooms() {
-		this.pottedGreenGroundShrooms(IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS.get(), IcariaBlocks.GREEN_GROUND_SHROOMS.get());
-	}
-
-	public void pottedLargeBrownGroundShrooms() {
-		this.pottedLargeBrownGroundShrooms(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get());
-	}
-
-	public void pottedPalmFern() {
-		this.pottedPalmFern(IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.PALM_FERN.get());
-	}
-
-	public void pressurePlate() {
-		this.pressurePlate(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.FIR_PRESSURE_PLATE.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.pressurePlate(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void psilocybos() {
-		this.psilocybos(IcariaBlocks.PSILOCYBOS.get());
-	}
-
-	public void quartzPillarHead() {
-		this.quartzPillarHead(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
-	}
-
-	public void quartzWall() {
-		this.quartzWall(IcariaBlocks.QUARTZ_WALL.get());
-	}
-
-	public void rack() {
-		this.rack(IcariaBlocks.CYPRESS_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.rack(IcariaBlocks.DROUGHTROOT_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.rack(IcariaBlocks.FIR_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.rack(IcariaBlocks.LAUREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.rack(IcariaBlocks.OLIVE_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.rack(IcariaBlocks.PLANE_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.rack(IcariaBlocks.POPULUS_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void relicstonePillarHead() {
-		this.relicstonePillarHead(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get());
-	}
-
-	public void rowan() {
-		this.rowan(IcariaBlocks.ROWAN.get());
-	}
-
-	public void rubble() {
-		this.rubble(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaBlocks.LIGNITE_BLOCK.get());
-		this.rubble(IcariaBlocks.GRAINITE_RUBBLE.get(), IcariaBlocks.GRAINITE.get());
-		this.rubble(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), IcariaBlocks.YELLOWSTONE.get());
-		this.rubble(IcariaBlocks.SILKSTONE_RUBBLE.get(), IcariaBlocks.SILKSTONE.get());
-		this.rubble(IcariaBlocks.SUNSTONE_RUBBLE.get(), IcariaBlocks.SUNSTONE.get());
-		this.rubble(IcariaBlocks.VOIDSHALE_RUBBLE.get(), IcariaBlocks.VOIDSHALE.get());
-		this.rubble(IcariaBlocks.BAETYL_RUBBLE.get(), IcariaBlocks.BAETYL.get());
-		this.rubble(IcariaBlocks.RELICSTONE_RUBBLE.get(), IcariaBlocks.RELICSTONE.get());
-	}
-
-	public void simpleRack() {
-		this.simpleRack(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_FIR_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_PLANE_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.simpleRack(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void slab() {
-		this.slab(IcariaBlocks.MARL_ADOBE_SLAB.get(), IcariaBlocks.MARL_ADOBE.get());
-		this.slab(IcariaBlocks.LOAM_BRICK_SLAB.get(), IcariaBlocks.LOAM_BRICKS.get());
-		this.slab(IcariaBlocks.DOLOMITE_ADOBE_SLAB.get(), IcariaBlocks.DOLOMITE_ADOBE.get());
-		this.slab(IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get(), IcariaBlocks.SMOOTH_DOLOMITE.get());
-		this.slab(IcariaBlocks.GRAINITE_ADOBE_SLAB.get(), IcariaBlocks.GRAINITE_ADOBE.get());
-		this.slab(IcariaBlocks.GRAINITE_SLAB.get(), IcariaBlocks.GRAINITE.get());
-		this.slab(IcariaBlocks.GRAINITE_BRICK_SLAB.get(), IcariaBlocks.GRAINITE_BRICKS.get());
-		this.slab(IcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get());
-		this.slab(IcariaBlocks.COBBLED_YELLOWSTONE_SLAB.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get());
-		this.slab(IcariaBlocks.YELLOWSTONE_SLAB.get(), IcariaBlocks.YELLOWSTONE.get());
-		this.slab(IcariaBlocks.YELLOWSTONE_BRICK_SLAB.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.SILKSTONE_ADOBE_SLAB.get(), IcariaBlocks.SILKSTONE_ADOBE.get());
-		this.slab(IcariaBlocks.COBBLED_SILKSTONE_SLAB.get(), IcariaBlocks.COBBLED_SILKSTONE.get());
-		this.slab(IcariaBlocks.SILKSTONE_SLAB.get(), IcariaBlocks.SILKSTONE.get());
-		this.slab(IcariaBlocks.SILKSTONE_BRICK_SLAB.get(), IcariaBlocks.SILKSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.SUNSTONE_ADOBE_SLAB.get(), IcariaBlocks.SUNSTONE_ADOBE.get());
-		this.slab(IcariaBlocks.COBBLED_SUNSTONE_SLAB.get(), IcariaBlocks.COBBLED_SUNSTONE.get());
-		this.slab(IcariaBlocks.SUNSTONE_SLAB.get(), IcariaBlocks.SUNSTONE.get());
-		this.slab(IcariaBlocks.SUNSTONE_BRICK_SLAB.get(), IcariaBlocks.SUNSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.VOIDSHALE_ADOBE_SLAB.get(), IcariaBlocks.VOIDSHALE_ADOBE.get());
-		this.slab(IcariaBlocks.COBBLED_VOIDSHALE_SLAB.get(), IcariaBlocks.COBBLED_VOIDSHALE.get());
-		this.slab(IcariaBlocks.VOIDSHALE_SLAB.get(), IcariaBlocks.VOIDSHALE.get());
-		this.slab(IcariaBlocks.VOIDSHALE_BRICK_SLAB.get(), IcariaBlocks.VOIDSHALE_BRICKS.get());
-		this.slab(IcariaBlocks.BAETYL_ADOBE_SLAB.get(), IcariaBlocks.BAETYL_ADOBE.get());
-		this.slab(IcariaBlocks.COBBLED_BAETYL_SLAB.get(), IcariaBlocks.COBBLED_BAETYL.get());
-		this.slab(IcariaBlocks.BAETYL_SLAB.get(), IcariaBlocks.BAETYL.get());
-		this.slab(IcariaBlocks.BAETYL_BRICK_SLAB.get(), IcariaBlocks.BAETYL_BRICKS.get());
-		this.slab(IcariaBlocks.RELICSTONE_SLAB.get(), IcariaBlocks.RELICSTONE.get());
-		this.slab(IcariaBlocks.SMOOTH_RELICSTONE_SLAB.get(), IcariaBlocks.SMOOTH_RELICSTONE.get());
-		this.slab(IcariaBlocks.RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.RELICSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.CRACKED_RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.MOSSY_RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get());
-		this.slab(IcariaBlocks.RELICSTONE_TILE_SLAB.get(), IcariaBlocks.RELICSTONE_TILES.get());
-		this.slab(IcariaBlocks.CRACKED_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get());
-		this.slab(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get());
-		this.slab(IcariaBlocks.PLATOSHALE_SLAB.get(), IcariaBlocks.PLATOSHALE.get());
-		this.slab(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get(), IcariaBlocks.PLATOSHALE_BRICKS.get());
-		this.slab(IcariaBlocks.CYPRESS_SLAB.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.slab(IcariaBlocks.DROUGHTROOT_SLAB.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.slab(IcariaBlocks.FIR_SLAB.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.slab(IcariaBlocks.LAUREL_SLAB.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.slab(IcariaBlocks.OLIVE_SLAB.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.slab(IcariaBlocks.PLANE_SLAB.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.slab(IcariaBlocks.POPULUS_SLAB.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void stairs() {
-		this.stairs(IcariaBlocks.MARL_ADOBE_STAIRS.get(), IcariaBlocks.MARL_ADOBE.get());
-		this.stairs(IcariaBlocks.LOAM_BRICK_STAIRS.get(), IcariaBlocks.LOAM_BRICKS.get());
-		this.stairs(IcariaBlocks.DOLOMITE_ADOBE_STAIRS.get(), IcariaBlocks.DOLOMITE_ADOBE.get());
-		this.stairs(IcariaBlocks.SMOOTH_DOLOMITE_STAIRS.get(), IcariaBlocks.SMOOTH_DOLOMITE.get());
-		this.stairs(IcariaBlocks.GRAINITE_ADOBE_STAIRS.get(), IcariaBlocks.GRAINITE_ADOBE.get());
-		this.stairs(IcariaBlocks.GRAINITE_STAIRS.get(), IcariaBlocks.GRAINITE.get());
-		this.stairs(IcariaBlocks.GRAINITE_BRICK_STAIRS.get(), IcariaBlocks.GRAINITE_BRICKS.get());
-		this.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get());
-		this.stairs(IcariaBlocks.COBBLED_YELLOWSTONE_STAIRS.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get());
-		this.stairs(IcariaBlocks.YELLOWSTONE_STAIRS.get(), IcariaBlocks.YELLOWSTONE.get());
-		this.stairs(IcariaBlocks.YELLOWSTONE_BRICK_STAIRS.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.SILKSTONE_ADOBE_STAIRS.get(), IcariaBlocks.SILKSTONE_ADOBE.get());
-		this.stairs(IcariaBlocks.COBBLED_SILKSTONE_STAIRS.get(), IcariaBlocks.COBBLED_SILKSTONE.get());
-		this.stairs(IcariaBlocks.SILKSTONE_STAIRS.get(), IcariaBlocks.SILKSTONE.get());
-		this.stairs(IcariaBlocks.SILKSTONE_BRICK_STAIRS.get(), IcariaBlocks.SILKSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.SUNSTONE_ADOBE_STAIRS.get(), IcariaBlocks.SUNSTONE_ADOBE.get());
-		this.stairs(IcariaBlocks.COBBLED_SUNSTONE_STAIRS.get(), IcariaBlocks.COBBLED_SUNSTONE.get());
-		this.stairs(IcariaBlocks.SUNSTONE_STAIRS.get(), IcariaBlocks.SUNSTONE.get());
-		this.stairs(IcariaBlocks.SUNSTONE_BRICK_STAIRS.get(), IcariaBlocks.SUNSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.VOIDSHALE_ADOBE_STAIRS.get(), IcariaBlocks.VOIDSHALE_ADOBE.get());
-		this.stairs(IcariaBlocks.COBBLED_VOIDSHALE_STAIRS.get(), IcariaBlocks.COBBLED_VOIDSHALE.get());
-		this.stairs(IcariaBlocks.VOIDSHALE_STAIRS.get(), IcariaBlocks.VOIDSHALE.get());
-		this.stairs(IcariaBlocks.VOIDSHALE_BRICK_STAIRS.get(), IcariaBlocks.VOIDSHALE_BRICKS.get());
-		this.stairs(IcariaBlocks.BAETYL_ADOBE_STAIRS.get(), IcariaBlocks.BAETYL_ADOBE.get());
-		this.stairs(IcariaBlocks.COBBLED_BAETYL_STAIRS.get(), IcariaBlocks.COBBLED_BAETYL.get());
-		this.stairs(IcariaBlocks.BAETYL_STAIRS.get(), IcariaBlocks.BAETYL.get());
-		this.stairs(IcariaBlocks.BAETYL_BRICK_STAIRS.get(), IcariaBlocks.BAETYL_BRICKS.get());
-		this.stairs(IcariaBlocks.RELICSTONE_STAIRS.get(), IcariaBlocks.RELICSTONE.get());
-		this.stairs(IcariaBlocks.SMOOTH_RELICSTONE_STAIRS.get(), IcariaBlocks.SMOOTH_RELICSTONE.get());
-		this.stairs(IcariaBlocks.RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.RELICSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.CRACKED_RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.MOSSY_RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get());
-		this.stairs(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.RELICSTONE_TILES.get());
-		this.stairs(IcariaBlocks.CRACKED_RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get());
-		this.stairs(IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get());
-		this.stairs(IcariaBlocks.PLATOSHALE_STAIRS.get(), IcariaBlocks.PLATOSHALE.get());
-		this.stairs(IcariaBlocks.PLATOSHALE_BRICK_STAIRS.get(), IcariaBlocks.PLATOSHALE_BRICKS.get());
-		this.stairs(IcariaBlocks.CYPRESS_STAIRS.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.stairs(IcariaBlocks.DROUGHTROOT_STAIRS.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.stairs(IcariaBlocks.FIR_STAIRS.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.stairs(IcariaBlocks.LAUREL_STAIRS.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.stairs(IcariaBlocks.OLIVE_STAIRS.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.stairs(IcariaBlocks.PLANE_STAIRS.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.stairs(IcariaBlocks.POPULUS_STAIRS.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void storageVase() {
-		this.storageVase(IcariaBlocks.STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.WHITE_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.GRAY_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.BLACK_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.BROWN_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.RED_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.ORANGE_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.YELLOW_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.LIME_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.GREEN_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.CYAN_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.BLUE_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.PURPLE_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.MAGENTA_STORAGE_VASE.get());
-		this.storageVase(IcariaBlocks.PINK_STORAGE_VASE.get());
-	}
-
-	public void strawberryBush() {
-		this.strawberryBush(IcariaBlocks.STRAWBERRY_BUSH.get());
-	}
-
-	public void strawberryCrop() {
-		this.strawberryCrop(IcariaBlocks.STRAWBERRY_CROP.get());
-	}
-
-	public void strippedDeadLog() {
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		this.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-	}
-
-	public void surfaceBones() {
-		this.surfaceBones(IcariaBlocks.SURFACE_BONES.get());
-	}
-
-	public void surfaceChert() {
-		this.surfaceChert(IcariaBlocks.SURFACE_CHERT.get());
-	}
-
-	public void tappedBarrel() {
-		this.tappedBarrel(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_FIR_BARREL.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_PLANE_BARREL.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.tappedBarrel(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void tinderFungusTreeShrooms() {
-		this.tinderFungusTreeShrooms(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get());
-	}
-
-	public void tintedCross() {
-		this.tintedCross(IcariaBlocks.FERN.get());
-		this.tintedCross(IcariaBlocks.SMALL_GRASS.get());
-		this.tintedCross(IcariaBlocks.MEDIUM_GRASS.get());
-		this.tintedCross(IcariaBlocks.LARGE_GRASS.get());
-	}
-
-	public void tintedFlowerPotCross() {
-		this.tintedFlowerPotCross(IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.FERN.get());
-	}
-
-	public void trapdoor() {
-		this.trapdoor(IcariaBlocks.CYPRESS_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.FIR_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.LAUREL_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.OLIVE_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.PLANE_TRAPDOOR.get());
-		this.trapdoor(IcariaBlocks.POPULUS_TRAPDOOR.get());
-	}
-
-	public void tripleBarrelRack() {
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.tripleBarrelRack(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void trough() {
-		this.trough(IcariaBlocks.CYPRESS_TROUGH.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get());
-		this.trough(IcariaBlocks.DROUGHTROOT_TROUGH.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get());
-		this.trough(IcariaBlocks.FIR_TROUGH.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get());
-		this.trough(IcariaBlocks.LAUREL_TROUGH.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get());
-		this.trough(IcariaBlocks.OLIVE_TROUGH.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get());
-		this.trough(IcariaBlocks.PLANE_TROUGH.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get());
-		this.trough(IcariaBlocks.POPULUS_TROUGH.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get());
-	}
-
-	public void turkeyTailTreeShrooms() {
-		this.turkeyTailTreeShrooms(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get());
-	}
-
-	public void twigs() {
-		this.twigs(IcariaBlocks.CYPRESS_TWIGS.get());
-		this.twigs(IcariaBlocks.DROUGHTROOT_TWIGS.get());
-		this.twigs(IcariaBlocks.FIR_TWIGS.get());
-		this.twigs(IcariaBlocks.LAUREL_TWIGS.get());
-		this.twigs(IcariaBlocks.OLIVE_TWIGS.get());
-		this.twigs(IcariaBlocks.PLANE_TWIGS.get());
-		this.twigs(IcariaBlocks.POPULUS_TWIGS.get());
-	}
-
-	public void unnamedTreeShrooms() {
-		this.unnamedTreeShrooms(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
-	}
-
-	public void vine() {
-		this.vine(IcariaBlocks.DRY_VINE.get());
-		this.vine(IcariaBlocks.SWIRLY_VINE.get());
-		this.vine(IcariaBlocks.THORNY_VINE.get());
-	}
-
-	public void wall() {
-		this.wall(IcariaBlocks.MARL_ADOBE_WALL.get(), IcariaBlocks.MARL_ADOBE.get());
-		this.wall(IcariaBlocks.LOAM_BRICK_WALL.get(), IcariaBlocks.LOAM_BRICKS.get());
-		this.wall(IcariaBlocks.DOLOMITE_ADOBE_WALL.get(), IcariaBlocks.DOLOMITE_ADOBE.get());
-		this.wall(IcariaBlocks.SMOOTH_DOLOMITE_WALL.get(), IcariaBlocks.SMOOTH_DOLOMITE.get());
-		this.wall(IcariaBlocks.GRAINITE_ADOBE_WALL.get(), IcariaBlocks.GRAINITE_ADOBE.get());
-		this.wall(IcariaBlocks.GRAINITE_WALL.get(), IcariaBlocks.GRAINITE.get());
-		this.wall(IcariaBlocks.GRAINITE_BRICK_WALL.get(), IcariaBlocks.GRAINITE_BRICKS.get());
-		this.wall(IcariaBlocks.YELLOWSTONE_ADOBE_WALL.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get());
-		this.wall(IcariaBlocks.COBBLED_YELLOWSTONE_WALL.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get());
-		this.wall(IcariaBlocks.YELLOWSTONE_WALL.get(), IcariaBlocks.YELLOWSTONE.get());
-		this.wall(IcariaBlocks.YELLOWSTONE_BRICK_WALL.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.SILKSTONE_ADOBE_WALL.get(), IcariaBlocks.SILKSTONE_ADOBE.get());
-		this.wall(IcariaBlocks.COBBLED_SILKSTONE_WALL.get(), IcariaBlocks.COBBLED_SILKSTONE.get());
-		this.wall(IcariaBlocks.SILKSTONE_WALL.get(), IcariaBlocks.SILKSTONE.get());
-		this.wall(IcariaBlocks.SILKSTONE_BRICK_WALL.get(), IcariaBlocks.SILKSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.SUNSTONE_ADOBE_WALL.get(), IcariaBlocks.SUNSTONE_ADOBE.get());
-		this.wall(IcariaBlocks.COBBLED_SUNSTONE_WALL.get(), IcariaBlocks.COBBLED_SUNSTONE.get());
-		this.wall(IcariaBlocks.SUNSTONE_WALL.get(), IcariaBlocks.SUNSTONE.get());
-		this.wall(IcariaBlocks.SUNSTONE_BRICK_WALL.get(), IcariaBlocks.SUNSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.VOIDSHALE_ADOBE_WALL.get(), IcariaBlocks.VOIDSHALE_ADOBE.get());
-		this.wall(IcariaBlocks.COBBLED_VOIDSHALE_WALL.get(), IcariaBlocks.COBBLED_VOIDSHALE.get());
-		this.wall(IcariaBlocks.VOIDSHALE_WALL.get(), IcariaBlocks.VOIDSHALE.get());
-		this.wall(IcariaBlocks.VOIDSHALE_BRICK_WALL.get(), IcariaBlocks.VOIDSHALE_BRICKS.get());
-		this.wall(IcariaBlocks.BAETYL_ADOBE_WALL.get(), IcariaBlocks.BAETYL_ADOBE.get());
-		this.wall(IcariaBlocks.COBBLED_BAETYL_WALL.get(), IcariaBlocks.COBBLED_BAETYL.get());
-		this.wall(IcariaBlocks.BAETYL_WALL.get(), IcariaBlocks.BAETYL.get());
-		this.wall(IcariaBlocks.BAETYL_BRICK_WALL.get(), IcariaBlocks.BAETYL_BRICKS.get());
-		this.wall(IcariaBlocks.RELICSTONE_WALL.get(), IcariaBlocks.RELICSTONE.get());
-		this.wall(IcariaBlocks.SMOOTH_RELICSTONE_WALL.get(), IcariaBlocks.SMOOTH_RELICSTONE.get());
-		this.wall(IcariaBlocks.RELICSTONE_BRICK_WALL.get(), IcariaBlocks.RELICSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.CRACKED_RELICSTONE_BRICK_WALL.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.MOSSY_RELICSTONE_BRICK_WALL.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get());
-		this.wall(IcariaBlocks.RELICSTONE_TILE_WALL.get(), IcariaBlocks.RELICSTONE_TILES.get());
-		this.wall(IcariaBlocks.CRACKED_RELICSTONE_TILE_WALL.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get());
-		this.wall(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get());
-		this.wall(IcariaBlocks.PLATOSHALE_WALL.get(), IcariaBlocks.PLATOSHALE.get());
-		this.wall(IcariaBlocks.PLATOSHALE_BRICK_WALL.get(), IcariaBlocks.PLATOSHALE_BRICKS.get());
-	}
-
-	public void water() {
-		this.water(IcariaBlocks.MEDITERRANEAN_WATER.get());
-	}
-
-	public void wiltedElm() {
-		this.wiltedElm(IcariaBlocks.WILTED_ELM.get());
-	}
-
-	public void wood() {
-		this.wood(IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.CYPRESS_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get());
-		this.wood(IcariaBlocks.DROUGHTROOT_WOOD.get(), IcariaBlocks.DROUGHTROOT_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get());
-		this.wood(IcariaBlocks.FIR_WOOD.get(), IcariaBlocks.FIR_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_FIR_WOOD.get(), IcariaBlocks.STRIPPED_FIR_LOG.get());
-		this.wood(IcariaBlocks.LAUREL_WOOD.get(), IcariaBlocks.LAUREL_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get());
-		this.wood(IcariaBlocks.OLIVE_WOOD.get(), IcariaBlocks.OLIVE_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get());
-		this.wood(IcariaBlocks.PLANE_WOOD.get(), IcariaBlocks.PLANE_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get());
-		this.wood(IcariaBlocks.POPULUS_WOOD.get(), IcariaBlocks.POPULUS_LOG.get());
-		this.wood(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get());
-	}
-
-	public void zirconCrystal() {
-		this.zirconCrystal(IcariaBlocks.ZIRCON_CRYSTAL.get());
-	}
-
-	public void anthraciteTorch(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_anthracite_torch"))
-			.texture("torch_bone", this.file(IcariaIdents.ID, "torch_bone"))
-			.texture("torch_coal", this.file(IcariaIdents.ID, "torch_coal"))
-			.texture("torch_metal", this.file(IcariaIdents.ID, "torch_metal"))
-			.texture("particle", this.file(IcariaIdents.ID, "torch_bone"));
-	}
-
-	public void anthraciteWallTorch(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_anthracite_wall_torch"))
-			.texture("torch_bone", this.file(IcariaIdents.ID, "torch_bone"))
-			.texture("torch_coal", this.file(IcariaIdents.ID, "torch_coal"))
-			.texture("torch_metal", this.file(IcariaIdents.ID, "torch_metal"))
-			.texture("particle", this.file(IcariaIdents.ID, "torch_bone"));
-	}
-
-	public void axis(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_column"))
-			.texture("end", this.file(pBlock, "top"))
-			.texture("side", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "horizontal"), this.file(IcariaIdents.MC, "cube_column_horizontal"))
-			.texture("end", this.file(pBlock, "top"))
-			.texture("side", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void barrel(Block pBarrel, Block pPlanks) {
-		this.withExistingParent(this.name(pBarrel), this.file(IcariaIdents.ID, "template_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name("standing", pBarrel), this.file(IcariaIdents.ID, "template_standing_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void bars(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_bars_inventory"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "cap"), this.file(IcariaIdents.MC, "iron_bars_cap"))
-			.renderType("cutout")
-			.texture("bars", this.file(pBlock))
-			.texture("edge", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "cap_alt"), this.file(IcariaIdents.MC, "iron_bars_cap_alt"))
-			.renderType("cutout")
-			.texture("bars", this.file(pBlock))
-			.texture("edge", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "post"), this.file(IcariaIdents.MC, "iron_bars_post"))
-			.renderType("cutout")
-			.texture("bars", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "post_ends"), this.file(IcariaIdents.MC, "iron_bars_post_ends"))
-			.renderType("cutout")
-			.texture("edge", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "side"), this.file(IcariaIdents.MC, "iron_bars_side"))
-			.renderType("cutout")
-			.texture("bars", this.file(pBlock))
-			.texture("edge", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "side_alt"), this.file(IcariaIdents.MC, "iron_bars_side_alt"))
-			.renderType("cutout")
-			.texture("bars", this.file(pBlock))
-			.texture("edge", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void block(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.texture("all", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void blockCutout(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.renderType("cutout")
-			.texture("all", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void blockTranslucent(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.renderType("translucent")
-			.texture("all", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void bloomyVine(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name("blooming", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file("blooming", pBlock))
-			.texture("particle", this.file("blooming", pBlock));
-		this.withExistingParent(this.name("dead", pBlock), this.file(IcariaIdents.ID, "template_dead_vine"))
-			.renderType("cutout")
-			.texture("texture", this.file("dead", pBlock))
-			.texture("particle", this.file("dead", pBlock));
-		this.withExistingParent(this.name("growing", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file("growing", pBlock, "overlay"))
-			.texture("texture", this.file("growing", pBlock))
-			.texture("particle", this.file("growing", pBlock));
-		this.withExistingParent(this.name("ripe", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file("ripe", pBlock))
-			.texture("particle", this.file("ripe", pBlock));
-	}
-
-	public void bolbos(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_bolbos"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void bromelia(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_bromelia"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "overlay"));
-	}
-
-	public void brownGroundShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_brown_ground_shrooms_0"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_brown_ground_shrooms_1"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_brown_ground_shrooms_2"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void brushyVine(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name("dead", pBlock), this.file(IcariaIdents.ID, "template_dead_vine"))
-			.renderType("cutout")
-			.texture("texture", this.file("dead", pBlock))
-			.texture("particle", this.file("dead", pBlock));
-		this.withExistingParent(this.name("growing", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file("growing", pBlock, "overlay"))
-			.texture("texture", this.file("growing", pBlock))
-			.texture("particle", this.file("growing", pBlock));
-		this.withExistingParent(this.name("ripe", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file("ripe", pBlock))
-			.texture("particle", this.file("ripe", pBlock));
-	}
-
-	public void button(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "button"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "inventory"), this.file(IcariaIdents.MC, "button_inventory"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "pressed"), this.file(IcariaIdents.MC, "button_pressed"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void cake(Block pBlock) {
-		this.withExistingParent(this.name("candle", pBlock), this.file(IcariaIdents.MC, "candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("candle", pBlock, "lit"), this.file(IcariaIdents.MC, "candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("white_candle", pBlock), this.file(IcariaIdents.MC, "white_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("white_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "white_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("light_gray_candle", pBlock), this.file(IcariaIdents.MC, "light_gray_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("light_gray_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "light_gray_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("gray_candle", pBlock), this.file(IcariaIdents.MC, "gray_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("gray_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "gray_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("black_candle", pBlock), this.file(IcariaIdents.MC, "black_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("black_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "black_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("brown_candle", pBlock), this.file(IcariaIdents.MC, "brown_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("brown_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "brown_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("red_candle", pBlock), this.file(IcariaIdents.MC, "red_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("red_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "red_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("orange_candle", pBlock), this.file(IcariaIdents.MC, "orange_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("orange_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "orange_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("yellow_candle", pBlock), this.file(IcariaIdents.MC, "yellow_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("yellow_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "yellow_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("lime_candle", pBlock), this.file(IcariaIdents.MC, "lime_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("lime_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "lime_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("green_candle", pBlock), this.file(IcariaIdents.MC, "green_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("green_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "green_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("cyan_candle", pBlock), this.file(IcariaIdents.MC, "cyan_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("cyan_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "cyan_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("light_blue_candle", pBlock), this.file(IcariaIdents.MC, "light_blue_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("light_blue_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "light_blue_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("blue_candle", pBlock), this.file(IcariaIdents.MC, "blue_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("blue_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "blue_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("purple_candle", pBlock), this.file(IcariaIdents.MC, "purple_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("purple_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "purple_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("magenta_candle", pBlock), this.file(IcariaIdents.MC, "magenta_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("magenta_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "magenta_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("pink_candle", pBlock), this.file(IcariaIdents.MC, "pink_candle_cake"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name("pink_candle", pBlock, "lit"), this.file(IcariaIdents.MC, "pink_candle_cake_lit"))
-			.texture("bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_cake_0"))
-			.texture("cake_bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("cake_side", this.file(pBlock, "side"))
-			.texture("cake_top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_cake_1"))
-			.texture("cake_bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("cake_inside", this.file(pBlock, "inside"))
-			.texture("cake_side", this.file(pBlock, "side"))
-			.texture("cake_top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_cake_2"))
-			.texture("cake_bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("cake_inside", this.file(pBlock, "inside"))
-			.texture("cake_side", this.file(pBlock, "side"))
-			.texture("cake_top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_cake_3"))
-			.texture("cake_bottom", this.file(IcariaIdents.ID, "cake_bottom"))
-			.texture("cake_inside", this.file(pBlock, "inside"))
-			.texture("cake_side", this.file(pBlock, "side"))
-			.texture("cake_top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "side"));
-	}
-
-	public void calciteCrystal(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_calcite_crystal"))
-			.texture("texture", this.file(IcariaIdents.ID, "calcite_crystal"))
-			.texture("particle", this.file(IcariaIdents.ID, "calcite_crystal"));
-	}
-
-	public void cardonCactus(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_cardon_cactus_inventory"))
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("side", this.file(pBlock, "side"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "cube"), this.file(IcariaIdents.ID, "template_cardon_cactus_cube"))
-			.texture("texture", this.file(pBlock, "side"))
-			.texture("particle", this.file(pBlock, "side"));
-		this.withExistingParent(this.name(pBlock, "stem"), this.file(IcariaIdents.ID, "template_cardon_cactus_stem"))
-			.texture("texture", this.file(pBlock, "side"))
-			.texture("particle", this.file(pBlock, "side"));
-	}
-
-	public void chain(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "chain"))
-			.renderType("cutout")
-			.texture("all", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void craftingTable(Block pBlock, Block pPlanks) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube"))
-			.texture("north", this.file(pBlock, "front"))
-			.texture("east", this.file(pBlock, "side"))
-			.texture("south", this.file(pBlock, "side"))
-			.texture("west", this.file(pBlock, "front"))
-			.texture("up", this.file(pBlock, "top"))
-			.texture("down", this.file(pPlanks))
-			.texture("particle", this.file(pBlock, "front"));
-	}
-
-	public void crop(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "2"))
-			.texture("particle", this.file(pBlock, "2"));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "3"))
-			.texture("particle", this.file(pBlock, "3"));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "4"))
-			.texture("particle", this.file(pBlock, "4"));
-		this.withExistingParent(this.name(pBlock, "5"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "5"))
-			.texture("particle", this.file(pBlock, "5"));
-		this.withExistingParent(this.name(pBlock, "6"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "6"))
-			.texture("particle", this.file(pBlock, "6"));
-		this.withExistingParent(this.name(pBlock, "7"), this.file(IcariaIdents.MC, "crop"))
-			.renderType("cutout")
-			.texture("crop", this.file(pBlock, "7"))
-			.texture("particle", this.file(pBlock, "7"));
-	}
-
-	public void cross(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cross"))
-			.renderType("cutout")
-			.texture("cross", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void dathulla(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_dathulla"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void deadDroughtrootLog(Block pName, Block pLog, Block pStrippedLog) {
-		this.withExistingParent(this.name(pName, "0"), this.file(IcariaIdents.ID, "template_dead_log_0"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "horizontal_0"), this.file(IcariaIdents.ID, "template_dead_log_horizontal_0"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("particle", this.file(pLog));
-	}
-
-	public void deadLog(Block pName, Block pLog, Block pStrippedLog, Block pMoss) {
-		this.withExistingParent(this.name(pName, "0"), this.file(IcariaIdents.ID, "template_dead_log_0"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "horizontal_0"), this.file(IcariaIdents.ID, "template_dead_log_horizontal_0"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "1"), this.file(IcariaIdents.ID, "template_dead_log_1"))
-			.texture("brown_ground_shrooms", this.file(IcariaIdents.ID, "brown_ground_shrooms"))
-			.texture("stem_ground_shrooms", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("marl", this.file(IcariaIdents.ID, "marl"))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "horizontal_1"), this.file(IcariaIdents.ID, "template_dead_log_horizontal_1"))
-			.texture("brown_ground_shrooms", this.file(IcariaIdents.ID, "brown_ground_shrooms"))
-			.texture("stem_ground_shrooms", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("marl", this.file(IcariaIdents.ID, "marl"))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "2"), this.file(IcariaIdents.ID, "template_dead_log_2"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("marl", this.file(IcariaIdents.ID, "marl"))
-			.texture("moss", this.file(pMoss))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName, "horizontal_2"), this.file(IcariaIdents.ID, "template_dead_log_horizontal_2"))
-			.texture("log", this.file(pLog))
-			.texture("log_top", this.file(pLog, "top"))
-			.texture("stripped_log", this.file(pStrippedLog))
-			.texture("marl", this.file(IcariaIdents.ID, "marl"))
-			.texture("moss", this.file(pMoss))
-			.texture("particle", this.file(pLog));
-	}
-
-	public void dolomitePillarHead(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "dolomite_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "dolomite_pillar_head"))
-			.texture("top", this.file(IcariaIdents.ID, "smooth_dolomite"))
-			.texture("particle", this.file(IcariaIdents.ID, "dolomite_pillar_head"));
-		this.withExistingParent(this.name(pBlock, "inverted"), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "dolomite_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "dolomite_pillar_head_inverted"))
-			.texture("top", this.file(IcariaIdents.ID, "smooth_dolomite"))
-			.texture("particle", this.file(IcariaIdents.ID, "dolomite_pillar_head_inverted"));
-	}
-
-	public void door(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "bottom_left"), this.file(IcariaIdents.MC, "door_bottom_left"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "bottom_left_open"), this.file(IcariaIdents.MC, "door_bottom_left_open"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "bottom_right"), this.file(IcariaIdents.MC, "door_bottom_right"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "bottom_right_open"), this.file(IcariaIdents.MC, "door_bottom_right_open"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "top_left"), this.file(IcariaIdents.MC, "door_top_left"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "top_left_open"), this.file(IcariaIdents.MC, "door_top_left_open"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "top_right"), this.file(IcariaIdents.MC, "door_top_right"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-		this.withExistingParent(this.name(pBlock, "top_right_open"), this.file(IcariaIdents.MC, "door_top_right_open"))
-			.renderType("cutout")
-			.texture("bottom", this.file(pBlock, "bottom"))
-			.texture("top", this.file(pBlock, "top"))
-			.texture("particle", this.file(pBlock, "bottom"));
-	}
-
-	public void fallenLeaves(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName, "1"), this.file(IcariaIdents.ID, "template_layer_1"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "2"), this.file(IcariaIdents.ID, "template_layer_2"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "3"), this.file(IcariaIdents.ID, "template_layer_3"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "4"), this.file(IcariaIdents.ID, "template_layer_4"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "5"), this.file(IcariaIdents.ID, "template_layer_5"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "6"), this.file(IcariaIdents.ID, "template_layer_6"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "7"), this.file(IcariaIdents.ID, "template_layer_7"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "8"), this.file(IcariaIdents.ID, "template_layer_8"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void farmland(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "dry"), this.file(IcariaIdents.MC, "farmland"))
-			.texture("dirt", this.file(IcariaIdents.ID, "marl"))
-			.texture("top", this.file(IcariaIdents.ID, "farmland_dry"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-		this.withExistingParent(this.name(pBlock, "wet"), this.file(IcariaIdents.MC, "farmland"))
-			.texture("dirt", this.file(IcariaIdents.ID, "marl"))
-			.texture("top", this.file(IcariaIdents.ID, "farmland_wet"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-	}
-
-	public void fence(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName, "inventory"), this.file(IcariaIdents.MC, "fence_inventory"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "post"), this.file(IcariaIdents.MC, "fence_post"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "side"), this.file(IcariaIdents.MC, "fence_side"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void fenceGate(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "template_fence_gate"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "open"), this.file(IcariaIdents.MC, "template_fence_gate_open"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "wall"), this.file(IcariaIdents.MC, "template_fence_gate_wall"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "wall_open"), this.file(IcariaIdents.MC, "template_fence_gate_wall_open"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void fertilizedFarmland(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "farmland"))
-			.texture("dirt", this.file(IcariaIdents.ID, "marl"))
-			.texture("top", this.file(IcariaIdents.ID, "fertilized_farmland"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-	}
-
-	public void fire(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "floor_0"), this.file(IcariaIdents.MC, "template_fire_floor"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "floor_1"), this.file(IcariaIdents.MC, "template_fire_floor"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "side_0"), this.file(IcariaIdents.MC, "template_fire_side"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "side_1"), this.file(IcariaIdents.MC, "template_fire_side"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "side_alt_0"), this.file(IcariaIdents.MC, "template_fire_side_alt"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "side_alt_1"), this.file(IcariaIdents.MC, "template_fire_side_alt"))
-			.renderType("cutout")
-			.texture("fire", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-	}
-
-	public void flowerPotCross(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "flower_pot_cross"))
-			.renderType("cutout")
-			.texture("plant", this.file(pFile))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void forge(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_forge_inventory"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("stripped_cypress_log", this.file(IcariaIdents.ID, "stripped_cypress_log"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "bottom_back_left"), this.file(IcariaIdents.ID, "template_forge_bottom_back_left"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "bottom_back_right"), this.file(IcariaIdents.ID, "template_forge_bottom_back_right"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "bottom_front_left"), this.file(IcariaIdents.ID, "template_forge_bottom_front_left"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "bottom_front_right"), this.file(IcariaIdents.ID, "template_forge_bottom_front_right"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "bottom_front_right_lit"), this.file(IcariaIdents.ID, "template_forge_bottom_front_right_lit"))
-			.texture("lava_flow", this.file(IcariaIdents.MC, "lava_flow"))
-			.texture("lava_still", this.file(IcariaIdents.MC, "lava_still"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "top_back_left"), this.file(IcariaIdents.ID, "template_forge_top_back_left"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "top_back_right"), this.file(IcariaIdents.ID, "template_forge_top_back_right"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "top_front_left"), this.file(IcariaIdents.ID, "template_forge_top_front_left"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-		this.withExistingParent(this.name(pBlock, "top_front_right"), this.file(IcariaIdents.ID, "template_forge_top_front_right"))
-			.texture("forge", this.file(IcariaIdents.ID, "forge"))
-			.texture("grainite", this.file(IcariaIdents.ID, "grainite"))
-			.texture("grainite_bricks", this.file(IcariaIdents.ID, "grainite_bricks"))
-			.texture("stripped_cypress_log", this.file(IcariaIdents.ID, "stripped_cypress_log"))
-			.texture("particle", this.file(IcariaIdents.ID, "grainite"));
-	}
-
-	public void grassyMarl(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "grass_block"))
-			.renderType("cutout")
-			.texture("bottom", this.file(IcariaIdents.ID, "marl"))
-			.texture("overlay", this.file(IcariaIdents.ID, "grassy_marl_side"))
-			.texture("side", this.file(IcariaIdents.ID, "marl"))
-			.texture("top", this.file(IcariaIdents.ID, "grassy_marl_top"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-		this.withExistingParent("forest_moss_marl", this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "marl"))
-			.texture("side", this.file(IcariaIdents.ID, "forest_moss_marl"))
-			.texture("top", this.file(IcariaIdents.ID, "forest_moss"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-		this.withExistingParent("scrubland_moss_marl", this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "marl"))
-			.texture("side", this.file(IcariaIdents.ID, "scrubland_moss_marl"))
-			.texture("top", this.file(IcariaIdents.ID, "scrubland_moss"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-		this.withExistingParent("steppe_moss_marl", this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "marl"))
-			.texture("side", this.file(IcariaIdents.ID, "steppe_moss_marl"))
-			.texture("top", this.file(IcariaIdents.ID, "steppe_moss"))
-			.texture("particle", this.file(IcariaIdents.ID, "marl"));
-	}
-
-	public void greenGroundShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_green_ground_shrooms_0"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_green_ground_shrooms_1"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_green_ground_shrooms_2"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void grinder(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_grinder_inventory"))
-			.texture("anthracite_block", this.file(IcariaIdents.ID, "anthracite_block"))
-			.texture("grinder", this.file(IcariaIdents.ID, "grinder"))
-			.texture("grinder_engine", this.file(IcariaIdents.ID, "grinder_engine"))
-			.texture("grinder_feeder", this.file(IcariaIdents.ID, "grinder_feeder"))
-			.texture("grinder_stone", this.file(IcariaIdents.ID, "grinder_stone"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("static_left_grinder_chain", this.file(IcariaIdents.ID, "static_left_grinder_chain"))
-			.texture("static_right_grinder_chain", this.file(IcariaIdents.ID, "static_right_grinder_chain"))
-			.texture("sunstone_bricks", this.file(IcariaIdents.ID, "sunstone_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "sunstone_bricks"));
-		this.withExistingParent(this.name(pBlock, "left"), this.file(IcariaIdents.ID, "template_grinder_left"))
-			.texture("anthracite_block", this.file(IcariaIdents.ID, "anthracite_block"))
-			.texture("grinder", this.file(IcariaIdents.ID, "grinder"))
-			.texture("grinder_feeder", this.file(IcariaIdents.ID, "grinder_feeder"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("sunstone_bricks", this.file(IcariaIdents.ID, "sunstone_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "sunstone_bricks"));
-		this.withExistingParent(this.name(pBlock, "right"), this.file(IcariaIdents.ID, "template_grinder_right"))
-			.texture("anthracite_block", this.file(IcariaIdents.ID, "anthracite_block"))
-			.texture("grinder", this.file(IcariaIdents.ID, "grinder"))
-			.texture("grinder_engine", this.file(IcariaIdents.ID, "grinder_engine"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("sunstone_bricks", this.file(IcariaIdents.ID, "sunstone_bricks"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "sunstone_bricks"));
-	}
-
-	public void grinderShaft(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_grinder_shaft"))
-			.texture("texture", this.file(IcariaIdents.ID, "grinder"))
-			.texture("particle", this.file(IcariaIdents.ID, "grinder"));
-	}
-
-	public void grinderStone(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_grinder_stone"))
-			.texture("grinder_stone", this.file(IcariaIdents.ID, "grinder_stone"))
-			.texture("voidshale", this.file(IcariaIdents.ID, "voidshale"))
-			.texture("particle", this.file(IcariaIdents.ID, "voidshale"));
-	}
-
-	public void groundFlowers(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_ground_flowers"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_ground_flowers"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_ground_flowers"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "2"))
-			.texture("particle", this.file(pBlock, "2"));
-	}
-
-	public void haliteCrystal(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_halite_crystal"))
-			.texture("texture", this.file(IcariaIdents.ID, "halite_crystal"))
-			.texture("particle", this.file(IcariaIdents.ID, "halite_crystal"));
-	}
-
-	public void horizontalBars(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_horizontal_bars"))
-			.renderType("cutout")
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void horizontalPane(Block pName, Block pEdge, Block pPane) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_horizontal_pane"))
-			.renderType("cutout")
-			.texture("edge", this.file(pEdge))
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-	}
-
-	public void jasperCrystal(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_jasper_crystal"))
-			.texture("texture", this.file(IcariaIdents.ID, "jasper_crystal"))
-			.texture("particle", this.file(IcariaIdents.ID, "jasper_crystal"));
-	}
-
-	public void kettle(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_kettle_inventory"))
-			.renderType("translucent")
-			.texture("droughtroot_log", this.file(IcariaIdents.ID, "droughtroot_log"))
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("laurel_log", this.file(IcariaIdents.ID, "laurel_log"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("red_loot_vase", this.file(IcariaIdents.ID, "red_loot_vase"))
-			.texture("yellowstone", this.file(IcariaIdents.ID, "yellowstone"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.withExistingParent(this.name(pBlock, "lower_solid"), this.file(IcariaIdents.ID, "template_kettle_lower_solid"))
-			.texture("droughtroot_log", this.file(IcariaIdents.ID, "droughtroot_log"))
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("laurel_log", this.file(IcariaIdents.ID, "laurel_log"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("red_loot_vase", this.file(IcariaIdents.ID, "red_loot_vase"))
-			.texture("yellowstone", this.file(IcariaIdents.ID, "yellowstone"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.withExistingParent(this.name(pBlock, "lower_solid_lit"), this.file(IcariaIdents.ID, "template_kettle_lower_solid_lit"))
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("kettle_firewood", this.file(IcariaIdents.ID, "kettle_firewood"))
-			.texture("laurel_log", this.file(IcariaIdents.ID, "laurel_log"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("red_loot_vase", this.file(IcariaIdents.ID, "red_loot_vase"))
-			.texture("yellowstone", this.file(IcariaIdents.ID, "yellowstone"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.withExistingParent(this.name(pBlock, "lower_glass"), this.file(IcariaIdents.ID, "template_kettle_lower_glass"))
-			.renderType("translucent")
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.withExistingParent(this.name(pBlock, "upper_solid"), this.file(IcariaIdents.ID, "template_kettle_upper_solid"))
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("laurel_log", this.file(IcariaIdents.ID, "laurel_log"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.withExistingParent(this.name(pBlock, "upper_glass"), this.file(IcariaIdents.ID, "template_kettle_upper_glass"))
-			.renderType("translucent")
-			.texture("kettle", this.file(IcariaIdents.ID, "kettle"))
-			.texture("particle", this.file(IcariaIdents.ID, "laurel_log"));
-		this.getBuilder(this.name(pBlock, "lower"))
-			.parent(this.getExistingFile(this.file(pBlock, "lower_solid")))
-			.customLoader(CompositeModelBuilder::begin)
-			.child("solid", this.nested().parent(this.getExistingFile(this.file(pBlock, "lower_solid"))))
-			.child("glass", this.nested().parent(this.getExistingFile(this.file(pBlock, "lower_glass"))))
-			.end();
-		this.getBuilder(this.name(pBlock, "lower_lit"))
-			.parent(this.getExistingFile(this.file(pBlock, "lower_solid_lit")))
-			.customLoader(CompositeModelBuilder::begin)
-			.child("solid", this.nested().parent(this.getExistingFile(this.file(pBlock, "lower_solid_lit"))))
-			.child("glass", this.nested().parent(this.getExistingFile(this.file(pBlock, "lower_glass"))))
-			.end();
-		this.getBuilder(this.name(pBlock, "upper"))
-			.parent(this.getExistingFile(this.file(pBlock, "upper_solid")))
-			.customLoader(CompositeModelBuilder::begin)
-			.child("solid", this.nested().parent(this.getExistingFile(this.file(pBlock, "upper_solid"))))
-			.child("glass", this.nested().parent(this.getExistingFile(this.file(pBlock, "upper_glass"))))
-			.end();
-	}
-
-	public void kiln(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_kiln_inventory"))
-			.texture("kiln", this.file(IcariaIdents.ID, "kiln"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("yellowstone_bricks", this.file(IcariaIdents.ID, "yellowstone_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "yellowstone_bricks"));
-		this.withExistingParent(this.name(pBlock, "lower"), this.file(IcariaIdents.ID, "template_kiln_lower"))
-			.texture("kiln", this.file(IcariaIdents.ID, "kiln"))
-			.texture("loam_bricks", this.file(IcariaIdents.ID, "loam_bricks"))
-			.texture("yellowstone_bricks", this.file(IcariaIdents.ID, "yellowstone_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "yellowstone_bricks"));
-		this.withExistingParent(this.name(pBlock, "upper"), this.file(IcariaIdents.ID, "template_kiln_upper"))
-			.texture("kiln", this.file(IcariaIdents.ID, "kiln"))
-			.texture("laurel_planks", this.file(IcariaIdents.ID, "laurel_planks"))
-			.texture("yellowstone_bricks", this.file(IcariaIdents.ID, "yellowstone_bricks"))
-			.texture("particle", this.file(IcariaIdents.ID, "yellowstone_bricks"));
-	}
-
-	public void ladder(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "ladder"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void largeBrownGroundShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_large_brown_ground_shrooms_0"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_large_brown_ground_shrooms_1"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_large_brown_ground_shrooms_2"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void ligniteTorch(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_lignite_torch"))
-			.texture("torch_bone", this.file(IcariaIdents.ID, "torch_bone"))
-			.texture("torch_coal", this.file(IcariaIdents.ID, "torch_coal"))
-			.texture("particle", this.file(IcariaIdents.ID, "torch_bone"));
-	}
-
-	public void ligniteWallTorch(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_lignite_wall_torch"))
-			.texture("torch_bone", this.file(IcariaIdents.ID, "torch_bone"))
-			.texture("torch_coal", this.file(IcariaIdents.ID, "torch_coal"))
-			.texture("torch_metal", this.file(IcariaIdents.ID, "torch_metal"))
-			.texture("particle", this.file(IcariaIdents.ID, "torch_bone"));
-	}
-
-	public void loadedBarrel(Block pLoadedBarrel, Block pBarrel, Block pPlanks) {
-		this.withExistingParent(this.name(pLoadedBarrel), this.file(IcariaIdents.ID, "template_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pLoadedBarrel, "front"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name("standing", pLoadedBarrel), this.file(IcariaIdents.ID, "template_standing_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pLoadedBarrel, "front"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void lootVase(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_loot_vase_0"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_loot_vase_1"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_loot_vase_2"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_loot_vase_3"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.ID, "template_loot_vase_4"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "5"), this.file(IcariaIdents.ID, "template_loot_vase_5"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "6"), this.file(IcariaIdents.ID, "template_loot_vase_6"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "7"), this.file(IcariaIdents.ID, "template_loot_vase_7"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "8"), this.file(IcariaIdents.ID, "template_loot_vase_8"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-		this.withExistingParent(this.name(pBlock, "9"), this.file(IcariaIdents.ID, "template_loot_vase_9"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "particle"));
-	}
-
-	public void mondanos(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_mondanos"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void moss(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_layer_1"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_layer_2"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_layer_3"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.ID, "template_layer_4"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "5"), this.file(IcariaIdents.ID, "template_layer_5"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "6"), this.file(IcariaIdents.ID, "template_layer_6"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "7"), this.file(IcariaIdents.ID, "template_layer_7"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "8"), this.file(IcariaIdents.ID, "template_layer_8"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void mothAgaric(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_moth_agaric"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void namdrake(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_namdrake"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void oliveLeaves(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.texture("all", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name("black", pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.texture("all", this.file("black", pBlock))
-			.texture("particle", this.file("black", pBlock));
-		this.withExistingParent(this.name("green", pBlock), this.file(IcariaIdents.MC, "cube_all"))
-			.texture("all", this.file("green", pBlock))
-			.texture("particle", this.file("green", pBlock));
-	}
-
-	public void overlayTextureBlock(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_block"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void overlayTextureCross(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_cross"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "overlay"));
-	}
-
-	public void overlayTextureFlowerPotCross(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_overlay_texture_flower_pot_cross"))
-			.renderType("cutout")
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("overlay", this.file(pFile, "overlay"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void overlayTextureVine(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name("dead", pBlock), this.file(IcariaIdents.ID, "template_dead_vine"))
-			.renderType("cutout")
-			.texture("texture", this.file("dead", pBlock))
-			.texture("particle", this.file("dead", pBlock));
-		this.withExistingParent(this.name("growing", pBlock), this.file(IcariaIdents.ID, "template_overlay_texture_vine"))
-			.renderType("cutout")
-			.texture("overlay", this.file("growing", pBlock, "overlay"))
-			.texture("texture", this.file("growing", pBlock))
-			.texture("particle", this.file("growing", pBlock));
-	}
-
-	public void palmFern(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_palm_fern"))
-			.renderType("cutout")
-			.texture("overlay", this.file(pBlock, "overlay"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "overlay"));
-	}
-
-	public void pane(Block pEdge, Block pPane) {
-		this.withExistingParent(this.name(pEdge, "inventory"), this.file(IcariaIdents.ID, "template_pane_inventory"))
-			.texture("edge", this.file(pEdge))
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-		this.withExistingParent(this.name(pEdge, "noside"), this.file(IcariaIdents.MC, "template_glass_pane_noside"))
-			.renderType("cutout")
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-		this.withExistingParent(this.name(pEdge, "noside_alt"), this.file(IcariaIdents.MC, "template_glass_pane_noside_alt"))
-			.renderType("cutout")
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-		this.withExistingParent(this.name(pEdge, "post"), this.file(IcariaIdents.MC, "template_glass_pane_post"))
-			.renderType("cutout")
-			.texture("edge", this.file(pEdge))
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-		this.withExistingParent(this.name(pEdge, "side"), this.file(IcariaIdents.MC, "template_glass_pane_side"))
-			.renderType("cutout")
-			.texture("edge", this.file(pEdge))
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-		this.withExistingParent(this.name(pEdge, "side_alt"), this.file(IcariaIdents.MC, "template_glass_pane_side_alt"))
-			.renderType("cutout")
-			.texture("edge", this.file(pEdge))
-			.texture("pane", this.file(pPane))
-			.texture("particle", this.file(pPane));
-	}
-
-	public void particle(Block pName, Block pFile) {
-		this.getBuilder(this.name(pName))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void physalisCrop(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_physalis_crop_0"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "0"))
-			.texture("particle", this.file(pBlock, "0"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_physalis_crop_1"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_physalis_crop_1"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "1"))
-			.texture("particle", this.file(pBlock, "1"));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_physalis_crop_2"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "2"))
-			.texture("particle", this.file(pBlock, "2"));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.ID, "template_physalis_crop_2"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "2"))
-			.texture("particle", this.file(pBlock, "2"));
-		this.withExistingParent(this.name(pBlock, "5"), this.file(IcariaIdents.ID, "template_physalis_crop_3"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "3"))
-			.texture("particle", this.file(pBlock, "3"));
-		this.withExistingParent(this.name(pBlock, "6"), this.file(IcariaIdents.ID, "template_physalis_crop_3"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "3"))
-			.texture("particle", this.file(pBlock, "3"));
-		this.withExistingParent(this.name(pBlock, "7"), this.file(IcariaIdents.ID, "template_physalis_crop_4"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock, "4"))
-			.texture("particle", this.file(pBlock, "4"));
-	}
-
-	public void portal(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "x"), this.file(IcariaIdents.ID, "template_portal_x"))
-			.renderType("translucent")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "z"), this.file(IcariaIdents.ID, "template_portal_z"))
-			.renderType("translucent")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void pottedBromelia(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_bromelia"))
-			.renderType("cutout")
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("overlay", this.file(pFile, "overlay"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pottedBrownGroundShrooms(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_brown_ground_shrooms"))
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("shroom", this.file(pFile))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pottedCardonCactus(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_cardon_cactus"))
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("cactus", this.file(pFile, "side"))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pottedGreenGroundShrooms(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_green_ground_shrooms"))
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("shroom", this.file(pFile))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pottedLargeBrownGroundShrooms(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_large_brown_ground_shrooms"))
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("shroom", this.file(pFile))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_ground_shrooms"))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pottedPalmFern(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_potted_palm_fern"))
-			.renderType("cutout")
-			.texture("dirt", this.file(IcariaIdents.MC, "dirt"))
-			.texture("overlay", this.file(pFile, "overlay"))
-			.texture("pot", this.file(IcariaIdents.MC, "flower_pot"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void pressurePlate(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "pressure_plate_up"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "down"), this.file(IcariaIdents.MC, "pressure_plate_down"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void psilocybos(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_psilocybos"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void quartzPillarHead(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.MC, "quartz_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "quartz_pillar_head"))
-			.texture("top", this.file(IcariaIdents.MC, "chiseled_quartz_block_top"))
-			.texture("particle", this.file(IcariaIdents.ID, "quartz_pillar_head"));
-		this.withExistingParent(this.name(pBlock, "inverted"), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.MC, "quartz_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "quartz_pillar_head_inverted"))
-			.texture("top", this.file(IcariaIdents.MC, "chiseled_quartz_block_top"))
-			.texture("particle", this.file(IcariaIdents.ID, "quartz_pillar_head_inverted"));
-	}
-
-	public void quartzWall(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.MC, "wall_inventory"))
-			.texture("wall", this.file(IcariaIdents.MC, "quartz_block_side"))
-			.texture("particle", this.file(IcariaIdents.MC, "quartz_block_side"));
-		this.withExistingParent(this.name(pBlock, "post"), this.file(IcariaIdents.MC, "template_wall_post"))
-			.texture("wall", this.file(IcariaIdents.MC, "quartz_block_side"))
-			.texture("particle", this.file(IcariaIdents.MC, "quartz_block_side"));
-		this.withExistingParent(this.name(pBlock, "side"), this.file(IcariaIdents.MC, "template_wall_side"))
-			.texture("wall", this.file(IcariaIdents.MC, "quartz_block_side"))
-			.texture("particle", this.file(IcariaIdents.MC, "quartz_block_side"));
-		this.withExistingParent(this.name(pBlock, "side_tall"), this.file(IcariaIdents.MC, "template_wall_side_tall"))
-			.texture("wall", this.file(IcariaIdents.MC, "quartz_block_side"))
-			.texture("particle", this.file(IcariaIdents.MC, "quartz_block_side"));
-	}
-
-	public void rack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_rack"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName).replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_barrel_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name("loaded", pName).replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_barrel_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pLoadedBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name("tapped", pName).replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_tapped_barrel_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void relicstonePillarHead(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "relicstone_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "relicstone_pillar_head"))
-			.texture("top", this.file(IcariaIdents.ID, "relicstone_pillar_head_top"))
-			.texture("particle", this.file(IcariaIdents.ID, "relicstone_pillar_head"));
-		this.withExistingParent(this.name(pBlock, "inverted"), this.file(IcariaIdents.MC, "cube_bottom_top"))
-			.texture("bottom", this.file(IcariaIdents.ID, "relicstone_pillar_top"))
-			.texture("side", this.file(IcariaIdents.ID, "relicstone_pillar_head_inverted"))
-			.texture("top", this.file(IcariaIdents.ID, "relicstone_pillar_head_top"))
-			.texture("particle", this.file(IcariaIdents.ID, "relicstone_pillar_head_inverted"));
-	}
-
-	public void rowan(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_rowan"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void rubble(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName, "0"), this.file(IcariaIdents.ID, "template_rubble_0"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "1"), this.file(IcariaIdents.ID, "template_rubble_1"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "2"), this.file(IcariaIdents.ID, "template_rubble_2"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "3"), this.file(IcariaIdents.ID, "template_rubble_3"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "4"), this.file(IcariaIdents.ID, "template_rubble_4"))
-			.texture("texture", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void simpleRack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_simple_rack"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pLog));
-		this.withExistingParent(this.name(pName).replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_simple_barrel_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name(pName).replace("simple", "simple_loaded").replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_simple_barrel_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pLoadedBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name(pName).replace("simple", "simple_tapped").replace("rack", "barrel_rack"), this.file(IcariaIdents.ID, "template_simple_tapped_rack"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void slab(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "slab"))
-			.texture("bottom", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("top", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "top"), this.file(IcariaIdents.MC, "slab_top"))
-			.texture("bottom", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("top", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void stairs(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "stairs"))
-			.texture("bottom", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("top", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "inner"), this.file(IcariaIdents.MC, "inner_stairs"))
-			.texture("bottom", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("top", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "outer"), this.file(IcariaIdents.MC, "outer_stairs"))
-			.texture("bottom", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("top", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void storageVase(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_storage_vase"))
-			.texture("dark", this.file(pBlock, "dark"))
-			.texture("lite", this.file(pBlock, "lite"))
-			.texture("neck", this.file(pBlock, "neck"))
-			.texture("vase", this.file(pBlock))
-			.texture("particle", this.file(pBlock, "dark"));
-	}
-
-	public void strawberryBush(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "0"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_0"))
-			.texture("particle", this.file(pBlock, "horizontal_0"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "1"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_1"))
-			.texture("particle", this.file(pBlock, "horizontal_1"));
-	}
-
-	public void strawberryCrop(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "0"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_0"))
-			.texture("particle", this.file(pBlock, "horizontal_0"));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "1"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_1"))
-			.texture("particle", this.file(pBlock, "horizontal_1"));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "1"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_1"))
-			.texture("particle", this.file(pBlock, "horizontal_1"));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "2"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_2"))
-			.texture("particle", this.file(pBlock, "horizontal_2"));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "2"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_2"))
-			.texture("particle", this.file(pBlock, "horizontal_2"));
-		this.withExistingParent(this.name(pBlock, "5"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "3"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_3"))
-			.texture("particle", this.file(pBlock, "horizontal_3"));
-		this.withExistingParent(this.name(pBlock, "6"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "3"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_3"))
-			.texture("particle", this.file(pBlock, "horizontal_3"));
-		this.withExistingParent(this.name(pBlock, "7"), this.file(IcariaIdents.ID, "template_strawberry_bush"))
-			.renderType("cutout")
-			.texture("bush", this.file(pBlock, "4"))
-			.texture("bush_horizontal", this.file(pBlock, "horizontal_4"))
-			.texture("particle", this.file(pBlock, "horizontal_4"));
-	}
-
-	public void strippedDeadLog(Block pName, Block pStrippedLog) {
-		this.withExistingParent(this.name(pName, "0"), this.file(IcariaIdents.ID, "template_stripped_dead_log_0"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-		this.withExistingParent(this.name(pName, "horizontal_0"), this.file(IcariaIdents.ID, "template_stripped_dead_log_horizontal_0"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-		this.withExistingParent(this.name(pName, "1"), this.file(IcariaIdents.ID, "template_stripped_dead_log_1"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-		this.withExistingParent(this.name(pName, "horizontal_1"), this.file(IcariaIdents.ID, "template_stripped_dead_log_horizontal_1"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-		this.withExistingParent(this.name(pName, "2"), this.file(IcariaIdents.ID, "template_stripped_dead_log_2"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-		this.withExistingParent(this.name(pName, "horizontal_2"), this.file(IcariaIdents.ID, "template_stripped_dead_log_horizontal_2"))
-			.texture("log", this.file(pStrippedLog))
-			.texture("log_top", this.file(pStrippedLog, "top"))
-			.texture("particle", this.file(pStrippedLog));
-	}
-
-	public void surfaceBones(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_surface_bones"))
-			.texture("texture", this.file(IcariaIdents.ID, "surface_bones"))
-			.texture("particle", this.file(IcariaIdents.ID, "surface_bones"));
-	}
-
-	public void surfaceChert(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_surface_chert"))
-			.texture("texture", this.file(IcariaIdents.ID, "surface_chert"))
-			.texture("particle", this.file(IcariaIdents.ID, "surface_chert"));
-	}
-
-	public void tappedBarrel(Block pTappedBarrel, Block pBarrel, Block pPlanks) {
-		this.withExistingParent(this.name(pTappedBarrel), this.file(IcariaIdents.ID, "template_tapped_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name("standing", pTappedBarrel), this.file(IcariaIdents.ID, "template_standing_tapped_barrel"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void tinderFungusTreeShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_0"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_1"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_2"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void tintedCross(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "tinted_cross"))
-			.renderType("cutout")
-			.texture("cross", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void tintedFlowerPotCross(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "tinted_flower_pot_cross"))
-			.renderType("cutout")
-			.texture("plant", this.file(pFile))
-			.texture("particle", this.file(IcariaIdents.MC, "flower_pot"));
-	}
-
-	public void trapdoor(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "bottom"), this.file(IcariaIdents.MC, "template_orientable_trapdoor_bottom"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "open"), this.file(IcariaIdents.MC, "template_orientable_trapdoor_open"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "top"), this.file(IcariaIdents.MC, "template_orientable_trapdoor_top"))
-			.renderType("cutout")
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void tripleBarrelRack(Block pBlock, Block pBarrel, Block pLog, Block pPlanks) {
-		this.withExistingParent(this.name(pBlock, "inventory"), this.file(IcariaIdents.ID, "template_triple_barrel_rack_inventory"))
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name(pBlock, "top_left"), this.file(IcariaIdents.ID, "template_triple_barrel_rack_top_left"))
-			.renderType("cutout")
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("barrel_back", this.file(pBarrel, "back"))
-			.texture("barrel_front", this.file(pBarrel, "front"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-		this.withExistingParent(this.name(pBlock, "top_right"), this.file(IcariaIdents.ID, "template_triple_barrel_rack_top_right"))
-			.renderType("cutout")
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void trough(Block pName, Block pLog, Block pPlanks) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.ID, "template_trough"))
-			.texture("anvil", this.file(IcariaIdents.MC, "anvil"))
-			.texture("log", this.file(pLog))
-			.texture("planks", this.file(pPlanks))
-			.texture("particle", this.file(pPlanks));
-	}
-
-	public void turkeyTailTreeShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_0"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_1"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_2"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void twigs(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_twigs_0"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_twigs_1"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_twigs_2"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "3"), this.file(IcariaIdents.ID, "template_twigs_3"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "4"), this.file(IcariaIdents.ID, "template_twigs_4"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void unnamedTreeShrooms(Block pBlock) {
-		this.withExistingParent(this.name(pBlock, "0"), this.file(IcariaIdents.ID, "template_unnamed_tree_shrooms_0"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_tree_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "1"), this.file(IcariaIdents.ID, "template_unnamed_tree_shrooms_1"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_tree_shrooms"))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name(pBlock, "2"), this.file(IcariaIdents.ID, "template_unnamed_tree_shrooms_2"))
-			.texture("shroom", this.file(pBlock))
-			.texture("stem", this.file(IcariaIdents.ID, "stem_tree_shrooms"))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void vine(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.MC, "vine"))
-			.renderType("cutout")
-			.texture("vine", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-		this.withExistingParent(this.name("dead", pBlock), this.file(IcariaIdents.MC, "vine"))
-			.renderType("cutout")
-			.texture("vine", this.file("dead", pBlock))
-			.texture("particle", this.file("dead", pBlock));
-		this.withExistingParent(this.name("growing", pBlock), this.file(IcariaIdents.MC, "vine"))
-			.renderType("cutout")
-			.texture("vine", this.file("growing", pBlock))
-			.texture("particle", this.file("growing", pBlock));
-	}
-
-	public void wall(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName, "inventory"), this.file(IcariaIdents.MC, "wall_inventory"))
-			.texture("wall", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "post"), this.file(IcariaIdents.MC, "template_wall_post"))
-			.texture("wall", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "side"), this.file(IcariaIdents.MC, "template_wall_side"))
-			.texture("wall", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "side_tall"), this.file(IcariaIdents.MC, "template_wall_side_tall"))
-			.texture("wall", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void water(Block pBlock) {
-		this.getBuilder(this.name(pBlock));
-	}
-
-	public void wiltedElm(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_wilted_elm"))
-			.texture("texture", this.file(pBlock))
-			.texture("particle", this.file(pBlock));
-	}
-
-	public void wood(Block pName, Block pFile) {
-		this.withExistingParent(this.name(pName), this.file(IcariaIdents.MC, "cube_column"))
-			.texture("end", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("particle", this.file(pFile));
-		this.withExistingParent(this.name(pName, "horizontal"), this.file(IcariaIdents.MC, "cube_column_horizontal"))
-			.texture("end", this.file(pFile))
-			.texture("side", this.file(pFile))
-			.texture("particle", this.file(pFile));
-	}
-
-	public void zirconCrystal(Block pBlock) {
-		this.withExistingParent(this.name(pBlock), this.file(IcariaIdents.ID, "template_zircon_crystal"))
-			.texture("texture", this.file(IcariaIdents.ID, "zircon_crystal"))
-			.texture("particle", this.file(IcariaIdents.ID, "zircon_crystal"));
-	}
-
-	public void anthraciteTorchModel() {
-		AnthraciteTorchModel.template(this.getBuilder("template_anthracite_torch"), this.getVanilla("block"));
-	}
-
-	public void anthraciteWallTorchModel() {
-		AnthraciteWallTorchModel.template(this.getBuilder("template_anthracite_wall_torch"), this.getVanilla("block"));
-	}
-
-	public void barrelModel() {
-		BarrelModel.barrel(this.getBuilder("template_barrel"), this.getVanilla("block"));
-		BarrelModel.standingBarrel(this.getBuilder("template_standing_barrel"), this.getVanilla("block"));
-	}
-
-	public void barsInventoryModel() {
-		BarsInventoryModel.template(this.getBuilder("template_bars_inventory"), this.getVanilla("block"));
-	}
-
-	public void bolbosModel() {
-		BolbosModel.template(this.getBuilder("template_bolbos"), this.getVanilla("block"));
-	}
-
-	public void bromeliaModel() {
-		BromeliaModel.template(this.getBuilder("template_bromelia"), this.getVanilla("block"));
-	}
-
-	public void brownGroundShroomsModel() {
-		BrownGroundShroomsModel.template0(this.getBuilder("template_brown_ground_shrooms_0"), this.getVanilla("block"));
-		BrownGroundShroomsModel.template1(this.getBuilder("template_brown_ground_shrooms_1"), this.getVanilla("block"));
-		BrownGroundShroomsModel.template2(this.getBuilder("template_brown_ground_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void cakeModel() {
-		CakeModel.template0(this.getBuilder("template_cake_0"), this.getVanilla("block"));
-		CakeModel.template1(this.getBuilder("template_cake_1"), this.getVanilla("block"));
-		CakeModel.template2(this.getBuilder("template_cake_2"), this.getVanilla("block"));
-		CakeModel.template3(this.getBuilder("template_cake_3"), this.getVanilla("block"));
-	}
-
-	public void calciteCrystalModel() {
-		CalciteCrystalModel.template(this.getBuilder("template_calcite_crystal"), this.getVanilla("block"));
-	}
-
-	public void cardonCactusModel() {
-		CardonCactusModel.cube(this.getBuilder("template_cardon_cactus_cube"), this.getVanilla("block"));
-		CardonCactusModel.stem(this.getBuilder("template_cardon_cactus_stem"), this.getVanilla("block"));
-	}
-
-	public void cardonCactusInventoryModel() {
-		CardonCactusInventoryModel.template(this.getBuilder("template_cardon_cactus_inventory"), this.getVanilla("block"));
-	}
-
-	public void dathullaModel() {
-		DathullaModel.template(this.getBuilder("template_dathulla"), this.getVanilla("block"));
-	}
-
-	public void deadLogModel() {
-		DeadLogModel.log0(this.getBuilder("template_dead_log_0"), this.getVanilla("block"));
-		DeadLogModel.logHorizontal0(this.getBuilder("template_dead_log_horizontal_0"), this.getVanilla("block"));
-		DeadLogModel.log1(this.getBuilder("template_dead_log_1"), this.getVanilla("block"));
-		DeadLogModel.logHorizontal1(this.getBuilder("template_dead_log_horizontal_1"), this.getVanilla("block"));
-		DeadLogModel.log2(this.getBuilder("template_dead_log_2"), this.getVanilla("block"));
-		DeadLogModel.logHorizontal2(this.getBuilder("template_dead_log_horizontal_2"), this.getVanilla("block"));
-	}
-
-	public void deadVineModel() {
-		DeadVineModel.template(this.getBuilder("template_dead_vine"), this.getVanilla("block"));
-	}
-
-	public void forgeModel() {
-		ForgeModel.bottomBackLeft(this.getBuilder("template_forge_bottom_back_left"), this.getVanilla("block"));
-		ForgeModel.bottomBackRight(this.getBuilder("template_forge_bottom_back_right"), this.getVanilla("block"));
-		ForgeModel.bottomFrontLeft(this.getBuilder("template_forge_bottom_front_left"), this.getVanilla("block"));
-		ForgeModel.bottomFrontRight(this.getBuilder("template_forge_bottom_front_right"), this.getVanilla("block"));
-		ForgeModel.bottomFrontRightLit(this.getBuilder("template_forge_bottom_front_right_lit"), this.getVanilla("block"));
-		ForgeModel.topBackLeft(this.getBuilder("template_forge_top_back_left"), this.getVanilla("block"));
-		ForgeModel.topBackRight(this.getBuilder("template_forge_top_back_right"), this.getVanilla("block"));
-		ForgeModel.topFrontLeft(this.getBuilder("template_forge_top_front_left"), this.getVanilla("block"));
-		ForgeModel.topFrontRight(this.getBuilder("template_forge_top_front_right"), this.getVanilla("block"));
-	}
-
-	public void forgeInventoryModel() {
-		ForgeInventoryModel.template(this.getBuilder("template_forge_inventory"), this.getVanilla("block"));
-	}
-
-	public void greenGroundShroomsModel() {
-		GreenGroundShroomsModel.template0(this.getBuilder("template_green_ground_shrooms_0"), this.getVanilla("block"));
-		GreenGroundShroomsModel.template1(this.getBuilder("template_green_ground_shrooms_1"), this.getVanilla("block"));
-		GreenGroundShroomsModel.template2(this.getBuilder("template_green_ground_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void grinderModel() {
-		GrinderModel.left(this.getBuilder("template_grinder_left"), this.getVanilla("block"));
-		GrinderModel.right(this.getBuilder("template_grinder_right"), this.getVanilla("block"));
-	}
-
-	public void grinderInventoryModel() {
-		GrinderInventoryModel.template(this.getBuilder("template_grinder_inventory"), this.getVanilla("block"));
-	}
-
-	public void grinderShaftModel() {
-		GrinderShaftModel.template(this.getBuilder("template_grinder_shaft"), this.getVanilla("block"));
-	}
-
-	public void grinderStoneModel() {
-		GrinderStoneModel.template(this.getBuilder("template_grinder_stone"), this.getVanilla("block"));
-	}
-
-	public void groundFlowersModel() {
-		GroundFlowersModel.template(this.getBuilder("template_ground_flowers"), this.getVanilla("block"));
-	}
-
-	public void haliteCrystalModel() {
-		HaliteCrystalModel.template(this.getBuilder("template_halite_crystal"), this.getVanilla("block"));
-	}
-
-	public void horizontalBarsModel() {
-		HorizontalBarsModel.template(this.getBuilder("template_horizontal_bars"), this.getVanilla("block"));
-	}
-
-	public void horizontalPaneModel() {
-		HorizontalPaneModel.template(this.getBuilder("template_horizontal_pane"), this.getVanilla("block"));
-	}
-
-	public void jasperCrystalModel() {
-		JasperCrystalModel.template(this.getBuilder("template_jasper_crystal"), this.getVanilla("block"));
-	}
-
-	public void kettleModel() {
-		KettleModel.lowerSolid(this.getBuilder("template_kettle_lower_solid"), this.getVanilla("block"));
-		KettleModel.lowerSolidLit(this.getBuilder("template_kettle_lower_solid_lit"), this.getVanilla("block"));
-		KettleModel.lowerGlass(this.getBuilder("template_kettle_lower_glass"), this.getVanilla("block"));
-		KettleModel.upperSolid(this.getBuilder("template_kettle_upper_solid"), this.getVanilla("block"));
-		KettleModel.upperGlass(this.getBuilder("template_kettle_upper_glass"), this.getVanilla("block"));
-	}
-
-	public void kettleInventoryModel() {
-		KettleInventoryModel.template(this.getBuilder("template_kettle_inventory"), this.getVanilla("block"));
-	}
-
-	public void kilnModel() {
-		KilnModel.lower(this.getBuilder("template_kiln_lower"), this.getVanilla("block"));
-		KilnModel.upper(this.getBuilder("template_kiln_upper"), this.getVanilla("block"));
-	}
-
-	public void kilnInventoryModel() {
-		KilnInventoryModel.template(this.getBuilder("template_kiln_inventory"), this.getVanilla("block"));
-	}
-
-	public void largeBrownGroundShroomsModel() {
-		LargeBrownGroundShroomsModel.template0(this.getBuilder("template_large_brown_ground_shrooms_0"), this.getVanilla("block"));
-		LargeBrownGroundShroomsModel.template1(this.getBuilder("template_large_brown_ground_shrooms_1"), this.getVanilla("block"));
-		LargeBrownGroundShroomsModel.template2(this.getBuilder("template_large_brown_ground_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void layerModel() {
-		LayerModel.template1(this.getBuilder("template_layer_1"), this.getVanilla("block"));
-		LayerModel.template2(this.getBuilder("template_layer_2"), this.getVanilla("block"));
-		LayerModel.template3(this.getBuilder("template_layer_3"), this.getVanilla("block"));
-		LayerModel.template4(this.getBuilder("template_layer_4"), this.getVanilla("block"));
-		LayerModel.template5(this.getBuilder("template_layer_5"), this.getVanilla("block"));
-		LayerModel.template6(this.getBuilder("template_layer_6"), this.getVanilla("block"));
-		LayerModel.template7(this.getBuilder("template_layer_7"), this.getVanilla("block"));
-		LayerModel.template8(this.getBuilder("template_layer_8"), this.getVanilla("block"));
-	}
-
-	public void ligniteTorchModel() {
-		LigniteTorchModel.template(this.getBuilder("template_lignite_torch"), this.getVanilla("block"));
-	}
-
-	public void ligniteWallTorchModel() {
-		LigniteWallTorchModel.template(this.getBuilder("template_lignite_wall_torch"), this.getVanilla("block"));
-	}
-
-	public void lootVaseModel() {
-		LootVaseModel.template0(this.getBuilder("template_loot_vase_0"), this.getVanilla("block"));
-		LootVaseModel.template1(this.getBuilder("template_loot_vase_1"), this.getVanilla("block"));
-		LootVaseModel.template2(this.getBuilder("template_loot_vase_2"), this.getVanilla("block"));
-		LootVaseModel.template3(this.getBuilder("template_loot_vase_3"), this.getVanilla("block"));
-		LootVaseModel.template4(this.getBuilder("template_loot_vase_4"), this.getVanilla("block"));
-		LootVaseModel.template5(this.getBuilder("template_loot_vase_5"), this.getVanilla("block"));
-		LootVaseModel.template6(this.getBuilder("template_loot_vase_6"), this.getVanilla("block"));
-		LootVaseModel.template7(this.getBuilder("template_loot_vase_7"), this.getVanilla("block"));
-		LootVaseModel.template8(this.getBuilder("template_loot_vase_8"), this.getVanilla("block"));
-		LootVaseModel.template9(this.getBuilder("template_loot_vase_9"), this.getVanilla("block"));
-	}
-
-	public void mondanosModel() {
-		MondanosModel.template(this.getBuilder("template_mondanos"), this.getVanilla("block"));
-	}
-
-	public void mothAgaricModel() {
-		MothAgaricModel.template(this.getBuilder("template_moth_agaric"), this.getVanilla("block"));
-	}
-
-	public void namdrakeModel() {
-		NamdrakeModel.template(this.getBuilder("template_namdrake"), this.getVanilla("block"));
-	}
-
-	public void overlayTextureBlockModel() {
-		OverlayTextureBlockModel.template(this.getBuilder("template_overlay_texture_block"), this.getVanilla("block"));
-	}
-
-	public void overlayTextureCrossModel() {
-		OverlayTextureCrossModel.template(this.getBuilder("template_overlay_texture_cross"), this.getVanilla("block"));
-	}
-
-	public void overlayTextureFlowerPotCrossModel() {
-		OverlayTextureFlowerPotCrossModel.template(this.getBuilder("template_overlay_texture_flower_pot_cross"), this.getVanilla("block"));
-	}
-
-	public void overlayTextureVineModel() {
-		OverlayTextureVineModel.template(this.getBuilder("template_overlay_texture_vine"), this.getVanilla("block"));
-	}
-
-	public void palmFernModel() {
-		PalmFernModel.template(this.getBuilder("template_palm_fern"), this.getVanilla("block"));
-	}
-
-	public void paneInventoryModel() {
-		PaneInventoryModel.template(this.getBuilder("template_pane_inventory"), this.getVanilla("block"));
-	}
-
-	public void physalisCropModel() {
-		PhysalisCropModel.template0(this.getBuilder("template_physalis_crop_0"), this.getVanilla("block"));
-		PhysalisCropModel.template1(this.getBuilder("template_physalis_crop_1"), this.getVanilla("block"));
-		PhysalisCropModel.template2(this.getBuilder("template_physalis_crop_2"), this.getVanilla("block"));
-		PhysalisCropModel.template3(this.getBuilder("template_physalis_crop_3"), this.getVanilla("block"));
-		PhysalisCropModel.template4(this.getBuilder("template_physalis_crop_4"), this.getVanilla("block"));
-	}
-
-	public void portalModel() {
-		PortalModel.x(this.getBuilder("template_portal_x"), this.getVanilla("block"));
-		PortalModel.z(this.getBuilder("template_portal_z"), this.getVanilla("block"));
-	}
-
-	public void pottedBromeliaModel() {
-		PottedBromeliaModel.template(this.getBuilder("template_potted_bromelia"), this.getVanilla("block"));
-	}
-
-	public void pottedBrownGroundShroomsModel() {
-		PottedBrownGroundShroomsModel.template(this.getBuilder("template_potted_brown_ground_shrooms"), this.getVanilla("block"));
-	}
-
-	public void pottedCardonCactusModel() {
-		PottedCardonCactusModel.template(this.getBuilder("template_potted_cardon_cactus"), this.getVanilla("block"));
-	}
-
-	public void pottedGreenGroundShroomsModel() {
-		PottedGreenGroundShroomsModel.template(this.getBuilder("template_potted_green_ground_shrooms"), this.getVanilla("block"));
-	}
-
-	public void pottedLargeBrownGroundShroomsModel() {
-		PottedLargeBrownGroundShroomsModel.template(this.getBuilder("template_potted_large_brown_ground_shrooms"), this.getVanilla("block"));
-	}
-
-	public void pottedPalmFernModel() {
-		PottedPalmFernModel.template(this.getBuilder("template_potted_palm_fern"), this.getVanilla("block"));
-	}
-
-	public void psilocybosModel() {
-		PsilocybosModel.template(this.getBuilder("template_psilocybos"), this.getVanilla("block"));
-	}
-
-	public void rackModel() {
-		RackModel.simple(this.getBuilder("template_rack"), this.getVanilla("block"));
-		RackModel.barrel(this.getBuilder("template_barrel_rack"), this.getVanilla("block"));
-		RackModel.tapped(this.getBuilder("template_tapped_barrel_rack"), this.getVanilla("block"));
-	}
-
-	public void rowanModel() {
-		RowanModel.template(this.getBuilder("template_rowan"), this.getVanilla("block"));
-	}
-
-	public void rubbleModel() {
-		RubbleModel.template0(this.getBuilder("template_rubble_0"), this.getVanilla("block"));
-		RubbleModel.template1(this.getBuilder("template_rubble_1"), this.getVanilla("block"));
-		RubbleModel.template2(this.getBuilder("template_rubble_2"), this.getVanilla("block"));
-		RubbleModel.template3(this.getBuilder("template_rubble_3"), this.getVanilla("block"));
-		RubbleModel.template4(this.getBuilder("template_rubble_4"), this.getVanilla("block"));
-	}
-
-	public void simpleRackModel() {
-		SimpleRackModel.simple(this.getBuilder("template_simple_rack"), this.getVanilla("block"));
-		SimpleRackModel.barrel(this.getBuilder("template_simple_barrel_rack"), this.getVanilla("block"));
-		SimpleRackModel.tapped(this.getBuilder("template_simple_tapped_rack"), this.getVanilla("block"));
-	}
-
-	public void storageVaseModel() {
-		StorageVaseModel.template(this.getBuilder("template_storage_vase"), this.getVanilla("block"));
-	}
-
-	public void strawberryBushModel() {
-		StrawberryBushModel.template(this.getBuilder("template_strawberry_bush"), this.getVanilla("block"));
-	}
-
-	public void strippedDeadLogModel() {
-		StrippedDeadLogModel.log0(this.getBuilder("template_stripped_dead_log_0"), this.getVanilla("block"));
-		StrippedDeadLogModel.logHorizontal0(this.getBuilder("template_stripped_dead_log_horizontal_0"), this.getVanilla("block"));
-		StrippedDeadLogModel.log1(this.getBuilder("template_stripped_dead_log_1"), this.getVanilla("block"));
-		StrippedDeadLogModel.logHorizontal1(this.getBuilder("template_stripped_dead_log_horizontal_1"), this.getVanilla("block"));
-		StrippedDeadLogModel.log2(this.getBuilder("template_stripped_dead_log_2"), this.getVanilla("block"));
-		StrippedDeadLogModel.logHorizontal2(this.getBuilder("template_stripped_dead_log_horizontal_2"), this.getVanilla("block"));
-	}
-
-	public void surfaceBonesModel() {
-		SurfaceBonesModel.template(this.getBuilder("template_surface_bones"), this.getVanilla("block"));
-	}
-
-	public void surfaceChertModel() {
-		SurfaceChertModel.template(this.getBuilder("template_surface_chert"), this.getVanilla("block"));
-	}
-
-	public void tappedBarrelModel() {
-		TappedBarrelModel.barrel(this.getBuilder("template_tapped_barrel"), this.getVanilla("block"));
-		TappedBarrelModel.standingBarrel(this.getBuilder("template_standing_tapped_barrel"), this.getVanilla("block"));
-	}
-
-	public void tinderFungusTreeShroomsModel() {
-		TinderFungusTreeShroomsModel.template0(this.getBuilder("template_tinder_fungus_tree_shrooms_0"), this.getVanilla("block"));
-		TinderFungusTreeShroomsModel.template1(this.getBuilder("template_tinder_fungus_tree_shrooms_1"), this.getVanilla("block"));
-		TinderFungusTreeShroomsModel.template2(this.getBuilder("template_tinder_fungus_tree_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void tripleBarrelRackModel() {
-		TripleBarrelRackModel.topLeft(this.getBuilder("template_triple_barrel_rack_top_left"), this.getVanilla("block"));
-		TripleBarrelRackModel.topRight(this.getBuilder("template_triple_barrel_rack_top_right"), this.getVanilla("block"));
-	}
-
-	public void tripleBarrelRackInventoryModel() {
-		TripleBarrelRackInventoryModel.template(this.getBuilder("template_triple_barrel_rack_inventory"), this.getVanilla("block"));
-	}
-
-	public void troughModel() {
-		TroughModel.template(this.getBuilder("template_trough"), this.getVanilla("block"));
-	}
-
-	public void turkeyTailTreeShroomsModel() {
-		TurkeyTailTreeShroomsModel.template0(this.getBuilder("template_turkey_tail_tree_shrooms_0"), this.getVanilla("block"));
-		TurkeyTailTreeShroomsModel.template1(this.getBuilder("template_turkey_tail_tree_shrooms_1"), this.getVanilla("block"));
-		TurkeyTailTreeShroomsModel.template2(this.getBuilder("template_turkey_tail_tree_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void twigsModel() {
-		TwigsModel.template0(this.getBuilder("template_twigs_0"), this.getVanilla("block"));
-		TwigsModel.template1(this.getBuilder("template_twigs_1"), this.getVanilla("block"));
-		TwigsModel.template2(this.getBuilder("template_twigs_2"), this.getVanilla("block"));
-		TwigsModel.template3(this.getBuilder("template_twigs_3"), this.getVanilla("block"));
-		TwigsModel.template4(this.getBuilder("template_twigs_4"), this.getVanilla("block"));
-	}
-
-	public void unnamedTreeShroomsModel() {
-		UnnamedTreeShroomsModel.template0(this.getBuilder("template_unnamed_tree_shrooms_0"), this.getVanilla("block"));
-		UnnamedTreeShroomsModel.template1(this.getBuilder("template_unnamed_tree_shrooms_1"), this.getVanilla("block"));
-		UnnamedTreeShroomsModel.template2(this.getBuilder("template_unnamed_tree_shrooms_2"), this.getVanilla("block"));
-	}
-
-	public void wiltedElmModel() {
-		WiltedElmModel.template(this.getBuilder("template_wilted_elm"), this.getVanilla("block"));
-	}
-
-	public void zirconCrystalModel() {
-		ZirconCrystalModel.template(this.getBuilder("template_zircon_crystal"), this.getVanilla("block"));
-	}
-
-	public ModelFile.UncheckedModelFile getVanilla(String pPath) {
-		return new ModelFile.UncheckedModelFile(ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, ModelProvider.BLOCK_FOLDER + "/" + pPath));
-	}
-
-	public ResourceLocation file(Block pBlock, String pSuffix) {
-		return ResourceLocation.fromNamespaceAndPath(this.id(pBlock), ModelProvider.BLOCK_FOLDER + "/" + this.name(pBlock) + "_" + pSuffix);
-	}
-
-	public ResourceLocation file(Block pBlock) {
-		return ResourceLocation.fromNamespaceAndPath(this.id(pBlock), ModelProvider.BLOCK_FOLDER + "/" + this.name(pBlock));
-	}
-
-	public ResourceLocation file(String pPrefix, Block pBlock, String pSuffix) {
-		return ResourceLocation.fromNamespaceAndPath(this.id(pBlock), ModelProvider.BLOCK_FOLDER + "/" + pPrefix + "_" + this.name(pBlock) + "_" + pSuffix);
-	}
-
-	public ResourceLocation file(String pPrefix, Block pBlock) {
-		return ResourceLocation.fromNamespaceAndPath(this.id(pBlock), ModelProvider.BLOCK_FOLDER + "/" + pPrefix + "_" + this.name(pBlock));
-	}
-
-	public ResourceLocation file(String pId, String pFile) {
-		return ResourceLocation.fromNamespaceAndPath(pId, ModelProvider.BLOCK_FOLDER + "/" + pFile);
-	}
-
-	public String id(Block pBlock) {
-		return BuiltInRegistries.BLOCK.getKey(pBlock).getNamespace();
-	}
-
-	public String name(Block pBlock, String pSuffix) {
-		return BuiltInRegistries.BLOCK.getKey(pBlock).getPath() + "_" + pSuffix;
-	}
-
-	public String name(Block pBlock) {
-		return BuiltInRegistries.BLOCK.getKey(pBlock).getPath();
-	}
-
-	public String name(String pPrefix, Block pBlock, String pSuffix) {
-		return pPrefix + "_" + BuiltInRegistries.BLOCK.getKey(pBlock).getPath() + "_" + pSuffix;
-	}
-
-	public String name(String pPrefix, Block pBlock) {
-		return pPrefix + "_" + BuiltInRegistries.BLOCK.getKey(pBlock).getPath();
+public class IcariaBlockModelProvider {
+
+	public static void register(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.provider(pBlockModelGenerators);
+		IcariaBlockModelProvider.template(pBlockModelGenerators);
+	}
+
+	public static void provider(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.anthraciteTorch(pBlockModelGenerators);
+		IcariaBlockModelProvider.anthraciteWallTorch(pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(pBlockModelGenerators);
+		IcariaBlockModelProvider.bars(pBlockModelGenerators);
+		IcariaBlockModelProvider.block(pBlockModelGenerators);
+		IcariaBlockModelProvider.blockCutout(pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(pBlockModelGenerators);
+		IcariaBlockModelProvider.bloomyVine(pBlockModelGenerators);
+		IcariaBlockModelProvider.bolbos(pBlockModelGenerators);
+		IcariaBlockModelProvider.bromelia(pBlockModelGenerators);
+		IcariaBlockModelProvider.brownGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.brushyVine(pBlockModelGenerators);
+		IcariaBlockModelProvider.button(pBlockModelGenerators);
+		IcariaBlockModelProvider.cake(pBlockModelGenerators);
+		IcariaBlockModelProvider.calciteCrystal(pBlockModelGenerators);
+		IcariaBlockModelProvider.cardonCactus(pBlockModelGenerators);
+		IcariaBlockModelProvider.chain(pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(pBlockModelGenerators);
+		IcariaBlockModelProvider.crop(pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(pBlockModelGenerators);
+		IcariaBlockModelProvider.dathulla(pBlockModelGenerators);
+		IcariaBlockModelProvider.deadDroughtrootLog(pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(pBlockModelGenerators);
+		IcariaBlockModelProvider.dolomitePillarHead(pBlockModelGenerators);
+		IcariaBlockModelProvider.door(pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(pBlockModelGenerators);
+		IcariaBlockModelProvider.farmland(pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(pBlockModelGenerators);
+		IcariaBlockModelProvider.fertilizedFarmland(pBlockModelGenerators);
+		IcariaBlockModelProvider.fire(pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(pBlockModelGenerators);
+		IcariaBlockModelProvider.forge(pBlockModelGenerators);
+		IcariaBlockModelProvider.grassyMarl(pBlockModelGenerators);
+		IcariaBlockModelProvider.greenGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinder(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderShaft(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderStone(pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(pBlockModelGenerators);
+		IcariaBlockModelProvider.haliteCrystal(pBlockModelGenerators);
+		IcariaBlockModelProvider.horizontalBars(pBlockModelGenerators);
+		IcariaBlockModelProvider.horizontalPane(pBlockModelGenerators);
+		IcariaBlockModelProvider.jasperCrystal(pBlockModelGenerators);
+		IcariaBlockModelProvider.kettle(pBlockModelGenerators);
+		IcariaBlockModelProvider.kiln(pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(pBlockModelGenerators);
+		IcariaBlockModelProvider.largeBrownGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.ligniteTorch(pBlockModelGenerators);
+		IcariaBlockModelProvider.ligniteWallTorch(pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVase(pBlockModelGenerators);
+		IcariaBlockModelProvider.mondanos(pBlockModelGenerators);
+		IcariaBlockModelProvider.moss(pBlockModelGenerators);
+		IcariaBlockModelProvider.mothAgaric(pBlockModelGenerators);
+		IcariaBlockModelProvider.namdrake(pBlockModelGenerators);
+		IcariaBlockModelProvider.oliveLeaves(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureBlock(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureVine(pBlockModelGenerators);
+		IcariaBlockModelProvider.palmFern(pBlockModelGenerators);
+		IcariaBlockModelProvider.pane(pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(pBlockModelGenerators);
+		IcariaBlockModelProvider.physalisCrop(pBlockModelGenerators);
+		IcariaBlockModelProvider.portal(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBromelia(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBrownGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedCardonCactus(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedGreenGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedLargeBrownGroundShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedPalmFern(pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(pBlockModelGenerators);
+		IcariaBlockModelProvider.psilocybos(pBlockModelGenerators);
+		IcariaBlockModelProvider.quartzPillarHead(pBlockModelGenerators);
+		IcariaBlockModelProvider.quartzWall(pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(pBlockModelGenerators);
+		IcariaBlockModelProvider.relicstonePillarHead(pBlockModelGenerators);
+		IcariaBlockModelProvider.rowan(pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(pBlockModelGenerators);
+		IcariaBlockModelProvider.strawberryBush(pBlockModelGenerators);
+		IcariaBlockModelProvider.strawberryCrop(pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(pBlockModelGenerators);
+		IcariaBlockModelProvider.surfaceBones(pBlockModelGenerators);
+		IcariaBlockModelProvider.surfaceChert(pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(pBlockModelGenerators);
+		IcariaBlockModelProvider.tinderFungusTreeShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.tintedCross(pBlockModelGenerators);
+		IcariaBlockModelProvider.tintedFlowerPotCross(pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(pBlockModelGenerators);
+		IcariaBlockModelProvider.turkeyTailTreeShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(pBlockModelGenerators);
+		IcariaBlockModelProvider.unnamedTreeShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.vine(pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(pBlockModelGenerators);
+		IcariaBlockModelProvider.water(pBlockModelGenerators);
+		IcariaBlockModelProvider.wiltedElm(pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(pBlockModelGenerators);
+		IcariaBlockModelProvider.zirconCrystal(pBlockModelGenerators);
+	}
+
+	public static void template(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.anthraciteTorchModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.anthraciteWallTorchModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.barrelModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.barsInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.bolbosModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.bromeliaModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.brownGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cakeModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.calciteCrystalModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cardonCactusInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cardonCactusModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.dathullaModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLogModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.deadVineModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.forgeInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.forgeModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.greenGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderShaftModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grinderStoneModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowersModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.haliteCrystalModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.horizontalBarsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.horizontalPaneModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.jasperCrystalModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kettleInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kettleModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kilnInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kilnModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.largeBrownGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.layerModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.ligniteTorchModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.ligniteWallTorchModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVaseModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.mondanosModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.mothAgaricModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.namdrakeModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureBlockModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCrossModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCrossModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureVineModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.palmFernModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.paneInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.physalisCropModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.portalModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBromeliaModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBrownGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedCardonCactusModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedGreenGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedLargeBrownGroundShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedPalmFernModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.psilocybosModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.rackModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.rowanModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVaseModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.strawberryBushModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLogModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.surfaceBonesModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.surfaceChertModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrelModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.tinderFungusTreeShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRackInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRackModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.troughModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.turkeyTailTreeShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.twigsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.unnamedTreeShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.wiltedElmModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.zirconCrystalModel(pBlockModelGenerators);
+	}
+
+	public static void anthraciteTorch(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.anthraciteTorch(IcariaBlocks.ANTHRACITE_TORCH.get(), pBlockModelGenerators);
+	}
+
+	public static void anthraciteWallTorch(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.anthraciteWallTorch(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);
+	}
+
+	public static void axis(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.axis(IcariaBlocks.DOLOMITE_PILLAR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.RELICSTONE_PILLAR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.SPELT_BALE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.POPULUS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.axis(IcariaBlocks.STRIPPED_POPULUS_LOG.get(), pBlockModelGenerators);
+	}
+
+	public static void barrel(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.barrel(IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.barrel(IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void bars(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.bars(IcariaBlocks.VANADIUMSTEEL_BARS.get(), pBlockModelGenerators);
+	}
+
+	public static void block(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.block(IcariaBlocks.MARL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MARL_CHERT.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MARL_BONES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MARL_LIGNITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COARSE_MARL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DRY_LAKE_BED.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MARL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LOAM.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LOAM_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DOLOMITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SMOOTH_DOLOMITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DOLOMITE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_DOLOMITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAINEL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAINEL_CHERT.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAINITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAINITE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.YELLOWSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COBBLED_YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.YELLOWSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SILKSAND.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SILKSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COBBLED_SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SILKSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SUNSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COBBLED_SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SUNSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VOIDSHALE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COBBLED_VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VOIDSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BAETYL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.COBBLED_BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BAETYL_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SMOOTH_RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHISELED_PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LIGNITE_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHALKOS_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.KASSITEROS_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DOLOMITE_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VANADIUM_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SLIVER_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SIDEROS_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ANTHRACITE_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MOLYBDENUM_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.HYLIASTRUM_ORE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CALCITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BUDDING_CALCITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.HALITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BUDDING_HALITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.JASPER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BUDDING_JASPER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ZIRCON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BUDDING_ZIRCON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PACKED_ARISTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VINE_REED_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RAW_KASSITEROS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RAW_VANADIUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RAW_SIDEROS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RAW_MOLYBDENUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.JASPER_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHERT_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LIGNITE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CHALKOS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.KASSITEROS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ORICHALCUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VANADIUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SLIVER_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.VANADIUMSTEEL_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.SIDEROS_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ANTHRACITE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MOLYBDENUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MOLYBDENUMSTEEL_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BLURIDIUM_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CYPRESS_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DROUGHTROOT_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.FIR_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LAUREL_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PLANE_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.POPULUS_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void blockCutout(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.blockCutout(IcariaBlocks.GRAINGLASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockCutout(IcariaBlocks.SILKGLASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockCutout(IcariaBlocks.ARACHNE_SPAWNER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockCutout(IcariaBlocks.REVENANT_SPAWNER.get(), pBlockModelGenerators);
+	}
+
+	public static void blockTranslucent(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.ARISTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.ENDER_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.FIRE_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.CALCITE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.HALITE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.blockTranslucent(IcariaBlocks.ZIRCON_BLOCK.get(), pBlockModelGenerators);
+	}
+
+	public static void bloomyVine(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.bloomyVine(IcariaBlocks.BLOOMY_VINE.get(), pBlockModelGenerators);
+	}
+
+	public static void bolbos(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.bolbos(IcariaBlocks.BOLBOS.get(), pBlockModelGenerators);
+	}
+
+	public static void bromelia(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.bromelia(IcariaBlocks.WHITE_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bromelia(IcariaBlocks.ORANGE_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bromelia(IcariaBlocks.PINK_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bromelia(IcariaBlocks.PURPLE_BROMELIA.get(), pBlockModelGenerators);
+	}
+
+	public static void brownGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.brownGroundShrooms(IcariaBlocks.BROWN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void brushyVine(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.brushyVine(IcariaBlocks.BRUSHY_VINE.get(), pBlockModelGenerators);
+	}
+
+	public static void button(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.button(IcariaBlocks.CYPRESS_BUTTON.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.DROUGHTROOT_BUTTON.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.FIR_BUTTON.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.LAUREL_BUTTON.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.OLIVE_BUTTON.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.PLANE_BUTTON.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.button(IcariaBlocks.POPULUS_BUTTON.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void cake(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cake(IcariaBlocks.LAUREL_CHERRY_CAKE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cake(IcariaBlocks.STRAWBERRY_CAKE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cake(IcariaBlocks.PHYSALIS_CAKE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cake(IcariaBlocks.VINE_BERRY_CAKE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cake(IcariaBlocks.VINE_SPROUT_CAKE.get(), pBlockModelGenerators);
+	}
+
+	public static void calciteCrystal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.calciteCrystal(IcariaBlocks.CALCITE_CRYSTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void cardonCactus(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cardonCactus(IcariaBlocks.CARDON_CACTUS.get(), pBlockModelGenerators);
+	}
+
+	public static void chain(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chain(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), pBlockModelGenerators);
+	}
+
+	public static void craftingTable(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.FIR_CRAFTING_TABLE.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.craftingTable(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void crop(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.crop(IcariaBlocks.SPELT_CROP.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.crop(IcariaBlocks.ONION_CROP.get(), pBlockModelGenerators);
+	}
+
+	public static void cross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cross(IcariaBlocks.CYPRESS_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.DROUGHTROOT_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.FIR_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.LAUREL_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.OLIVE_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.PLANE_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cross(IcariaBlocks.POPULUS_SAPLING.get(), pBlockModelGenerators);
+	}
+
+	public static void dathulla(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.dathulla(IcariaBlocks.DATHULLA.get(), pBlockModelGenerators);
+	}
+
+	public static void deadDroughtrootLog(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.deadDroughtrootLog(IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+	}
+
+	public static void deadLog(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.deadLog(IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), pBlockModelGenerators);
+	}
+
+	public static void dolomitePillarHead(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.dolomitePillarHead(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), pBlockModelGenerators);
+	}
+
+	public static void door(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.door(IcariaBlocks.CYPRESS_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.DROUGHTROOT_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.FIR_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.LAUREL_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.OLIVE_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.PLANE_DOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.door(IcariaBlocks.POPULUS_DOOR.get(), pBlockModelGenerators);
+	}
+
+	public static void fallenLeaves(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), IcariaBlocks.OLIVE_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), IcariaBlocks.PLANE_LEAVES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fallenLeaves(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), pBlockModelGenerators);
+	}
+
+	public static void farmland(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.farmland(IcariaBlocks.FARMLAND.get(), pBlockModelGenerators);
+	}
+
+	public static void fence(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.fence(IcariaBlocks.CYPRESS_FENCE.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.DROUGHTROOT_FENCE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.FIR_FENCE.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.LAUREL_FENCE.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.OLIVE_FENCE.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.PLANE_FENCE.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fence(IcariaBlocks.POPULUS_FENCE.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void fenceGate(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.CYPRESS_FENCE_GATE.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.DROUGHTROOT_FENCE_GATE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.FIR_FENCE_GATE.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.LAUREL_FENCE_GATE.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.OLIVE_FENCE_GATE.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.PLANE_FENCE_GATE.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.fenceGate(IcariaBlocks.POPULUS_FENCE_GATE.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void fertilizedFarmland(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.fertilizedFarmland(IcariaBlocks.FERTILIZED_FARMLAND.get(), pBlockModelGenerators);
+	}
+
+	public static void fire(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.fire(IcariaBlocks.GREEK_FIRE.get(), pBlockModelGenerators);
+	}
+
+	public static void flowerPotCross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), IcariaBlocks.CYPRESS_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get(), IcariaBlocks.DROUGHTROOT_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_FIR_SAPLING.get(), IcariaBlocks.FIR_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_LAUREL_SAPLING.get(), IcariaBlocks.LAUREL_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), IcariaBlocks.OLIVE_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_PLANE_SAPLING.get(), IcariaBlocks.PLANE_SAPLING.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.flowerPotCross(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), IcariaBlocks.POPULUS_SAPLING.get(), pBlockModelGenerators);
+	}
+
+	public static void forge(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.forge(IcariaBlocks.FORGE.get(), pBlockModelGenerators);
+	}
+
+	public static void grassyMarl(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.grassyMarl(IcariaBlocks.GRASSY_MARL.get(), pBlockModelGenerators);
+	}
+
+	public static void greenGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.greenGroundShrooms(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void grinder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.grinder(IcariaBlocks.GRINDER.get(), pBlockModelGenerators);
+	}
+
+	public static void grinderShaft(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.grinderShaft(IcariaBlocks.GRINDER_SHAFT.get(), pBlockModelGenerators);
+	}
+
+	public static void grinderStone(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.grinderStone(IcariaBlocks.GRINDER_STONE.get(), pBlockModelGenerators);
+	}
+
+	public static void groundFlowers(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.BLUE_GROUND_FLOWERS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.CYAN_GROUND_FLOWERS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.PINK_GROUND_FLOWERS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.RED_GROUND_FLOWERS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowers(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), pBlockModelGenerators);
+	}
+
+	public static void haliteCrystal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.haliteCrystal(IcariaBlocks.HALITE_CRYSTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void horizontalBars(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.horizontalBars(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get(), IcariaBlocks.VANADIUMSTEEL_BARS.get(), pBlockModelGenerators);
+	}
+
+	public static void horizontalPane(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.horizontalPane(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.horizontalPane(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get(), pBlockModelGenerators);
+	}
+
+	public static void jasperCrystal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.jasperCrystal(IcariaBlocks.JASPER_CRYSTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void kettle(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.kettle(IcariaBlocks.KETTLE.get(), pBlockModelGenerators);
+	}
+
+	public static void kiln(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.kiln(IcariaBlocks.KILN.get(), pBlockModelGenerators);
+	}
+
+	public static void ladder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.ladder(IcariaBlocks.CYPRESS_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.DROUGHTROOT_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.FIR_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.LAUREL_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.OLIVE_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.PLANE_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.ladder(IcariaBlocks.POPULUS_LADDER.get(), pBlockModelGenerators);
+	}
+
+	public static void largeBrownGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.largeBrownGroundShrooms(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void ligniteTorch(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.ligniteTorch(IcariaBlocks.LIGNITE_TORCH.get(), pBlockModelGenerators);
+	}
+
+	public static void ligniteWallTorch(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.ligniteWallTorch(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
+	}
+
+	public static void loadedBarrel(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.loadedBarrel(IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void lootVase(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.lootVase(IcariaBlocks.RED_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVase(IcariaBlocks.LOST_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVase(IcariaBlocks.CYAN_LOOT_VASE.get(), pBlockModelGenerators);
+	}
+
+	public static void mondanos(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.mondanos(IcariaBlocks.MONDANOS.get(), pBlockModelGenerators);
+	}
+
+	public static void moss(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.moss(IcariaBlocks.FOREST_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.moss(IcariaBlocks.SCRUBLAND_MOSS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.moss(IcariaBlocks.STEPPE_MOSS.get(), pBlockModelGenerators);
+	}
+
+	public static void mothAgaric(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.mothAgaric(IcariaBlocks.MOTH_AGARIC.get(), pBlockModelGenerators);
+	}
+
+	public static void namdrake(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.namdrake(IcariaBlocks.NAMDRAKE.get(), pBlockModelGenerators);
+	}
+
+	public static void oliveLeaves(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.oliveLeaves(IcariaBlocks.OLIVE_LEAVES.get(), pBlockModelGenerators);
+	}
+
+	public static void overlayTextureBlock(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.overlayTextureBlock(IcariaBlocks.BLURRED_PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureBlock(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+	}
+
+	public static void overlayTextureCross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.SMALL_MIXED_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.MEDIUM_MIXED_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.MEDIUM_BROWN_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.MEDIUM_WHITE_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.LARGE_BROWN_GRAIN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.BLINDWEED.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.CHAMEOMILE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.CHARMONDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.CLOVER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.FIREHILT.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.BLUE_HYDRACINTH.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.PURPLE_HYDRACINTH.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.LIONFANGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.SPEARDROPS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.PURPLE_STAGHORN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.YELLOW_STAGHORN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.BLUE_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.PINK_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.PURPLE_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.SUNKETTLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.SUNSPONGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureCross(IcariaBlocks.VOIDLILY.get(), pBlockModelGenerators);
+	}
+
+	public static void overlayTextureFlowerPotCross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.BLINDWEED.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.CHAMEOMILE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.CHARMONDER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.CLOVER.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.FIREHILT.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.BLUE_HYDRACINTH.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.PURPLE_HYDRACINTH.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.LIONFANGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.SPEARDROPS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.PURPLE_STAGHORN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.YELLOW_STAGHORN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.BLUE_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.PINK_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.PURPLE_STORMCOTTON.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.SUNKETTLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.SUNSPONGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureFlowerPotCross(IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.VOIDLILY.get(), pBlockModelGenerators);
+	}
+
+	public static void overlayTextureVine(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.overlayTextureVine(IcariaBlocks.BRANCHY_VINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.overlayTextureVine(IcariaBlocks.REEDY_VINE.get(), pBlockModelGenerators);
+	}
+
+	public static void palmFern(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.palmFern(IcariaBlocks.PALM_FERN.get(), pBlockModelGenerators);
+	}
+
+	public static void pane(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pane(IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pane(IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get(), pBlockModelGenerators);
+	}
+
+	public static void particle(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.particle(IcariaBlocks.CHEST.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.TRAPPED_CHEST.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.CYPRESS_SIGN.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.DROUGHTROOT_SIGN.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.FIR_SIGN.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.LAUREL_SIGN.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.LAUREL_WALL_SIGN.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.OLIVE_SIGN.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.PLANE_SIGN.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.POPULUS_SIGN.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.particle(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), pBlockModelGenerators);
+	}
+
+	public static void physalisCrop(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.physalisCrop(IcariaBlocks.PHYSALIS_CROP.get(), pBlockModelGenerators);
+	}
+
+	public static void portal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.portal(IcariaBlocks.ICARIA_PORTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedBromelia(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedBromelia(IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.WHITE_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBromelia(IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.ORANGE_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBromelia(IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.PINK_BROMELIA.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pottedBromelia(IcariaBlocks.POTTED_PURPLE_BROMELIA.get(), IcariaBlocks.PURPLE_BROMELIA.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedBrownGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedBrownGroundShrooms(IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.BROWN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedCardonCactus(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedCardonCactus(IcariaBlocks.POTTED_CARDON_CACTUS.get(), IcariaBlocks.CARDON_CACTUS.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedGreenGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedGreenGroundShrooms(IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS.get(), IcariaBlocks.GREEN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedLargeBrownGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedLargeBrownGroundShrooms(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void pottedPalmFern(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pottedPalmFern(IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.PALM_FERN.get(), pBlockModelGenerators);
+	}
+
+	public static void pressurePlate(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.FIR_PRESSURE_PLATE.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.pressurePlate(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void psilocybos(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.psilocybos(IcariaBlocks.PSILOCYBOS.get(), pBlockModelGenerators);
+	}
+
+	public static void quartzPillarHead(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.quartzPillarHead(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), pBlockModelGenerators);
+	}
+
+	public static void quartzWall(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.quartzWall(IcariaBlocks.QUARTZ_WALL.get(), pBlockModelGenerators);
+	}
+
+	public static void rack(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.rack(IcariaBlocks.CYPRESS_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.DROUGHTROOT_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.FIR_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.LAUREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.OLIVE_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.PLANE_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rack(IcariaBlocks.POPULUS_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void relicstonePillarHead(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.relicstonePillarHead(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), pBlockModelGenerators);
+	}
+
+	public static void rowan(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.rowan(IcariaBlocks.ROWAN.get(), pBlockModelGenerators);
+	}
+
+	public static void rubble(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.rubble(IcariaBlocks.SURFACE_LIGNITE.get(), IcariaBlocks.LIGNITE_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.GRAINITE_RUBBLE.get(), IcariaBlocks.GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), IcariaBlocks.YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.SILKSTONE_RUBBLE.get(), IcariaBlocks.SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.SUNSTONE_RUBBLE.get(), IcariaBlocks.SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.VOIDSHALE_RUBBLE.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.BAETYL_RUBBLE.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.rubble(IcariaBlocks.RELICSTONE_RUBBLE.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+	}
+
+	public static void simpleRack(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_FIR_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.LOADED_FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_LAUREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LOADED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_OLIVE_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.LOADED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_PLANE_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.LOADED_PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_POPULUS_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.LOADED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void slab(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.slab(IcariaBlocks.MARL_ADOBE_SLAB.get(), IcariaBlocks.MARL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.LOAM_BRICK_SLAB.get(), IcariaBlocks.LOAM_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.DOLOMITE_ADOBE_SLAB.get(), IcariaBlocks.DOLOMITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get(), IcariaBlocks.SMOOTH_DOLOMITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.GRAINITE_ADOBE_SLAB.get(), IcariaBlocks.GRAINITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.GRAINITE_SLAB.get(), IcariaBlocks.GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.GRAINITE_BRICK_SLAB.get(), IcariaBlocks.GRAINITE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.COBBLED_YELLOWSTONE_SLAB.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.YELLOWSTONE_SLAB.get(), IcariaBlocks.YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.YELLOWSTONE_BRICK_SLAB.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SILKSTONE_ADOBE_SLAB.get(), IcariaBlocks.SILKSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.COBBLED_SILKSTONE_SLAB.get(), IcariaBlocks.COBBLED_SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SILKSTONE_SLAB.get(), IcariaBlocks.SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SILKSTONE_BRICK_SLAB.get(), IcariaBlocks.SILKSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SUNSTONE_ADOBE_SLAB.get(), IcariaBlocks.SUNSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.COBBLED_SUNSTONE_SLAB.get(), IcariaBlocks.COBBLED_SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SUNSTONE_SLAB.get(), IcariaBlocks.SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SUNSTONE_BRICK_SLAB.get(), IcariaBlocks.SUNSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.VOIDSHALE_ADOBE_SLAB.get(), IcariaBlocks.VOIDSHALE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.COBBLED_VOIDSHALE_SLAB.get(), IcariaBlocks.COBBLED_VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.VOIDSHALE_SLAB.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.VOIDSHALE_BRICK_SLAB.get(), IcariaBlocks.VOIDSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BAETYL_ADOBE_SLAB.get(), IcariaBlocks.BAETYL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.COBBLED_BAETYL_SLAB.get(), IcariaBlocks.COBBLED_BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BAETYL_SLAB.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BAETYL_BRICK_SLAB.get(), IcariaBlocks.BAETYL_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.RELICSTONE_SLAB.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.SMOOTH_RELICSTONE_SLAB.get(), IcariaBlocks.SMOOTH_RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.CRACKED_RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.MOSSY_RELICSTONE_BRICK_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.RELICSTONE_TILE_SLAB.get(), IcariaBlocks.RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.CRACKED_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.PLATOSHALE_SLAB.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.CYPRESS_SLAB.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.DROUGHTROOT_SLAB.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.FIR_SLAB.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.LAUREL_SLAB.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.OLIVE_SLAB.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.PLANE_SLAB.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.POPULUS_SLAB.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void stairs(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.stairs(IcariaBlocks.MARL_ADOBE_STAIRS.get(), IcariaBlocks.MARL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.LOAM_BRICK_STAIRS.get(), IcariaBlocks.LOAM_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.DOLOMITE_ADOBE_STAIRS.get(), IcariaBlocks.DOLOMITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SMOOTH_DOLOMITE_STAIRS.get(), IcariaBlocks.SMOOTH_DOLOMITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.GRAINITE_ADOBE_STAIRS.get(), IcariaBlocks.GRAINITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.GRAINITE_STAIRS.get(), IcariaBlocks.GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.GRAINITE_BRICK_STAIRS.get(), IcariaBlocks.GRAINITE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.COBBLED_YELLOWSTONE_STAIRS.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.YELLOWSTONE_STAIRS.get(), IcariaBlocks.YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.YELLOWSTONE_BRICK_STAIRS.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SILKSTONE_ADOBE_STAIRS.get(), IcariaBlocks.SILKSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.COBBLED_SILKSTONE_STAIRS.get(), IcariaBlocks.COBBLED_SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SILKSTONE_STAIRS.get(), IcariaBlocks.SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SILKSTONE_BRICK_STAIRS.get(), IcariaBlocks.SILKSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SUNSTONE_ADOBE_STAIRS.get(), IcariaBlocks.SUNSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.COBBLED_SUNSTONE_STAIRS.get(), IcariaBlocks.COBBLED_SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SUNSTONE_STAIRS.get(), IcariaBlocks.SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SUNSTONE_BRICK_STAIRS.get(), IcariaBlocks.SUNSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.VOIDSHALE_ADOBE_STAIRS.get(), IcariaBlocks.VOIDSHALE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.COBBLED_VOIDSHALE_STAIRS.get(), IcariaBlocks.COBBLED_VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.VOIDSHALE_STAIRS.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.VOIDSHALE_BRICK_STAIRS.get(), IcariaBlocks.VOIDSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BAETYL_ADOBE_STAIRS.get(), IcariaBlocks.BAETYL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.COBBLED_BAETYL_STAIRS.get(), IcariaBlocks.COBBLED_BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BAETYL_STAIRS.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BAETYL_BRICK_STAIRS.get(), IcariaBlocks.BAETYL_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.RELICSTONE_STAIRS.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.SMOOTH_RELICSTONE_STAIRS.get(), IcariaBlocks.SMOOTH_RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.CRACKED_RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.MOSSY_RELICSTONE_BRICK_STAIRS.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.CRACKED_RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.PLATOSHALE_STAIRS.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.PLATOSHALE_BRICK_STAIRS.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.CYPRESS_STAIRS.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.DROUGHTROOT_STAIRS.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.FIR_STAIRS.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.LAUREL_STAIRS.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.OLIVE_STAIRS.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.PLANE_STAIRS.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.POPULUS_STAIRS.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void storageVase(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.WHITE_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.GRAY_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.BLACK_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.BROWN_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.RED_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.ORANGE_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.YELLOW_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.LIME_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.GREEN_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.CYAN_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.BLUE_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.PURPLE_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.MAGENTA_STORAGE_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.storageVase(IcariaBlocks.PINK_STORAGE_VASE.get(), pBlockModelGenerators);
+	}
+
+	public static void strawberryBush(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.strawberryBush(IcariaBlocks.STRAWBERRY_BUSH.get(), pBlockModelGenerators);
+	}
+
+	public static void strawberryCrop(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.strawberryCrop(IcariaBlocks.STRAWBERRY_CROP.get(), pBlockModelGenerators);
+	}
+
+	public static void strippedDeadLog(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.strippedDeadLog(IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), pBlockModelGenerators);
+	}
+
+	public static void surfaceBones(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.surfaceBones(IcariaBlocks.SURFACE_BONES.get(), pBlockModelGenerators);
+	}
+
+	public static void surfaceChert(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.surfaceChert(IcariaBlocks.SURFACE_CHERT.get(), pBlockModelGenerators);
+	}
+
+	public static void tappedBarrel(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_FIR_BARREL.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_PLANE_BARREL.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tappedBarrel(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void tinderFungusTreeShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.tinderFungusTreeShrooms(IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void tintedCross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.tintedCross(IcariaBlocks.FERN.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tintedCross(IcariaBlocks.SMALL_GRASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tintedCross(IcariaBlocks.MEDIUM_GRASS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tintedCross(IcariaBlocks.LARGE_GRASS.get(), pBlockModelGenerators);
+	}
+
+	public static void tintedFlowerPotCross(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.tintedFlowerPotCross(IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.FERN.get(), pBlockModelGenerators);
+	}
+
+	public static void trapdoor(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.CYPRESS_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.FIR_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.LAUREL_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.OLIVE_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.PLANE_TRAPDOOR.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trapdoor(IcariaBlocks.POPULUS_TRAPDOOR.get(), pBlockModelGenerators);
+	}
+
+	public static void tripleBarrelRack(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), IcariaBlocks.FIR_BARREL.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), IcariaBlocks.LAUREL_BARREL.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), IcariaBlocks.OLIVE_BARREL.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), IcariaBlocks.PLANE_BARREL.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.tripleBarrelRack(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), IcariaBlocks.POPULUS_BARREL.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void trough(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.trough(IcariaBlocks.CYPRESS_TROUGH.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.DROUGHTROOT_TROUGH.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.FIR_TROUGH.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.LAUREL_TROUGH.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.OLIVE_TROUGH.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.PLANE_TROUGH.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.trough(IcariaBlocks.POPULUS_TROUGH.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void turkeyTailTreeShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.turkeyTailTreeShrooms(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void twigs(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.twigs(IcariaBlocks.CYPRESS_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.DROUGHTROOT_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.FIR_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.LAUREL_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.OLIVE_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.PLANE_TWIGS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.twigs(IcariaBlocks.POPULUS_TWIGS.get(), pBlockModelGenerators);
+	}
+
+	public static void unnamedTreeShrooms(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.unnamedTreeShrooms(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void vine(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.vine(IcariaBlocks.DRY_VINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.vine(IcariaBlocks.SWIRLY_VINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.vine(IcariaBlocks.THORNY_VINE.get(), pBlockModelGenerators);
+	}
+
+	public static void wall(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.wall(IcariaBlocks.MARL_ADOBE_WALL.get(), IcariaBlocks.MARL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.LOAM_BRICK_WALL.get(), IcariaBlocks.LOAM_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.DOLOMITE_ADOBE_WALL.get(), IcariaBlocks.DOLOMITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SMOOTH_DOLOMITE_WALL.get(), IcariaBlocks.SMOOTH_DOLOMITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.GRAINITE_ADOBE_WALL.get(), IcariaBlocks.GRAINITE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.GRAINITE_WALL.get(), IcariaBlocks.GRAINITE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.GRAINITE_BRICK_WALL.get(), IcariaBlocks.GRAINITE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.YELLOWSTONE_ADOBE_WALL.get(), IcariaBlocks.YELLOWSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.COBBLED_YELLOWSTONE_WALL.get(), IcariaBlocks.COBBLED_YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.YELLOWSTONE_WALL.get(), IcariaBlocks.YELLOWSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.YELLOWSTONE_BRICK_WALL.get(), IcariaBlocks.YELLOWSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SILKSTONE_ADOBE_WALL.get(), IcariaBlocks.SILKSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.COBBLED_SILKSTONE_WALL.get(), IcariaBlocks.COBBLED_SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SILKSTONE_WALL.get(), IcariaBlocks.SILKSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SILKSTONE_BRICK_WALL.get(), IcariaBlocks.SILKSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SUNSTONE_ADOBE_WALL.get(), IcariaBlocks.SUNSTONE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.COBBLED_SUNSTONE_WALL.get(), IcariaBlocks.COBBLED_SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SUNSTONE_WALL.get(), IcariaBlocks.SUNSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SUNSTONE_BRICK_WALL.get(), IcariaBlocks.SUNSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.VOIDSHALE_ADOBE_WALL.get(), IcariaBlocks.VOIDSHALE_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.COBBLED_VOIDSHALE_WALL.get(), IcariaBlocks.COBBLED_VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.VOIDSHALE_WALL.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.VOIDSHALE_BRICK_WALL.get(), IcariaBlocks.VOIDSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.BAETYL_ADOBE_WALL.get(), IcariaBlocks.BAETYL_ADOBE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.COBBLED_BAETYL_WALL.get(), IcariaBlocks.COBBLED_BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.BAETYL_WALL.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.BAETYL_BRICK_WALL.get(), IcariaBlocks.BAETYL_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.RELICSTONE_WALL.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.SMOOTH_RELICSTONE_WALL.get(), IcariaBlocks.SMOOTH_RELICSTONE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.RELICSTONE_BRICK_WALL.get(), IcariaBlocks.RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.CRACKED_RELICSTONE_BRICK_WALL.get(), IcariaBlocks.CRACKED_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.MOSSY_RELICSTONE_BRICK_WALL.get(), IcariaBlocks.MOSSY_RELICSTONE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.RELICSTONE_TILE_WALL.get(), IcariaBlocks.RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.CRACKED_RELICSTONE_TILE_WALL.get(), IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.PLATOSHALE_WALL.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wall(IcariaBlocks.PLATOSHALE_BRICK_WALL.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+	}
+
+	public static void water(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.water(IcariaBlocks.MEDITERRANEAN_WATER.get(), pBlockModelGenerators);
+	}
+
+	public static void wiltedElm(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.wiltedElm(IcariaBlocks.WILTED_ELM.get(), pBlockModelGenerators);
+	}
+
+	public static void wood(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.wood(IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.DROUGHTROOT_WOOD.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.FIR_WOOD.get(), IcariaBlocks.FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_FIR_WOOD.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.LAUREL_WOOD.get(), IcariaBlocks.LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.OLIVE_WOOD.get(), IcariaBlocks.OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.PLANE_WOOD.get(), IcariaBlocks.PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.POPULUS_WOOD.get(), IcariaBlocks.POPULUS_LOG.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wood(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), pBlockModelGenerators);
+	}
+
+	public static void zirconCrystal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.zirconCrystal(IcariaBlocks.ZIRCON_CRYSTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void anthraciteTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_anthracite_torch")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone"))
+				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_coal"))
+				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_metal"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void anthraciteWallTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_anthracite_wall_torch")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone"))
+				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_coal"))
+				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_metal"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void axis(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_column")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_column_horizontal")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "horizontal"), new TextureMapping()
+				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void barrel(Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_standing_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("standing", pBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bars(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bars_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_cap")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "cap"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_cap_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "cap_alt"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_post")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "post"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_post_ends")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "post_ends"), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_side")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "iron_bars_side_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_alt"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void block(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void blockCutout(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void blockTranslucent(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bloomyVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("blooming", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("blooming", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("blooming", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("ripe", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("ripe", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("ripe", pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bolbos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bolbos")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bromelia(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bromelia")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brownGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brushyVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("ripe", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("ripe", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("ripe", pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void button(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "button")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "button_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "button_pressed")).build()
+			.create(IcariaModelProvider.blockFile(pName, "pressed"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cake(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "white_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("white_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "white_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "light_gray_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "light_gray_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "gray_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("gray_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "gray_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "black_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("black_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "black_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "brown_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("brown_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "brown_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "red_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("red_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "red_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "orange_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("orange_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "orange_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "yellow_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "yellow_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "lime_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("lime_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "lime_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "green_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("green_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "green_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cyan_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cyan_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "light_blue_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "light_blue_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "blue_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("blue_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "blue_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "purple_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("purple_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "purple_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "magenta_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "magenta_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "pink_candle_cake")).build()
+			.create(IcariaModelProvider.blockFile("pink_candle", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "pink_candle_cake_lit")).build()
+			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "cake_bottom"))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void calciteCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_calcite_crystal")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cardonCactus(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_cube")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "cube"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_stem")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "stem"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chain(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "chain")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void craftingTable(Block pBlock, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.NORTH, IcariaModelProvider.blockFile(pBlock, "front"))
+				.putForced(IcariaTextureSlots.EAST, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.SOUTH, IcariaModelProvider.blockFile(pBlock, "side"))
+				.putForced(IcariaTextureSlots.WEST, IcariaModelProvider.blockFile(pBlock, "front"))
+				.putForced(IcariaTextureSlots.UP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.DOWN, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "front")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void crop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "4"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "4")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "5"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "5")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "6"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "6")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "crop")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "7"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "7")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROSS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void dathulla(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dathulla")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void deadDroughtrootLog(Block pName, Block pLog, Block pStrippedLog, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void deadLog(Block pName, Block pLog, Block pStrippedLog, Block pMoss, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_1")).build()
+			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_ground_shrooms"))
+				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_1")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_ground_shrooms"))
+				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_2")).build()
+			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.MOSS, IcariaModelProvider.blockFile(pMoss))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_2")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.MOSS, IcariaModelProvider.blockFile(pMoss))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void dolomitePillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_head"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_dolomite"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_head")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_head_inverted"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_dolomite"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "dolomite_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void door(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_bottom_left")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_bottom_left_open")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_left_open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_bottom_right")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_bottom_right_open")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_right_open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_top_left")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_top_left_open")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_left_open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_top_right")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "door_top_right_open")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_right_open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void fallenLeaves(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_1")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_2")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_3")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_4")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_5")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_6")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_7")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_8")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "8"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void farmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "farmland")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "dry"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "farmland_dry"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "farmland")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "wet"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "farmland_wet"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void fence(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "fence_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "fence_post")).build()
+			.create(IcariaModelProvider.blockFile(pName, "post"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "fence_side")).build()
+			.create(IcariaModelProvider.blockFile(pName, "side"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void fenceGate(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fence_gate")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fence_gate_open")).build()
+			.create(IcariaModelProvider.blockFile(pName, "open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fence_gate_wall")).build()
+			.create(IcariaModelProvider.blockFile(pName, "wall"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fence_gate_wall_open")).build()
+			.create(IcariaModelProvider.blockFile(pName, "wall_open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void fertilizedFarmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "farmland")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "fertilized_farmland"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void fire(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_floor")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "floor_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_floor")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "floor_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_side")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_side")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_side_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_alt_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_fire_side_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_alt_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void flowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot_cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.PLANT, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void forge(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "stripped_cypress_log"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_back_left")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_back_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_back_right")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_back_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_left")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_right")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_right_lit")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_right_lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LAVA_FLOW, IcariaModelProvider.blockFile(IcariaIdents.MC, "lava_flow"))
+				.putForced(IcariaTextureSlots.LAVA_STILL, IcariaModelProvider.blockFile(IcariaIdents.MC, "lava_still"))
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_back_left")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_back_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_back_right")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_back_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_front_left")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_front_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_front_right")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_front_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forge"))
+				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite"))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite_bricks"))
+				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "stripped_cypress_log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grainite")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grassyMarl(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "grass_block")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(IcariaIdents.ID, "grassy_marl_side"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "grassy_marl_top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(IcariaIdents.ID, "forest_moss_marl"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "forest_moss_marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "forest_moss"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(IcariaIdents.ID, "scrubland_moss_marl"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "scrubland_moss_marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "scrubland_moss"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(IcariaIdents.ID, "steppe_moss_marl"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "steppe_moss_marl"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "steppe_moss"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void greenGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "anthracite_block"))
+				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder"))
+				.putForced(IcariaTextureSlots.GRINDER_ENGINE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_engine"))
+				.putForced(IcariaTextureSlots.GRINDER_FEEDER, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_feeder"))
+				.putForced(IcariaTextureSlots.GRINDER_STONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_stone"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.STATIC_LEFT_GRINDER_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "static_left_grinder_chain"))
+				.putForced(IcariaTextureSlots.STATIC_RIGHT_GRINDER_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "static_right_grinder_chain"))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_left")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "anthracite_block"))
+				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder"))
+				.putForced(IcariaTextureSlots.GRINDER_FEEDER, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_feeder"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_right")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "anthracite_block"))
+				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder"))
+				.putForced(IcariaTextureSlots.GRINDER_ENGINE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_engine"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderShaft(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_shaft")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderStone(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_stone")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.GRINDER_STONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "grinder_stone"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void groundFlowers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void haliteCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_halite_crystal")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void horizontalBars(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_horizontal_bars")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void horizontalPane(Block pName, Block pEdge, Block pPane, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_horizontal_pane")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void jasperCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_jasper_crystal")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kettle(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_inventory")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_solid"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid_lit")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_glass")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_glass"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_solid")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper_solid"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_glass")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper_glass"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "lower_solid"))
+			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
+				.child("solid", IcariaModelProvider.blockFile(pBlock, "lower_solid"))
+				.child("glass", IcariaModelProvider.blockFile(pBlock, "lower_glass"))).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"))
+			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
+				.child("solid", IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"))
+				.child("glass", IcariaModelProvider.blockFile(pBlock, "lower_glass"))).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "upper_solid"))
+			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
+				.child("solid", IcariaModelProvider.blockFile(pBlock, "upper_solid"))
+				.child("glass", IcariaModelProvider.blockFile(pBlock, "upper_glass"))).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kiln(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaIdents.ID, "kiln"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_lower")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaIdents.ID, "kiln"))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "loam_bricks"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_upper")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaIdents.ID, "kiln"))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ladder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void largeBrownGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ligniteTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_lignite_torch")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone"))
+				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_coal"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ligniteWallTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_lignite_wall_torch")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone"))
+				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_coal"))
+				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_metal"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void loadedBarrel(Block pLoadedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pLoadedBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_standing_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("standing", pLoadedBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void lootVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_5")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_6")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_7")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_8")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "8"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_9")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "9"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void mondanos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_mondanos")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void moss(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_5")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_6")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_7")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_8")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "8"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void mothAgaric(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_moth_agaric")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void namdrake(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_namdrake")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void oliveLeaves(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile("black", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile("black", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("black", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile("green", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile("green", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("green", pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureBlock(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_block")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureCross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureFlowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_flower_pot_cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void palmFern(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_palm_fern")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pane(Block pEdge, Block pPane, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pane_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pEdge, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_glass_pane_noside")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pEdge, "noside"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_glass_pane_noside_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pEdge, "noside_alt"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_glass_pane_post")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pEdge, "post"), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_glass_pane_side")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pEdge, "side"), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_glass_pane_side_alt")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pEdge, "side_alt"), new TextureMapping()
+				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
+				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void particle(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void physalisCrop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_0")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_1")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_1")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_2")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_2")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_3")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_3")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_4")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "4"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "4")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void portal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_x")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "x"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_z")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "z"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedBromelia(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_bromelia")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedBrownGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_brown_ground_shrooms")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedCardonCactus(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_cardon_cactus")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.CACTUS, IcariaModelProvider.blockFile(pFile, "side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedGreenGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_green_ground_shrooms")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedLargeBrownGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_large_brown_ground_shrooms")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedPalmFern(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_palm_fern")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
+				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
+				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pressurePlate(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "pressure_plate_up")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "pressure_plate_down")).build()
+			.create(IcariaModelProvider.blockFile(pName, "down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void psilocybos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_psilocybos")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void quartzPillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "quartz_pillar_head"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.MC, "chiseled_quartz_block_top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "quartz_pillar_head")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "quartz_pillar_head_inverted"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.MC, "chiseled_quartz_block_top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "quartz_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void quartzWall(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "wall_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_post")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "post"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_side")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_side_tall")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "side_tall"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rack")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("loaded", pName, "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tapped_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("tapped", pName, "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void relicstonePillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_bottom_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_top"))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_inverted"))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rowan(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rowan")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rubble(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_1")).build()
+			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_2")).build()
+			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_3")).build()
+			.create(IcariaModelProvider.blockFile(pName, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_4")).build()
+			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void simpleRack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_rack")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "simple", "simple_loaded", "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_tapped_barrel_rack")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName, "simple", "simple_tapped", "rack", "barrel_rack"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void slab(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "slab")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "slab_top")).build()
+			.create(IcariaModelProvider.blockFile(pName, "top"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void stairs(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "stairs")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "inner_stairs")).build()
+			.create(IcariaModelProvider.blockFile(pName, "inner"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "outer_stairs")).build()
+			.create(IcariaModelProvider.blockFile(pName, "outer"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void storageVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_storage_vase")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.DARK, IcariaModelProvider.blockFile(pBlock, "dark"))
+				.putForced(IcariaTextureSlots.LITE, IcariaModelProvider.blockFile(pBlock, "lite"))
+				.putForced(IcariaTextureSlots.NECK, IcariaModelProvider.blockFile(pBlock, "neck"))
+				.putForced(IcariaTextureSlots.VASE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "dark")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void strawberryBush(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void strawberryCrop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_3")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_3")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "4"))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_4"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_4")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void strippedDeadLog(Block pName, Block pStrippedLog, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_0")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_1")).build()
+			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_1")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_2")).build()
+			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_2")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal_2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void surfaceBones(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_surface_bones")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void surfaceChert(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_surface_chert")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tappedBarrel(Block pTappedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tapped_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pTappedBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_standing_tapped_barrel")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("standing", pTappedBarrel), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tinderFungusTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tintedCross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "tinted_cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.CROSS, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tintedFlowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "tinted_flower_pot_cross")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.PLANT, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void trapdoor(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_orientable_trapdoor_bottom")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_orientable_trapdoor_open")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "open"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_orientable_trapdoor_top")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tripleBarrelRack(Block pBlock, Block pBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_top_left")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_left"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_top_right")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top_right"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void trough(Block pName, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_trough")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaIdents.MC, "anvil"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void turkeyTailTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void twigs(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void unnamedTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_tree_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_tree_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_tree_shrooms"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void vine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile("dead", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "vine")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile("growing", pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void wall(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "wall_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_post")).build()
+			.create(IcariaModelProvider.blockFile(pName, "post"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_side")).build()
+			.create(IcariaModelProvider.blockFile(pName, "side"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "template_wall_side_tall")).build()
+			.create(IcariaModelProvider.blockFile(pName, "side_tall"), new TextureMapping()
+				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void water(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void wiltedElm(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wilted_elm")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void wood(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_column")).build()
+			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
+				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_column_horizontal")).build()
+			.create(IcariaModelProvider.blockFile(pName, "horizontal"), new TextureMapping()
+				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void zirconCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_zircon_crystal")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void anthraciteTorchModel(BlockModelGenerators pBlockModelGenerators) {
+		AnthraciteTorchModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_anthracite_torch"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void anthraciteWallTorchModel(BlockModelGenerators pBlockModelGenerators) {
+		AnthraciteWallTorchModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_anthracite_wall_torch"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void barrelModel(BlockModelGenerators pBlockModelGenerators) {
+		BarrelModel.barrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BarrelModel.standingBarrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_standing_barrel"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void barsInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		BarsInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bars_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bolbosModel(BlockModelGenerators pBlockModelGenerators) {
+		BolbosModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bolbos"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bromeliaModel(BlockModelGenerators pBlockModelGenerators) {
+		BromeliaModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bromelia"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		BrownGroundShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrownGroundShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrownGroundShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_brown_ground_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cakeModel(BlockModelGenerators pBlockModelGenerators) {
+		CakeModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CakeModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CakeModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CakeModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cake_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void calciteCrystalModel(BlockModelGenerators pBlockModelGenerators) {
+		CalciteCrystalModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_calcite_crystal"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cardonCactusInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		CardonCactusInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cardonCactusModel(BlockModelGenerators blockModels) {
+		CardonCactusModel.cube().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_cube"), new TextureMapping(), blockModels.modelOutput);
+		CardonCactusModel.stem().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_stem"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void dathullaModel(BlockModelGenerators pBlockModelGenerators) {
+		DathullaModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dathulla"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void deadLogModel(BlockModelGenerators pBlockModelGenerators) {
+		DeadLogModel.log0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		DeadLogModel.log1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		DeadLogModel.log2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		DeadLogModel.logHorizontal0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		DeadLogModel.logHorizontal1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		DeadLogModel.logHorizontal2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_log_horizontal_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void deadVineModel(BlockModelGenerators pBlockModelGenerators) {
+		DeadVineModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dead_vine"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void forgeInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		ForgeInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void forgeModel(BlockModelGenerators pBlockModelGenerators) {
+		ForgeModel.bottomFrontLeft().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.bottomFrontRight().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.bottomFrontRightLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_front_right_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.bottomBackLeft().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_back_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.bottomBackRight().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_bottom_back_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.topFrontLeft().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_front_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.topFrontRight().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_front_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.topBackLeft().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_back_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ForgeModel.topBackRight().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_forge_top_back_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void greenGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		GreenGroundShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GreenGroundShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GreenGroundShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		GrinderInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderModel(BlockModelGenerators pBlockModelGenerators) {
+		GrinderModel.left().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GrinderModel.right().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderShaftModel(BlockModelGenerators pBlockModelGenerators) {
+		GrinderShaftModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_shaft"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grinderStoneModel(BlockModelGenerators pBlockModelGenerators) {
+		GrinderStoneModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_stone"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void groundFlowersModel(BlockModelGenerators pBlockModelGenerators) {
+		GroundFlowersModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void haliteCrystalModel(BlockModelGenerators pBlockModelGenerators) {
+		HaliteCrystalModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_halite_crystal"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void horizontalBarsModel(BlockModelGenerators pBlockModelGenerators) {
+		HorizontalBarsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_horizontal_bars"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void horizontalPaneModel(BlockModelGenerators pBlockModelGenerators) {
+		HorizontalPaneModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_horizontal_pane"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void jasperCrystalModel(BlockModelGenerators pBlockModelGenerators) {
+		JasperCrystalModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_jasper_crystal"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kettleInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		KettleInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kettleModel(BlockModelGenerators pBlockModelGenerators) {
+		KettleModel.lowerGlass().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_glass"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.lowerSolid().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.lowerSolidLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.upperGlass().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_glass"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.upperSolid().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_solid"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kilnInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		KilnInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kilnModel(BlockModelGenerators pBlockModelGenerators) {
+		KilnModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KilnModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void largeBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		LargeBrownGroundShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LargeBrownGroundShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LargeBrownGroundShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void layerModel(BlockModelGenerators pBlockModelGenerators) {
+		LayerModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template5().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_5"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template6().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_6"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template7().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_7"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LayerModel.template8().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_layer_8"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ligniteTorchModel(BlockModelGenerators pBlockModelGenerators) {
+		LigniteTorchModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_lignite_torch"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ligniteWallTorchModel(BlockModelGenerators pBlockModelGenerators) {
+		LigniteWallTorchModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_lignite_wall_torch"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void lootVaseModel(BlockModelGenerators pBlockModelGenerators) {
+		LootVaseModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template5().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_5"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template6().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_6"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template7().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_7"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template8().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_8"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		LootVaseModel.template9().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_loot_vase_9"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void mondanosModel(BlockModelGenerators pBlockModelGenerators) {
+		MondanosModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_mondanos"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void mothAgaricModel(BlockModelGenerators pBlockModelGenerators) {
+		MothAgaricModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_moth_agaric"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void namdrakeModel(BlockModelGenerators pBlockModelGenerators) {
+		NamdrakeModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_namdrake"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureBlockModel(BlockModelGenerators pBlockModelGenerators) {
+		OverlayTextureBlockModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_block"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureCrossModel(BlockModelGenerators pBlockModelGenerators) {
+		OverlayTextureCrossModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_cross"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureFlowerPotCrossModel(BlockModelGenerators pBlockModelGenerators) {
+		OverlayTextureFlowerPotCrossModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_flower_pot_cross"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void overlayTextureVineModel(BlockModelGenerators pBlockModelGenerators) {
+		OverlayTextureVineModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_overlay_texture_vine"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void palmFernModel(BlockModelGenerators pBlockModelGenerators) {
+		PalmFernModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_palm_fern"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void paneInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		PaneInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pane_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void physalisCropModel(BlockModelGenerators pBlockModelGenerators) {
+		PhysalisCropModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PhysalisCropModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PhysalisCropModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PhysalisCropModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PhysalisCropModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void portalModel(BlockModelGenerators pBlockModelGenerators) {
+		PortalModel.x().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_x"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PortalModel.z().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_z"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedBromeliaModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedBromeliaModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_bromelia"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedBrownGroundShroomsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_brown_ground_shrooms"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedCardonCactusModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedCardonCactusModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_cardon_cactus"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedGreenGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedGreenGroundShroomsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_green_ground_shrooms"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedLargeBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedLargeBrownGroundShroomsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_large_brown_ground_shrooms"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void pottedPalmFernModel(BlockModelGenerators pBlockModelGenerators) {
+		PottedPalmFernModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_palm_fern"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void psilocybosModel(BlockModelGenerators pBlockModelGenerators) {
+		PsilocybosModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_psilocybos"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rackModel(BlockModelGenerators pBlockModelGenerators) {
+		RackModel.simple().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RackModel.barrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RackModel.tapped().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tapped_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rowanModel(BlockModelGenerators pBlockModelGenerators) {
+		RowanModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rowan"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rubbleModel(BlockModelGenerators pBlockModelGenerators) {
+		RubbleModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RubbleModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RubbleModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RubbleModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RubbleModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void simpleRackModel(BlockModelGenerators pBlockModelGenerators) {
+		SimpleRackModel.simple().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SimpleRackModel.barrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SimpleRackModel.tapped().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_tapped_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void storageVaseModel(BlockModelGenerators pBlockModelGenerators) {
+		StorageVaseModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_storage_vase"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void strawberryBushModel(BlockModelGenerators pBlockModelGenerators) {
+		StrawberryBushModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_strawberry_bush"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void strippedDeadLogModel(BlockModelGenerators pBlockModelGenerators) {
+		StrippedDeadLogModel.log0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		StrippedDeadLogModel.log1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		StrippedDeadLogModel.log2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		StrippedDeadLogModel.logHorizontal0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		StrippedDeadLogModel.logHorizontal1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		StrippedDeadLogModel.logHorizontal2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stripped_dead_log_horizontal_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void surfaceBonesModel(BlockModelGenerators pBlockModelGenerators) {
+		SurfaceBonesModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_surface_bones"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void surfaceChertModel(BlockModelGenerators pBlockModelGenerators) {
+		SurfaceChertModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_surface_chert"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tappedBarrelModel(BlockModelGenerators pBlockModelGenerators) {
+		TappedBarrelModel.barrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tapped_barrel"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TappedBarrelModel.standingBarrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_standing_tapped_barrel"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tinderFungusTreeShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		TinderFungusTreeShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TinderFungusTreeShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TinderFungusTreeShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_tinder_fungus_tree_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tripleBarrelRackInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		TripleBarrelRackInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void tripleBarrelRackModel(BlockModelGenerators pBlockModelGenerators) {
+		TripleBarrelRackModel.topLeft().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_top_left"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TripleBarrelRackModel.topRight().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_triple_barrel_rack_top_right"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void troughModel(BlockModelGenerators pBlockModelGenerators) {
+		TroughModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_trough"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void turkeyTailTreeShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		TurkeyTailTreeShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TurkeyTailTreeShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TurkeyTailTreeShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_turkey_tail_tree_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void twigsModel(BlockModelGenerators pBlockModelGenerators) {
+		TwigsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TwigsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TwigsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TwigsModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		TwigsModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_twigs_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void unnamedTreeShroomsModel(BlockModelGenerators pBlockModelGenerators) {
+		UnnamedTreeShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		UnnamedTreeShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		UnnamedTreeShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void wiltedElmModel(BlockModelGenerators pBlockModelGenerators) {
+		WiltedElmModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wilted_elm"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void zirconCrystalModel(BlockModelGenerators pBlockModelGenerators) {
+		ZirconCrystalModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_zircon_crystal"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 }

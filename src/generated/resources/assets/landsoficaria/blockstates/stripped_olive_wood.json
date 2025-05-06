@@ -6,11 +6,14 @@
       "y": 90
     },
     "axis=y": {
-      "model": "landsoficaria:block/stripped_olive_wood"
+      "model": "landsoficaria:block/stripped_olive_wood",
+      "x": 0,
+      "y": 0
     },
     "axis=z": {
       "model": "landsoficaria:block/stripped_olive_wood_horizontal",
-      "x": 90
+      "x": 90,
+      "y": 0
     }
   }
 }

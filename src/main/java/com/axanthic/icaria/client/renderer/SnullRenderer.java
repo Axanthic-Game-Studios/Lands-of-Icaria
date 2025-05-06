@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.SnullEmissiveLayer;
 import com.axanthic.icaria.client.model.SnullModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SnullRenderState;
 import com.axanthic.icaria.common.entity.SnullEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class SnullRenderer extends MobRenderer<SnullEntity, SnullRenderState, SnullModel> {
 	public SnullRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new SnullModel(pContext.bakeLayer(IcariaLayerLocations.SNULL)), 1.0F);
+		super(pContext, new SnullModel(pContext.bakeLayer(IcariaModelLayerLocations.SNULL)), 1.0F);
 		this.addLayer(new SnullEmissiveLayer(this));
 	}
 

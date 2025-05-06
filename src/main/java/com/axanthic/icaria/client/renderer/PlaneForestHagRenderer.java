@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.PlaneForestHagEmissiveLayer;
 import com.axanthic.icaria.client.model.PlaneForestHagModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PlaneForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -19,7 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class PlaneForestHagRenderer extends MobRenderer<ForestHagEntity, PlaneForestHagRenderState, PlaneForestHagModel> {
 	public PlaneForestHagRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new PlaneForestHagModel(pContext.bakeLayer(IcariaLayerLocations.PLANE_FOREST_HAG)), 0.75F);
+		super(pContext, new PlaneForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.PLANE_FOREST_HAG)), 0.75F);
 		this.addLayer(new PlaneForestHagEmissiveLayer(this));
 	}
 

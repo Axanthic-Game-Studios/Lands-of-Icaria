@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.ArachneEmissiveLayer;
 import com.axanthic.icaria.client.model.ArachneModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ArachneRenderState;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -19,7 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneRenderState, ArachneModel> {
 	public ArachneRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new ArachneModel(pContext.bakeLayer(IcariaLayerLocations.ARACHNE)), 1.25F);
+		super(pContext, new ArachneModel(pContext.bakeLayer(IcariaModelLayerLocations.ARACHNE)), 1.25F);
 		this.addLayer(new ArachneEmissiveLayer(this));
 	}
 

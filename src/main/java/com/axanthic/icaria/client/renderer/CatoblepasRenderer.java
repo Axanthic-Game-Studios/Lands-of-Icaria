@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.CatoblepasModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CatoblepasRenderState;
 import com.axanthic.icaria.common.entity.CatoblepasEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, CatoblepasRenderState, CatoblepasModel> {
 	public CatoblepasRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CatoblepasModel(pContext.bakeLayer(IcariaLayerLocations.CATOBLEPAS)), 1.0F);
+		super(pContext, new CatoblepasModel(pContext.bakeLayer(IcariaModelLayerLocations.CATOBLEPAS)), 1.0F);
 	}
 
 	@Override

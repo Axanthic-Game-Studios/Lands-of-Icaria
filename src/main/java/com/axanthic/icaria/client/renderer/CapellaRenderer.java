@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.CapellaModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CapellaRenderState;
 import com.axanthic.icaria.common.entity.CapellaEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CapellaRenderer extends MobRenderer<CapellaEntity, CapellaRenderState, CapellaModel> {
 	public CapellaRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CapellaModel(pContext.bakeLayer(IcariaLayerLocations.CAPELLA)), 1.0F);
+		super(pContext, new CapellaModel(pContext.bakeLayer(IcariaModelLayerLocations.CAPELLA)), 1.0F);
 	}
 
 	@Override

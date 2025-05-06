@@ -1,0 +1,25 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:special",
+          "base": "minecraft:builtin/generated",
+          "model": {
+            "type": "landsoficaria:scroll"
+          }
+        },
+        "when": [
+          "firstperson_lefthand",
+          "firstperson_righthand"
+        ]
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "landsoficaria:item/healing_scroll"
+    },
+    "property": "minecraft:display_context"
+  }
+}

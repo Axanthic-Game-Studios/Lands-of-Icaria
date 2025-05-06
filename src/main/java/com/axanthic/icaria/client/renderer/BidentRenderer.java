@@ -12,7 +12,8 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.item.ItemModelResolver;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 
@@ -20,11 +21,11 @@ import net.minecraft.world.item.ItemDisplayContext;
 @ParametersAreNonnullByDefault
 
 public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderState> {
-	public ItemRenderer itemRenderer;
+	public ItemModelResolver itemModelResolver;
 
 	public BidentRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext);
-		this.itemRenderer = pContext.getItemRenderer();
+		this.itemModelResolver = pContext.getItemModelResolver();
 	}
 
 	@Override
@@ -32,8 +33,9 @@ public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderSta
 		super.extractRenderState(pEntity, pRenderState, pPartialTick);
 		pRenderState.xRot = pEntity.getXRot(pPartialTick);
 		pRenderState.yRot = pEntity.getYRot(pPartialTick);
-		pRenderState.bakedModel = this.itemRenderer.getModel(pEntity.getStack(), pEntity.level(), null, pEntity.getId());
 		pRenderState.itemStack = pEntity.getStack();
+		pRenderState.itemStackRenderState = new ItemStackRenderState();
+		this.itemModelResolver.updateForNonLiving(pRenderState.itemStackRenderState, pRenderState.itemStack, ItemDisplayContext.NONE, pEntity);
 	}
 
 	@Override
@@ -42,7 +44,7 @@ public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderSta
 		pPoseStack.translate(0.0F, 0.25F, 0.0F);
 		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.yRot - 90.0F));
 		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pRenderState.xRot - 45.0F));
-		this.itemRenderer.render(pRenderState.itemStack, ItemDisplayContext.NONE, false, pPoseStack, pMultiBufferSource, pPackedLight, OverlayTexture.NO_OVERLAY, pRenderState.bakedModel);
+		pRenderState.itemStackRenderState.render(pPoseStack, pMultiBufferSource, pPackedLight, OverlayTexture.NO_OVERLAY);
 		pPoseStack.popPose();
 		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
 	}

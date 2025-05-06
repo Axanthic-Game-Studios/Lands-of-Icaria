@@ -3,7 +3,7 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.CrystalSlugEmissiveLayer;
 import com.axanthic.icaria.client.layer.CrystalSlugRaysLayer;
 import com.axanthic.icaria.client.model.CrystalSlugModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrystalSlugRenderState;
 import com.axanthic.icaria.common.entity.SlugEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -24,7 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRenderState, CrystalSlugModel> {
 	public CrystalSlugRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CrystalSlugModel(pContext.bakeLayer(IcariaLayerLocations.CRYSTAL_SLUG_BODY)), 1.0F);
+		super(pContext, new CrystalSlugModel(pContext.bakeLayer(IcariaModelLayerLocations.CRYSTAL_SLUG_BODY)), 1.0F);
 		this.addLayer(new CrystalSlugEmissiveLayer(this));
 		this.addLayer(new CrystalSlugRaysLayer(this));
 	}

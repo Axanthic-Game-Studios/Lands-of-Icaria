@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.provider.tags.IcariaPaintingTagsProvider;
+import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -69,7 +69,7 @@ public class IcariaPaintingEntity extends Painting {
 	public static Optional<Painting> create(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
 		var arrayList = new ArrayList<Holder<PaintingVariant>>();
 		var paintingEntity = new IcariaPaintingEntity(pLevel, pBlockPos);
-		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingTagsProvider.PLACEABLE).forEach(arrayList::add);
+		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingVariantTagsProvider.PLACEABLE).forEach(arrayList::add);
 		if (arrayList.isEmpty()) {
 			return Optional.empty();
 		} else {

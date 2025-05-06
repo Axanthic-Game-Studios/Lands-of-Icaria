@@ -8,10 +8,21 @@
     {
       "apply": {
         "model": "landsoficaria:block/fir_fence_side",
-        "uvlock": true
+        "uvlock": true,
+        "y": 0
       },
       "when": {
         "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/fir_fence_side",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true"
       }
     },
     {
@@ -32,16 +43,6 @@
       },
       "when": {
         "west": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/fir_fence_side",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "true"
       }
     }
   ]

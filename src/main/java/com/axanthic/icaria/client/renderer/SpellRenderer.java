@@ -17,7 +17,6 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.util.Mth;
-import net.minecraft.world.inventory.InventoryMenu;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -80,7 +79,7 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 
 			var resolution = f / distance;
 
-			var textureAtlasSprite = Minecraft.getInstance().getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.SPELL);
+			var textureAtlasSprite = Minecraft.getInstance().getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.SPELL);
 
 			IcariaClientHelper.renderQuad(vertexConsumer, textureAtlasSprite, matrix4f, pPackedLight, 0, 0.0F, 1.0F, 0.0F, 1.0F, x - width, x + width, y - width, y + width, resolution, red, green, blue, alpha);
 			IcariaClientHelper.renderQuad(vertexConsumer, textureAtlasSprite, matrix4f, pPackedLight, 0, 0.0F, 1.0F, 0.0F, 1.0F, x + width, x - width, y - width, y + width, resolution, red, green, blue, alpha);

@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.registry.IcariaPlacedFeatures;
 
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -15,7 +14,6 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
@@ -24,9 +22,6 @@ import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.lighting.LightEngine;
-
-import net.neoforged.neoforge.common.ItemAbilities;
-import net.neoforged.neoforge.common.ItemAbility;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -108,16 +103,6 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	public void spreadRandom(BlockPos pBlockPos, RandomSource pRandomSource, ServerLevel pServerLevel) {
 		for (var i = 0; i < 4; ++i) {
 			this.spread(pBlockPos.offset(pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(5) - 3, pRandomSource.nextInt(3) - 1), pServerLevel);
-		}
-	}
-
-	@Nullable
-	@Override
-	public BlockState getToolModifiedState(BlockState pBlockState, UseOnContext pUseOnContext, ItemAbility pItemAbility, boolean pSimulate) {
-		if (pItemAbility == ItemAbilities.HOE_TILL && pUseOnContext.getLevel().getBlockState(pUseOnContext.getClickedPos().above()).isAir()) {
-			return IcariaBlocks.FARMLAND.get().defaultBlockState();
-		} else {
-			return null;
 		}
 	}
 

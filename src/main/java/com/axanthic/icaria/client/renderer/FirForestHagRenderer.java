@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.FirForestHagEmissiveLayer;
 import com.axanthic.icaria.client.model.FirForestHagModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.FirForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -19,7 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class FirForestHagRenderer extends MobRenderer<ForestHagEntity, FirForestHagRenderState, FirForestHagModel> {
 	public FirForestHagRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new FirForestHagModel(pContext.bakeLayer(IcariaLayerLocations.FIR_FOREST_HAG)), 0.75F);
+		super(pContext, new FirForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.FIR_FOREST_HAG)), 0.75F);
 		this.addLayer(new FirForestHagEmissiveLayer(this));
 	}
 

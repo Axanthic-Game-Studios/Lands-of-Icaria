@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.network.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.LayerShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
@@ -49,6 +49,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import net.neoforged.neoforge.network.PacketDistributor;
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -90,6 +92,70 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
 		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
 		IcariaCommonHelper.loadedOrTappedRack(pBlockPos, pBlockState, pLevel);
+	}
+
+	public BlockState getLoaded() {
+		if (this.woodType() == IcariaWoodTypes.CYPRESS) {
+			return IcariaBlocks.LOADED_CYPRESS_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.DROUGHTROOT) {
+			return IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.FIR) {
+			return IcariaBlocks.LOADED_FIR_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.LAUREL) {
+			return IcariaBlocks.LOADED_LAUREL_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.OLIVE) {
+			return IcariaBlocks.LOADED_OLIVE_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.PLANE) {
+			return IcariaBlocks.LOADED_PLANE_BARREL.get().defaultBlockState();
+		} else {
+			return IcariaBlocks.LOADED_POPULUS_BARREL.get().defaultBlockState();
+		}
+	}
+
+	public BlockState getNormal() {
+		if (this.woodType() == IcariaWoodTypes.CYPRESS) {
+			return IcariaBlocks.CYPRESS_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.DROUGHTROOT) {
+			return IcariaBlocks.DROUGHTROOT_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.FIR) {
+			return IcariaBlocks.FIR_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.LAUREL) {
+			return IcariaBlocks.LAUREL_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.OLIVE) {
+			return IcariaBlocks.OLIVE_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.PLANE) {
+			return IcariaBlocks.PLANE_BARREL.get().defaultBlockState();
+		} else {
+			return IcariaBlocks.POPULUS_BARREL.get().defaultBlockState();
+		}
+	}
+
+	public BlockState getTapped() {
+		if (this.woodType() == IcariaWoodTypes.CYPRESS) {
+			return IcariaBlocks.TAPPED_CYPRESS_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.DROUGHTROOT) {
+			return IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.FIR) {
+			return IcariaBlocks.TAPPED_FIR_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.LAUREL) {
+			return IcariaBlocks.TAPPED_LAUREL_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.OLIVE) {
+			return IcariaBlocks.TAPPED_OLIVE_BARREL.get().defaultBlockState();
+		} else if (this.woodType() == IcariaWoodTypes.PLANE) {
+			return IcariaBlocks.TAPPED_PLANE_BARREL.get().defaultBlockState();
+		} else {
+			return IcariaBlocks.TAPPED_POPULUS_BARREL.get().defaultBlockState();
+		}
+	}
+
+	public BlockState getRenderState(BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
+			return this.getLoaded();
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
+			return this.getTapped();
+		} else {
+			return this.getNormal();
+		}
 	}
 
 	@Override
@@ -138,15 +204,15 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.isPassenger() || pPlayer.isVehicle() || !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
 			return InteractionResult.FAIL;
 		} else {
-			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pLevel, pBlockState, pBlockPos);
-			entity.moveTo(pPlayer.blockPosition(), 0, 0);
-			entity.startRiding(pPlayer);
-			pLevel.addFreshEntity(entity); // TODO not working as of 1.21.2
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
+			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.getRenderState(pBlockState));
+			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pBlockPos, this.getRenderState(pBlockState)));
 			return InteractionResult.PASS;
 		}
 	}

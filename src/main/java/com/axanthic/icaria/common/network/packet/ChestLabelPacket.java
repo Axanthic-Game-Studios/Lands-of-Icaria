@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.network.packet;
 
 import com.axanthic.icaria.common.network.runnable.ChestLabelRunnable;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -10,7 +10,6 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
@@ -25,7 +24,7 @@ public class ChestLabelPacket implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ChestLabelPacket> STREAM_CODEC = CustomPacketPayload.codec(ChestLabelPacket::write, ChestLabelPacket::new);
 
-	public static final Type<ChestLabelPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "chest_label"));
+	public static final Type<ChestLabelPacket> TYPE = new Type<>(IcariaResourceLocations.CHEST_LABEL_PACKET_TYPE);
 
 	public ChestLabelPacket(ItemStack pItemStack, String pString) {
 		this.itemStack = pItemStack;
@@ -36,7 +35,7 @@ public class ChestLabelPacket implements CustomPacketPayload {
 		this(ItemStack.STREAM_CODEC.decode(pRegistryFriendlyByteBuf), ByteBufCodecs.STRING_UTF8.decode(pRegistryFriendlyByteBuf));
 	}
 
-	public static void handler(ChestLabelPacket pPacket, IPayloadContext pPayloadContext) {
+	public static void handle(ChestLabelPacket pPacket, IPayloadContext pPayloadContext) {
 		pPayloadContext.enqueueWork(new ChestLabelRunnable(pPacket, pPayloadContext));
 	}
 

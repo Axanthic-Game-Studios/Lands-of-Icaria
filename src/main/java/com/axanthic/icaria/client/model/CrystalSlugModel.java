@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.CrystalSlugRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -52,10 +52,10 @@ public class CrystalSlugModel extends EntityModel<CrystalSlugRenderState> {
 
 		this.idleAnim(pRenderState.ageInTicks);
 
-		this.animate(pRenderState.hideAnimationState, IcariaAnimations.CRYSTAL_SLUG_HIDE, pRenderState.ageInTicks);
-		this.animate(pRenderState.hurtAnimationState, IcariaAnimations.CRYSTAL_SLUG_HURT, pRenderState.ageInTicks);
-		this.animate(pRenderState.moveAnimationState, IcariaAnimations.CRYSTAL_SLUG_MOVE, pRenderState.ageInTicks);
-		this.animate(pRenderState.showAnimationState, IcariaAnimations.CRYSTAL_SLUG_SHOW, pRenderState.ageInTicks);
+		this.animate(pRenderState.hideAnimationState, IcariaAnimationDefinitions.CRYSTAL_SLUG_HIDE, pRenderState.ageInTicks);
+		this.animate(pRenderState.hurtAnimationState, IcariaAnimationDefinitions.CRYSTAL_SLUG_HURT, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimationDefinitions.CRYSTAL_SLUG_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.showAnimationState, IcariaAnimationDefinitions.CRYSTAL_SLUG_SHOW, pRenderState.ageInTicks);
 	}
 
 	public void idleAnim(float pAgeInTicks) {

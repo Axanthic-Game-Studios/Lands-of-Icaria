@@ -284,9 +284,9 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 
 	public String getType(IcariaChestBlockEntity pBlockEntity) {
 		if (pBlockEntity.getBlockState().getBlock() == IcariaBlocks.TRAPPED_CHEST.get()) {
-			return "trapped";
+			return "trapped_chest";
 		} else {
-			return "normal";
+			return "chest";
 		}
 	}
 }

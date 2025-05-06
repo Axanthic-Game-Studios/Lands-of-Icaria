@@ -32,11 +32,6 @@ public class IcariaSpawnerBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	@Override
-	public boolean onlyOpCanSetNbt() {
-		return true;
-	}
-
-	@Override
 	public boolean triggerEvent(int pId, int pType) {
 		return this.level != null && this.baseSpawner.onEventTriggered(this.level, pId);
 	}

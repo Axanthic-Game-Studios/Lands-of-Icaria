@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "landsoficaria:item/grassy_marl",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -4867232
+      }
+    ]
+  }
+}

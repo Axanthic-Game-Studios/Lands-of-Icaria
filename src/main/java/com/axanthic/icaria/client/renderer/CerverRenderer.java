@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.CerverModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CerverRenderState;
 import com.axanthic.icaria.common.entity.CerverEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CerverRenderer extends MobRenderer<CerverEntity, CerverRenderState, CerverModel> {
 	public CerverRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CerverModel(pContext.bakeLayer(IcariaLayerLocations.CERVER)), 0.75F);
+		super(pContext, new CerverModel(pContext.bakeLayer(IcariaModelLayerLocations.CERVER)), 0.75F);
 	}
 
 	@Override

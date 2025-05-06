@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.SowModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SowRenderState;
 import com.axanthic.icaria.common.entity.SowEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class SowRenderer extends MobRenderer<SowEntity, SowRenderState, SowModel> {
 	public SowRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new SowModel(pContext.bakeLayer(IcariaLayerLocations.SOW)), 1.0F);
+		super(pContext, new SowModel(pContext.bakeLayer(IcariaModelLayerLocations.SOW)), 1.0F);
 	}
 
 	@Override

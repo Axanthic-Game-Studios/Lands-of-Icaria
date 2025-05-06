@@ -3,7 +3,7 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveLayer;
 import com.axanthic.icaria.client.layer.MyrmekeQueenRaysLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenRenderState, MyrmekeQueenModel> {
 	public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
+		super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaModelLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
 		this.addLayer(new MyrmekeQueenEmissiveLayer(this));
 		this.addLayer(new MyrmekeQueenRaysLayer(this));
 	}

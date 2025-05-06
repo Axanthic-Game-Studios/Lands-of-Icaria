@@ -1,132 +1,68 @@
 {
   "variants": {
-    "facing=east,half=bottom,mediterranean_waterlogged=false,open=false": {
+    "facing=east,half=bottom,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 90
+      "y": 0
     },
-    "facing=east,half=bottom,mediterranean_waterlogged=false,open=true": {
+    "facing=east,half=bottom,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
       "y": 90
     },
-    "facing=east,half=bottom,mediterranean_waterlogged=true,open=false": {
+    "facing=east,half=top,open=false": {
+      "model": "landsoficaria:block/droughtroot_trapdoor_top",
+      "y": 0
+    },
+    "facing=east,half=top,open=true": {
+      "model": "landsoficaria:block/droughtroot_trapdoor_open",
+      "y": 90
+    },
+    "facing=north,half=bottom,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 90
+      "y": 0
     },
-    "facing=east,half=bottom,mediterranean_waterlogged=true,open=true": {
+    "facing=north,half=bottom,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "y": 90
+      "y": 0
     },
-    "facing=east,half=top,mediterranean_waterlogged=false,open=false": {
+    "facing=north,half=top,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 90
+      "y": 0
     },
-    "facing=east,half=top,mediterranean_waterlogged=false,open=true": {
+    "facing=north,half=top,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 270
+      "y": 0
     },
-    "facing=east,half=top,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 90
-    },
-    "facing=east,half=top,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 270
-    },
-    "facing=north,half=bottom,mediterranean_waterlogged=false,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_bottom"
-    },
-    "facing=north,half=bottom,mediterranean_waterlogged=false,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open"
-    },
-    "facing=north,half=bottom,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_bottom"
-    },
-    "facing=north,half=bottom,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open"
-    },
-    "facing=north,half=top,mediterranean_waterlogged=false,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top"
-    },
-    "facing=north,half=top,mediterranean_waterlogged=false,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 180
-    },
-    "facing=north,half=top,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top"
-    },
-    "facing=north,half=top,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 180
-    },
-    "facing=south,half=bottom,mediterranean_waterlogged=false,open=false": {
+    "facing=south,half=bottom,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 180
+      "y": 0
     },
-    "facing=south,half=bottom,mediterranean_waterlogged=false,open=true": {
+    "facing=south,half=bottom,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
       "y": 180
     },
-    "facing=south,half=bottom,mediterranean_waterlogged=true,open=false": {
+    "facing=south,half=top,open=false": {
+      "model": "landsoficaria:block/droughtroot_trapdoor_top",
+      "y": 0
+    },
+    "facing=south,half=top,open=true": {
+      "model": "landsoficaria:block/droughtroot_trapdoor_open",
+      "y": 180
+    },
+    "facing=west,half=bottom,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 180
+      "y": 0
     },
-    "facing=south,half=bottom,mediterranean_waterlogged=true,open=true": {
+    "facing=west,half=bottom,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "y": 180
+      "y": 270
     },
-    "facing=south,half=top,mediterranean_waterlogged=false,open=false": {
+    "facing=west,half=top,open=false": {
       "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 180
+      "y": 0
     },
-    "facing=south,half=top,mediterranean_waterlogged=false,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180
-    },
-    "facing=south,half=top,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 180
-    },
-    "facing=south,half=top,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180
-    },
-    "facing=west,half=bottom,mediterranean_waterlogged=false,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 270
-    },
-    "facing=west,half=bottom,mediterranean_waterlogged=false,open=true": {
+    "facing=west,half=top,open=true": {
       "model": "landsoficaria:block/droughtroot_trapdoor_open",
       "y": 270
-    },
-    "facing=west,half=bottom,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_bottom",
-      "y": 270
-    },
-    "facing=west,half=bottom,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "y": 270
-    },
-    "facing=west,half=top,mediterranean_waterlogged=false,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 270
-    },
-    "facing=west,half=top,mediterranean_waterlogged=false,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 90
-    },
-    "facing=west,half=top,mediterranean_waterlogged=true,open=false": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_top",
-      "y": 270
-    },
-    "facing=west,half=top,mediterranean_waterlogged=true,open=true": {
-      "model": "landsoficaria:block/droughtroot_trapdoor_open",
-      "x": 180,
-      "y": 90
     }
   }
 }

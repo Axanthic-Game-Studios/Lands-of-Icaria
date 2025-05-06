@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.VinegaroonEmissiveLayer;
 import com.axanthic.icaria.client.model.VinegaroonModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.VinegaroonRenderState;
 import com.axanthic.icaria.common.entity.VinegaroonEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -19,7 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class VinegaroonRenderer extends MobRenderer<VinegaroonEntity, VinegaroonRenderState, VinegaroonModel> {
 	public VinegaroonRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new VinegaroonModel(pContext.bakeLayer(IcariaLayerLocations.VINEGAROON)), 1.375F);
+		super(pContext, new VinegaroonModel(pContext.bakeLayer(IcariaModelLayerLocations.VINEGAROON)), 1.375F);
 		this.addLayer(new VinegaroonEmissiveLayer(this));
 	}
 

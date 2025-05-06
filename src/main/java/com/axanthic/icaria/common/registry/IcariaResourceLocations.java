@@ -11,13 +11,17 @@ import net.minecraft.resources.ResourceLocation;
 public class IcariaResourceLocations {
 	public static final ResourceLocation ICARIA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "icaria");
 
-	// ADVANCEMENT
+	// ADVANCEMENT BACKGROUND
 
-	public static final ResourceLocation BACKGROUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/block/sunstone_bricks.png");
+	public static final ResourceLocation ADVANCEMENT_BACKGROUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/block/sunstone_bricks.png");
 
 	// ATTRIBUTE MODIFIER
 
 	public static final ResourceLocation BASE_ATTACK_RANGE_ID = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "base_attack_range");
+
+	// ATLAS
+
+	public static final ResourceLocation BLOCK_ATLAS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "textures/atlas/blocks.png");
 
 	// BLOCK
 
@@ -31,9 +35,16 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_top");
 	public static final ResourceLocation VINEBERRIES = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_vineberries");
 
+	// CONTEXT KEY
+
+	public static final ResourceLocation LEVEL_CONTEXT_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "level");
+	public static final ResourceLocation LOOT_VASE_CONTEXT_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "loot_vase");
+	public static final ResourceLocation LOOT_VASE_BLOCK_POS_CONTEXT_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "loot_vase_block_pos");
+	public static final ResourceLocation LOOT_VASE_BLOCK_STATE_CONTEXT_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "loot_vase_block_state");
+
 	// EFFECT
 
-	public static final ResourceLocation FREEZING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "effect.freezing");
+	public static final ResourceLocation FREEZING_EFFECT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "effect.freezing");
 
 	// ENTITY
 
@@ -137,11 +148,6 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SCROLL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item/scroll");
 	public static final ResourceLocation SPELL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item/spell");
 
-	// ITEM PROPERTY
-
-	public static final ResourceLocation THROWING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "throwing");
-	public static final ResourceLocation TOOTING = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "tooting");
-
 	// LAYER
 
 	public static final ResourceLocation AETERNAE_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "aeternae");
@@ -198,6 +204,38 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SOW_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "sow");
 	public static final ResourceLocation SOW_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "sow_skull");
 	public static final ResourceLocation VINEGAROON_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "vinegaroon");
+
+	// PACKET TYPE
+
+	public static final ResourceLocation CHEST_LABEL_PACKET_TYPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "chest_label");
+	public static final ResourceLocation GRINDER_PACKET_TYPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "grinder");
+	public static final ResourceLocation LOOT_VASE_PACKET_TYPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "loot_vase");
+	public static final ResourceLocation TOTEM_PACKET_TYPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "totem");
+
+	// PARTICLE
+
+	public static final ResourceLocation BUBBLE_PARTICLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "bubble");
+	public static final ResourceLocation GENERIC_PARTICLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "generic");
+	public static final ResourceLocation STEAM_PARTICLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "steam");
+
+	// RECIPE
+
+	public static final ResourceLocation CHEST_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "chest");
+	public static final ResourceLocation CYPRESS_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "cypress_crafting_table_from_cypress_planks");
+	public static final ResourceLocation DROUGHTROOT_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "droughtroot_crafting_table_from_droughtroot_planks");
+	public static final ResourceLocation FIR_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "fir_crafting_table_from_fir_planks");
+	public static final ResourceLocation LAUREL_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "laurel_crafting_table_from_laurel_planks");
+	public static final ResourceLocation OLIVE_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "olive_crafting_table_from_olive_planks");
+	public static final ResourceLocation PLANE_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "plane_crafting_table_from_plane_planks");
+	public static final ResourceLocation POPULUS_CRAFTING_TABLE_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "populus_crafting_table_from_populus_planks");
+
+	// REGISTRY KEY
+
+	public static final ResourceLocation EQUIPMENT_ASSET_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "equipment_asset");
+
+	// RENDERER
+
+	public static final ResourceLocation SCROLL_RENDERER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "scroll");
 
 	// SOUND
 

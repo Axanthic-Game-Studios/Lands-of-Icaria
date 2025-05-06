@@ -65,14 +65,6 @@
       ]
     }
   },
-  "overrides": [
-    {
-      "model": "landsoficaria:item/capella_horn_tooting",
-      "predicate": {
-        "landsoficaria:tooting": 1.0
-      }
-    }
-  ],
   "textures": {
     "layer0": "landsoficaria:item/capella_horn"
   }

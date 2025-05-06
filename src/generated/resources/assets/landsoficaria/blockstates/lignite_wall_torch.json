@@ -5,7 +5,8 @@
       "y": 90
     },
     "facing=north": {
-      "model": "landsoficaria:block/lignite_wall_torch"
+      "model": "landsoficaria:block/lignite_wall_torch",
+      "y": 0
     },
     "facing=south": {
       "model": "landsoficaria:block/lignite_wall_torch",

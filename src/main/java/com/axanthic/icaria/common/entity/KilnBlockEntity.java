@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
-
 import com.axanthic.icaria.common.container.data.KilnContainerData;
 import com.axanthic.icaria.common.handler.stack.KilnFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.KilnInputItemStackHandler;
@@ -9,6 +7,8 @@ import com.axanthic.icaria.common.handler.stack.KilnOutputItemStackHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
+import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;

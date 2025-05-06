@@ -4,6 +4,7 @@
   "effects": {
     "fog_color": 14470514,
     "grass_color": 8427853,
+    "music_volume": 1.0,
     "sky_color": 8301300,
     "water_color": 4227157,
     "water_fog_color": 4227157

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.MyrmekeDroneRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
@@ -48,7 +48,7 @@ public class MyrmekeDroneModel extends EntityModel<MyrmekeDroneRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimations.MYRMEKE_DRONE_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.MYRMEKE_DRONE_ATTACK, pRenderState.ageInTicks);
 	}
 
 	public void lookAnim(float pXRot, float pYRot) {

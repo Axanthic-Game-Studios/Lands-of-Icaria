@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.Blocks;
 
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -154,14 +153,43 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 	public static final TagKey<Block> STORAGE_BLOCKS_MOLYBDENUMSTEEL = IcariaBlockTagsProvider.cKey("storage_blocks/molybdenumsteel");
 	public static final TagKey<Block> STORAGE_BLOCKS_BLURIDIUM = IcariaBlockTagsProvider.cKey("storage_blocks/bluridium");
 
-	public IcariaBlockTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaBlockTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 
 		// BLOCKS
+
+		this.tag(BlockTags.BEE_ATTRACTIVE)
+			.add(IcariaBlocks.BLINDWEED.get())
+			.add(IcariaBlocks.CHAMEOMILE.get())
+			.add(IcariaBlocks.CHARMONDER.get())
+			.add(IcariaBlocks.CLOVER.get())
+			.add(IcariaBlocks.FIREHILT.get())
+			.add(IcariaBlocks.BLUE_HYDRACINTH.get())
+			.add(IcariaBlocks.PURPLE_HYDRACINTH.get())
+			.add(IcariaBlocks.LIONFANGS.get())
+			.add(IcariaBlocks.SPEARDROPS.get())
+			.add(IcariaBlocks.PURPLE_STAGHORN.get())
+			.add(IcariaBlocks.YELLOW_STAGHORN.get())
+			.add(IcariaBlocks.BLUE_STORMCOTTON.get())
+			.add(IcariaBlocks.PINK_STORMCOTTON.get())
+			.add(IcariaBlocks.PURPLE_STORMCOTTON.get())
+			.add(IcariaBlocks.SUNKETTLE.get())
+			.add(IcariaBlocks.SUNSPONGE.get())
+			.add(IcariaBlocks.VOIDLILY.get())
+			.add(IcariaBlocks.BLUE_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.CYAN_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.PINK_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.PURPLE_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.RED_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.WHITE_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.WHITE_BROMELIA.get())
+			.add(IcariaBlocks.ORANGE_BROMELIA.get())
+			.add(IcariaBlocks.PINK_BROMELIA.get())
+			.add(IcariaBlocks.PURPLE_BROMELIA.get());
 
 		this.tag(BlockTags.CEILING_HANGING_SIGNS)
 			.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get())
@@ -617,10 +645,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.DRY_VINE.get())
 			.add(IcariaBlocks.REEDY_VINE.get())
 			.add(IcariaBlocks.SWIRLY_VINE.get())
-			.add(IcariaBlocks.THORNY_VINE.get())
-			.add(IcariaBlocks.FOREST_MOSS.get())
-			.add(IcariaBlocks.SCRUBLAND_MOSS.get())
-			.add(IcariaBlocks.STEPPE_MOSS.get());
+			.add(IcariaBlocks.THORNY_VINE.get());
 
 		this.tag(BlockTags.WALL_HANGING_SIGNS)
 			.add(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get())
@@ -1542,6 +1567,25 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get())
 			.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
 
+		this.tag(Tags.Blocks.FLOWERS_SMALL)
+			.add(IcariaBlocks.BLINDWEED.get())
+			.add(IcariaBlocks.CHAMEOMILE.get())
+			.add(IcariaBlocks.CHARMONDER.get())
+			.add(IcariaBlocks.CLOVER.get())
+			.add(IcariaBlocks.FIREHILT.get())
+			.add(IcariaBlocks.BLUE_HYDRACINTH.get())
+			.add(IcariaBlocks.PURPLE_HYDRACINTH.get())
+			.add(IcariaBlocks.LIONFANGS.get())
+			.add(IcariaBlocks.SPEARDROPS.get())
+			.add(IcariaBlocks.PURPLE_STAGHORN.get())
+			.add(IcariaBlocks.YELLOW_STAGHORN.get())
+			.add(IcariaBlocks.BLUE_STORMCOTTON.get())
+			.add(IcariaBlocks.PINK_STORMCOTTON.get())
+			.add(IcariaBlocks.PURPLE_STORMCOTTON.get())
+			.add(IcariaBlocks.SUNKETTLE.get())
+			.add(IcariaBlocks.SUNSPONGE.get())
+			.add(IcariaBlocks.VOIDLILY.get());
+
 		this.tag(Tags.Blocks.STONES)
 			.add(IcariaBlocks.YELLOWSTONE.get())
 			.add(IcariaBlocks.SILKSTONE.get())
@@ -1847,6 +1891,11 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 
 		this.tag(IcariaBlockTagsProvider.STORAGE_BLOCKS_BLURIDIUM)
 			.add(IcariaBlocks.BLURIDIUM_BLOCK.get());
+	}
+
+	@Override
+	public String getName() {
+		return "Block Tags";
 	}
 
 	public static TagKey<Block> cKey(String pName) {

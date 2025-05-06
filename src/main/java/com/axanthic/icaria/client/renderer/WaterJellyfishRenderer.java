@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.WaterJellyfishEmissiveLayer;
 import com.axanthic.icaria.client.model.WaterJellyfishModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.WaterJellyfishRenderState;
 import com.axanthic.icaria.common.entity.WaterJellyfishEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -23,7 +23,7 @@ import net.minecraft.util.Mth;
 
 public class WaterJellyfishRenderer extends MobRenderer<WaterJellyfishEntity, WaterJellyfishRenderState, WaterJellyfishModel> {
 	public WaterJellyfishRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new WaterJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.WATER_JELLYFISH)), 1.0F);
+		super(pContext, new WaterJellyfishModel(pContext.bakeLayer(IcariaModelLayerLocations.WATER_JELLYFISH)), 1.0F);
 		this.addLayer(new WaterJellyfishEmissiveLayer(this));
 	}
 

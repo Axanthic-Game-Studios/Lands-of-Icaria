@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.HyliasterRenderState;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -31,7 +31,7 @@ public class HyliasterModel extends EntityModel<HyliasterRenderState> {
 	public void setupAnim(HyliasterRenderState pRenderState) {
 		super.setupAnim(pRenderState);
 
-		this.animate(pRenderState.moveAnimationState, IcariaAnimations.HYLIASTER_MOVE, pRenderState.ageInTicks);
+		this.animate(pRenderState.moveAnimationState, IcariaAnimationDefinitions.HYLIASTER_MOVE, pRenderState.ageInTicks);
 	}
 
 	public static LayerDefinition createLayer() {

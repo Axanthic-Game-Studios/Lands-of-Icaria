@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "landsoficaria:item/molybdenumsteel_bident"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "landsoficaria:item/throwing_molybdenumsteel_bident"
+    },
+    "property": "minecraft:using_item"
+  }
+}

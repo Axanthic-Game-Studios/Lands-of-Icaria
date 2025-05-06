@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.NetherPyromancerRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
@@ -85,8 +85,8 @@ public class NetherPyromancerRevenantModel extends EntityModel<NetherPyromancerR
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.reloadAnimationState, IcariaAnimations.PYROMANCER_REVENANT_RELOAD, pRenderState.ageInTicks);
-		this.animate(pRenderState.thrownAnimationState, IcariaAnimations.PYROMANCER_REVENANT_THROWN, pRenderState.ageInTicks);
+		this.animate(pRenderState.reloadAnimationState, IcariaAnimationDefinitions.PYROMANCER_REVENANT_RELOAD, pRenderState.ageInTicks);
+		this.animate(pRenderState.thrownAnimationState, IcariaAnimationDefinitions.PYROMANCER_REVENANT_THROWN, pRenderState.ageInTicks);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {

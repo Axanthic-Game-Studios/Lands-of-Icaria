@@ -3,7 +3,6 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.registry.IcariaValues;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
@@ -18,15 +17,10 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -67,11 +61,6 @@ public class IcariaBarrelEntity extends Entity {
 	}
 
 	@Override
-	public boolean onlyOpCanSetNbt() {
-		return true;
-	}
-
-	@Override
 	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
 		pCompoundTag.put("BlockPos", NbtUtils.writeBlockPos(this.getBlockPos()));
 		pCompoundTag.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
@@ -93,30 +82,9 @@ public class IcariaBarrelEntity extends Entity {
 	}
 
 	@Override
-	public void playerTouch(Player pPlayer) {
-		if (pPlayer instanceof ServerPlayer) {
-			if (!pPlayer.isCreative()) {
-				pPlayer.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN), this);
-			}
-		}
-	}
-
-	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		this.setBlockPos(NbtUtils.readBlockPos(pCompoundTag, "BlockPos").orElseThrow());
 		this.setBlockState(NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), pCompoundTag.getCompound("BlockState")));
-	}
-
-	@Override
-	public void rideTick() {
-		super.rideTick();
-		var entity = this.getVehicle();
-		if (entity != null) {
-			if (entity.isShiftKeyDown()) {
-				this.stopRiding();
-				this.setDeltaMovement(-Mth.sin(entity.getYRot() / IcariaValues.DEG_2_RAD), -Mth.sin(entity.getXRot() / IcariaValues.DEG_2_RAD), Mth.cos(entity.getYRot() / IcariaValues.DEG_2_RAD));
-			}
-		}
 	}
 
 	public void setBlockPos(BlockPos pBlockPos) {

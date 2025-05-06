@@ -20,7 +20,6 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.Mth;
-import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 @MethodsReturnNonnullByDefault
@@ -97,9 +96,9 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context pContext) 
 
 	public TextureAtlasSprite getSprite(Kettle pKettle, Minecraft pMinecraft) {
 		if (pKettle == Kettle.BREWING) {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_FAST);
 		} else {
-			return pMinecraft.getTextureAtlas(InventoryMenu.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
+			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.CONCOCTION_SLOW);
 		}
 	}
 }

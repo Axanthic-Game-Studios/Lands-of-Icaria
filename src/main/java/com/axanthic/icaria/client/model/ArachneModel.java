@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.ArachneRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
@@ -56,7 +56,7 @@ public class ArachneModel extends EntityModel<ArachneRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimations.ARACHNE_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.ARACHNE_ATTACK, pRenderState.ageInTicks);
 	}
 
 	public void lookAnim(float pXRot, float pYRot) {

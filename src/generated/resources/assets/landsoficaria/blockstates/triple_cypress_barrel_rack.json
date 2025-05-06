@@ -17,16 +17,20 @@
       "y": 90
     },
     "facing=north,vertical_corner=bottom_left": {
-      "model": "landsoficaria:block/cypress_barrel_rack"
+      "model": "landsoficaria:block/cypress_barrel_rack",
+      "y": 0
     },
     "facing=north,vertical_corner=bottom_right": {
-      "model": "landsoficaria:block/cypress_barrel_rack"
+      "model": "landsoficaria:block/cypress_barrel_rack",
+      "y": 0
     },
     "facing=north,vertical_corner=top_left": {
-      "model": "landsoficaria:block/triple_cypress_barrel_rack_top_left"
+      "model": "landsoficaria:block/triple_cypress_barrel_rack_top_left",
+      "y": 0
     },
     "facing=north,vertical_corner=top_right": {
-      "model": "landsoficaria:block/triple_cypress_barrel_rack_top_right"
+      "model": "landsoficaria:block/triple_cypress_barrel_rack_top_right",
+      "y": 0
     },
     "facing=south,vertical_corner=bottom_left": {
       "model": "landsoficaria:block/cypress_barrel_rack",

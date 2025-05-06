@@ -42,19 +42,23 @@
     },
     "facing=south,in_wall=false,open=false": {
       "model": "landsoficaria:block/olive_fence_gate",
-      "uvlock": true
+      "uvlock": true,
+      "y": 0
     },
     "facing=south,in_wall=false,open=true": {
       "model": "landsoficaria:block/olive_fence_gate_open",
-      "uvlock": true
+      "uvlock": true,
+      "y": 0
     },
     "facing=south,in_wall=true,open=false": {
       "model": "landsoficaria:block/olive_fence_gate_wall",
-      "uvlock": true
+      "uvlock": true,
+      "y": 0
     },
     "facing=south,in_wall=true,open=true": {
       "model": "landsoficaria:block/olive_fence_gate_wall_open",
-      "uvlock": true
+      "uvlock": true,
+      "y": 0
     },
     "facing=west,in_wall=false,open=false": {
       "model": "landsoficaria:block/olive_fence_gate",

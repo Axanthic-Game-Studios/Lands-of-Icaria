@@ -2,7 +2,8 @@
   "variants": {
     "layers=1": [
       {
-        "model": "landsoficaria:block/steppe_moss_1"
+        "model": "landsoficaria:block/steppe_moss_1",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_1",
@@ -19,7 +20,8 @@
     ],
     "layers=2": [
       {
-        "model": "landsoficaria:block/steppe_moss_2"
+        "model": "landsoficaria:block/steppe_moss_2",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_2",
@@ -36,7 +38,8 @@
     ],
     "layers=3": [
       {
-        "model": "landsoficaria:block/steppe_moss_3"
+        "model": "landsoficaria:block/steppe_moss_3",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_3",
@@ -53,7 +56,8 @@
     ],
     "layers=4": [
       {
-        "model": "landsoficaria:block/steppe_moss_4"
+        "model": "landsoficaria:block/steppe_moss_4",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_4",
@@ -70,7 +74,8 @@
     ],
     "layers=5": [
       {
-        "model": "landsoficaria:block/steppe_moss_5"
+        "model": "landsoficaria:block/steppe_moss_5",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_5",
@@ -87,7 +92,8 @@
     ],
     "layers=6": [
       {
-        "model": "landsoficaria:block/steppe_moss_6"
+        "model": "landsoficaria:block/steppe_moss_6",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_6",
@@ -104,7 +110,8 @@
     ],
     "layers=7": [
       {
-        "model": "landsoficaria:block/steppe_moss_7"
+        "model": "landsoficaria:block/steppe_moss_7",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_7",
@@ -121,7 +128,8 @@
     ],
     "layers=8": [
       {
-        "model": "landsoficaria:block/steppe_moss_8"
+        "model": "landsoficaria:block/steppe_moss_8",
+        "y": 0
       },
       {
         "model": "landsoficaria:block/steppe_moss_8",

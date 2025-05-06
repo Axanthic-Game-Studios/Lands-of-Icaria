@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.model.AeternaeModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.AeternaeRenderState;
 import com.axanthic.icaria.common.entity.AeternaeEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class AeternaeRenderer extends MobRenderer<AeternaeEntity, AeternaeRenderState, AeternaeModel> {
 	public AeternaeRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new AeternaeModel(pContext.bakeLayer(IcariaLayerLocations.AETERNAE)), 1.0F);
+		super(pContext, new AeternaeModel(pContext.bakeLayer(IcariaModelLayerLocations.AETERNAE)), 1.0F);
 	}
 
 	@Override

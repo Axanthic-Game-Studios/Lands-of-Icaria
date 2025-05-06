@@ -1,17 +1,18 @@
 package com.axanthic.icaria.common.entity;
 
-import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
-
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.handler.stack.GrinderFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderGearItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderInputItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderOutputItemStackHandler;
+import com.axanthic.icaria.common.network.packet.GrinderPacket;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.recipe.input.DoubleRecipeInput;
 import com.axanthic.icaria.common.registry.*;
+
+import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +53,7 @@ import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.network.PacketDistributor;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 
@@ -59,6 +61,8 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 @ParametersAreNonnullByDefault
 
 public class GrinderBlockEntity extends BlockEntity {
+	public boolean tickClient;
+
 	public int lastSound = 6;
 	public int fuel = 0;
 	public int maxFuel = 0;
@@ -176,6 +180,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	public static void tick(GrinderBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
 		var recipe = pBlockEntity.getRecipe(pServerLevel);
 		pBlockEntity.setContainer();
+		pBlockEntity.tickClient(pBlockEntity, pBlockPos, pServerLevel);
 		pBlockEntity.tickFuel(recipe, pServerLevel);
 		pBlockEntity.tickGear(recipe, pServerLevel);
 		pBlockEntity.tickProgress(recipe, pServerLevel);
@@ -183,6 +188,10 @@ public class GrinderBlockEntity extends BlockEntity {
 		pBlockEntity.tickSound(recipe, pServerLevel);
 		pBlockEntity.update(pBlockPos, pBlockState, pServerLevel);
 		pBlockEntity.updateStates(pBlockPos, pBlockState, pServerLevel, recipe.isPresent() && pBlockEntity.hasFuel());
+	}
+
+	public void tickClient(GrinderBlockEntity pBlockEntity, BlockPos pBlockPos, ServerLevel pServerLevel) {
+		PacketDistributor.sendToAllPlayers(new GrinderPacket(pBlockEntity.hasSlot(pServerLevel), pBlockPos));
 	}
 
 	public void tickFuel(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
@@ -211,6 +220,16 @@ public class GrinderBlockEntity extends BlockEntity {
 		}
 	}
 
+	public void tickOutput(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
+		if (this.canAddStack(pServerLevel, 5) && pRecipe.isPresent()) {
+			this.outputHandler.setStackInSlot(2, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(2).getCount()));
+		} else if (this.canAddStack(pServerLevel, 4) && pRecipe.isPresent()) {
+			this.outputHandler.setStackInSlot(1, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(1).getCount()));
+		} else if (this.canAddStack(pServerLevel, 3) && pRecipe.isPresent()) {
+			this.outputHandler.setStackInSlot(0, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(0).getCount()));
+		}
+	}
+
 	public void tickProgress(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
 		if (this.progress < this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
 			this.progress++;
@@ -225,21 +244,14 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public void tickRecipe(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
 		if (this.progress == this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
+			this.tickOutput(pRecipe, pServerLevel);
 			this.recipes.addTo(pRecipe.get().id(), 1);
 			this.inputHandler.extractItem(0, 1, false);
-			if (this.canAddStack(pServerLevel, 5)) {
-				this.outputHandler.setStackInSlot(2, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(2).getCount()));
-			} else if (this.canAddStack(pServerLevel, 4)) {
-				this.outputHandler.setStackInSlot(1, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(1).getCount()));
-			} else if (this.canAddStack(pServerLevel, 3)) {
-				this.outputHandler.setStackInSlot(0, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(0).getCount()));
-			}
-
 		}
 	}
 
 	public void tickSound(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
-		if (IcariaConfig.GRINDER_SOUNDS.get() && pRecipe.isPresent() && this.hasFuel()) {
+		if (IcariaConfig.GRINDER_SOUNDS.get() && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
 			if (this.lastSound < 6) {
 				this.lastSound++;
 			} else {

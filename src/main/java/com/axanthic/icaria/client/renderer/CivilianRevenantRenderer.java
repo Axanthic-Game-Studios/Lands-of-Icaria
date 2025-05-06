@@ -3,7 +3,7 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.client.layer.CivilianRevenantEmissiveLayer;
 import com.axanthic.icaria.client.layer.CivilianRevenantItemLayer;
 import com.axanthic.icaria.client.model.CivilianRevenantModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CivilianRevenantRenderState;
 import com.axanthic.icaria.common.entity.CivilianRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 
 public class CivilianRevenantRenderer extends MobRenderer<CivilianRevenantEntity, CivilianRevenantRenderState, CivilianRevenantModel> {
 	public CivilianRevenantRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new CivilianRevenantModel(pContext.bakeLayer(IcariaLayerLocations.CIVILIAN_REVENANT_BODY)), 0.5F);
+		super(pContext, new CivilianRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.CIVILIAN_REVENANT_BODY)), 0.5F);
 		this.addLayer(new CivilianRevenantEmissiveLayer(this));
 		this.addLayer(new CivilianRevenantItemLayer(this));
 	}

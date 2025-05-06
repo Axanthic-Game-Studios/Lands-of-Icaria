@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.layer.NatureJellyfishEmissiveLayer;
 import com.axanthic.icaria.client.model.NatureJellyfishModel;
-import com.axanthic.icaria.client.registry.IcariaLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.NatureJellyfishRenderState;
 import com.axanthic.icaria.common.entity.NatureJellyfishEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
@@ -23,7 +23,7 @@ import net.minecraft.util.Mth;
 
 public class NatureJellyfishRenderer extends MobRenderer<NatureJellyfishEntity, NatureJellyfishRenderState, NatureJellyfishModel> {
 	public NatureJellyfishRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new NatureJellyfishModel(pContext.bakeLayer(IcariaLayerLocations.NATURE_JELLYFISH)), 1.0F);
+		super(pContext, new NatureJellyfishModel(pContext.bakeLayer(IcariaModelLayerLocations.NATURE_JELLYFISH)), 1.0F);
 		this.addLayer(new NatureJellyfishEmissiveLayer(this));
 	}
 

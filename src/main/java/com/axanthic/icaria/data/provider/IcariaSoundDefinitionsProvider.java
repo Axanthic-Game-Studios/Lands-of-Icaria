@@ -12,7 +12,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 
@@ -20,8 +19,8 @@ import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
 @ParametersAreNonnullByDefault
 
 public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
-	public IcariaSoundDefinitionsProvider(PackOutput pPackOutput, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pId, pExistingFileHelper);
+	public IcariaSoundDefinitionsProvider(PackOutput pPackOutput, String pId) {
+		super(pPackOutput, pId);
 	}
 
 	@Override

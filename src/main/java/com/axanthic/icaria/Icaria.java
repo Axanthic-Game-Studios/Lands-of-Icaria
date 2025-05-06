@@ -2,14 +2,17 @@ package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
-import com.axanthic.icaria.common.network.packet.IcariaTotemPacket;
+import com.axanthic.icaria.common.network.packet.GrinderPacket;
+import com.axanthic.icaria.common.network.packet.LootVasePacket;
+import com.axanthic.icaria.common.network.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -41,7 +44,7 @@ public class Icaria {
 
 	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
 		Icaria.registerExtensionPoint(pEvent);
-		Icaria.registerItemProperties(pEvent);
+		Icaria.registerSkullTypes(pEvent);
 		Icaria.registerWoodTypes(pEvent);
 	}
 
@@ -60,6 +63,7 @@ public class Icaria {
 	}
 
 	public static void registerRegistries(IEventBus pBus) {
+		IcariaAttachmentTypes.ATTACHMENT_TYPES.register(pBus);
 		IcariaBlocks.BLOCKS.register(pBus);
 		IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register(pBus);
 		IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register(pBus);
@@ -84,15 +88,22 @@ public class Icaria {
 		ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 	}
 
-	public static void registerItemProperties(FMLClientSetupEvent pEvent) {
-		ItemProperties.register(IcariaItems.CHERT_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.CHALKOS_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.KASSITEROS_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.ORICHALCUM_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.VANADIUMSTEEL_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.SIDEROS_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get(), IcariaResourceLocations.THROWING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
-		ItemProperties.register(IcariaItems.CAPELLA_HORN.get(), IcariaResourceLocations.TOOTING, (itemStack, clientLevel, livingEntity, i) -> livingEntity != null && livingEntity.getUseItem() == itemStack && livingEntity.isUsingItem() ? 1.0F : 0.0F);
+	public static void registerSkullTypes(FMLClientSetupEvent pEvent) {
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CAPELLA, IcariaResourceLocations.CAPELLA));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CERVER, IcariaResourceLocations.CERVER));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CROCOTTA, IcariaResourceLocations.CROCOTTA));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.SOW, IcariaResourceLocations.SOW));
 	}
 
 	public static void registerWoodTypes(FMLClientSetupEvent pEvent) {
@@ -108,12 +119,13 @@ public class Icaria {
 	public static void registerSetups(FMLCommonSetupEvent pEvent) {
 		pEvent.enqueueWork(IcariaFlammables::setup);
 		pEvent.enqueueWork(IcariaPottables::setup);
-		pEvent.enqueueWork(IcariaStrippables::setup);
 		pEvent.enqueueWork(IcariaWoodTypes::setup);
 	}
 
 	public static void registerPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		pEvent.registrar(IcariaIdents.ID).playToClient(IcariaTotemPacket.TYPE, IcariaTotemPacket.STREAM_CODEC, IcariaTotemPacket::handler);
-		pEvent.registrar(IcariaIdents.ID).playToServer(ChestLabelPacket.TYPE, ChestLabelPacket.STREAM_CODEC, ChestLabelPacket::handler);
+		pEvent.registrar(IcariaIdents.ID).playToClient(GrinderPacket.TYPE, GrinderPacket.STREAM_CODEC, GrinderPacket::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(LootVasePacket.TYPE, LootVasePacket.STREAM_CODEC, LootVasePacket::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(TotemPacket.TYPE, TotemPacket.STREAM_CODEC, TotemPacket::handle);
+		pEvent.registrar(IcariaIdents.ID).playToServer(ChestLabelPacket.TYPE, ChestLabelPacket.STREAM_CODEC, ChestLabelPacket::handle);
 	}
 }

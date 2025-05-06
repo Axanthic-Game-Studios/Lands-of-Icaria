@@ -1575,7 +1575,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdänstahlspeicherblöcke");
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM, "Bluritspeicherblöcke");
 
-		this.add(IcariaPaintingTagsProvider.PLACEABLE, "Platzierbar");
+		this.add(IcariaPaintingVariantTagsProvider.PLACEABLE, "Platzierbar");
 
 		this.add(IcariaStructureTagsProvider.FOREST_VILLAGES, "Walddörfer");
 		this.add(IcariaStructureTagsProvider.SCRUBLAND_VILLAGES, "Buschlanddörfer");
@@ -1610,5 +1610,10 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Klassisch");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Leuchtend");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Schleichen zum invertierten Platzieren");
+	}
+
+	@Override
+	public String getName() {
+		return "German";
 	}
 }

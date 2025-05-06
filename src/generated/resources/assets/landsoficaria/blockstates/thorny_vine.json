@@ -3,11 +3,45 @@
     {
       "apply": {
         "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true
+        "uvlock": true,
+        "y": 0
       },
       "when": {
         "north": "true",
         "vine": "none"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/dead_thorny_vine",
+        "uvlock": true,
+        "y": 0
+      },
+      "when": {
+        "north": "true",
+        "vine": "dead"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/growing_thorny_vine",
+        "uvlock": true,
+        "y": 0
+      },
+      "when": {
+        "north": "true",
+        "vine": "growing"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/thorny_vine",
+        "uvlock": true,
+        "y": 0
+      },
+      "when": {
+        "north": "true",
+        "vine": "vine"
       }
     },
     {
@@ -23,6 +57,39 @@
     },
     {
       "apply": {
+        "model": "landsoficaria:block/dead_thorny_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "vine": "dead"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/growing_thorny_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "vine": "growing"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/thorny_vine",
+        "uvlock": true,
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "vine": "vine"
+      }
+    },
+    {
+      "apply": {
         "model": "landsoficaria:block/thorny_vine",
         "uvlock": true,
         "y": 180
@@ -30,6 +97,39 @@
       "when": {
         "south": "true",
         "vine": "none"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/dead_thorny_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "vine": "dead"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/growing_thorny_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "vine": "growing"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/thorny_vine",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "true",
+        "vine": "vine"
       }
     },
     {
@@ -46,38 +146,6 @@
     {
       "apply": {
         "model": "landsoficaria:block/dead_thorny_vine",
-        "uvlock": true
-      },
-      "when": {
-        "north": "true",
-        "vine": "dead"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/dead_thorny_vine",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "true",
-        "vine": "dead"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/dead_thorny_vine",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "true",
-        "vine": "dead"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/dead_thorny_vine",
         "uvlock": true,
         "y": 270
       },
@@ -89,76 +157,12 @@
     {
       "apply": {
         "model": "landsoficaria:block/growing_thorny_vine",
-        "uvlock": true
-      },
-      "when": {
-        "north": "true",
-        "vine": "growing"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/growing_thorny_vine",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "true",
-        "vine": "growing"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/growing_thorny_vine",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "true",
-        "vine": "growing"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/growing_thorny_vine",
         "uvlock": true,
         "y": 270
       },
       "when": {
         "vine": "growing",
         "west": "true"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true
-      },
-      "when": {
-        "north": "true",
-        "vine": "vine"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true,
-        "y": 90
-      },
-      "when": {
-        "east": "true",
-        "vine": "vine"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "true",
-        "vine": "vine"
       }
     },
     {

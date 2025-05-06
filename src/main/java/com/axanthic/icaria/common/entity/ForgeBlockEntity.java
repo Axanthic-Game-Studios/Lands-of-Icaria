@@ -1,7 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
-
 import com.axanthic.icaria.common.container.data.ForgeContainerData;
 import com.axanthic.icaria.common.handler.stack.ForgeFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.ForgeInputItemStackHandler;
@@ -12,6 +10,8 @@ import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
+import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -188,6 +188,14 @@ public class ForgeBlockEntity extends BlockEntity {
 		}
 	}
 
+	public void tickOutput(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
+		if (this.canAddStack(pServerLevel, 5) && pRecipe.isPresent()) {
+			this.outputHandler.setStackInSlot(1, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(1).getCount()));
+		} else if (this.canAddStack(pServerLevel, 4) && pRecipe.isPresent()) {
+			this.outputHandler.setStackInSlot(0, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(0).getCount()));
+		}
+	}
+
 	public void tickProgress(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
 		if (this.progress < this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
 			this.progress++;
@@ -202,15 +210,11 @@ public class ForgeBlockEntity extends BlockEntity {
 
 	public void tickRecipe(Optional<RecipeHolder<ForgingRecipe>> pRecipe, ServerLevel pServerLevel) {
 		if (this.progress == this.maxProgress && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
+			this.tickOutput(pRecipe, pServerLevel);
 			this.recipes.addTo(pRecipe.get().id(), 1);
 			this.inputHandlerA.extractItem(0, 1, false);
 			this.inputHandlerB.extractItem(0, 1, false);
 			this.inputHandlerC.extractItem(0, 1, false);
-			if (this.canAddStack(pServerLevel, 5)) {
-				this.outputHandler.setStackInSlot(1, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(1).getCount()));
-			} else if (this.canAddStack(pServerLevel, 4)) {
-				this.outputHandler.setStackInSlot(0, new ItemStack(pRecipe.get().value().result().getItem(), pRecipe.get().value().result().getCount() + this.outputHandler.getStackInSlot(0).getCount()));
-			}
 		}
 	}
 

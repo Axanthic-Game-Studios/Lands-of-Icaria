@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.CaptainRevenantRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
@@ -90,9 +90,9 @@ public class CaptainRevenantModel extends EntityModel<CaptainRevenantRenderState
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.unequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
-		this.animate(pRenderState.rallyingAnimationState, IcariaAnimations.CAPTAIN_REVENANT_RALLYING, pRenderState.ageInTicks);
-		this.animate(pRenderState.reequipsAnimationState, IcariaAnimations.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
+		this.animate(pRenderState.unequipsAnimationState, IcariaAnimationDefinitions.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
+		this.animate(pRenderState.rallyingAnimationState, IcariaAnimationDefinitions.CAPTAIN_REVENANT_RALLYING, pRenderState.ageInTicks);
+		this.animate(pRenderState.reequipsAnimationState, IcariaAnimationDefinitions.CAPTAIN_REVENANT_EQUIPS, pRenderState.ageInTicks);
 	}
 
 	public void setRotateAngles(ModelPart pModelPart, float pX, float pY, float pZ) {

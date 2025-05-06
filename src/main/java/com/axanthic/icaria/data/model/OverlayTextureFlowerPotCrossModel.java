@@ -1,68 +1,72 @@
 package com.axanthic.icaria.data.model;
 
+import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaTextureSlots;
+import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
+import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class OverlayTextureFlowerPotCrossModel {
 
-	public static void template(BlockModelBuilder pBuilder, ModelFile.UncheckedModelFile pFile) {
-		pBuilder
-			.parent(pFile)
-		.element().from(5.0F, 0.0F, 5.0F).to(6.0F, 6.0F, 11.0F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F).end()
-			.face(Direction.NORTH).uvs(10.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.EAST).uvs(5.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.SOUTH).uvs(5.0F, 10.0F, 6.0F, 16.0F).texture("#pot").end()
-			.face(Direction.WEST).uvs(5.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.UP).uvs(5.0F, 5.0F, 6.0F, 11.0F).texture("#pot").end()
-			.face(Direction.DOWN).uvs(5.0F, 5.0F, 6.0F, 11.0F).texture("#pot").cullface(Direction.DOWN).end()
-			.end()
-		.element().from(10.0F, 0.0F, 5.0F).to(11.0F, 6.0F, 11.0F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F).end()
-			.face(Direction.NORTH).uvs(5.0F, 10.0F, 6.0F, 16.0F).texture("#pot").end()
-			.face(Direction.EAST).uvs(5.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.SOUTH).uvs(10.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.WEST).uvs(5.0F, 10.0F, 11.0F, 16.0F).texture("#pot").end()
-			.face(Direction.UP).uvs(10.0F, 5.0F, 11.0F, 11.0F).texture("#pot").end()
-			.face(Direction.DOWN).uvs(10.0F, 5.0F, 11.0F, 11.0F).texture("#pot").cullface(Direction.DOWN).end()
-			.end()
-		.element().from(6.0F, 0.0F, 5.0F).to(10.0F, 6.0F, 6.0F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F).end()
-			.face(Direction.NORTH).uvs(6.0F, 10.0F, 10.0F, 16.0F).texture("#pot").end()
-			.face(Direction.SOUTH).uvs(6.0F, 10.0F, 10.0F, 16.0F).texture("#pot").end()
-			.face(Direction.UP).uvs(6.0F, 5.0F, 10.0F, 6.0F).texture("#pot").end()
-			.face(Direction.DOWN).uvs(6.0F, 10.0F, 10.0F, 11.0F).texture("#pot").cullface(Direction.DOWN).end()
-			.end()
-		.element().from(6.0F, 0.0F, 10.0F).to(10.0F, 6.0F, 11.0F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F).end()
-			.face(Direction.NORTH).uvs(6.0F, 10.0F, 10.0F, 16.0F).texture("#pot").end()
-			.face(Direction.SOUTH).uvs(6.0F, 10.0F, 10.0F, 16.0F).texture("#pot").end()
-			.face(Direction.UP).uvs(6.0F, 10.0F, 10.0F, 11.0F).texture("#pot").end()
-			.face(Direction.DOWN).uvs(6.0F, 5.0F, 10.0F, 6.0F).texture("#pot").cullface(Direction.DOWN).end()
-			.end()
-		.element().from(6.0F, 0.0F, 6.0F).to(10.0F, 4.0F, 10.0F).rotation().angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F).end()
-			.face(Direction.UP).uvs(6.0F, 6.0F, 10.0F, 10.0F).texture("#dirt").end()
-			.face(Direction.DOWN).uvs(6.0F, 12.0F, 10.0F, 16.0F).texture("#pot").cullface(Direction.DOWN).end()
-			.end()
-		.element().from(2.6F, 4.0F, 8.0F).to(13.4F, 16.0F, 8.0F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true).end()
-			.face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#texture").end()
-			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#texture").end()
-			.end()
-		.element().from(8.0F, 4.0F, 2.6F).to(8.0F, 16.0F, 13.4F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true).end()
-			.face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#texture").end()
-			.face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#texture").end()
-			.end()
-		.element().from(2.6F, 4.0F, 8.0F).to(13.4F, 16.0F, 8.0F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true).end()
-			.face(Direction.NORTH).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#overlay").tintindex(0).end()
-			.face(Direction.SOUTH).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#overlay").tintindex(0).end()
-			.end()
-		.element().from(8.0F, 4.0F, 2.6F).to(8.0F, 16.0F, 13.4F).rotation().angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true).end()
-			.face(Direction.EAST).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#overlay").tintindex(0).end()
-			.face(Direction.WEST).uvs(0.0F, 0.0F, 16.0F, 16.0F).texture("#overlay").tintindex(0).end()
-			.end();
+	public static ExtendedModelTemplate template() {
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "block"))
+			.element(elementBuilder -> elementBuilder.from(5.0F, 0.0F, 5.0F).to(6.0F, 6.0F, 11.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 6.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(5.0F, 5.0F, 6.0F, 11.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(5.0F, 5.0F, 6.0F, 11.0F).texture(IcariaTextureSlots.POT).cullface(Direction.DOWN)))
+			.element(elementBuilder -> elementBuilder.from(10.0F, 0.0F, 5.0F).to(11.0F, 6.0F, 11.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 6.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(5.0F, 10.0F, 11.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0F, 5.0F, 11.0F, 11.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 5.0F, 11.0F, 11.0F).texture(IcariaTextureSlots.POT).cullface(Direction.DOWN)))
+			.element(elementBuilder -> elementBuilder.from(6.0F, 0.0F, 5.0F).to(10.0F, 6.0F, 6.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0F, 5.0F, 10.0F, 6.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 11.0F).texture(IcariaTextureSlots.POT).cullface(Direction.DOWN)))
+			.element(elementBuilder -> elementBuilder.from(6.0F, 0.0F, 10.0F).to(10.0F, 6.0F, 11.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 16.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0F, 10.0F, 10.0F, 11.0F).texture(IcariaTextureSlots.POT))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0F, 5.0F, 10.0F, 6.0F).texture(IcariaTextureSlots.POT).cullface(Direction.DOWN)))
+			.element(elementBuilder -> elementBuilder.from(6.0F, 0.0F, 6.0F).to(10.0F, 4.0F, 10.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0F, 6.0F, 10.0F, 10.0F).texture(IcariaTextureSlots.DIRT))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0F, 12.0F, 10.0F, 16.0F).texture(IcariaTextureSlots.POT).cullface(Direction.DOWN)))
+			.element(elementBuilder -> elementBuilder.from(2.6F, 4.0F, 8.0F).to(13.4F, 16.0F, 8.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.TEXTURE)))
+			.element(elementBuilder -> elementBuilder.from(8.0F, 4.0F, 2.6F).to(8.0F, 16.0F, 13.4F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.TEXTURE)))
+			.element(elementBuilder -> elementBuilder.from(2.6F, 4.0F, 8.0F).to(13.4F, 16.0F, 8.0F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+			.element(elementBuilder -> elementBuilder.from(8.0F, 4.0F, 2.6F).to(8.0F, 16.0F, 13.4F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Y).origin(8.0F, 8.0F, 8.0F).rescale(true))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+			.build();
 	}
 }

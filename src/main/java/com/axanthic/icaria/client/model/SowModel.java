@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.model;
 
-import com.axanthic.icaria.client.registry.IcariaAnimations;
+import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.SowRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
@@ -54,8 +54,8 @@ public class SowModel extends EntityModel<SowRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimations.SOW_ATTACK, pRenderState.ageInTicks);
-		this.animate(pRenderState.eatingAnimationState, IcariaAnimations.SOW_EATING, pRenderState.ageInTicks);
+		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.SOW_ATTACK, pRenderState.ageInTicks);
+		this.animate(pRenderState.eatingAnimationState, IcariaAnimationDefinitions.SOW_EATING, pRenderState.ageInTicks);
 
 		this.tuskRightTeen.visible = pRenderState.size == 3;
 		this.tuskLeftTeen.visible = pRenderState.size == 3;

@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "landsoficaria:item/sideros_bident"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "landsoficaria:item/throwing_sideros_bident"
+    },
+    "property": "minecraft:using_item"
+  }
+}

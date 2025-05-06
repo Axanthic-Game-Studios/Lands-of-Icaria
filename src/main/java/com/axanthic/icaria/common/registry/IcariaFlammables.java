@@ -1,12 +1,11 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.mixin.FireBlockMixin;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.FireBlock;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -177,8 +176,8 @@ public class IcariaFlammables {
 	}
 
 	public static void set(Block pBlock, int pEncouragement, int pFlammability) {
-		if (Blocks.FIRE instanceof FireBlockMixin fireBlockMixin) {
-			fireBlockMixin.setIcariaFlammables(pBlock, pEncouragement, pFlammability);
+		if (Blocks.FIRE instanceof FireBlock fireBlock) {
+			fireBlock.setFlammable(pBlock, pEncouragement, pFlammability);
 		}
 	}
 }

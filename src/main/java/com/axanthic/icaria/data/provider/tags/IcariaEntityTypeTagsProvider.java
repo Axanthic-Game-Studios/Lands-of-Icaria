@@ -17,16 +17,14 @@ import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
-	public IcariaEntityTypeTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaEntityTypeTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
@@ -55,6 +53,11 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 			.add(IcariaEntityTypes.SCORPION.get())
 			.add(IcariaEntityTypes.SOLIFUGAE.get())
 			.add(IcariaEntityTypes.VINEGAR.get());
+	}
+
+	@Override
+	public String getName() {
+		return "Entity Type Tags";
 	}
 
 	public static TagKey<EntityType<?>> cKey(String pName) {

@@ -6,11 +6,14 @@
       "y": 90
     },
     "axis=y": {
-      "model": "landsoficaria:block/fir_log"
+      "model": "landsoficaria:block/fir_log",
+      "x": 0,
+      "y": 0
     },
     "axis=z": {
       "model": "landsoficaria:block/fir_log_horizontal",
-      "x": 90
+      "x": 90,
+      "y": 0
     }
   }
 }

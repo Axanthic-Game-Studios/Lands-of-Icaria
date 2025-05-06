@@ -19,7 +19,7 @@ public class IcariaRecipeSerializers {
 	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, IcariaIdents.ID);
 
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<EntityConcoctingRecipe>> ENTITY_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("entity_concocting", EntityConcoctingRecipeSerializer::new);
-	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("explosion_concocting", ExplosionConcocting::new);
+	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("explosion_concocting", ExplosionConcoctingSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FiringRecipe>> FIRING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("firing", FiringRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ForgingRecipe>> FORGING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("forging", ForgingRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrindingRecipe>> GRINDING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("grinding", GrindingRecipeSerializer::new);

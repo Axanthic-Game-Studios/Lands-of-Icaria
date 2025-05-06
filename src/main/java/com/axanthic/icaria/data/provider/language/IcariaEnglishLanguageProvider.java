@@ -1575,7 +1575,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdenumsteel Storage Blocks");
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM, "Bluridium Storage Blocks");
 
-		this.add(IcariaPaintingTagsProvider.PLACEABLE, "Placeable");
+		this.add(IcariaPaintingVariantTagsProvider.PLACEABLE, "Placeable");
 
 		this.add(IcariaStructureTagsProvider.FOREST_VILLAGES, "Forest Villages");
 		this.add(IcariaStructureTagsProvider.SCRUBLAND_VILLAGES, "Scrubland Villages");
@@ -1610,5 +1610,10 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Classic");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Glowing");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Sneak to invert placement");
+	}
+
+	@Override
+	public String getName() {
+		return "English";
 	}
 }

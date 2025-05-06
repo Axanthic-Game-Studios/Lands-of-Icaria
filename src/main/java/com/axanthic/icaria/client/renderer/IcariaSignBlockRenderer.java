@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.model.IcariaSignModel;
+import com.axanthic.icaria.client.model.SignModel;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -37,12 +37,12 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 public class IcariaSignBlockRenderer extends SignRenderer {
 	public Font font;
 
-	public Map<WoodType, IcariaSignModel> map;
+	public Map<WoodType, SignModel> map;
 
 	public IcariaSignBlockRenderer(BlockEntityRendererProvider.Context pContext) {
 		super(pContext);
 		this.font = pContext.getFont();
-		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> woodType, (woodType) -> new IcariaSignModel(SignRenderer.createSignModel(pContext.getModelSet(), woodType, true), SignRenderer.createSignModel(pContext.getModelSet(), woodType, false))));
+		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> woodType, (woodType) -> new SignModel(SignRenderer.createSignModel(pContext.getModelSet(), woodType, true), SignRenderer.createSignModel(pContext.getModelSet(), woodType, false))));
 	}
 
 	public void drawFont(FormattedCharSequence pFormattedCharSequence, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, float pX, float pY, int pPackedLight) {
@@ -135,6 +135,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		}
 	}
 
+	@Override
 	public Material getSignMaterial(WoodType pWoodType) {
 		return Sheets.getSignMaterial(pWoodType);
 	}

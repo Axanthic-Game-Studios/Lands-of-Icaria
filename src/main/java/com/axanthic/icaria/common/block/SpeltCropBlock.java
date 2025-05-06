@@ -24,7 +24,7 @@ public class SpeltCropBlock extends CropBlock {
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState) {
+	public ItemStack getCloneItemStack(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState, boolean pInfiniteMaterial) {
 		return new ItemStack(IcariaItems.SPELT_SEEDS.get());
 	}
 

@@ -1,13 +1,16 @@
 package com.axanthic.icaria.common.events;
 
+import com.axanthic.icaria.common.block.DeadLogBlock;
+import com.axanthic.icaria.common.block.IcariaLogBlock;
+import com.axanthic.icaria.common.block.LootVaseBlock;
+import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
+import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.DaggerItem;
 import com.axanthic.icaria.common.item.ScytheItem;
-import com.axanthic.icaria.common.network.packet.IcariaTotemPacket;
-import com.axanthic.icaria.common.registry.IcariaIdents;
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaMobEffects;
-import com.axanthic.icaria.common.registry.IcariaPotions;
+import com.axanthic.icaria.common.network.packet.LootVasePacket;
+import com.axanthic.icaria.common.network.packet.TotemPacket;
+import com.axanthic.icaria.common.registry.*;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 
@@ -22,24 +25,29 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.ItemAbilities;
+import net.neoforged.neoforge.common.ItemAbility;
+import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.ArmorHurtEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
-import net.neoforged.neoforge.event.entity.player.ArrowLooseEvent;
-import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent;
-import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
+import net.neoforged.neoforge.event.entity.player.*;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -68,6 +76,35 @@ public class IcariaCommonGameEvents {
 	}
 
 	@SubscribeEvent
+	public static void onBlockToolModification(BlockEvent.BlockToolModificationEvent pEvent) {
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.COARSE_MARL.get(), IcariaBlocks.MARL.get(), ItemAbilities.HOE_TILL, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DRY_LAKE_BED.get(), IcariaBlocks.COARSE_MARL.get(), ItemAbilities.HOE_TILL, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DROUGHTROOT_WOOD.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.FIR_WOOD.get(), IcariaBlocks.STRIPPED_FIR_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.LAUREL_WOOD.get(), IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.OLIVE_WOOD.get(), IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.PLANE_WOOD.get(), IcariaBlocks.STRIPPED_PLANE_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.POPULUS_WOOD.get(), IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), ItemAbilities.AXE_STRIP, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), ItemAbilities.AXE_STRIP, false);
+	}
+
+	@SubscribeEvent
 	public static void onBreak(BlockEvent.BreakEvent pEvent) {
 		var pos = pEvent.getPos();
 		var player = pEvent.getPlayer();
@@ -85,6 +122,11 @@ public class IcariaCommonGameEvents {
 	}
 
 	@SubscribeEvent
+	public static void onEntityInteract(PlayerInteractEvent.EntityInteract pEvent) {
+		IcariaCommonGameEvents.unshatteringTotem(pEvent, IcariaItems.TOTEM_OF_UNSHATTERING.get());
+	}
+
+	@SubscribeEvent
 	public static void onLivingIncomingDamage(LivingIncomingDamageEvent pEvent) {
 		IcariaCommonGameEvents.lifesteal(pEvent);
 		IcariaCommonGameEvents.stuffingTotem(pEvent, IcariaItems.TOTEM_OF_STUFFING.get());
@@ -99,17 +141,24 @@ public class IcariaCommonGameEvents {
 	}
 
 	@SubscribeEvent
+	public static void onOnDatapackSync(OnDatapackSyncEvent pEvent) {
+		pEvent.sendRecipes(IcariaRecipeTypes.ITEM_CONCOCTING.get());
+	}
+
+	@SubscribeEvent
 	public static void onPlayerDestroyItem(PlayerDestroyItemEvent pEvent) {
 		IcariaCommonGameEvents.unshatteringTotem(pEvent, IcariaItems.TOTEM_OF_UNSHATTERING.get());
 	}
 
 	@SubscribeEvent
-	public static void onPlayerInteract(PlayerInteractEvent.EntityInteract pEvent) {
-		IcariaCommonGameEvents.unshatteringTotem(pEvent, IcariaItems.TOTEM_OF_UNSHATTERING.get());
+	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent pEvent) {
+		var player = pEvent.getEntity();
+		PacketDistributor.sendToAllPlayers(new LootVasePacket(player.getData(IcariaAttachmentTypes.LOOT_VASE), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
 	}
 
 	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent.Pre pEvent) {
+		IcariaCommonGameEvents.lootVase(pEvent);
 		IcariaCommonGameEvents.unblindingTotem(pEvent, IcariaItems.TOTEM_OF_UNBLINDING.get());
 	}
 
@@ -138,6 +187,59 @@ public class IcariaCommonGameEvents {
 	public static void lifesteal(LivingIncomingDamageEvent pEvent) {
 		if (pEvent.getSource().getEntity() instanceof Player player && player.hasEffect(IcariaMobEffects.LIFESTEAL)) {
 			player.heal(pEvent.getAmount());
+		}
+	}
+
+	public static void lootVase(PlayerTickEvent.Pre pEvent) {
+		var player = pEvent.getEntity();
+
+		var entity = IcariaCommonGameEvents.entity(pEvent, player);
+
+		var f = Mth.sin(player.getXRot() * IcariaValues.DEG_2_RAD);
+		var g = Mth.cos(player.getXRot() * IcariaValues.DEG_2_RAD);
+		var h = Mth.sin(player.getYRot() * IcariaValues.DEG_2_RAD);
+		var i = Mth.cos(player.getYRot() * IcariaValues.DEG_2_RAD);
+
+		var strength = player.isShiftKeyDown() ? 1.0F : 0.0F;
+
+		var flag = player.isDeadOrDying() || player.isShiftKeyDown() || player.isSwimming();
+
+		var lootVase = player.getData(IcariaAttachmentTypes.LOOT_VASE);
+
+		if (flag && lootVase) {
+			player.level().addFreshEntity(entity);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE, false);
+			entity.moveTo(player.blockPosition().above(2), 0.0F, 0.0F);
+			entity.setDeltaMovement(-h * g * strength, -f, i * g * strength);
+		} else if (lootVase) {
+			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40));
+		}
+	}
+
+	public static void sendPacket(Item pItem, Player pPlayer) {
+		if (pPlayer instanceof ServerPlayer serverPlayer) {
+			PacketDistributor.sendToPlayer(serverPlayer, new TotemPacket(new ItemStack(pItem), Holder.direct(SoundEvents.TOTEM_USE)));
+		}
+	}
+
+	public static void toolModification(BlockEvent.BlockToolModificationEvent pEvent, Block pBlockOld, Block pBlockNew, ItemAbility pItemAbility, boolean pCheckAbove) {
+		var useOnContext = pEvent.getContext();
+		if (pEvent.getItemAbility() == pItemAbility) {
+			var state = useOnContext.getLevel().getBlockState(useOnContext.getClickedPos());
+			if (state.is(pBlockOld)) {
+				var flag = !useOnContext.getLevel().getBlockState(useOnContext.getClickedPos().above()).isAir() && pCheckAbove;
+				if (!flag) {
+					if (state.getBlock() instanceof DeadLogBlock) {
+						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, state.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED)));
+					} else if (state.getBlock() instanceof IcariaLogBlock) {
+						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)).setValue(IcariaBlockStateProperties.PLAYER_PLACED, state.getValue(IcariaBlockStateProperties.PLAYER_PLACED)));
+					} else if (state.getBlock() instanceof RotatedPillarBlock) {
+						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)));
+					} else {
+						pEvent.setFinalState(pBlockNew.defaultBlockState());
+					}
+				}
+			}
 		}
 	}
 
@@ -362,9 +464,11 @@ public class IcariaCommonGameEvents {
 		}
 	}
 
-	public static void sendPacket(Item pItem, Player pPlayer) {
-		if (pPlayer instanceof ServerPlayer serverPlayer) {
-			PacketDistributor.sendToPlayer(serverPlayer, new IcariaTotemPacket(new ItemStack(pItem), Holder.direct(SoundEvents.TOTEM_USE)));
+	public static Entity entity(PlayerTickEvent.Pre pEvent, Player pPlayer) {
+		if (pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE).getBlock() instanceof LootVaseBlock) {
+			return new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pEvent.getEntity().level(), pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE), pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS));
+		} else {
+			return new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pEvent.getEntity().level(), pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE), pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS));
 		}
 	}
 }

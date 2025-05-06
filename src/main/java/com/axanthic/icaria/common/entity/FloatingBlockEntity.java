@@ -69,11 +69,6 @@ public class FloatingBlockEntity extends Entity {
 		return false;
 	}
 
-	@Override
-	public boolean onlyOpCanSetNbt() {
-		return true;
-	}
-
 	public int getTick() {
 		return this.getEntityData().get(FloatingBlockEntity.TICK);
 	}

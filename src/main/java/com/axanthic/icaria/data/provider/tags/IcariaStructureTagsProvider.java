@@ -16,8 +16,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
@@ -35,8 +33,8 @@ public class IcariaStructureTagsProvider extends StructureTagsProvider {
 
 	public static final TagKey<Structure> VILLAGES = IcariaStructureTagsProvider.icariaKey("villages");
 
-	public IcariaStructureTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaStructureTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
@@ -92,6 +90,11 @@ public class IcariaStructureTagsProvider extends StructureTagsProvider {
 			.add(IcariaStructures.ERODED_DESERT_VILLAGE)
 			.add(IcariaStructures.PRISTINE_DESERT_VILLAGE)
 			.add(IcariaStructures.RUINED_DESERT_VILLAGE);
+	}
+
+	@Override
+	public String getName() {
+		return "Structure Tags";
 	}
 
 	public static TagKey<Structure> cKey(String pName) {

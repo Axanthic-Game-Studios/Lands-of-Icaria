@@ -9,10 +9,12 @@
       "y": 90
     },
     "facing=north,side=left": {
-      "model": "landsoficaria:block/grinder_left"
+      "model": "landsoficaria:block/grinder_left",
+      "y": 0
     },
     "facing=north,side=right": {
-      "model": "landsoficaria:block/grinder_right"
+      "model": "landsoficaria:block/grinder_right",
+      "y": 0
     },
     "facing=south,side=left": {
       "model": "landsoficaria:block/grinder_left",

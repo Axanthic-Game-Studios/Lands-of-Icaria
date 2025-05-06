@@ -2,11 +2,27 @@
   "multipart": [
     {
       "apply": {
+        "model": "landsoficaria:block/cardon_cactus_cube"
+      }
+    },
+    {
+      "apply": {
         "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true
+        "uvlock": true,
+        "y": 0
       },
       "when": {
         "north": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cardon_cactus_stem",
+        "uvlock": true,
+        "y": 0
+      },
+      "when": {
+        "north": "true"
       }
     },
     {
@@ -21,35 +37,6 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true,
-        "y": 180
-      },
-      "when": {
-        "south": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true,
-        "y": 270
-      },
-      "when": {
-        "west": "false"
-      }
-    },
-    {
-      "apply": {
-        "model": "landsoficaria:block/cardon_cactus_stem",
-        "uvlock": true
-      },
-      "when": {
-        "north": "true"
-      }
-    },
-    {
-      "apply": {
         "model": "landsoficaria:block/cardon_cactus_stem",
         "uvlock": true,
         "y": 90
@@ -60,12 +47,32 @@
     },
     {
       "apply": {
+        "model": "landsoficaria:block/cardon_cactus_cube",
+        "uvlock": true,
+        "y": 180
+      },
+      "when": {
+        "south": "false"
+      }
+    },
+    {
+      "apply": {
         "model": "landsoficaria:block/cardon_cactus_stem",
         "uvlock": true,
         "y": 180
       },
       "when": {
         "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cardon_cactus_cube",
+        "uvlock": true,
+        "y": 270
+      },
+      "when": {
+        "west": "false"
       }
     },
     {

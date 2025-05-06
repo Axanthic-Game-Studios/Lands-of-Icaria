@@ -18,8 +18,6 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
-
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
@@ -38,8 +36,8 @@ public class IcariaBiomeTagsProvider extends BiomeTagsProvider {
 	public static final TagKey<Biome> IS_LOST = IcariaBiomeTagsProvider.icariaKey("is_lost");
 	public static final TagKey<Biome> IS_DEEP = IcariaBiomeTagsProvider.icariaKey("is_deep");
 
-	public IcariaBiomeTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId, ExistingFileHelper pExistingFileHelper) {
-		super(pPackOutput, pProvider, pId, pExistingFileHelper);
+	public IcariaBiomeTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
@@ -103,6 +101,11 @@ public class IcariaBiomeTagsProvider extends BiomeTagsProvider {
 			.add(IcariaBiomes.DEEP_SCRUBLAND)
 			.add(IcariaBiomes.DEEP_STEPPE)
 			.add(IcariaBiomes.DEEP_DESERT);
+	}
+
+	@Override
+	public String getName() {
+		return "Biome Tags";
 	}
 
 	public static TagKey<Biome> cKey(String pName) {

@@ -1,13 +1,5 @@
 {
   "parent": "minecraft:item/handheld",
-  "overrides": [
-    {
-      "model": "landsoficaria:item/chalkos_bident_throwing",
-      "predicate": {
-        "landsoficaria:throwing": 1.0
-      }
-    }
-  ],
   "textures": {
     "layer0": "landsoficaria:item/chalkos_bident"
   }
