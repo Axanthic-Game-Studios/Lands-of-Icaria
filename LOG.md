@@ -35,7 +35,7 @@ Updates
 - Vanadiumsteel Bars, Grainglass Pane, Silkglass Pane, Troughs, Icaria Fences, Ladders, Slabs, Stairs, Trapdoors and Walls are waterlogged in Mediterranean Water
 - Lignite Block, Anthracite Block, Forest Moss, Scrubland Moss and Steppe Moss catch Fire and burn to be in line with vanilla Coal Blocks and Moss Blocks
 - Forest Hags have a Chance of spawning and getting aggressive toward the Player when said Player breaks stripped Logs
-- Dead Logs, Fertilized Farmland, Horizontal Grainglass Pane, Horizontal Silksand Pane, Horizontal Vanadiumsteel Bars, Triple Barrel Racks and Troughs no longer trick Mobs into thinking they could path them, therefore Mobs no longer get stuck behind them
+- Dead Logs, Fertilized Farmland, Horizontal Grainglass Pane, Horizontal Silkglass Pane, Horizontal Vanadiumsteel Bars, Triple Barrel Racks and Troughs no longer trick Mobs into thinking they could path them, therefore Mobs no longer get stuck behind them
 - Arachne, Arachne Drone, Myrmeke Drone, Myrmeke Queen, Myrmeke Soldier, Scorpion, Solifugae and Vinegaroon are considered Arthropods now, this means they take more Damage from Bane of Arthropods enchanted Tools and Weapons
 - Revenants are considered Undead now, this means they no longer take Damage when running out of Air underwater, they ignore Poison and Regeneration Effects, invert Heal and Harm Effects, don't get attacked by the Wither, take more Damage from Smite enchanted Tools and Weapons and scare Armadillos in their Vicinity
 - Cardon Cactus can be picked, carried and placed by Enderman, similar to how they do with Vanilla Cactus
@@ -52,9 +52,9 @@ Updates
 - Aeternae Hide Boots allow walking on Powder Snow without sinking in, this also grants the Light as a Rabbit Advancement just like Leather Boots do
 - Grainite can be used as an Alternative Crafting and Repair Material to Cobblestone
 - Fletching Table Recipe with Chert can use Bamboo Planks, Cherry Planks and other modded Planks
-- Ground Flowers attract Bees and can be fed to Bees
 - Loam can be used by Sniffers to dig Items from
 - Hyliaster can be eaten by Frogs
+- Ground Flowers attract Bees and can be fed to Bees
 - Cardon Cactus can be fed to Camels
 - Spelt Seeds, Strawberry Seeds and Physalis Seeds can be fed to Chickens and Parrots
 - Spelt can be fed to Cows, Goats, Horses, Llamas and Sheep
