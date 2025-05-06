@@ -181,12 +181,12 @@ public class IcariaClientHelper {
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.1F;
+		var alpha = 0.05F;
 		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
+		var alpha = 0.05F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
 		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
 	}
 
