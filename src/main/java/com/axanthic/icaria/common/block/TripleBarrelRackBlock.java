@@ -55,6 +55,14 @@ public class TripleBarrelRackBlock extends Block {
 		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.VERTICAL_CORNER);
 	}
 
+	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pBlockStateOld.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
+				Block.dropResources(pBlockStateOld, pLevel, pBlockPos);
+			}
+		}
+	}
+
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
@@ -67,12 +75,9 @@ public class TripleBarrelRackBlock extends Block {
 	}
 
 	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBockStateNew, boolean pMovedByPiston) {
-		if (pBlockStateOld.getBlock() != pBockStateNew.getBlock()) {
-			if (pBlockStateOld.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
-				Block.dropResources(pBlockStateOld, pLevel, pBlockPos);
-			}
-		}
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
+		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	@Override

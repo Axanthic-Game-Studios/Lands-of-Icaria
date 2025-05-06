@@ -54,15 +54,19 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
 		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
 			if (pLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
 				Containers.dropContents(pLevel, pBlockPos, blockEntity);
 				pLevel.updateNeighbourForOutputSignal(pBlockPos, this);
-				pLevel.removeBlockEntity(pBlockPos);
 			}
 		}
+	}
+
+	@Override
+	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
+		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
+		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	@Override

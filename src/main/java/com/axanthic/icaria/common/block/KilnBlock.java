@@ -87,6 +87,18 @@ public class KilnBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
+	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof KilnBlockEntity blockEntity) {
+				if (pLevel instanceof ServerLevel serverLevel) {
+					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
+					blockEntity.drop(serverLevel);
+					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
+				}
+			}
+		}
+	}
+
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
@@ -95,16 +107,8 @@ public class KilnBlock extends BaseEntityBlock {
 
 	@Override
 	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof KilnBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
-					blockEntity.drop(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
-					serverLevel.removeBlockEntity(pBlockPos);
-				}
-			}
-		}
+		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
+		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {

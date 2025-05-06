@@ -113,6 +113,17 @@ public class KettleBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.KETTLE, BlockStateProperties.LIT);
 	}
 
+	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
+		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
+			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
+				if (pLevel instanceof ServerLevel serverLevel) {
+					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KETTLE.get()));
+					blockEntity.drop(serverLevel);
+				}
+			}
+		}
+	}
+
 	@Override
 	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
 		if (pEntity instanceof ItemEntity itemEntity) {
@@ -143,15 +154,8 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KETTLE.get()));
-					blockEntity.drop(serverLevel);
-					serverLevel.removeBlockEntity(pBlockPos);
-				}
-			}
-		}
+		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
+		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void particlesActive(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
