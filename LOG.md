@@ -64,7 +64,7 @@ Updates
 - Laurel Cherry Cake, Strawberry Cake, Physalis Cake, Vine Berry Cake and Vine Sprout Cake can be fed to Pandas
 - Onion and Garlic can be fed to Pigs
 - Aeternae Stew, Catoblepas Stew, Cerver Stew and Sow Stew can be fed to Wolves
-- the Advancements for placing a Forge, Grinder, Kettle, Kiln, obtaining a Molybdenumsteel Pickaxe and killing a Hyliaster are Goals instead of Tasks
+- the Advancements for placing a Forge, Grinder, Kettle, Kiln and obtaining a Molybdenumsteel Pickaxe are Goals instead of Tasks
 - the Advancements for killing an Arachne and a Captain Revenant are Challenges instead of Tasks, these also return 100 Experience as an additional Reward
 - Potion Effects from Kettle concocting last longer
 - carried Barrels and Loot Vases no longer dismount from the Player when said Player leaves the World or disconnects from the Server
