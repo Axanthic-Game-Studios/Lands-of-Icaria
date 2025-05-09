@@ -47,7 +47,10 @@ import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.living.ArmorHurtEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
-import net.neoforged.neoforge.event.entity.player.*;
+import net.neoforged.neoforge.event.entity.player.ArrowLooseEvent;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent;
+import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
@@ -151,12 +154,6 @@ public class IcariaCommonGameEvents {
 	}
 
 	@SubscribeEvent
-	public static void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent pEvent) {
-		var player = pEvent.getEntity();
-		PacketDistributor.sendToAllPlayers(new LootVasePacket(player.getData(IcariaAttachmentTypes.LOOT_VASE), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
-	}
-
-	@SubscribeEvent
 	public static void onPlayerTick(PlayerTickEvent.Pre pEvent) {
 		IcariaCommonGameEvents.lootVase(pEvent);
 		IcariaCommonGameEvents.unblindingTotem(pEvent, IcariaItems.TOTEM_OF_UNBLINDING.get());
@@ -193,6 +190,8 @@ public class IcariaCommonGameEvents {
 	public static void lootVase(PlayerTickEvent.Pre pEvent) {
 		var player = pEvent.getEntity();
 
+		var level = player.level();
+
 		var entity = IcariaCommonGameEvents.entity(pEvent, player);
 
 		var f = Mth.sin(player.getXRot() * IcariaValues.DEG_2_RAD);
@@ -207,12 +206,13 @@ public class IcariaCommonGameEvents {
 		var lootVase = player.getData(IcariaAttachmentTypes.LOOT_VASE);
 
 		if (flag && lootVase) {
-			player.level().addFreshEntity(entity);
 			player.setData(IcariaAttachmentTypes.LOOT_VASE, false);
+			level.addFreshEntity(entity);
 			entity.moveTo(player.blockPosition().above(2), 0.0F, 0.0F);
 			entity.setDeltaMovement(-h * g * strength, -f, i * g * strength);
-		} else if (lootVase) {
+		} else if (!level.isClientSide() && lootVase) {
 			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40));
+			PacketDistributor.sendToAllPlayers(new LootVasePacket(player.getData(IcariaAttachmentTypes.LOOT_VASE), player.getId(), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
 		}
 	}
 

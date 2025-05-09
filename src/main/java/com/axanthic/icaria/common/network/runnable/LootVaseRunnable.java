@@ -24,8 +24,11 @@ public class LootVaseRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		this.payloadContext.player().setData(IcariaAttachmentTypes.LOOT_VASE, this.packet.lootVase);
-		this.payloadContext.player().setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, this.packet.blockPos);
-		this.payloadContext.player().setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.packet.blockState);
+		var player = this.payloadContext.player().level().getEntity(packet.id);
+		if (player != null) {
+			player.setData(IcariaAttachmentTypes.LOOT_VASE, this.packet.lootVase);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, this.packet.blockPos);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.packet.blockState);
+		}
 	}
 }

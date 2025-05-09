@@ -22,6 +22,8 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class LootVasePacket implements CustomPacketPayload {
 	public boolean lootVase;
 
+	public int id;
+
 	public BlockPos blockPos;
 
 	public BlockState blockState;
@@ -30,14 +32,15 @@ public class LootVasePacket implements CustomPacketPayload {
 
 	public static final Type<LootVasePacket> TYPE = new Type<>(IcariaResourceLocations.LOOT_VASE_PACKET_TYPE);
 
-	public LootVasePacket(boolean pLootVase, BlockPos pBlockPos, BlockState pBlockState) {
+	public LootVasePacket(boolean pLootVase, int pId, BlockPos pBlockPos, BlockState pBlockState) {
 		this.lootVase = pLootVase;
+		this.id = pId;
 		this.blockPos = pBlockPos;
 		this.blockState = pBlockState;
 	}
 
 	public LootVasePacket(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {
-		this(ByteBufCodecs.BOOL.decode(pRegistryFriendlyByteBuf), BlockPos.STREAM_CODEC.decode(pRegistryFriendlyByteBuf), IcariaStreamCodecs.BLOCK_STATE.decode(pRegistryFriendlyByteBuf));
+		this(ByteBufCodecs.BOOL.decode(pRegistryFriendlyByteBuf), ByteBufCodecs.INT.decode(pRegistryFriendlyByteBuf), BlockPos.STREAM_CODEC.decode(pRegistryFriendlyByteBuf), IcariaStreamCodecs.BLOCK_STATE.decode(pRegistryFriendlyByteBuf));
 	}
 
 	public static void handle(LootVasePacket pPacket, IPayloadContext pPayloadContext) {
@@ -46,6 +49,7 @@ public class LootVasePacket implements CustomPacketPayload {
 
 	public void write(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {
 		ByteBufCodecs.BOOL.encode(pRegistryFriendlyByteBuf, this.lootVase);
+		ByteBufCodecs.INT.encode(pRegistryFriendlyByteBuf, this.id);
 		BlockPos.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, this.blockPos);
 		IcariaStreamCodecs.BLOCK_STATE.encode(pRegistryFriendlyByteBuf, this.blockState);
 	}

@@ -104,7 +104,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
-			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pBlockPos, pBlockState));
+			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pPlayer.getId(), pBlockPos, pBlockState));
 			return InteractionResult.PASS;
 		}
 	}
