@@ -43,7 +43,7 @@ public class CaptainRevenantSummonGoal extends Goal {
 		for (var i = 0; i < randomSource.nextIntBetweenInclusive(6, 8); ++i) {
 			if (entity != null) {
 				if (level.getBlockState(blockPos).canBeReplaced()) {
-					if (this.entity.getBlockStateOn().is(IcariaBlockTagsProvider.SOILS)) {
+					if (level.getBlockState(blockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
 						entity.moveTo(blockPos, 0.0F, 0.0F);
 						level.addFreshEntity(entity);
 					}

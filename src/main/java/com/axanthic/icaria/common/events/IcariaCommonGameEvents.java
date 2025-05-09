@@ -206,10 +206,10 @@ public class IcariaCommonGameEvents {
 		var lootVase = player.getData(IcariaAttachmentTypes.LOOT_VASE);
 
 		if (flag && lootVase) {
-			player.setData(IcariaAttachmentTypes.LOOT_VASE, false);
-			level.addFreshEntity(entity);
 			entity.moveTo(player.blockPosition().above(2), 0.0F, 0.0F);
 			entity.setDeltaMovement(-h * g * strength, -f, i * g * strength);
+			level.addFreshEntity(entity);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE, false);
 		} else if (!level.isClientSide() && lootVase) {
 			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40));
 			PacketDistributor.sendToAllPlayers(new LootVasePacket(player.getData(IcariaAttachmentTypes.LOOT_VASE), player.getId(), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
