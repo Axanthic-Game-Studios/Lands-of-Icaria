@@ -16,7 +16,6 @@ Fixes
 - waxing an Icaria Chest with Honeycombs doesn't consume the Honeycomb in Survival Mode
 - Arrow Recipe with Chert only returns one Arrow instead of four like with Flint
 - Book Recipe with Aeternae Hide isn't shapeless like with Leather
-- Mossy Cobblestone Recipe with Icaria Vines doesn't accept Icaria Cobblestones
 - Garlic Drop Rate is lower than intended
 - Laurel Cherry Drop Rate is lower than intended
 - double Loot Table Entry of Vanadiumsteel Dagger in Lost Loot Vases
