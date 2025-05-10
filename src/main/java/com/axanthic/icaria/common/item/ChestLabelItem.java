@@ -12,7 +12,6 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
@@ -49,7 +48,7 @@ public class ChestLabelItem extends Item {
 		var style = pItemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 
 		pTooltipComponents.add(Component.translatable(this.getLabelByLabel(label)).withStyle(ChatFormatting.GRAY));
-		pTooltipComponents.add(CommonComponents.EMPTY);
+		pTooltipComponents.add(Component.empty());
 		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color").withStyle(ChatFormatting.GRAY));
 		pTooltipComponents.add(Component.translatable(this.getNameByColor(color)).withColor(this.getColorByColor(color)));
 		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style").withStyle(ChatFormatting.GRAY));
