@@ -26,6 +26,10 @@ import net.minecraft.world.level.material.Fluids;
 
 public class IcariaCommonHelper {
 
+	public static boolean canCarry(Player pPlayer) {
+		return pPlayer.isCrouching() || pPlayer.isDeadOrDying() || pPlayer.isFallFlying() || pPlayer.isSleeping() || pPlayer.isVehicle() || pPlayer.isVisuallyCrawling() || pPlayer.isVisuallySwimming();
+	}
+
 	public static void explosion(BlockPos pBlockPos, @Nullable Entity pEntity, Level.ExplosionInteraction pExplosionInteraction, Level pLevel, int pRadius) {
 		pLevel.explode(pEntity, pBlockPos.getX(), pBlockPos.getY(), pBlockPos.getZ(), pRadius, pExplosionInteraction);
 	}

@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.network.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
@@ -96,7 +97,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE)) {
+		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || IcariaCommonHelper.canCarry(pPlayer)) {
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);

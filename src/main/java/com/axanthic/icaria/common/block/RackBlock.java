@@ -204,7 +204,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+		if (!pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) || pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || IcariaCommonHelper.canCarry(pPlayer)) {
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));

@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.block.IcariaLogBlock;
 import com.axanthic.icaria.common.block.LootVaseBlock;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.entity.LootVaseEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.item.DaggerItem;
 import com.axanthic.icaria.common.item.ScytheItem;
@@ -199,13 +200,11 @@ public class IcariaCommonGameEvents {
 		var h = Mth.sin(player.getYRot() * IcariaValues.DEG_2_RAD);
 		var i = Mth.cos(player.getYRot() * IcariaValues.DEG_2_RAD);
 
-		var strength = player.isShiftKeyDown() ? 1.0F : 0.0F;
-
-		var flag = player.isDeadOrDying() || player.isShiftKeyDown() || player.isSwimming();
+		var strength = player.isCrouching() ? 1.0F : 0.0F;
 
 		var lootVase = player.getData(IcariaAttachmentTypes.LOOT_VASE);
 
-		if (flag && lootVase) {
+		if (IcariaCommonHelper.canCarry(player) && lootVase) {
 			entity.moveTo(player.blockPosition().above(2), 0.0F, 0.0F);
 			entity.setDeltaMovement(-h * g * strength, -f, i * g * strength);
 			level.addFreshEntity(entity);
