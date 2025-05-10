@@ -248,15 +248,15 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 
 	public void translateString(PoseStack pPoseStack, boolean pUp, float pAngle, float pRotation) {
 		if (pUp) {
-			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.translate(0.5F, 0.565F, 0.060F);
+			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			pPoseStack.mulPose(Axis.XN.rotation(pAngle));
 			pPoseStack.translate(0.0F, 0.405F, -0.310F);
 			pPoseStack.scale(0.01F, 0.01F, 0.01F);
 		} else {
-			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.translate(0.5F, 0.5F, 0.5F);
+			pPoseStack.scale(1.0001F, 1.0001F, 1.0001F);
 			pPoseStack.mulPose(Axis.YP.rotationDegrees(pRotation));
 			pPoseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
 			pPoseStack.translate(0.0F, 0.275F, -0.4375F);
