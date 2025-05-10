@@ -57,26 +57,6 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 		this(IcariaBlockEntityTypes.CHEST.get(), pBlockPos, pBlockState);
 	}
 
-	public boolean hasLabelUp() {
-		return this.getLabelUp() != null;
-	}
-
-	public boolean hasLabelNorth() {
-		return this.getLabelNorth() != null;
-	}
-
-	public boolean hasLabelEast() {
-		return this.getLabelEast() != null;
-	}
-
-	public boolean hasLabelSouth() {
-		return this.getLabelSouth() != null;
-	}
-
-	public boolean hasLabelWest() {
-		return this.getLabelWest() != null;
-	}
-
 	public boolean getStyleUp() {
 		return this.styleUp;
 	}

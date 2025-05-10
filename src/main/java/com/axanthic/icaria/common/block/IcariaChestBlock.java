@@ -250,9 +250,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setColorUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, DyeItem pDyeItem, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP) && pDyeItem.getDyeColor().getTextColor() != pBlockEntity.getColorUp()) {
 			this.playDyeSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pDyeItem));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorUp(pDyeItem.getDyeColor().getTextColor());
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -263,9 +265,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setColorNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, DyeItem pDyeItem, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH) && pDyeItem.getDyeColor().getTextColor() != pBlockEntity.getColorNorth()) {
 			this.playDyeSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pDyeItem));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorNorth(pDyeItem.getDyeColor().getTextColor());
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -276,9 +280,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setColorEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, DyeItem pDyeItem, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST) && pDyeItem.getDyeColor().getTextColor() != pBlockEntity.getColorEast()) {
 			this.playDyeSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pDyeItem));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorEast(pDyeItem.getDyeColor().getTextColor());
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -289,9 +295,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setColorSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, DyeItem pDyeItem, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH) && pDyeItem.getDyeColor().getTextColor() != pBlockEntity.getColorSouth()) {
 			this.playDyeSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pDyeItem));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorSouth(pDyeItem.getDyeColor().getTextColor());
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -302,9 +310,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setColorWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, DyeItem pDyeItem, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST) && pDyeItem.getDyeColor().getTextColor() != pBlockEntity.getColorWest()) {
 			this.playDyeSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pDyeItem));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorWest(pDyeItem.getDyeColor().getTextColor());
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -315,10 +325,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setLabelUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, true).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (!pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)) {
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, true).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorUp(pColor);
 			pBlockEntity.setLabelUp(pLabel);
 			pBlockEntity.setStyleUp(pStyle);
@@ -329,7 +340,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelUp(), pBlockEntity.getStyleUp(), pBlockEntity.getColorUp());
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, true).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorUp(pColor);
 			pBlockEntity.setLabelUp(pLabel);
 			pBlockEntity.setStyleUp(pStyle);
@@ -342,10 +353,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setLabelNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, true).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (!pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)) {
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, true).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorNorth(pColor);
 			pBlockEntity.setLabelNorth(pLabel);
 			pBlockEntity.setStyleNorth(pStyle);
@@ -356,7 +368,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelNorth(), pBlockEntity.getStyleNorth(), pBlockEntity.getColorNorth());
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, true).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorNorth(pColor);
 			pBlockEntity.setLabelNorth(pLabel);
 			pBlockEntity.setStyleNorth(pStyle);
@@ -369,10 +381,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setLabelEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, true).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (!pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)) {
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, true).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorEast(pColor);
 			pBlockEntity.setLabelEast(pLabel);
 			pBlockEntity.setStyleEast(pStyle);
@@ -383,7 +396,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelEast(), pBlockEntity.getStyleEast(), pBlockEntity.getColorEast());
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, true).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorEast(pColor);
 			pBlockEntity.setLabelEast(pLabel);
 			pBlockEntity.setStyleEast(pStyle);
@@ -396,10 +409,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setLabelSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, true).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (!pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)) {
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, true).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorSouth(pColor);
 			pBlockEntity.setLabelSouth(pLabel);
 			pBlockEntity.setStyleSouth(pStyle);
@@ -410,7 +424,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelSouth(), pBlockEntity.getStyleSouth(), pBlockEntity.getColorSouth());
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, true).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorSouth(pColor);
 			pBlockEntity.setLabelSouth(pLabel);
 			pBlockEntity.setStyleSouth(pStyle);
@@ -423,10 +437,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setLabelWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, true).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (!pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)) {
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, true).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorWest(pColor);
 			pBlockEntity.setLabelWest(pLabel);
 			pBlockEntity.setStyleWest(pStyle);
@@ -437,7 +452,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelWest(), pBlockEntity.getStyleWest(), pBlockEntity.getColorWest());
 			this.playApplySound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CHEST_LABEL.get()));
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, true).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setColorWest(pColor);
 			pBlockEntity.setLabelWest(pLabel);
 			pBlockEntity.setStyleWest(pStyle);
@@ -450,9 +465,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setStyleUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP) && pBlockEntity.getStyleUp()) {
 			this.playInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleUp(false);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -463,9 +480,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setStyleNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH) && pBlockEntity.getStyleNorth()) {
 			this.playInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleNorth(false);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -476,9 +495,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setStyleEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST) && pBlockEntity.getStyleEast()) {
 			this.playInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleEast(false);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -489,9 +510,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setStyleSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH) && pBlockEntity.getStyleSouth()) {
 			this.playInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleSouth(false);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -502,9 +525,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setStyleWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST) && pBlockEntity.getStyleWest()) {
 			this.playInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleWest(false);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -515,9 +540,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setGlowStyleUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP) && !pBlockEntity.getStyleUp()) {
 			this.playGlowInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleUp(true);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -528,9 +555,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setGlowStyleNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH) && !pBlockEntity.getStyleNorth()) {
 			this.playGlowInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleNorth(true);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -541,9 +570,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setGlowStyleEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST) && !pBlockEntity.getStyleEast()) {
 			this.playGlowInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleEast(true);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -554,9 +585,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setGlowStyleSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH) && !pBlockEntity.getStyleSouth()) {
 			this.playGlowInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleSouth(true);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
@@ -567,9 +600,11 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	public InteractionResult setGlowStyleWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST) && !pBlockEntity.getStyleWest()) {
 			this.playGlowInkSacSound(pBlockPos, pLevel);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLOW_INK_SAC));
+			pLevel.sendBlockUpdated(pBlockPos, blockState, blockState, 3);
 			pBlockEntity.setStyleWest(true);
 			pBlockEntity.setChanged();
 			pItemStack.consume(1, pPlayer);
