@@ -8,6 +8,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundEvents;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 
@@ -27,11 +28,13 @@ public class TotemRunnable implements Runnable {
 	@Override
 	public void run() {
 		var minecraft = Minecraft.getInstance();
-		var player = this.payloadContext.player();
-		minecraft.gameRenderer.displayItemActivation(this.packet.itemStack);
-		minecraft.particleEngine.createTrackingEmitter(player, ParticleTypes.TOTEM_OF_UNDYING, 20);
-		if (player.level() instanceof ClientLevel clientLevel) {
-			clientLevel.playLocalSound(player.getX(), player.getY(), player.getZ(), this.packet.soundEvent.value(), player.getSoundSource(), 1.0F, 1.0F, false);
+		var player = this.payloadContext.player().level().getEntity(packet.id);
+		if (player != null && player.level() instanceof ClientLevel clientLevel) {
+			clientLevel.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.TOTEM_USE, player.getSoundSource(), 1.0F, 1.0F, false);
+			minecraft.particleEngine.createTrackingEmitter(player, ParticleTypes.TOTEM_OF_UNDYING, 20);
+			if (player == this.payloadContext.player()) {
+				minecraft.gameRenderer.displayItemActivation(this.packet.itemStack);
+			}
 		}
 	}
 }

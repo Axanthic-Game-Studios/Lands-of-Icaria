@@ -21,10 +21,8 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -217,7 +215,7 @@ public class IcariaCommonGameEvents {
 
 	public static void sendPacket(Item pItem, Player pPlayer) {
 		if (pPlayer instanceof ServerPlayer serverPlayer) {
-			PacketDistributor.sendToPlayer(serverPlayer, new TotemPacket(new ItemStack(pItem), Holder.direct(SoundEvents.TOTEM_USE)));
+			PacketDistributor.sendToAllPlayers(new TotemPacket(serverPlayer.getId(), new ItemStack(pItem)));
 		}
 	}
 
