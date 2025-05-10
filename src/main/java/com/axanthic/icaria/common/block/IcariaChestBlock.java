@@ -61,10 +61,10 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 
 	public void dropLabel(BlockPos pBlockPos, Direction pDirection, Level pLevel, @Nullable String pLabel, boolean pStyle, int pColor) {
 		var itemStack = new ItemStack(IcariaItems.CHEST_LABEL.get());
+		Block.popResourceFromFace(pLevel, pBlockPos, pDirection, itemStack);
 		itemStack.set(IcariaDataComponents.COLOR, pColor);
 		itemStack.set(IcariaDataComponents.LABEL, pLabel);
 		itemStack.set(IcariaDataComponents.STYLE, pStyle);
-		Block.popResourceFromFace(pLevel, pBlockPos, pDirection, itemStack);
 	}
 
 	public void dropLabel(BlockPos pBlockPos, BlockState pBlockState, BooleanProperty pBooleanProperty, Level pLevel, @Nullable String pLabel, boolean pStyle, int pColor) {
