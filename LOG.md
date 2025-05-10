@@ -3,9 +3,11 @@ Fixes
 - the game crashes when an Enderman picks and holds a tinted Block, e.g. Grassy Marl
 - Breaking Particles for Fallen Leaves, Moss and Twigs are missing
 - Breaking Particles for Potted Fern uses the wrong Texture
+- glowing Chest Label Text is glitching
 - Cardon Cactus Textures are glitching
 - Animals glitch in Size when being spawned or growing
 - Block Interactions don't play the swinging Player Hand animation
+- editing placed Chest Labels on Icaria Chests doesn't update properly for other Players on Servers
 - Arachne and Revenant Spawners can't be placed on each other
 - Revenants are unable to walk through Doors
 - Revenants spawned from the Kettle don't spawn with Armor
@@ -14,6 +16,7 @@ Fixes
 - Coarse Marl and Dry Lake Bed can't be tilled when another Block is above
 - Kettle doesn't yield a resulting Item when an attached Output Inventory below isn't able to take in the resulting Item, the resulting Item now gets saved in an internal Output Inventory, as long as this Inventory is full, new Ingredients can still be added but no concocting Process will start
 - waxing an Icaria Chest with Honeycombs doesn't consume the Honeycomb in Survival Mode
+- Totem Activation Effects don't display properly for other Players on Servers
 - Arrow Recipe with Chert only returns one Arrow instead of four like with Flint
 - Book Recipe with Aeternae Hide isn't shapeless like with Leather
 - Garlic Drop Rate is lower than intended
