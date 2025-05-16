@@ -10,7 +10,7 @@ Discover all the secrets of this unique dimension, learn to brew magic spells, a
 
 Icaria is home to the Revenants, the remaining souls of an ancient civilisation that once roamed there and even explored outside of it, even making it as far as the Nether.
 
-It is developed and published by Axanthic Game Studios, the follow-up team to the classic Minecraft modding team known as Team Melanistic from 2011 to 2015.
+It is developed and published by Axanthic Studios, the follow-up team to the classic Minecraft modding team known as Team Melanistic from 2011 to 2015.
 
 This project is still very much work in progress and we hope to expand our team to help turn this ambitious vision into reality. If you are interested in contributing to the project, get in contact with us via our Discord.
 
