@@ -90,9 +90,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.SURFACE_LIGNITE.get(), "Braunkohlegeröll");
 		this.add(IcariaBlocks.COARSE_MARL.get(), "Grober Mergel");
 		this.add(IcariaBlocks.DRY_LAKE_BED.get(), "Trockenes Seebett");
-
 		this.add(IcariaBlocks.FARMLAND.get(), "Ackerboden");
 		this.add(IcariaBlocks.FERTILIZED_FARMLAND.get(), "Gedüngter Ackerboden");
+		this.add(IcariaBlocks.MARL_PATH.get(), "Mergel Trampelpfad");
 
 		this.add(IcariaBlocks.MARL_ADOBE.get(), "Mergel-Lehm");
 		this.add(IcariaBlocks.MARL_ADOBE_STAIRS.get(), "Mergel-Lehmtreppe");
@@ -100,6 +100,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.MARL_ADOBE_WALL.get(), "Mergel-Lehmmauer");
 
 		this.add(IcariaBlocks.LOAM.get(), "Lehm");
+		this.add(IcariaBlocks.LOAM_PATH.get(), "Lehm Trampelpfad");
 		this.add(IcariaBlocks.LOAM_BRICKS.get(), "Lehmziegel");
 		this.add(IcariaBlocks.LOAM_BRICK_STAIRS.get(), "Lehmziegeltreppe");
 		this.add(IcariaBlocks.LOAM_BRICK_SLAB.get(), "Lehmziegelstufe");
@@ -120,6 +121,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.GRAINEL.get(), "Schluffsand");
 		this.add(IcariaBlocks.GRAINEL_CHERT.get(), "Hornsteinerz");
+		this.add(IcariaBlocks.GRAINEL_PATH.get(), "Schluffsand Trampelpfad");
 		this.add(IcariaBlocks.GRAINGLASS.get(), "Schluffglas");
 		this.add(IcariaBlocks.GRAINGLASS_PANE.get(), "Schluffglasscheibe");
 		this.add(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), "Horizontale Schluffglasscheibe");
@@ -158,6 +160,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), "Gelbsteingeröll");
 
 		this.add(IcariaBlocks.SILKSAND.get(), "Seidensand");
+		this.add(IcariaBlocks.SILKSAND_PATH.get(), "Seidensand Trampelpfad");
 		this.add(IcariaBlocks.SILKGLASS.get(), "Seidenglass");
 		this.add(IcariaBlocks.SILKGLASS_PANE.get(), "Seidenglassscheibe");
 		this.add(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), "Horizontale Seidenglassscheibe");

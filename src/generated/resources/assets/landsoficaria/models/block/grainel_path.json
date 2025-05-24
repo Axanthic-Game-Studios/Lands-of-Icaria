@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/farmland",
+  "textures": {
+    "dirt": "landsoficaria:block/grainel",
+    "particle": "landsoficaria:block/grainel",
+    "top": "landsoficaria:block/grainel_path"
+  }
+}

@@ -80,9 +80,17 @@ public class IcariaCommonGameEvents {
 	@SubscribeEvent
 	public static void onBlockToolModification(BlockEvent.BlockToolModificationEvent pEvent) {
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.COARSE_MARL.get(), IcariaBlocks.MARL.get(), ItemAbilities.HOE_TILL, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.COARSE_MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DRY_LAKE_BED.get(), IcariaBlocks.COARSE_MARL.get(), ItemAbilities.HOE_TILL, false);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DRY_LAKE_BED.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.MARL_PATH.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.LOAM.get(), IcariaBlocks.LOAM_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.GRAINEL.get(), IcariaBlocks.GRAINEL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
+		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.SILKSAND.get(), IcariaBlocks.SILKSAND_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), ItemAbilities.AXE_STRIP, false);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);
 		IcariaCommonGameEvents.toolModification(pEvent, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);

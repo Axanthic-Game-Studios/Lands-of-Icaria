@@ -90,9 +90,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.SURFACE_LIGNITE.get(), "Lignite Rubble");
 		this.add(IcariaBlocks.COARSE_MARL.get(), "Coarse Marl");
 		this.add(IcariaBlocks.DRY_LAKE_BED.get(), "Dry Lake Bed");
-
 		this.add(IcariaBlocks.FARMLAND.get(), "Farmland");
 		this.add(IcariaBlocks.FERTILIZED_FARMLAND.get(), "Fertilized Farmland");
+		this.add(IcariaBlocks.MARL_PATH.get(), "Marl Path");
 
 		this.add(IcariaBlocks.MARL_ADOBE.get(), "Marl Adobe");
 		this.add(IcariaBlocks.MARL_ADOBE_STAIRS.get(), "Marl Adobe Stairs");
@@ -100,6 +100,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.MARL_ADOBE_WALL.get(), "Marl Adobe Wall");
 
 		this.add(IcariaBlocks.LOAM.get(), "Loam");
+		this.add(IcariaBlocks.LOAM_PATH.get(), "Loam Path");
 		this.add(IcariaBlocks.LOAM_BRICKS.get(), "Loam Bricks");
 		this.add(IcariaBlocks.LOAM_BRICK_STAIRS.get(), "Loam Brick Stairs");
 		this.add(IcariaBlocks.LOAM_BRICK_SLAB.get(), "Loam Brick Slab");
@@ -120,6 +121,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.GRAINEL.get(), "Grainel");
 		this.add(IcariaBlocks.GRAINEL_CHERT.get(), "Chert Ore");
+		this.add(IcariaBlocks.GRAINEL_PATH.get(), "Grainel Path");
 		this.add(IcariaBlocks.GRAINGLASS.get(), "Grainglass");
 		this.add(IcariaBlocks.GRAINGLASS_PANE.get(), "Grainglass Pane");
 		this.add(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), "Horizontal Grainglass Pane");
@@ -158,6 +160,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), "Yellowstone Rubble");
 
 		this.add(IcariaBlocks.SILKSAND.get(), "Silksand");
+		this.add(IcariaBlocks.SILKSAND_PATH.get(), "Silksand Path");
 		this.add(IcariaBlocks.SILKGLASS.get(), "Silkglass");
 		this.add(IcariaBlocks.SILKGLASS_PANE.get(), "Silkglass Pane");
 		this.add(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), "Horizontal Silkglass Pane");

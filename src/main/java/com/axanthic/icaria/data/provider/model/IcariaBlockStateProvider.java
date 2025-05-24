@@ -598,6 +598,10 @@ public class IcariaBlockStateProvider {
 	public static void randomHorizontal1(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.SURFACE_CHERT.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.SURFACE_BONES.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.MARL_PATH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.LOAM_PATH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.GRAINEL_PATH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.SILKSAND_PATH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.BOLBOS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.DATHULLA.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal1(IcariaBlocks.MONDANOS.get(), pBlockModelGenerators);

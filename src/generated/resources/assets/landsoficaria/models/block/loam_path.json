@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/farmland",
+  "textures": {
+    "dirt": "landsoficaria:block/loam",
+    "particle": "landsoficaria:block/loam",
+    "top": "landsoficaria:block/loam_path"
+  }
+}

@@ -585,10 +585,14 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.FARMLAND.get())
 			.add(IcariaBlocks.FERTILIZED_FARMLAND.get())
+			.add(IcariaBlocks.MARL_PATH.get())
 			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.LOAM_PATH.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.GRAINEL_CHERT.get())
-			.add(IcariaBlocks.SILKSAND.get());
+			.add(IcariaBlocks.GRAINEL_PATH.get())
+			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.SILKSAND_PATH.get());
 
 		this.tag(BlockTags.OCCLUDES_VIBRATION_SIGNALS)
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get());

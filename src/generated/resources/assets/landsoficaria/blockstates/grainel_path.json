@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/grainel_path"
+      },
+      {
+        "model": "landsoficaria:block/grainel_path",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/grainel_path",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/grainel_path",
+        "y": 270
+      }
+    ]
+  }
+}

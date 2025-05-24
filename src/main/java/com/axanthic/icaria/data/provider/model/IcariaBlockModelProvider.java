@@ -88,6 +88,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.overlayTextureVine(pBlockModelGenerators);
 		IcariaBlockModelProvider.palmFern(pBlockModelGenerators);
 		IcariaBlockModelProvider.pane(pBlockModelGenerators);
+		IcariaBlockModelProvider.path(pBlockModelGenerators);
 		IcariaBlockModelProvider.particle(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisCrop(pBlockModelGenerators);
 		IcariaBlockModelProvider.portal(pBlockModelGenerators);
@@ -724,6 +725,13 @@ public class IcariaBlockModelProvider {
 	public static void pane(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.pane(IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.pane(IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get(), pBlockModelGenerators);
+	}
+
+	public static void path(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.path(IcariaBlocks.MARL_PATH.get(), IcariaBlocks.MARL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.path(IcariaBlocks.LOAM_PATH.get(), IcariaBlocks.LOAM.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.path(IcariaBlocks.GRAINEL_PATH.get(), IcariaBlocks.GRAINEL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.path(IcariaBlocks.SILKSAND_PATH.get(), IcariaBlocks.SILKSAND.get(), pBlockModelGenerators);
 	}
 
 	public static void particle(BlockModelGenerators pBlockModelGenerators) {
@@ -2443,6 +2451,14 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
 				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void path(Block pPath, Block pBase, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "farmland")).build()
+			.create(IcariaModelProvider.blockFile(pPath), new TextureMapping()
+				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(pBase))
+				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pPath))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBase)), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void particle(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {

@@ -183,9 +183,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.SURFACE_LIGNITE.get());
 			pEvent.accept(IcariaItems.COARSE_MARL.get());
 			pEvent.accept(IcariaItems.DRY_LAKE_BED.get());
-
 			pEvent.accept(IcariaItems.FARMLAND.get());
 			pEvent.accept(IcariaItems.FERTILIZED_FARMLAND.get());
+			pEvent.accept(IcariaItems.MARL_PATH.get());
 
 			pEvent.accept(IcariaItems.MARL_ADOBE.get());
 			pEvent.accept(IcariaItems.MARL_ADOBE_STAIRS.get());
@@ -193,6 +193,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.MARL_ADOBE_WALL.get());
 
 			pEvent.accept(IcariaItems.LOAM.get());
+			pEvent.accept(IcariaItems.LOAM_PATH.get());
 			pEvent.accept(IcariaItems.LOAM_BRICKS.get());
 			pEvent.accept(IcariaItems.LOAM_BRICK_STAIRS.get());
 			pEvent.accept(IcariaItems.LOAM_BRICK_SLAB.get());
@@ -213,6 +214,7 @@ public class IcariaCommonModEvents {
 
 			pEvent.accept(IcariaItems.GRAINEL.get());
 			pEvent.accept(IcariaItems.GRAINEL_CHERT.get());
+			pEvent.accept(IcariaItems.GRAINEL_PATH.get());
 			pEvent.accept(IcariaItems.GRAINGLASS.get());
 			pEvent.accept(IcariaItems.GRAINGLASS_PANE.get());
 			pEvent.accept(IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get());
@@ -251,6 +253,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.YELLOWSTONE_RUBBLE.get());
 
 			pEvent.accept(IcariaItems.SILKSAND.get());
+			pEvent.accept(IcariaItems.SILKSAND_PATH.get());
 			pEvent.accept(IcariaItems.SILKGLASS.get());
 			pEvent.accept(IcariaItems.SILKGLASS_PANE.get());
 			pEvent.accept(IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());

@@ -44,9 +44,9 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> SURFACE_LIGNITE = IcariaBlocks.register("surface_lignite", GroundDecoBlock::new, IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> COARSE_MARL = IcariaBlocks.register("coarse_marl", Block::new, IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> DRY_LAKE_BED = IcariaBlocks.register("dry_lake_bed", Block::new, IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
-
 	public static final DeferredHolder<Block, Block> FARMLAND = IcariaBlocks.register("farmland", FarmlandBlock::new, IcariaBlocks.propertiesFarmland(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> FERTILIZED_FARMLAND = IcariaBlocks.register("fertilized_farmland", FertilizedFarmlandBlock::new, IcariaBlocks.propertiesFarmland(MapColor.COLOR_BROWN, SoundType.GRAVEL));
+	public static final DeferredHolder<Block, Block> MARL_PATH = IcariaBlocks.register("marl_path", properties -> new IcariaPathBlock(IcariaBlocks.MARL.get(), properties), IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 
 	public static final DeferredHolder<Block, Block> MARL_ADOBE = IcariaBlocks.register("marl_adobe", Block::new, IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN, SoundType.STONE));
 	public static final DeferredHolder<Block, IcariaStairBlock> MARL_ADOBE_STAIRS = IcariaBlocks.register("marl_adobe_stairs", properties -> new IcariaStairBlock(IcariaBlocks.MARL_ADOBE.get().defaultBlockState(), properties), IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN, SoundType.STONE));
@@ -54,6 +54,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, IcariaWallBlock> MARL_ADOBE_WALL = IcariaBlocks.register("marl_adobe_wall", IcariaWallBlock::new, IcariaBlocks.propertiesStone(MapColor.COLOR_BROWN, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> LOAM = IcariaBlocks.register("loam", Block::new, IcariaBlocks.propertiesLoam(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.GRAVEL));
+	public static final DeferredHolder<Block, Block> LOAM_PATH = IcariaBlocks.register("loam_path", properties -> new IcariaPathBlock(IcariaBlocks.LOAM.get(), properties), IcariaBlocks.propertiesLoam(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> LOAM_BRICKS = IcariaBlocks.register("loam_bricks", Block::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK, SoundType.STONE));
 	public static final DeferredHolder<Block, IcariaStairBlock> LOAM_BRICK_STAIRS = IcariaBlocks.register("loam_brick_stairs", properties -> new IcariaStairBlock(IcariaBlocks.LOAM_BRICKS.get().defaultBlockState(), properties), IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, IcariaSlabBlock> LOAM_BRICK_SLAB = IcariaBlocks.register("loam_brick_slab", IcariaSlabBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.GRAVEL));
@@ -74,6 +75,7 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, Block> GRAINEL = IcariaBlocks.register("grainel", Block::new, IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> GRAINEL_CHERT = IcariaBlocks.register("grainel_chert", Block::new, IcariaBlocks.propertiesSandOre(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
+	public static final DeferredHolder<Block, Block> GRAINEL_PATH = IcariaBlocks.register("grainel_path", properties -> new IcariaPathBlock(IcariaBlocks.GRAINEL.get(), properties), IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> GRAINGLASS = IcariaBlocks.register("grainglass", TransparentBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
 	public static final DeferredHolder<Block, IcariaIronBarsBlock> GRAINGLASS_PANE = IcariaBlocks.register("grainglass_pane", IcariaIronBarsBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
 	public static final DeferredHolder<Block, Block> HORIZONTAL_GRAINGLASS_PANE = IcariaBlocks.register("horizontal_grainglass_pane", HorizontalPaneBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
@@ -112,6 +114,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> YELLOWSTONE_RUBBLE = IcariaBlocks.register("yellowstone_rubble", GroundDecoBlock::new, IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> SILKSAND = IcariaBlocks.register("silksand", Block::new, IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.SAND));
+	public static final DeferredHolder<Block, Block> SILKSAND_PATH = IcariaBlocks.register("silksand_path", properties -> new IcariaPathBlock(IcariaBlocks.SILKSAND.get(), properties), IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> SILKGLASS = IcariaBlocks.register("silkglass", TransparentBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
 	public static final DeferredHolder<Block, IcariaIronBarsBlock> SILKGLASS_PANE = IcariaBlocks.register("silkglass_pane", IcariaIronBarsBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
 	public static final DeferredHolder<Block, Block> HORIZONTAL_SILKGLASS_PANE = IcariaBlocks.register("horizontal_silkglass_pane", HorizontalPaneBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));

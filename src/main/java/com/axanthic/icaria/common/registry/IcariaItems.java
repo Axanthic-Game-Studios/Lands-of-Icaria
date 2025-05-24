@@ -41,9 +41,9 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> SURFACE_LIGNITE = IcariaItems.register("surface_lignite", properties -> new BlockItem(IcariaBlocks.SURFACE_LIGNITE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> COARSE_MARL = IcariaItems.register("coarse_marl", properties -> new BlockItem(IcariaBlocks.COARSE_MARL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DRY_LAKE_BED = IcariaItems.register("dry_lake_bed", properties -> new BlockItem(IcariaBlocks.DRY_LAKE_BED.get(), properties), IcariaItems.propertiesBlock());
-
 	public static final DeferredHolder<Item, Item> FARMLAND = IcariaItems.register("farmland", properties -> new BlockItem(IcariaBlocks.FARMLAND.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FERTILIZED_FARMLAND = IcariaItems.register("fertilized_farmland", properties -> new BlockItem(IcariaBlocks.FERTILIZED_FARMLAND.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> MARL_PATH = IcariaItems.register("marl_path", properties -> new BlockItem(IcariaBlocks.MARL_PATH.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> MARL_ADOBE = IcariaItems.register("marl_adobe", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> MARL_ADOBE_STAIRS = IcariaItems.register("marl_adobe_stairs", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE_STAIRS.get(), properties), IcariaItems.propertiesBlock());
@@ -51,6 +51,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> MARL_ADOBE_WALL = IcariaItems.register("marl_adobe_wall", properties -> new BlockItem(IcariaBlocks.MARL_ADOBE_WALL.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> LOAM = IcariaItems.register("loam", properties -> new BlockItem(IcariaBlocks.LOAM.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LOAM_PATH = IcariaItems.register("loam_path", properties -> new BlockItem(IcariaBlocks.LOAM_PATH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LOAM_BRICKS = IcariaItems.register("loam_bricks", properties -> new BlockItem(IcariaBlocks.LOAM_BRICKS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LOAM_BRICK_STAIRS = IcariaItems.register("loam_brick_stairs", properties -> new BlockItem(IcariaBlocks.LOAM_BRICK_STAIRS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LOAM_BRICK_SLAB = IcariaItems.register("loam_brick_slab", properties -> new BlockItem(IcariaBlocks.LOAM_BRICK_SLAB.get(), properties), IcariaItems.propertiesBlock());
@@ -71,6 +72,7 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> GRAINEL = IcariaItems.register("grainel", properties -> new BlockItem(IcariaBlocks.GRAINEL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> GRAINEL_CHERT = IcariaItems.register("grainel_chert", properties -> new BlockItem(IcariaBlocks.GRAINEL_CHERT.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> GRAINEL_PATH = IcariaItems.register("grainel_path", properties -> new BlockItem(IcariaBlocks.GRAINEL_PATH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> GRAINGLASS = IcariaItems.register("grainglass", properties -> new BlockItem(IcariaBlocks.GRAINGLASS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> GRAINGLASS_PANE = IcariaItems.register("grainglass_pane", properties -> new BlockItem(IcariaBlocks.GRAINGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> HORIZONTAL_GRAINGLASS_PANE = IcariaItems.register("horizontal_grainglass_pane", properties -> new BlockItem(IcariaBlocks.HORIZONTAL_GRAINGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
@@ -109,6 +111,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> YELLOWSTONE_RUBBLE = IcariaItems.register("yellowstone_rubble", properties -> new BlockItem(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> SILKSAND = IcariaItems.register("silksand", properties -> new BlockItem(IcariaBlocks.SILKSAND.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SILKSAND_PATH = IcariaItems.register("silksand_path", properties -> new BlockItem(IcariaBlocks.SILKSAND_PATH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> SILKGLASS = IcariaItems.register("silkglass", properties -> new BlockItem(IcariaBlocks.SILKGLASS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> SILKGLASS_PANE = IcariaItems.register("silkglass_pane", properties -> new BlockItem(IcariaBlocks.SILKGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> HORIZONTAL_SILKGLASS_PANE = IcariaItems.register("horizontal_silkglass_pane", properties -> new BlockItem(IcariaBlocks.HORIZONTAL_SILKGLASS_PANE.get(), properties), IcariaItems.propertiesBlock());

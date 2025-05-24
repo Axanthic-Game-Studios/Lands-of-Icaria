@@ -111,6 +111,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	public void dropElse() {
 		this.dropElse(IcariaBlocks.FARMLAND.get(), IcariaItems.MARL.get());
 		this.dropElse(IcariaBlocks.FERTILIZED_FARMLAND.get(), IcariaItems.MARL.get());
+		this.dropElse(IcariaBlocks.MARL_PATH.get(), IcariaItems.MARL.get());
+		this.dropElse(IcariaBlocks.LOAM_PATH.get(), IcariaItems.LOAM.get());
+		this.dropElse(IcariaBlocks.GRAINEL_PATH.get(), IcariaItems.GRAINEL.get());
+		this.dropElse(IcariaBlocks.SILKSAND_PATH.get(), IcariaItems.SILKSAND.get());
 		this.dropElse(IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaItems.AETERNAE_SKULL.get());
 		this.dropElse(IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaItems.ARGAN_HOUND_SKULL.get());
 		this.dropElse(IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaItems.CAPELLA_SKULL.get());

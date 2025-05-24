@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/loam_path"
+      },
+      {
+        "model": "landsoficaria:block/loam_path",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/loam_path",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/loam_path",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -9,9 +9,13 @@
     "landsoficaria:dry_lake_bed",
     "landsoficaria:farmland",
     "landsoficaria:fertilized_farmland",
+    "landsoficaria:marl_path",
     "landsoficaria:loam",
+    "landsoficaria:loam_path",
     "landsoficaria:grainel",
     "landsoficaria:grainel_chert",
-    "landsoficaria:silksand"
+    "landsoficaria:grainel_path",
+    "landsoficaria:silksand",
+    "landsoficaria:silksand_path"
   ]
 }
