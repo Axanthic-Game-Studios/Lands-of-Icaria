@@ -29,7 +29,7 @@ public class HyliastrumOreBlock extends Block {
 		if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOBLOCKDROPS)) {
 			if (pItemStack.getEnchantmentLevel(pServerLevel.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH)) == 0) {
 				if (entity != null) {
-					entity.moveTo(pBlockPos.getX() + 0.5D, pBlockPos.getY(), pBlockPos.getZ() + 0.5D, 0.0F, 0.0F);
+					entity.snapTo(pBlockPos.getX() + 0.5D, pBlockPos.getY(), pBlockPos.getZ() + 0.5D, 0.0F, 0.0F);
 					entity.setSize(4);
 					entity.spawnAnim();
 					pServerLevel.addFreshEntity(entity);

@@ -66,7 +66,7 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 			if (entity != null) {
 				if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
 					if (pLevel.getBlockState(spawnPos).isAir()) {
-						entity.moveTo(spawnPos, 0.0F, 0.0F);
+						entity.snapTo(spawnPos, 0.0F, 0.0F);
 						entity.setTarget(pPlayer);
 						entity.spawnAnim();
 						pLevel.addFreshEntity(entity);

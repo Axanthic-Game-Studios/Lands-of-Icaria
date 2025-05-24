@@ -1,20 +1,11 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
-
 import com.mojang.serialization.MapCodec;
-
-import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.ChatFormatting;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DirectionalBlock;
@@ -33,11 +24,6 @@ public class PillarHeadBlock extends DirectionalBlock {
 	public PillarHeadBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.NORTH));
-	}
-
-	@Override
-	public void appendHoverText(ItemStack pItemStack, Item.TooltipContext pTooltipContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
-		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title").withStyle(ChatFormatting.GRAY));
 	}
 
 	@Override

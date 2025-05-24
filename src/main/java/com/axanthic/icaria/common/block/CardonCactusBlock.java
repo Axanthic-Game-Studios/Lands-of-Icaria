@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -34,7 +35,7 @@ public class CardonCactusBlock extends PipeBlock {
 	public static final MapCodec<CardonCactusBlock> CODEC = Block.simpleCodec(CardonCactusBlock::new);
 
 	public CardonCactusBlock(Properties pProperties) {
-		super(0.25F, pProperties);
+		super(8.0F, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false).setValue(BlockStateProperties.DOWN, false));
 	}
 
@@ -60,7 +61,7 @@ public class CardonCactusBlock extends PipeBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
 		IcariaCommonHelper.hurt(pLevel.damageSources().cactus(), pEntity, 1.0F);
 	}
 

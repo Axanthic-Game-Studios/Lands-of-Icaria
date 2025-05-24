@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -16513274
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -7629424
-      }
-    ]
+    "model": "landsoficaria:item/hyliaster_spawn_egg"
   }
 }

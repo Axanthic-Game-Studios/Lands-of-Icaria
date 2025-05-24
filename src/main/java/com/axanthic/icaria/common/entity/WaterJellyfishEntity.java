@@ -19,7 +19,7 @@ public class WaterJellyfishEntity extends JellyfishEntity {
 
 	@Override
 	public void touch(Player pPlayer) {
-		var mobEffectInstance = new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, this.getSize() * 100, 0);
+		var mobEffectInstance = new MobEffectInstance(MobEffects.SLOWNESS, this.getSize() * 100, 0);
 		pPlayer.addEffect(mobEffectInstance, this);
 	}
 }

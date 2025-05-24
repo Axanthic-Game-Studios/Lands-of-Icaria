@@ -12,6 +12,7 @@ import com.axanthic.icaria.common.recipe.PotionConcoctingRecipe;
 import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import java.util.ArrayDeque;
@@ -39,7 +40,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -125,18 +126,22 @@ public class KettleBlockEntity extends BlockEntity {
 		}
 	}
 
-	public void drop(Level pLevel) {
-		Containers.dropContents(pLevel, this.worldPosition, this.simpleContainer);
+	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.KETTLE.get()));
+	}
+
+	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
 
 	@Override
 	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
 		super.loadAdditional(pCompoundTag, pProvider);
-		this.inputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandler"));
-		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("OutputHandler"));
-		this.color = pCompoundTag.getInt("Color");
-		this.progress = pCompoundTag.getInt("ProgressTick");
-		this.maxProgress = pCompoundTag.getInt("MaxProgressTick");
+		this.inputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandler"));
+		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("OutputHandler"));
+		this.color = pCompoundTag.getIntOr("Color", 0);
+		this.progress = pCompoundTag.getIntOr("ProgressTick", 0);
+		this.maxProgress = pCompoundTag.getIntOr("MaxProgressTick", 0);
 	}
 
 	@Override
@@ -154,7 +159,7 @@ public class KettleBlockEntity extends BlockEntity {
 			if (itemEntity != null) {
 				itemEntity.setItem(this.outputHandler.getStackInSlot(0));
 				if (this.getBlockState().getBlock() instanceof KettleBlock kettleBlock) {
-					itemEntity.moveTo(this.getBlockPos().getX() + kettleBlock.getX(this.getBlockState()), this.getBlockPos().getY() + 0.75D, this.getBlockPos().getZ() + kettleBlock.getZ(this.getBlockState()));
+					itemEntity.snapTo(this.getBlockPos().getX() + kettleBlock.getX(this.getBlockState()), this.getBlockPos().getY() + 0.75D, this.getBlockPos().getZ() + kettleBlock.getZ(this.getBlockState()));
 					itemEntity.setDeltaMovement(0.0D, 0.25D, 0.0D);
 					pServerLevel.addFreshEntity(itemEntity);
 					this.outputHandler.setStackInSlot(0, ItemStack.EMPTY);
@@ -172,6 +177,14 @@ public class KettleBlockEntity extends BlockEntity {
 			this.getItemConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
 		} else if (this.getPotionConcoctingRecipe(pServerLevel).isPresent()) {
 			this.getPotionConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
+		}
+	}
+
+	@Override
+	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
+		if (this.level instanceof ServerLevel serverLevel) {
+			this.dropBlock(pBlockPos, serverLevel);
+			this.dropItems(pBlockPos, serverLevel);
 		}
 	}
 

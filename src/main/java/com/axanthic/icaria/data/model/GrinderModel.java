@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.math.Quadrant;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +13,6 @@ import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
-import net.neoforged.neoforge.client.model.generators.template.FaceRotation;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -25,7 +26,7 @@ public class GrinderModel {
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.LOAM_BRICKS)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOAM_BRICKS)))
 			.element(elementBuilder -> elementBuilder.from(0.0F, 1.0F, 0.0F).to(15.0F, 3.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0F, 13.0F, 16.0F, 15.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
@@ -94,7 +95,7 @@ public class GrinderModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(6.0F, 6.0F, -1.0F).to(10.0F, 8.0F, 3.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER))
@@ -102,7 +103,7 @@ public class GrinderModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(3.0F, 4.0F, 3.0F).to(4.0F, 12.0F, 4.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(12.0F, 4.0F, 13.0F, 12.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
@@ -178,7 +179,7 @@ public class GrinderModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(0.0F, 11.0F, 9.0F).to(3.0F, 13.0F, 10.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.0F, 1.0F, 16.0F, 3.0F).texture(IcariaTextureSlots.GRINDER))
@@ -190,7 +191,7 @@ public class GrinderModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 4.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 3.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.build();
 	}
 
@@ -201,7 +202,7 @@ public class GrinderModel {
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOAM_BRICKS))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.LOAM_BRICKS)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 16.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOAM_BRICKS)))
 			.element(elementBuilder -> elementBuilder.from(1.0F, 1.0F, 0.0F).to(16.0F, 3.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
@@ -235,7 +236,7 @@ public class GrinderModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0F, 5.0F, 5.0F, 12.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(2.0F, 5.0F, 14.0F, 12.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(11.0F, 5.0F, 15.0F, 12.0F).texture(IcariaTextureSlots.SUNSTONE_BRICKS))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0F, 11.0F, 14.0F, 15.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.SUNSTONE_BRICKS)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0F, 11.0F, 14.0F, 15.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.SUNSTONE_BRICKS)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 3.0F, 15.0F).to(11.0F, 9.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 7.0F, 1.0F, 13.0F).texture(IcariaTextureSlots.VOIDSHALE))
@@ -247,28 +248,28 @@ public class GrinderModel {
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 3.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 15.0F, 5.0F).to(10.0F, 16.0F, 6.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(6.0F, 15.0F, 10.0F).to(11.0F, 16.0F, 11.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0F, 5.0F, 6.0F, 6.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 5.0F, 5.0F, 6.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 5.0F, 5.0F, 6.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 15.0F, 6.0F).to(6.0F, 16.0F, 11.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 1.0F, 6.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(5.0F, 1.0F, 6.0F, 6.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(5.0F, 1.0F, 6.0F, 6.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(1.0F, 4.0F, 11.0F).to(2.0F, 5.0F, 13.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0F, 11.0F, 2.0F, 12.0F).texture(IcariaTextureSlots.ANTHRACITE_BLOCK))
@@ -294,7 +295,7 @@ public class GrinderModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(10.0F, 11.0F, 6.0F).to(16.0F, 13.0F, 7.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 6.0F, 3.0F).texture(IcariaTextureSlots.GRINDER))
@@ -309,13 +310,13 @@ public class GrinderModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0F, 0.0F, 6.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(5.0F, 0.0F, 6.0F, 5.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 5.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 5.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(4.3438F, 10.0F, 6.0039F).to(10.0F, 10.707F, 9.9961F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-45.0F).axis(Direction.Axis.Z).origin(10.0F, 10.0F, 8.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 3.0F, 6.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 3.0F, 11.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 4.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.GRINDER)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(9.0F, 14.0F, 6.0F).to(10.0F, 15.0F, 9.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 0.0F, 6.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
@@ -324,8 +325,8 @@ public class GrinderModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0F, 1.0F, 5.0F, 4.0F).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(6.0F, 14.0F, 6.0F).to(9.0F, 15.0F, 7.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
-				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 1.0F, 6.0F, 4.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 1.0F, 11.0F, 4.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.GRINDER))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 1.0F, 6.0F, 4.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.GRINDER))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 1.0F, 11.0F, 4.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0F, 1.0F, 4.0F, 2.0F).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(6.0F, 14.0F, 7.0F).to(7.0F, 15.0F, 10.0F)
@@ -336,9 +337,9 @@ public class GrinderModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0F, 2.0F, 2.0F, 5.0F).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(7.0F, 14.0F, 9.0F).to(10.0F, 15.0F, 10.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
-				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 0.0F, 6.0F, 3.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.GRINDER))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(5.0F, 0.0F, 6.0F, 3.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 1.0F, 1.0F).texture(IcariaTextureSlots.GRINDER))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 11.0F, 3.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.GRINDER))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 11.0F, 3.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.GRINDER))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0F, 4.0F, 5.0F, 5.0F).texture(IcariaTextureSlots.GRINDER)))
 			.element(elementBuilder -> elementBuilder.from(7.1719F, 12.4141F, 6.0039F).to(8.5859F, 13.1211F, 7.0039F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-45.0F).axis(Direction.Axis.Z).origin(10.0F, 11.0F, 8.0F))

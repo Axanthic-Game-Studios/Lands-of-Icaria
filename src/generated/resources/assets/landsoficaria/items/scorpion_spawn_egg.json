@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -11453660
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -2580127
-      }
-    ]
+    "model": "landsoficaria:item/scorpion_spawn_egg"
   }
 }

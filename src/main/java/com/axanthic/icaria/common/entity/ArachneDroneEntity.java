@@ -112,8 +112,8 @@ public class ArachneDroneEntity extends ArachneEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
-		this.setSize(pCompoundTag.getInt("Size"));
+		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
+		this.setSize(pCompoundTag.getIntOr("Size", 0));
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class HyliastrumVialItem extends Item {
 		var entity = IcariaEntityTypes.HYLIASTER.get().create(level, EntitySpawnReason.SPAWN_ITEM_USE);
 		if (!level.isClientSide() && entity != null && player != null) {
 			IcariaCommonHelper.setItemInHand(player.getUsedItemHand(), new ItemStack(IcariaItems.EMPTY_VIAL.get()), player);
-			entity.moveTo(pUseOnContext.getClickedPos().above(), 0.0F, 0.0F);
+			entity.snapTo(pUseOnContext.getClickedPos().above(), 0.0F, 0.0F);
 			entity.setSize(1);
 			level.addFreshEntity(entity);
 			level.playSound(null, player.blockPosition(), IcariaSoundEvents.VIAL_EMPTY, SoundSource.PLAYERS);

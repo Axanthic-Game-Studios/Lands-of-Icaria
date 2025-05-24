@@ -4,8 +4,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
@@ -39,10 +37,5 @@ public class VineSproutItem extends Item {
 	public ItemStack finishUsingItem(ItemStack pItemStack, Level pLevel, LivingEntity pLivingEntity) {
 		this.handleAction(pItemStack, pLevel, pLivingEntity);
 		return pItemStack;
-	}
-
-	@Override
-	public SoundEvent getBreakingSound() {
-		return SoundEvents.EMPTY;
 	}
 }

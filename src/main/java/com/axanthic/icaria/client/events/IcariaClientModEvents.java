@@ -10,6 +10,7 @@ import com.axanthic.icaria.client.particle.provider.IcariaBubbleParticleProvider
 import com.axanthic.icaria.client.particle.provider.IcariaPortalParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
+import com.axanthic.icaria.client.registry.IcariaRenderPipelines;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.ForgeScreen;
 import com.axanthic.icaria.client.screen.GrinderScreen;
@@ -61,7 +62,7 @@ public class IcariaClientModEvents {
 	public static void onAddLayers(EntityRenderersEvent.AddLayers pEvent) {
 		for (var model : pEvent.getSkins()) {
 			if (pEvent.getSkin(model) instanceof PlayerRenderer playerRenderer) {
-				playerRenderer.addLayer(new LootVaseLayer(playerRenderer));
+				playerRenderer.addLayer(new LootVaseLayer(playerRenderer, pEvent.getContext()));
 			}
 		}
 	}
@@ -245,6 +246,12 @@ public class IcariaClientModEvents {
 		pEvent.registerSpriteSet(IcariaParticleTypes.BUBBLE.get(), IcariaBubbleParticleProvider::new);
 		pEvent.registerSpriteSet(IcariaParticleTypes.PORTAL.get(), IcariaPortalParticleProvider::new);
 		pEvent.registerSpriteSet(IcariaParticleTypes.STEAM.get(), IcariaSteamParticleProvider::new);
+	}
+
+	@SubscribeEvent
+	public static void onRegisterRenderPipelines(RegisterRenderPipelinesEvent pEvent) {
+		pEvent.registerPipeline(IcariaRenderPipelines.ADDITIVE);
+		pEvent.registerPipeline(IcariaRenderPipelines.ADDITIVE_TEXTURED);
 	}
 
 	@SubscribeEvent

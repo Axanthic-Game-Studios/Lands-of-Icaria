@@ -10,7 +10,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -52,21 +51,6 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
-	}
-
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
-				Containers.dropContents(pLevel, pBlockPos, blockEntity);
-				pLevel.updateNeighbourForOutputSignal(pBlockPos, this);
-			}
-		}
-	}
-
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	@Override

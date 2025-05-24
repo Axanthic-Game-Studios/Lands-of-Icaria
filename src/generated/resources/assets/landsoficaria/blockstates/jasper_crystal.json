@@ -2,8 +2,7 @@
   "variants": {
     "facing=down": {
       "model": "landsoficaria:block/jasper_crystal",
-      "x": 180,
-      "y": 0
+      "x": 180
     },
     "facing=east": {
       "model": "landsoficaria:block/jasper_crystal",
@@ -12,8 +11,7 @@
     },
     "facing=north": {
       "model": "landsoficaria:block/jasper_crystal",
-      "x": 90,
-      "y": 0
+      "x": 90
     },
     "facing=south": {
       "model": "landsoficaria:block/jasper_crystal",
@@ -21,9 +19,7 @@
       "y": 180
     },
     "facing=up": {
-      "model": "landsoficaria:block/jasper_crystal",
-      "x": 0,
-      "y": 0
+      "model": "landsoficaria:block/jasper_crystal"
     },
     "facing=west": {
       "model": "landsoficaria:block/jasper_crystal",

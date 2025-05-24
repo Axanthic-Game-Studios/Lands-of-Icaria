@@ -18,6 +18,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.predicates.DataComponentPredicates;
+import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -911,6 +913,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public LootItemCondition.Builder silk() {
 		var enchantmentPredicate = new EnchantmentPredicate(this.enchantments().getOrThrow(Enchantments.SILK_TOUCH), MinMaxBounds.Ints.atLeast(1));
-		return MatchTool.toolMatches(ItemPredicate.Builder.item().withSubPredicate(ItemSubPredicates.ENCHANTMENTS, ItemEnchantmentsPredicate.enchantments(List.of(enchantmentPredicate))));
+		return MatchTool.toolMatches(ItemPredicate.Builder.item().withComponents(DataComponentMatchers.Builder.components().partial(DataComponentPredicates.ENCHANTMENTS, EnchantmentsPredicate.enchantments(List.of(enchantmentPredicate))).build()));
 	}
 }

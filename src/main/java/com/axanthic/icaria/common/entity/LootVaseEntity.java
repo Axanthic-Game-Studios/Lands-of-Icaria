@@ -8,9 +8,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -60,8 +59,9 @@ public class LootVaseEntity extends Entity {
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		pCompoundTag.put("BlockPos", NbtUtils.writeBlockPos(this.getBlockPos()));
-		pCompoundTag.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
+		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
+		pCompoundTag.store("BlockPos", BlockPos.CODEC, registryOps, this.getBlockPos());
+		pCompoundTag.store("BlockState", BlockState.CODEC, registryOps, this.getBlockState());
 	}
 
 	@Override
@@ -82,8 +82,9 @@ public class LootVaseEntity extends Entity {
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		this.setBlockPos(NbtUtils.readBlockPos(pCompoundTag, "BlockPos").orElseThrow());
-		this.setBlockState(NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), pCompoundTag.getCompound("BlockState")));
+		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
+		this.setBlockPos(pCompoundTag.read("BlockPos", BlockPos.CODEC, registryOps).orElse(BlockPos.ZERO));
+		this.setBlockState(pCompoundTag.read("BlockState", BlockState.CODEC, registryOps).orElse(Blocks.AIR.defaultBlockState()));
 	}
 
 	public void setBlockPos(BlockPos pBlockPos) {

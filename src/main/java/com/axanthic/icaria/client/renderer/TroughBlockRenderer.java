@@ -19,6 +19,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -26,7 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 public record TroughBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<TroughBlockEntity> {
 
 	@Override
-	public void render(TroughBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+	public void render(TroughBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var blockState = pBlockEntity.getBlockState();
 		var level = pBlockEntity.getLevel();
 

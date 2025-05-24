@@ -26,8 +26,8 @@ import net.minecraft.world.phys.BlockHitResult;
 @ParametersAreNonnullByDefault
 
 public class OliveLeavesBlock extends IcariaLeavesBlock {
-	public OliveLeavesBlock(Properties pProperties) {
-		super(pProperties);
+	public OliveLeavesBlock(int pColor, Properties pProperties) {
+		super(pColor, pProperties);
 		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.DISTANCE, 7).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE).setValue(BlockStateProperties.PERSISTENT, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 

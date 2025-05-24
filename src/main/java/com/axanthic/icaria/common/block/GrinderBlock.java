@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.menu.provider.GrinderMenuProvider;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.GrinderShapes;
 
 import com.mojang.serialization.MapCodec;
@@ -37,7 +36,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -115,28 +113,10 @@ public class GrinderBlock extends BaseEntityBlock {
 		pBuilder.add(IcariaBlockStateProperties.GRINDER_GRINDING, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.SIDE);
 	}
 
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof GrinderBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.GRINDER.get()));
-					blockEntity.drop(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
-				}
-			}
-		}
-	}
-
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.removeMultiBlock(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-	}
-
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {

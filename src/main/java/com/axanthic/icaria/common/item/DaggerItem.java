@@ -12,17 +12,17 @@ import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Weapon;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DaggerItem extends SwordItem {
+public class DaggerItem extends Item {
 	public DaggerItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackRange, float pAttackSpeed, Properties pProperties) {
-		super(pProperties.component(DataComponents.ATTRIBUTE_MODIFIERS, DaggerItem.createAttributes(pToolMaterial, pAttackDamage, pAttackRange, pAttackSpeed)).component(DataComponents.TOOL, DaggerItem.createToolProperties()).durability(pToolMaterial.durability()).enchantable(pToolMaterial.enchantmentValue()).repairable(pToolMaterial.repairItems()));
+		super(pProperties.component(DataComponents.ATTRIBUTE_MODIFIERS, DaggerItem.createAttributes(pToolMaterial, pAttackDamage, pAttackRange, pAttackSpeed)).component(DataComponents.TOOL, DaggerItem.createToolProperties()).component(DataComponents.WEAPON, DaggerItem.createWeaponProperties()).durability(pToolMaterial.durability()).enchantable(pToolMaterial.enchantmentValue()).repairable(pToolMaterial.repairItems()));
 	}
 
 	public static ItemAttributeModifiers createAttributes(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackRange, float pAttackSpeed) {
@@ -30,6 +30,10 @@ public class DaggerItem extends SwordItem {
 	}
 
 	public static Tool createToolProperties() {
-		return new Tool(List.of(), 1.0F, 2);
+		return new Tool(List.of(), 1.0F, 2, false);
+	}
+
+	public static Weapon createWeaponProperties() {
+		return new Weapon(1, 0.0F);
 	}
 }

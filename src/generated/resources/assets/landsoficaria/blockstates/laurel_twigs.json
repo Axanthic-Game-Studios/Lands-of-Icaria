@@ -2,24 +2,19 @@
   "variants": {
     "": [
       {
-        "model": "landsoficaria:block/laurel_twigs_0",
-        "y": 0
+        "model": "landsoficaria:block/laurel_twigs_0"
       },
       {
-        "model": "landsoficaria:block/laurel_twigs_1",
-        "y": 0
+        "model": "landsoficaria:block/laurel_twigs_1"
       },
       {
-        "model": "landsoficaria:block/laurel_twigs_2",
-        "y": 0
+        "model": "landsoficaria:block/laurel_twigs_2"
       },
       {
-        "model": "landsoficaria:block/laurel_twigs_3",
-        "y": 0
+        "model": "landsoficaria:block/laurel_twigs_3"
       },
       {
-        "model": "landsoficaria:block/laurel_twigs_4",
-        "y": 0
+        "model": "landsoficaria:block/laurel_twigs_4"
       },
       {
         "model": "landsoficaria:block/laurel_twigs_0",

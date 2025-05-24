@@ -1,9 +1,7 @@
 {
   "variants": {
     "facing=down": {
-      "model": "landsoficaria:block/relicstone_pillar_head",
-      "x": 0,
-      "y": 0
+      "model": "landsoficaria:block/relicstone_pillar_head"
     },
     "facing=east": {
       "model": "landsoficaria:block/relicstone_pillar_head_inverted",
@@ -12,8 +10,7 @@
     },
     "facing=north": {
       "model": "landsoficaria:block/relicstone_pillar_head_inverted",
-      "x": 270,
-      "y": 0
+      "x": 270
     },
     "facing=south": {
       "model": "landsoficaria:block/relicstone_pillar_head",
@@ -22,8 +19,7 @@
     },
     "facing=up": {
       "model": "landsoficaria:block/relicstone_pillar_head_inverted",
-      "x": 180,
-      "y": 0
+      "x": 180
     },
     "facing=west": {
       "model": "landsoficaria:block/relicstone_pillar_head",

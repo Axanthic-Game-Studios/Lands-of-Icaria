@@ -3,8 +3,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -14,8 +13,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/blooming_bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -25,8 +23,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/dead_bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -36,8 +33,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/growing_bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -47,8 +43,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/ripe_bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -58,8 +53,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/bloomy_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",

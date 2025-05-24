@@ -75,7 +75,7 @@ public class SizedPathfinderMobEntity extends PathfinderMob {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setSize(pCompoundTag.getInt("Size"));
+		this.setSize(pCompoundTag.getIntOr("Size", 0));
 	}
 
 	public void setSize(int pSize) {

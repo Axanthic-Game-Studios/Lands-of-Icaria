@@ -25,6 +25,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -113,19 +114,8 @@ public class KettleBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.KETTLE, BlockStateProperties.LIT);
 	}
 
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KETTLE.get()));
-					blockEntity.drop(serverLevel);
-				}
-			}
-		}
-	}
-
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
 		if (pEntity instanceof ItemEntity itemEntity) {
 			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
 				if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
@@ -150,12 +140,6 @@ public class KettleBlock extends BaseEntityBlock {
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.removeMultiBlock(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-	}
-
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void particlesActive(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {

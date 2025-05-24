@@ -3,8 +3,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -14,8 +13,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/dead_thorny_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -25,8 +23,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/growing_thorny_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",
@@ -36,8 +33,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/thorny_vine",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true",

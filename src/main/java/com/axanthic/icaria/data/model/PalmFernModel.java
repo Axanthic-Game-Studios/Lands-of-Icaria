@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.math.Quadrant;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +13,6 @@ import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
-import net.neoforged.neoforge.client.model.generators.template.FaceRotation;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -27,30 +28,30 @@ public class PalmFernModel {
 			.element(elementBuilder -> elementBuilder.from(3.5F, 4.6F, 1.1F).to(12.5F, 4.6F, 5.1F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.X).origin(8.0F, 8.0F, 8.0F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 7.5F, -3.6F).to(12.5F, 7.5F, 0.4F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.X).origin(8.0F, 8.0F, 8.0F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 11.9F, -6.8F).to(12.5F, 11.9F, -2.8F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 5.4F, 12.3F).to(12.5F, 9.4F, 12.3F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.X).origin(8.0F, 8.0F, 8.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(3.0F, 12.0F, 12.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(3.0F, 12.0F, 12.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 4.6F, 10.9F).to(12.5F, 4.6F, 14.9F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-45.0F).axis(Direction.Axis.X).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 7.5F, 15.6F).to(12.5F, 7.5F, 19.6F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5F).axis(Direction.Axis.X).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(3.5F, 11.9F, 18.7F).to(12.5F, 11.9F, 22.7F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(4.5F, 0.0F, 4.5F).to(11.5F, 4.0F, 11.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
@@ -66,32 +67,32 @@ public class PalmFernModel {
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(3.0F, 12.0F, 12.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(1.1F, 4.6F, 3.5F).to(5.1F, 4.6F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-45.0F).axis(Direction.Axis.Z).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(-3.6F, 7.5F, 3.5F).to(0.4F, 7.5F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5F).axis(Direction.Axis.Z).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(-6.8F, 11.9F, 3.5F).to(-2.8F, 11.9F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.COUNTERCLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R270).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(12.3F, 5.4F, 3.5F).to(12.3F, 9.4F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5F).axis(Direction.Axis.Z).origin(8.0F, 8.0F, 8.0F))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(3.0F, 12.0F, 12.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(3.0F, 12.0F, 12.0F, 16.0F).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(10.9F, 4.6F, 3.5F).to(14.9F, 4.6F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Z).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 8.0F, 12.0F, 12.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(15.6F, 7.5F, 3.5F).to(19.6F, 7.5F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Z).origin(8.0F, 8.0F, 8.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 4.0F, 12.0F, 8.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(18.7F, 11.9F, 3.5F).to(22.7F, 11.9F, 12.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(FaceRotation.CLOCKWISE_90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0F, 0.0F, 12.0F, 4.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.OVERLAY).tintindex(0)))
 			.element(elementBuilder -> elementBuilder.from(5.5F, 4.0F, 5.5F).to(10.5F, 6.0F, 10.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 4.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))

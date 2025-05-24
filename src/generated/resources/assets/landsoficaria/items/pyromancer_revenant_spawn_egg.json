@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12820954
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -10263709
-      }
-    ]
+    "model": "landsoficaria:item/pyromancer_revenant_spawn_egg"
   }
 }

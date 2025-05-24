@@ -1180,6 +1180,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get());
 
+		this.tag(BlockTags.DRY_VEGETATION_MAY_PLACE_ON)
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
+
 		this.tag(BlockTags.FLOWERS)
 			.add(IcariaBlocks.BLUE_GROUND_FLOWERS.get())
 			.add(IcariaBlocks.CYAN_GROUND_FLOWERS.get())

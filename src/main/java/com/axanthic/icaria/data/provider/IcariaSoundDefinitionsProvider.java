@@ -11,6 +11,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.animal.wolf.WolfSoundVariants;
 
 import net.neoforged.neoforge.common.data.SoundDefinition;
 import net.neoforged.neoforge.common.data.SoundDefinitionsProvider;
@@ -43,9 +44,9 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.ARACHNE_DRONE_DEATH, SoundEvents.SPIDER_DEATH, "arachne_drone", "death");
 		this.register(IcariaSoundEvents.ARACHNE_DRONE_HURT, SoundEvents.SPIDER_HURT, "arachne_drone", "hurt");
 		this.register(IcariaSoundEvents.ARACHNE_DRONE_STEP, SoundEvents.SPIDER_STEP, "arachne_drone", "step");
-		this.register(IcariaSoundEvents.ARGAN_HOUND_AMBIENT, SoundEvents.WOLF_AMBIENT, "argan_hound", "ambient");
-		this.register(IcariaSoundEvents.ARGAN_HOUND_DEATH, SoundEvents.WOLF_DEATH, "argan_hound", "death");
-		this.register(IcariaSoundEvents.ARGAN_HOUND_HURT, SoundEvents.WOLF_HURT, "argan_hound", "hurt");
+		this.register(IcariaSoundEvents.ARGAN_HOUND_AMBIENT, SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).ambientSound(), "argan_hound", "ambient");
+		this.register(IcariaSoundEvents.ARGAN_HOUND_DEATH, SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).deathSound(), "argan_hound", "death");
+		this.register(IcariaSoundEvents.ARGAN_HOUND_HURT, SoundEvents.WOLF_SOUNDS.get(WolfSoundVariants.SoundSet.CLASSIC).hurtSound(), "argan_hound", "hurt");
 		this.register(IcariaSoundEvents.ARGAN_HOUND_STEP, SoundEvents.WOLF_STEP, "argan_hound", "step");
 		this.register(IcariaSoundEvents.CAPELLA_AMBIENT, SoundEvents.GOAT_AMBIENT, "capella", "ambient");
 		this.register(IcariaSoundEvents.CAPELLA_DEATH, SoundEvents.GOAT_DEATH, "capella", "death");

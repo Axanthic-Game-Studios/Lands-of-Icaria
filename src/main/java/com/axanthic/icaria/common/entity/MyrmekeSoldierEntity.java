@@ -76,7 +76,7 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setTick(pCompoundTag.getInt("Tick"));
+		this.setTick(pCompoundTag.getIntOr("Tick", 0));
 	}
 
 	@Override

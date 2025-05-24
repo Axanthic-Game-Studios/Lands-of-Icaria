@@ -37,7 +37,7 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity, Bubbl
 
 		var matrix4f = pPoseStack.last().pose();
 
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
+		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE);
 
 		var alpha = 0.25F;
 

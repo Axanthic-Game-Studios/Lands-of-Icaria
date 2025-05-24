@@ -69,7 +69,7 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setTick(pCompoundTag.getInt("Tick"));
+		this.setTick(pCompoundTag.getIntOr("Tick", 0));
 	}
 
 	public void setTick(int pTick) {

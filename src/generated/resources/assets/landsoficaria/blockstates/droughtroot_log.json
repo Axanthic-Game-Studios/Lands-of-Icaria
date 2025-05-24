@@ -6,14 +6,11 @@
       "y": 90
     },
     "axis=y": {
-      "model": "landsoficaria:block/droughtroot_log",
-      "x": 0,
-      "y": 0
+      "model": "landsoficaria:block/droughtroot_log"
     },
     "axis=z": {
       "model": "landsoficaria:block/droughtroot_log_horizontal",
-      "x": 90,
-      "y": 0
+      "x": 90
     }
   }
 }

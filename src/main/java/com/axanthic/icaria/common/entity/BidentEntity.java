@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -113,9 +114,10 @@ public class BidentEntity extends AbstractArrow {
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setDealt(pCompoundTag.getBoolean("Dealt"));
-		this.setStack(ItemStack.parse(this.registryAccess(), pCompoundTag.getCompound("Stack")).orElseThrow());
+		this.setDealt(pCompoundTag.getBooleanOr("Dealt", false));
+		this.setStack(pCompoundTag.read("Stack", ItemStack.CODEC, registryOps).orElse(ItemStack.EMPTY));
 	}
 
 	public void setDealt(boolean pDealt) {

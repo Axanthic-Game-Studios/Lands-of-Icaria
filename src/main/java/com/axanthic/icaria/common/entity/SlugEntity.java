@@ -152,7 +152,7 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 			var cooldown = this.getCooldown();
 			if (cooldown > this.minCooldown) {
 				--cooldown;
-				this.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, cooldown, 3, false, false));
+				this.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, cooldown, 3, false, false));
 				this.setCooldown(cooldown);
 				this.setShow(this.maxShow);
 			}
@@ -183,10 +183,10 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
-		this.setCooldown(pCompoundTag.getInt("Cooldown"));
-		this.setHide(pCompoundTag.getInt("Hide"));
-		this.setShow(pCompoundTag.getInt("Show"));
+		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
+		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
+		this.setHide(pCompoundTag.getIntOr("Hide", 0));
+		this.setShow(pCompoundTag.getIntOr("Show", 0));
 	}
 
 	@Override

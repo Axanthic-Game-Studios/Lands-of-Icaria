@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.math.Quadrant;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +13,6 @@ import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
-import net.neoforged.neoforge.client.model.generators.template.FaceRotation;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -148,40 +149,40 @@ public class TinderFungusTreeShroomsModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(12.0F, 2.0F, 15.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(12.0F, 0.0F, 17.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(12.0F, 2.0F, 15.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(11.0F, 5.0F, 16.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(11.0F, 5.0F, 16.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(11.0F, 5.0F, 16.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(11.0F, 5.0F, 16.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(2.0F, 7.0F, 14.0F).to(6.0F, 9.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(8.0F, 2.0F, 10.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(8.0F, 2.0F, 10.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0F, 0.0F, 12.0F, 2.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(3.0F, 1.0F, 14.0F).to(7.0F, 3.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 2.0F, 2.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 2.0F, 2.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0F, 0.0F, 8.0F, 2.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 11.0F, 12.0F).to(11.0F, 13.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0F, 2.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(12.0F, 2.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 2.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(12.0F, 2.0F, 16.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0F, 0.0F, 16.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(8.0F, 8.0F, 12.0F).to(14.0F, 10.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0F, 4.0F, 16.0F, 6.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(12.0F, 4.0F, 16.0F, 6.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0F, 4.0F, 16.0F, 6.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(12.0F, 4.0F, 16.0F, 6.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 12.0F, 6.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 12.0F, 6.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 12.0F, 6.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 12.0F, 6.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(4.0F, 14.0F, 13.0F).to(9.0F, 16.0F, 16.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0F).axis(Direction.Axis.Y).origin(0.0F, 0.0F, 0.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))

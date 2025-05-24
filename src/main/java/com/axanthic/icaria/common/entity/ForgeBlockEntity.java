@@ -9,12 +9,16 @@ import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
+import com.mojang.serialization.Codec;
 
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
@@ -24,13 +28,11 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -43,6 +45,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -62,6 +65,8 @@ public class ForgeBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int maxProgress = 0;
 	public int size = 6;
+
+	public static final Codec<Map<ResourceKey<Recipe<?>>, Integer>> RECIPES_CODEC = Codec.unboundedMap(Recipe.KEY_CODEC, Codec.INT);
 
 	public ItemStackHandler fuelHandler = new ForgeFuelItemStackHandler(1, this);
 	public ItemStackHandler inputHandlerA = new ForgeInputItemStackHandler(1, this);
@@ -113,29 +118,40 @@ public class ForgeBlockEntity extends BlockEntity {
 	}
 
 	public void awardUsedRecipesAndPopExperience(ServerPlayer pServerPlayer) {
-		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.serverLevel(), pServerPlayer.position()));
+		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.blockPosition(), pServerPlayer.serverLevel()));
 		this.recipes.clear();
 	}
 
-	public void drop(ServerLevel pServerLevel) {
-		Containers.dropContents(pServerLevel, this.worldPosition, this.simpleContainer);
+	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.FORGE.get()));
+	}
+
+	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
 
 	@Override
 	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
 		super.loadAdditional(pCompoundTag, pProvider);
-		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("FuelHandler"));
-		this.inputHandlerA.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerA"));
-		this.inputHandlerB.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerB"));
-		this.inputHandlerC.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandlerC"));
-		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("OutputHandler"));
-		this.fuel = pCompoundTag.getInt("FuelTick");
-		this.maxFuel = pCompoundTag.getInt("MaxFuelTick");
-		this.progress = pCompoundTag.getInt("ProgressTick");
-		this.maxProgress = pCompoundTag.getInt("MaxProgressTick");
-		var compoundTag = pCompoundTag.getCompound("Recipes");
-		for (var key : compoundTag.getAllKeys()) {
-			this.recipes.put(ResourceKey.create(Registries.RECIPE, ResourceLocation.parse(key)), compoundTag.getInt(key));
+		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("FuelHandler"));
+		this.inputHandlerA.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerA"));
+		this.inputHandlerB.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerB"));
+		this.inputHandlerC.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerC"));
+		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("OutputHandler"));
+		this.fuel = pCompoundTag.getIntOr("FuelTick", 0);
+		this.maxFuel = pCompoundTag.getIntOr("MaxFuelTick", 0);
+		this.progress = pCompoundTag.getIntOr("ProgressTick", 0);
+		this.maxProgress = pCompoundTag.getIntOr("MaxProgressTick", 0);
+		this.recipes.clear();
+		this.recipes.putAll(pCompoundTag.read("Recipes", ForgeBlockEntity.RECIPES_CODEC).orElse(Map.of()));
+	}
+
+	@Override
+	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
+		if (this.level instanceof ServerLevel serverLevel) {
+			this.dropBlock(pBlockPos, serverLevel);
+			this.dropItems(pBlockPos, serverLevel);
+			this.getRecipesToAwardAndPopExperience(pBlockPos, serverLevel);
 		}
 	}
 
@@ -151,9 +167,7 @@ public class ForgeBlockEntity extends BlockEntity {
 		pCompoundTag.putInt("MaxFuelTick", this.maxFuel);
 		pCompoundTag.putInt("ProgressTick", this.progress);
 		pCompoundTag.putInt("MaxProgressTick", this.maxProgress);
-		var compoundTag = new CompoundTag();
-		this.recipes.forEach((resourceKey, integer) -> compoundTag.putInt(resourceKey.location().toString(), integer));
-		pCompoundTag.put("Recipes", compoundTag);
+		pCompoundTag.store("Recipes", ForgeBlockEntity.RECIPES_CODEC, this.recipes);
 	}
 
 	public void setContainer() {
@@ -286,14 +300,14 @@ public class ForgeBlockEntity extends BlockEntity {
 		return this.outputHandler.getStackInSlot(0);
 	}
 
-	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pServerLevel, Vec3 pVec3) {
+	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(BlockPos pBlockPos, ServerLevel pServerLevel) {
 		var arrayList = new ArrayList<RecipeHolder<?>>();
 		for (var entry : this.recipes.reference2IntEntrySet()) {
 			pServerLevel.recipeAccess().byKey(entry.getKey()).ifPresent(
 				(recipeHolder) -> {
 					arrayList.add(recipeHolder);
 					if (recipeHolder.value() instanceof ForgingRecipe forgingRecipe) {
-						ExperienceOrb.award(pServerLevel, pVec3, Mth.ceil(entry.getIntValue() * forgingRecipe.experience()));
+						ExperienceOrb.award(pServerLevel, Vec3.atCenterOf(pBlockPos), Mth.ceil(entry.getIntValue() * forgingRecipe.experience()));
 					}
 				}
 			);

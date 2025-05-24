@@ -22,7 +22,7 @@ public class FortifyingSpellEntity extends SpellEntity {
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		super.onHitEntity(pEntityHitResult);
 		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity) {
-			var mobEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300);
+			var mobEffectInstance = new MobEffectInstance(MobEffects.RESISTANCE, 300);
 			livingEntity.addEffect(mobEffectInstance);
 		}
 	}

@@ -1,8 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_kettle_upper_glass",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "kettle": "landsoficaria:block/kettle",
-    "particle": "landsoficaria:block/laurel_log"
-  }
-}

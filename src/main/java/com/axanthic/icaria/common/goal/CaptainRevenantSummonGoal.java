@@ -44,7 +44,7 @@ public class CaptainRevenantSummonGoal extends Goal {
 			if (entity != null) {
 				if (level.getBlockState(blockPos).canBeReplaced()) {
 					if (level.getBlockState(blockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
-						entity.moveTo(blockPos, 0.0F, 0.0F);
+						entity.snapTo(blockPos, 0.0F, 0.0F);
 						level.addFreshEntity(entity);
 					}
 				}

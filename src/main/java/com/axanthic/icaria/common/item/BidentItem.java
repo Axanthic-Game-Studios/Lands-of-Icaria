@@ -8,7 +8,6 @@ import java.util.List;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.core.component.DataComponents;
@@ -28,8 +27,8 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;
+import net.minecraft.world.item.component.Weapon;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.state.BlockState;
 
 import net.neoforged.neoforge.common.ItemAbilities;
 import net.neoforged.neoforge.common.ItemAbility;
@@ -41,23 +40,13 @@ public class BidentItem extends Item implements ProjectileItem {
 	public float attackDamage;
 
 	public BidentItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed, Properties pProperties) {
-		super(pProperties.component(DataComponents.ATTRIBUTE_MODIFIERS, BidentItem.createAttributes(pToolMaterial, pAttackDamage, pAttackSpeed)).component(DataComponents.TOOL, BidentItem.createToolProperties()).durability(pToolMaterial.durability()).enchantable(pToolMaterial.enchantmentValue()).repairable(pToolMaterial.repairItems()));
+		super(pProperties.component(DataComponents.ATTRIBUTE_MODIFIERS, BidentItem.createAttributes(pToolMaterial, pAttackDamage, pAttackSpeed)).component(DataComponents.TOOL, BidentItem.createToolProperties()).component(DataComponents.WEAPON, BidentItem.createWeaponProperties()).durability(pToolMaterial.durability()).enchantable(pToolMaterial.enchantmentValue()).repairable(pToolMaterial.repairItems()));
 		this.attackDamage = pToolMaterial.attackDamageBonus() + pAttackDamage;
-	}
-
-	@Override
-	public boolean canAttackBlock(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer) {
-		return !pPlayer.isCreative();
 	}
 
 	@Override
 	public boolean canPerformAction(ItemStack pItemStack, ItemAbility pItemAbility) {
 		return pItemAbility == ItemAbilities.TRIDENT_THROW;
-	}
-
-	@Override
-	public boolean hurtEnemy(ItemStack pItemStack, LivingEntity pTarget, LivingEntity pSource) {
-		return true;
 	}
 
 	@Override
@@ -122,6 +111,10 @@ public class BidentItem extends Item implements ProjectileItem {
 	}
 
 	public static Tool createToolProperties() {
-		return new Tool(List.of(), 1.0F, 2);
+		return new Tool(List.of(), 1.0F, 2, false);
+	}
+
+	public static Weapon createWeaponProperties() {
+		return new Weapon(1, 0.0F);
 	}
 }

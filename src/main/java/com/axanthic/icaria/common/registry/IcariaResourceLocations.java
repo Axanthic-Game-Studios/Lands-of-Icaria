@@ -11,10 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 public class IcariaResourceLocations {
 	public static final ResourceLocation ICARIA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "icaria");
 
-	// ADVANCEMENT BACKGROUND
-
-	public static final ResourceLocation ADVANCEMENT_BACKGROUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/block/sunstone_bricks.png");
-
 	// ATTRIBUTE MODIFIER
 
 	public static final ResourceLocation BASE_ATTACK_RANGE_ID = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "base_attack_range");
@@ -33,6 +29,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water");
 	public static final ResourceLocation ONION = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_onion");
 	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_top");
+	public static final ResourceLocation SUNSTONE_BRICKS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/sunstone_bricks");
 	public static final ResourceLocation VINEBERRIES = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_vineberries");
 
 	// CONTEXT KEY
@@ -218,6 +215,11 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation GENERIC_PARTICLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "generic");
 	public static final ResourceLocation STEAM_PARTICLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "steam");
 
+	// PIPELINE
+
+	public static final ResourceLocation ADDITIVE_RENDER_PIPELINE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "pipeline/additive");
+	public static final ResourceLocation ADDITIVE_TEXTURED_RENDER_PIPELINE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "pipeline/additive_textured");
+
 	// RECIPE
 
 	public static final ResourceLocation CHEST_RECIPE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "chest");
@@ -236,6 +238,11 @@ public class IcariaResourceLocations {
 	// RENDERER
 
 	public static final ResourceLocation SCROLL_RENDERER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "scroll");
+
+	// SHADER
+
+	public static final ResourceLocation ADDITIVE_SHADER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "additive");
+	public static final ResourceLocation ADDITIVE_TEXTURED_SHADER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "additive_textured");
 
 	// SOUND
 

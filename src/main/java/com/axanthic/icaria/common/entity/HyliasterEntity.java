@@ -113,7 +113,7 @@ public class HyliasterEntity extends Monster {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
-		this.setSize(pCompound.getInt("Size"));
+		this.setSize(pCompound.getIntOr("Size", 0));
 	}
 
 	@Override
@@ -138,7 +138,7 @@ public class HyliasterEntity extends Monster {
 						var zOffset = ((float) (i / 2) - 0.5F) * 0.05F * size;
 						var entity = IcariaEntityTypes.HYLIASTER.get().create(this.level(), EntitySpawnReason.TRIGGERED);
 						if (entity != null) {
-							entity.moveTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, 0.0F, 0.0F);
+							entity.snapTo(this.getX() + xOffset, this.getY() + 0.5D, this.getZ() + zOffset, 0.0F, 0.0F);
 							entity.setSize(this.minSize);
 							this.level().addFreshEntity(entity);
 						}

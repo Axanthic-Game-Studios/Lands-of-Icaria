@@ -151,9 +151,9 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setAiming(pCompoundTag.getInt("Aiming"));
-		this.setReload(pCompoundTag.getInt("Reload"));
-		this.setAiming(pCompoundTag.getInt("Thrown"));
+		this.setAiming(pCompoundTag.getIntOr("Aiming", 0));
+		this.setReload(pCompoundTag.getIntOr("Reload", 0));
+		this.setThrown(pCompoundTag.getIntOr("Thrown", 0));
 	}
 
 	@Override

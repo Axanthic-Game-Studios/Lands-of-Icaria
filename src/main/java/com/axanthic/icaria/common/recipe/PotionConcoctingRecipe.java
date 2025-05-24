@@ -69,7 +69,7 @@ public class PotionConcoctingRecipe implements Recipe<RecipeInput> {
 	public void performRecipe(BlockPos pBlockPos, Level pLevel) {
 		var entity = EntityType.AREA_EFFECT_CLOUD.create(pLevel, EntitySpawnReason.TRIGGERED);
 		if (entity != null) {
-			entity.moveTo(pBlockPos.getX() + 0.5D, pBlockPos.getY(), pBlockPos.getZ() + 0.5D);
+			entity.snapTo(pBlockPos.getX() + 0.5D, pBlockPos.getY(), pBlockPos.getZ() + 0.5D);
 			entity.setDuration(this.duration);
 			entity.setPotionContents(this.potion);
 			entity.setRadius(this.radius);

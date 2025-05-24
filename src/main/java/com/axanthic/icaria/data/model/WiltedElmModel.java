@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.math.Quadrant;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +13,6 @@ import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
-import net.neoforged.neoforge.client.model.generators.template.FaceRotation;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -27,7 +28,7 @@ public class WiltedElmModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 8.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(4.5F, -1.5F, 0.4F).to(11.5F, -1.5F, 3.4F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 7.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 7.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
@@ -35,7 +36,7 @@ public class WiltedElmModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 7.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 5.5F, 3.1F).to(11.0F, 7.5F, 3.1F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 7.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
@@ -58,7 +59,7 @@ public class WiltedElmModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 8.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 4.0F, 8.0F, 8.0F).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(4.5F, -1.5F, 12.6F).to(11.5F, -1.5F, 15.6F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-45.0F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 9.0F))
@@ -66,7 +67,7 @@ public class WiltedElmModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 7.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 1.0F, 7.0F, 4.0F).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(5.0F, 5.5F, 12.9F).to(11.0F, 7.5F, 12.9F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 9.0F))
@@ -91,7 +92,7 @@ public class WiltedElmModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(5.5F, 4.6F, 5.4F).to(10.5F, 7.6F, 5.4F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 7.3F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))
@@ -122,7 +123,7 @@ public class WiltedElmModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 6.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 5.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 3.0F, 6.0F, 8.0F).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(5.5F, 4.6F, 10.6F).to(10.5F, 7.6F, 10.6F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.X).origin(8.0F, 0.0F, 8.7F))
@@ -210,8 +211,8 @@ public class WiltedElmModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 8.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 4.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 8.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 4.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 4.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 4.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 4.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(12.65F, 1.55F, 4.5F).to(15.65F, 1.55F, 11.5F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(45.0F).axis(Direction.Axis.Z).origin(12.7F, 1.55F, 8.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
@@ -226,8 +227,8 @@ public class WiltedElmModel {
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 7.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 3.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 7.0F, 0.0F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0F, 8.0F, 7.0F, 15.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0F, 8.0F, 7.0F, 15.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0F, 8.0F, 7.0F, 15.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0F, 8.0F, 7.0F, 15.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(3.06F, 5.55F, 5.0F).to(3.06F, 7.55F, 11.0F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Z).origin(7.0F, 0.0F, 8.0F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 0.0F, 2.0F).texture(IcariaTextureSlots.TEXTURE))

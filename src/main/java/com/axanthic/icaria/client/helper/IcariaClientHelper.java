@@ -181,19 +181,19 @@ public class IcariaClientHelper {
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.05F;
+		var alpha = 0.1F;
 		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.05F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
+		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
 		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue, float pAlpha) {
 		var matrix4f = pPoseStack.last().pose();
 		var randomSource = RandomSource.create(432L);
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT);
+		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE);
 		var length = randomSource.nextFloat() * 2.0F + 2.0F;
 		var width = randomSource.nextFloat() * 0.5F + 0.5F;
 		if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
@@ -225,7 +225,7 @@ public class IcariaClientHelper {
 	}
 
 	public static void setItem(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LivingEntity pLivingEntity, int pPackedLight) {
-		Minecraft.getInstance().getItemRenderer().renderStatic(pLivingEntity, pLivingEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, false, pPoseStack, pMultiBufferSource, pLivingEntity.level(), pPackedLight, OverlayTexture.NO_OVERLAY, pLivingEntity.getId() + ItemDisplayContext.THIRD_PERSON_RIGHT_HAND.ordinal());
+		Minecraft.getInstance().getItemRenderer().renderStatic(pLivingEntity, pLivingEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, pPoseStack, pMultiBufferSource, pLivingEntity.level(), pPackedLight, OverlayTexture.NO_OVERLAY, pLivingEntity.getId() + ItemDisplayContext.THIRD_PERSON_RIGHT_HAND.ordinal());
 	}
 
 	public static void setPart(PoseStack pPoseStack, ModelPart pModelPart) {

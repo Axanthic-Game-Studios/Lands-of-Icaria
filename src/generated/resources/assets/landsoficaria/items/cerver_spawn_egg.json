@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -15857147
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -13620186
-      }
-    ]
+    "model": "landsoficaria:item/cerver_spawn_egg"
   }
 }

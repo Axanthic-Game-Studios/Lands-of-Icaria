@@ -5,8 +5,7 @@
       "y": 90
     },
     "barrel_facing=east,facing=north": {
-      "model": "landsoficaria:block/plane_barrel",
-      "y": 0
+      "model": "landsoficaria:block/plane_barrel"
     },
     "barrel_facing=east,facing=south": {
       "model": "landsoficaria:block/plane_barrel",
@@ -21,8 +20,7 @@
       "y": 90
     },
     "barrel_facing=north,facing=north": {
-      "model": "landsoficaria:block/plane_barrel",
-      "y": 0
+      "model": "landsoficaria:block/plane_barrel"
     },
     "barrel_facing=north,facing=south": {
       "model": "landsoficaria:block/plane_barrel",
@@ -37,8 +35,7 @@
       "y": 90
     },
     "barrel_facing=south,facing=north": {
-      "model": "landsoficaria:block/plane_barrel",
-      "y": 0
+      "model": "landsoficaria:block/plane_barrel"
     },
     "barrel_facing=south,facing=south": {
       "model": "landsoficaria:block/plane_barrel",
@@ -53,8 +50,7 @@
       "y": 90
     },
     "barrel_facing=up,facing=north": {
-      "model": "landsoficaria:block/standing_plane_barrel",
-      "y": 0
+      "model": "landsoficaria:block/standing_plane_barrel"
     },
     "barrel_facing=up,facing=south": {
       "model": "landsoficaria:block/standing_plane_barrel",
@@ -69,8 +65,7 @@
       "y": 90
     },
     "barrel_facing=west,facing=north": {
-      "model": "landsoficaria:block/plane_barrel",
-      "y": 0
+      "model": "landsoficaria:block/plane_barrel"
     },
     "barrel_facing=west,facing=south": {
       "model": "landsoficaria:block/plane_barrel",

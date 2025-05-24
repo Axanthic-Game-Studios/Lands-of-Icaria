@@ -26,7 +26,7 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean canPerformAction(ItemStack pItemStack, ItemAbility pItemAbility) {
-		return pItemAbility == ItemAbilities.HOE_DIG || pItemAbility == ItemAbilities.HOE_TILL || pItemAbility == ItemAbilities.SWORD_SWEEP;
+		return pItemAbility == ItemAbilities.HOE_TILL || pItemAbility == ItemAbilities.SWORD_SWEEP;
 	}
 
 	@Override

@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.KilnShapes;
 
 import com.mojang.serialization.MapCodec;
@@ -38,7 +37,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -87,28 +85,10 @@ public class KilnBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof KilnBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
-					blockEntity.drop(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
-				}
-			}
-		}
-	}
-
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-	}
-
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {

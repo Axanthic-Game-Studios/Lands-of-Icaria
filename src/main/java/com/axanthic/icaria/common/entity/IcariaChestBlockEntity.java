@@ -110,39 +110,25 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
 		super.loadAdditional(pCompoundTag, pProvider);
 
-		this.styleUp = pCompoundTag.getBoolean("StyleUp");
-		this.styleNorth = pCompoundTag.getBoolean("StyleNorth");
-		this.styleEast = pCompoundTag.getBoolean("StyleEast");
-		this.styleSouth = pCompoundTag.getBoolean("StyleSouth");
-		this.styleWest = pCompoundTag.getBoolean("StyleWest");
+		this.styleUp = pCompoundTag.getBooleanOr("StyleUp", false);
+		this.styleNorth = pCompoundTag.getBooleanOr("StyleNorth", false);
+		this.styleEast = pCompoundTag.getBooleanOr("StyleEast", false);
+		this.styleSouth = pCompoundTag.getBooleanOr("StyleSouth", false);
+		this.styleWest = pCompoundTag.getBooleanOr("StyleWest", false);
 
-		this.waxed = pCompoundTag.getBoolean("Waxed");
+		this.waxed = pCompoundTag.getBooleanOr("Waxed", false);
 
-		this.colorUp = pCompoundTag.getInt("ColorUp");
-		this.colorNorth = pCompoundTag.getInt("ColorNorth");
-		this.colorEast = pCompoundTag.getInt("ColorEast");
-		this.colorSouth = pCompoundTag.getInt("ColorSouth");
-		this.colorWest = pCompoundTag.getInt("ColorWest");
+		this.colorUp = pCompoundTag.getIntOr("ColorUp", 0);
+		this.colorNorth = pCompoundTag.getIntOr("ColorNorth", 0);
+		this.colorEast = pCompoundTag.getIntOr("ColorEast", 0);
+		this.colorSouth = pCompoundTag.getIntOr("ColorSouth", 0);
+		this.colorWest = pCompoundTag.getIntOr("ColorWest", 0);
 
-		if (pCompoundTag.contains("LabelUp")) {
-			this.labelUp = pCompoundTag.getString("LabelUp");
-		}
-
-		if (pCompoundTag.contains("LabelNorth")) {
-			this.labelNorth = pCompoundTag.getString("LabelNorth");
-		}
-
-		if (pCompoundTag.contains("LabelEast")) {
-			this.labelEast = pCompoundTag.getString("LabelEast");
-		}
-
-		if (pCompoundTag.contains("LabelSouth")) {
-			this.labelSouth = pCompoundTag.getString("LabelSouth");
-		}
-
-		if (pCompoundTag.contains("LabelWest")) {
-			this.labelWest = pCompoundTag.getString("LabelWest");
-		}
+		this.labelUp = pCompoundTag.getStringOr("LabelUp", "");
+		this.labelNorth = pCompoundTag.getStringOr("LabelNorth", "");
+		this.labelEast = pCompoundTag.getStringOr("LabelEast", "");
+		this.labelSouth = pCompoundTag.getStringOr("LabelSouth", "");
+		this.labelWest = pCompoundTag.getStringOr("LabelWest", "");
 
 		if (!this.tryLoadLootTable(pCompoundTag)) {
 			ContainerHelper.loadAllItems(pCompoundTag, this.items, pProvider);

@@ -1,0 +1,35 @@
+package com.axanthic.icaria.client.registry;
+
+import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
+import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.blaze3d.vertex.DefaultVertexFormat;
+import com.mojang.blaze3d.vertex.VertexFormat;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class IcariaRenderPipelines {
+	public static final RenderPipeline ADDITIVE = RenderPipeline.builder()
+		.withDepthWrite(false)
+		.withBlend(IcariaBlendFunctions.ADDITIVE)
+		.withFragmentShader(IcariaResourceLocations.ADDITIVE_SHADER)
+		.withLocation(IcariaResourceLocations.ADDITIVE_RENDER_PIPELINE)
+		.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS)
+		.withVertexShader(IcariaResourceLocations.ADDITIVE_SHADER)
+		.build();
+
+	public static final RenderPipeline ADDITIVE_TEXTURED = RenderPipeline.builder()
+		.withDepthWrite(false)
+		.withSampler("Sampler0")
+		.withBlend(IcariaBlendFunctions.ADDITIVE)
+		.withFragmentShader(IcariaResourceLocations.ADDITIVE_TEXTURED_SHADER)
+		.withLocation(IcariaResourceLocations.ADDITIVE_TEXTURED_RENDER_PIPELINE)
+		.withVertexFormat(DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS)
+		.withVertexShader(IcariaResourceLocations.ADDITIVE_TEXTURED_SHADER)
+		.build();
+}

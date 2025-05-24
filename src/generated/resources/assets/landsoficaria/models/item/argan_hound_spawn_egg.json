@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "landsoficaria:item/argan_hound_spawn_egg"
+  }
+}

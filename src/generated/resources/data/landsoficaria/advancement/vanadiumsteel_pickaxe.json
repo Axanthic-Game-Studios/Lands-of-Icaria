@@ -13,7 +13,7 @@
     }
   },
   "display": {
-    "background": "landsoficaria:textures/block/sunstone_bricks.png",
+    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.vanadiumsteel_pickaxe.description"
     },

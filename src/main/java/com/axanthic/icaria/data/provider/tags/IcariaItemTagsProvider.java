@@ -918,6 +918,18 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.DRY_LAKE_BED.get())
 			.add(IcariaItems.LOAM.get());
 
+		this.tag(ItemTags.FLOWERS)
+			.add(IcariaItems.BLUE_GROUND_FLOWERS.get())
+			.add(IcariaItems.CYAN_GROUND_FLOWERS.get())
+			.add(IcariaItems.PINK_GROUND_FLOWERS.get())
+			.add(IcariaItems.PURPLE_GROUND_FLOWERS.get())
+			.add(IcariaItems.RED_GROUND_FLOWERS.get())
+			.add(IcariaItems.WHITE_GROUND_FLOWERS.get())
+			.add(IcariaItems.WHITE_BROMELIA.get())
+			.add(IcariaItems.ORANGE_BROMELIA.get())
+			.add(IcariaItems.PINK_BROMELIA.get())
+			.add(IcariaItems.PURPLE_BROMELIA.get());
+
 		this.tag(ItemTags.LEAVES)
 			.add(IcariaItems.CYPRESS_LEAVES.get())
 			.add(IcariaItems.DROUGHTROOT_LEAVES.get())

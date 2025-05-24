@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -3289913
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -9469303
-      }
-    ]
+    "model": "landsoficaria:item/capella_spawn_egg"
   }
 }

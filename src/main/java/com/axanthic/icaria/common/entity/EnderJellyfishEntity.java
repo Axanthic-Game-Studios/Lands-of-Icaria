@@ -13,7 +13,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.ThrownPotion;
+import net.minecraft.world.entity.projectile.AbstractThrownPotion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
@@ -30,15 +30,15 @@ public class EnderJellyfishEntity extends JellyfishEntity {
 	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
 		if (pDamageSource.is(DamageTypeTags.IS_PROJECTILE)) {
 			this.teleport();
-			return pDamageSource.getDirectEntity() instanceof ThrownPotion thrownPotion && this.hurtWithCleanWater(pDamageSource, pServerLevel, thrownPotion, pAmount);
+			return pDamageSource.getDirectEntity() instanceof AbstractThrownPotion abstractThrownPotion && this.hurtWithCleanWater(pDamageSource, pServerLevel, abstractThrownPotion, pAmount);
 		} else {
 			this.teleport(10);
 			return super.hurtServer(pServerLevel, pDamageSource, pAmount);
 		}
 	}
 
-	public boolean hurtWithCleanWater(DamageSource pDamageSource, ServerLevel pServerLevel, ThrownPotion pThrownPotion, float pAmount) {
-		return super.hurtServer(pServerLevel, pDamageSource, pAmount) && pThrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
+	public boolean hurtWithCleanWater(DamageSource pDamageSource, ServerLevel pServerLevel, AbstractThrownPotion pAbstractThrownPotion, float pAmount) {
+		return super.hurtServer(pServerLevel, pDamageSource, pAmount) && pAbstractThrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
 	}
 
 	@Override

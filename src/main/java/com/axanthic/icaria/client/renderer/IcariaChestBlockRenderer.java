@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.entity.ChestBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.ChestType;
+import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -89,7 +90,7 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 	}
 
 	@Override
-	public void render(IcariaChestBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+	public void render(IcariaChestBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var blockState = pBlockEntity.getLevel() != null ? pBlockEntity.getBlockState() : pBlockEntity.getBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH);
 		if (blockState.getBlock() instanceof ChestBlock chestBlock) {
 			var chestType = blockState.getValue(BlockStateProperties.CHEST_TYPE);

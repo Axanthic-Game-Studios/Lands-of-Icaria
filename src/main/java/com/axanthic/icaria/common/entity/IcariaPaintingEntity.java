@@ -16,11 +16,16 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.variant.VariantUtils;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -29,6 +34,8 @@ import net.minecraft.world.level.Level;
 @ParametersAreNonnullByDefault
 
 public class IcariaPaintingEntity extends Painting {
+	public static final EntityDataAccessor<Holder<PaintingVariant>> PAINTING_VARIANT = SynchedEntityData.defineId(IcariaPaintingEntity.class, EntityDataSerializers.PAINTING_VARIANT);
+
 	public IcariaPaintingEntity(EntityType<? extends Painting> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
@@ -38,21 +45,55 @@ public class IcariaPaintingEntity extends Painting {
 		this.pos = pBlockPos;
 	}
 
-	public static int variantArea(Holder<PaintingVariant> pHolder) {
-		return pHolder.value().area();
+	public static int variantArea(Holder<PaintingVariant> pVariant) {
+		return pVariant.value().area();
 	}
 
-	public static void area(ArrayList<Holder<PaintingVariant>> pPaintingVariants) {
-		pPaintingVariants.removeIf((holder) -> IcariaPaintingEntity.variantArea(holder) < pPaintingVariants.stream().mapToInt(IcariaPaintingEntity::variantArea).max().orElse(0));
+	@Override
+	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.addAdditionalSaveData(pCompoundTag);
+		VariantUtils.writeVariant(pCompoundTag, this.getVariant());
 	}
 
-	public static void survives(ArrayList<Holder<PaintingVariant>> pPaintingVariants, IcariaPaintingEntity pEntity) {
-		pPaintingVariants.removeIf(
-			(holder) -> {
-				pEntity.setVariant(holder);
+	public static void area(ArrayList<Holder<PaintingVariant>> pVariants) {
+		pVariants.removeIf((variant) -> IcariaPaintingEntity.variantArea(variant) < pVariants.stream().mapToInt(IcariaPaintingEntity::variantArea).max().orElse(0));
+	}
+
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		super.defineSynchedData(pBuilder);
+		pBuilder.define(IcariaPaintingEntity.PAINTING_VARIANT, VariantUtils.getAny(this.registryAccess(), Registries.PAINTING_VARIANT));
+	}
+
+	@Override
+	public void onSyncedDataUpdated(EntityDataAccessor<?> pEntityDataAccessor) {
+		if (IcariaPaintingEntity.PAINTING_VARIANT.equals(pEntityDataAccessor)) {
+			this.recalculateBoundingBox();
+		}
+	}
+
+	@Override
+	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
+		super.readAdditionalSaveData(pCompoundTag);
+		VariantUtils.readVariant(pCompoundTag, this.registryAccess(), Registries.PAINTING_VARIANT).ifPresent(this::setVariant);
+	}
+
+	public void setVariant(Holder<PaintingVariant> pVariant) {
+		this.entityData.set(IcariaPaintingEntity.PAINTING_VARIANT, pVariant);
+	}
+
+	public static void survives(ArrayList<Holder<PaintingVariant>> pVariants, IcariaPaintingEntity pEntity) {
+		pVariants.removeIf(
+			(variant) -> {
+				pEntity.setVariant(variant);
 				return !pEntity.survives();
 			}
 		);
+	}
+
+	@Override
+	public Holder<PaintingVariant> getVariant() {
+		return this.entityData.get(IcariaPaintingEntity.PAINTING_VARIANT);
 	}
 
 	@Nullable

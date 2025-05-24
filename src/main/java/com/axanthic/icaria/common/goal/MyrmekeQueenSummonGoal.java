@@ -39,7 +39,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
 			if (entity != null) {
 				if (level.getBlockState(blockPos).canBeReplaced()) {
 					if (this.entity.getBlockStateOn().is(IcariaBlockTagsProvider.SOILS)) {
-						entity.moveTo(blockPos, 0.0F, 0.0F);
+						entity.snapTo(blockPos, 0.0F, 0.0F);
 						level.addFreshEntity(entity);
 					}
 				}

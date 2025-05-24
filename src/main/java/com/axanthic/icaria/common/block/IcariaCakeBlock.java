@@ -23,8 +23,8 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.AbstractThrownPotion;
 import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrownPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -129,7 +129,7 @@ public class IcariaCakeBlock extends Block {
 		if (!pLevel.isClientSide() && pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE) {
 			if (pProjectile.isOnFire() && !pBlockState.getValue(BlockStateProperties.LIT)) {
 				pLevel.setBlockAndUpdate(blockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
-			} else if (pProjectile instanceof ThrownPotion thrownPotion && thrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
+			} else if (pProjectile instanceof AbstractThrownPotion abstractThrownPotion && abstractThrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
 				this.extinguish(blockPos, pBlockState, pLevel);
 			}
 		}

@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -12770278
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -12430054
-      }
-    ]
+    "model": "landsoficaria:item/laurel_forest_hag_spawn_egg"
   }
 }

@@ -39,7 +39,6 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(pItemModelGenerators);
 		IcariaItemStateProvider.scroll(pItemModelGenerators);
 		IcariaItemStateProvider.skull(pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(pItemModelGenerators);
 		IcariaItemStateProvider.tinted(pItemModelGenerators);
 	}
 
@@ -816,6 +815,44 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.AETERNAE_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CAPELLA_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CERVER_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CROCOTTA_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_FOREST_HAG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.HYLIASTER_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.NATURE_JELLYFISH_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.VOID_JELLYFISH_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.WATER_JELLYFISH_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CAPTAIN_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CIVILIAN_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CRAWLER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OVERGROWN_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SCORPION_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SNULL_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SOW_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.VINEGAROON_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LEFT_GRINDER_CHAIN.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STATIC_LEFT_GRINDER_CHAIN.get(), pItemModelGenerators);
@@ -850,47 +887,6 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.skull(IcariaItems.SOW_SKULL.get(), IcariaSkullBlockTypes.SOW, pItemModelGenerators);
 	}
 
-	public static void spawnEgg(ItemModelGenerators pItemModelGenerators) {
-		IcariaItemStateProvider.spawnEgg(IcariaItems.AETERNAE_SPAWN_EGG.get(), 0x40280B, 0x88581F, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.ARACHNE_SPAWN_EGG.get(), 0x362E28, 0x6A8C97, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), 0x382F28, 0x6A8C97, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.ARGAN_HOUND_SPAWN_EGG.get(), 0x0B0D0E, 0x2C2F36, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CAPELLA_SPAWN_EGG.get(), 0xCDCCC7, 0x6F8289, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CATOBLEPAS_SPAWN_EGG.get(), 0x1D170E, 0x373024, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CERVER_SPAWN_EGG.get(), 0x0E0A05, 0x302C26, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CROCOTTA_SPAWN_EGG.get(), 0x8C7256, 0x41301F, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get(), 0x615A52, 0x4F6712, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get(), 0x302A2D, 0x5A621A, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get(), 0x574C39, 0x356342, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.LAUREL_FOREST_HAG_SPAWN_EGG.get(), 0x3D241A, 0x42551A, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.OLIVE_FOREST_HAG_SPAWN_EGG.get(), 0x697162, 0x817B32, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.PLANE_FOREST_HAG_SPAWN_EGG.get(), 0x6F716D, 0x516C40, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.POPULUS_FOREST_HAG_SPAWN_EGG.get(), 0xD0C9C7, 0x4B8360, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.HYLIASTER_SPAWN_EGG.get(), 0x040706, 0x8B9590, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.ENDER_JELLYFISH_SPAWN_EGG.get(), 0X000000, 0xE079FA, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.FIRE_JELLYFISH_SPAWN_EGG.get(), 0XF07D2A, 0xFFA531, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.NATURE_JELLYFISH_SPAWN_EGG.get(), 0X00B78B, 0x04FFAC, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.VOID_JELLYFISH_SPAWN_EGG.get(), 0X644D91, 0xA080E2, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.WATER_JELLYFISH_SPAWN_EGG.get(), 0X45A5BD, 0x5AECFE, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.MYRMEKE_DRONE_SPAWN_EGG.get(), 0x501814, 0x241E19, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.MYRMEKE_SOLDIER_SPAWN_EGG.get(), 0x501814, 0x402816, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.MYRMEKE_QUEEN_SPAWN_EGG.get(), 0x501814, 0xAB7E17, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CAPTAIN_REVENANT_SPAWN_EGG.get(), 0xCFA919, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CIVILIAN_REVENANT_SPAWN_EGG.get(), 0x9C9C9C, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CRAWLER_REVENANT_SPAWN_EGG.get(), 0x2D2D19, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.OVERGROWN_REVENANT_SPAWN_EGG.get(), 0x535C32, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.PYROMANCER_REVENANT_SPAWN_EGG.get(), 0x3C5E26, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), 0x5A2017, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), 0x6C5757, 0x636363, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.SCORPION_SPAWN_EGG.get(), 0x513B24, 0xD8A161, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), 0x24141A, 0x653D48, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), 0x291306, 0x53641E, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.SNULL_SPAWN_EGG.get(), 0x291306, 0x8D694F, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), 0xE0CDBC, 0x91673F, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.SOW_SPAWN_EGG.get(), 0x231A13, 0x6E554B, pItemModelGenerators);
-		IcariaItemStateProvider.spawnEgg(IcariaItems.VINEGAROON_SPAWN_EGG.get(), 0x382819, 0xC99559, pItemModelGenerators);
-	}
-
 	public static void tinted(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.tinted(IcariaItems.GRASSY_MARL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.tinted(IcariaItems.PALM_FERN.get(), pItemModelGenerators);
@@ -922,10 +918,6 @@ public class IcariaItemStateProvider {
 
 	public static void skull(Item pItem, SkullBlock.Type pType, ItemModelGenerators pItemModelGenerators) {
 		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIdents.MC, "template_skull"), new SkullSpecialRenderer.Unbaked(pType)));
-	}
-
-	public static void spawnEgg(Item pItem, int pPrimary, int pSecondary, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIdents.MC, "template_spawn_egg"), List.of(new Constant(pPrimary), new Constant(pSecondary))));
 	}
 
 	public static void tinted(Item pItem, ItemModelGenerators pItemModelGenerators) {

@@ -90,7 +90,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	public void tick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pServerLevel.getBlockState(pBlockPos.below()).canBeReplaced()) {
 			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pServerLevel, pBlockState, pBlockPos);
-			entity.moveTo(pBlockPos, 0, 0);
+			entity.snapTo(pBlockPos, 0, 0);
 			pServerLevel.addFreshEntity(entity);
 			pServerLevel.removeBlock(pBlockPos, false);
 		}

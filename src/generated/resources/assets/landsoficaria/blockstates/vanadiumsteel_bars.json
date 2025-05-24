@@ -7,8 +7,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/vanadiumsteel_bars_side",
-        "y": 0
+        "model": "landsoficaria:block/vanadiumsteel_bars_side"
       },
       "when": {
         "north": "true"
@@ -25,8 +24,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/vanadiumsteel_bars_side_alt",
-        "y": 0
+        "model": "landsoficaria:block/vanadiumsteel_bars_side_alt"
       },
       "when": {
         "south": "true"
@@ -43,8 +41,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/vanadiumsteel_bars_post",
-        "y": 0
+        "model": "landsoficaria:block/vanadiumsteel_bars_post"
       },
       "when": {
         "east": "false",
@@ -67,8 +64,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/vanadiumsteel_bars_cap_alt",
-        "y": 0
+        "model": "landsoficaria:block/vanadiumsteel_bars_cap_alt"
       },
       "when": {
         "east": "false",
@@ -91,8 +87,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/vanadiumsteel_bars_cap",
-        "y": 0
+        "model": "landsoficaria:block/vanadiumsteel_bars_cap"
       },
       "when": {
         "east": "false",

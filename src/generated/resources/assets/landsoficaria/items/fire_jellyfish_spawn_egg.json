@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -1016534
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -23247
-      }
-    ]
+    "model": "landsoficaria:item/fire_jellyfish_spawn_egg"
   }
 }

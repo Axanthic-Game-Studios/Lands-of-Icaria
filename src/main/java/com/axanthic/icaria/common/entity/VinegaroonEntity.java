@@ -123,8 +123,8 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
-		this.setCooldown(pCompoundTag.getInt("Cooldown"));
+		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
+		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
 	}
 
 	@Override

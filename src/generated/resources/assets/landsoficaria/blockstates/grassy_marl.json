@@ -2,8 +2,7 @@
   "variants": {
     "moss=forest": [
       {
-        "model": "landsoficaria:block/forest_moss_marl",
-        "y": 0
+        "model": "landsoficaria:block/forest_moss_marl"
       },
       {
         "model": "landsoficaria:block/forest_moss_marl",
@@ -20,8 +19,7 @@
     ],
     "moss=none": [
       {
-        "model": "landsoficaria:block/grassy_marl",
-        "y": 0
+        "model": "landsoficaria:block/grassy_marl"
       },
       {
         "model": "landsoficaria:block/grassy_marl",
@@ -38,8 +36,7 @@
     ],
     "moss=scrubland": [
       {
-        "model": "landsoficaria:block/scrubland_moss_marl",
-        "y": 0
+        "model": "landsoficaria:block/scrubland_moss_marl"
       },
       {
         "model": "landsoficaria:block/scrubland_moss_marl",
@@ -56,8 +53,7 @@
     ],
     "moss=steppe": [
       {
-        "model": "landsoficaria:block/steppe_moss_marl",
-        "y": 0
+        "model": "landsoficaria:block/steppe_moss_marl"
       },
       {
         "model": "landsoficaria:block/steppe_moss_marl",

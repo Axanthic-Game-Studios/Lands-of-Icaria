@@ -4,7 +4,7 @@ import com.axanthic.icaria.client.screen.ChestLabelScreen;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -20,10 +20,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
+
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -38,21 +41,21 @@ public class ChestLabelItem extends Item {
 	}
 
 	public int getColorByStyle(boolean pStyle) {
-		return pStyle ? 16777045 : 5592575;
+		return pStyle ? 16777045 : 16777215;
 	}
 
 	@Override
-	public void appendHoverText(ItemStack pItemStack, TooltipContext pTooltipContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
+	public void appendHoverText(ItemStack pItemStack, TooltipContext pTooltipContext, TooltipDisplay pTooltipDisplay, Consumer<Component> pConsumer, TooltipFlag pTooltipFlag) {
 		var color = pItemStack.getOrDefault(IcariaDataComponents.COLOR, 0);
 		var label = pItemStack.getOrDefault(IcariaDataComponents.LABEL, "");
 		var style = pItemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 
-		pTooltipComponents.add(Component.translatable(this.getLabelByLabel(label)).withStyle(ChatFormatting.GRAY));
-		pTooltipComponents.add(Component.empty());
-		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color").withStyle(ChatFormatting.GRAY));
-		pTooltipComponents.add(Component.translatable(this.getNameByColor(color)).withColor(this.getColorByColor(color)));
-		pTooltipComponents.add(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style").withStyle(ChatFormatting.GRAY));
-		pTooltipComponents.add(Component.translatable(this.getNameByStyle(style)).withColor(this.getColorByStyle(style)));
+		pConsumer.accept(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "label").withStyle(ChatFormatting.GRAY));
+		pConsumer.accept(Component.translatable(this.getLabelByLabel(label)));
+		pConsumer.accept(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "color").withStyle(ChatFormatting.GRAY));
+		pConsumer.accept(Component.translatable(this.getNameByColor(color)).withColor(this.getColorByColor(color)));
+		pConsumer.accept(Component.translatable("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style").withStyle(ChatFormatting.GRAY));
+		pConsumer.accept(Component.translatable(this.getNameByStyle(style)).withColor(this.getColorByStyle(style)));
 	}
 
 	@OnlyIn(Dist.CLIENT)

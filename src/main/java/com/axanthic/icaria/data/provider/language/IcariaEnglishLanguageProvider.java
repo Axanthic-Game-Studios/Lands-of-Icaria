@@ -754,10 +754,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		this.add("category" + "." + IcariaIdents.ID + "." + "firing", "Firing");
-		this.add("category" + "." + IcariaIdents.ID + "." + "forging", "Forging");
-		this.add("category" + "." + IcariaIdents.ID + "." + "grinding", "Grinding");
-
 		this.add("command" + "." + IcariaIdents.ID + "." + "heal" + "." + "success", "Healed successfully");
 
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_settings", "Render Settings");
@@ -796,6 +792,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings" + "." + "tooltip", "Spawn Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids", "Spawn Arachnids");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids" + "." + "tooltip", "Default: ON. Whether arachnids should spawn.");
+
+		this.add("dimension" + "." + IcariaIdents.ID + "." + "icaria", "Lands of Icaria");
 
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Blindness Immunity");
 		this.add(IcariaMobEffects.FREEZING.value(), "Freezing");
@@ -1606,6 +1604,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple", "Purple");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta", "Magenta");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink", "Pink");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "label", "Label");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Style");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Classic");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Glowing");

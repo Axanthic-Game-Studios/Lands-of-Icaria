@@ -2,28 +2,22 @@
   "variants": {
     "": [
       {
-        "model": "landsoficaria:block/grainel",
-        "x": 0,
-        "y": 0
+        "model": "landsoficaria:block/grainel"
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 90,
-        "y": 0
+        "x": 90
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 180,
-        "y": 0
+        "x": 180
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 270,
-        "y": 0
+        "x": 270
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 0,
         "y": 90
       },
       {
@@ -43,7 +37,6 @@
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 0,
         "y": 180
       },
       {
@@ -63,7 +56,6 @@
       },
       {
         "model": "landsoficaria:block/grainel",
-        "x": 0,
         "y": 270
       },
       {

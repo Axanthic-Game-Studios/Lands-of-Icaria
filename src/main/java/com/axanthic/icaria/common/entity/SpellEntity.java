@@ -65,7 +65,7 @@ public class SpellEntity extends ThrowableProjectile {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setColor(pCompoundTag.getInt("Color"));
+		this.setColor(pCompoundTag.getIntOr("Color", 0));
 	}
 
 	public void setColor(int pColor) {

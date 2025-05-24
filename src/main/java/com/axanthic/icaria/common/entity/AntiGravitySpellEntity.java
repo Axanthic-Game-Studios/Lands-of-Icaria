@@ -33,7 +33,7 @@ public class AntiGravitySpellEntity extends SpellEntity {
 		var block = blockState.getBlock();
 		var entity = new FloatingBlockEntity(IcariaEntityTypes.FLOATING_BLOCK.get(), level, blockState, blockPos);
 		if (blockState.getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !(block instanceof DoorBlock) && !(block instanceof KettleBlock) && !(block instanceof TripleBarrelRackBlock)) {
-			entity.moveTo(blockPos, 0.0F, 0.0F);
+			entity.snapTo(blockPos, 0.0F, 0.0F);
 			entity.setDeltaMovement(0.0D, 0.05D, 0.0D);
 			level.addFreshEntity(entity);
 			level.removeBlock(blockPos, false);

@@ -6,8 +6,6 @@ import com.axanthic.icaria.common.block.LootVaseBlock;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.item.BidentItem;
-import com.axanthic.icaria.common.item.DaggerItem;
 import com.axanthic.icaria.common.item.ScytheItem;
 import com.axanthic.icaria.common.network.packet.LootVasePacket;
 import com.axanthic.icaria.common.network.packet.TotemPacket;
@@ -21,6 +19,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
@@ -28,6 +27,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
@@ -203,12 +203,12 @@ public class IcariaCommonGameEvents {
 		var lootVase = player.getData(IcariaAttachmentTypes.LOOT_VASE);
 
 		if (IcariaCommonHelper.canCarry(player) && lootVase) {
-			entity.moveTo(player.blockPosition().above(2), 0.0F, 0.0F);
+			entity.snapTo(player.blockPosition().above(2), 0.0F, 0.0F);
 			entity.setDeltaMovement(-h * g * strength, -f, i * g * strength);
 			level.addFreshEntity(entity);
 			player.setData(IcariaAttachmentTypes.LOOT_VASE, false);
 		} else if (!level.isClientSide() && lootVase) {
-			player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40));
+			player.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40));
 			PacketDistributor.sendToAllPlayers(new LootVasePacket(player.getData(IcariaAttachmentTypes.LOOT_VASE), player.getId(), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS), player.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
 		}
 	}
@@ -324,10 +324,10 @@ public class IcariaCommonGameEvents {
 	}
 
 	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem) {
-		for (var slot = 0; slot < 4; slot++) {
-			if (pEvent.getEntity() instanceof Player player) {
-				IcariaCommonGameEvents.unshatteringTotem(pEvent, pItem, player.getInventory().getArmor(slot), pEvent.getEntity().getMainHandItem());
-				IcariaCommonGameEvents.unshatteringTotem(pEvent, pItem, player.getInventory().getArmor(slot), pEvent.getEntity().getOffhandItem());
+		for (var slot : EquipmentSlot.VALUES) {
+			if (slot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
+				IcariaCommonGameEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getMainHandItem());
+				IcariaCommonGameEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getOffhandItem());
 			}
 		}
 	}
@@ -335,7 +335,7 @@ public class IcariaCommonGameEvents {
 	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
 		if (pEvent.getEntity() instanceof Player player) {
 			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-				if (pStack.getItem() instanceof ArmorItem) {
+				if (pStack.has(DataComponents.EQUIPPABLE)) {
 					if (pTotem.getItem() == pItem) {
 						player.awardStat(Stats.ITEM_USED.get(pItem));
 						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
@@ -371,7 +371,7 @@ public class IcariaCommonGameEvents {
 
 	public static void unshatteringTotem(AttackEntityEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
 		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-			if (pStack.getItem() instanceof AxeItem || pStack.getItem() instanceof BidentItem || pStack.getItem() instanceof DaggerItem || pStack.getItem() instanceof HoeItem || pStack.getItem() instanceof MaceItem || pStack.getItem() instanceof PickaxeItem || pStack.getItem() instanceof ShovelItem || pStack.getItem() instanceof SwordItem || pStack.getItem() instanceof TridentItem) {
+			if (pStack.has(DataComponents.WEAPON)) {
 				if (pTotem.getItem() == pItem) {
 					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
 					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
@@ -410,7 +410,7 @@ public class IcariaCommonGameEvents {
 	public static void unshatteringTotem(PlayerDestroyItemEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
 		if (pEvent.getHand() != null) {
 			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-				if (pStack.getItem() instanceof AxeItem || pStack.getItem() instanceof BidentItem || pStack.getItem() instanceof DaggerItem || pStack.getItem() instanceof FlintAndSteelItem || pStack.getItem() instanceof HoeItem || pStack.getItem() instanceof MaceItem || pStack.getItem() instanceof PickaxeItem || pStack.getItem() instanceof ShearsItem || pStack.getItem() instanceof ShovelItem || pStack.getItem() instanceof SwordItem || pStack.getItem() instanceof TridentItem) {
+				if (pStack.has(DataComponents.WEAPON) || pStack.getItem() instanceof FlintAndSteelItem || pStack.getItem() instanceof ShearsItem) {
 					if (pTotem.getItem() == pItem) {
 						pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
 						pEvent.getEntity().setItemInHand(pEvent.getHand(), pStack);

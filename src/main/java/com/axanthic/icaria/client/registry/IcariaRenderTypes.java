@@ -2,16 +2,11 @@ package com.axanthic.icaria.client.registry;
 
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
-import com.mojang.blaze3d.vertex.VertexFormat;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
-
-@SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -53,67 +48,25 @@ public class IcariaRenderTypes {
 
 	public static final RenderType HYLIASTER_TRANSLUCENT = RenderType.entityTranslucent(IcariaResourceLocations.HYLIASTER_TRANSLUCENT);
 
-	public static final RenderType ADDITIVE_TRANSPARENT = RenderType.create("additive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder()
-		.setColorLogicState(RenderStateShard.NO_COLOR_LOGIC)
-		.setCullState(RenderStateShard.NO_CULL)
-		.setDepthTestState(RenderStateShard.LEQUAL_DEPTH_TEST)
+	public static final RenderType ADDITIVE = RenderType.create("additive", 1536, false, false, IcariaRenderPipelines.ADDITIVE, RenderType.CompositeState.builder()
 		.setLayeringState(RenderStateShard.NO_LAYERING)
 		.setLightmapState(RenderStateShard.NO_LIGHTMAP)
 		.setLineState(RenderStateShard.DEFAULT_LINE)
-		.setOutputState(RenderStateShard.TRANSLUCENT_TARGET)
+		.setOutputState(RenderStateShard.MAIN_TARGET)
 		.setOverlayState(RenderStateShard.NO_OVERLAY)
-		.setShaderState(RenderStateShard.POSITION_COLOR_SHADER)
 		.setTextureState(RenderStateShard.NO_TEXTURE)
 		.setTexturingState(RenderStateShard.DEFAULT_TEXTURING)
-		.setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY)
-		.setWriteMaskState(RenderStateShard.COLOR_WRITE)
-		.createCompositeState(false));
+		.createCompositeState(false)
+	);
 
-	public static final RenderType SUBTRACTIVE_TRANSPARENT = RenderType.create("subtractive_transparent", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder()
-		.setColorLogicState(RenderStateShard.NO_COLOR_LOGIC)
-		.setCullState(RenderStateShard.NO_CULL)
-		.setDepthTestState(RenderStateShard.LEQUAL_DEPTH_TEST)
+	public static final RenderType ADDITIVE_TEXTURED = RenderType.create("additive_textured", 1536, false, false, IcariaRenderPipelines.ADDITIVE_TEXTURED, RenderType.CompositeState.builder()
 		.setLayeringState(RenderStateShard.NO_LAYERING)
 		.setLightmapState(RenderStateShard.NO_LIGHTMAP)
 		.setLineState(RenderStateShard.DEFAULT_LINE)
-		.setOutputState(RenderStateShard.TRANSLUCENT_TARGET)
+		.setOutputState(RenderStateShard.MAIN_TARGET)
 		.setOverlayState(RenderStateShard.NO_OVERLAY)
-		.setShaderState(RenderStateShard.POSITION_COLOR_SHADER)
-		.setTextureState(RenderStateShard.NO_TEXTURE)
-		.setTexturingState(RenderStateShard.DEFAULT_TEXTURING)
-		.setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY)
-		.setWriteMaskState(RenderStateShard.COLOR_WRITE)
-		.createCompositeState(false));
-
-	public static final RenderType ADDITIVE_TRANSPARENT_TEXTURE = RenderType.create("additive_transparent_texture", DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder()
-		.setColorLogicState(RenderStateShard.NO_COLOR_LOGIC)
-		.setCullState(RenderStateShard.NO_CULL)
-		.setDepthTestState(RenderStateShard.LEQUAL_DEPTH_TEST)
-		.setLayeringState(RenderStateShard.NO_LAYERING)
-		.setLightmapState(RenderStateShard.NO_LIGHTMAP)
-		.setLineState(RenderStateShard.DEFAULT_LINE)
-		.setOutputState(RenderStateShard.TRANSLUCENT_TARGET)
-		.setOverlayState(RenderStateShard.NO_OVERLAY)
-		.setShaderState(RenderStateShard.POSITION_TEXTURE_COLOR_SHADER)
 		.setTextureState(RenderStateShard.BLOCK_SHEET)
 		.setTexturingState(RenderStateShard.DEFAULT_TEXTURING)
-		.setTransparencyState(IcariaRenderStateShards.ADDITIVE_TRANSPARENCY)
-		.setWriteMaskState(RenderStateShard.COLOR_WRITE)
-		.createCompositeState(false));
-
-	public static final RenderType SUBTRACTIVE_TRANSPARENT_TEXTURE = RenderType.create("subtractive_transparent_texture", DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS, 1536, false, false, RenderType.CompositeState.builder()
-		.setColorLogicState(RenderStateShard.NO_COLOR_LOGIC)
-		.setCullState(RenderStateShard.NO_CULL)
-		.setDepthTestState(RenderStateShard.LEQUAL_DEPTH_TEST)
-		.setLayeringState(RenderStateShard.NO_LAYERING)
-		.setLightmapState(RenderStateShard.NO_LIGHTMAP)
-		.setLineState(RenderStateShard.DEFAULT_LINE)
-		.setOutputState(RenderStateShard.TRANSLUCENT_TARGET)
-		.setOverlayState(RenderStateShard.NO_OVERLAY)
-		.setShaderState(RenderStateShard.POSITION_TEXTURE_COLOR_SHADER)
-		.setTextureState(RenderStateShard.BLOCK_SHEET)
-		.setTexturingState(RenderStateShard.DEFAULT_TEXTURING)
-		.setTransparencyState(IcariaRenderStateShards.SUBTRACTIVE_TRANSPARENCY)
-		.setWriteMaskState(RenderStateShard.COLOR_WRITE)
-		.createCompositeState(false));
+		.createCompositeState(false)
+	);
 }

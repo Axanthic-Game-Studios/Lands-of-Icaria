@@ -55,29 +55,24 @@ public class TripleBarrelRackBlock extends Block {
 		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.VERTICAL_CORNER);
 	}
 
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pBlockStateOld.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
-				Block.dropResources(pBlockStateOld, pLevel, pBlockPos);
-			}
+	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
+			Block.dropResources(pBlockState, pLevel, pBlockPos);
 		}
 	}
 
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.drop(pBlockPos, pBlockState, pServerLevel);
+		this.removeMultiBlock(TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState);
-		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pServerLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pServerLevel.setBlock(blockPos.offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pServerLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pServerLevel.setBlock(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
 	}
 
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
+	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
+		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlock(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
 	}
 
 	@Override
@@ -122,12 +117,8 @@ public class TripleBarrelRackBlock extends Block {
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
-		var blockPos = TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState);
-		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(blockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		this.drop(pBlockPos, pBlockState, pLevel);
+		this.removeMultiBlock(TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 

@@ -13,6 +13,7 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -25,7 +26,7 @@ public record ForgeBlockRenderer(BlockEntityRendererProvider.Context pContext) i
 	}
 
 	@Override
-	public void render(ForgeBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay) {
+	public void render(ForgeBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var direction = pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
 		if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getFuel(), direction, pBlockEntity, pPackedLight, 1.0F, 0.0F, 0.125F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.375F, 0.375F, 0.375F);

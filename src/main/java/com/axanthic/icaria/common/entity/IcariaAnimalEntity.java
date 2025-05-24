@@ -183,9 +183,9 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setCooldown(pCompoundTag.getInt("Cooldown"));
-		this.setDuration(pCompoundTag.getInt("Duration"));
-		this.setTick(pCompoundTag.getInt("Tick"));
+		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
+		this.setDuration(pCompoundTag.getIntOr("Duration", 0));
+		this.setTick(pCompoundTag.getIntOr("Tick", 0));
 	}
 
 	@Override
@@ -226,7 +226,7 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 	public void spawnChildFromBreeding(IcariaAnimalEntity pEntity, ServerLevel pServerLevel) {
 		var entity = this.getBreedOffspring(pServerLevel);
 		if (entity != null) {
-			entity.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
+			entity.snapTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
 			entity.setTick(this.minTick);
 			pEntity.setCooldown(this.maxCooldown);
 			this.setCooldown(this.maxCooldown);

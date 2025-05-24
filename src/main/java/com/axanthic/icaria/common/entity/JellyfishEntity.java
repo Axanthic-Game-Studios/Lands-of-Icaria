@@ -91,7 +91,7 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 	}
 
 	public void setDeltaMovement(double pScale) {
-		if (this.isControlledByLocalInstance()) {
+		if (this.isLocalInstanceAuthoritative()) {
 			this.setDeltaMovement(this.movementVector.scale(pScale));
 		}
 	}
@@ -101,7 +101,7 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 	}
 
 	public void setSeed() {
-		this.getRandom().setSeed(this.getId());
+		this.getRandom().fork().setSeed(this.getId());
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 
 	@Override
 	public void travel(Vec3 pVec3) {
-		if (this.isControlledByLocalInstance()) {
+		if (this.isLocalInstanceAuthoritative()) {
 			this.move(MoverType.SELF, this.getDeltaMovement());
 		}
 	}

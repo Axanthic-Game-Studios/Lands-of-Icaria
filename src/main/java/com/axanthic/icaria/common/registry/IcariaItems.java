@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.item.*;
-import com.axanthic.icaria.data.provider.tags.IcariaInstrumentTagsProvider;
+import com.axanthic.icaria.data.registry.IcariaInstruments;
 
 import java.util.function.Function;
 
@@ -9,16 +9,21 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.component.InstrumentComponent;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -62,7 +67,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> DOLOMITE_BRICKS = IcariaItems.register("dolomite_bricks", properties -> new BlockItem(IcariaBlocks.DOLOMITE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHISELED_DOLOMITE = IcariaItems.register("chiseled_dolomite", properties -> new BlockItem(IcariaBlocks.CHISELED_DOLOMITE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR = IcariaItems.register("dolomite_pillar", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> GRAINEL = IcariaItems.register("grainel", properties -> new BlockItem(IcariaBlocks.GRAINEL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> GRAINEL_CHERT = IcariaItems.register("grainel_chert", properties -> new BlockItem(IcariaBlocks.GRAINEL_CHERT.get(), properties), IcariaItems.propertiesBlock());
@@ -217,7 +222,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILE_WALL = IcariaItems.register("mossy_relicstone_tile_wall", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHISELED_RELICSTONE = IcariaItems.register("chiseled_relicstone", properties -> new BlockItem(IcariaBlocks.CHISELED_RELICSTONE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR = IcariaItems.register("relicstone_pillar", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> RELICSTONE_RUBBLE = IcariaItems.register("relicstone_rubble", properties -> new BlockItem(IcariaBlocks.RELICSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> PLATOSHALE = IcariaItems.register("platoshale", properties -> new BlockItem(IcariaBlocks.PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
@@ -233,7 +238,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> CHISELED_PLATOSHALE = IcariaItems.register("chiseled_platoshale", properties -> new BlockItem(IcariaBlocks.CHISELED_PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", properties -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> LIGNITE_ORE = IcariaItems.register("lignite_ore", properties -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHALKOS_ORE = IcariaItems.register("chalkos_ore", properties -> new BlockItem(IcariaBlocks.CHALKOS_ORE.get(), properties), IcariaItems.propertiesBlock());
@@ -710,88 +715,88 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_INGOT = IcariaItems.register("molybdenumsteel_ingot", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> BLURIDIUM_INGOT = IcariaItems.register("bluridium_ingot", Item::new, IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> CHERT_SWORD = IcariaItems.register("chert_sword", properties -> new SwordItem(IcariaToolMaterials.CHERT, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_SWORD = IcariaItems.register("chert_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.CHERT, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHERT_DAGGER = IcariaItems.register("chert_dagger", properties -> new DaggerItem(IcariaToolMaterials.CHERT, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHERT_SHOVEL = IcariaItems.register("chert_shovel", properties -> new ShovelItem(IcariaToolMaterials.CHERT, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> CHERT_PICKAXE = IcariaItems.register("chert_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.CHERT, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHERT_PICKAXE = IcariaItems.register("chert_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.CHERT, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHERT_AXE = IcariaItems.register("chert_axe", properties -> new AxeItem(IcariaToolMaterials.CHERT, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHERT_SCYTHE = IcariaItems.register("chert_scythe", properties -> new ScytheItem(IcariaToolMaterials.CHERT, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHERT_BIDENT = IcariaItems.register("chert_bident", properties -> new BidentItem(IcariaToolMaterials.CHERT, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> CHALKOS_SWORD = IcariaItems.register("chalkos_sword", properties -> new SwordItem(IcariaToolMaterials.CHALKOS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_SWORD = IcariaItems.register("chalkos_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.CHALKOS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHALKOS_DAGGER = IcariaItems.register("chalkos_dagger", properties -> new DaggerItem(IcariaToolMaterials.CHALKOS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHALKOS_SHOVEL = IcariaItems.register("chalkos_shovel", properties -> new ShovelItem(IcariaToolMaterials.CHALKOS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> CHALKOS_PICKAXE = IcariaItems.register("chalkos_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.CHALKOS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_PICKAXE = IcariaItems.register("chalkos_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.CHALKOS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHALKOS_AXE = IcariaItems.register("chalkos_axe", properties -> new AxeItem(IcariaToolMaterials.CHALKOS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHALKOS_SCYTHE = IcariaItems.register("chalkos_scythe", properties -> new ScytheItem(IcariaToolMaterials.CHALKOS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> CHALKOS_BIDENT = IcariaItems.register("chalkos_bident", properties -> new BidentItem(IcariaToolMaterials.CHALKOS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> KASSITEROS_SWORD = IcariaItems.register("kassiteros_sword", properties -> new SwordItem(IcariaToolMaterials.KASSITEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_SWORD = IcariaItems.register("kassiteros_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.KASSITEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> KASSITEROS_DAGGER = IcariaItems.register("kassiteros_dagger", properties -> new DaggerItem(IcariaToolMaterials.KASSITEROS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> KASSITEROS_SHOVEL = IcariaItems.register("kassiteros_shovel", properties -> new ShovelItem(IcariaToolMaterials.KASSITEROS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> KASSITEROS_PICKAXE = IcariaItems.register("kassiteros_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.KASSITEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_PICKAXE = IcariaItems.register("kassiteros_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.KASSITEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> KASSITEROS_AXE = IcariaItems.register("kassiteros_axe", properties -> new AxeItem(IcariaToolMaterials.KASSITEROS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> KASSITEROS_SCYTHE = IcariaItems.register("kassiteros_scythe", properties -> new ScytheItem(IcariaToolMaterials.KASSITEROS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> KASSITEROS_BIDENT = IcariaItems.register("kassiteros_bident", properties -> new BidentItem(IcariaToolMaterials.KASSITEROS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> ORICHALCUM_SWORD = IcariaItems.register("orichalcum_sword", properties -> new SwordItem(IcariaToolMaterials.ORICHALCUM, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_SWORD = IcariaItems.register("orichalcum_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.ORICHALCUM, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> ORICHALCUM_DAGGER = IcariaItems.register("orichalcum_dagger", properties -> new DaggerItem(IcariaToolMaterials.ORICHALCUM, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> ORICHALCUM_SHOVEL = IcariaItems.register("orichalcum_shovel", properties -> new ShovelItem(IcariaToolMaterials.ORICHALCUM, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> ORICHALCUM_PICKAXE = IcariaItems.register("orichalcum_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.ORICHALCUM, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_PICKAXE = IcariaItems.register("orichalcum_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.ORICHALCUM, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> ORICHALCUM_AXE = IcariaItems.register("orichalcum_axe", properties -> new AxeItem(IcariaToolMaterials.ORICHALCUM, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> ORICHALCUM_SCYTHE = IcariaItems.register("orichalcum_scythe", properties -> new ScytheItem(IcariaToolMaterials.ORICHALCUM, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> ORICHALCUM_BIDENT = IcariaItems.register("orichalcum_bident", properties -> new BidentItem(IcariaToolMaterials.ORICHALCUM, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SWORD = IcariaItems.register("vanadiumsteel_sword", properties -> new SwordItem(IcariaToolMaterials.VANADIUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SWORD = IcariaItems.register("vanadiumsteel_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.VANADIUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_DAGGER = IcariaItems.register("vanadiumsteel_dagger", properties -> new DaggerItem(IcariaToolMaterials.VANADIUMSTEEL, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SHOVEL = IcariaItems.register("vanadiumsteel_shovel", properties -> new ShovelItem(IcariaToolMaterials.VANADIUMSTEEL, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_PICKAXE = IcariaItems.register("vanadiumsteel_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.VANADIUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_PICKAXE = IcariaItems.register("vanadiumsteel_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.VANADIUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_AXE = IcariaItems.register("vanadiumsteel_axe", properties -> new AxeItem(IcariaToolMaterials.VANADIUMSTEEL, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_SCYTHE = IcariaItems.register("vanadiumsteel_scythe", properties -> new ScytheItem(IcariaToolMaterials.VANADIUMSTEEL, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BIDENT = IcariaItems.register("vanadiumsteel_bident", properties -> new BidentItem(IcariaToolMaterials.VANADIUMSTEEL, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> SIDEROS_SWORD = IcariaItems.register("sideros_sword", properties -> new SwordItem(IcariaToolMaterials.SIDEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_SWORD = IcariaItems.register("sideros_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.SIDEROS, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SIDEROS_DAGGER = IcariaItems.register("sideros_dagger", properties -> new DaggerItem(IcariaToolMaterials.SIDEROS, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SIDEROS_SHOVEL = IcariaItems.register("sideros_shovel", properties -> new ShovelItem(IcariaToolMaterials.SIDEROS, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> SIDEROS_PICKAXE = IcariaItems.register("sideros_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.SIDEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> SIDEROS_PICKAXE = IcariaItems.register("sideros_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.SIDEROS, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SIDEROS_AXE = IcariaItems.register("sideros_axe", properties -> new AxeItem(IcariaToolMaterials.SIDEROS, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SIDEROS_SCYTHE = IcariaItems.register("sideros_scythe", properties -> new ScytheItem(IcariaToolMaterials.SIDEROS, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SIDEROS_BIDENT = IcariaItems.register("sideros_bident", properties -> new BidentItem(IcariaToolMaterials.SIDEROS, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SWORD = IcariaItems.register("molybdenumsteel_sword", properties -> new SwordItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SWORD = IcariaItems.register("molybdenumsteel_sword", properties -> new IcariaSwordItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 3.0F, -2.4F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_DAGGER = IcariaItems.register("molybdenumsteel_dagger", properties -> new DaggerItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 2, -2.0F, -1.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SHOVEL = IcariaItems.register("molybdenumsteel_shovel", properties -> new ShovelItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 1.5F, -3.0F, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_PICKAXE = IcariaItems.register("molybdenumsteel_pickaxe", properties -> new PickaxeItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_PICKAXE = IcariaItems.register("molybdenumsteel_pickaxe", properties -> new IcariaPickaxeItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 1.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_AXE = IcariaItems.register("molybdenumsteel_axe", properties -> new AxeItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 6.0F, -3.0F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_SCYTHE = IcariaItems.register("molybdenumsteel_scythe", properties -> new ScytheItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 4.0F, -2.8F, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> MOLYBDENUMSTEEL_BIDENT = IcariaItems.register("molybdenumsteel_bident", properties -> new BidentItem(IcariaToolMaterials.MOLYBDENUMSTEEL, 3.5F, -2.5F, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_HELMET = IcariaItems.register("aeternae_hide_helmet", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(11)));
-	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_CHESTPLATE = IcariaItems.register("aeternae_hide_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(11)));
-	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_LEGGINGS = IcariaItems.register("aeternae_hide_leggings", properties -> new ArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(11)));
-	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_BOOTS = IcariaItems.register("aeternae_hide_boots", properties -> new AeternaeHideBootsItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(11)));
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_HELMET = IcariaItems.register("aeternae_hide_helmet", properties -> new IcariaArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.HELMET, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_CHESTPLATE = IcariaItems.register("aeternae_hide_chestplate", properties -> new IcariaArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.CHESTPLATE, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_LEGGINGS = IcariaItems.register("aeternae_hide_leggings", properties -> new IcariaArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.LEGGINGS, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> AETERNAE_HIDE_BOOTS = IcariaItems.register("aeternae_hide_boots", properties -> new IcariaArmorItem(IcariaArmorMaterials.AETERNAE_HIDE, ArmorType.BOOTS, true, 11, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> CHALKOS_HELMET = IcariaItems.register("chalkos_helmet", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(11)));
-	public static final DeferredHolder<Item, Item> CHALKOS_CHESTPLATE = IcariaItems.register("chalkos_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(11)));
-	public static final DeferredHolder<Item, Item> CHALKOS_LEGGINGS = IcariaItems.register("chalkos_leggings", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(11)));
-	public static final DeferredHolder<Item, Item> CHALKOS_BOOTS = IcariaItems.register("chalkos_boots", properties -> new ArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(11)));
+	public static final DeferredHolder<Item, Item> CHALKOS_HELMET = IcariaItems.register("chalkos_helmet", properties -> new IcariaArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.HELMET, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_CHESTPLATE = IcariaItems.register("chalkos_chestplate", properties -> new IcariaArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.CHESTPLATE, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_LEGGINGS = IcariaItems.register("chalkos_leggings", properties -> new IcariaArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.LEGGINGS, false, 11, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> CHALKOS_BOOTS = IcariaItems.register("chalkos_boots", properties -> new IcariaArmorItem(IcariaArmorMaterials.CHALKOS, ArmorType.BOOTS, false, 11, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> KASSITEROS_HELMET = IcariaItems.register("kassiteros_helmet", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(15)));
-	public static final DeferredHolder<Item, Item> KASSITEROS_CHESTPLATE = IcariaItems.register("kassiteros_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(15)));
-	public static final DeferredHolder<Item, Item> KASSITEROS_LEGGINGS = IcariaItems.register("kassiteros_leggings", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(15)));
-	public static final DeferredHolder<Item, Item> KASSITEROS_BOOTS = IcariaItems.register("kassiteros_boots", properties -> new ArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(15)));
+	public static final DeferredHolder<Item, Item> KASSITEROS_HELMET = IcariaItems.register("kassiteros_helmet", properties -> new IcariaArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.HELMET, false, 15, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_CHESTPLATE = IcariaItems.register("kassiteros_chestplate", properties -> new IcariaArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.CHESTPLATE, false, 15, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_LEGGINGS = IcariaItems.register("kassiteros_leggings", properties -> new IcariaArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.LEGGINGS, false, 15, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> KASSITEROS_BOOTS = IcariaItems.register("kassiteros_boots", properties -> new IcariaArmorItem(IcariaArmorMaterials.KASSITEROS, ArmorType.BOOTS, false, 15, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> ORICHALCUM_HELMET = IcariaItems.register("orichalcum_helmet", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(24)));
-	public static final DeferredHolder<Item, Item> ORICHALCUM_CHESTPLATE = IcariaItems.register("orichalcum_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(24)));
-	public static final DeferredHolder<Item, Item> ORICHALCUM_LEGGINGS = IcariaItems.register("orichalcum_leggings", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(24)));
-	public static final DeferredHolder<Item, Item> ORICHALCUM_BOOTS = IcariaItems.register("orichalcum_boots", properties -> new ArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(24)));
+	public static final DeferredHolder<Item, Item> ORICHALCUM_HELMET = IcariaItems.register("orichalcum_helmet", properties -> new IcariaArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.HELMET, false, 24, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_CHESTPLATE = IcariaItems.register("orichalcum_chestplate", properties -> new IcariaArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.CHESTPLATE, false, 24, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_LEGGINGS = IcariaItems.register("orichalcum_leggings", properties -> new IcariaArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.LEGGINGS, false, 24, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORICHALCUM_BOOTS = IcariaItems.register("orichalcum_boots", properties -> new IcariaArmorItem(IcariaArmorMaterials.ORICHALCUM, ArmorType.BOOTS, false, 24, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_HELMET = IcariaItems.register("vanadiumsteel_helmet", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.HELMET, properties), IcariaItems.propertiesItem().durability(ArmorType.HELMET.getDurability(27)));
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_CHESTPLATE = IcariaItems.register("vanadiumsteel_chestplate", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.CHESTPLATE, properties), IcariaItems.propertiesItem().durability(ArmorType.CHESTPLATE.getDurability(27)));
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_LEGGINGS = IcariaItems.register("vanadiumsteel_leggings", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.LEGGINGS, properties), IcariaItems.propertiesItem().durability(ArmorType.LEGGINGS.getDurability(27)));
-	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BOOTS = IcariaItems.register("vanadiumsteel_boots", properties -> new ArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.BOOTS, properties), IcariaItems.propertiesItem().durability(ArmorType.BOOTS.getDurability(27)));
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_HELMET = IcariaItems.register("vanadiumsteel_helmet", properties -> new IcariaArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.HELMET, false, 27, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_CHESTPLATE = IcariaItems.register("vanadiumsteel_chestplate", properties -> new IcariaArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.CHESTPLATE, false, 27, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_LEGGINGS = IcariaItems.register("vanadiumsteel_leggings", properties -> new IcariaArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.LEGGINGS, false, 27, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_BOOTS = IcariaItems.register("vanadiumsteel_boots", properties -> new IcariaArmorItem(IcariaArmorMaterials.VANADIUMSTEEL, ArmorType.BOOTS, false, 27, properties), IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> LAUREL_WREATH = IcariaItems.register("laurel_wreath", properties -> new ArmorItem(IcariaArmorMaterials.LAUREL, ArmorType.HELMET, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> LAUREL_WREATH = IcariaItems.register("laurel_wreath", properties -> new IcariaArmorItem(IcariaArmorMaterials.LAUREL, ArmorType.HELMET, false, properties), IcariaItems.propertiesItem());
 
 	public static final DeferredHolder<Item, Item> GREEK_FIRE_GRENADE = IcariaItems.register("greek_fire_grenade", GreekFireGrenadeItem::new, IcariaItems.propertiesItem());
 
@@ -858,7 +863,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> AETERNAE_HIDE = IcariaItems.register("aeternae_hide", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SPELT_FLOUR = IcariaItems.register("spelt_flour", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SPELT_BREAD = IcariaItems.register("spelt_bread", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.SPELT_BREAD));
-	public static final DeferredHolder<Item, Item> VINE_SPROUT = IcariaItems.register("vine_sprout", VineSproutItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(16).food(IcariaFoods.VINE_SPROUT, IcariaConsumables.VINE_SPROUT));
+	public static final DeferredHolder<Item, Item> VINE_SPROUT = IcariaItems.register("vine_sprout", VineSproutItem::new, IcariaItems.propertiesItem().stacksTo(1).durability(16).food(IcariaFoods.VINE_SPROUT, IcariaConsumables.VINE_SPROUT).component(DataComponents.BREAK_SOUND, Holder.direct(SoundEvents.EMPTY)));
 	public static final DeferredHolder<Item, Item> VINEBERRIES = IcariaItems.register("vineberries", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.VINEBERRIES));
 	public static final DeferredHolder<Item, Item> STRAWBERRIES = IcariaItems.register("strawberries", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.STRAWBERRIES));
 	public static final DeferredHolder<Item, Item> PHYSALIS = IcariaItems.register("physalis", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.PHYSALIS));
@@ -879,7 +884,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> COOKED_CROCOTTA_MEAT = IcariaItems.register("cooked_crocotta_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_CROCOTTA_MEAT));
 	public static final DeferredHolder<Item, Item> RAW_SOW_MEAT = IcariaItems.register("raw_sow_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_SOW_MEAT, IcariaConsumables.RAW_SOW_MEAT));
 	public static final DeferredHolder<Item, Item> COOKED_SOW_MEAT = IcariaItems.register("cooked_sow_meat", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_SOW_MEAT));
-	public static final DeferredHolder<Item, Item> CAPELLA_HORN = IcariaItems.register("capella_horn", properties -> new InstrumentItem(IcariaInstrumentTagsProvider.CAPELLA_HORNS, properties), IcariaItems.propertiesItem().stacksTo(1).rarity(Rarity.UNCOMMON));
+	public static final DeferredHolder<Item, Item> CAPELLA_HORN = IcariaItems.register("capella_horn", InstrumentItem::new, IcariaItems.propertiesItem().stacksTo(1).rarity(Rarity.UNCOMMON).component(DataComponents.INSTRUMENT, new InstrumentComponent(IcariaInstruments.FAIL_CAPELLA_HORN)));
 	public static final DeferredHolder<Item, Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SLUG_SCALES = IcariaItems.register("slug_scales", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SNULL_CREAM = IcariaItems.register("snull_cream", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.SNULL_CREAM, IcariaConsumables.SNULL_CREAM));

@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "minecraft:item/template_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -3094073
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -11828384
-      }
-    ]
+    "model": "landsoficaria:item/populus_forest_hag_spawn_egg"
   }
 }

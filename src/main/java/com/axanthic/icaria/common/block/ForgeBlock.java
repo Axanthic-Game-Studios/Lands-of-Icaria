@@ -7,7 +7,6 @@ import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.ForgeShapes;
 
 import com.mojang.serialization.MapCodec;
@@ -39,7 +38,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -137,28 +135,10 @@ public class ForgeBlock extends BaseEntityBlock {
 		pBuilder.add(IcariaBlockStateProperties.CORNER, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
-	public void drop(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew) {
-		if (pBlockStateOld.getBlock() != pBlockStateNew.getBlock()) {
-			if (pLevel.getBlockEntity(pBlockPos) instanceof ForgeBlockEntity blockEntity) {
-				if (pLevel instanceof ServerLevel serverLevel) {
-					Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.FORGE.get()));
-					blockEntity.drop(serverLevel);
-					blockEntity.getRecipesToAwardAndPopExperience(serverLevel, Vec3.atCenterOf(pBlockPos));
-				}
-			}
-		}
-	}
-
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-	}
-
-	@Override
-	public void onRemove(BlockState pBlockStateOld, Level pLevel, BlockPos pBlockPos, BlockState pBlockStateNew, boolean pMovedByPiston) {
-		this.drop(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew);
-		super.onRemove(pBlockStateOld, pLevel, pBlockPos, pBlockStateNew, pMovedByPiston);
 	}
 
 	public void particlesEmber(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {

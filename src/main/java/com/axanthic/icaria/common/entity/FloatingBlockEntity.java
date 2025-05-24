@@ -6,9 +6,8 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -45,12 +44,12 @@ public class FloatingBlockEntity extends Entity {
 	}
 
 	@Override
-	public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pDamageSource) {
-		var amount = Math.min(this.fallDistance, 40);
+	public boolean causeFallDamage(double pFallDistance, float pDamageMultiplier, DamageSource pDamageSource) {
+		var amount = Math.min(this.fallDistance, 40.0D);
 		var boundingBox = this.getBoundingBox();
 		var damageSource = this.damageSources().fallingBlock(this);
 		var predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
-		this.level().getEntities(this, boundingBox, predicate).forEach((entity) -> IcariaCommonHelper.hurt(damageSource, entity, amount));
+		this.level().getEntities(this, boundingBox, predicate).forEach((entity) -> IcariaCommonHelper.hurt(damageSource, entity, (float) amount));
 		return true;
 	}
 
@@ -75,8 +74,9 @@ public class FloatingBlockEntity extends Entity {
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		pCompoundTag.put("BlockPos", NbtUtils.writeBlockPos(this.getBlockPos()));
-		pCompoundTag.put("BlockState", NbtUtils.writeBlockState(this.getBlockState()));
+		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
+		pCompoundTag.store("BlockPos", BlockPos.CODEC, registryOps, this.getBlockPos());
+		pCompoundTag.store("BlockState", BlockState.CODEC, registryOps, this.getBlockState());
 		pCompoundTag.putInt("Tick", this.getTick());
 	}
 
@@ -89,9 +89,10 @@ public class FloatingBlockEntity extends Entity {
 
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		this.setBlockPos(NbtUtils.readBlockPos(pCompoundTag, "BlockPos").orElseThrow());
-		this.setBlockState(NbtUtils.readBlockState(this.level().holderLookup(Registries.BLOCK), pCompoundTag.getCompound("BlockState")));
-		this.setTick(pCompoundTag.getInt("Tick"));
+		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
+		this.setBlockPos(pCompoundTag.read("BlockPos", BlockPos.CODEC, registryOps).orElse(BlockPos.ZERO));
+		this.setBlockState(pCompoundTag.read("BlockState", BlockState.CODEC, registryOps).orElse(Blocks.AIR.defaultBlockState()));
+		this.setTick(pCompoundTag.getIntOr("Tick", 0));
 	}
 
 	public void setBlockPos(BlockPos pBlockPos) {

@@ -15,6 +15,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.TriState;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -38,7 +39,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.neoforged.neoforge.common.CommonHooks;
 import net.neoforged.neoforge.common.FarmlandWaterManager;
-import net.neoforged.neoforge.common.util.TriState;
 
 @SuppressWarnings("deprecation")
 
@@ -88,7 +88,7 @@ public class FarmlandBlock extends Block {
 	}
 
 	@Override
-	public void fallOn(Level pLevel, BlockState pBlockState, BlockPos pBlockPos, Entity pEntity, float pFallDistance) {
+	public void fallOn(Level pLevel, BlockState pBlockState, BlockPos pBlockPos, Entity pEntity, double pFallDistance) {
 		super.fallOn(pLevel, pBlockState, pBlockPos, pEntity, pFallDistance);
 		if (pLevel instanceof ServerLevel serverLevel) {
 			if (CommonHooks.onFarmlandTrample(serverLevel, pBlockPos, IcariaBlocks.MARL.get().defaultBlockState(), pFallDistance, pEntity)) {

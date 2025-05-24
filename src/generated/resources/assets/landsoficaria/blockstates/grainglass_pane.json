@@ -7,8 +7,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/grainglass_pane_noside",
-        "y": 0
+        "model": "landsoficaria:block/grainglass_pane_noside"
       },
       "when": {
         "north": "false"
@@ -16,8 +15,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/grainglass_pane_side",
-        "y": 0
+        "model": "landsoficaria:block/grainglass_pane_side"
       },
       "when": {
         "north": "true"
@@ -25,8 +23,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/grainglass_pane_noside_alt",
-        "y": 0
+        "model": "landsoficaria:block/grainglass_pane_noside_alt"
       },
       "when": {
         "east": "false"
@@ -52,8 +49,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/grainglass_pane_side_alt",
-        "y": 0
+        "model": "landsoficaria:block/grainglass_pane_side_alt"
       },
       "when": {
         "south": "true"

@@ -4,6 +4,8 @@ import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.math.Quadrant;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -11,7 +13,6 @@ import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
-import net.neoforged.neoforge.client.model.generators.template.FaceRotation;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -71,7 +72,7 @@ public class TroughModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(8.0F, 15.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 16.0F, 16.0F).texture(IcariaTextureSlots.PLANKS))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 16.0F, 16.0F).rotation(FaceRotation.UPSIDE_DOWN).texture(IcariaTextureSlots.LOG)))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0F, 8.0F, 16.0F, 16.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOG)))
 			.build();
 	}
 }

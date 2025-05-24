@@ -18,7 +18,7 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 
 public class IcariaConsumables {
 	public static final Consumable ANTI_GRAVITY_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.LEVITATION, 1.0F, 600);
-	public static final Consumable FORTIFYING_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.DAMAGE_RESISTANCE, 1.0F, 600);
+	public static final Consumable FORTIFYING_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.RESISTANCE, 1.0F, 600);
 	public static final Consumable HEALING_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.REGENERATION, 1.0F, 600);
 	public static final Consumable VINE_SPROUT = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 	public static final Consumable RAW_AETERNAE_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);

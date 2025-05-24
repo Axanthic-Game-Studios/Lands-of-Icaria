@@ -74,7 +74,7 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setAge(pCompoundTag.getInt("Age"));
+		this.setAge(pCompoundTag.getIntOr("Age", 0));
 	}
 
 	public void setAge(int pAge) {

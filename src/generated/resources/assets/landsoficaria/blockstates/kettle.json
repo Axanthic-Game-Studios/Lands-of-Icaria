@@ -17,20 +17,16 @@
       "y": 90
     },
     "facing=north,half=lower,lit=false": {
-      "model": "landsoficaria:block/kettle_lower",
-      "y": 0
+      "model": "landsoficaria:block/kettle_lower"
     },
     "facing=north,half=lower,lit=true": {
-      "model": "landsoficaria:block/kettle_lower_lit",
-      "y": 0
+      "model": "landsoficaria:block/kettle_lower_lit"
     },
     "facing=north,half=upper,lit=false": {
-      "model": "landsoficaria:block/kettle_upper",
-      "y": 0
+      "model": "landsoficaria:block/kettle_upper"
     },
     "facing=north,half=upper,lit=true": {
-      "model": "landsoficaria:block/kettle_upper",
-      "y": 0
+      "model": "landsoficaria:block/kettle_upper"
     },
     "facing=south,half=lower,lit=false": {
       "model": "landsoficaria:block/kettle_lower",

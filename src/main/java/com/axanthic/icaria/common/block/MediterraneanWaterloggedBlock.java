@@ -12,7 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
@@ -27,7 +27,7 @@ import net.minecraft.world.level.material.FluidState;
 public interface MediterraneanWaterloggedBlock extends SimpleWaterloggedBlock {
 
 	@Override
-	default boolean canPlaceLiquid(@Nullable Player pPlayer, BlockGetter pBlockGetter, BlockPos pBlockPos, BlockState pBlockState, Fluid pFluid) {
+	default boolean canPlaceLiquid(@Nullable LivingEntity pLivingEntity, BlockGetter pBlockGetter, BlockPos pBlockPos, BlockState pBlockState, Fluid pFluid) {
 		return pFluid == IcariaFluids.MEDITERRANEAN_WATER.get();
 	}
 
@@ -56,7 +56,7 @@ public interface MediterraneanWaterloggedBlock extends SimpleWaterloggedBlock {
 	}
 
 	@Override
-	default ItemStack pickupBlock(@Nullable Player pPlayer, LevelAccessor pLevelAccessor, BlockPos pBlockPos, BlockState pBlockState) {
+	default ItemStack pickupBlock(@Nullable LivingEntity pLivingEntity, LevelAccessor pLevelAccessor, BlockPos pBlockPos, BlockState pBlockState) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)) {
 			this.breakFluid(pBlockPos, pBlockState, pLevelAccessor);
 			return new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());

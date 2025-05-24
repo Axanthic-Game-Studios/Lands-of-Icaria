@@ -18,7 +18,7 @@ public class SpeltBaleBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	public void fallOn(Level pLevel, BlockState pBlockState, BlockPos pBlockPos, Entity pEntity, float pFallDistance) {
+	public void fallOn(Level pLevel, BlockState pBlockState, BlockPos pBlockPos, Entity pEntity, double pFallDistance) {
 		pEntity.causeFallDamage(pFallDistance, 0.2F, pLevel.damageSources().fall());
 	}
 }

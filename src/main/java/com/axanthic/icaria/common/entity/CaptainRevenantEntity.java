@@ -86,7 +86,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	public int getLastHurtByPlayerTime() {
-		return this.lastHurtByPlayerTime;
+		return this.lastHurtByPlayerMemoryTime;
 	}
 
 	public int getRallying() {
@@ -166,9 +166,9 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setRallying(pCompoundTag.getInt("Rallying"));
-		this.setReequips(pCompoundTag.getInt("Reequips"));
-		this.setUnequips(pCompoundTag.getInt("Unequips"));
+		this.setRallying(pCompoundTag.getIntOr("Rallying", 0));
+		this.setReequips(pCompoundTag.getIntOr("Reequips", 0));
+		this.setUnequips(pCompoundTag.getIntOr("Unequips", 0));
 	}
 
 	@Override

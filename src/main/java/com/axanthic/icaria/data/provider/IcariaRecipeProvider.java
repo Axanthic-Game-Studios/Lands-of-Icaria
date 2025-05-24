@@ -595,6 +595,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, IcariaItems.SUNSPONGE.get(), IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.ORANGE_DYE, IcariaItems.ORANGE_BROMELIA.get(), IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.PINK_CONCRETE_POWDER, Items.PINK_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
+		this.grinding(0.1F, 2, 200, Items.PINK_DYE, Items.CACTUS_FLOWER, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 4, 200, Items.PINK_DYE, Items.PEONY, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.PINK_DYE, Items.PINK_PETALS, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.PINK_DYE, Items.PINK_TULIP, IcariaItems.LOAM_GEAR.get());
@@ -679,6 +680,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.grinding(0.1F, 1, 200, Items.YELLOW_CONCRETE_POWDER, Items.YELLOW_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, Items.DANDELION, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 4, 200, Items.YELLOW_DYE, Items.SUNFLOWER, IcariaItems.LOAM_GEAR.get());
+		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, Items.WILDFLOWERS, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, IcariaItems.YELLOW_STAGHORN.get(), IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, IcariaItems.SUNKETTLE.get(), IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 1, 100, IcariaItems.GRAINEL.get(), IcariaItems.GRAINGLASS.get(), IcariaItems.YELLOWSTONE_GEAR.get());

@@ -6,12 +6,16 @@ import com.axanthic.icaria.common.handler.stack.KilnInputItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.KilnOutputItemStackHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
+import com.mojang.serialization.Codec;
 
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
@@ -21,13 +25,11 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
@@ -37,6 +39,7 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -57,6 +60,8 @@ public class KilnBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int maxProgress = 0;
 	public int size = 3;
+
+	public static final Codec<Map<ResourceKey<Recipe<?>>, Integer>> RECIPES_CODEC = Codec.unboundedMap(Recipe.KEY_CODEC, Codec.INT);
 
 	public ItemStackHandler fuelHandler = new KilnFuelItemStackHandler(1, this);
 	public ItemStackHandler inputHandler = new KilnInputItemStackHandler(1, this);
@@ -103,27 +108,38 @@ public class KilnBlockEntity extends BlockEntity {
 	}
 
 	public void awardUsedRecipesAndPopExperience(ServerPlayer pServerPlayer) {
-		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.serverLevel(), pServerPlayer.position()));
+		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.blockPosition(), pServerPlayer.serverLevel()));
 		this.recipes.clear();
 	}
 
-	public void drop(ServerLevel pServerLevel) {
-		Containers.dropContents(pServerLevel, this.worldPosition, this.simpleContainer);
+	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
+	}
+
+	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
 
 	@Override
 	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
 		super.loadAdditional(pCompoundTag, pProvider);
-		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("FuelHandler"));
-		this.inputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("InputHandler"));
-		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompound("OutputHandler"));
-		this.fuel = pCompoundTag.getInt("FuelTick");
-		this.maxFuel = pCompoundTag.getInt("MaxFuelTick");
-		this.progress = pCompoundTag.getInt("ProgressTick");
-		this.maxProgress = pCompoundTag.getInt("MaxProgressTick");
-		var compoundTag = pCompoundTag.getCompound("Recipes");
-		for (var key : compoundTag.getAllKeys()) {
-			this.recipes.put(ResourceKey.create(Registries.RECIPE, ResourceLocation.parse(key)), compoundTag.getInt(key));
+		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("FuelHandler"));
+		this.inputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandler"));
+		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("OutputHandler"));
+		this.fuel = pCompoundTag.getIntOr("FuelTick", 0);
+		this.maxFuel = pCompoundTag.getIntOr("MaxFuelTick", 0);
+		this.progress = pCompoundTag.getIntOr("ProgressTick", 0);
+		this.maxProgress = pCompoundTag.getIntOr("MaxProgressTick", 0);
+		this.recipes.clear();
+		this.recipes.putAll(pCompoundTag.read("Recipes", KilnBlockEntity.RECIPES_CODEC).orElse(Map.of()));
+	}
+
+	@Override
+	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
+		if (this.level instanceof ServerLevel serverLevel) {
+			this.dropBlock(pBlockPos, serverLevel);
+			this.dropItems(pBlockPos, serverLevel);
+			this.getRecipesToAwardAndPopExperience(pBlockPos, serverLevel);
 		}
 	}
 
@@ -137,9 +153,7 @@ public class KilnBlockEntity extends BlockEntity {
 		pCompoundTag.putInt("MaxFuelTick", this.maxFuel);
 		pCompoundTag.putInt("ProgressTick", this.progress);
 		pCompoundTag.putInt("MaxProgressTick", this.maxProgress);
-		var compoundTag = new CompoundTag();
-		this.recipes.forEach((resourceKey, integer) -> compoundTag.putInt(resourceKey.location().toString(), integer));
-		pCompoundTag.put("Recipes", compoundTag);
+		pCompoundTag.store("Recipes", KilnBlockEntity.RECIPES_CODEC, this.recipes);
 	}
 
 	public void setContainer() {
@@ -239,14 +253,14 @@ public class KilnBlockEntity extends BlockEntity {
 		return this.inputHandler.getStackInSlot(0);
 	}
 
-	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(ServerLevel pServerLevel, Vec3 pVec3) {
+	public List<RecipeHolder<?>> getRecipesToAwardAndPopExperience(BlockPos pBlockPos, ServerLevel pServerLevel) {
 		var arrayList = new ArrayList<RecipeHolder<?>>();
 		for (var entry : this.recipes.reference2IntEntrySet()) {
 			pServerLevel.recipeAccess().byKey(entry.getKey()).ifPresent(
 				(recipeHolder) -> {
 					arrayList.add(recipeHolder);
 					if (recipeHolder.value() instanceof FiringRecipe firingRecipe) {
-						ExperienceOrb.award(pServerLevel, pVec3, Mth.ceil(entry.getIntValue() * firingRecipe.experience()));
+						ExperienceOrb.award(pServerLevel, Vec3.atCenterOf(pBlockPos), Mth.ceil(entry.getIntValue() * firingRecipe.experience()));
 					}
 				}
 			);

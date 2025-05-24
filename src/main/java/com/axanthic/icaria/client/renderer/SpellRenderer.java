@@ -50,7 +50,7 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 
 		var matrix4f = pPoseStack.last().pose();
 
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TRANSPARENT_TEXTURE);
+		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TEXTURED);
 
 		var color = pRenderState.color;
 

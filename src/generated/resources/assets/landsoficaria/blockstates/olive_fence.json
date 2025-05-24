@@ -8,8 +8,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/olive_fence_side",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true"

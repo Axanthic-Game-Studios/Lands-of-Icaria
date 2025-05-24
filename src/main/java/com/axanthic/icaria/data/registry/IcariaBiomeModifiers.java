@@ -12,6 +12,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.random.Weighted;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -64,7 +65,7 @@ public class IcariaBiomeModifiers {
 	}
 
 	public static Holder.Reference<BiomeModifier> register(BootstrapContext<BiomeModifier> pBootstrapContext, ResourceKey<BiomeModifier> pBiomeModifier, ResourceKey<Biome> pBiome, EntityType<?> pEntityType, int pMinCount, int pMaxCount, int pWeight) {
-		return pBootstrapContext.register(pBiomeModifier, BiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(HolderSet.direct(pBootstrapContext.lookup(Registries.BIOME).getOrThrow(pBiome)), new MobSpawnSettings.SpawnerData(pEntityType, pWeight, pMinCount, pMaxCount)));
+		return pBootstrapContext.register(pBiomeModifier, BiomeModifiers.AddSpawnsBiomeModifier.singleSpawn(HolderSet.direct(pBootstrapContext.lookup(Registries.BIOME).getOrThrow(pBiome)), new Weighted<>(new MobSpawnSettings.SpawnerData(pEntityType, pMinCount, pMaxCount), pWeight)));
 	}
 
 	public static ResourceKey<BiomeModifier> createKey(String pName) {

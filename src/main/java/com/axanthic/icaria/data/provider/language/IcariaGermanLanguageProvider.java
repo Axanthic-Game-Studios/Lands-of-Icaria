@@ -754,10 +754,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
-		this.add("category" + "." + IcariaIdents.ID + "." + "firing", "Brennen");
-		this.add("category" + "." + IcariaIdents.ID + "." + "forging", "Schmieden");
-		this.add("category" + "." + IcariaIdents.ID + "." + "grinding", "Mahlen");
-
 		this.add("command" + "." + IcariaIdents.ID + "." + "heal" + "." + "success", "Heilen gelungen");
 
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_settings", "Rendereinstellungen");
@@ -796,6 +792,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings" + "." + "tooltip", "Spawneinstellungen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids", "Spinnentiere spawnen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids" + "." + "tooltip", "Standard: An. Ob Spinnentiere spawnen sollen.");
+
+		this.add("dimension" + "." + IcariaIdents.ID + "." + "icaria", "Lands of Icaria");
 
 		this.add(IcariaMobEffects.BLINDNESS_IMMUNITY.value(), "Erblindungsimmunität");
 		this.add(IcariaMobEffects.FREEZING.value(), "Vereisung");
@@ -1606,6 +1604,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple", "Violett");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta", "Magenta");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink", "Rosa");
+		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "label", "Etikett");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Stil");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Klassisch");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Leuchtend");

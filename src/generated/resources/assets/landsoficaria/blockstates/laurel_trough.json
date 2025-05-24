@@ -5,8 +5,7 @@
       "y": 90
     },
     "facing=north": {
-      "model": "landsoficaria:block/laurel_trough",
-      "y": 0
+      "model": "landsoficaria:block/laurel_trough"
     },
     "facing=south": {
       "model": "landsoficaria:block/laurel_trough",

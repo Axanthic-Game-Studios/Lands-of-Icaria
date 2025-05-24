@@ -72,7 +72,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	public void tick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pServerLevel, pBlockState, pBlockPos);
 		if (pServerLevel.getBlockState(pBlockPos.below()).canBeReplaced()) {
-			entity.moveTo(pBlockPos, 0, 0);
+			entity.snapTo(pBlockPos, 0, 0);
 			pServerLevel.addFreshEntity(entity);
 			pServerLevel.removeBlock(pBlockPos, false);
 		}

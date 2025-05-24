@@ -12,7 +12,6 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.world.level.block.Block;
 
-import net.neoforged.neoforge.client.model.generators.loaders.CompositeModelBuilder;
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
 
 @MethodsReturnNonnullByDefault
@@ -2143,8 +2142,8 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid")).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "lower_solid"), new TextureMapping()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
 				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
 				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
@@ -2152,8 +2151,8 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid_lit")).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"), new TextureMapping()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_lit")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
 				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
 				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
@@ -2161,38 +2160,12 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_glass")).renderType("translucent").build()
-			.create(IcariaModelProvider.blockFile(pBlock, "lower_glass"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_solid")).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "upper_solid"), new TextureMapping()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
 				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
 				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_glass")).renderType("translucent").build()
-			.create(IcariaModelProvider.blockFile(pBlock, "upper_glass"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "lower_solid"))
-			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
-				.child("solid", IcariaModelProvider.blockFile(pBlock, "lower_solid"))
-				.child("glass", IcariaModelProvider.blockFile(pBlock, "lower_glass"))).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"))
-			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
-				.child("solid", IcariaModelProvider.blockFile(pBlock, "lower_solid_lit"))
-				.child("glass", IcariaModelProvider.blockFile(pBlock, "lower_glass"))).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(pBlock, "upper_solid"))
-			.customLoader(CompositeModelBuilder::new, compositeModelBuilder -> compositeModelBuilder
-				.child("solid", IcariaModelProvider.blockFile(pBlock, "upper_solid"))
-				.child("glass", IcariaModelProvider.blockFile(pBlock, "upper_glass"))).build()
-			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kiln(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -3237,11 +3210,9 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void kettleModel(BlockModelGenerators pBlockModelGenerators) {
-		KettleModel.lowerGlass().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_glass"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-		KettleModel.lowerSolid().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-		KettleModel.lowerSolidLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_solid_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-		KettleModel.upperGlass().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_glass"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-		KettleModel.upperSolid().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper_solid"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.lowerLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KettleModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kilnInventoryModel(BlockModelGenerators pBlockModelGenerators) {

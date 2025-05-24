@@ -8,8 +8,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/cardon_cactus_cube",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "false"
@@ -18,8 +17,7 @@
     {
       "apply": {
         "model": "landsoficaria:block/cardon_cactus_stem",
-        "uvlock": true,
-        "y": 0
+        "uvlock": true
       },
       "when": {
         "north": "true"

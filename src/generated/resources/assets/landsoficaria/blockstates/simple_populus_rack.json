@@ -33,36 +33,28 @@
       "y": 90
     },
     "facing=north,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
-      "model": "landsoficaria:block/simple_populus_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_rack"
     },
     "facing=north,full_rack=false,loaded_barrel=false,tapped_barrel=true": {
-      "model": "landsoficaria:block/simple_populus_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_rack"
     },
     "facing=north,full_rack=false,loaded_barrel=true,tapped_barrel=false": {
-      "model": "landsoficaria:block/simple_populus_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_rack"
     },
     "facing=north,full_rack=false,loaded_barrel=true,tapped_barrel=true": {
-      "model": "landsoficaria:block/simple_populus_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_rack"
     },
     "facing=north,full_rack=true,loaded_barrel=false,tapped_barrel=false": {
-      "model": "landsoficaria:block/simple_populus_barrel_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_barrel_rack"
     },
     "facing=north,full_rack=true,loaded_barrel=false,tapped_barrel=true": {
-      "model": "landsoficaria:block/simple_tapped_populus_barrel_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_tapped_populus_barrel_rack"
     },
     "facing=north,full_rack=true,loaded_barrel=true,tapped_barrel=false": {
-      "model": "landsoficaria:block/simple_loaded_populus_barrel_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_loaded_populus_barrel_rack"
     },
     "facing=north,full_rack=true,loaded_barrel=true,tapped_barrel=true": {
-      "model": "landsoficaria:block/simple_populus_rack",
-      "y": 0
+      "model": "landsoficaria:block/simple_populus_rack"
     },
     "facing=south,full_rack=false,loaded_barrel=false,tapped_barrel=false": {
       "model": "landsoficaria:block/simple_populus_rack",

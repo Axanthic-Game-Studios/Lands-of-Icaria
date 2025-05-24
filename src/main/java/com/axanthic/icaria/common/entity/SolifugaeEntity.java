@@ -64,7 +64,7 @@ public class SolifugaeEntity extends IcariaArachnidEntity {
 	@Override
 	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
 		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBoolean("Climbing"));
+		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
 	}
 
 	@Override

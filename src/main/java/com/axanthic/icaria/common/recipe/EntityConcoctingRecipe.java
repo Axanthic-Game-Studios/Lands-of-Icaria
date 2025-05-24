@@ -72,48 +72,48 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 				if (state.getBlock() instanceof KettleBlock kettleBlock) {
 					var blockPos = pBlockPos.offset(pLevel.getRandom().nextInt(8) - 4, 0, pLevel.getRandom().nextInt(8) - 4);
 					if (livingEntity instanceof ArachneDroneEntity arachneDroneEntity) {
-						arachneDroneEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						arachneDroneEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						arachneDroneEntity.setSize(1);
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof HyliasterEntity hyliasterEntity) {
-						hyliasterEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						hyliasterEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						hyliasterEntity.setSize(1);
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof MyrmekeSoldierEntity myrmekeSoldierEntity) {
-						myrmekeSoldierEntity.moveTo(blockPos, 0.0F, 0.0F);
+						myrmekeSoldierEntity.snapTo(blockPos, 0.0F, 0.0F);
 						pLevel.addFreshEntity(livingEntity);
 					} else if (livingEntity instanceof CaptainRevenantEntity captainRevenantEntity) {
-						captainRevenantEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						captainRevenantEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						captainRevenantEntity.populateDefaultEquipmentSlots();
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof CrawlerRevenantEntity crawlerRevenantEntity) {
-						crawlerRevenantEntity.moveTo(blockPos, 0.0F, 0.0F);
+						crawlerRevenantEntity.snapTo(blockPos, 0.0F, 0.0F);
 						pLevel.addFreshEntity(livingEntity);
 					} else if (livingEntity instanceof NetherPyromancerRevenantEntity netherPyromancerRevenantEntity) {
-						netherPyromancerRevenantEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						netherPyromancerRevenantEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						netherPyromancerRevenantEntity.populateDefaultEquipmentSlots();
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof SoldierRevenantEntity soldierRevenantEntity) {
-						soldierRevenantEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						soldierRevenantEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						soldierRevenantEntity.populateDefaultEquipmentSlots();
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof SizedFlyingMobEntity sizedFlyingMobEntity) {
-						sizedFlyingMobEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						sizedFlyingMobEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						sizedFlyingMobEntity.setSize(1);
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else if (livingEntity instanceof SizedPathfinderMobEntity sizedPathfinderMobEntity) {
-						sizedPathfinderMobEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						sizedPathfinderMobEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						sizedPathfinderMobEntity.setSize(1);
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else {
-						livingEntity.moveTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						livingEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					}

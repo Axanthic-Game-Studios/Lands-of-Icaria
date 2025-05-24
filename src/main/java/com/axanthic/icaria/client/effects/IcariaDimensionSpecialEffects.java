@@ -3,9 +3,15 @@ package com.axanthic.icaria.client.effects;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.registry.IcariaValues;
 
+import com.mojang.blaze3d.buffers.BufferType;
+import com.mojang.blaze3d.buffers.BufferUsage;
+import com.mojang.blaze3d.buffers.GpuBuffer;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
+
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -13,10 +19,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.renderer.DimensionSpecialEffects;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderStateShard;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.*;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -30,11 +33,15 @@ import org.joml.Vector3f;
 @ParametersAreNonnullByDefault
 
 public class IcariaDimensionSpecialEffects extends DimensionSpecialEffects {
-	public VertexBuffer sky = VertexBuffer.uploadStatic(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION, this::buildSky);
-	public VertexBuffer stars = VertexBuffer.uploadStatic(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION, this::buildStars);
+	public int starsIndexCount;
+
+	public GpuBuffer sky;
+	public GpuBuffer stars;
 
 	public IcariaDimensionSpecialEffects() {
 		super(192, false, SkyType.OVERWORLD, false, false);
+		this.sky = this.buildSky();
+		this.stars = this.buildStars();
 	}
 
 	@Override
@@ -81,17 +88,29 @@ public class IcariaDimensionSpecialEffects extends DimensionSpecialEffects {
 		return ARGB.colorFromFloat(Mth.square(1.0F - (1.0F - Mth.sin(f * Mth.PI))), f * 0.3F + 0.7F, f * 0.7F + 0.1F, 0.1F);
 	}
 
-	public void buildSky(VertexConsumer pVertexConsumer) {
-		pVertexConsumer.addVertex(0.0F, 16.0F, 0.0F);
+	public GpuBuffer buildSky() {
+		var byteBufferBuilder = new ByteBufferBuilder(DefaultVertexFormat.POSITION.getVertexSize() * 10);
+		var bufferBuilder = new BufferBuilder(byteBufferBuilder, VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
+
+		bufferBuilder.addVertex(0.0F, 16.0F, 0.0F);
+
 		for (var i = -180; i <= 180; i += 45) {
 			var x = Mth.cos(IcariaValues.DEG_2_RAD * i) * Math.signum(16.0F) * 512.0F;
 			var z = Mth.sin(IcariaValues.DEG_2_RAD * i) * 512.0F;
-			pVertexConsumer.addVertex(x, 16.0F, z);
+			bufferBuilder.addVertex(x, 16.0F, z);
 		}
+
+		var meshData = bufferBuilder.build();
+
+		assert meshData != null;
+		return RenderSystem.getDevice().createBuffer(() -> "Sky vertex buffer", BufferType.VERTICES, BufferUsage.STATIC_WRITE, meshData.vertexBuffer());
 	}
 
-	public void buildStars(VertexConsumer pVertexConsumer) {
+	public GpuBuffer buildStars() {
+		var byteBufferBuilder = new ByteBufferBuilder(DefaultVertexFormat.POSITION.getVertexSize() * 1500 * 4);
+		var bufferBuilder = new BufferBuilder(byteBufferBuilder, VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 		var randomSource = RandomSource.create(10842L);
+
 		for (var count = 0; count < 1500; count++) {
 			var f = randomSource.nextFloat() * 0.1F + 0.15F;
 			var g = randomSource.nextFloat() * 2.0F - 1.0F;
@@ -102,12 +121,18 @@ public class IcariaDimensionSpecialEffects extends DimensionSpecialEffects {
 			if (k > 0.01F && k < 1.0F) {
 				var vector3f = new Vector3f(g, h, i).normalize(100.0F);
 				var matrix3f = new Matrix3f().rotateTowards(new Vector3f(vector3f).negate(), new Vector3f(0.0F, 1.0F, 0.0F)).rotateZ(-j);
-				pVertexConsumer.addVertex(new Vector3f(f, -f, 0.0F).mul(matrix3f).add(vector3f));
-				pVertexConsumer.addVertex(new Vector3f(f, f, 0.0F).mul(matrix3f).add(vector3f));
-				pVertexConsumer.addVertex(new Vector3f(-f, f, 0.0F).mul(matrix3f).add(vector3f));
-				pVertexConsumer.addVertex(new Vector3f(-f, -f, 0.0F).mul(matrix3f).add(vector3f));
+				bufferBuilder.addVertex(new Vector3f(f, -f, 0.0F).mul(matrix3f).add(vector3f));
+				bufferBuilder.addVertex(new Vector3f(f, f, 0.0F).mul(matrix3f).add(vector3f));
+				bufferBuilder.addVertex(new Vector3f(-f, f, 0.0F).mul(matrix3f).add(vector3f));
+				bufferBuilder.addVertex(new Vector3f(-f, -f, 0.0F).mul(matrix3f).add(vector3f));
 			}
 		}
+
+		var meshData = bufferBuilder.build();
+		assert meshData != null;
+
+		this.starsIndexCount = meshData.drawState().indexCount();
+		return RenderSystem.getDevice().createBuffer(() -> "Stars vertex buffer", BufferType.VERTICES, BufferUsage.STATIC_WRITE, meshData.vertexBuffer());
 	}
 
 	public void renderCelestialBodies(MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, float pStarBrightness, float pTimeOfDay, int pMoonPhase) {
@@ -149,25 +174,47 @@ public class IcariaDimensionSpecialEffects extends DimensionSpecialEffects {
 	public void renderSky(float pRed, float pGreen, float pBlue) {
 		RenderSystem.setShaderColor(pRed, pGreen, pBlue, 1.0F);
 
-		this.sky.drawWithRenderType(RenderType.sky());
+		this.renderSky();
 
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 	}
 
+	public void renderSky() {
+		var colorTexture = Minecraft.getInstance().getMainRenderTarget().getColorTexture();
+		var depthTexture = Minecraft.getInstance().getMainRenderTarget().getDepthTexture();
+		if (colorTexture != null && depthTexture != null) {
+			try (var renderPass = RenderSystem.getDevice().createCommandEncoder().createRenderPass(colorTexture, OptionalInt.empty(), depthTexture, OptionalDouble.empty())) {
+				renderPass.setPipeline(RenderPipelines.SKY);
+				renderPass.setVertexBuffer(0, this.sky);
+				renderPass.draw(0, 10);
+			}
+		}
+	}
+
 	public void renderStars(PoseStack pPoseStack, float pStarBrightness) {
-		var matrix4f = pPoseStack.last().pose();
-		var matrix4fStack = RenderSystem.getModelViewStack();
-
-		matrix4fStack.pushMatrix();
-		matrix4fStack.mul(matrix4f);
-
+		RenderSystem.getModelViewStack().pushMatrix();
+		RenderSystem.getModelViewStack().mul(pPoseStack.last().pose());
 		RenderSystem.setShaderColor(pStarBrightness, pStarBrightness, pStarBrightness, pStarBrightness);
 
-		this.stars.drawWithRenderType(RenderType.stars());
+		this.renderStars();
 
 		RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+		RenderSystem.getModelViewStack().popMatrix();
+	}
 
-		matrix4fStack.popMatrix();
+	public void renderStars() {
+		var autoStorageIndexBuffer = RenderSystem.getSequentialBuffer(VertexFormat.Mode.QUADS);
+		var colorTexture = Minecraft.getInstance().getMainRenderTarget().getColorTexture();
+		var depthTexture = Minecraft.getInstance().getMainRenderTarget().getDepthTexture();
+		var gpuBuffer = autoStorageIndexBuffer.getBuffer(this.starsIndexCount);
+		if (colorTexture != null && depthTexture != null) {
+			try (var renderPass = RenderSystem.getDevice().createCommandEncoder().createRenderPass(colorTexture, OptionalInt.empty(), depthTexture, OptionalDouble.empty())) {
+				renderPass.setVertexBuffer(0, this.stars);
+				renderPass.setPipeline(RenderPipelines.STARS);
+				renderPass.setIndexBuffer(gpuBuffer, autoStorageIndexBuffer.type());
+				renderPass.drawIndexed(0, this.starsIndexCount);
+			}
+		}
 	}
 
 	public void renderSun(MultiBufferSource pMultiBufferSource, PoseStack pPoseStack) {
