@@ -7,7 +7,7 @@ Updates
 
 - carried Barrels and Loot Vases rotate with the Player now
 - the Chest Label Tooltip is restructured for better Readability now
-- mining a Storage Vase no longer plays a Sound suggesting the Storage Vase broke
+- placing and mining a Storage Vase plays an updated Sound, no longer suggesting the Storage Vase broke into pieces when mined
 - Icaria Farmland and Fertilized Farmland can be used to plant Dead Bush on to be in Line with vanilla Behavior
 - Cypress, Droughtroot, Fir, Laurel, Olive, Plane and Populus Leaves drop fitting falling Leaves Particle now
 
