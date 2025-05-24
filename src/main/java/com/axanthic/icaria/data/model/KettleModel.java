@@ -273,6 +273,22 @@ public class KettleModel {
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(5.0F, 6.0F, 6.0F, 10.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.DROUGHTROOT_LOG))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 6.0F, 6.0F, 10.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.DROUGHTROOT_LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0F, 6.0F, 3.0F, 10.0F).texture(IcariaTextureSlots.DROUGHTROOT_LOG)))
+			.element(elementBuilder -> elementBuilder.from(14.0139F, 0.25F, 0.6545F).to(15.5139F, 1.0F, 2.1545F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Y).origin(14.5F, 0.0F, 1.5F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE).emissivity(15, 15)))
+			.element(elementBuilder -> elementBuilder.from(14.2739F, 3.75F, 0.9145F).to(15.2739F, 5.0F, 1.9145F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Y).origin(14.5F, 0.0F, 1.5F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE)))
 			.build();
 	}
 
@@ -530,6 +546,22 @@ public class KettleModel {
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(5.0F, 6.0F, 6.0F, 10.0F).rotation(Quadrant.R90).texture(IcariaTextureSlots.KETTLE_FIREWOOD))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(3.0F, 6.0F, 6.0F, 10.0F).rotation(Quadrant.R180).texture(IcariaTextureSlots.KETTLE_FIREWOOD))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0F, 6.0F, 3.0F, 10.0F).texture(IcariaTextureSlots.KETTLE_FIREWOOD)))
+			.element(elementBuilder -> elementBuilder.from(14.0139F, 0.25F, 0.6545F).to(15.5139F, 1.0F, 2.1545F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Y).origin(14.5F, 0.0F, 1.5F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(13.0F, 9.0F, 15.0F, 11.0F).texture(IcariaTextureSlots.KETTLE)))
+			.element(elementBuilder -> elementBuilder.from(14.2739F, 3.75F, 0.9145F).to(15.2739F, 5.0F, 1.9145F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Y).origin(14.5F, 0.0F, 1.5F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(9.0F, 13.0F, 11.0F, 15.0F).texture(IcariaTextureSlots.KETTLE)))
 			.build();
 	}
 
@@ -830,6 +862,14 @@ public class KettleModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 2.0F, 14.0F).texture(IcariaTextureSlots.LAUREL_LOG))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 2.0F, 14.0F).texture(IcariaTextureSlots.LAUREL_LOG))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0F, 0.0F, 2.0F, 2.0F).texture(IcariaTextureSlots.LAUREL_PLANKS)))
+			.element(elementBuilder -> elementBuilder.from(13.7539F, -16.0F, 0.3945F).to(15.7539F, -12.0F, 2.3945F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(22.5F).axis(Direction.Axis.Y).origin(14.5F, 0.0F, 1.5F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(13.0F, 13.0F, 15.0F, 15.0F).texture(IcariaTextureSlots.KETTLE)))
 			.build();
 	}
 }
