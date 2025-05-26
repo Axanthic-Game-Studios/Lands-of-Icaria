@@ -20,10 +20,10 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class ExplosionConcoctingSerializer implements RecipeSerializer<ExplosionConcoctingRecipe> {
 	public static final MapCodec<ExplosionConcoctingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			Codec.FLOAT.fieldOf("radius").forGetter(recipe -> recipe.radius),
-			Codec.INT.fieldOf("colour").forGetter(recipe -> recipe.colour),
-			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
-			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient)
+			Codec.FLOAT.fieldOf("radius").forGetter(ExplosionConcoctingRecipe::radius),
+			Codec.INT.fieldOf("colour").forGetter(ExplosionConcoctingRecipe::colour),
+			Codec.INT.fieldOf("time").forGetter(ExplosionConcoctingRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(ExplosionConcoctingRecipe::ingredient)
 		).apply(instance, ExplosionConcoctingRecipe::new)
 	);
 
@@ -33,10 +33,10 @@ public class ExplosionConcoctingSerializer implements RecipeSerializer<Explosion
 	);
 
 	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, ExplosionConcoctingRecipe pRecipe) {
-		pRegistryFriendlyByteBuf.writeFloat(pRecipe.radius);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
+		pRegistryFriendlyByteBuf.writeFloat(pRecipe.radius());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient());
 	}
 
 	public static ExplosionConcoctingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {

@@ -35,19 +35,19 @@ public class ItemConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
-		return this.ingredient.getValues().size() < 3 ? this.ingredient.getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
+		return this.ingredient().getValues().size() < 3 ? this.ingredient().getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
 	}
 
 	public boolean matchesSingle(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesDouble(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesTriple(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient().getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
 	}
 
 	public int colour() {
@@ -68,7 +68,7 @@ public class ItemConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
-		return this.result.copy();
+		return this.result().copy();
 	}
 
 	public ItemStack result() {
@@ -77,12 +77,12 @@ public class ItemConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public PlacementInfo placementInfo() {
-		return PlacementInfo.create(this.ingredient);
+		return PlacementInfo.create(this.ingredient());
 	}
 
 	@Override
 	public RecipeBookCategory recipeBookCategory() {
-		return IcariaRecipeBookCategories.KETTLE_ITEM.get();
+		return IcariaRecipeBookCategories.ITEM_CONCOCTING.get();
 	}
 
 	@Override

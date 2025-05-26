@@ -144,7 +144,13 @@ public class IcariaCommonGameEvents {
 
 	@SubscribeEvent
 	public static void onOnDatapackSync(OnDatapackSyncEvent pEvent) {
+		pEvent.sendRecipes(IcariaRecipeTypes.ENTITY_CONCOCTING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.EXPLOSION_CONCOCTING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.FIRING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.FORGING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.GRINDING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.ITEM_CONCOCTING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.POTION_CONCOCTING.get());
 	}
 
 	@SubscribeEvent

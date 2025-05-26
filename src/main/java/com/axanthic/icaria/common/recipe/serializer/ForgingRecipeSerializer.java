@@ -21,10 +21,10 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> {
 	public static final MapCodec<ForgingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
-			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
-			ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
+			Codec.FLOAT.fieldOf("experience").forGetter(ForgingRecipe::experience),
+			Codec.INT.fieldOf("time").forGetter(ForgingRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(ForgingRecipe::ingredient),
+			ItemStack.CODEC.fieldOf("result").forGetter(ForgingRecipe::result)
 		).apply(instance, ForgingRecipe::new)
 	);
 
@@ -34,10 +34,10 @@ public class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> 
 	);
 
 	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, ForgingRecipe pRecipe) {
-		pRegistryFriendlyByteBuf.writeFloat(pRecipe.experience);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
-		ItemStack.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.result);
+		pRegistryFriendlyByteBuf.writeFloat(pRecipe.experience());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient());
+		ItemStack.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.result());
 	}
 
 	public static ForgingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {

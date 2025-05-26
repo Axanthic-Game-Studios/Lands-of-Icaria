@@ -21,12 +21,12 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class PotionConcoctingRecipeSerializer implements RecipeSerializer<PotionConcoctingRecipe> {
 	public static final MapCodec<PotionConcoctingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			Codec.FLOAT.fieldOf("radius").forGetter(recipe -> recipe.radius),
-			Codec.INT.fieldOf("colour").forGetter(recipe -> recipe.colour),
-			Codec.INT.fieldOf("duration").forGetter(recipe -> recipe.duration),
-			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
-			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
-			PotionContents.CODEC.fieldOf("potion").forGetter(recipe -> recipe.potion)
+			Codec.FLOAT.fieldOf("radius").forGetter(PotionConcoctingRecipe::radius),
+			Codec.INT.fieldOf("colour").forGetter(PotionConcoctingRecipe::colour),
+			Codec.INT.fieldOf("duration").forGetter(PotionConcoctingRecipe::duration),
+			Codec.INT.fieldOf("time").forGetter(PotionConcoctingRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(PotionConcoctingRecipe::ingredient),
+			PotionContents.CODEC.fieldOf("potion").forGetter(PotionConcoctingRecipe::potion)
 		).apply(instance, PotionConcoctingRecipe::new)
 	);
 
@@ -36,12 +36,12 @@ public class PotionConcoctingRecipeSerializer implements RecipeSerializer<Potion
 	);
 
 	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, PotionConcoctingRecipe pRecipe) {
-		pRegistryFriendlyByteBuf.writeFloat(pRecipe.radius);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.duration);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
-		PotionContents.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.potion);
+		pRegistryFriendlyByteBuf.writeFloat(pRecipe.radius());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.duration());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient());
+		PotionContents.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.potion());
 	}
 
 	public static PotionConcoctingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {

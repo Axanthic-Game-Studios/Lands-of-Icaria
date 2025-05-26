@@ -20,10 +20,10 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class EntityConcoctingRecipeSerializer implements RecipeSerializer<EntityConcoctingRecipe> {
 	public static final MapCodec<EntityConcoctingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			Codec.INT.fieldOf("color").forGetter(recipe -> recipe.colour),
-			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
-			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
-			Codec.STRING.fieldOf("entity").forGetter(recipe -> recipe.entity)
+			Codec.INT.fieldOf("color").forGetter(EntityConcoctingRecipe::colour),
+			Codec.INT.fieldOf("time").forGetter(EntityConcoctingRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(EntityConcoctingRecipe::ingredient),
+			Codec.STRING.fieldOf("entity").forGetter(EntityConcoctingRecipe::entity)
 		).apply(instance, EntityConcoctingRecipe::new)
 	);
 
@@ -33,10 +33,10 @@ public class EntityConcoctingRecipeSerializer implements RecipeSerializer<Entity
 	);
 
 	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, EntityConcoctingRecipe pRecipe) {
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
-		pRegistryFriendlyByteBuf.writeUtf(pRecipe.entity);
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.colour());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient());
+		pRegistryFriendlyByteBuf.writeUtf(pRecipe.entity());
 	}
 
 	public static EntityConcoctingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {
