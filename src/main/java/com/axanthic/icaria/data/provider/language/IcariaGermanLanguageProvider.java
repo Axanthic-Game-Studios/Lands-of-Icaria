@@ -757,6 +757,10 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.ICARIA_PORTAL.get(), "Icaria Portal");
 
+		this.add("category" + "." + IcariaIdents.ID + "." + "firing", "Brennen");
+		this.add("category" + "." + IcariaIdents.ID + "." + "forging", "Schmieden");
+		this.add("category" + "." + IcariaIdents.ID + "." + "grinding", "Mahlen");
+
 		this.add("command" + "." + IcariaIdents.ID + "." + "heal" + "." + "success", "Heilen gelungen");
 
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_settings", "Rendereinstellungen");

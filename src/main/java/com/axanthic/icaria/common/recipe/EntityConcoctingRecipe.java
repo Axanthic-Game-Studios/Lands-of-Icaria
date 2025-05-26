@@ -40,19 +40,19 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
-		return this.ingredient.getValues().size() < 3 ? this.ingredient.getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
+		return this.ingredient().getValues().size() < 3 ? this.ingredient().getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
 	}
 
 	public boolean matchesSingle(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesDouble(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesTriple(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient().getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
 	}
 
 	public int colour() {
@@ -64,7 +64,7 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 	}
 
 	public void performRecipe(BlockPos pBlockPos, Level pLevel) {
-		var optional = EntityType.byString(this.entity);
+		var optional = EntityType.byString(this.entity());
 		if (optional.isPresent()) {
 			var entity = optional.get().create(pLevel, EntitySpawnReason.TRIGGERED);
 			if (entity instanceof LivingEntity livingEntity) {
@@ -137,12 +137,12 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public PlacementInfo placementInfo() {
-		return PlacementInfo.create(this.ingredient);
+		return PlacementInfo.create(this.ingredient());
 	}
 
 	@Override
 	public RecipeBookCategory recipeBookCategory() {
-		return IcariaRecipeBookCategories.KETTLE_ENTITY.get();
+		return IcariaRecipeBookCategories.ENTITY_CONCOCTING.get();
 	}
 
 	@Override
@@ -153,5 +153,9 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 	@Override
 	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.ENTITY_CONCOCTING.get();
+	}
+
+	public String entity() {
+		return this.entity;
 	}
 }

@@ -21,11 +21,11 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe> {
 	public static final MapCodec<GrindingRecipe> CODEC = RecordCodecBuilder.mapCodec(
 		instance -> instance.group(
-			Codec.FLOAT.fieldOf("experience").forGetter(recipe -> recipe.experience),
-			Codec.INT.fieldOf("time").forGetter(recipe -> recipe.time),
-			Ingredient.CODEC.fieldOf("gear").forGetter(recipe -> recipe.gear),
-			Ingredient.CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
-			ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
+			Codec.FLOAT.fieldOf("experience").forGetter(GrindingRecipe::experience),
+			Codec.INT.fieldOf("time").forGetter(GrindingRecipe::time),
+			Ingredient.CODEC.fieldOf("gear").forGetter(GrindingRecipe::gear),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(GrindingRecipe::ingredient),
+			ItemStack.CODEC.fieldOf("result").forGetter(GrindingRecipe::result)
 		).apply(instance, GrindingRecipe::new)
 	);
 
@@ -35,11 +35,11 @@ public class GrindingRecipeSerializer implements RecipeSerializer<GrindingRecipe
 	);
 
 	public static void toNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf, GrindingRecipe pRecipe) {
-		pRegistryFriendlyByteBuf.writeFloat(pRecipe.experience);
-		pRegistryFriendlyByteBuf.writeInt(pRecipe.time);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.gear);
-		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient);
-		ItemStack.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.result);
+		pRegistryFriendlyByteBuf.writeFloat(pRecipe.experience());
+		pRegistryFriendlyByteBuf.writeInt(pRecipe.time());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.gear());
+		Ingredient.CONTENTS_STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.ingredient());
+		ItemStack.STREAM_CODEC.encode(pRegistryFriendlyByteBuf, pRecipe.result());
 	}
 
 	public static GrindingRecipe fromNetwork(RegistryFriendlyByteBuf pRegistryFriendlyByteBuf) {

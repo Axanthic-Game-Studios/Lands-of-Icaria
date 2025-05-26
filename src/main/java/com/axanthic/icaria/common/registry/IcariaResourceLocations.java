@@ -136,8 +136,11 @@ public class IcariaResourceLocations {
 
 	public static final ResourceLocation CHEST_LABEL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/chest_label.png");
 	public static final ResourceLocation FORGE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/forge.png");
+	public static final ResourceLocation FORGING_RECIPE_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/forging_recipe_category.png");
 	public static final ResourceLocation GRINDER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/grinder.png");
+	public static final ResourceLocation GRINDING_RECIPE_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/grinding_recipe_category.png");
 	public static final ResourceLocation KILN = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/kiln.png");
+	public static final ResourceLocation FIRING_RECIPE_CATEGORY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/firing_recipe_category.png");
 	public static final ResourceLocation STORAGE_VASE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/gui/storage_vase.png");
 
 	// ITEM

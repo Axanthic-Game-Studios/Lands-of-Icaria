@@ -1,15 +1,22 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.common.recipe.display.GrindingRecipeDisplay;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.display.RecipeDisplay;
+import net.minecraft.world.item.crafting.display.SlotDisplay;
 import net.minecraft.world.level.Level;
 
 @MethodsReturnNonnullByDefault
@@ -35,7 +42,7 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
-		return this.gear.test(pRecipeInput.getItem(0)) && this.ingredient.test(pRecipeInput.getItem(1));
+		return this.gear().test(pRecipeInput.getItem(0)) && this.ingredient().test(pRecipeInput.getItem(1));
 	}
 
 	public float experience() {
@@ -46,6 +53,10 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 		return this.time;
 	}
 
+	public Ingredient fuel() {
+		return Ingredient.of(IcariaItems.SLIVER.get(), IcariaItems.SLIVER_BLOCK.get());
+	}
+
 	public Ingredient gear() {
 		return this.gear;
 	}
@@ -54,9 +65,13 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 		return this.ingredient;
 	}
 
+	public Item craftingStation() {
+		return IcariaItems.GRINDER.get();
+	}
+
 	@Override
 	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
-		return this.result.copy();
+		return this.result().copy();
 	}
 
 	public ItemStack result() {
@@ -64,13 +79,18 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 	}
 
 	@Override
+	public List<RecipeDisplay> display() {
+		return List.of(new GrindingRecipeDisplay(new SlotDisplay.ItemStackSlotDisplay(this.result()), new SlotDisplay.ItemSlotDisplay(this.craftingStation()), this.ingredient().display(), this.gear().display(), this.fuel().display(), this.time(), this.experience()));
+	}
+
+	@Override
 	public PlacementInfo placementInfo() {
-		return PlacementInfo.create(this.ingredient);
+		return PlacementInfo.create(this.ingredient());
 	}
 
 	@Override
 	public RecipeBookCategory recipeBookCategory() {
-		return IcariaRecipeBookCategories.GRINDER.get();
+		return IcariaRecipeBookCategories.GRINDING.get();
 	}
 
 	@Override

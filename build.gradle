@@ -103,6 +103,7 @@ dependencies {
     // And its provides the option to then use net.minecraft as the group, and one of; client, server or joined as the module name, plus the game version as version.
     // For all intends and purposes: You can treat this dependency as if it is a normal library you would use.
     implementation "curse.maven:jade-324717:${jade_version}"
+    implementation "curse.maven:jei-238222:${jei_version}"
     implementation "net.neoforged:neoforge:${neo_version}"
 
     // Example optional mod dependency with JEI

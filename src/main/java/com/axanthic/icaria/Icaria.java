@@ -79,6 +79,7 @@ public class Icaria {
 		IcariaPoiTypes.POI_TYPES.register(pBus);
 		IcariaPotions.POTIONS.register(pBus);
 		IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register(pBus);
+		IcariaRecipeDisplays.RECIPE_DISPLAYS.register(pBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(pBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(pBus);
 		IcariaStructureTypes.STRUCTURE_TYPES.register(pBus);

@@ -15,11 +15,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class IcariaRecipeBookCategories {
 	public static final DeferredRegister<RecipeBookCategory> RECIPE_BOOK_CATEGORIES = DeferredRegister.create(Registries.RECIPE_BOOK_CATEGORY, IcariaIdents.ID);
 
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> FORGE = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("forge", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> GRINDER = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("grinder", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> KETTLE_ENTITY = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("kettle_entity", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> KETTLE_EXPLOSION = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("kettle_explosion", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> KETTLE_ITEM = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("kettle_item", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> KETTLE_POTION = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("kettle_potion", RecipeBookCategory::new);
-	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> KILN = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("kiln", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> ENTITY_CONCOCTING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("entity_concocting", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> EXPLOSION_CONCOCTING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("explosion_concocting", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> FIRING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("firing", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> FORGING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("forging", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> GRINDING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("grinding", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> ITEM_CONCOCTING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("item_concocting", RecipeBookCategory::new);
+	public static final DeferredHolder<RecipeBookCategory, RecipeBookCategory> POTION_CONCOCTING = IcariaRecipeBookCategories.RECIPE_BOOK_CATEGORIES.register("potion_concocting", RecipeBookCategory::new);
 }

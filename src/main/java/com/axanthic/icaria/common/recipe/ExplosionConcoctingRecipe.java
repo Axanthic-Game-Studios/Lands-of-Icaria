@@ -33,19 +33,23 @@ public class ExplosionConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
-		return this.ingredient.getValues().size() < 3 ? this.ingredient.getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
+		return this.ingredient().getValues().size() < 3 ? this.ingredient().getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
 	}
 
 	public boolean matchesSingle(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesDouble(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesTriple(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient().getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+	}
+
+	public float radius() {
+		return this.radius;
 	}
 
 	public int colour() {
@@ -57,7 +61,7 @@ public class ExplosionConcoctingRecipe implements Recipe<RecipeInput> {
 	}
 
 	public void performRecipe(BlockPos pBlockPos, Level pLevel) {
-		pLevel.explode(null, pBlockPos.getX() + 0.5D, pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D, this.radius, Level.ExplosionInteraction.NONE);
+		pLevel.explode(null, pBlockPos.getX() + 0.5D, pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D, this.radius(), Level.ExplosionInteraction.NONE);
 	}
 
 	public Ingredient ingredient() {
@@ -75,12 +79,12 @@ public class ExplosionConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public PlacementInfo placementInfo() {
-		return PlacementInfo.create(this.ingredient);
+		return PlacementInfo.create(this.ingredient());
 	}
 
 	@Override
 	public RecipeBookCategory recipeBookCategory() {
-		return IcariaRecipeBookCategories.KETTLE_EXPLOSION.get();
+		return IcariaRecipeBookCategories.EXPLOSION_CONCOCTING.get();
 	}
 
 	@Override

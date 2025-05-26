@@ -43,23 +43,31 @@ public class PotionConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
-		return this.ingredient.getValues().size() < 3 ? this.ingredient.getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
+		return this.ingredient().getValues().size() < 3 ? this.ingredient().getValues().size() < 2 ? this.matchesSingle(pRecipeInput) : this.matchesDouble(pRecipeInput) : this.matchesTriple(pRecipeInput);
 	}
 
 	public boolean matchesSingle(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && pRecipeInput.getItem(1).isEmpty() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesDouble(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && pRecipeInput.getItem(2).isEmpty();
 	}
 
 	public boolean matchesTriple(RecipeInput pRecipeInput) {
-		return this.ingredient.getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient.getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient.getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+		return this.ingredient().getValues().get(0).value() == pRecipeInput.getItem(0).getItem() && this.ingredient().getValues().get(1).value() == pRecipeInput.getItem(1).getItem() && this.ingredient().getValues().get(2).value() == pRecipeInput.getItem(2).getItem();
+	}
+
+	public float radius() {
+		return this.radius;
 	}
 
 	public int colour() {
 		return this.colour;
+	}
+
+	public int duration() {
+		return this.duration;
 	}
 
 	public int time() {
@@ -70,9 +78,9 @@ public class PotionConcoctingRecipe implements Recipe<RecipeInput> {
 		var entity = EntityType.AREA_EFFECT_CLOUD.create(pLevel, EntitySpawnReason.TRIGGERED);
 		if (entity != null) {
 			entity.snapTo(pBlockPos.getX() + 0.5D, pBlockPos.getY(), pBlockPos.getZ() + 0.5D);
-			entity.setDuration(this.duration);
-			entity.setPotionContents(this.potion);
-			entity.setRadius(this.radius);
+			entity.setDuration(this.duration());
+			entity.setPotionContents(this.potion());
+			entity.setRadius(this.radius());
 			entity.setRadiusPerTick(entity.getRadius() / -entity.getDuration());
 			entity.setWaitTime(0);
 			pLevel.addFreshEntity(entity);
@@ -95,12 +103,16 @@ public class PotionConcoctingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public PlacementInfo placementInfo() {
-		return PlacementInfo.create(this.ingredient);
+		return PlacementInfo.create(this.ingredient());
+	}
+
+	public PotionContents potion() {
+		return this.potion;
 	}
 
 	@Override
 	public RecipeBookCategory recipeBookCategory() {
-		return IcariaRecipeBookCategories.KETTLE_POTION.get();
+		return IcariaRecipeBookCategories.POTION_CONCOCTING.get();
 	}
 
 	@Override
