@@ -101,7 +101,7 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 	}
 
 	public void setSeed() {
-		this.getRandom().setSeed(this.getId());
+		this.getRandom().fork().setSeed(this.getId());
 	}
 
 	@Override
