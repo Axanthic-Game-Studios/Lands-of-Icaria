@@ -1,5 +1,6 @@
 Additions
 
+- Marl, Loam, Grainel and Silksand Path Blocks
 - a grinding Recipe to grind Cactus Flowers into Pink Dye
 - a grinding Recipe to grind Wildflowers into Yellow Dye
 
