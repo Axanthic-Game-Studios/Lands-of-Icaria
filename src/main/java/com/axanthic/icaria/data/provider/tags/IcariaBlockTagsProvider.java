@@ -966,6 +966,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 
 		this.tag(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB)
 			.add(Blocks.QUARTZ_SLAB)
+			.add(Blocks.SMOOTH_QUARTZ_SLAB)
 			.add(IcariaBlocks.SMOOTH_DOLOMITE_SLAB.get());
 
 		this.tag(IcariaBlockTagsProvider.RACKS_CYPRESS)
