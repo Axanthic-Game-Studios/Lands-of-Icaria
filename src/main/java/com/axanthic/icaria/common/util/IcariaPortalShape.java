@@ -147,6 +147,7 @@ public class IcariaPortalShape extends PortalShape {
 		for (int w = -1; w < 1; ++w) {
 			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
 			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+				!(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
 				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
 				this.height = 0;
 				break;
@@ -158,6 +159,7 @@ public class IcariaPortalShape extends PortalShape {
 		for (int w = this.width - 1; w < this.width + 1; ++w) {
 			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height);
 			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
+				!(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM))) &&
 				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.BOTTOM)))) {
 				this.height = 0;
 				break;
@@ -169,6 +171,7 @@ public class IcariaPortalShape extends PortalShape {
 		for (int w = -2; w < -1; ++w) {
 			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
 			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+				!(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
 				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
 				this.height = 0;
 				break;
@@ -180,6 +183,7 @@ public class IcariaPortalShape extends PortalShape {
 		for (int w = this.width + 1; w < this.width + 2; ++w) {
 			var blockPos = this.bottomLeft.relative(this.rightDir, w).above(this.height - 1);
 			if (!(this.level.getBlockState(blockPos).equals(Blocks.QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
+				!(this.level.getBlockState(blockPos).equals(Blocks.SMOOTH_QUARTZ_SLAB.defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP))) &&
 				!(this.level.getBlockState(blockPos).equals(IcariaBlocks.SMOOTH_DOLOMITE_DECO.slab.get().defaultBlockState().setValue(SlabBlock.TYPE, SlabType.TOP)))) {
 				this.height = 0;
 				break;
