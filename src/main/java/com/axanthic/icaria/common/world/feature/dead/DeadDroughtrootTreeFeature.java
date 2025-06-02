@@ -16,6 +16,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class DeadDroughtrootTreeFeature extends IcariaDeadTreeFeature {
 	public DeadDroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE);
+		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE);
 	}
 }

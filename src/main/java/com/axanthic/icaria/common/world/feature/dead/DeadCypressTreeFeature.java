@@ -15,6 +15,6 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 
 public class DeadCypressTreeFeature extends IcariaDeadTreeFeature {
 	public DeadCypressTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.CYPRESS_TWIGS.get(), Moss.STEPPE);
+		super(pCodec, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.CYPRESS_TWIGS.get(), Moss.STEPPE);
 	}
 }
