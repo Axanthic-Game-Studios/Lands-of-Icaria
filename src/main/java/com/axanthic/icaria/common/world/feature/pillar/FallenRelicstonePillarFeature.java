@@ -41,12 +41,12 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
 
 		this.placePillar(level, origin.above(), Direction.UP);
 
-		this.placeRubble(level, origin.relative(direction), 4);
-		this.placeRubble(level, origin.relative(direction).relative(direction.getClockWise()), 4);
-		this.placeRubble(level, origin.relative(direction).relative(direction.getCounterClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction, 1), 4);
+		this.placeRubble(level, origin.relative(direction, 1).relative(direction.getClockWise(), 1), 4);
+		this.placeRubble(level, origin.relative(direction, 1).relative(direction.getCounterClockWise(), 1), 4);
 		this.placeRubble(level, origin.relative(direction, 2), 4);
-		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise()), 4);
-		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise()), 4);
+		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise(), 1), 4);
+		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise(), 1), 4);
 
 		for (var i = 1; i <= length; ++i) {
 			++offset;
