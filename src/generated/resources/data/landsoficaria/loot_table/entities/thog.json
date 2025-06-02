@@ -12,7 +12,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:sow_skull"
+          "name": "landsoficaria:thog_skull"
         }
       ],
       "rolls": 1.0
@@ -78,11 +78,11 @@
               "function": "minecraft:furnace_smelt"
             }
           ],
-          "name": "landsoficaria:raw_sow_meat"
+          "name": "landsoficaria:raw_thog_meat"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "landsoficaria:entities/sow"
+  "random_sequence": "landsoficaria:entities/thog"
 }

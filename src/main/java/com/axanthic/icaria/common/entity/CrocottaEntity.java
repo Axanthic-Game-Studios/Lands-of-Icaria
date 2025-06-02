@@ -68,7 +68,7 @@ public class CrocottaEntity extends Monster {
 		this.targetSelector.addGoal(2, new CrocottaTargetGoal<>(this, CapellaEntity.class, true, true));
 		this.targetSelector.addGoal(2, new CrocottaTargetGoal<>(this, CatoblepasEntity.class, true, true));
 		this.targetSelector.addGoal(2, new CrocottaTargetGoal<>(this, CerverEntity.class, true, true));
-		this.targetSelector.addGoal(2, new CrocottaTargetGoal<>(this, SowEntity.class, true, true));
+		this.targetSelector.addGoal(2, new CrocottaTargetGoal<>(this, ThogEntity.class, true, true));
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {

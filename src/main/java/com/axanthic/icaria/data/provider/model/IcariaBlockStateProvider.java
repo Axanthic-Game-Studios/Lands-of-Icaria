@@ -690,8 +690,8 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.skull(IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.skull(IcariaBlocks.REVENANT_SKULL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.skull(IcariaBlocks.REVENANT_WALL_SKULL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.skull(IcariaBlocks.SOW_SKULL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.skull(IcariaBlocks.SOW_WALL_SKULL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.skull(IcariaBlocks.THOG_SKULL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.skull(IcariaBlocks.THOG_WALL_SKULL.get(), pBlockModelGenerators);
 	}
 
 	public static void slab(BlockModelGenerators pBlockModelGenerators) {

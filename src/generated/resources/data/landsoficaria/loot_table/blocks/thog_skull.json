@@ -6,11 +6,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:sow_skull"
+          "name": "landsoficaria:thog_skull"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "landsoficaria:blocks/sow_wall_skull"
+  "random_sequence": "landsoficaria:blocks/thog_skull"
 }

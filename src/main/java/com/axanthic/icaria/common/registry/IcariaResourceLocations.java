@@ -114,7 +114,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SNULL_SANS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/snull_sans.png");
 	public static final ResourceLocation SOLIFUGAE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/solifugae.png");
 	public static final ResourceLocation SOLIFUGAE_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/solifugae_emissive.png");
-	public static final ResourceLocation SOW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/sow.png");
+	public static final ResourceLocation THOG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/thog.png");
 	public static final ResourceLocation VINEGAROON = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/vinegaroon.png");
 	public static final ResourceLocation VINEGAROON_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/vinegaroon_emissive.png");
 
@@ -201,8 +201,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation FOREST_SNULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "forest_snull");
 	public static final ResourceLocation SNULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "snull");
 	public static final ResourceLocation SOLIFUGAE_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "solifugae");
-	public static final ResourceLocation SOW_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "sow");
-	public static final ResourceLocation SOW_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "sow_skull");
+	public static final ResourceLocation THOG_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "thog");
+	public static final ResourceLocation THOG_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "thog_skull");
 	public static final ResourceLocation VINEGAROON_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "vinegaroon");
 
 	// PACKET TYPE
@@ -337,10 +337,10 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation SOLIFUGAE_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.solifugae.death");
 	public static final ResourceLocation SOLIFUGAE_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.solifugae.hurt");
 	public static final ResourceLocation SOLIFUGAE_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.solifugae.step");
-	public static final ResourceLocation SOW_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.sow.ambient");
-	public static final ResourceLocation SOW_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.sow.death");
-	public static final ResourceLocation SOW_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.sow.hurt");
-	public static final ResourceLocation SOW_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.sow.step");
+	public static final ResourceLocation THOG_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.thog.ambient");
+	public static final ResourceLocation THOG_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.thog.death");
+	public static final ResourceLocation THOG_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.thog.hurt");
+	public static final ResourceLocation THOG_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.thog.step");
 	public static final ResourceLocation VINEGAROON_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.ambient");
 	public static final ResourceLocation VINEGAROON_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.death");
 	public static final ResourceLocation VINEGAROON_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.hurt");

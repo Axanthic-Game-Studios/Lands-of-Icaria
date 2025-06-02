@@ -406,7 +406,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), "Plane Forest Hag Skull");
 		this.add(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), "Populus Forest Hag Skull");
 		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Revenant Skull");
-		this.add(IcariaBlocks.SOW_SKULL.get(), "Sow Skull");
+		this.add(IcariaBlocks.THOG_SKULL.get(), "Thog Skull");
 
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Lignite Torch");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Anthracite Torch");
@@ -848,13 +848,13 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");
-		this.add(IcariaEntityTypes.SOW.get(), "Sow");
 		this.add(IcariaEntityTypes.ANTI_GRAVITY_SPELL.get(), "Anti Gravity Spell");
 		this.add(IcariaEntityTypes.FORTIFYING_SPELL.get(), "Fortifying Spell");
 		this.add(IcariaEntityTypes.HEALING_SPELL.get(), "Healing Spell");
 		this.add(IcariaEntityTypes.BUBBLE_SPELL.get(), "Bubble Spell");
 		this.add(IcariaEntityTypes.FREEZING_SPELL.get(), "Freezing Spell");
 		this.add(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), "Magic Missile Spell");
+		this.add(IcariaEntityTypes.THOG.get(), "Thog");
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Vinegar");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");
 
@@ -1086,8 +1086,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Cooked Cerver Meat");
 		this.add(IcariaItems.RAW_CROCOTTA_MEAT.get(), "Raw Crocotta Meat");
 		this.add(IcariaItems.COOKED_CROCOTTA_MEAT.get(), "Cooked Crocotta Meat");
-		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Raw Sow Meat");
-		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Cooked Sow Meat");
+		this.add(IcariaItems.RAW_THOG_MEAT.get(), "Raw Thog Meat");
+		this.add(IcariaItems.COOKED_THOG_MEAT.get(), "Cooked Thog Meat");
 		this.add(IcariaItems.CAPELLA_HORN.get(), "Capella Horn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Slug Scales");
@@ -1101,7 +1101,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.AETERNAE_STEW.get(), "Aeternae Stew");
 		this.add(IcariaItems.CATOBLEPAS_STEW.get(), "Catoblepas Stew");
 		this.add(IcariaItems.CERVER_STEW.get(), "Cerver Stew");
-		this.add(IcariaItems.SOW_STEW.get(), "Sow Stew");
+		this.add(IcariaItems.THOG_STEW.get(), "Thog Stew");
 
 		this.add(IcariaItems.SPELT_SEEDS.get(), "Spelt Seeds");
 		this.add(IcariaItems.STRAWBERRY_SEEDS.get(), "Strawberry Seeds");
@@ -1143,7 +1143,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Forest Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn Egg");
 		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Solifugae Spawn Egg");
-		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Sow Spawn Egg");
+		this.add(IcariaItems.THOG_SPAWN_EGG.get(), "Thog Spawn Egg");
 		this.add(IcariaItems.VINEGAROON_SPAWN_EGG.get(), "Vinegaroon Spawn Egg");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Mediterranean Water Bucket");
@@ -1268,10 +1268,10 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "death", "Solifugae dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "hurt", "Solifugae hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "step", "Solifugae steps");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "ambient", "Sow oinks");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "death", "Sow dies");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "hurt", "Sow hurts");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "step", "Sow steps");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "ambient", "Thog growls");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "death", "Thog dies");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "hurt", "Thog hurts");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "step", "Thog steps");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "ambient", "Vinegaroon rattles");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "death", "Vinegaroon dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "hurt", "Vinegaroon hurts");

@@ -114,10 +114,10 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.SOLIFUGAE_DEATH, SoundEvents.SPIDER_DEATH, "solifugae", "death");
 		this.register(IcariaSoundEvents.SOLIFUGAE_HURT, SoundEvents.SPIDER_HURT, "solifugae", "hurt");
 		this.register(IcariaSoundEvents.SOLIFUGAE_STEP, SoundEvents.SPIDER_STEP, "solifugae", "step");
-		this.register(IcariaSoundEvents.SOW_AMBIENT, SoundEvents.PIG_AMBIENT, "sow", "ambient");
-		this.register(IcariaSoundEvents.SOW_DEATH, SoundEvents.PIG_DEATH, "sow", "death");
-		this.register(IcariaSoundEvents.SOW_HURT, SoundEvents.PIG_HURT, "sow", "hurt");
-		this.register(IcariaSoundEvents.SOW_STEP, SoundEvents.PIG_STEP, "sow", "step");
+		this.register(IcariaSoundEvents.THOG_AMBIENT, SoundEvents.HOGLIN_AMBIENT, "thog", "ambient");
+		this.register(IcariaSoundEvents.THOG_DEATH, SoundEvents.HOGLIN_DEATH, "thog", "death");
+		this.register(IcariaSoundEvents.THOG_HURT, SoundEvents.HOGLIN_HURT, "thog", "hurt");
+		this.register(IcariaSoundEvents.THOG_STEP, SoundEvents.HOGLIN_STEP, "thog", "step");
 		this.register(IcariaSoundEvents.VINEGAROON_AMBIENT, "entity", "vinegaroon", "ambient", 4);
 		this.register(IcariaSoundEvents.VINEGAROON_DEATH, "entity", "vinegaroon", "death", 1);
 		this.register(IcariaSoundEvents.VINEGAROON_HURT, "entity", "vinegaroon", "hurt", 3);

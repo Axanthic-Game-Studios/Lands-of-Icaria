@@ -81,7 +81,7 @@ public class IcariaClientModEvents {
 		pEvent.registerSkullModel(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaModelLayerLocations.PLANE_FOREST_HAG_SKULL);
 		pEvent.registerSkullModel(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL);
 		pEvent.registerSkullModel(IcariaSkullBlockTypes.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL);
-		pEvent.registerSkullModel(IcariaSkullBlockTypes.SOW, IcariaModelLayerLocations.SOW_SKULL);
+		pEvent.registerSkullModel(IcariaSkullBlockTypes.THOG, IcariaModelLayerLocations.THOG_SKULL);
 	}
 
 	@SubscribeEvent
@@ -147,8 +147,8 @@ public class IcariaClientModEvents {
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FOREST_SNULL, ForestSnullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SNULL, SnullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SOLIFUGAE, SolifugaeModel::createLayer);
-		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SOW, SowModel::createLayer);
-		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SOW_SKULL, SowSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.THOG, ThogModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.THOG_SKULL, ThogSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.VINEGAROON, VinegaroonModel::createLayer);
 	}
 
@@ -321,13 +321,13 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);
-		EntityRenderers.register(IcariaEntityTypes.SOW.get(), SowRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ANTI_GRAVITY_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FORTIFYING_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.HEALING_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.BUBBLE_SPELL.get(), BubbleSpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FREEZING_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.THOG.get(), ThogRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAR.get(), ThrownItemRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
 	}

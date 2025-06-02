@@ -78,7 +78,7 @@ public class IcariaEntityLootSubProvider extends EntityLootSubProvider {
 		this.dropItemWithCookFunc(IcariaEntityTypes.CATOBLEPAS.get(), IcariaItems.CATOBLEPAS_SKULL.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.dropItemWithCookFunc(IcariaEntityTypes.CERVER.get(), IcariaItems.CERVER_SKULL.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.dropItemWithCookFunc(IcariaEntityTypes.CROCOTTA.get(), IcariaItems.CROCOTTA_SKULL.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
-		this.dropItemWithCookFunc(IcariaEntityTypes.SOW.get(), IcariaItems.SOW_SKULL.get(), IcariaItems.RAW_SOW_MEAT.get());
+		this.dropItemWithCookFunc(IcariaEntityTypes.THOG.get(), IcariaItems.THOG_SKULL.get(), IcariaItems.RAW_THOG_MEAT.get());
 	}
 
 	public void dropItemWithCookFuncPlusScnd() {

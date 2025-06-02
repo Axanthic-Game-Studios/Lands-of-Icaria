@@ -9,7 +9,7 @@ import net.minecraft.world.entity.AnimationState;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SowRenderState extends LivingEntityRenderState {
+public class ThogRenderState extends LivingEntityRenderState {
 	public float renderScale;
 	public float shadowScale;
 	public int size;

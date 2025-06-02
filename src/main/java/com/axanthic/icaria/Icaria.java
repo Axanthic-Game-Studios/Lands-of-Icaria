@@ -104,7 +104,7 @@ public class Icaria {
 		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG));
 		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG));
 		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.SOW, IcariaResourceLocations.SOW));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.THOG, IcariaResourceLocations.THOG));
 	}
 
 	public static void registerWoodTypes(FMLClientSetupEvent pEvent) {

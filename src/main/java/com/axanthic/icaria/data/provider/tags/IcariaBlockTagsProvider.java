@@ -702,8 +702,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get())
 			.add(IcariaBlocks.REVENANT_SKULL.get())
 			.add(IcariaBlocks.REVENANT_WALL_SKULL.get())
-			.add(IcariaBlocks.SOW_SKULL.get())
-			.add(IcariaBlocks.SOW_WALL_SKULL.get());
+			.add(IcariaBlocks.THOG_SKULL.get())
+			.add(IcariaBlocks.THOG_WALL_SKULL.get());
 
 		this.tag(Tags.Blocks.VILLAGER_FARMLANDS)
 			.add(IcariaBlocks.FARMLAND.get())

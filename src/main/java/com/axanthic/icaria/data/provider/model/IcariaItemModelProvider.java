@@ -275,8 +275,8 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.COOKED_CERVER_MEAT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.RAW_CROCOTTA_MEAT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.COOKED_CROCOTTA_MEAT.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.RAW_SOW_MEAT.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.COOKED_SOW_MEAT.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.RAW_THOG_MEAT.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.COOKED_THOG_MEAT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.MYRMEKE_SCALES.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SLUG_SCALES.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SNULL_CREAM.get(), pItemModelGenerators);
@@ -288,7 +288,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.AETERNAE_STEW.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.CATOBLEPAS_STEW.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.CERVER_STEW.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.SOW_STEW.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.THOG_STEW.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
@@ -328,7 +328,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.SOW_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.THOG_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.VINEGAROON_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.LEFT_GRINDER_CHAIN.get(), pItemModelGenerators);

@@ -113,7 +113,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.mossyCobblestone();
 		this.mossyStoneBricks();
 		this.onionSoup();
-		this.sowStew();
+		this.thogStew();
 	}
 
 	public void campfireCooking() {
@@ -122,7 +122,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
-		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItems.RAW_SOW_MEAT.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
 	}
 
 	public void smelting() {
@@ -141,7 +141,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.smelting(0.35F, 200, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.smelting(0.35F, 200, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.smelting(0.35F, 200, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
-		this.smelting(0.35F, 200, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItems.RAW_SOW_MEAT.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
 	}
 
 	public void smoking() {
@@ -150,7 +150,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.smoking(0.35F, 100, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.smoking(0.35F, 100, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.smoking(0.35F, 100, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
-		this.smoking(0.35F, 100, IcariaItems.COOKED_SOW_MEAT.get(), IcariaItems.RAW_SOW_MEAT.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
 	}
 
 	public void stonecutting() {
@@ -2288,17 +2288,17 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(IcariaItems.ONION_SOUP.get()));
 	}
 
-	public void sowStew() {
-		this.shapeless(RecipeCategory.MISC, IcariaItems.SOW_STEW.get(), 1)
+	public void thogStew() {
+		this.shapeless(RecipeCategory.MISC, IcariaItems.THOG_STEW.get(), 1)
 			.requires(Tags.Items.MUSHROOMS)
 			.requires(IcariaItems.HALITE_DUST.get())
-			.requires(IcariaItems.RAW_SOW_MEAT.get())
+			.requires(IcariaItems.RAW_THOG_MEAT.get())
 			.requires(IcariaItems.LOAM_BOWL.get())
 			.unlockedBy(this.name(Tags.Items.MUSHROOMS), this.has(Tags.Items.MUSHROOMS))
 			.unlockedBy(this.name(IcariaItems.HALITE_DUST.get()), this.has(IcariaItems.HALITE_DUST.get()))
-			.unlockedBy(this.name(IcariaItems.RAW_SOW_MEAT.get()), this.has(IcariaItems.RAW_SOW_MEAT.get()))
+			.unlockedBy(this.name(IcariaItems.RAW_THOG_MEAT.get()), this.has(IcariaItems.RAW_THOG_MEAT.get()))
 			.unlockedBy(this.name(IcariaItems.LOAM_BOWL.get()), this.has(IcariaItems.LOAM_BOWL.get()))
-			.save(this.output, this.key(IcariaItems.SOW_STEW.get()));
+			.save(this.output, this.key(IcariaItems.THOG_STEW.get()));
 	}
 
 	public ResourceKey<Recipe<?>> key(Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {

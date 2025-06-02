@@ -788,41 +788,41 @@
     ],
     "subtitle": "subtitle.landsoficaria.solifugae.step"
   },
-  "entity.sow.ambient": {
+  "entity.thog.ambient": {
     "sounds": [
       {
         "type": "event",
-        "name": "entity.pig.ambient"
+        "name": "entity.hoglin.ambient"
       }
     ],
-    "subtitle": "subtitle.landsoficaria.sow.ambient"
+    "subtitle": "subtitle.landsoficaria.thog.ambient"
   },
-  "entity.sow.death": {
+  "entity.thog.death": {
     "sounds": [
       {
         "type": "event",
-        "name": "entity.pig.death"
+        "name": "entity.hoglin.death"
       }
     ],
-    "subtitle": "subtitle.landsoficaria.sow.death"
+    "subtitle": "subtitle.landsoficaria.thog.death"
   },
-  "entity.sow.hurt": {
+  "entity.thog.hurt": {
     "sounds": [
       {
         "type": "event",
-        "name": "entity.pig.hurt"
+        "name": "entity.hoglin.hurt"
       }
     ],
-    "subtitle": "subtitle.landsoficaria.sow.hurt"
+    "subtitle": "subtitle.landsoficaria.thog.hurt"
   },
-  "entity.sow.step": {
+  "entity.thog.step": {
     "sounds": [
       {
         "type": "event",
-        "name": "entity.pig.step"
+        "name": "entity.hoglin.step"
       }
     ],
-    "subtitle": "subtitle.landsoficaria.sow.step"
+    "subtitle": "subtitle.landsoficaria.thog.step"
   },
   "entity.vinegaroon.ambient": {
     "sounds": [

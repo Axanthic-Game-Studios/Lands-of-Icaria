@@ -358,8 +358,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.COOKED_CERVER_MEAT.get())
 			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
 			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_SOW_MEAT.get())
-			.add(IcariaItems.COOKED_SOW_MEAT.get());
+			.add(IcariaItems.RAW_THOG_MEAT.get())
+			.add(IcariaItems.COOKED_THOG_MEAT.get());
 
 		this.tag(ItemTags.PANDA_EATS_FROM_GROUND)
 			.add(IcariaItems.LAUREL_CHERRY_CAKE.get())
@@ -438,7 +438,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.PLANE_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.POPULUS_FOREST_HAG_SKULL.get())
 			.add(IcariaItems.REVENANT_SKULL.get())
-			.add(IcariaItems.SOW_SKULL.get());
+			.add(IcariaItems.THOG_SKULL.get());
 
 		this.tag(ItemTags.STONE_CRAFTING_MATERIALS)
 			.add(IcariaItems.GRAINITE.get())
@@ -504,7 +504,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.AETERNAE_STEW.get())
 			.add(IcariaItems.CATOBLEPAS_STEW.get())
 			.add(IcariaItems.CERVER_STEW.get())
-			.add(IcariaItems.SOW_STEW.get());
+			.add(IcariaItems.THOG_STEW.get());
 
 		this.tag(Tags.Items.BRICKS)
 			.add(IcariaItems.LOAM_BRICK.get());
@@ -546,7 +546,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.COOKED_CERVER_MEAT.get())
 			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
-			.add(IcariaItems.COOKED_SOW_MEAT.get());
+			.add(IcariaItems.COOKED_THOG_MEAT.get());
 
 		this.tag(Tags.Items.FOODS_EDIBLE_WHEN_PLACED)
 			.add(IcariaItems.LAUREL_CHERRY_CAKE.get())
@@ -565,14 +565,14 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
 			.add(IcariaItems.RAW_CERVER_MEAT.get())
 			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_SOW_MEAT.get());
+			.add(IcariaItems.RAW_THOG_MEAT.get());
 
 		this.tag(Tags.Items.FOODS_SOUP)
 			.add(IcariaItems.ONION_SOUP.get())
 			.add(IcariaItems.AETERNAE_STEW.get())
 			.add(IcariaItems.CATOBLEPAS_STEW.get())
 			.add(IcariaItems.CERVER_STEW.get())
-			.add(IcariaItems.SOW_STEW.get());
+			.add(IcariaItems.THOG_STEW.get());
 
 		this.tag(Tags.Items.FOODS_VEGETABLE)
 			.add(IcariaItems.BLACK_OLIVES.get())

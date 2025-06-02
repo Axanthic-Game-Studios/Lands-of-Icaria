@@ -39,7 +39,7 @@ public class IcariaCommonModEvents {
 	@SubscribeEvent
 	public static void onBlockEntityTypeAddBlocks(BlockEntityTypeAddBlocksEvent pEvent) {
 		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaBlocks.SOW_SKULL.get(), IcariaBlocks.SOW_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaBlocks.THOG_SKULL.get(), IcariaBlocks.THOG_WALL_SKULL.get());
 	}
 
 	@SubscribeEvent
@@ -87,7 +87,7 @@ public class IcariaCommonModEvents {
 		pEvent.put(IcariaEntityTypes.FOREST_SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.SOW.get(), SowEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.THOG.get(), ThogEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.VINEGAROON.get(), VinegaroonEntity.registerAttributes().build());
 	}
 
@@ -175,7 +175,7 @@ public class IcariaCommonModEvents {
 		pEvent.register(IcariaEntityTypes.FOREST_SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.SOW.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SowEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.THOG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ThogEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 	}
 
@@ -507,7 +507,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_FOREST_HAG_SKULL.get());
 			pEvent.accept(IcariaItems.POPULUS_FOREST_HAG_SKULL.get());
 			pEvent.accept(IcariaItems.REVENANT_SKULL.get());
-			pEvent.accept(IcariaItems.SOW_SKULL.get());
+			pEvent.accept(IcariaItems.THOG_SKULL.get());
 
 			pEvent.accept(IcariaItems.LIGNITE_TORCH.get());
 			pEvent.accept(IcariaItems.ANTHRACITE_TORCH.get());
@@ -1029,8 +1029,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.COOKED_CERVER_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_CROCOTTA_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_CROCOTTA_MEAT.get());
-			pEvent.accept(IcariaItems.RAW_SOW_MEAT.get());
-			pEvent.accept(IcariaItems.COOKED_SOW_MEAT.get());
+			pEvent.accept(IcariaItems.RAW_THOG_MEAT.get());
+			pEvent.accept(IcariaItems.COOKED_THOG_MEAT.get());
 			pEvent.accept(IcariaItems.CAPELLA_HORN.get());
 			pEvent.accept(IcariaItems.MYRMEKE_SCALES.get());
 			pEvent.accept(IcariaItems.SLUG_SCALES.get());
@@ -1043,7 +1043,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.AETERNAE_STEW.get());
 			pEvent.accept(IcariaItems.CATOBLEPAS_STEW.get());
 			pEvent.accept(IcariaItems.CERVER_STEW.get());
-			pEvent.accept(IcariaItems.SOW_STEW.get());
+			pEvent.accept(IcariaItems.THOG_STEW.get());
 
 			pEvent.accept(IcariaItems.SPELT_SEEDS.get());
 			pEvent.accept(IcariaItems.STRAWBERRY_SEEDS.get());
@@ -1085,7 +1085,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SNULL_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SOLIFUGAE_SPAWN_EGG.get());
-			pEvent.accept(IcariaItems.SOW_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.THOG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.VINEGAROON_SPAWN_EGG.get());
 
 			pEvent.accept(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());

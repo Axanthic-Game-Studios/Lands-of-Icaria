@@ -23,7 +23,7 @@ public enum IcariaSkullBlockTypes implements SkullBlock.Type {
 	PLANE_FOREST_HAG("plane_forest_hag"),
 	POPULUS_FOREST_HAG("populus_forest_hag"),
 	REVENANT("revenant"),
-	SOW("sow");
+	THOG("thog");
 
 	public final String name;
 

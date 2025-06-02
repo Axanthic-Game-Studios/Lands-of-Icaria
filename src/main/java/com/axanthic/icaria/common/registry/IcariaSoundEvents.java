@@ -97,10 +97,10 @@ public class IcariaSoundEvents {
 	public static final SoundEvent SOLIFUGAE_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOLIFUGAE_DEATH);
 	public static final SoundEvent SOLIFUGAE_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOLIFUGAE_HURT);
 	public static final SoundEvent SOLIFUGAE_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOLIFUGAE_STEP);
-	public static final SoundEvent SOW_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOW_AMBIENT);
-	public static final SoundEvent SOW_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOW_DEATH);
-	public static final SoundEvent SOW_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOW_HURT);
-	public static final SoundEvent SOW_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.SOW_STEP);
+	public static final SoundEvent THOG_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.THOG_AMBIENT);
+	public static final SoundEvent THOG_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.THOG_DEATH);
+	public static final SoundEvent THOG_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.THOG_HURT);
+	public static final SoundEvent THOG_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.THOG_STEP);
 	public static final SoundEvent VINEGAROON_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_AMBIENT);
 	public static final SoundEvent VINEGAROON_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_DEATH);
 	public static final SoundEvent VINEGAROON_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_HURT);

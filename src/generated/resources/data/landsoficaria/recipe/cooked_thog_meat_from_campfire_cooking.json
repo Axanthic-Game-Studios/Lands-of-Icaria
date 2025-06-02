@@ -3,9 +3,9 @@
   "category": "food",
   "cookingtime": 600,
   "experience": 0.35,
-  "ingredient": "landsoficaria:raw_sow_meat",
+  "ingredient": "landsoficaria:raw_thog_meat",
   "result": {
     "count": 1,
-    "id": "landsoficaria:cooked_sow_meat"
+    "id": "landsoficaria:cooked_thog_meat"
   }
 }

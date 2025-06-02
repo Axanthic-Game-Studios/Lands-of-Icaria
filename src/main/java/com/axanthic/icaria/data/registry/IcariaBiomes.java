@@ -138,7 +138,7 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 1, 3));
+		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
 
 		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
@@ -457,7 +457,7 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 1, 3));
+		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
 
 		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
@@ -758,7 +758,7 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 35));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOW.get(), 1, 3));
+		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
 
 		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));

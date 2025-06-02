@@ -29,13 +29,13 @@ public class IcariaFoods {
 	public static final FoodProperties COOKED_CERVER_MEAT = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
 	public static final FoodProperties RAW_CROCOTTA_MEAT = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
 	public static final FoodProperties COOKED_CROCOTTA_MEAT = new FoodProperties.Builder().nutrition(7).saturationModifier(1.0F).build();
-	public static final FoodProperties RAW_SOW_MEAT = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
-	public static final FoodProperties COOKED_SOW_MEAT = new FoodProperties.Builder().nutrition(7).saturationModifier(1.0F).build();
+	public static final FoodProperties RAW_THOG_MEAT = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
+	public static final FoodProperties COOKED_THOG_MEAT = new FoodProperties.Builder().nutrition(7).saturationModifier(1.0F).build();
 	public static final FoodProperties SNULL_CREAM = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
 	public static final FoodProperties FRUIT_SALAD = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
 	public static final FoodProperties ONION_SOUP = new FoodProperties.Builder().nutrition(4).saturationModifier(1.0F).build();
 	public static final FoodProperties AETERNAE_STEW = new FoodProperties.Builder().nutrition(9).saturationModifier(1.0F).build();
 	public static final FoodProperties CATOBLEPAS_STEW = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
 	public static final FoodProperties CERVER_STEW = new FoodProperties.Builder().nutrition(9).saturationModifier(1.0F).build();
-	public static final FoodProperties SOW_STEW = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
+	public static final FoodProperties THOG_STEW = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
 }

@@ -802,8 +802,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.COOKED_CERVER_MEAT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_CROCOTTA_MEAT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.COOKED_CROCOTTA_MEAT.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.RAW_SOW_MEAT.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.COOKED_SOW_MEAT.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.RAW_THOG_MEAT.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.COOKED_THOG_MEAT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MYRMEKE_SCALES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SLUG_SCALES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SNULL_CREAM.get(), pItemModelGenerators);
@@ -815,7 +815,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.AETERNAE_STEW.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CATOBLEPAS_STEW.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CERVER_STEW.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SOW_STEW.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.THOG_STEW.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
@@ -855,7 +855,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SOW_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.THOG_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINEGAROON_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LEFT_GRINDER_CHAIN.get(), pItemModelGenerators);
@@ -888,7 +888,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.skull(IcariaItems.PLANE_FOREST_HAG_SKULL.get(), IcariaSkullBlockTypes.PLANE_FOREST_HAG, pItemModelGenerators);
 		IcariaItemStateProvider.skull(IcariaItems.POPULUS_FOREST_HAG_SKULL.get(), IcariaSkullBlockTypes.POPULUS_FOREST_HAG, pItemModelGenerators);
 		IcariaItemStateProvider.skull(IcariaItems.REVENANT_SKULL.get(), IcariaSkullBlockTypes.REVENANT, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.SOW_SKULL.get(), IcariaSkullBlockTypes.SOW, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.THOG_SKULL.get(), IcariaSkullBlockTypes.THOG, pItemModelGenerators);
 	}
 
 	public static void tinted(ItemModelGenerators pItemModelGenerators) {

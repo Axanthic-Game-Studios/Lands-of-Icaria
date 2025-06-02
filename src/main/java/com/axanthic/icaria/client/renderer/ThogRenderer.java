@@ -1,9 +1,9 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.model.SowModel;
+import com.axanthic.icaria.client.model.ThogModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
-import com.axanthic.icaria.client.state.SowRenderState;
-import com.axanthic.icaria.common.entity.SowEntity;
+import com.axanthic.icaria.client.state.ThogRenderState;
+import com.axanthic.icaria.common.entity.ThogEntity;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -18,18 +18,18 @@ import net.minecraft.resources.ResourceLocation;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SowRenderer extends MobRenderer<SowEntity, SowRenderState, SowModel> {
-	public SowRenderer(EntityRendererProvider.Context pContext) {
-		super(pContext, new SowModel(pContext.bakeLayer(IcariaModelLayerLocations.SOW)), 1.0F);
+public class ThogRenderer extends MobRenderer<ThogEntity, ThogRenderState, ThogModel> {
+	public ThogRenderer(EntityRendererProvider.Context pContext) {
+		super(pContext, new ThogModel(pContext.bakeLayer(IcariaModelLayerLocations.THOG)), 1.0F);
 	}
 
 	@Override
-	public float getShadowRadius(SowRenderState pRenderState) {
+	public float getShadowRadius(ThogRenderState pRenderState) {
 		return pRenderState.shadowScale;
 	}
 
 	@Override
-	public void extractRenderState(SowEntity pEntity, SowRenderState pRenderState, float pPartialTick) {
+	public void extractRenderState(ThogEntity pEntity, ThogRenderState pRenderState, float pPartialTick) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTick);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
@@ -39,17 +39,17 @@ public class SowRenderer extends MobRenderer<SowEntity, SowRenderState, SowModel
 	}
 
 	@Override
-	public void scale(SowRenderState pRenderState, PoseStack pPoseStack) {
+	public void scale(ThogRenderState pRenderState, PoseStack pPoseStack) {
 		pPoseStack.scale(pRenderState.renderScale, pRenderState.renderScale, pRenderState.renderScale);
 	}
 
 	@Override
-	public SowRenderState createRenderState() {
-		return new SowRenderState();
+	public ThogRenderState createRenderState() {
+		return new ThogRenderState();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(SowRenderState pRenderState) {
-		return IcariaResourceLocations.SOW;
+	public ResourceLocation getTextureLocation(ThogRenderState pRenderState) {
+		return IcariaResourceLocations.THOG;
 	}
 }

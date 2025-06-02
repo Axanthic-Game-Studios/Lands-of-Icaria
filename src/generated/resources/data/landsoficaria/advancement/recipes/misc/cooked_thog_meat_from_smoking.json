@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:raw_sow_meat": {
+    "has_landsoficaria:raw_thog_meat": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:raw_sow_meat"
+            "items": "landsoficaria:raw_thog_meat"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_sow_meat_from_smoking"
+        "recipe": "landsoficaria:cooked_thog_meat_from_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:raw_sow_meat"
+      "has_landsoficaria:raw_thog_meat"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:cooked_sow_meat_from_smoking"
+      "landsoficaria:cooked_thog_meat_from_smoking"
     ]
   }
 }

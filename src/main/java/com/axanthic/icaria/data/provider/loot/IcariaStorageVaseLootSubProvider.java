@@ -69,7 +69,7 @@ public record IcariaStorageVaseLootSubProvider(HolderLookup.Provider pProvider) 
 				.add(LootItem.lootTableItem(IcariaItems.AETERNAE_STEW.get()))
 				.add(LootItem.lootTableItem(IcariaItems.CATOBLEPAS_STEW.get()))
 				.add(LootItem.lootTableItem(IcariaItems.CERVER_STEW.get()))
-				.add(LootItem.lootTableItem(IcariaItems.SOW_STEW.get()))
+				.add(LootItem.lootTableItem(IcariaItems.THOG_STEW.get()))
 			)
 		);
 	}

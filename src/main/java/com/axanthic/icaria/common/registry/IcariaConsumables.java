@@ -26,14 +26,14 @@ public class IcariaConsumables {
 	public static final Consumable RAW_CATOBLEPAS_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable RAW_CERVER_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable RAW_CROCOTTA_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_SOW_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_THOG_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable FRUIT_SALAD = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.REGENERATION, 1.0F, 200);
 	public static final Consumable ONION_SOUP = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 	public static final Consumable AETERNAE_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 	public static final Consumable CATOBLEPAS_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 	public static final Consumable CERVER_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable SOW_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable THOG_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 
 	public static Consumable consumable(boolean pHasConsumeParticles, float pConsumeSeconds, ItemUseAnimation pItemUseAnimation, Holder<SoundEvent> pSoundEvent, Holder<MobEffect> pMobEffect, float pProbability, int pDuration) {
 		return Consumable.builder().hasConsumeParticles(pHasConsumeParticles).consumeSeconds(pConsumeSeconds).animation(pItemUseAnimation).sound(pSoundEvent).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(pMobEffect, pDuration), pProbability)).build();

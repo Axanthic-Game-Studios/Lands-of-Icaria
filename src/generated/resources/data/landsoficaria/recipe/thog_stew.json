@@ -4,11 +4,11 @@
   "ingredients": [
     "#c:mushrooms",
     "landsoficaria:halite_dust",
-    "landsoficaria:raw_sow_meat",
+    "landsoficaria:raw_thog_meat",
     "landsoficaria:loam_bowl"
   ],
   "result": {
     "count": 1,
-    "id": "landsoficaria:sow_stew"
+    "id": "landsoficaria:thog_stew"
   }
 }

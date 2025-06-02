@@ -31,11 +31,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_landsoficaria:raw_sow_meat": {
+    "has_landsoficaria:raw_thog_meat": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:raw_sow_meat"
+            "items": "landsoficaria:raw_thog_meat"
           }
         ]
       },
@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sow_stew"
+        "recipe": "landsoficaria:thog_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -53,13 +53,13 @@
       "has_the_recipe",
       "has_TagKey[minecraft:item / c:mushrooms]",
       "has_landsoficaria:halite_dust",
-      "has_landsoficaria:raw_sow_meat",
+      "has_landsoficaria:raw_thog_meat",
       "has_landsoficaria:loam_bowl"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:sow_stew"
+      "landsoficaria:thog_stew"
     ]
   }
 }

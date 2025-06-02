@@ -22,20 +22,20 @@ import net.minecraft.world.level.block.state.BlockState;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SowEntity extends IcariaAnimalEntity {
-	public SowEntity(EntityType<? extends SowEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel, 0.25F, 0.25F, 0.15F);
+public class ThogEntity extends IcariaAnimalEntity {
+	public ThogEntity(EntityType<? extends ThogEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel, 0.3F, 0.3F, 0.2F);
 	}
 
 	@Override
 	public void playStepSound(BlockPos pBlockPos, BlockState pBlockState) {
-		this.playSound(IcariaSoundEvents.SOW_STEP, 0.1F, 1.0F);
+		this.playSound(IcariaSoundEvents.THOG_STEP, 0.1F, 1.0F);
 	}
 
 	@Nullable
 	@Override
 	public IcariaAnimalEntity getBreedOffspring(ServerLevel pServerLevel) {
-		return IcariaEntityTypes.SOW.get().create(pServerLevel, EntitySpawnReason.BREEDING);
+		return IcariaEntityTypes.THOG.get().create(pServerLevel, EntitySpawnReason.BREEDING);
 	}
 
 	@Override
@@ -45,17 +45,17 @@ public class SowEntity extends IcariaAnimalEntity {
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return IcariaSoundEvents.SOW_AMBIENT;
+		return IcariaSoundEvents.THOG_AMBIENT;
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return IcariaSoundEvents.SOW_DEATH;
+		return IcariaSoundEvents.THOG_DEATH;
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource pDamageSource) {
-		return IcariaSoundEvents.SOW_HURT;
+		return IcariaSoundEvents.THOG_HURT;
 	}
 
 	@Override

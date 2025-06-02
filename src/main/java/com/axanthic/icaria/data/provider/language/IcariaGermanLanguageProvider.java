@@ -406,7 +406,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), "Plantanen-Baumwächterschädel");
 		this.add(IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), "Pappel-Baumwächterschädel");
 		this.add(IcariaBlocks.REVENANT_SKULL.get(), "Wiedergängerschädel");
-		this.add(IcariaBlocks.SOW_SKULL.get(), "Krommyonischer Sauschädel");
+		this.add(IcariaBlocks.THOG_SKULL.get(), "Wildschweinschädel");
 
 		this.add(IcariaBlocks.LIGNITE_TORCH.get(), "Braunkohlefackel");
 		this.add(IcariaBlocks.ANTHRACITE_TORCH.get(), "Schwarzkohlefackel");
@@ -848,13 +848,13 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Walzenspinne");
-		this.add(IcariaEntityTypes.SOW.get(), "Krommyonische Sau");
 		this.add(IcariaEntityTypes.ANTI_GRAVITY_SPELL.get(), "Anti-Schwerkraft-Zauber");
 		this.add(IcariaEntityTypes.FORTIFYING_SPELL.get(), "Stärkungs-Zauber");
 		this.add(IcariaEntityTypes.HEALING_SPELL.get(), "Heilungs-Zauber");
 		this.add(IcariaEntityTypes.BUBBLE_SPELL.get(), "Blasen-Zauber");
 		this.add(IcariaEntityTypes.FREEZING_SPELL.get(), "Vereisungs-Zauber");
 		this.add(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), "Magie-Geschoss-Zauber");
+		this.add(IcariaEntityTypes.THOG.get(), "Wildschwein");
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
 
@@ -1086,8 +1086,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.COOKED_CERVER_MEAT.get(), "Gekochtes Raubkatzenfleisch");
 		this.add(IcariaItems.RAW_CROCOTTA_MEAT.get(), "Rohe Hyänenkeule");
 		this.add(IcariaItems.COOKED_CROCOTTA_MEAT.get(), "Gekochte Hyänenkeule");
-		this.add(IcariaItems.RAW_SOW_MEAT.get(), "Roher Schweinrücken");
-		this.add(IcariaItems.COOKED_SOW_MEAT.get(), "Gekochter Schweinrücken");
+		this.add(IcariaItems.RAW_THOG_MEAT.get(), "Roher Wildschweinrücken");
+		this.add(IcariaItems.COOKED_THOG_MEAT.get(), "Gekochter Wildschweinrücken");
 		this.add(IcariaItems.CAPELLA_HORN.get(), "Kapellahorn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Nacktschneckenschuppen");
@@ -1101,7 +1101,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.AETERNAE_STEW.get(), "Wildeintopf");
 		this.add(IcariaItems.CATOBLEPAS_STEW.get(), "Rindereintopf");
 		this.add(IcariaItems.CERVER_STEW.get(), "Raubkatzeneintopf");
-		this.add(IcariaItems.SOW_STEW.get(), "Schweineeintopf");
+		this.add(IcariaItems.THOG_STEW.get(), "Wildschweineintopf");
 
 		this.add(IcariaItems.SPELT_SEEDS.get(), "Dinkelsamen");
 		this.add(IcariaItems.STRAWBERRY_SEEDS.get(), "Erdbeersamen");
@@ -1143,7 +1143,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), "Wald Snull Spawn Egg");
 		this.add(IcariaItems.SNULL_SPAWN_EGG.get(), "Snull Spawn-Ei");
 		this.add(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), "Walzenspinnen-Spawn-Ei");
-		this.add(IcariaItems.SOW_SPAWN_EGG.get(), "Krommyonische Sau-Spawn-Ei");
+		this.add(IcariaItems.THOG_SPAWN_EGG.get(), "Wildschwein-Spawn-Ei");
 		this.add(IcariaItems.VINEGAROON_SPAWN_EGG.get(), "Geißelskorpion-Spawn-Ei");
 
 		this.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get(), "Eimer mit mediterranem Wasser");
@@ -1268,10 +1268,10 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "death", "Walzenspinne stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "hurt", "Walzenspinne nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "solifugae" + "." + "step", "Walzenspinnenschritte");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "ambient", "Krommyonische Sau grunzt");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "death", "Krommyonische Sau stirbt");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "hurt", "Krommyonische Sau nimmt Schaden");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "sow" + "." + "step", "Krommyonische Sauschritte");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "ambient", "Wildschwein grunzt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "death", "Wildschwein stirbt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "hurt", "Wildschwein nimmt Schaden");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "thog" + "." + "step", "Wildschweinschritte");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "ambient", "Geißelskorpion rasselt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "death", "Geißelskorpion stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "hurt", "Geißelskorpion nimmt Schaden");
