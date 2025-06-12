@@ -1,9 +1,9 @@
 {
-  "feature": "landsoficaria:horizontal_relicstone_pillar",
+  "feature": "landsoficaria:small_fir_tree",
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 2
+      "count": 64
     },
     {
       "type": "minecraft:in_square"
@@ -30,7 +30,7 @@
       "max_steps": 16,
       "target_condition": {
         "type": "minecraft:matching_block_tag",
-        "tag": "landsoficaria:soils"
+        "tag": "minecraft:dirt"
       }
     },
     {

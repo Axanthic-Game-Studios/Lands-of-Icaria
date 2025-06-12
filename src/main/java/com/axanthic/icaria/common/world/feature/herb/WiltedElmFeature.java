@@ -32,13 +32,12 @@ public class WiltedElmFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
-		var list = level.getBlockStates(aabb).toList();
-
-		var leaves = list.contains(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_FIR_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_LAUREL_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_OLIVE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_PLANE_LEAVES.get().defaultBlockState()) || list.contains(IcariaBlocks.FALLEN_POPULUS_LEAVES.get().defaultBlockState());
-		var moss = list.contains(IcariaBlocks.FOREST_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.SCRUBLAND_MOSS.get().defaultBlockState()) || list.contains(IcariaBlocks.STEPPE_MOSS.get().defaultBlockState());
-
 		var size = 2;
+
+		var aabb = new AABB(origin.getX() - 8, origin.getY(), origin.getZ() - 8, origin.getX() + 8, origin.getY(), origin.getZ() + 8);
+
+		var leaves = level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_FIR_LEAVES.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_LAUREL_LEAVES.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_OLIVE_LEAVES.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_PLANE_LEAVES.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FALLEN_POPULUS_LEAVES.get()));
+		var moss = level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.FOREST_MOSS.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.SCRUBLAND_MOSS.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.STEPPE_MOSS.get()));
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {

@@ -11,10 +11,12 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.phys.AABB;
 
 @SuppressWarnings("unused")
 
@@ -32,31 +34,33 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
 
+		var offset = random.nextIntBetweenInclusive(1, 2);
+		var length = random.nextIntBetweenInclusive(1, 3);
+		var lengthTotal = length + 1;
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var length = random.nextIntBetweenInclusive(1, 3);
-		var offset = 2;
+		var relative = origin.below().relative(direction, offset);
 
-		this.placeHead(level, origin, Direction.UP);
+		var aabb = this.aabb(relative, direction, lengthTotal);
 
-		this.placePillar(level, origin.above(), Direction.UP);
+		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && level.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			this.placeHead(level, origin, Direction.UP);
 
-		this.placeRubble(level, origin.relative(direction, 1), 4);
-		this.placeRubble(level, origin.relative(direction, 1).relative(direction.getClockWise(), 1), 4);
-		this.placeRubble(level, origin.relative(direction, 1).relative(direction.getCounterClockWise(), 1), 4);
-		this.placeRubble(level, origin.relative(direction, 2), 4);
-		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getClockWise(), 1), 4);
-		this.placeRubble(level, origin.relative(direction, 2).relative(direction.getCounterClockWise(), 1), 4);
+			for (var i = 1; i <= length; i++) {
+				offset++;
+				this.placePillar(level, origin.relative(direction, offset), direction);
+			}
 
-		for (var i = 1; i <= length; ++i) {
-			++offset;
-			this.placePillar(level, origin.relative(direction, offset), direction);
+			offset++;
+			this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
+
+			this.placeRubblePatch(level, origin, 4);
+
+			return true;
+		} else {
+			return false;
 		}
-
-		++offset;
-		this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
-
-		return true;
 	}
 
 	public void placeHead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pChance) {
@@ -78,9 +82,32 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
 	}
 
 	public void placePillar(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get()))) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
 		}
+	}
+
+	public void placeRubblePatch(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
+		this.placeRubble(pWorldGenLevel, pBlockPos.north(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.north(1).east(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.north(2), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.north(2).east(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.north(2).west(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.east(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.east(1).south(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.east(2), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.east(2).north(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.east(2).south(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.south(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.south(1).west(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.south(2), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.south(2).east(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.south(2).west(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.west(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.west(1).north(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.west(2), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.west(2).north(1), pChance);
+		this.placeRubble(pWorldGenLevel, pBlockPos.west(2).south(1), pChance);
 	}
 
 	public void placeRubble(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
@@ -93,5 +120,16 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_RUBBLE.get().defaultBlockState());
 		}
+	}
+
+	public AABB aabb(BlockPos pBlockPos, Direction pDirection, int pLength) {
+		return new AABB(
+			pBlockPos.relative(pDirection).getX(),
+			pBlockPos.relative(pDirection).getY(),
+			pBlockPos.relative(pDirection).getZ(),
+			pBlockPos.relative(pDirection, pLength).getX(),
+			pBlockPos.relative(pDirection, pLength).getY(),
+			pBlockPos.relative(pDirection, pLength).getZ()
+		);
 	}
 }

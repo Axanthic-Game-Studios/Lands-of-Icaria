@@ -48,8 +48,7 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("relicstone_rubble");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("fallen_relicstone_pillar");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HORIZONTAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("horizontal_relicstone_pillar");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VERTICAL_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("vertical_relicstone_pillar");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("relicstone_pillar");
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> LIGNITE_ORE = IcariaConfiguredFeatures.createKey("lignite_ore");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> CHALKOS_ORE = IcariaConfiguredFeatures.createKey("chalkos_ore");
@@ -186,8 +185,7 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.RELICSTONE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.FALLEN_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.HORIZONTAL_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.HORIZONTAL_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VERTICAL_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.VERTICAL_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.LIGNITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_YELLOWSTONE), IcariaBlocks.LIGNITE_ORE.get().defaultBlockState(), 9)));
 		pBootstrapContext.register(IcariaConfiguredFeatures.CHALKOS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_YELLOWSTONE), IcariaBlocks.CHALKOS_ORE.get().defaultBlockState(), 9)));

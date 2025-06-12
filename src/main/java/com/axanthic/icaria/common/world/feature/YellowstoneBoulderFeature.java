@@ -29,7 +29,7 @@ public class YellowstoneBoulderFeature extends Feature<NoneFeatureConfiguration>
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
 
-		for (var l = 0; l < 3; ++l) {
+		for (var l = 0; l < 3; l++) {
 			var x = random.nextIntBetweenInclusive(2, 3);
 			var y = random.nextIntBetweenInclusive(2, 3);
 			var z = random.nextIntBetweenInclusive(2, 3);

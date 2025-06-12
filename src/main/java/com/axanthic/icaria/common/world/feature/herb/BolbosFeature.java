@@ -31,17 +31,15 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.getCenter(), 0, 16, 0);
-		var list = level.getBlockStates(aabb).toList();
-
 		var size = 2;
+
+		var aabb = new AABB(origin.getX(), origin.getY(), origin.getZ(), origin.getX(), origin.getY() + 16, origin.getZ());
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					if (list.contains(IcariaBlocks.GRAINITE.get().defaultBlockState())) {
+					if (level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.GRAINITE.get()))) {
 						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
-						this.placeRubble(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
 					}
 				}
 			}
@@ -59,18 +57,6 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
 	public void placeHerb(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRAINEL.get())) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.BOLBOS.get().defaultBlockState());
-		}
-	}
-
-	public void placeRubble(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
-		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeRubble(pWorldGenLevel, pBlockPos);
-		}
-	}
-
-	public void placeRubble(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRAINEL.get())) {
-			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.GRAINITE_RUBBLE.get().defaultBlockState());
 		}
 	}
 }

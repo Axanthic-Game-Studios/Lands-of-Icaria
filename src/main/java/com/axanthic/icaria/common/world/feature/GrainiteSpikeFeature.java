@@ -29,9 +29,9 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
 		var length = 3;
 		var height = 4;
 
-		for (var x = 1; x <= length - 2; ++x) {
-			for (var y = 1; y <= height - 2; ++y) {
-				for (var z = 1; z <= length - 2; ++z) {
+		for (var x = 1; x <= length - 2; x++) {
+			for (var y = 1; y <= height - 2; y++) {
+				for (var z = 1; z <= length - 2; z++) {
 					this.placeGrainite(level, origin.below().north(x + 7).above(y + 18).east(z + 7));
 				}
 			}
@@ -40,9 +40,9 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
 		this.placeUpperRing(level, origin, 9, 19, 7, 1, 2);
 		this.placeUpperRing(level, origin, 9, 20, 7, 2, 1);
 
-		for (var x = 1; x <= length - 1; ++x) {
-			for (var y = 1; y <= height - 1; ++y) {
-				for (var z = 1; z <= length - 1; ++z) {
+		for (var x = 1; x <= length - 1; x++) {
+			for (var y = 1; y <= height - 1; y++) {
+				for (var z = 1; z <= length - 1; z++) {
 					this.placeGrainite(level, origin.below().north(x + 4).above(y + 12).east(z + 4));
 					this.placeGrainite(level, origin.below().north(x + 5).above(y + 15).east(z + 5));
 				}
@@ -56,9 +56,9 @@ public class GrainiteSpikeFeature extends Feature<NoneFeatureConfiguration> {
 		this.placeInnerRing(level, origin, 8, 17, 5, 1, 1);
 		this.placeInnerRing(level, origin, 8, 18, 5, 3, 1);
 
-		for (var x = 1; x <= length; ++x) {
-			for (var y = 1; y <= height; ++y) {
-				for (var z = 1; z <= length; ++z) {
+		for (var x = 1; x <= length; x++) {
+			for (var y = 1; y <= height; y++) {
+				for (var z = 1; z <= length; z++) {
 					this.placeGrainite(level, origin.below().north(x).above(y).east(z));
 					this.placeGrainite(level, origin.below().north(x + 1).above(y + 4).east(z + 1));
 					this.placeGrainite(level, origin.below().north(x + 2).above(y + 8).east(z + 2));

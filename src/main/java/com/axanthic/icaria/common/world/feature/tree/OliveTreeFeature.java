@@ -28,33 +28,31 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
 		var level = pFeaturePlaceContext.level();
 		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+		var heightTrunk = 0;
+		var heightTotal = origin.below().getY() + 8;
 
-		var heightTrunk = random.nextIntBetweenInclusive(1, 2);
-		var heightLimit = heightTrunk + 4;
-		var heightAxisY = heightLimit + origin.getY();
+		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 
-		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (var i = 1; i <= heightTrunk; ++i) {
-				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
-			}
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 			this.placeLeaves(level, origin.below().above(heightTrunk).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).south(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).west(), 2);
@@ -64,24 +62,20 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south(), 2);
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 			this.placeLeaves(level, origin.below().above(heightTrunk).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
-			this.placeLeaves(level, origin.below().above(heightTrunk).north(3));
-			this.placeLeaves(level, origin.below().above(heightTrunk).east(3));
-			this.placeLeaves(level, origin.below().above(heightTrunk).south(3));
-			this.placeLeaves(level, origin.below().above(heightTrunk).west(3));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).west());
@@ -90,6 +84,14 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west(2), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north(2), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east(2), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south(2), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(3).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).south(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).west(), 2);
@@ -98,122 +100,118 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).north(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(3).south(), 2);
+
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3).south());
+
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west(2), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north(2), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east(2), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south(2), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3).east(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).south(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).west(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3).north(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(3).west(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(3).north(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(3).east(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(3).south(), 2);
 
-			++heightTrunk;
-			this.placeLog(level, origin.relative(direction).below().above(heightTrunk), Direction.Axis.Y);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north().east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east().south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south().west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west().north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).west(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).north(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).east(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).south(2));
+			heightTrunk++;
+			this.placeLeaves(level, origin.below().above(heightTrunk));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
+			this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
+			this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
+			this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).east(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).south(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).west(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).north(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(2).west(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(2).north(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(2).east(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(2).south(), 2);
 
-			++heightTrunk;
-			this.placeLog(level, origin.relative(direction).below().above(heightTrunk), Direction.Axis.Y);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north().east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east().south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south().west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west().north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3).east(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3).south(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3).west(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3).north(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(3).west(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(3).north(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(3).east(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(3).south(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).west(2), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).north(2), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).east(2), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).south(2), 2);
+			heightTrunk++;
+			this.placeLeaves(level, origin.below().above(heightTrunk));
+			this.placeLeaves(level, origin.below().above(heightTrunk).north(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).east(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).south(), 2);
+			this.placeLeaves(level, origin.below().above(heightTrunk).west(), 2);
 
-			++heightTrunk;
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north().east());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east().south());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south().west());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west().north());
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).east(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).south(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).west(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).north(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(2).west(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(2).north(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(2).east(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(2).south(), 2);
-
-			++heightTrunk;
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk));
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).north(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).east(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).south(), 2);
-			this.placeLeaves(level, origin.relative(direction).below().above(heightTrunk).west(), 2);
-
-			this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+			this.placeTwigsPatch(level, origin, 4);
+			this.placeFallenPatch(level, origin, 4);
+			this.placeShroomsPatch(level, origin, 4);
 
 			return true;
 		} else {
@@ -225,12 +223,12 @@ public class OliveTreeFeature extends IcariaTreeFeature {
 	public void placeLeaves(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir()) {
 			if (pWorldGenLevel.getRandom().nextBoolean()) {
-				if (pWorldGenLevel.getRandom().nextInt(3) == 0) {
-					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
-				} else if (pWorldGenLevel.getRandom().nextInt(3) == 1) {
-					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
-				} else if (pWorldGenLevel.getRandom().nextInt(3) == 2) {
+				if (pWorldGenLevel.getRandom().nextInt(2) == 0) {
 					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK));
+				} else if (pWorldGenLevel.getRandom().nextInt(2) == 1) {
+					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
+				} else {
+					this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
 				}
 			} else {
 				this.setBlock(pWorldGenLevel, pBlockPos, this.leaves.defaultBlockState().setValue(BlockStateProperties.DISTANCE, 1).setValue(IcariaBlockStateProperties.OLIVES, Olives.LEAVES));

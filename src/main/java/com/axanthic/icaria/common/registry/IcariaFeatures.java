@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.world.feature.*;
-import com.axanthic.icaria.common.world.feature.dead.*;
 import com.axanthic.icaria.common.world.feature.herb.*;
 import com.axanthic.icaria.common.world.feature.hidden.HiddenGrainelChertFeature;
 import com.axanthic.icaria.common.world.feature.hidden.HiddenMarlBonesFeature;
@@ -10,12 +9,12 @@ import com.axanthic.icaria.common.world.feature.hidden.HiddenMarlLigniteFeature;
 import com.axanthic.icaria.common.world.feature.lake.DryLakeFeature;
 import com.axanthic.icaria.common.world.feature.lake.MediterraneanWaterLakeFeature;
 import com.axanthic.icaria.common.world.feature.pillar.FallenRelicstonePillarFeature;
-import com.axanthic.icaria.common.world.feature.pillar.HorizontalRelicstonePillarFeature;
-import com.axanthic.icaria.common.world.feature.pillar.VerticalRelicstonePillarFeature;
+import com.axanthic.icaria.common.world.feature.pillar.RelicstonePillarFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.BrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.GreenGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.tree.*;
+import com.axanthic.icaria.common.world.feature.tree.dead.*;
 import com.axanthic.icaria.common.world.feature.tree.fallen.*;
 import com.axanthic.icaria.common.world.feature.tree.small.*;
 import com.axanthic.icaria.common.world.feature.vine.*;
@@ -46,8 +45,7 @@ public class IcariaFeatures {
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> YELLOWSTONE_BOULDER = IcariaFeatures.FEATURES.register("yellowstone_boulder", () -> new YellowstoneBoulderFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("fallen_relicstone_pillar", () -> new FallenRelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
-	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> HORIZONTAL_RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("horizontal_relicstone_pillar", () -> new HorizontalRelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
-	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> VERTICAL_RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("vertical_relicstone_pillar", () -> new VerticalRelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> RELICSTONE_PILLAR = IcariaFeatures.FEATURES.register("relicstone_pillar", () -> new RelicstonePillarFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> CYPRESS_TREE = IcariaFeatures.FEATURES.register("cypress_tree", () -> new CypressTreeFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> DROUGHTROOT_TREE = IcariaFeatures.FEATURES.register("droughtroot_tree", () -> new DroughtrootTreeFeature(NoneFeatureConfiguration.CODEC));

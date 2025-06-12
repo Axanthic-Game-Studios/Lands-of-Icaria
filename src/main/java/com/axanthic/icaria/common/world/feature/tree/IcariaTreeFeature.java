@@ -44,42 +44,24 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
 	public void placeFallenPatch(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
 		this.placeFallen(pWorldGenLevel, pBlockPos.north(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.north(1).east(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.north(2), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.north(2).east(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.north(2).west(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.east(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.east(1).south(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.east(2), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.east(2).north(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.east(2).south(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.south(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.south(1).west(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.south(2), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.south(2).east(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.south(2).west(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.west(1), 1, pChance);
 		this.placeFallen(pWorldGenLevel, pBlockPos.west(1).north(1), 1, pChance);
-
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(2).east(1), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(2).east(2), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(1).east(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(2).south(1), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(2).south(2), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(1).south(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(2).west(1), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(2).west(2), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(1).west(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(2), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(2).north(1), 2, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(2).north(2), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(1).north(2), 2, pChance);
-
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(3).east(1), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.north(1).east(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(3).south(1), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.east(1).south(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(3).west(1), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.south(1).west(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(3), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(3).north(1), 1, pChance);
-		this.placeFallen(pWorldGenLevel, pBlockPos.west(1).north(3), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.west(2), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.west(2).north(1), 1, pChance);
+		this.placeFallen(pWorldGenLevel, pBlockPos.west(2).south(1), 1, pChance);
 	}
 
 	public void placeFallen(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pHeight, int pChance) {
@@ -119,14 +101,10 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeShroomsPatch(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
-		this.placeShrooms(pWorldGenLevel, pBlockPos.north().above(1), Direction.NORTH, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.east().above(1), Direction.EAST, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.south().above(1), Direction.SOUTH, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.west().above(1), Direction.WEST, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.north().above(2), Direction.NORTH, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.east().above(2), Direction.EAST, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.south().above(2), Direction.SOUTH, pChance);
-		this.placeShrooms(pWorldGenLevel, pBlockPos.west().above(2), Direction.WEST, pChance);
+		this.placeShrooms(pWorldGenLevel, pBlockPos.north().above(), Direction.NORTH, pChance);
+		this.placeShrooms(pWorldGenLevel, pBlockPos.east().above(), Direction.EAST, pChance);
+		this.placeShrooms(pWorldGenLevel, pBlockPos.south().above(), Direction.SOUTH, pChance);
+		this.placeShrooms(pWorldGenLevel, pBlockPos.west().above(), Direction.WEST, pChance);
 	}
 
 	public void placeShrooms(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pChance) {
@@ -144,42 +122,24 @@ public class IcariaTreeFeature extends Feature<NoneFeatureConfiguration> {
 	public void placeTwigsPatch(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {
 		this.placeTwigs(pWorldGenLevel, pBlockPos.north(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.north(1).east(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1).south(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1).west(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1).north(1), pChance);
-
 		this.placeTwigs(pWorldGenLevel, pBlockPos.north(2), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.north(2).east(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.north(2).east(2), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.north(1).east(2), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.north(2).west(1), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1).south(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.east(2), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.east(2).north(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.east(2).south(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(2).south(2), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1).south(2), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1).west(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.south(2), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.south(2).east(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.south(2).west(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(2).west(2), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1).west(2), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1).north(1), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.west(2), pChance);
 		this.placeTwigs(pWorldGenLevel, pBlockPos.west(2).north(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(2).north(2), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1).north(2), pChance);
-
-		this.placeTwigs(pWorldGenLevel, pBlockPos.north(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.north(3).east(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.north(1).east(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(3).south(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.east(1).south(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(3).west(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.south(1).west(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(3), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(3).north(1), pChance);
-		this.placeTwigs(pWorldGenLevel, pBlockPos.west(1).north(3), pChance);
+		this.placeTwigs(pWorldGenLevel, pBlockPos.west(2).south(1), pChance);
 	}
 
 	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pChance) {

@@ -32,15 +32,14 @@ public class MothAgaricFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.getCenter(), 16, 0, 16);
-		var list = level.getBlockStates(aabb).toList();
-
 		var size = 2;
+
+		var aabb = new AABB(origin.getX() - 4, origin.getY(), origin.getZ() - 4, origin.getX() + 4, origin.getY(), origin.getZ() + 4);
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					if (list.contains(IcariaBlocks.DEAD_POPULUS_LOG.get().defaultBlockState())) {
+					if (level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.DEAD_POPULUS_LOG.get()))) {
 						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 					}
 				}

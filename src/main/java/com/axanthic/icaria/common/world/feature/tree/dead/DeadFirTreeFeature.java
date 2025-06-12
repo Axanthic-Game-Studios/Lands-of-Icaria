@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.world.feature.dead;
+package com.axanthic.icaria.common.world.feature.tree.dead;
 
 import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -13,8 +13,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadLaurelTreeFeature extends IcariaDeadTreeFeature {
-	public DeadLaurelTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.LAUREL_TWIGS.get(), Moss.SCRUBLAND);
+public class DeadFirTreeFeature extends DeadIcariaTreeFeature {
+	public DeadFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
+		super(pCodec, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.FIR_TWIGS.get(), Moss.FOREST, 8, 10);
 	}
 }

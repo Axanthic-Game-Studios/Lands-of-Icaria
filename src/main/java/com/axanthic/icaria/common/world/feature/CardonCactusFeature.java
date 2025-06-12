@@ -11,11 +11,13 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.phys.AABB;
 
 @SuppressWarnings("unused")
 
@@ -35,24 +37,30 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		this.placeArm(level, origin, direction, 1, 2);
-		this.placeArm(level, origin, direction.getClockWise(), 1, 2);
-		this.placeArm(level, origin, direction.getOpposite(), 1, 2);
-		this.placeArm(level, origin, direction.getCounterClockWise(), 1, 2);
+		var aabb = this.aabb(origin);
 
-		this.placeArm(level, origin, direction, 2, 8);
-		this.placeArm(level, origin, direction.getClockWise(), 2, 8);
-		this.placeArm(level, origin, direction.getOpposite(), 2, 8);
-		this.placeArm(level, origin, direction.getCounterClockWise(), 2, 8);
+		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			this.placeArm(level, origin, direction, 1, 2);
+			this.placeArm(level, origin, direction.getClockWise(), 1, 2);
+			this.placeArm(level, origin, direction.getOpposite(), 1, 2);
+			this.placeArm(level, origin, direction.getCounterClockWise(), 1, 2);
 
-		this.placeTrunk(level, origin, 0);
-		this.placeTrunk(level, origin, 1);
-		this.placeTrunk(level, origin, 2);
-		this.placeTrunk(level, origin, 3);
+			this.placeArm(level, origin, direction, 2, 8);
+			this.placeArm(level, origin, direction.getClockWise(), 2, 8);
+			this.placeArm(level, origin, direction.getOpposite(), 2, 8);
+			this.placeArm(level, origin, direction.getCounterClockWise(), 2, 8);
 
-		this.placeCactus(level, origin.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
+			this.placeTrunk(level, origin, 0);
+			this.placeTrunk(level, origin, 1);
+			this.placeTrunk(level, origin, 2);
+			this.placeTrunk(level, origin, 3);
 
-		return true;
+			this.placeCactus(level, origin.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
+
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void placeArm(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection, int pOffset, int pChance) {
@@ -80,15 +88,15 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 
 	public void placeTrunk(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pOffset) {
 		var north = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var belowNorth = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var northBelow = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().north()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).north()).is(IcariaBlocks.CARDON_CACTUS.get());
 		var east = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var belowEast = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var eastBelow = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().east()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).east()).is(IcariaBlocks.CARDON_CACTUS.get());
 		var south = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().south()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().south()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var belowSouth = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var southBelow = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).south()).is(IcariaBlocks.CARDON_CACTUS.get());
 		var west = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().west()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below().west()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
-		var belowWest = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
+		var westBelow = !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(BlockTags.SAND) && !pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).below()).is(IcariaBlocks.CARDON_CACTUS.get()) && pWorldGenLevel.getBlockState(pBlockPos.above(pOffset).west()).is(IcariaBlocks.CARDON_CACTUS.get());
 
-		this.placeCactus(pWorldGenLevel, pBlockPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true).setValue(BlockStateProperties.NORTH, north || belowNorth).setValue(BlockStateProperties.EAST, east || belowEast).setValue(BlockStateProperties.SOUTH, south || belowSouth).setValue(BlockStateProperties.WEST, west || belowWest));
+		this.placeCactus(pWorldGenLevel, pBlockPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true).setValue(BlockStateProperties.NORTH, north || northBelow).setValue(BlockStateProperties.EAST, east || eastBelow).setValue(BlockStateProperties.SOUTH, south || southBelow).setValue(BlockStateProperties.WEST, west || westBelow));
 	}
 
 	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pState, int pChance) {
@@ -101,5 +109,16 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir()) {
 			this.setBlock(pWorldGenLevel, pBlockPos, pState);
 		}
+	}
+
+	public AABB aabb(BlockPos pBlockPos) {
+		return new AABB(
+			pBlockPos.north().east().getX(),
+			pBlockPos.north().east().getY(),
+			pBlockPos.north().east().getZ(),
+			pBlockPos.south().west().getX(),
+			pBlockPos.south().west().getY(),
+			pBlockPos.south().west().getZ()
+		);
 	}
 }

@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.world.feature.dead;
+package com.axanthic.icaria.common.world.feature.tree.dead;
 
 import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -14,8 +14,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadDroughtrootTreeFeature extends IcariaDeadTreeFeature {
+public class DeadDroughtrootTreeFeature extends DeadIcariaTreeFeature {
 	public DeadDroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE);
+		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), Blocks.AIR, IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get(), Moss.NONE, 3, 11);
 	}
 }

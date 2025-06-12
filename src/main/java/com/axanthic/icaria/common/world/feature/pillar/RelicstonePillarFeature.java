@@ -21,8 +21,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
-	public HorizontalRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
+public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
+	public RelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec);
 	}
 
@@ -32,20 +32,18 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
-
-		var length = random.nextIntBetweenInclusive(2, 4);
 		var offset = 0;
+		var height = random.nextIntBetweenInclusive(1, 3);
 
-		this.placeHead(level, origin, direction);
+		this.placeHead(level, origin, Direction.UP);
 
-		for (var i = 1; i <= length; ++i) {
-			++offset;
-			this.placePillar(level, origin.relative(direction, offset), direction);
+		for (var i = 1; i <= height; i++) {
+			offset++;
+			this.placePillar(level, origin.above(offset), Direction.UP);
 		}
 
-		++offset;
-		this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
+		offset++;
+		this.placeHead(level, origin.above(offset), Direction.DOWN);
 
 		return true;
 	}
@@ -57,7 +55,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
 	}
 
 	public void placeHead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR.get()))) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
 		}
 	}
@@ -69,7 +67,7 @@ public class HorizontalRelicstonePillarFeature extends Feature<NoneFeatureConfig
 	}
 
 	public void placePillar(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR.get()) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get()))) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR.get().defaultBlockState().setValue(BlockStateProperties.AXIS, pDirection.getAxis()));
 		}
 	}

@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.world.feature.dead;
+package com.axanthic.icaria.common.world.feature.tree.dead;
 
 import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -13,8 +13,8 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadOliveTreeFeature extends IcariaDeadTreeFeature {
+public class DeadOliveTreeFeature extends DeadIcariaTreeFeature {
 	public DeadOliveTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.OLIVE_TWIGS.get(), Moss.STEPPE);
+		super(pCodec, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.OLIVE_TWIGS.get(), Moss.STEPPE, 5, 5);
 	}
 }

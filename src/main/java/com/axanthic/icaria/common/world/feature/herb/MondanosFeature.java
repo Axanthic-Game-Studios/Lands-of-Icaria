@@ -32,13 +32,12 @@ public class MondanosFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.below().getCenter(), 4, 0, 4);
-		var list = level.getBlockStates(aabb).toList();
-
-		var sand = list.contains(IcariaBlocks.GRAINEL.get().defaultBlockState()) || list.contains(IcariaBlocks.SILKSAND.get().defaultBlockState());
-		var loam = list.contains(IcariaBlocks.LOAM.get().defaultBlockState());
-
 		var size = 2;
+
+		var aabb = new AABB(origin.getX() - 2, origin.getY() - 1, origin.getZ() - 2, origin.getX() + 2, origin.getY() - 1, origin.getZ() + 2);
+
+		var loam = level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.LOAM.get()));
+		var sand = level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.GRAINEL.get())) || level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.SILKSAND.get()));
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {

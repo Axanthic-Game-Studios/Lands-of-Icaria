@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HiddenMarlChertFeature extends IcariaHiddenFeature {
+public class HiddenMarlChertFeature extends HiddenIcariaFeature {
 	public HiddenMarlChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.MARL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
 	}

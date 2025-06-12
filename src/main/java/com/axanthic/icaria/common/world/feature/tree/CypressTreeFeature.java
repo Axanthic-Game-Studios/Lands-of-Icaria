@@ -25,25 +25,25 @@ public class CypressTreeFeature extends IcariaTreeFeature {
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
 
-		var heightTrunk = random.nextIntBetweenInclusive(1, 2);
+		var heightTrunk = 0;
 		var heightCrown = random.nextIntBetweenInclusive(1, 4);
-		var heightTotal = heightTrunk + heightCrown;
-		var heightLimit = heightTotal + 6;
-		var heightAxisY = heightLimit + origin.getY();
+		var heightTotal = origin.below().getY() + heightCrown + 8;
 
-		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (var i = 1; i <= heightTrunk; ++i) {
-				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
-			}
+		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 
-			++heightTrunk;
+			heightTrunk++;
+			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
+
+			heightTrunk++;
 			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(), 2);
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 			this.placeLeaves(level, origin.below().above(heightTrunk).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east());
@@ -54,8 +54,8 @@ public class CypressTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north(), 2);
 
-			for (var i = 1; i <= heightCrown; ++i) {
-				++heightTrunk;
+			for (var i = 1; i <= heightCrown; i++) {
+				heightTrunk++;
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 				this.placeLeaves(level, origin.below().above(heightTrunk).north());
 				this.placeLeaves(level, origin.below().above(heightTrunk).east());
@@ -67,7 +67,7 @@ public class CypressTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
 			}
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 			this.placeLeaves(level, origin.below().above(heightTrunk).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east());
@@ -78,26 +78,26 @@ public class CypressTreeFeature extends IcariaTreeFeature {
 			this.placeLeaves(level, origin.below().above(heightTrunk).south().west(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west().north(), 2);
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLeaves(level, origin.below().above(heightTrunk));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north());
 			this.placeLeaves(level, origin.below().above(heightTrunk).east());
 			this.placeLeaves(level, origin.below().above(heightTrunk).south());
 			this.placeLeaves(level, origin.below().above(heightTrunk).west());
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLeaves(level, origin.below().above(heightTrunk));
 			this.placeLeaves(level, origin.below().above(heightTrunk).north(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).east(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).south(), 2);
 			this.placeLeaves(level, origin.below().above(heightTrunk).west(), 2);
 
-			++heightTrunk;
+			heightTrunk++;
 			this.placeLeaves(level, origin.below().above(heightTrunk));
 
-			this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+			this.placeTwigsPatch(level, origin, 4);
+			this.placeFallenPatch(level, origin, 4);
+			this.placeShroomsPatch(level, origin, 4);
 
 			return true;
 		} else {

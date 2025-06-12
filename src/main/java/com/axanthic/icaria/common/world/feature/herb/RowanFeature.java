@@ -33,14 +33,16 @@ public class RowanFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.relative(direction).getCenter(), 0, 4, 0);
+		var relative = origin.relative(direction);
 
 		var size = 2;
+
+		var aabb = new AABB(relative.getX(), relative.getY(), relative.getZ(), relative.getX(), relative.getY() - 4, relative.getZ());
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					if (level.getBlockStates(aabb).allMatch((blockState) -> blockState.is(Blocks.AIR))) {
+					if (level.getBlockStates(aabb).allMatch(blockState -> blockState.is(Blocks.AIR))) {
 						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
 					}
 				}

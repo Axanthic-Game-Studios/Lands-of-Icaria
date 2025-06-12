@@ -32,15 +32,14 @@ public class DathullaFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var aabb = AABB.ofSize(origin.below().getCenter(), 4, 0, 4);
-		var list = level.getBlockStates(aabb).toList();
-
 		var size = 2;
+
+		var aabb = new AABB(origin.getX() - 2, origin.getY() - 1, origin.getZ() - 2, origin.getX() + 2, origin.getY() - 1, origin.getZ() + 2);
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					if (list.contains(IcariaBlocks.RELICSTONE.get().defaultBlockState())) {
+					if (level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.RELICSTONE.get()))) {
 						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 					}
 				}

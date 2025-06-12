@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.mojang.serialization.Codec;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -25,27 +24,26 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
 
 	@Override
 	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		List<Direction> directions = new ArrayList<>();
+		var directions = new ArrayList<Direction>();
 
 		var level = pFeaturePlaceContext.level();
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
 
-		var branchCount = random.nextIntBetweenInclusive(2, 3);
-		var heightTrunk = random.nextIntBetweenInclusive(1, 4);
-		var heightLimit = heightTrunk + 4;
-		var heightAxisY = heightLimit + origin.getY();
+		var countBranch = random.nextIntBetweenInclusive(2, 3);
+		var heightTrunk = random.nextIntBetweenInclusive(2, 4);
+		var heightTotal = origin.below().getY() + heightTrunk + 5;
 
-		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
+		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
 			for (var direction : Direction.Plane.HORIZONTAL) {
 				directions.add(direction);
 			}
 
-			for (var i = 1; i <= heightTrunk; ++i) {
+			for (var i = 1; i <= heightTrunk; i++) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
-			for (var i = 1; i <= branchCount; ++i) {
+			for (var i = 1; i <= countBranch; i++) {
 				var front = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 				var right = front.getClockWise();
 				var back = front.getOpposite();
@@ -54,18 +52,14 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
 				var clockWise = direction.getClockWise();
 				var blockPos = new BlockPos(origin.below().above(heightTrunk));
 
-				var length = random.nextIntBetweenInclusive(2, 4);
+				var heightBranch = random.nextIntBetweenInclusive(2, 4);
 
 				directions.remove(direction);
 
-				for (var j = 1; j <= length; ++j) {
-					blockPos = blockPos.relative(direction);
+				for (var j = 1; j <= heightBranch; j++) {
+					blockPos = blockPos.above().relative(direction);
 					if (random.nextInt(3) == 0) {
 						blockPos = blockPos.relative(clockWise);
-					}
-
-					if (random.nextInt(3) != 0) {
-						blockPos = blockPos.above();
 					}
 
 					this.placeLog(level, blockPos, direction.getAxis());
@@ -79,17 +73,17 @@ public class PlaneTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, blockPos.west());
 				this.placeLeaves(level, blockPos.above());
 				this.placeLeaves(level, blockPos.above().relative(front), 2);
-				this.placeLeaves(level, blockPos.above().relative(front).relative(right), 4);
+				this.placeLeaves(level, blockPos.above().relative(front).relative(right), 2);
 				this.placeLeaves(level, blockPos.above().relative(right), 2);
 				this.placeLeaves(level, blockPos.below());
 				this.placeLeaves(level, blockPos.below().relative(back), 2);
-				this.placeLeaves(level, blockPos.below().relative(back).relative(left), 4);
+				this.placeLeaves(level, blockPos.below().relative(back).relative(left), 2);
 				this.placeLeaves(level, blockPos.below().relative(left), 2);
 			}
 
-			this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+			this.placeTwigsPatch(level, origin, 4);
+			this.placeFallenPatch(level, origin, 4);
+			this.placeShroomsPatch(level, origin, 4);
 
 			return true;
 		} else {

@@ -17,11 +17,11 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaHiddenFeature extends Feature<NoneFeatureConfiguration> {
+public class HiddenIcariaFeature extends Feature<NoneFeatureConfiguration> {
 	public Block hidden;
 	public Block surface;
 
-	public IcariaHiddenFeature(Codec<NoneFeatureConfiguration> pCodec, Block pHidden, Block pSurface) {
+	public HiddenIcariaFeature(Codec<NoneFeatureConfiguration> pCodec, Block pHidden, Block pSurface) {
 		super(pCodec);
 		this.hidden = pHidden;
 		this.surface = pSurface;

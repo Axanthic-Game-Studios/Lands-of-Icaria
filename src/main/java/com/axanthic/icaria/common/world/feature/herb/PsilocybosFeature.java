@@ -13,11 +13,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
-import net.minecraft.world.level.material.Fluids;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -56,7 +54,7 @@ public class PsilocybosFeature extends Feature<NoneFeatureConfiguration> {
 
 	public void placeHerb(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos.above()).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) && pWorldGenLevel.getFluidState(pBlockPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
-			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pWorldGenLevel.getFluidState(pBlockPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())).setValue(BlockStateProperties.WATERLOGGED, pWorldGenLevel.getFluidState(pBlockPos).is(Fluids.WATER)));
+			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.PSILOCYBOS.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pWorldGenLevel.getFluidState(pBlockPos).is(IcariaFluids.MEDITERRANEAN_WATER.get())));
 		}
 	}
 }

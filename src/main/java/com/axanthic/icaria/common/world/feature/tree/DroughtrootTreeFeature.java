@@ -24,22 +24,22 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 		var level = pFeaturePlaceContext.level();
 		var origin = pFeaturePlaceContext.origin();
 		var random = pFeaturePlaceContext.random();
+
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
 		var heightTrunk = random.nextIntBetweenInclusive(2, 4);
 		var heightLower = random.nextIntBetweenInclusive(1, 4);
 		var heightInner = random.nextIntBetweenInclusive(1, 4);
 		var heightUpper = random.nextIntBetweenInclusive(1, 4);
-		var heightTotal = heightTrunk + heightLower + heightInner + heightUpper;
-		var heightAxisY = heightTotal + origin.getY();
+		var heightTotal = origin.below().getY() + heightTrunk + heightLower + heightInner + heightUpper;
 
-		if (heightAxisY < level.getMaxY() && level.getBlockState(origin.atY(heightAxisY)).canBeReplaced()) {
-			for (var i = 1; i <= heightTrunk; ++i) {
+		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+			for (var i = 1; i <= heightTrunk; i++) {
 				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
 			}
 
-			for (var i = 1; i <= heightLower; ++i) {
-				++heightTrunk;
+			for (var i = 1; i <= heightLower; i++) {
+				heightTrunk++;
 				direction = direction.getOpposite();
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 				this.placeLog(level, origin.below().above(heightTrunk).relative(direction), direction.getAxis());
@@ -50,8 +50,8 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction).relative(direction.getCounterClockWise()));
 			}
 
-			for (var i = 1; i <= heightInner; ++i) {
-				++heightTrunk;
+			for (var i = 1; i <= heightInner; i++) {
+				heightTrunk++;
 				direction = direction.getOpposite();
 				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction));
@@ -59,16 +59,16 @@ public class DroughtrootTreeFeature extends IcariaTreeFeature {
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getCounterClockWise()));
 			}
 
-			for (var i = 1; i <= heightUpper; ++i) {
-				++heightTrunk;
+			for (var i = 1; i <= heightUpper; i++) {
+				heightTrunk++;
 				direction = direction.getOpposite();
 				this.placeLeaves(level, origin.below().above(heightTrunk));
 				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction));
 			}
 
-			this.placeTwigsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeFallenPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
-			this.placeShroomsPatch(level, origin, random.nextIntBetweenInclusive(8, 16));
+			this.placeTwigsPatch(level, origin, 4);
+			this.placeFallenPatch(level, origin, 4);
+			this.placeShroomsPatch(level, origin, 4);
 
 			return true;
 		} else {
