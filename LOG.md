@@ -1,6 +1,8 @@
 Additions
 
 - Marl, Loam, Grainel and Silksand Path Blocks
+- small tree variants for all Icaria tree types
+- fallen tree variants for all Icaria tree types
 - a grinding Recipe to grind Cactus Flowers into Pink Dye
 - a grinding Recipe to grind Wildflowers into Yellow Dye
 
@@ -17,5 +19,6 @@ Updates
 
 Fixes
 
+- Olive Trees sometimes generate with one or more Leave Blocks missing
 - Rays from Crystals and Mobs as well as thrown Spells no longer are visible through Blindness and Darkness Effects
 - carried Barrels and Loot Vases no longer render their Faces shaded when said Face was oriented towards another Block before being picked up
