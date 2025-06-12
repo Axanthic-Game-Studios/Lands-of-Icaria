@@ -36,8 +36,8 @@ public class IcariaCommonHelper {
 
 	public static void fire(BlockPos pBlockPos, Level pLevel, int pRadius, int pChance) {
 		for (var i = -pRadius; i <= pRadius; i++) {
-			var blockPosMin = BlockPos.containing(pBlockPos.getX() - i, pBlockPos.getY() - i, pBlockPos.getZ() - i);
-			var blockPosMax = BlockPos.containing(pBlockPos.getX() + i, pBlockPos.getY() + i, pBlockPos.getZ() + i);
+			var blockPosMin = new BlockPos(pBlockPos.getX() - i, pBlockPos.getY() - i, pBlockPos.getZ() - i);
+			var blockPosMax = new BlockPos(pBlockPos.getX() + i, pBlockPos.getY() + i, pBlockPos.getZ() + i);
 			for (var blockPos : BlockPos.betweenClosed(blockPosMin, blockPosMax)) {
 				var blockState = pLevel.getBlockState(blockPos);
 				var fluidState = pLevel.getFluidState(blockPos);
