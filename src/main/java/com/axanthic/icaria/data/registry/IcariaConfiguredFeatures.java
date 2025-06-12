@@ -83,6 +83,13 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_PLANE_TREE = IcariaConfiguredFeatures.createKey("dead_plane_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_POPULUS_TREE = IcariaConfiguredFeatures.createKey("dead_populus_tree");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("fallen_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("fallen_droughtroot_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_TREE = IcariaConfiguredFeatures.createKey("fallen_fir_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LAUREL_TREE = IcariaConfiguredFeatures.createKey("fallen_laurel_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OLIVE_TREE = IcariaConfiguredFeatures.createKey("fallen_olive_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PLANE_TREE = IcariaConfiguredFeatures.createKey("fallen_plane_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_POPULUS_TREE = IcariaConfiguredFeatures.createKey("fallen_populus_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMY_VINE = IcariaConfiguredFeatures.createKey("bloomy_vine");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BRANCHY_VINE = IcariaConfiguredFeatures.createKey("branchy_vine");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BRUSHY_VINE = IcariaConfiguredFeatures.createKey("brushy_vine");
@@ -205,6 +212,13 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BLOOMY_VINE, new ConfiguredFeature<>(IcariaFeatures.BLOOMY_VINE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BRANCHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRANCHY_VINE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BRUSHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRUSHY_VINE.get(), NoneFeatureConfiguration.NONE));
