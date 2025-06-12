@@ -1,8 +1,8 @@
 Additions
 
 - Marl, Loam, Grainel and Silksand Path Blocks
-- small tree variants for all Icaria tree types
-- fallen tree variants for all Icaria tree types
+- small Tree Variants for all Icaria Tree Types
+- fallen Tree Variants for all Icaria Tree Types
 - a grinding Recipe to grind Cactus Flowers into Pink Dye
 - a grinding Recipe to grind Wildflowers into Yellow Dye
 
