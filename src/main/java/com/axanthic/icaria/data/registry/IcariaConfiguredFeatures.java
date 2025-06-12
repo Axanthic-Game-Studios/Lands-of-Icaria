@@ -90,6 +90,15 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OLIVE_TREE = IcariaConfiguredFeatures.createKey("fallen_olive_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PLANE_TREE = IcariaConfiguredFeatures.createKey("fallen_plane_tree");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_POPULUS_TREE = IcariaConfiguredFeatures.createKey("fallen_populus_tree");
+
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("small_cypress_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("small_droughtroot_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_FIR_TREE = IcariaConfiguredFeatures.createKey("small_fir_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_LAUREL_TREE = IcariaConfiguredFeatures.createKey("small_laurel_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_OLIVE_TREE = IcariaConfiguredFeatures.createKey("small_olive_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_PLANE_TREE = IcariaConfiguredFeatures.createKey("small_plane_tree");
+	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_POPULUS_TREE = IcariaConfiguredFeatures.createKey("small_populus_tree");
+
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMY_VINE = IcariaConfiguredFeatures.createKey("bloomy_vine");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BRANCHY_VINE = IcariaConfiguredFeatures.createKey("branchy_vine");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> BRUSHY_VINE = IcariaConfiguredFeatures.createKey("brushy_vine");
@@ -219,6 +228,15 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+
 		pBootstrapContext.register(IcariaConfiguredFeatures.BLOOMY_VINE, new ConfiguredFeature<>(IcariaFeatures.BLOOMY_VINE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BRANCHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRANCHY_VINE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BRUSHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRUSHY_VINE.get(), NoneFeatureConfiguration.NONE));

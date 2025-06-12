@@ -17,6 +17,7 @@ import com.axanthic.icaria.common.world.feature.shrooms.GreenGroundShroomsFeatur
 import com.axanthic.icaria.common.world.feature.shrooms.LargeBrownGroundShroomsFeature;
 import com.axanthic.icaria.common.world.feature.tree.*;
 import com.axanthic.icaria.common.world.feature.tree.fallen.*;
+import com.axanthic.icaria.common.world.feature.tree.small.*;
 import com.axanthic.icaria.common.world.feature.vine.*;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -71,6 +72,14 @@ public class IcariaFeatures {
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_OLIVE_TREE = IcariaFeatures.FEATURES.register("fallen_olive_tree", () -> new FallenOliveTreeFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_PLANE_TREE = IcariaFeatures.FEATURES.register("fallen_plane_tree", () -> new FallenPlaneTreeFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> FALLEN_POPULUS_TREE = IcariaFeatures.FEATURES.register("fallen_populus_tree", () -> new FallenPopulusTreeFeature(NoneFeatureConfiguration.CODEC));
+
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_CYPRESS_TREE = IcariaFeatures.FEATURES.register("small_cypress_tree", () -> new SmallCypressTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_DROUGHTROOT_TREE = IcariaFeatures.FEATURES.register("small_droughtroot_tree", () -> new SmallDroughtrootTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_FIR_TREE = IcariaFeatures.FEATURES.register("small_fir_tree", () -> new SmallFirTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_LAUREL_TREE = IcariaFeatures.FEATURES.register("small_laurel_tree", () -> new SmallLaurelTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_OLIVE_TREE = IcariaFeatures.FEATURES.register("small_olive_tree", () -> new SmallOliveTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_PLANE_TREE = IcariaFeatures.FEATURES.register("small_plane_tree", () -> new SmallPlaneTreeFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> SMALL_POPULUS_TREE = IcariaFeatures.FEATURES.register("small_populus_tree", () -> new SmallPopulusTreeFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BLOOMY_VINE = IcariaFeatures.FEATURES.register("bloomy_vine", () -> new BloomyVineFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BRANCHY_VINE = IcariaFeatures.FEATURES.register("branchy_vine", () -> new BranchyVineFeature(NoneFeatureConfiguration.CODEC));
