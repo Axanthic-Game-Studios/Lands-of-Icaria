@@ -60,7 +60,7 @@ public class MyrmekeQueenEntity extends Monster {
 	}
 
 	public void tickRegisterRaysValues() {
-		if (this.tickCount <= 20) {
+		if (this.tickCount <= 1) {
 			this.red = IcariaClientHelper.getRed(this);
 			this.green = IcariaClientHelper.getGreen(this);
 			this.blue = IcariaClientHelper.getBlue(this);
