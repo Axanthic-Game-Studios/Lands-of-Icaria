@@ -8,13 +8,14 @@ Additions
 
 Updates
 
+- new Spawn Egg Textures
 - remodeled and renamed the Sow to Thog as well as all related Blocks and Items
-- dead Cypress, Droughtroot, Fir, Laurel, Olive, Plane and Populus Tree Features generate with a Chance for growing Tree Shrooms now
+- dead Tree Variant Features for Icaria Tree Types generate with a Chance for longer Variants now
+- dead Tree Variant Features for Icaria Tree Types generate with a Chance for growing Tree Shrooms now
 - Cypress, Droughtroot, Fir, Laurel, Olive, Plane and Populus Leaves drop fitting falling Leaves Particle now
 - Icaria Farmland and Fertilized Farmland can be used to plant Dead Bush on to be in Line with vanilla Behavior
 - carried Barrels and Loot Vases rotate with the Player now
-- Smooth Quartz Slabs can be used once again to construct the Portal with
-- placing and mining a Storage Vase plays an updated Sound, no longer suggesting the Storage Vase broke into pieces when mined
+- placing and mining a Storage Vase plays an updated Sound, no longer suggesting the Storage Vase broke into Pieces when mined
 - the Chest Label Tooltip is restructured for better Readability now
 
 Fixes
