@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.world.feature.*;
+import com.axanthic.icaria.common.world.feature.flowers.*;
 import com.axanthic.icaria.common.world.feature.herb.*;
 import com.axanthic.icaria.common.world.feature.hidden.HiddenGrainelChertFeature;
 import com.axanthic.icaria.common.world.feature.hidden.HiddenMarlBonesFeature;
@@ -97,6 +98,13 @@ public class IcariaFeatures {
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PSILOCYBOS = IcariaFeatures.FEATURES.register("psilocybos", () -> new PsilocybosFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> ROWAN = IcariaFeatures.FEATURES.register("rowan", () -> new RowanFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> WILTED_ELM = IcariaFeatures.FEATURES.register("wilted_elm", () -> new WiltedElmFeature(NoneFeatureConfiguration.CODEC));
+
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BLUE_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("blue_ground_flowers", () -> new BlueGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> CYAN_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("cyan_ground_flowers", () -> new CyanGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PINK_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("pink_ground_flowers", () -> new PinkGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> PURPLE_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("purple_ground_flowers", () -> new PurpleGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> RED_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("red_ground_flowers", () -> new RedGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
+	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> WHITE_GROUND_FLOWERS = IcariaFeatures.FEATURES.register("white_ground_flowers", () -> new WhiteGroundFlowersFeature(NoneFeatureConfiguration.CODEC));
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> GREEN_GROUND_SHROOMS = IcariaFeatures.FEATURES.register("green_ground_shrooms", () -> new GreenGroundShroomsFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> BROWN_GROUND_SHROOMS = IcariaFeatures.FEATURES.register("brown_ground_shrooms", () -> new BrownGroundShroomsFeature(NoneFeatureConfiguration.CODEC));

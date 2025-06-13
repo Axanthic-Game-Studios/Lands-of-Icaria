@@ -34,6 +34,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot EDGE = TextureSlot.create("edge");
 	public static final TextureSlot END = TextureSlot.create("end");
 	public static final TextureSlot FIRE = TextureSlot.create("fire");
+	public static final TextureSlot FLOWERBED = TextureSlot.create("flowerbed");
 	public static final TextureSlot FORGE = TextureSlot.create("forge");
 	public static final TextureSlot GRAINITE = TextureSlot.create("grainite");
 	public static final TextureSlot GRAINITE_BRICKS = TextureSlot.create("grainite_bricks");

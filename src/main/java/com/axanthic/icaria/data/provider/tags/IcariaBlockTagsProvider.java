@@ -1201,6 +1201,14 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PINK_BROMELIA.get())
 			.add(IcariaBlocks.PURPLE_BROMELIA.get());
 
+		this.tag(BlockTags.INSIDE_STEP_SOUND_BLOCKS)
+			.add(IcariaBlocks.BLUE_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.CYAN_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.PINK_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.PURPLE_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.RED_GROUND_FLOWERS.get())
+			.add(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
+
 		this.tag(BlockTags.LEAVES)
 			.add(IcariaBlocks.CYPRESS_LEAVES.get())
 			.add(IcariaBlocks.DROUGHTROOT_LEAVES.get())

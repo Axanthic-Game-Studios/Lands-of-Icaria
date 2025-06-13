@@ -130,6 +130,12 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.PSILOCYBOS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.ROWAN.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.WILTED_ELM.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.BLUE_GROUND_FLOWERS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.CYAN_GROUND_FLOWERS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.PINK_GROUND_FLOWERS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.PURPLE_GROUND_FLOWERS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.RED_GROUND_FLOWERS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.WHITE_GROUND_FLOWERS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_BUSH.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.PAINTING.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.BONE_REMAINS.get(), pItemModelGenerators);
@@ -844,12 +850,6 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_TRAPDOOR.get(), "bottom", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_PRESSURE_PLATE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_BUTTON.get(), "inventory", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.BLUE_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.CYAN_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.PINK_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.PURPLE_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.RED_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.WHITE_GROUND_FLOWERS.get(), "0", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FOREST_MOSS.get(), "1", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.SCRUBLAND_MOSS.get(), "1", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.STEPPE_MOSS.get(), "1", pItemModelGenerators);

@@ -1,8 +1,9 @@
 {
-  "parent": "landsoficaria:block/template_ground_flowers",
+  "parent": "minecraft:block/flowerbed_2",
   "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "landsoficaria:block/blue_ground_flowers_2",
-    "texture": "landsoficaria:block/blue_ground_flowers_2"
+    "flowerbed": "landsoficaria:block/blue_ground_flowers",
+    "particle": "landsoficaria:block/blue_ground_flowers",
+    "stem": "landsoficaria:block/ground_flowers_stem"
   }
 }

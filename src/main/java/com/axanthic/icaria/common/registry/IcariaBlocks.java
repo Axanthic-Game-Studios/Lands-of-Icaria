@@ -692,12 +692,12 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> ROWAN = IcariaBlocks.register("rowan", IcariaBushBlock::new, IcariaBlocks.propertiesPlant(MapColor.NONE, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> WILTED_ELM = IcariaBlocks.register("wilted_elm", IcariaBushBlock::new, IcariaBlocks.propertiesPlant(MapColor.NONE, SoundType.GRASS));
 
-	public static final DeferredHolder<Block, Block> BLUE_GROUND_FLOWERS = IcariaBlocks.register("blue_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> CYAN_GROUND_FLOWERS = IcariaBlocks.register("cyan_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> PINK_GROUND_FLOWERS = IcariaBlocks.register("pink_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> PURPLE_GROUND_FLOWERS = IcariaBlocks.register("purple_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> RED_GROUND_FLOWERS = IcariaBlocks.register("red_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> WHITE_GROUND_FLOWERS = IcariaBlocks.register("white_ground_flowers", GroundFlowerBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.GRASS));
+	public static final DeferredHolder<Block, Block> BLUE_GROUND_FLOWERS = IcariaBlocks.register("blue_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
+	public static final DeferredHolder<Block, Block> CYAN_GROUND_FLOWERS = IcariaBlocks.register("cyan_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
+	public static final DeferredHolder<Block, Block> PINK_GROUND_FLOWERS = IcariaBlocks.register("pink_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
+	public static final DeferredHolder<Block, Block> PURPLE_GROUND_FLOWERS = IcariaBlocks.register("purple_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
+	public static final DeferredHolder<Block, Block> RED_GROUND_FLOWERS = IcariaBlocks.register("red_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
+	public static final DeferredHolder<Block, Block> WHITE_GROUND_FLOWERS = IcariaBlocks.register("white_ground_flowers", FlowerBedBlock::new, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS));
 
 	public static final DeferredHolder<Block, Block> FOREST_MOSS = IcariaBlocks.register("forest_moss", LayerBlock::new, IcariaBlocks.propertiesMoss(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.MOSS));
 	public static final DeferredHolder<Block, Block> SCRUBLAND_MOSS = IcariaBlocks.register("scrubland_moss", LayerBlock::new, IcariaBlocks.propertiesMoss(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.MOSS));

@@ -154,7 +154,7 @@ public class IcariaClientModEvents {
 
 	@SubscribeEvent
 	public static void onRegisterClientExtensions(RegisterClientExtensionsEvent pEvent) {
-		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.BLOOMY_VINE.get(), IcariaBlocks.BRANCHY_VINE.get(), IcariaBlocks.BRUSHY_VINE.get(), IcariaBlocks.REEDY_VINE.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.BLOOMY_VINE.get(), IcariaBlocks.BRANCHY_VINE.get(), IcariaBlocks.BRUSHY_VINE.get(), IcariaBlocks.REEDY_VINE.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.BLUE_GROUND_FLOWERS.get(), IcariaBlocks.CYAN_GROUND_FLOWERS.get(), IcariaBlocks.PINK_GROUND_FLOWERS.get(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), IcariaBlocks.RED_GROUND_FLOWERS.get(), IcariaBlocks.WHITE_GROUND_FLOWERS.get(), IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 		pEvent.registerFluidType(new MediterraneanWaterClientFluidTypeExtensions(), IcariaFluidTypes.MEDITERRANEAN_WATER.get());
 		pEvent.registerItem(new OrichalcumHelmetClientItemExtensions(), IcariaItems.ORICHALCUM_HELMET.get());
 	}
@@ -214,6 +214,12 @@ public class IcariaClientModEvents {
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.POTTED_SUNSPONGE.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.VOIDLILY.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.POTTED_VOIDLILY.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.BLUE_GROUND_FLOWERS.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.CYAN_GROUND_FLOWERS.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.PINK_GROUND_FLOWERS.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.RED_GROUND_FLOWERS.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.WHITE_GROUND_FLOWERS.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.PALM_FERN.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.POTTED_PALM_FERN.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.WHITE_BROMELIA.get());

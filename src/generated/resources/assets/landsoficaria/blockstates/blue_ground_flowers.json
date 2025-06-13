@@ -1,51 +1,156 @@
 {
-  "variants": {
-    "": [
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_0"
-      },
-      {
+  "multipart": [
+    {
+      "apply": {
         "model": "landsoficaria:block/blue_ground_flowers_1"
       },
-      {
+      "when": {
+        "facing": "north"
+      }
+    },
+    {
+      "apply": {
         "model": "landsoficaria:block/blue_ground_flowers_2"
       },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_0",
-        "y": 90
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_1",
-        "y": 90
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_2",
-        "y": 90
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_0",
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_1",
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_2",
-        "y": 180
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_0",
-        "y": 270
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_1",
-        "y": 270
-      },
-      {
-        "model": "landsoficaria:block/blue_ground_flowers_2",
-        "y": 270
+      "when": {
+        "facing": "north",
+        "flower_amount": "2|3|4"
       }
-    ]
-  }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_3"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_4"
+      },
+      "when": {
+        "facing": "north",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_1",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_2",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_3",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_4",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_1",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_2",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_3",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_4",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "flower_amount": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_1",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_2",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "2|3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_3",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "3|4"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/blue_ground_flowers_4",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "flower_amount": "4"
+      }
+    }
+  ]
 }

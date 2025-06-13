@@ -1,3 +1,6 @@
 {
-  "parent": "landsoficaria:block/purple_ground_flowers_0"
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "landsoficaria:item/purple_ground_flowers"
+  }
 }

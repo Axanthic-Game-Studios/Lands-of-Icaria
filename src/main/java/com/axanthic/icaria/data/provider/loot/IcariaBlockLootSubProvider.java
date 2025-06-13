@@ -62,6 +62,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropCrop();
 		this.dropDoor();
 		this.dropElse();
+		this.dropGroundFlowers();
 		this.dropLaurelLeaves();
 		this.dropLayers();
 		this.dropLeaves();
@@ -146,6 +147,15 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.PLANE_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
+	}
+
+	public void dropGroundFlowers() {
+		this.dropGroundFlowers(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
+		this.dropGroundFlowers(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
+		this.dropGroundFlowers(IcariaBlocks.PINK_GROUND_FLOWERS.get());
+		this.dropGroundFlowers(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
+		this.dropGroundFlowers(IcariaBlocks.RED_GROUND_FLOWERS.get());
+		this.dropGroundFlowers(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
 	}
 
 	public void dropLaurelLeaves() {
@@ -705,12 +715,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PSILOCYBOS.get());
 		this.dropThis(IcariaBlocks.ROWAN.get());
 		this.dropThis(IcariaBlocks.WILTED_ELM.get());
-		this.dropThis(IcariaBlocks.BLUE_GROUND_FLOWERS.get());
-		this.dropThis(IcariaBlocks.CYAN_GROUND_FLOWERS.get());
-		this.dropThis(IcariaBlocks.PINK_GROUND_FLOWERS.get());
-		this.dropThis(IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
-		this.dropThis(IcariaBlocks.RED_GROUND_FLOWERS.get());
-		this.dropThis(IcariaBlocks.WHITE_GROUND_FLOWERS.get());
 		this.dropThis(IcariaBlocks.PALM_FERN.get());
 		this.dropThis(IcariaBlocks.WHITE_BROMELIA.get());
 		this.dropThis(IcariaBlocks.ORANGE_BROMELIA.get());
@@ -816,6 +820,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropElse(Block pBlock, Item pItem) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))));
+	}
+
+	public void dropGroundFlowers(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.FLOWER_AMOUNT, 1))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.FLOWER_AMOUNT, 2))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.FLOWER_AMOUNT, 3))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(4.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.FLOWER_AMOUNT, 4))))));
 	}
 
 	public void dropLaurelLeaves(Block pBlock, Item pItem) {

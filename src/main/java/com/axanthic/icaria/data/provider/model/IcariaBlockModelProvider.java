@@ -155,7 +155,6 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.grinderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderShaftModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderStoneModel(pBlockModelGenerators);
-		IcariaBlockModelProvider.groundFlowersModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteCrystalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalBarsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalPaneModel(pBlockModelGenerators);
@@ -2097,18 +2096,26 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void groundFlowers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
-			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "flowerbed_1")).renderType("cutout").build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "ground_flowers_stem"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "flowerbed_2")).renderType("cutout").build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "ground_flowers_stem"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "flowerbed_3")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "ground_flowers_stem"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "flowerbed_4")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "ground_flowers_stem"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void haliteCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -3199,10 +3206,6 @@ public class IcariaBlockModelProvider {
 
 	public static void grinderStoneModel(BlockModelGenerators pBlockModelGenerators) {
 		GrinderStoneModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grinder_stone"), new TextureMapping(), pBlockModelGenerators.modelOutput);
-	}
-
-	public static void groundFlowersModel(BlockModelGenerators pBlockModelGenerators) {
-		GroundFlowersModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_ground_flowers"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void haliteCrystalModel(BlockModelGenerators pBlockModelGenerators) {
