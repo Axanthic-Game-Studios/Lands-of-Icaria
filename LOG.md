@@ -8,7 +8,8 @@ Additions
 
 Updates
 
-- new Spawn Egg Textures
+- updated Spawn Egg Textures to be in Line with vanilla Spawn Eggs
+- updated Ground Flowers to be in Line with vanilla Petals and Wildflowers
 - remodeled and renamed the Sow to Thog as well as all related Blocks and Items
 - dead Tree Variant Features for Icaria Tree Types generate with a Chance for longer Variants now
 - dead Tree Variant Features for Icaria Tree Types generate with a Chance for growing Tree Shrooms now
