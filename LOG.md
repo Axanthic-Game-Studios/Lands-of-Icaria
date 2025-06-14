@@ -13,7 +13,7 @@ Updates
 - remodeled and renamed the Sow to Thog as well as all related Blocks and Items
 - dead Tree Variant Features for Icaria Tree Types generate with a Chance for longer Variants now
 - dead Tree Variant Features for Icaria Tree Types generate with a Chance for growing Tree Shrooms now
-- Cypress, Droughtroot, Fir, Laurel, Olive, Plane and Populus Leaves drop fitting falling Leaves Particle now
+- Cypress, Droughtroot, Fir, Laurel, Olive, Plane and Populus Leaves drop fitting falling Leaves Particles now
 - Icaria Farmland and Fertilized Farmland can be used to plant Dead Bush on to be in Line with vanilla Behavior
 - carried Barrels and Loot Vases rotate with the Player now
 - placing and mining a Storage Vase plays an updated Sound, no longer suggesting the Storage Vase broke into Pieces when mined
@@ -21,6 +21,6 @@ Updates
 
 Fixes
 
-- Olive Trees sometimes generate with one or more Leave Blocks missing
+- Olive Trees sometimes generate with one or more Leaves Blocks missing
 - Rays from Crystals and Mobs as well as thrown Spells no longer are visible through Blindness and Darkness Effects
 - carried Barrels and Loot Vases no longer render their Faces shaded when said Face was oriented towards another Block before being picked up
