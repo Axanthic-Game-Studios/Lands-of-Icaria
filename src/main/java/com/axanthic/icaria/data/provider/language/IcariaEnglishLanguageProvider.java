@@ -120,6 +120,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), "Dolomite Pillar Head");
 
 		this.add(IcariaBlocks.GRAINEL.get(), "Grainel");
+		this.add(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), "Suspicious Grainel");
 		this.add(IcariaBlocks.GRAINEL_CHERT.get(), "Chert Ore");
 		this.add(IcariaBlocks.GRAINEL_PATH.get(), "Grainel Path");
 		this.add(IcariaBlocks.GRAINGLASS.get(), "Grainglass");
@@ -160,6 +161,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), "Yellowstone Rubble");
 
 		this.add(IcariaBlocks.SILKSAND.get(), "Silksand");
+		this.add(IcariaBlocks.SUSPICIOUS_SILKSAND.get(), "Suspicious Silksand");
 		this.add(IcariaBlocks.SILKSAND_PATH.get(), "Silksand Path");
 		this.add(IcariaBlocks.SILKGLASS.get(), "Silkglass");
 		this.add(IcariaBlocks.SILKGLASS_PANE.get(), "Silkglass Pane");

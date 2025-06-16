@@ -148,16 +148,16 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
 	public void setLootForChest(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaChestBlockEntity blockEntity) {
-			blockEntity.setLootTable(IcariaLootTables.CHEST_LOOT, pRandomSource.nextLong());
+			blockEntity.setLootTable(IcariaLootTables.CHEST, pRandomSource.nextLong());
 		}
 	}
 
 	public void setLootForVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE_LOOT, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE, pRandomSource.nextLong());
 			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE_LOOT, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE, pRandomSource.nextLong());
 			}
 		}
 	}

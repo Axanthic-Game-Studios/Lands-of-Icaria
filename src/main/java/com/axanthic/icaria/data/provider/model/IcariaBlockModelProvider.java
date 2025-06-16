@@ -115,6 +115,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.strippedDeadLog(pBlockModelGenerators);
 		IcariaBlockModelProvider.surfaceBones(pBlockModelGenerators);
 		IcariaBlockModelProvider.surfaceChert(pBlockModelGenerators);
+		IcariaBlockModelProvider.suspiciousSand(pBlockModelGenerators);
 		IcariaBlockModelProvider.tappedBarrel(pBlockModelGenerators);
 		IcariaBlockModelProvider.tinderFungusTreeShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(pBlockModelGenerators);
@@ -1000,6 +1001,11 @@ public class IcariaBlockModelProvider {
 
 	public static void surfaceChert(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.surfaceChert(IcariaBlocks.SURFACE_CHERT.get(), pBlockModelGenerators);
+	}
+
+	public static void suspiciousSand(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_SILKSAND.get(), pBlockModelGenerators);
 	}
 
 	public static void tappedBarrel(BlockModelGenerators pBlockModelGenerators) {
@@ -2885,6 +2891,25 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void suspiciousSand(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "0"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "1"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "2"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_all")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "3"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tappedBarrel(Block pTappedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {

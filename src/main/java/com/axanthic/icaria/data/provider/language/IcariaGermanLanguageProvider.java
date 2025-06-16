@@ -120,6 +120,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), "Dolomitsäulenende");
 
 		this.add(IcariaBlocks.GRAINEL.get(), "Schluffsand");
+		this.add(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), "Seltsamer Schluffsand");
 		this.add(IcariaBlocks.GRAINEL_CHERT.get(), "Hornsteinerz");
 		this.add(IcariaBlocks.GRAINEL_PATH.get(), "Schluffsand Trampelpfad");
 		this.add(IcariaBlocks.GRAINGLASS.get(), "Schluffglas");
@@ -160,6 +161,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.YELLOWSTONE_RUBBLE.get(), "Gelbsteingeröll");
 
 		this.add(IcariaBlocks.SILKSAND.get(), "Seidensand");
+		this.add(IcariaBlocks.SUSPICIOUS_SILKSAND.get(), "Seltsamer Seidensand");
 		this.add(IcariaBlocks.SILKSAND_PATH.get(), "Seidensand Trampelpfad");
 		this.add(IcariaBlocks.SILKGLASS.get(), "Seidenglass");
 		this.add(IcariaBlocks.SILKGLASS_PANE.get(), "Seidenglassscheibe");

@@ -13,9 +13,11 @@
     "landsoficaria:loam",
     "landsoficaria:loam_path",
     "landsoficaria:grainel",
+    "landsoficaria:suspicious_grainel",
     "landsoficaria:grainel_chert",
     "landsoficaria:grainel_path",
     "landsoficaria:silksand",
+    "landsoficaria:suspicious_silksand",
     "landsoficaria:silksand_path"
   ]
 }

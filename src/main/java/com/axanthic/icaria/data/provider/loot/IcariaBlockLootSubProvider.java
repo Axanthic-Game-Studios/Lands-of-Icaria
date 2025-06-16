@@ -184,6 +184,8 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropNone() {
+		this.dropNone(IcariaBlocks.SUSPICIOUS_GRAINEL.get());
+		this.dropNone(IcariaBlocks.SUSPICIOUS_SILKSAND.get());
 		this.dropNone(IcariaBlocks.KETTLE.get());
 		this.dropNone(IcariaBlocks.GRINDER.get());
 		this.dropNone(IcariaBlocks.KILN.get());

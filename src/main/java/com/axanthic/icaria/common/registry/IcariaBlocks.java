@@ -13,6 +13,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
@@ -74,6 +75,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> DOLOMITE_PILLAR_HEAD = IcariaBlocks.register("dolomite_pillar_head", PillarHeadBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_WHITE, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> GRAINEL = IcariaBlocks.register("grainel", Block::new, IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
+	public static final DeferredHolder<Block, Block> SUSPICIOUS_GRAINEL = IcariaBlocks.register("suspicious_grainel", properties -> new IcariaBrushableBlock(IcariaBlocks.GRAINEL.get(), SoundEvents.BRUSH_SAND, SoundEvents.BRUSH_SAND_COMPLETED, properties), IcariaBlocks.propertiesSuspiciousSand(MapColor.TERRACOTTA_YELLOW, SoundType.SUSPICIOUS_SAND));
 	public static final DeferredHolder<Block, Block> GRAINEL_CHERT = IcariaBlocks.register("grainel_chert", Block::new, IcariaBlocks.propertiesSandOre(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> GRAINEL_PATH = IcariaBlocks.register("grainel_path", properties -> new IcariaPathBlock(IcariaBlocks.GRAINEL.get(), properties), IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_YELLOW, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> GRAINGLASS = IcariaBlocks.register("grainglass", TransparentBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
@@ -114,6 +116,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> YELLOWSTONE_RUBBLE = IcariaBlocks.register("yellowstone_rubble", GroundDecoBlock::new, IcariaBlocks.propertiesGroundDeco(MapColor.NONE, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> SILKSAND = IcariaBlocks.register("silksand", Block::new, IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.SAND));
+	public static final DeferredHolder<Block, Block> SUSPICIOUS_SILKSAND = IcariaBlocks.register("suspicious_silksand", properties -> new IcariaBrushableBlock(IcariaBlocks.SILKSAND.get(), SoundEvents.BRUSH_SAND, SoundEvents.BRUSH_SAND_COMPLETED, properties), IcariaBlocks.propertiesSuspiciousSand(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.SUSPICIOUS_SAND));
 	public static final DeferredHolder<Block, Block> SILKSAND_PATH = IcariaBlocks.register("silksand_path", properties -> new IcariaPathBlock(IcariaBlocks.SILKSAND.get(), properties), IcariaBlocks.propertiesSand(MapColor.TERRACOTTA_LIGHT_GRAY, SoundType.SAND));
 	public static final DeferredHolder<Block, Block> SILKGLASS = IcariaBlocks.register("silkglass", TransparentBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
 	public static final DeferredHolder<Block, IcariaIronBarsBlock> SILKGLASS_PANE = IcariaBlocks.register("silkglass_pane", IcariaIronBarsBlock::new, IcariaBlocks.propertiesGlass(MapColor.NONE, SoundType.GLASS));
@@ -791,6 +794,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesSand(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+	}
+
+	public static BlockBehaviour.Properties propertiesSuspiciousSand(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F);
 	}
 
 	public static BlockBehaviour.Properties propertiesSandOre(MapColor pMapColor, SoundType pSoundType) {

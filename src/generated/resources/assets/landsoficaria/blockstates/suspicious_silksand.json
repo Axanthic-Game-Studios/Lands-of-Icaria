@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "dusted=0": {
+      "model": "landsoficaria:block/suspicious_silksand_0"
+    },
+    "dusted=1": {
+      "model": "landsoficaria:block/suspicious_silksand_1"
+    },
+    "dusted=2": {
+      "model": "landsoficaria:block/suspicious_silksand_2"
+    },
+    "dusted=3": {
+      "model": "landsoficaria:block/suspicious_silksand_3"
+    }
+  }
+}

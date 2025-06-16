@@ -2,6 +2,8 @@
   "values": [
     "landsoficaria:loam",
     "landsoficaria:grainel",
-    "landsoficaria:silksand"
+    "landsoficaria:suspicious_grainel",
+    "landsoficaria:silksand",
+    "landsoficaria:suspicious_silksand"
   ]
 }

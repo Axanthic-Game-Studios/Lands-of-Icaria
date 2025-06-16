@@ -25,7 +25,7 @@ public record IcariaChestLootSubProvider(HolderLookup.Provider pProvider) implem
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTables.CHEST_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.CHEST, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 3.0F))
 				.add(LootItem.lootTableItem(IcariaItems.ARACHNE_STRING.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.CHERT_DAGGER.get()).apply(SetItemDamageFunction.setDamage(UniformGenerator.between(0.1F, 0.9F))))

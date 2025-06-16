@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "landsoficaria:block/suspicious_grainel_1",
+    "particle": "landsoficaria:block/suspicious_grainel_1"
+  }
+}

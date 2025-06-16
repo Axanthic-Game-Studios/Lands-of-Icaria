@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "dusted=0": {
+      "model": "landsoficaria:block/suspicious_grainel_0"
+    },
+    "dusted=1": {
+      "model": "landsoficaria:block/suspicious_grainel_1"
+    },
+    "dusted=2": {
+      "model": "landsoficaria:block/suspicious_grainel_2"
+    },
+    "dusted=3": {
+      "model": "landsoficaria:block/suspicious_grainel_3"
+    }
+  }
+}

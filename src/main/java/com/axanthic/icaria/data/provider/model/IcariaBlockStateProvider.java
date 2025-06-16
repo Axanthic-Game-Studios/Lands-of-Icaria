@@ -65,6 +65,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.slab(pBlockModelGenerators);
 		IcariaBlockStateProvider.stairs(pBlockModelGenerators);
 		IcariaBlockStateProvider.strawberryBush(pBlockModelGenerators);
+		IcariaBlockStateProvider.suspiciousSand(pBlockModelGenerators);
 		IcariaBlockStateProvider.trapdoor(pBlockModelGenerators);
 		IcariaBlockStateProvider.treeShrooms(pBlockModelGenerators);
 		IcariaBlockStateProvider.tripleBarrelRack(pBlockModelGenerators);
@@ -794,6 +795,11 @@ public class IcariaBlockStateProvider {
 
 	public static void strawberryBush(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.strawberryBush(IcariaBlocks.STRAWBERRY_BUSH.get(), pBlockModelGenerators);
+	}
+
+	public static void suspiciousSand(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_SILKSAND.get(), pBlockModelGenerators);
 	}
 
 	public static void trapdoor(BlockModelGenerators pBlockModelGenerators) {
@@ -1784,6 +1790,17 @@ public class IcariaBlockStateProvider {
 			.with(PropertyDispatch.initial(IcariaBlockStateProperties.RIPE)
 				.select(Ripe.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0"))))
 				.select(Ripe.RIPE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1"))))
+			)
+		);
+	}
+
+	public static void suspiciousSand(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.DUSTED)
+				.select(0, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0"))))
+				.select(1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1"))))
+				.select(2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2"))))
+				.select(3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3"))))
 			)
 		);
 	}

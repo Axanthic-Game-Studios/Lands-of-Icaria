@@ -1,0 +1,96 @@
+{
+  "type": "minecraft:archaeology",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lead"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:grainglass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:horizontal_grainglass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:silkglass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:horizontal_silkglass_pane"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:loam_brick"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:arachne_string"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:spelt"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:vine_reed"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:rotten_bones"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:greenpowder"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:lignite"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:greek_fire_grenade"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:empty_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:empty_vial"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:loam_gear"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:loam_bowl"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:spelt_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:strawberry_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:physalis_seeds"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:suspicious_sands/suspicious_sand"
+}

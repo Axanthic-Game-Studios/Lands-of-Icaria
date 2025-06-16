@@ -960,7 +960,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 		this.tag(ItemTags.SAND)
 			.add(IcariaItems.LOAM.get())
 			.add(IcariaItems.GRAINEL.get())
-			.add(IcariaItems.SILKSAND.get());
+			.add(IcariaItems.SUSPICIOUS_GRAINEL.get())
+			.add(IcariaItems.SILKSAND.get())
+			.add(IcariaItems.SUSPICIOUS_SILKSAND.get());
 
 		this.tag(ItemTags.SAPLINGS)
 			.add(IcariaItems.CYPRESS_SAPLING.get())

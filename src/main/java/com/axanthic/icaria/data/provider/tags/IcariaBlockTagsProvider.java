@@ -589,9 +589,11 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.LOAM_PATH.get())
 			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SUSPICIOUS_GRAINEL.get())
 			.add(IcariaBlocks.GRAINEL_CHERT.get())
 			.add(IcariaBlocks.GRAINEL_PATH.get())
 			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.SUSPICIOUS_SILKSAND.get())
 			.add(IcariaBlocks.SILKSAND_PATH.get());
 
 		this.tag(BlockTags.OCCLUDES_VIBRATION_SIGNALS)
@@ -845,6 +847,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.DOLOMITE_PILLAR.get())
 			.add(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get())
 			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.SUSPICIOUS_SILKSAND.get())
 			.add(IcariaBlocks.SILKGLASS.get())
 			.add(IcariaBlocks.SILKGLASS_PANE.get())
 			.add(IcariaBlocks.SILKGLASS.get())
@@ -1239,7 +1242,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 		this.tag(BlockTags.SAND)
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
-			.add(IcariaBlocks.SILKSAND.get());
+			.add(IcariaBlocks.SUSPICIOUS_GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get())
+			.add(IcariaBlocks.SUSPICIOUS_SILKSAND.get());
 
 		this.tag(BlockTags.SAPLINGS)
 			.add(IcariaBlocks.CYPRESS_SAPLING.get())

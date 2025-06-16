@@ -38,6 +38,7 @@ public class IcariaCommonModEvents {
 
 	@SubscribeEvent
 	public static void onBlockEntityTypeAddBlocks(BlockEntityTypeAddBlocksEvent pEvent) {
+		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_GRAINEL.get(), IcariaBlocks.SUSPICIOUS_SILKSAND.get());
 		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
 		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaBlocks.THOG_SKULL.get(), IcariaBlocks.THOG_WALL_SKULL.get());
 	}
@@ -221,6 +222,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DOLOMITE_PILLAR_HEAD.get());
 
 			pEvent.accept(IcariaItems.GRAINEL.get());
+			pEvent.accept(IcariaItems.SUSPICIOUS_GRAINEL.get());
 			pEvent.accept(IcariaItems.GRAINEL_CHERT.get());
 			pEvent.accept(IcariaItems.GRAINEL_PATH.get());
 			pEvent.accept(IcariaItems.GRAINGLASS.get());
@@ -261,6 +263,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.YELLOWSTONE_RUBBLE.get());
 
 			pEvent.accept(IcariaItems.SILKSAND.get());
+			pEvent.accept(IcariaItems.SUSPICIOUS_SILKSAND.get());
 			pEvent.accept(IcariaItems.SILKSAND_PATH.get());
 			pEvent.accept(IcariaItems.SILKGLASS.get());
 			pEvent.accept(IcariaItems.SILKGLASS_PANE.get());

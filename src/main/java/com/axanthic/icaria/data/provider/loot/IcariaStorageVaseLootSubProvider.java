@@ -26,7 +26,7 @@ public record IcariaStorageVaseLootSubProvider(HolderLookup.Provider pProvider) 
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTables.RED_STORAGE_VASE_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.RED_STORAGE_VASE, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
 				.add(LootItem.lootTableItem(IcariaItems.ENDER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.FIRE_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
@@ -47,7 +47,7 @@ public record IcariaStorageVaseLootSubProvider(HolderLookup.Provider pProvider) 
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTables.CYAN_STORAGE_VASE_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.CYAN_STORAGE_VASE, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
 				.add(LootItem.lootTableItem(IcariaItems.SPELT_BREAD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.VINE_SPROUT.get()))

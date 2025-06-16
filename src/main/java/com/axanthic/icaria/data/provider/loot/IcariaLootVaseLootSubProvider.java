@@ -27,7 +27,7 @@ public record IcariaLootVaseLootSubProvider(HolderLookup.Provider pProvider) imp
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTables.RED_LOOT_VASE_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.RED_LOOT_VASE, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
 				.add(LootItem.lootTableItem(IcariaItems.LOAM_LUMP.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.CHERT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
@@ -64,7 +64,7 @@ public record IcariaLootVaseLootSubProvider(HolderLookup.Provider pProvider) imp
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTables.LOST_LOOT_VASE_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.LOST_LOOT_VASE, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
 				.add(LootItem.lootTableItem(Items.BONE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.VANADIUMSTEEL_CHAIN.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
@@ -102,7 +102,7 @@ public record IcariaLootVaseLootSubProvider(HolderLookup.Provider pProvider) imp
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTables.CYAN_LOOT_VASE_LOOT, LootTable.lootTable()
+		pBiConsumer.accept(IcariaLootTables.CYAN_LOOT_VASE, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
 				.add(LootItem.lootTableItem(IcariaItems.BONE_REMAINS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 				.add(LootItem.lootTableItem(IcariaItems.CALCITE_SHARD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))

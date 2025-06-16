@@ -97,6 +97,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.DOLOMITE_PILLAR.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DOLOMITE_PILLAR_HEAD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINEL.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_GRAINEL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINEL_CHERT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINEL_PATH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINGLASS.get(), pItemModelGenerators);
@@ -135,6 +136,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CHISELED_YELLOWSTONE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.YELLOWSTONE_RUBBLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SILKSAND.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_SILKSAND.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SILKSAND_PATH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SILKGLASS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SILKGLASS_PANE.get(), pItemModelGenerators);

@@ -113,7 +113,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	@Override
 	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
 		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
-		var lootTable = pBlockState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE_LOOT : pBlockState.is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTables.LOST_LOOT_VASE_LOOT : IcariaLootTables.CYAN_LOOT_VASE_LOOT;
+		var lootTable = pBlockState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE : pBlockState.is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTables.LOST_LOOT_VASE : IcariaLootTables.CYAN_LOOT_VASE;
 		return lootParams.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootParams);
 	}
 

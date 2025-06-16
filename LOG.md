@@ -1,5 +1,6 @@
 Additions
 
+- Suspicious Grainel and Suspicious Silksand
 - Marl, Loam, Grainel and Silksand Path Blocks
 - small Tree Variants for all Icaria Tree Types
 - fallen Tree Variants for all Icaria Tree Types
