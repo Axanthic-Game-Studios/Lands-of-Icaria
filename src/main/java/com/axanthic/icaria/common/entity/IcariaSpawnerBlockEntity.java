@@ -18,6 +18,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.Spawner;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @SuppressWarnings("unused")
 
@@ -41,15 +43,15 @@ public class IcariaSpawnerBlockEntity extends BlockEntity implements Spawner {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pCompoundTag, pProvider);
-		this.baseSpawner.load(this.level, this.worldPosition, pCompoundTag);
+	public void loadAdditional(ValueInput pValueInput) {
+		super.loadAdditional(pValueInput);
+		this.baseSpawner.load(this.level, this.worldPosition, pValueInput);
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pCompoundTag, pProvider);
-		this.baseSpawner.save(pCompoundTag);
+	public void saveAdditional(ValueOutput pValueOutput) {
+		super.saveAdditional(pValueOutput);
+		this.baseSpawner.save(pValueOutput);
 	}
 
 	public static void serverTick(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, IcariaSpawnerBlockEntity pBlockEntity) {

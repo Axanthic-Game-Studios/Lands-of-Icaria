@@ -12,7 +12,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -36,6 +35,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @SuppressWarnings("deprecation, unused")
 
@@ -130,11 +131,11 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putInt("Cooldown", this.getCooldown());
-		pCompoundTag.putInt("Duration", this.getDuration());
-		pCompoundTag.putInt("Tick", this.getTick());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putInt("Cooldown", this.getCooldown());
+		pValueOutput.putInt("Duration", this.getDuration());
+		pValueOutput.putInt("Tick", this.getTick());
 	}
 
 	@Override
@@ -181,11 +182,11 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
-		this.setDuration(pCompoundTag.getIntOr("Duration", 0));
-		this.setTick(pCompoundTag.getIntOr("Tick", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setCooldown(pValueInput.getIntOr("Cooldown", 0));
+		this.setDuration(pValueInput.getIntOr("Duration", 0));
+		this.setTick(pValueInput.getIntOr("Tick", 0));
 	}
 
 	@Override

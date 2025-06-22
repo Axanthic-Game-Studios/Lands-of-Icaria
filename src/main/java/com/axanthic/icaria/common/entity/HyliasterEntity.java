@@ -9,7 +9,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -35,6 +34,8 @@ import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @SuppressWarnings("deprecation")
 
@@ -88,9 +89,9 @@ public class HyliasterEntity extends Monster {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putInt("Size", this.getSize());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putInt("Size", this.getSize());
 	}
 
 	@Override
@@ -111,9 +112,9 @@ public class HyliasterEntity extends Monster {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompound) {
-		super.readAdditionalSaveData(pCompound);
-		this.setSize(pCompound.getIntOr("Size", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setSize(pValueInput.getIntOr("Size", 0));
 	}
 
 	@Override

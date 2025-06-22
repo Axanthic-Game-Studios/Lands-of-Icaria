@@ -9,7 +9,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -24,6 +23,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -51,9 +52,9 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putInt("Tick", this.getTick());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putInt("Tick", this.getTick());
 	}
 
 	@Override
@@ -74,9 +75,9 @@ public class MyrmekeSoldierEntity extends MyrmekeDroneEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setTick(pCompoundTag.getIntOr("Tick", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setTick(pValueInput.getIntOr("Tick", 0));
 	}
 
 	@Override

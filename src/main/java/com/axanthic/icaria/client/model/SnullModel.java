@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.SnullRenderState;
 
@@ -54,11 +55,11 @@ public class SnullModel extends EntityModel<SnullRenderState> {
 
 		this.idleAnim(pRenderState.ageInTicks);
 
-		this.animate(pRenderState.hideAnimationState, IcariaAnimationDefinitions.SNULL_HIDE, pRenderState.ageInTicks);
-		this.animate(pRenderState.hurtAnimationState, IcariaAnimationDefinitions.SNULL_HURT, pRenderState.ageInTicks);
-		this.animate(pRenderState.idleAnimationState, IcariaAnimationDefinitions.SNULL_IDLE, pRenderState.ageInTicks);
-		this.animate(pRenderState.moveAnimationState, IcariaAnimationDefinitions.SNULL_MOVE, pRenderState.ageInTicks);
-		this.animate(pRenderState.showAnimationState, IcariaAnimationDefinitions.SNULL_SHOW, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SNULL_HIDE, pRenderState.hideAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SNULL_HURT, pRenderState.hurtAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SNULL_IDLE, pRenderState.idleAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SNULL_MOVE, pRenderState.moveAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SNULL_SHOW, pRenderState.showAnimationState, pRenderState.ageInTicks, this.root);
 	}
 
 	public void idleAnim(float pAgeInTicks) {

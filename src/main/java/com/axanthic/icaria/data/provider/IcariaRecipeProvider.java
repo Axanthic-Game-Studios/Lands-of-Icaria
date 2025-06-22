@@ -73,6 +73,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.fenceGate();
 		this.gear();
 		this.hangingSign();
+		this.harness();
 		this.helmet();
 		this.ladder();
 		this.leggings();
@@ -95,8 +96,8 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.greekFireGrenade();
 		this.grindstone();
 		this.kettle();
-		this.lead();
 		this.repeater();
+		this.saddle();
 		this.stickyPiston();
 		this.stonecutter();
 		this.target();
@@ -1111,6 +1112,25 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign(6, IcariaItems.POPULUS_HANGING_SIGN.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 	}
 
+	public void harness() {
+		this.harness(1, Items.WHITE_HARNESS, Items.WHITE_WOOL);
+		this.harness(1, Items.LIGHT_GRAY_HARNESS, Items.LIGHT_GRAY_WOOL);
+		this.harness(1, Items.GRAY_HARNESS, Items.GRAY_WOOL);
+		this.harness(1, Items.BLACK_HARNESS, Items.BLACK_WOOL);
+		this.harness(1, Items.BROWN_HARNESS, Items.BROWN_WOOL);
+		this.harness(1, Items.RED_HARNESS, Items.RED_WOOL);
+		this.harness(1, Items.ORANGE_HARNESS, Items.ORANGE_WOOL);
+		this.harness(1, Items.YELLOW_HARNESS, Items.YELLOW_WOOL);
+		this.harness(1, Items.LIME_HARNESS, Items.LIME_WOOL);
+		this.harness(1, Items.GREEN_HARNESS, Items.GREEN_WOOL);
+		this.harness(1, Items.CYAN_HARNESS, Items.CYAN_WOOL);
+		this.harness(1, Items.LIGHT_BLUE_HARNESS, Items.LIGHT_BLUE_WOOL);
+		this.harness(1, Items.BLUE_HARNESS, Items.BLUE_WOOL);
+		this.harness(1, Items.PURPLE_HARNESS, Items.PURPLE_WOOL);
+		this.harness(1, Items.MAGENTA_HARNESS, Items.MAGENTA_WOOL);
+		this.harness(1, Items.PINK_HARNESS, Items.PINK_WOOL);
+	}
+
 	public void helmet() {
 		this.helmet(1, IcariaItems.AETERNAE_HIDE_HELMET.get(), IcariaItems.AETERNAE_HIDE.get());
 		this.helmet(1, IcariaItems.CHALKOS_HELMET.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -1768,6 +1788,19 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
+	public void harness(int pAmount, Item pResult, Item pResource) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', IcariaItems.AETERNAE_HIDE.get())
+			.define('B', pResource)
+			.define('C', Items.GLASS)
+			.pattern("AAA")
+			.pattern("BCB")
+			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
+			.unlockedBy(this.name(pResource), this.has(pResource))
+			.unlockedBy(this.name(Items.GLASS), this.has(Items.GLASS))
+			.save(this.output, this.key(pResult));
+	}
+
 	public void helmet(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', pResource)
@@ -2035,22 +2068,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(IcariaItems.KETTLE.get()));
 	}
 
-	public void lead() {
-		this.shaped(RecipeCategory.MISC, Items.LEAD, 2)
-			.define('A', Tags.Items.STRINGS)
-			.define('B', Ingredient.of(IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY.get()))
-			.pattern("AA ")
-			.pattern("AB ")
-			.pattern("  A")
-			.unlockedBy(this.name(Tags.Items.STRINGS), this.has(Tags.Items.STRINGS))
-			.unlockedBy(this.name(IcariaItems.ENDER_JELLYFISH_JELLY.get()), this.has(IcariaItems.ENDER_JELLYFISH_JELLY.get()))
-			.unlockedBy(this.name(IcariaItems.FIRE_JELLYFISH_JELLY.get()), this.has(IcariaItems.FIRE_JELLYFISH_JELLY.get()))
-			.unlockedBy(this.name(IcariaItems.NATURE_JELLYFISH_JELLY.get()), this.has(IcariaItems.NATURE_JELLYFISH_JELLY.get()))
-			.unlockedBy(this.name(IcariaItems.VOID_JELLYFISH_JELLY.get()), this.has(IcariaItems.VOID_JELLYFISH_JELLY.get()))
-			.unlockedBy(this.name(IcariaItems.WATER_JELLYFISH_JELLY.get()), this.has(IcariaItems.WATER_JELLYFISH_JELLY.get()))
-			.save(this.output, this.key(Items.LEAD));
-	}
-
 	public void repeater() {
 		this.shaped(RecipeCategory.MISC, Items.REPEATER, 1)
 			.define('A', Items.REDSTONE)
@@ -2062,6 +2079,17 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(Items.REDSTONE_TORCH), this.has(Items.REDSTONE_TORCH))
 			.unlockedBy(this.name(IcariaItems.SMOOTH_RELICSTONE.get()), this.has(IcariaItems.SMOOTH_RELICSTONE.get()))
 			.save(this.output, this.key(Items.REPEATER));
+	}
+
+	public void saddle() {
+		this.shaped(RecipeCategory.MISC, Items.SADDLE, 1)
+			.define('A', IcariaItems.AETERNAE_HIDE.get())
+			.define('B', Items.IRON_INGOT)
+			.pattern(" A ")
+			.pattern("ABA")
+			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
+			.unlockedBy(this.name(Items.IRON_INGOT), this.has(Items.IRON_INGOT))
+			.save(this.output, this.key(Items.SADDLE));
 	}
 
 	public void stickyPiston() {

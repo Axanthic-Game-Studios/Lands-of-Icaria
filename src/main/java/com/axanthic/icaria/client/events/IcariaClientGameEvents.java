@@ -19,7 +19,7 @@ import net.neoforged.neoforge.client.event.RenderPlayerEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaIdents.ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = IcariaIdents.ID, value = Dist.CLIENT)
 public class IcariaClientGameEvents {
 
 	@SubscribeEvent

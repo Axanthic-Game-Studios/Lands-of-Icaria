@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.handler.item;
 
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -9,7 +10,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.items.IItemHandler;
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 @MethodsReturnNonnullByDefault
@@ -20,8 +21,8 @@ public class ForgeOutputSlotItemHandler extends SlotItemHandler {
 
 	public Player player;
 
-	public ForgeOutputSlotItemHandler(IItemHandler pItemHandler, ForgeBlockEntity pBlockEntity, Player pPlayer, int pIndex, int pX, int pY) {
-		super(pItemHandler, pIndex, pX, pY);
+	public ForgeOutputSlotItemHandler(ItemStackHandler pItemStackHandler, @Nullable ForgeBlockEntity pBlockEntity, @Nullable Player pPlayer, int pIndex, int pX, int pY) {
+		super(pItemStackHandler, pIndex, pX, pY);
 		this.blockEntity = pBlockEntity;
 		this.player = pPlayer;
 	}

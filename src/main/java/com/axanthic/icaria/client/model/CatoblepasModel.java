@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.CatoblepasRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
@@ -70,8 +71,8 @@ public class CatoblepasModel extends EntityModel<CatoblepasRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.CATOBLEPAS_ATTACK, pRenderState.ageInTicks);
-		this.animate(pRenderState.eatingAnimationState, IcariaAnimationDefinitions.CATOBLEPAS_EATING, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.CATOBLEPAS_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.CATOBLEPAS_EATING, pRenderState.eatingAnimationState, pRenderState.ageInTicks, this.root);
 
 		this.hornRightBaby.visible = pRenderState.size == 1;
 		this.hornLeftBaby.visible = pRenderState.size == 1;

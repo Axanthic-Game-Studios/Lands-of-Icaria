@@ -71,14 +71,7 @@ public class IcariaChestBlockRenderer extends ChestRenderer<IcariaChestBlockEnti
 	}
 
 	public int getDarkColor(int pColor) {
-		if (pColor == 0) {
-			return -988212;
-		} else {
-			var red = (int) (ARGB.red(pColor) / 2.5F);
-			var green = (int) (ARGB.green(pColor) / 2.5F);
-			var blue = (int) (ARGB.blue(pColor) / 2.5F);
-			return ARGB.color(0, red, green, blue);
-		}
+		return pColor == 0xFF000000 ? 0xFFEDE8CA : ARGB.scaleRGB(pColor, 0.4F);
 	}
 
 	public void drawFont(FormattedCharSequence pFormattedCharSequence, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, String pString, boolean pStyle, int pColor, int pOffset, int pPackedLight) {

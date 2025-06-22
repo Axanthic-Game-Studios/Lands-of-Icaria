@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -24,6 +23,8 @@ import net.minecraft.world.entity.monster.RangedAttackMob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -72,11 +73,11 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putInt("Aiming", this.getAiming());
-		pCompoundTag.putInt("Reload", this.getReload());
-		pCompoundTag.putInt("Thrown", this.getThrown());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putInt("Aiming", this.getAiming());
+		pValueOutput.putInt("Reload", this.getReload());
+		pValueOutput.putInt("Thrown", this.getThrown());
 	}
 
 	@Override
@@ -145,11 +146,11 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setAiming(pCompoundTag.getIntOr("Aiming", 0));
-		this.setReload(pCompoundTag.getIntOr("Reload", 0));
-		this.setThrown(pCompoundTag.getIntOr("Thrown", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setAiming(pValueInput.getIntOr("Aiming", 0));
+		this.setReload(pValueInput.getIntOr("Reload", 0));
+		this.setThrown(pValueInput.getIntOr("Thrown", 0));
 	}
 
 	@Override

@@ -59,7 +59,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME, modid = IcariaIdents.ID)
+@EventBusSubscriber(modid = IcariaIdents.ID)
 public class IcariaCommonGameEvents {
 
 	@SubscribeEvent

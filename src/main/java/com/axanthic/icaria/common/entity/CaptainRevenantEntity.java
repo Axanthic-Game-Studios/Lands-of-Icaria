@@ -8,7 +8,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -31,6 +30,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -102,11 +103,11 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putInt("Rallying", this.getRallying());
-		pCompoundTag.putInt("Reequips", this.getReequips());
-		pCompoundTag.putInt("Unequips", this.getUnequips());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putInt("Rallying", this.getRallying());
+		pValueOutput.putInt("Reequips", this.getReequips());
+		pValueOutput.putInt("Unequips", this.getUnequips());
 	}
 
 	@Override
@@ -164,11 +165,11 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setRallying(pCompoundTag.getIntOr("Rallying", 0));
-		this.setReequips(pCompoundTag.getIntOr("Reequips", 0));
-		this.setUnequips(pCompoundTag.getIntOr("Unequips", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setRallying(pValueInput.getIntOr("Rallying", 0));
+		this.setReequips(pValueInput.getIntOr("Reequips", 0));
+		this.setUnequips(pValueInput.getIntOr("Unequips", 0));
 	}
 
 	@Override

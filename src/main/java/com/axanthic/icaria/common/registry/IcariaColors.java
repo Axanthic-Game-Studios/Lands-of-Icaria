@@ -8,6 +8,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaColors {
-	public static final int ITEM = 11909984;
-	public static final int TEXT = 5260599;
+	public static final int ITEM = 0xFFB5BB60;
+	public static final int TEXT = 0xFF504537;
 }

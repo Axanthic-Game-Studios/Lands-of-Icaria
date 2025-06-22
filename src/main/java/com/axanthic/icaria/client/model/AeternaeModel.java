@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.AeternaeRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
@@ -82,8 +83,8 @@ public class AeternaeModel extends EntityModel<AeternaeRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.AETERNAE_ATTACK, pRenderState.ageInTicks);
-		this.animate(pRenderState.eatingAnimationState, IcariaAnimationDefinitions.AETERNAE_EATING, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.AETERNAE_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.AETERNAE_EATING, pRenderState.eatingAnimationState, pRenderState.ageInTicks, this.root);
 
 		this.hornRightBaby.visible = pRenderState.size == 1;
 		this.hornLeftBaby.visible = pRenderState.size == 1;

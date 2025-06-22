@@ -8,9 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
@@ -18,6 +16,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -37,18 +37,18 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pCompoundTag, pProvider);
-		if (!this.tryLoadLootTable(pCompoundTag)) {
-			ContainerHelper.loadAllItems(pCompoundTag, this.items, pProvider);
+	public void loadAdditional(ValueInput pValueInput) {
+		super.loadAdditional(pValueInput);
+		if (!this.tryLoadLootTable(pValueInput)) {
+			ContainerHelper.loadAllItems(pValueInput, this.items);
 		}
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pCompoundTag, pProvider);
-		if (!this.trySaveLootTable(pCompoundTag)) {
-			ContainerHelper.saveAllItems(pCompoundTag, this.items, pProvider);
+	public void saveAdditional(ValueOutput pValueOutput) {
+		super.saveAdditional(pValueOutput);
+		if (!this.trySaveLootTable(pValueOutput)) {
+			ContainerHelper.saveAllItems(pValueOutput, this.items);
 		}
 	}
 

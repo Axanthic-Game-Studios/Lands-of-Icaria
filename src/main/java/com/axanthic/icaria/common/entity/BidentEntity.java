@@ -9,8 +9,6 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,6 +21,8 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 
@@ -69,10 +69,10 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putBoolean("Dealt", this.getDealt());
-		pCompoundTag.put("Stack", this.getStack().save(this.registryAccess()));
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putBoolean("Dealt", this.getDealt());
+		pValueOutput.store("Stack", ItemStack.CODEC, this.getStack());
 	}
 
 	@Override
@@ -113,11 +113,10 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setDealt(pCompoundTag.getBooleanOr("Dealt", false));
-		this.setStack(pCompoundTag.read("Stack", ItemStack.CODEC, registryOps).orElse(ItemStack.EMPTY));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setDealt(pValueInput.getBooleanOr("Dealt", false));
+		this.setStack(pValueInput.read("Stack", ItemStack.CODEC).orElse(ItemStack.EMPTY));
 	}
 
 	public void setDealt(boolean pDealt) {

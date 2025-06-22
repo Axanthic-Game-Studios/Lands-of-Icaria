@@ -252,8 +252,8 @@ public class ForgeBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
 		var blockPos = ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState);
-		if (pLevel instanceof ServerLevel) {
-			pPlayer.openMenu(new ForgeMenuProvider(blockPos), blockPos);
+		if (pLevel instanceof ServerLevel serverLevel && serverLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity blockEntity) {
+			pPlayer.openMenu(new ForgeMenuProvider(blockEntity));
 			return InteractionResult.SUCCESS_SERVER;
 		} else {
 			return InteractionResult.SUCCESS;

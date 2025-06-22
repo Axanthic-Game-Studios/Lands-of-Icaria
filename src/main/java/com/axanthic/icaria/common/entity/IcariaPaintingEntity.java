@@ -16,7 +16,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -29,6 +28,8 @@ import net.minecraft.world.entity.variant.VariantUtils;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -50,9 +51,9 @@ public class IcariaPaintingEntity extends Painting {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		VariantUtils.writeVariant(pCompoundTag, this.getVariant());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		VariantUtils.writeVariant(pValueOutput, this.getVariant());
 	}
 
 	public static void area(ArrayList<Holder<PaintingVariant>> pVariants) {
@@ -73,9 +74,9 @@ public class IcariaPaintingEntity extends Painting {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		VariantUtils.readVariant(pCompoundTag, this.registryAccess(), Registries.PAINTING_VARIANT).ifPresent(this::setVariant);
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		VariantUtils.readVariant(pValueInput, Registries.PAINTING_VARIANT).ifPresent(this::setVariant);
 	}
 
 	public void setVariant(Holder<PaintingVariant> pVariant) {

@@ -26,8 +26,8 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
+import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.PaintingRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
@@ -46,7 +46,7 @@ import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEve
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD, modid = IcariaIdents.ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = IcariaIdents.ID, value = Dist.CLIENT)
 public class IcariaClientModEvents {
 
 	@SubscribeEvent
@@ -339,8 +339,8 @@ public class IcariaClientModEvents {
 	}
 
 	public static void itemBlockRenderTypes() {
-		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.MEDITERRANEAN_WATER.get(), RenderType.translucent());
-		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get(), RenderType.translucent());
+		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.MEDITERRANEAN_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
+		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
 	}
 
 	public static BlockColor blockColor() {

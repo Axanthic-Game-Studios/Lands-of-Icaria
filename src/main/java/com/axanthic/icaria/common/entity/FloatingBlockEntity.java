@@ -6,8 +6,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -21,6 +19,8 @@ import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -73,11 +73,10 @@ public class FloatingBlockEntity extends Entity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
-		pCompoundTag.store("BlockPos", BlockPos.CODEC, registryOps, this.getBlockPos());
-		pCompoundTag.store("BlockState", BlockState.CODEC, registryOps, this.getBlockState());
-		pCompoundTag.putInt("Tick", this.getTick());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		pValueOutput.store("BlockPos", BlockPos.CODEC, this.getBlockPos());
+		pValueOutput.store("BlockState", BlockState.CODEC, this.getBlockState());
+		pValueOutput.putInt("Tick", this.getTick());
 	}
 
 	@Override
@@ -88,11 +87,10 @@ public class FloatingBlockEntity extends Entity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
-		this.setBlockPos(pCompoundTag.read("BlockPos", BlockPos.CODEC, registryOps).orElse(BlockPos.ZERO));
-		this.setBlockState(pCompoundTag.read("BlockState", BlockState.CODEC, registryOps).orElse(Blocks.AIR.defaultBlockState()));
-		this.setTick(pCompoundTag.getIntOr("Tick", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		this.setBlockPos(pValueInput.read("BlockPos", BlockPos.CODEC).orElse(BlockPos.ZERO));
+		this.setBlockState(pValueInput.read("BlockState", BlockState.CODEC).orElse(Blocks.AIR.defaultBlockState()));
+		this.setTick(pValueInput.getIntOr("Tick", 0));
 	}
 
 	public void setBlockPos(BlockPos pBlockPos) {

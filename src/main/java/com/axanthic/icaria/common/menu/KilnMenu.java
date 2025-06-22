@@ -4,18 +4,20 @@ import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.handler.item.KilnOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 @MethodsReturnNonnullByDefault
@@ -26,18 +28,20 @@ public class KilnMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public KilnMenu(int pContainerId, BlockPos pBlockPos, Inventory pInventory, Player pPlayer) {
+	public KilnMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), null, null);
+	}
+
+	public KilnMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pInput, ItemStackHandler pOutput, @Nullable KilnBlockEntity pBlockEntity, @Nullable Player pPlayer) {
 		super(IcariaMenus.KILN.get(), pContainerId);
-		if (pPlayer.getCommandSenderWorld().getBlockEntity(pBlockPos) instanceof KilnBlockEntity kilnBlockEntity) {
-			this.blockEntity = kilnBlockEntity;
-			this.containerData = kilnBlockEntity.getData();
-			this.addDataSlots(this.containerData);
-			this.addSlot(new SlotItemHandler(this.blockEntity.fuelHandler, 0, 45, 58));
-			this.addSlot(new SlotItemHandler(this.blockEntity.inputHandler, 0, 45, 22));
-			this.addSlot(new KilnOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 0, 111, 40));
-			this.addSlots(pInventory, 9, 9, 3, 8, 94);
-			this.addSlots(pInventory, 0, 9, 1, 8, 152);
-		}
+		this.blockEntity = pBlockEntity;
+		this.containerData = pContainerData;
+		this.addDataSlots(pContainerData);
+		this.addSlot(new SlotItemHandler(pFuel, 0, 45, 58));
+		this.addSlot(new SlotItemHandler(pInput, 0, 45, 22));
+		this.addSlot(new KilnOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 111, 40));
+		this.addSlots(pInventory, 9, 9, 3, 8, 94);
+		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
 	@Override

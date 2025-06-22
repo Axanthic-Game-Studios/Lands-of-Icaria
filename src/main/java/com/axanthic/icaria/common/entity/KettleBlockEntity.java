@@ -31,6 +31,7 @@ import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -45,6 +46,9 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.items.IItemHandler;
@@ -135,13 +139,13 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pCompoundTag, pProvider);
-		this.inputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandler"));
-		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("OutputHandler"));
-		this.color = pCompoundTag.getIntOr("Color", 0);
-		this.progress = pCompoundTag.getIntOr("ProgressTick", 0);
-		this.maxProgress = pCompoundTag.getIntOr("MaxProgressTick", 0);
+	public void loadAdditional(ValueInput pValueInput) {
+		super.loadAdditional(pValueInput);
+		this.inputHandler.deserialize(pValueInput.childOrEmpty("InputHandler"));
+		this.outputHandler.deserialize(pValueInput.childOrEmpty("OutputHandler"));
+		this.color = pValueInput.getIntOr("Color", 0);
+		this.progress = pValueInput.getIntOr("ProgressTick", 0);
+		this.maxProgress = pValueInput.getIntOr("MaxProgressTick", 0);
 	}
 
 	@Override
@@ -182,7 +186,7 @@ public class KettleBlockEntity extends BlockEntity {
 
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
-		if (this.level instanceof ServerLevel serverLevel) {
+		if (this.getLevel() instanceof ServerLevel serverLevel) {
 			this.dropBlock(pBlockPos, serverLevel);
 			this.dropItems(pBlockPos, serverLevel);
 		}
@@ -194,13 +198,13 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pCompoundTag, pProvider);
-		pCompoundTag.put("InputHandler", this.inputHandler.serializeNBT(pProvider));
-		pCompoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
-		pCompoundTag.putInt("Color", this.color);
-		pCompoundTag.putInt("ProgressTick", this.progress);
-		pCompoundTag.putInt("MaxProgressTick", this.maxProgress);
+	public void saveAdditional(ValueOutput pValueOutput) {
+		super.saveAdditional(pValueOutput);
+		this.inputHandler.serialize(pValueOutput.child("InputHandler"));
+		this.outputHandler.serialize(pValueOutput.child("OutputHandler"));
+		pValueOutput.putInt("Color", this.color);
+		pValueOutput.putInt("ProgressTick", this.progress);
+		pValueOutput.putInt("MaxProgressTick", this.maxProgress);
 	}
 
 	public void setContainer() {
@@ -285,13 +289,18 @@ public class KettleBlockEntity extends BlockEntity {
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
-		var compoundTag = new CompoundTag();
-		compoundTag.put("InputHandler", this.inputHandler.serializeNBT(pProvider));
-		compoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
+		var compoundTag = this.getUpdateTagOutput(pProvider);
 		compoundTag.putInt("Color", this.color);
 		compoundTag.putInt("ProgressTick", this.progress);
 		compoundTag.putInt("MaxProgressTick", this.maxProgress);
 		return compoundTag;
+	}
+
+	public CompoundTag getUpdateTagOutput(HolderLookup.Provider pProvider) {
+		var tagValueOutput = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, pProvider);
+		this.inputHandler.serialize(tagValueOutput.child("InputHandler"));
+		this.outputHandler.serialize(tagValueOutput.child("OutputHandler"));
+		return tagValueOutput.buildResult();
 	}
 
 	public ContainerData getData() {

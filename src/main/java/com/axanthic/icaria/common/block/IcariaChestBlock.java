@@ -132,7 +132,7 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
 
-		var color = itemStack.getOrDefault(IcariaDataComponents.COLOR, 0);
+		var color = itemStack.getOrDefault(IcariaDataComponents.COLOR, 0xFF000000);
 		var label = itemStack.getOrDefault(IcariaDataComponents.LABEL, "");
 		var style = itemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 

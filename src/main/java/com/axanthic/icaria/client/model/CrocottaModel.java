@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.CrocottaRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
@@ -73,7 +74,7 @@ public class CrocottaModel extends EntityModel<CrocottaRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.CROCOTTA_ATTACK, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.CROCOTTA_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
 	}
 
 	public void lookAnim(float pXRot, float pYRot) {

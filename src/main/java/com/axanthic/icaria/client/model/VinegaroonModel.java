@@ -68,7 +68,7 @@ public class VinegaroonModel extends EntityModel<VinegaroonRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.VINEGAROON_ATTACK, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.VINEGAROON_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
 	}
 
 	public void setupRotateAngles() {

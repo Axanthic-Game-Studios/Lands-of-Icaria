@@ -10,8 +10,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -23,6 +21,8 @@ import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
@@ -60,10 +60,9 @@ public class IcariaBarrelEntity extends Entity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
-		pCompoundTag.store("BlockPos", BlockPos.CODEC, registryOps, this.getBlockPos());
-		pCompoundTag.store("BlockState", BlockState.CODEC, registryOps, this.getBlockState());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		pValueOutput.store("BlockPos", BlockPos.CODEC, this.getBlockPos());
+		pValueOutput.store("BlockState", BlockState.CODEC, this.getBlockState());
 	}
 
 	@Override
@@ -82,10 +81,9 @@ public class IcariaBarrelEntity extends Entity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		var registryOps = this.registryAccess().createSerializationContext(NbtOps.INSTANCE);
-		this.setBlockPos(pCompoundTag.read("BlockPos", BlockPos.CODEC, registryOps).orElse(BlockPos.ZERO));
-		this.setBlockState(pCompoundTag.read("BlockState", BlockState.CODEC, registryOps).orElse(Blocks.AIR.defaultBlockState()));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		this.setBlockPos(pValueInput.read("BlockPos", BlockPos.CODEC).orElse(BlockPos.ZERO));
+		this.setBlockState(pValueInput.read("BlockState", BlockState.CODEC).orElse(Blocks.AIR.defaultBlockState()));
 	}
 
 	public void setBlockPos(BlockPos pBlockPos) {

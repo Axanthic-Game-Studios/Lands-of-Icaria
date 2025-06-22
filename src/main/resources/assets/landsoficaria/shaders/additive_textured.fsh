@@ -1,18 +1,17 @@
 #version 150
 
+#moj_import <minecraft:dynamictransforms.glsl>
 #moj_import <minecraft:fog.glsl>
 
-uniform float FogStart;
-uniform float FogEnd;
 uniform sampler2D Sampler0;
-uniform vec4 ColorModulator;
 
-in float vertexDistance;
+in float sphericalVertexDistance;
+in float cylindricalVertexDistance;
 in vec2 texCoord0;
 in vec4 vertexColor;
 
 out vec4 fragColor;
 
 void main() {
-	fragColor = vertexColor * texture(Sampler0, texCoord0) * linear_fog_fade(vertexDistance, FogStart, FogEnd) * ColorModulator;
+	fragColor = (1.0F - total_fog_value(sphericalVertexDistance, cylindricalVertexDistance, FogEnvironmentalStart, FogEnvironmentalEnd, FogRenderDistanceStart, FogRenderDistanceEnd)) * texture(Sampler0, texCoord0) * vertexColor * ColorModulator;
 }

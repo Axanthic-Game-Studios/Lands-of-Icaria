@@ -9,12 +9,13 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.renderer.RenderPipelines;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class IcariaRenderPipelines {
-	public static final RenderPipeline ADDITIVE = RenderPipeline.builder()
+	public static final RenderPipeline ADDITIVE = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
 		.withDepthWrite(false)
 		.withBlend(IcariaBlendFunctions.ADDITIVE)
 		.withFragmentShader(IcariaResourceLocations.ADDITIVE_SHADER)
@@ -23,7 +24,7 @@ public class IcariaRenderPipelines {
 		.withVertexShader(IcariaResourceLocations.ADDITIVE_SHADER)
 		.build();
 
-	public static final RenderPipeline ADDITIVE_TEXTURED = RenderPipeline.builder()
+	public static final RenderPipeline ADDITIVE_TEXTURED = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
 		.withDepthWrite(false)
 		.withSampler("Sampler0")
 		.withBlend(IcariaBlendFunctions.ADDITIVE)

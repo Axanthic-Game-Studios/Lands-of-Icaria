@@ -36,6 +36,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Containers;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
@@ -49,6 +50,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.storage.TagValueOutput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.neoforge.items.IItemHandler;
@@ -118,7 +122,7 @@ public class ForgeBlockEntity extends BlockEntity {
 	}
 
 	public void awardUsedRecipesAndPopExperience(ServerPlayer pServerPlayer) {
-		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.blockPosition(), pServerPlayer.serverLevel()));
+		pServerPlayer.awardRecipes(this.getRecipesToAwardAndPopExperience(pServerPlayer.blockPosition(), pServerPlayer.level()));
 		this.recipes.clear();
 	}
 
@@ -131,24 +135,24 @@ public class ForgeBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void loadAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.loadAdditional(pCompoundTag, pProvider);
-		this.fuelHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("FuelHandler"));
-		this.inputHandlerA.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerA"));
-		this.inputHandlerB.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerB"));
-		this.inputHandlerC.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("InputHandlerC"));
-		this.outputHandler.deserializeNBT(pProvider, pCompoundTag.getCompoundOrEmpty("OutputHandler"));
-		this.fuel = pCompoundTag.getIntOr("FuelTick", 0);
-		this.maxFuel = pCompoundTag.getIntOr("MaxFuelTick", 0);
-		this.progress = pCompoundTag.getIntOr("ProgressTick", 0);
-		this.maxProgress = pCompoundTag.getIntOr("MaxProgressTick", 0);
+	public void loadAdditional(ValueInput pValueInput) {
+		super.loadAdditional(pValueInput);
+		this.fuelHandler.deserialize(pValueInput.childOrEmpty("FuelHandler"));
+		this.inputHandlerA.deserialize(pValueInput.childOrEmpty("InputHandlerA"));
+		this.inputHandlerB.deserialize(pValueInput.childOrEmpty("InputHandlerB"));
+		this.inputHandlerC.deserialize(pValueInput.childOrEmpty("InputHandlerC"));
+		this.outputHandler.deserialize(pValueInput.childOrEmpty("OutputHandler"));
+		this.fuel = pValueInput.getIntOr("FuelTick", 0);
+		this.maxFuel = pValueInput.getIntOr("MaxFuelTick", 0);
+		this.progress = pValueInput.getIntOr("ProgressTick", 0);
+		this.maxProgress = pValueInput.getIntOr("MaxProgressTick", 0);
 		this.recipes.clear();
-		this.recipes.putAll(pCompoundTag.read("Recipes", ForgeBlockEntity.RECIPES_CODEC).orElse(Map.of()));
+		this.recipes.putAll(pValueInput.read("Recipes", ForgeBlockEntity.RECIPES_CODEC).orElse(Map.of()));
 	}
 
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
-		if (this.level instanceof ServerLevel serverLevel) {
+		if (this.getLevel() instanceof ServerLevel serverLevel) {
 			this.dropBlock(pBlockPos, serverLevel);
 			this.dropItems(pBlockPos, serverLevel);
 			this.getRecipesToAwardAndPopExperience(pBlockPos, serverLevel);
@@ -156,18 +160,18 @@ public class ForgeBlockEntity extends BlockEntity {
 	}
 
 	@Override
-	public void saveAdditional(CompoundTag pCompoundTag, HolderLookup.Provider pProvider) {
-		super.saveAdditional(pCompoundTag, pProvider);
-		pCompoundTag.put("FuelHandler", this.fuelHandler.serializeNBT(pProvider));
-		pCompoundTag.put("InputHandlerA", this.inputHandlerA.serializeNBT(pProvider));
-		pCompoundTag.put("InputHandlerB", this.inputHandlerB.serializeNBT(pProvider));
-		pCompoundTag.put("InputHandlerC", this.inputHandlerC.serializeNBT(pProvider));
-		pCompoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
-		pCompoundTag.putInt("FuelTick", this.fuel);
-		pCompoundTag.putInt("MaxFuelTick", this.maxFuel);
-		pCompoundTag.putInt("ProgressTick", this.progress);
-		pCompoundTag.putInt("MaxProgressTick", this.maxProgress);
-		pCompoundTag.store("Recipes", ForgeBlockEntity.RECIPES_CODEC, this.recipes);
+	public void saveAdditional(ValueOutput pValueOutput) {
+		super.saveAdditional(pValueOutput);
+		this.fuelHandler.serialize(pValueOutput.child("FuelHandler"));
+		this.inputHandlerA.serialize(pValueOutput.child("InputHandlerA"));
+		this.inputHandlerB.serialize(pValueOutput.child("InputHandlerB"));
+		this.inputHandlerC.serialize(pValueOutput.child("InputHandlerC"));
+		this.outputHandler.serialize(pValueOutput.child("OutputHandler"));
+		pValueOutput.putInt("FuelTick", this.fuel);
+		pValueOutput.putInt("MaxFuelTick", this.maxFuel);
+		pValueOutput.putInt("ProgressTick", this.progress);
+		pValueOutput.putInt("MaxProgressTick", this.maxProgress);
+		pValueOutput.store("Recipes", ForgeBlockEntity.RECIPES_CODEC, this.recipes);
 	}
 
 	public void setContainer() {
@@ -260,17 +264,22 @@ public class ForgeBlockEntity extends BlockEntity {
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
-		var compoundTag = new CompoundTag();
-		compoundTag.put("FuelHandler", this.fuelHandler.serializeNBT(pProvider));
-		compoundTag.put("InputHandlerA", this.inputHandlerA.serializeNBT(pProvider));
-		compoundTag.put("InputHandlerB", this.inputHandlerB.serializeNBT(pProvider));
-		compoundTag.put("InputHandlerC", this.inputHandlerC.serializeNBT(pProvider));
-		compoundTag.put("OutputHandler", this.outputHandler.serializeNBT(pProvider));
+		var compoundTag = this.getUpdateTagOutput(pProvider);
 		compoundTag.putInt("FuelTick", this.fuel);
 		compoundTag.putInt("MaxFuelTick", this.maxFuel);
 		compoundTag.putInt("ProgressTick", this.progress);
 		compoundTag.putInt("MaxProgressTick", this.maxProgress);
 		return compoundTag;
+	}
+
+	public CompoundTag getUpdateTagOutput(HolderLookup.Provider pProvider) {
+		var tagValueOutput = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, pProvider);
+		this.fuelHandler.serialize(tagValueOutput.child("FuelHandler"));
+		this.inputHandlerA.serialize(tagValueOutput.child("InputHandlerA"));
+		this.inputHandlerB.serialize(tagValueOutput.child("InputHandlerB"));
+		this.inputHandlerC.serialize(tagValueOutput.child("InputHandlerC"));
+		this.outputHandler.serialize(tagValueOutput.child("OutputHandler"));
+		return tagValueOutput.buildResult();
 	}
 
 	public ContainerData getData() {

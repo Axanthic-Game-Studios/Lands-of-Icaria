@@ -9,7 +9,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -29,6 +28,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
@@ -81,10 +82,10 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putBoolean("Climbing", this.getClimbing());
-		pCompoundTag.putInt("Cooldown", this.getCooldown());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putBoolean("Climbing", this.getClimbing());
+		pValueOutput.putInt("Cooldown", this.getCooldown());
 	}
 
 	@Override
@@ -121,10 +122,10 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
-		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setClimbing(pValueInput.getBooleanOr("Climbing", false));
+		this.setCooldown(pValueInput.getIntOr("Cooldown", 0));
 	}
 
 	@Override

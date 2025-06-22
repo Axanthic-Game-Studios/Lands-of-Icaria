@@ -33,20 +33,20 @@ import net.neoforged.api.distmarker.OnlyIn;
 
 public class ChestLabelItem extends Item {
 	public ChestLabelItem(Properties pProperties) {
-		super(pProperties.component(IcariaDataComponents.COLOR, 0).component(IcariaDataComponents.LABEL, "").component(IcariaDataComponents.STYLE, false));
+		super(pProperties.component(IcariaDataComponents.COLOR, 0xFF000000).component(IcariaDataComponents.LABEL, "").component(IcariaDataComponents.STYLE, false));
 	}
 
 	public int getColorByColor(int pColor) {
-		return pColor == 0 ? 16777215 : pColor;
+		return pColor == 0xFF000000 ? 0xFFFFFFFF : pColor;
 	}
 
 	public int getColorByStyle(boolean pStyle) {
-		return pStyle ? 16777045 : 16777215;
+		return pStyle ? 0xFFFFFF55 : 0xFFFFFFFF;
 	}
 
 	@Override
 	public void appendHoverText(ItemStack pItemStack, TooltipContext pTooltipContext, TooltipDisplay pTooltipDisplay, Consumer<Component> pConsumer, TooltipFlag pTooltipFlag) {
-		var color = pItemStack.getOrDefault(IcariaDataComponents.COLOR, 0);
+		var color = pItemStack.getOrDefault(IcariaDataComponents.COLOR, 0xFF000000);
 		var label = pItemStack.getOrDefault(IcariaDataComponents.LABEL, "");
 		var style = pItemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 
@@ -82,22 +82,22 @@ public class ChestLabelItem extends Item {
 
 	public String getNameByColor(int pColor) {
 		return switch (pColor) {
-			case 16777215 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "white";
-			case 13882323 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_gray";
-			case 8421504 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "gray";
-			case 0 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "black";
-			case 9127187 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "brown";
-			case 16711680 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "red";
-			case 16738335 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "orange";
-			case 16776960 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "yellow";
-			case 12582656 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "lime";
-			case 65280 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "green";
-			case 65535 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "cyan";
-			case 10141901 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_blue";
-			case 255 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "blue";
-			case 10494192 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple";
-			case 16711935 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta";
-			case 16738740 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink";
+			case 0xFFFFFFFF -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "white";
+			case 0xFFD3D3D3 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_gray";
+			case 0xFF808080 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "gray";
+			case 0xFF000000 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "black";
+			case 0xFF8B4513 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "brown";
+			case 0xFFFF0000 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "red";
+			case 0xFFFF681F -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "orange";
+			case 0xFFFFFF00 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "yellow";
+			case 0xFFBFFF00 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "lime";
+			case 0xFF00FF00 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "green";
+			case 0xFF00FFFF -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "cyan";
+			case 0xFF9AC0CD -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "light_blue";
+			case 0xFF0000FF -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "blue";
+			case 0xFFA020F0 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "purple";
+			case 0xFFFF00FF -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "magenta";
+			case 0xFFFF69B4 -> "tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "pink";
 			default -> throw new IllegalStateException("Unexpected value: " + pColor);
 		};
 	}

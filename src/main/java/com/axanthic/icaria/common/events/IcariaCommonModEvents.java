@@ -33,7 +33,7 @@ import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaIdents.ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = IcariaIdents.ID)
 public class IcariaCommonModEvents {
 
 	@SubscribeEvent
@@ -99,11 +99,9 @@ public class IcariaCommonModEvents {
 
 		var packOutput = generator.getPackOutput();
 
-		var blockTags = new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID);
 		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaIdents.ID);
 
 		var registryProvider = builtinEntries.getRegistryProvider();
-		var tagLookup = blockTags.contentsGetter();
 
 		generator.addProvider(true, new IcariaAdvancementProvider(packOutput, lookupProvider));
 		generator.addProvider(true, new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
@@ -111,11 +109,11 @@ public class IcariaCommonModEvents {
 		generator.addProvider(true, new IcariaLootTableProvider(packOutput, lookupProvider));
 		generator.addProvider(true, new IcariaModelProvider(packOutput, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, blockTags);
+		generator.addProvider(true, new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaItemTagsProvider(packOutput, lookupProvider, tagLookup, IcariaIdents.ID));
+		generator.addProvider(true, new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
 		generator.addProvider(true, new IcariaDataMapProvider(packOutput, lookupProvider));

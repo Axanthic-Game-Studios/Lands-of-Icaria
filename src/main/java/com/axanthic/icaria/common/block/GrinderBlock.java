@@ -179,8 +179,8 @@ public class GrinderBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
 		var blockPos = GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState);
-		if (pLevel instanceof ServerLevel) {
-			pPlayer.openMenu(new GrinderMenuProvider(blockPos), blockPos);
+		if (pLevel instanceof ServerLevel serverLevel && serverLevel.getBlockEntity(blockPos) instanceof GrinderBlockEntity blockEntity) {
+			pPlayer.openMenu(new GrinderMenuProvider(blockEntity));
 			return InteractionResult.SUCCESS_SERVER;
 		} else {
 			return InteractionResult.SUCCESS;

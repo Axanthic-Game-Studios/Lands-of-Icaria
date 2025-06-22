@@ -3,6 +3,7 @@ package com.axanthic.icaria.data.registry;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
+import java.util.Optional;
 import java.util.OptionalLong;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -23,7 +24,7 @@ public class IcariaDimensionTypes {
 	public static final ResourceKey<DimensionType> ICARIA = IcariaDimensionTypes.createKey("icaria");
 
 	public static void bootstrap(BootstrapContext<DimensionType> pBootstrapContext) {
-		pBootstrapContext.register(IcariaDimensionTypes.ICARIA, new DimensionType(OptionalLong.empty(), true, false, false, true, 1.0D, false, false, -64, 384, 384, BlockTags.INFINIBURN_OVERWORLD, IcariaResourceLocations.ICARIA, 0.0F, new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0)));
+		pBootstrapContext.register(IcariaDimensionTypes.ICARIA, new DimensionType(OptionalLong.empty(), true, false, false, true, 1.0D, false, false, -64, 384, 384, BlockTags.INFINIBURN_OVERWORLD, IcariaResourceLocations.ICARIA, 0.0F, Optional.of(192), new DimensionType.MonsterSettings(false, false, UniformInt.of(0, 7), 0)));
 	}
 
 	public static ResourceKey<DimensionType> createKey(String pName) {

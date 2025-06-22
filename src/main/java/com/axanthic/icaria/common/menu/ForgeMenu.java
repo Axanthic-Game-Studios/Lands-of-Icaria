@@ -4,18 +4,20 @@ import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.handler.item.ForgeOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 @MethodsReturnNonnullByDefault
@@ -26,21 +28,23 @@ public class ForgeMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public ForgeMenu(int pContainerId, BlockPos pBlockPos, Inventory pInventory, Player pPlayer) {
+	public ForgeMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(2), null, null);
+	}
+
+	public ForgeMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pInputA, ItemStackHandler pInputB, ItemStackHandler pInputC, ItemStackHandler pOutput, @Nullable ForgeBlockEntity pBlockEntity, @Nullable Player pPlayer) {
 		super(IcariaMenus.FORGE.get(), pContainerId);
-		if (pPlayer.getCommandSenderWorld().getBlockEntity(pBlockPos) instanceof ForgeBlockEntity forgeBlockEntity) {
-			this.blockEntity = forgeBlockEntity;
-			this.containerData = forgeBlockEntity.getData();
-			this.addDataSlots(this.containerData);
-			this.addSlot(new SlotItemHandler(this.blockEntity.fuelHandler, 0, 54, 58));
-			this.addSlot(new SlotItemHandler(this.blockEntity.inputHandlerA, 0, 36, 22));
-			this.addSlot(new SlotItemHandler(this.blockEntity.inputHandlerB, 0, 54, 22));
-			this.addSlot(new SlotItemHandler(this.blockEntity.inputHandlerC, 0, 72, 22));
-			this.addSlot(new ForgeOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 0, 120, 54));
-			this.addSlot(new ForgeOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 1, 120, 26));
-			this.addSlots(pInventory, 9, 9, 3, 8, 94);
-			this.addSlots(pInventory, 0, 9, 1, 8, 152);
-		}
+		this.blockEntity = pBlockEntity;
+		this.containerData = pContainerData;
+		this.addDataSlots(pContainerData);
+		this.addSlot(new SlotItemHandler(pFuel, 0, 54, 58));
+		this.addSlot(new SlotItemHandler(pInputA, 0, 36, 22));
+		this.addSlot(new SlotItemHandler(pInputB, 0, 54, 22));
+		this.addSlot(new SlotItemHandler(pInputC, 0, 72, 22));
+		this.addSlot(new ForgeOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 120, 54));
+		this.addSlot(new ForgeOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 1, 120, 26));
+		this.addSlots(pInventory, 9, 9, 3, 8, 94);
+		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -25,7 +25,6 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 
 	@Override
 	public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		this.renderBg(pGuiGraphics, pPartialTick, pMouseX, pMouseY);
 		super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
 		this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
 	}
@@ -34,7 +33,7 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 	public void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
 		var x = (this.width - this.imageWidth) / 2;
 		var y = (this.height - this.imageHeight) / 2;
-		pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 	}
 
 	@Override

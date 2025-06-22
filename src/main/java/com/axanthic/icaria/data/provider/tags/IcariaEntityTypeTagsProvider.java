@@ -29,21 +29,6 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(EntityTypeTags.UNDEAD)
-			.add(IcariaEntityTypes.CAPTAIN_REVENANT.get())
-			.add(IcariaEntityTypes.CIVILIAN_REVENANT.get())
-			.add(IcariaEntityTypes.CRAWLER_REVENANT.get())
-			.add(IcariaEntityTypes.OVERGROWN_REVENANT.get())
-			.add(IcariaEntityTypes.PYROMANCER_REVENANT.get())
-			.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get())
-			.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
-
-		this.tag(EntityTypeTags.IMPACT_PROJECTILES)
-			.add(IcariaEntityTypes.BIDENT.get());
-
-		this.tag(EntityTypeTags.FROG_FOOD)
-			.add(IcariaEntityTypes.HYLIASTER.get());
-
 		this.tag(EntityTypeTags.ARTHROPOD)
 			.add(IcariaEntityTypes.ARACHNE.get())
 			.add(IcariaEntityTypes.ARACHNE_DRONE.get())
@@ -53,6 +38,30 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 			.add(IcariaEntityTypes.SCORPION.get())
 			.add(IcariaEntityTypes.SOLIFUGAE.get())
 			.add(IcariaEntityTypes.VINEGAR.get());
+
+		this.tag(EntityTypeTags.FOLLOWABLE_FRIENDLY_MOBS)
+			.add(IcariaEntityTypes.AETERNAE.get())
+			.add(IcariaEntityTypes.CAPELLA.get())
+			.add(IcariaEntityTypes.CATOBLEPAS.get())
+			.add(IcariaEntityTypes.CRYSTAL_SLUG.get())
+			.add(IcariaEntityTypes.FOREST_SNULL.get())
+			.add(IcariaEntityTypes.SNULL.get())
+			.add(IcariaEntityTypes.THOG.get());
+
+		this.tag(EntityTypeTags.FROG_FOOD)
+			.add(IcariaEntityTypes.HYLIASTER.get());
+
+		this.tag(EntityTypeTags.IMPACT_PROJECTILES)
+			.add(IcariaEntityTypes.BIDENT.get());
+
+		this.tag(EntityTypeTags.UNDEAD)
+			.add(IcariaEntityTypes.CAPTAIN_REVENANT.get())
+			.add(IcariaEntityTypes.CIVILIAN_REVENANT.get())
+			.add(IcariaEntityTypes.CRAWLER_REVENANT.get())
+			.add(IcariaEntityTypes.OVERGROWN_REVENANT.get())
+			.add(IcariaEntityTypes.PYROMANCER_REVENANT.get())
+			.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get())
+			.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
 	}
 
 	@Override

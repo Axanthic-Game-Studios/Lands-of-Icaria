@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:aeternae_hide",
+    "B": "minecraft:yellow_wool",
+    "C": "minecraft:glass"
+  },
+  "pattern": [
+    "AAA",
+    "BCB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:yellow_harness"
+  }
+}

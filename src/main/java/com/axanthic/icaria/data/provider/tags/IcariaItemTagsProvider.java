@@ -11,14 +11,13 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -171,8 +170,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.cKey("storage_blocks/molybdenumsteel");
 	public static final TagKey<Item> STORAGE_BLOCKS_BLURIDIUM = IcariaItemTagsProvider.cKey("storage_blocks/bluridium");
 
-	public IcariaItemTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, CompletableFuture<TagLookup<Block>> pBlockTags, String pId) {
-		super(pPackOutput, pProvider, pBlockTags, pId);
+	public IcariaItemTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override

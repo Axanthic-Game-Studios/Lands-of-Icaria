@@ -13,7 +13,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -78,7 +78,7 @@ public class ChestLabelScreen extends Screen {
 		var x = (this.width - this.imageWidth) / 2;
 		var y = (this.height - this.imageHeight) / 2;
 		this.renderTransparentBackground(pGuiGraphics);
-		pGuiGraphics.blit(RenderType::guiTextured, IcariaResourceLocations.CHEST_LABEL, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.CHEST_LABEL, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 	}
 
 	@Override

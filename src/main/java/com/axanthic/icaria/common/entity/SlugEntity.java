@@ -11,7 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -37,6 +36,8 @@ import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @SuppressWarnings("deprecation")
 
@@ -130,12 +131,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putBoolean("Climbing", this.getClimbing());
-		pCompoundTag.putInt("Cooldown", this.getCooldown());
-		pCompoundTag.putInt("Hide", this.getHide());
-		pCompoundTag.putInt("Show", this.getShow());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putBoolean("Climbing", this.getClimbing());
+		pValueOutput.putInt("Cooldown", this.getCooldown());
+		pValueOutput.putInt("Hide", this.getHide());
+		pValueOutput.putInt("Show", this.getShow());
 	}
 
 	@Override
@@ -181,12 +182,12 @@ public class SlugEntity extends SizedPathfinderMobEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
-		this.setCooldown(pCompoundTag.getIntOr("Cooldown", 0));
-		this.setHide(pCompoundTag.getIntOr("Hide", 0));
-		this.setShow(pCompoundTag.getIntOr("Show", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setClimbing(pValueInput.getBooleanOr("Climbing", false));
+		this.setCooldown(pValueInput.getIntOr("Cooldown", 0));
+		this.setHide(pValueInput.getIntOr("Hide", 0));
+		this.setShow(pValueInput.getIntOr("Show", 0));
 	}
 
 	@Override

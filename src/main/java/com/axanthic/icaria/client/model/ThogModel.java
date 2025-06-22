@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.ThogRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
@@ -90,8 +91,8 @@ public class ThogModel extends EntityModel<ThogRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.size, pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.THOG_ATTACK, pRenderState.ageInTicks);
-		this.animate(pRenderState.eatingAnimationState, IcariaAnimationDefinitions.THOG_EATING, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.THOG_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.THOG_EATING, pRenderState.eatingAnimationState, pRenderState.ageInTicks, this.root);
 
 		this.tuskRightChild.visible = pRenderState.size == 2;
 		this.tuskLeftChild.visible = pRenderState.size == 2;

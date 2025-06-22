@@ -8,7 +8,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -28,6 +27,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 
 @SuppressWarnings("deprecation")
 
@@ -85,10 +86,10 @@ public class ArachneDroneEntity extends ArachneEntity {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.addAdditionalSaveData(pCompoundTag);
-		pCompoundTag.putBoolean("Climbing", this.getClimbing());
-		pCompoundTag.putInt("Size", this.getSize());
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		super.addAdditionalSaveData(pValueOutput);
+		pValueOutput.putBoolean("Climbing", this.getClimbing());
+		pValueOutput.putInt("Size", this.getSize());
 	}
 
 	@Override
@@ -110,10 +111,10 @@ public class ArachneDroneEntity extends ArachneEntity {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag pCompoundTag) {
-		super.readAdditionalSaveData(pCompoundTag);
-		this.setClimbing(pCompoundTag.getBooleanOr("Climbing", false));
-		this.setSize(pCompoundTag.getIntOr("Size", 0));
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		super.readAdditionalSaveData(pValueInput);
+		this.setClimbing(pValueInput.getBooleanOr("Climbing", false));
+		this.setSize(pValueInput.getIntOr("Size", 0));
 	}
 
 	@Override

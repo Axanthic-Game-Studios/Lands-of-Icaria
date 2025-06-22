@@ -71,7 +71,7 @@ public class ScorpionModel extends EntityModel<ScorpionRenderState> {
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.SCORPION_ATTACK, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.SCORPION_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
 	}
 
 	public void setupRotateAngles() {

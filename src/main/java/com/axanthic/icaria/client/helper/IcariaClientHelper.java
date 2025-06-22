@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -32,6 +33,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.PlayerModelPart;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -107,6 +109,10 @@ public class IcariaClientHelper {
 
 	public static int getColorAndAlpha(LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
 		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick), pRed, pGreen, pBlue);
+	}
+
+	public static void anim(AnimationDefinition pAnimationDefinition, AnimationState pAnimationState, float pAgeInTicks, ModelPart pModelPart) {
+		pAnimationDefinition.bake(pModelPart).apply(pAnimationState, pAgeInTicks);
 	}
 
 	public static void renderItem(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, ItemStack pItemStack, Direction pDirection, BlockEntity pBlockEntity, int pPackedLight, float pXMin, float pXMax, float pY, float pZMin, float pZMax, float pXRot, float pYRot, float pZRot, float pXScale, float pYScale, float pZScale) {

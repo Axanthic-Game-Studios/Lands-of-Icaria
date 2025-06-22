@@ -8,6 +8,8 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 
+import java.util.Set;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -26,6 +28,8 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeMap;
 
+import org.joml.Vector3f;
+
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -36,6 +40,11 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 	@Override
 	public ItemStack extractArgument(ItemStack pItemStack) {
 		return pItemStack;
+	}
+
+	@Override
+	public void getExtents(Set<Vector3f> pSet) {
+
 	}
 
 	@Override

@@ -265,6 +265,16 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_CARDON_CACTUS.get());
 
+		this.tag(BlockTags.HAPPY_GHAST_AVOIDS)
+			.add(IcariaBlocks.SURFACE_LIGNITE.get())
+			.add(IcariaBlocks.THORNY_VINE.get())
+			.add(IcariaBlocks.PURPLE_STAGHORN.get())
+			.add(IcariaBlocks.POTTED_PURPLE_STAGHORN.get())
+			.add(IcariaBlocks.YELLOW_STAGHORN.get())
+			.add(IcariaBlocks.POTTED_YELLOW_STAGHORN.get())
+			.add(IcariaBlocks.CARDON_CACTUS.get())
+			.add(IcariaBlocks.POTTED_CARDON_CACTUS.get());
+
 		this.tag(BlockTags.IMPERMEABLE)
 			.add(IcariaBlocks.GRAINGLASS.get())
 			.add(IcariaBlocks.SILKGLASS.get());

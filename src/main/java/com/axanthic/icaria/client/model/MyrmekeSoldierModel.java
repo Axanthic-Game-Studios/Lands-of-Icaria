@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.model;
 
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.MyrmekeSoldierRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
@@ -48,7 +49,7 @@ public class MyrmekeSoldierModel extends EntityModel<MyrmekeSoldierRenderState> 
 		this.lookAnim(pRenderState.xRot, pRenderState.yRot);
 		this.walkAnim(pRenderState.walkAnimationPos, pRenderState.walkAnimationSpeed);
 
-		this.animate(pRenderState.attackAnimationState, IcariaAnimationDefinitions.MYRMEKE_SOLDIER_ATTACK, pRenderState.ageInTicks);
+		IcariaClientHelper.anim(IcariaAnimationDefinitions.MYRMEKE_SOLDIER_ATTACK, pRenderState.attackAnimationState, pRenderState.ageInTicks, this.root);
 
 		this.root.y -= pRenderState.tick - pRenderState.maxTick;
 	}

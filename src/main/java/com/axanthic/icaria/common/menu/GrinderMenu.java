@@ -4,18 +4,20 @@ import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.handler.item.GrinderOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
+import net.neoforged.neoforge.items.ItemStackHandler;
 import net.neoforged.neoforge.items.SlotItemHandler;
 
 @MethodsReturnNonnullByDefault
@@ -26,21 +28,23 @@ public class GrinderMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public GrinderMenu(int pContainerId, BlockPos pBlockPos, Inventory pInventory, Player pPlayer) {
+	public GrinderMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(3), null, null);
+	}
+
+	public GrinderMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pGear, ItemStackHandler pInput, ItemStackHandler pOutput, @Nullable GrinderBlockEntity pBlockEntity, @Nullable Player pPlayer) {
 		super(IcariaMenus.GRINDER.get(), pContainerId);
-		if (pPlayer.getCommandSenderWorld().getBlockEntity(pBlockPos) instanceof GrinderBlockEntity grinderBlockEntity) {
-			this.blockEntity = grinderBlockEntity;
-			this.containerData = grinderBlockEntity.getData();
-			this.addDataSlots(this.containerData);
-			this.addSlot(new SlotItemHandler(this.blockEntity.fuelHandler, 0, 36, 58));
-			this.addSlot(new SlotItemHandler(this.blockEntity.gearHandler, 0, 98, 49));
-			this.addSlot(new SlotItemHandler(this.blockEntity.inputHandler, 0, 36, 22));
-			this.addSlot(new GrinderOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 0, 124, 58));
-			this.addSlot(new GrinderOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 1, 124, 40));
-			this.addSlot(new GrinderOutputSlotItemHandler(this.blockEntity.outputHandler, this.blockEntity, pPlayer, 2, 124, 22));
-			this.addSlots(pInventory, 9, 9, 3, 8, 94);
-			this.addSlots(pInventory, 0, 9, 1, 8, 152);
-		}
+		this.blockEntity = pBlockEntity;
+		this.containerData = pContainerData;
+		this.addDataSlots(pContainerData);
+		this.addSlot(new SlotItemHandler(pFuel, 0, 36, 58));
+		this.addSlot(new SlotItemHandler(pGear, 0, 98, 49));
+		this.addSlot(new SlotItemHandler(pInput, 0, 36, 22));
+		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 124, 58));
+		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 1, 124, 40));
+		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 2, 124, 22));
+		this.addSlots(pInventory, 9, 9, 3, 8, 94);
+		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
 	@Override
