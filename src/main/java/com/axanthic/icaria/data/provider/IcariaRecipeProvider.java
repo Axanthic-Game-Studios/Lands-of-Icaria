@@ -1791,13 +1791,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	public void harness(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', IcariaItems.AETERNAE_HIDE.get())
-			.define('B', pResource)
-			.define('C', Items.GLASS)
+			.define('B', Items.GLASS)
+			.define('C', pResource)
 			.pattern("AAA")
 			.pattern("BCB")
 			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
-			.unlockedBy(this.name(pResource), this.has(pResource))
 			.unlockedBy(this.name(Items.GLASS), this.has(Items.GLASS))
+			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
 

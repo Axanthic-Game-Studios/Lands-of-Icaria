@@ -42,8 +42,8 @@
     [
       "has_the_recipe",
       "has_landsoficaria:aeternae_hide",
-      "has_minecraft:purple_wool",
-      "has_minecraft:glass"
+      "has_minecraft:glass",
+      "has_minecraft:purple_wool"
     ]
   ],
   "rewards": {
