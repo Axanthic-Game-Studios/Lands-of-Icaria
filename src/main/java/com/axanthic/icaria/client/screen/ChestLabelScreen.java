@@ -18,7 +18,7 @@ import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.network.PacketDistributor;
+import net.neoforged.neoforge.client.network.ClientPacketDistributor;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -50,7 +50,7 @@ public class ChestLabelScreen extends Screen {
 	public void done() {
 		if (this.minecraft != null) {
 			this.minecraft.setScreen(null);
-			PacketDistributor.sendToServer(new ChestLabelPacket(this.itemStack, this.editBox.getValue()));
+			ClientPacketDistributor.sendToServer(new ChestLabelPacket(this.itemStack, this.editBox.getValue()));
 		}
 	}
 
