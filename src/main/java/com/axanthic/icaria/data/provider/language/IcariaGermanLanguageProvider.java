@@ -442,6 +442,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Gezapftes Zypressenholzfass");
 		this.add(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), "Dreifaches Zypressenholzfassgestell");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Zypressenholztrog");
+		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Zypressenholzpfannenhalter");
+		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Zypressenholzlöffelhalter");
+		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Zypressenholzhandtuchhalter");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Zypressenholzwerkbank");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Zypressenholztür");
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Zypressenholzfalltür");
@@ -474,6 +477,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Gezapftes Dürrwurzelholzfass");
 		this.add(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), "Dreifaches Dürrwurzelholzfassgestell");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Dürrwurzelholztrog");
+		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Dürrwurzelholzpfannenhalter");
+		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Dürrwurzelholzlöffelhalter");
+		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Dürrwurzelholzhandtuchhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Dürrwurzelholzwerkbank");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Dürrwurzelholztür");
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Dürrwurzelholzfalltür");
@@ -506,6 +512,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Gezapftes Tannenholzfass");
 		this.add(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), "Dreifaches Tannenholzfassgestell");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Tannenholztrog");
+		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Tannenholzpfannenhalter");
+		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Tannenholzlöffelhalter");
+		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Tannenholzhandtuchhalter");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Tannenholzwerkbank");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Tannenholztür");
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Tannenholzfalltür");
@@ -538,6 +547,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Gezapftes Lorbeerholzfass");
 		this.add(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), "Dreifaches Lorbeerholzfassgestell");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Lorbeerholztrog");
+		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Lorbeerholzpfannenhalter");
+		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Lorbeerholzlöffelhalter");
+		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Lorbeerholzhandtuchhalter");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Lorbeerholzwerkbank");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Lorbeerholztür");
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Lorbeerholzfalltür");
@@ -570,6 +582,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Gezapftes Olivenholzfass");
 		this.add(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), "Dreifaches Olivenholzfassgestell");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olivenholztrog");
+		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olivenholzpfannenhalter");
+		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olivenholzlöffelhalter");
+		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olivenholzhandtuchhalter");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olivenholzwerkbank");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olivenholztür");
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olivenholzfalltür");
@@ -602,6 +617,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Gezapftes Plantanenholzfass");
 		this.add(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), "Dreifaches Plantanenholzfassgestell");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plantanenholztrog");
+		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plantanenholzpfannenhalter");
+		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plantanenholzlöffelhalter");
+		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plantanenholzhandtuchhalter");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plantanenholzwerkbank");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plantanenholztür");
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plantanenholzfalltür");
@@ -634,6 +652,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Gezapftes Pappelholzfass");
 		this.add(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), "Dreifaches Pappelholzfassgestell");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Pappelholztrog");
+		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Pappelholzpfannenhalter");
+		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Pappelholzlöffelhalter");
+		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Pappelholzhandtuchhalter");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Pappelholzwerkbank");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Pappelholztür");
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Pappelholzfalltür");

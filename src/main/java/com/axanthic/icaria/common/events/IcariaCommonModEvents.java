@@ -545,6 +545,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_CYPRESS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.CYPRESS_TROUGH.get());
+			pEvent.accept(IcariaItems.CYPRESS_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.CYPRESS_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.CYPRESS_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
@@ -576,6 +579,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_DROUGHTROOT_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TROUGH.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
@@ -607,6 +613,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_FIR_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_FIR_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.FIR_TROUGH.get());
+			pEvent.accept(IcariaItems.FIR_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.FIR_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.FIR_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
 			pEvent.accept(IcariaItems.FIR_TRAPDOOR.get());
@@ -638,6 +647,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_LAUREL_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.LAUREL_TROUGH.get());
+			pEvent.accept(IcariaItems.LAUREL_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.LAUREL_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.LAUREL_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_TRAPDOOR.get());
@@ -669,6 +681,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_OLIVE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.OLIVE_TROUGH.get());
+			pEvent.accept(IcariaItems.OLIVE_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.OLIVE_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.OLIVE_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_TRAPDOOR.get());
@@ -700,6 +715,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_PLANE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.PLANE_TROUGH.get());
+			pEvent.accept(IcariaItems.PLANE_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.PLANE_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.PLANE_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
 			pEvent.accept(IcariaItems.PLANE_TRAPDOOR.get());
@@ -731,6 +749,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_POPULUS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.POPULUS_TROUGH.get());
+			pEvent.accept(IcariaItems.POPULUS_PAN_HOLDER.get());
+			pEvent.accept(IcariaItems.POPULUS_SPOON_HOLDER.get());
+			pEvent.accept(IcariaItems.POPULUS_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_TRAPDOOR.get());

@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_towel_holder",
+  "textures": {
+    "arachne_string_block": "landsoficaria:block/arachne_string_block",
+    "log": "landsoficaria:block/laurel_log",
+    "log_top": "landsoficaria:block/laurel_log_top",
+    "particle": "landsoficaria:block/laurel_planks",
+    "planks": "landsoficaria:block/laurel_planks"
+  }
+}

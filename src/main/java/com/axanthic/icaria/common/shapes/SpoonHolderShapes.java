@@ -1,0 +1,21 @@
+package com.axanthic.icaria.common.shapes;
+
+import java.util.stream.Stream;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class SpoonHolderShapes {
+	public static final VoxelShape NORTH = Stream.of(Block.box(0.0F, 8.0F, 15.0F, 16.0F, 12.0F, 16.0F), Block.box(2.5F, 4.5F, 13.75F, 3.5F, 10.5F, 14.25F), Block.box(2.0F, 2.5F, 13.75F, 4.0F, 4.5F, 14.25F), Block.box(7.5F, 2.5F, 13.75F, 8.5F, 10.5F, 14.25F), Block.box(7.0F, 0.5F, 13.75F, 9.0F, 2.5F, 14.25F), Block.box(12.5F, 3.5F, 13.75F, 13.5F, 10.5F, 14.25F), Block.box(12.0F, 1.5F, 13.75F, 14.0F, 3.5F, 14.25F), Block.box(11.5F, 9.875F, 13.0F, 14.5F, 10.125F, 14.0F), Block.box(11.5F, 9.875F, 14.0F, 12.5F, 10.125F, 15.0F), Block.box(13.5F, 9.875F, 14.0F, 14.5F, 10.125F, 15.0F), Block.box(6.5F, 9.875F, 14.0F, 7.5F, 10.125F, 15.0F), Block.box(6.5F, 9.875F, 13.0F, 9.5F, 10.125F, 14.0F), Block.box(8.5F, 9.875F, 14.0F, 9.5F, 10.125F, 15.0F), Block.box(1.5F, 9.875F, 14.0F, 2.5F, 10.125F, 15.0F), Block.box(1.5F, 9.875F, 13.0F, 4.5F, 10.125F, 14.0F), Block.box(3.5F, 9.875F, 14.0F, 4.5F, 10.125F, 15.0F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape EAST = Stream.of(Block.box(0.0F, 8.0F, 0.0F, 1.0F, 12.0F, 16.0F), Block.box(1.75F, 4.5F, 2.5F, 2.25F, 10.5F, 3.5F), Block.box(1.75F, 2.5F, 2.0F, 2.25F, 4.5F, 4.0F), Block.box(1.75F, 2.5F, 7.5F, 2.25F, 10.5F, 8.5F), Block.box(1.75F, 0.5F, 7.0F, 2.25F, 2.5F, 9.0F), Block.box(1.75F, 3.5F, 12.5F, 2.25F, 10.5F, 13.5F), Block.box(1.75F, 1.5F, 12.0F, 2.25F, 3.5F, 14.0F), Block.box(2.0F, 9.875F, 11.5F, 3.0F, 10.125F, 14.5F), Block.box(1.0F, 9.875F, 11.5F, 2.0F, 10.125F, 12.5F), Block.box(1.0F, 9.875F, 13.5F, 2.0F, 10.125F, 14.5F), Block.box(1.0F, 9.875F, 6.5F, 2.0F, 10.125F, 7.5F), Block.box(2.0F, 9.875F, 6.5F, 3.0F, 10.125F, 9.5F), Block.box(1.0F, 9.875F, 8.5F, 2.0F, 10.125F, 9.5F), Block.box(1.0F, 9.875F, 1.5F, 2.0F, 10.125F, 2.5F), Block.box(2.0F, 9.875F, 1.5F, 3.0F, 10.125F, 4.5F), Block.box(1.0F, 9.875F, 3.5F, 2.0F, 10.125F, 4.5F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape SOUTH = Stream.of(Block.box(0.0F, 8.0F, 0.0F, 16.0F, 12.0F, 1.0F), Block.box(12.5F, 4.5F, 1.75F, 13.5F, 10.5F, 2.25F), Block.box(12.0F, 2.5F, 1.75F, 14.0F, 4.5F, 2.25F), Block.box(7.5F, 2.5F, 1.75F, 8.5F, 10.5F, 2.25F), Block.box(7.0F, 0.5F, 1.75F, 9.0F, 2.5F, 2.25F), Block.box(2.5F, 3.5F, 1.75F, 3.5F, 10.5F, 2.25F), Block.box(2.0F, 1.5F, 1.75F, 4.0F, 3.5F, 2.25F), Block.box(1.5F, 9.875F, 2.0F, 4.5F, 10.125F, 3.0F), Block.box(3.5F, 9.875F, 1.0F, 4.5F, 10.125F, 2.0F), Block.box(1.5F, 9.875F, 1.0F, 2.5F, 10.125F, 2.0F), Block.box(8.5F, 9.875F, 1.0F, 9.5F, 10.125F, 2.0F), Block.box(6.5F, 9.875F, 2.0F, 9.5F, 10.125F, 3.0F), Block.box(6.5F, 9.875F, 1.0F, 7.5F, 10.125F, 2.0F), Block.box(13.5F, 9.875F, 1.0F, 14.5F, 10.125F, 2.0F), Block.box(11.5F, 9.875F, 2.0F, 14.5F, 10.125F, 3.0F), Block.box(11.5F, 9.875F, 1.0F, 12.5F, 10.125F, 2.0F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape WEST = Stream.of(Block.box(15.0F, 8.0F, 0.0F, 16.0F, 12.0F, 16.0F), Block.box(13.75F, 4.5F, 12.5F, 14.25F, 10.5F, 13.5F), Block.box(13.75F, 2.5F, 12.0F, 14.25F, 4.5F, 14.0F), Block.box(13.75F, 2.5F, 7.5F, 14.25F, 10.5F, 8.5F), Block.box(13.75F, 0.5F, 7.0F, 14.25F, 2.5F, 9.0F), Block.box(13.75F, 3.5F, 2.5F, 14.25F, 10.5F, 3.5F), Block.box(13.75F, 1.5F, 2.0F, 14.25F, 3.5F, 4.0F), Block.box(13.0F, 9.875F, 1.5F, 14.0F, 10.125F, 4.5F), Block.box(14.0F, 9.875F, 3.5F, 15.0F, 10.125F, 4.5F), Block.box(14.0F, 9.875F, 1.5F, 15.0F, 10.125F, 2.5F), Block.box(14.0F, 9.875F, 8.5F, 15.0F, 10.125F, 9.5F), Block.box(13.0F, 9.875F, 6.5F, 14.0F, 10.125F, 9.5F), Block.box(14.0F, 9.875F, 6.5F, 15.0F, 10.125F, 7.5F), Block.box(14.0F, 9.875F, 13.5F, 15.0F, 10.125F, 14.5F), Block.box(13.0F, 9.875F, 11.5F, 14.0F, 10.125F, 14.5F), Block.box(14.0F, 9.875F, 11.5F, 15.0F, 10.125F, 12.5F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+}

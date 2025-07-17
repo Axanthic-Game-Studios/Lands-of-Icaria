@@ -12,6 +12,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot ALL = TextureSlot.create("all");
 	public static final TextureSlot ANTHRACITE_BLOCK = TextureSlot.create("anthracite_block");
 	public static final TextureSlot ANVIL = TextureSlot.create("anvil");
+	public static final TextureSlot ARACHNE_STRING_BLOCK = TextureSlot.create("arachne_string_block");
 	public static final TextureSlot BARREL_BACK = TextureSlot.create("barrel_back");
 	public static final TextureSlot BARREL_FRONT = TextureSlot.create("barrel_front");
 	public static final TextureSlot BARS = TextureSlot.create("bars");
@@ -58,6 +59,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot NECK = TextureSlot.create("neck");
 	public static final TextureSlot NORTH = TextureSlot.create("north");
 	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
+	public static final TextureSlot PAN_HOLDER = TextureSlot.create("pan_holder");
 	public static final TextureSlot PANE = TextureSlot.create("pane");
 	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
@@ -80,6 +82,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot TORCH_COAL = TextureSlot.create("torch_coal");
 	public static final TextureSlot TORCH_METAL = TextureSlot.create("torch_metal");
 	public static final TextureSlot UP = TextureSlot.create("up");
+	public static final TextureSlot VANADIUMSTEEL_CHAIN = TextureSlot.create("vanadiumsteel_chain");
 	public static final TextureSlot VASE = TextureSlot.create("vase");
 	public static final TextureSlot VINE = TextureSlot.create("vine");
 	public static final TextureSlot VOIDSHALE = TextureSlot.create("voidshale");
