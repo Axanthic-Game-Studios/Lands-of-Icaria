@@ -60,6 +60,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.randomHorizontal3(pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal5(pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(pBlockModelGenerators);
 		IcariaBlockStateProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockStateProvider.skull(pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(pBlockModelGenerators);
@@ -675,6 +676,16 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.LOAM.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.GRAINEL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.SILKSAND.get(), pBlockModelGenerators);
+	}
+
+	public static void scrollshelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.FIR_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.LAUREL_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.OLIVE_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.PLANE_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.POPULUS_SCROLLSHELF.get(), pBlockModelGenerators);
 	}
 
 	public static void simpleRack(BlockModelGenerators pBlockModelGenerators) {
@@ -1704,6 +1715,17 @@ public class IcariaBlockStateProvider {
 
 	public static void randomRotation(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_270))));
+	}
+
+	public static void scrollshelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING)
+				.select(Direction.NORTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.UV_LOCK)))
+				.select(Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.UV_LOCK)))
+				.select(Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.UV_LOCK)))
+			)
+		);
 	}
 
 	public static void simpleRack(Block pBlock, BlockModelGenerators pBlockModelGenerators) {

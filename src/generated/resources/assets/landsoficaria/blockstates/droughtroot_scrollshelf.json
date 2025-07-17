@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/droughtroot_scrollshelf",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/droughtroot_scrollshelf"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/droughtroot_scrollshelf",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/droughtroot_scrollshelf",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

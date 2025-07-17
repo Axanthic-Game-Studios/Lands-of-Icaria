@@ -107,6 +107,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.relicstonePillarHead(pBlockModelGenerators);
 		IcariaBlockModelProvider.rowan(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolder(pBlockModelGenerators);
@@ -867,6 +868,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rubble(IcariaBlocks.VOIDSHALE_RUBBLE.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(IcariaBlocks.BAETYL_RUBBLE.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(IcariaBlocks.RELICSTONE_RUBBLE.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+	}
+
+	public static void scrollshelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.FIR_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.LAUREL_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.OLIVE_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.PLANE_SCROLLSHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.POPULUS_SCROLLSHELF.get(), pBlockModelGenerators);
 	}
 
 	public static void simpleRack(BlockModelGenerators pBlockModelGenerators) {
@@ -2756,6 +2767,18 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void scrollshelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "cube_column")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.NORTH, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.EAST, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
+				.putForced(IcariaTextureSlots.SOUTH, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.WEST, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
+				.putForced(IcariaTextureSlots.UP, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
+				.putForced(IcariaTextureSlots.DOWN, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void simpleRack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {

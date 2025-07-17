@@ -446,6 +446,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Zypressenholzlöffelhalter");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Zypressenholzhandtuchhalter");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Zypressenholzwerkbank");
+		this.add(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), "Zypressenholzrollenregal");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Zypressenholztür");
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Zypressenholzfalltür");
 		this.add(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), "Zypressenholzdruckplatte");
@@ -481,6 +482,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Dürrwurzelholzlöffelhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Dürrwurzelholzhandtuchhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Dürrwurzelholzwerkbank");
+		this.add(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), "Dürrwurzelholzrollenregal");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Dürrwurzelholztür");
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Dürrwurzelholzfalltür");
 		this.add(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), "Dürrwurzelholzdruckplatte");
@@ -516,6 +518,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Tannenholzlöffelhalter");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Tannenholzhandtuchhalter");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Tannenholzwerkbank");
+		this.add(IcariaBlocks.FIR_SCROLLSHELF.get(), "Tannenholzrollenregal");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Tannenholztür");
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Tannenholzfalltür");
 		this.add(IcariaBlocks.FIR_PRESSURE_PLATE.get(), "Tannenholzdruckplatte");
@@ -551,6 +554,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Lorbeerholzlöffelhalter");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Lorbeerholzhandtuchhalter");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Lorbeerholzwerkbank");
+		this.add(IcariaBlocks.LAUREL_SCROLLSHELF.get(), "Lorbeerholzrollenregal");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Lorbeerholztür");
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Lorbeerholzfalltür");
 		this.add(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), "Lorbeerholzdruckplatte");
@@ -586,6 +590,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olivenholzlöffelhalter");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olivenholzhandtuchhalter");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olivenholzwerkbank");
+		this.add(IcariaBlocks.OLIVE_SCROLLSHELF.get(), "Olivenholzrollenregal");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olivenholztür");
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olivenholzfalltür");
 		this.add(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), "Olivenholzdruckplatte");
@@ -621,6 +626,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plantanenholzlöffelhalter");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plantanenholzhandtuchhalter");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plantanenholzwerkbank");
+		this.add(IcariaBlocks.PLANE_SCROLLSHELF.get(), "Plantanenholzrollenregal");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plantanenholztür");
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plantanenholzfalltür");
 		this.add(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), "Plantanenholzdruckplatte");
@@ -656,6 +662,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Pappelholzlöffelhalter");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Pappelholzhandtuchhalter");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Pappelholzwerkbank");
+		this.add(IcariaBlocks.POPULUS_SCROLLSHELF.get(), "Pappelholzrollenregal");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Pappelholztür");
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Pappelholzfalltür");
 		this.add(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), "Pappelholzdruckplatte");

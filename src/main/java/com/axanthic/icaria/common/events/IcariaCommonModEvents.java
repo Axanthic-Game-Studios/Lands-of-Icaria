@@ -549,6 +549,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.CYPRESS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.CYPRESS_PRESSURE_PLATE.get());
@@ -583,6 +584,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_PRESSURE_PLATE.get());
@@ -617,6 +619,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.FIR_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
 			pEvent.accept(IcariaItems.FIR_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.FIR_PRESSURE_PLATE.get());
@@ -651,6 +654,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.LAUREL_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.LAUREL_PRESSURE_PLATE.get());
@@ -685,6 +689,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.OLIVE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.OLIVE_PRESSURE_PLATE.get());
@@ -719,6 +724,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.PLANE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
 			pEvent.accept(IcariaItems.PLANE_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.PLANE_PRESSURE_PLATE.get());
@@ -753,6 +759,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_TOWEL_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
+			pEvent.accept(IcariaItems.POPULUS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_TRAPDOOR.get());
 			pEvent.accept(IcariaItems.POPULUS_PRESSURE_PLATE.get());

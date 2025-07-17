@@ -446,6 +446,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Cypress Spoon Holder");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Cypress Towel Holder");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Cypress Crafting Table");
+		this.add(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), "Cypress Scrollshelf");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Cypress Door");
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Cypress Trapdoor");
 		this.add(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), "Cypress Pressure Plate");
@@ -481,6 +482,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Droughtroot Spoon Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Droughtroot Towel Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Droughtroot Crafting Table");
+		this.add(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), "Droughtroot Scrollshelf");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Droughtroot Door");
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Droughtroot Trapdoor");
 		this.add(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), "Droughtroot Pressure Plate");
@@ -516,6 +518,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Fir Spoon Holder");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Fir Towel Holder");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Fir Crafting Table");
+		this.add(IcariaBlocks.FIR_SCROLLSHELF.get(), "Fir Scrollshelf");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Fir Door");
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Fir Trapdoor");
 		this.add(IcariaBlocks.FIR_PRESSURE_PLATE.get(), "Fir Pressure Plate");
@@ -551,6 +554,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Laurel Spoon Holder");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Laurel Towel Holder");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Laurel Crafting Table");
+		this.add(IcariaBlocks.LAUREL_SCROLLSHELF.get(), "Laurel Scrollshelf");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Laurel Door");
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Laurel Trapdoor");
 		this.add(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), "Laurel Pressure Plate");
@@ -586,6 +590,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olive Spoon Holder");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olive Towel Holder");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olive Crafting Table");
+		this.add(IcariaBlocks.OLIVE_SCROLLSHELF.get(), "Olive Scrollshelf");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olive Door");
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olive Trapdoor");
 		this.add(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), "Olive Pressure Plate");
@@ -621,6 +626,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plane Spoon Holder");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plane Towel Holder");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plane Crafting Table");
+		this.add(IcariaBlocks.PLANE_SCROLLSHELF.get(), "Plane Scrollshelf");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plane Door");
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plane Trapdoor");
 		this.add(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), "Plane Pressure Plate");
@@ -656,6 +662,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Populus Spoon Holder");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Populus Towel Holder");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Populus Crafting Table");
+		this.add(IcariaBlocks.POPULUS_SCROLLSHELF.get(), "Populus Scrollshelf");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Populus Door");
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Populus Trapdoor");
 		this.add(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), "Populus Pressure Plate");

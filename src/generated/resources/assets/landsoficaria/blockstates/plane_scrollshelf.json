@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/plane_scrollshelf",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/plane_scrollshelf"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/plane_scrollshelf",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/plane_scrollshelf",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

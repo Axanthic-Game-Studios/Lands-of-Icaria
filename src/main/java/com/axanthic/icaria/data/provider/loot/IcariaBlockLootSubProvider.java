@@ -575,6 +575,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CYPRESS_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.CYPRESS_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.CYPRESS_BUTTON.get());
@@ -597,6 +598,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_BUTTON.get());
@@ -619,6 +621,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.FIR_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.FIR_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.FIR_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.FIR_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.FIR_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.FIR_BUTTON.get());
@@ -641,6 +644,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.LAUREL_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.LAUREL_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.LAUREL_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.LAUREL_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.LAUREL_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.LAUREL_BUTTON.get());
@@ -663,6 +667,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.OLIVE_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.OLIVE_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.OLIVE_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.OLIVE_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.OLIVE_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.OLIVE_BUTTON.get());
@@ -685,6 +690,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PLANE_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.PLANE_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.PLANE_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.PLANE_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.PLANE_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.PLANE_BUTTON.get());
@@ -707,6 +713,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.POPULUS_SPOON_HOLDER.get());
 		this.dropThis(IcariaBlocks.POPULUS_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
+		this.dropThis(IcariaBlocks.POPULUS_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
 		this.dropThis(IcariaBlocks.POPULUS_PRESSURE_PLATE.get());
 		this.dropThis(IcariaBlocks.POPULUS_BUTTON.get());

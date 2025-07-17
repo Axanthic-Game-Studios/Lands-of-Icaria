@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "landsoficaria:block/droughtroot_planks",
+    "east": "landsoficaria:block/droughtroot_planks",
+    "north": "landsoficaria:block/droughtroot_scrollshelf",
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "south": "landsoficaria:block/droughtroot_scrollshelf",
+    "up": "landsoficaria:block/droughtroot_planks",
+    "west": "landsoficaria:block/droughtroot_planks"
+  }
+}

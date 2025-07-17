@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "down": "landsoficaria:block/laurel_planks",
+    "east": "landsoficaria:block/laurel_planks",
+    "north": "landsoficaria:block/laurel_scrollshelf",
+    "particle": "landsoficaria:block/laurel_planks",
+    "south": "landsoficaria:block/laurel_scrollshelf",
+    "up": "landsoficaria:block/laurel_planks",
+    "west": "landsoficaria:block/laurel_planks"
+  }
+}
