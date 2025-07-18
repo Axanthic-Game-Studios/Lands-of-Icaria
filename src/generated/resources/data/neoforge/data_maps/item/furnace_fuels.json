@@ -24,6 +24,9 @@
     "landsoficaria:cypress_pressure_plate": {
       "burn_time": 300
     },
+    "landsoficaria:cypress_scrollshelf": {
+      "burn_time": 300
+    },
     "landsoficaria:cypress_trough": {
       "burn_time": 300
     },
@@ -40,6 +43,9 @@
       "burn_time": 300
     },
     "landsoficaria:droughtroot_pressure_plate": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_scrollshelf": {
       "burn_time": 300
     },
     "landsoficaria:droughtroot_trough": {
@@ -60,6 +66,9 @@
     "landsoficaria:fir_pressure_plate": {
       "burn_time": 300
     },
+    "landsoficaria:fir_scrollshelf": {
+      "burn_time": 300
+    },
     "landsoficaria:fir_trough": {
       "burn_time": 300
     },
@@ -76,6 +85,9 @@
       "burn_time": 300
     },
     "landsoficaria:laurel_pressure_plate": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_scrollshelf": {
       "burn_time": 300
     },
     "landsoficaria:laurel_trough": {
@@ -105,6 +117,9 @@
     "landsoficaria:olive_pressure_plate": {
       "burn_time": 300
     },
+    "landsoficaria:olive_scrollshelf": {
+      "burn_time": 300
+    },
     "landsoficaria:olive_trough": {
       "burn_time": 300
     },
@@ -123,6 +138,9 @@
     "landsoficaria:plane_pressure_plate": {
       "burn_time": 300
     },
+    "landsoficaria:plane_scrollshelf": {
+      "burn_time": 300
+    },
     "landsoficaria:plane_trough": {
       "burn_time": 300
     },
@@ -139,6 +157,9 @@
       "burn_time": 300
     },
     "landsoficaria:populus_pressure_plate": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_scrollshelf": {
       "burn_time": 300
     },
     "landsoficaria:populus_trough": {
