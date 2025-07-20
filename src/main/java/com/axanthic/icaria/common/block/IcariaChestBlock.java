@@ -130,20 +130,18 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		var itemStack = pPlayer.getItemInHand(pInteractionHand);
-
-		var color = itemStack.getOrDefault(IcariaDataComponents.COLOR, 0xFF000000);
-		var label = itemStack.getOrDefault(IcariaDataComponents.LABEL, "");
-		var style = itemStack.getOrDefault(IcariaDataComponents.STYLE, false);
+		var color = pItemStack.getOrDefault(IcariaDataComponents.COLOR, 0xFF000000);
+		var label = pItemStack.getOrDefault(IcariaDataComponents.LABEL, "");
+		var style = pItemStack.getOrDefault(IcariaDataComponents.STYLE, false);
 
 		if (pLevel.getBlockEntity(pBlockPos) instanceof IcariaChestBlockEntity blockEntity && !blockEntity.getWaxed()) {
-			return this.getInteractionResult(blockEntity, pBlockPos, pBlockState, pBlockHitResult.getDirection(), itemStack, pLevel, pPlayer, label, style, color);
+			return this.getInteractionResult(blockEntity, pBlockPos, pBlockState, pBlockHitResult.getDirection(), pInteractionHand, pItemStack, pLevel, pPlayer, label, style, color);
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult getInteractionResult(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
+	public InteractionResult getInteractionResult(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, String pLabel, boolean pStyle, int pColor) {
 		if (pItemStack.getItem() instanceof DyeItem dyeItem) {
 			return this.setColor(pBlockEntity, pBlockPos, pBlockState, pDirection, dyeItem, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(IcariaItems.CHEST_LABEL.get())) {
@@ -154,8 +152,8 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 			return this.setStyleGlowing(pBlockEntity, pBlockPos, pBlockState, pDirection, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.HONEYCOMB)) {
 			return this.setWaxed(pBlockEntity, pBlockPos, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.isEmpty() && pPlayer.isShiftKeyDown()) {
-			return this.removeLabel(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+		} else if (pItemStack.is(Items.SHEARS)) {
+			return this.removeLabel(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
@@ -233,17 +231,17 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 		return InteractionResult.SUCCESS;
 	}
 
-	public InteractionResult removeLabel(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabel(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pDirection == Direction.UP) {
-			return this.removeLabelUp(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+			return this.removeLabelUp(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pDirection == Direction.NORTH) {
-			return this.removeLabelNorth(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+			return this.removeLabelNorth(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pDirection == Direction.EAST) {
-			return this.removeLabelEast(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+			return this.removeLabelEast(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pDirection == Direction.SOUTH) {
-			return this.removeLabelSouth(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+			return this.removeLabelSouth(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pDirection == Direction.WEST) {
-			return this.removeLabelWest(pBlockEntity, pBlockPos, pBlockState, pDirection, pLevel);
+			return this.removeLabelWest(pBlockEntity, pBlockPos, pBlockState, pDirection, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
@@ -614,75 +612,90 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 		}
 	}
 
-	public InteractionResult removeLabelUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabelUp(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, false).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)) {
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelUp(), pBlockEntity.getStyleUp(), pBlockEntity.getColorUp());
 			this.playClearSound(pBlockPos, pLevel);
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, false).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorUp(0);
 			pBlockEntity.setLabelUp(null);
 			pBlockEntity.setStyleUp(false);
 			pBlockEntity.setChanged();
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult removeLabelNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabelNorth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, false).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)) {
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelNorth(), pBlockEntity.getStyleNorth(), pBlockEntity.getColorNorth());
 			this.playClearSound(pBlockPos, pLevel);
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, false).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorNorth(0);
 			pBlockEntity.setLabelNorth(null);
 			pBlockEntity.setStyleNorth(false);
 			pBlockEntity.setChanged();
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult removeLabelEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabelEast(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, false).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)) {
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelEast(), pBlockEntity.getStyleEast(), pBlockEntity.getColorEast());
 			this.playClearSound(pBlockPos, pLevel);
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, false).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorEast(0);
 			pBlockEntity.setLabelEast(null);
 			pBlockEntity.setStyleEast(false);
 			pBlockEntity.setChanged();
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult removeLabelSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabelSouth(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, false).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)) {
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelSouth(), pBlockEntity.getStyleSouth(), pBlockEntity.getColorSouth());
 			this.playClearSound(pBlockPos, pLevel);
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, false).setValue(IcariaBlockStateProperties.LABEL_WEST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorSouth(0);
 			pBlockEntity.setLabelSouth(null);
 			pBlockEntity.setStyleSouth(false);
 			pBlockEntity.setChanged();
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult removeLabelWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel) {
+	public InteractionResult removeLabelWest(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, false).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED));
 		if (pBlockState.getValue(IcariaBlockStateProperties.LABEL_WEST)) {
 			this.dropLabel(pBlockPos, pDirection, pLevel, pBlockEntity.getLabelWest(), pBlockEntity.getStyleWest(), pBlockEntity.getColorWest());
 			this.playClearSound(pBlockPos, pLevel);
-			pLevel.setBlock(pBlockPos, this.defaultBlockState().setValue(BlockStateProperties.CHEST_TYPE, pBlockState.getValue(BlockStateProperties.CHEST_TYPE)).setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(IcariaBlockStateProperties.LABEL_UP, pBlockState.getValue(IcariaBlockStateProperties.LABEL_UP)).setValue(IcariaBlockStateProperties.LABEL_NORTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_NORTH)).setValue(IcariaBlockStateProperties.LABEL_EAST, pBlockState.getValue(IcariaBlockStateProperties.LABEL_EAST)).setValue(IcariaBlockStateProperties.LABEL_SOUTH, pBlockState.getValue(IcariaBlockStateProperties.LABEL_SOUTH)).setValue(IcariaBlockStateProperties.LABEL_WEST, false).setValue(BlockStateProperties.WATERLOGGED, pBlockState.getValue(BlockStateProperties.WATERLOGGED)), 3);
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.SHEARS));
+			pLevel.setBlock(pBlockPos, blockState, 3);
 			pBlockEntity.setColorWest(0);
 			pBlockEntity.setLabelWest(null);
 			pBlockEntity.setStyleWest(false);
 			pBlockEntity.setChanged();
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
