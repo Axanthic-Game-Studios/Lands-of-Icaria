@@ -1364,7 +1364,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Carpet clears");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Chest Label applies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "clear", "Chest Label clears");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "reset", "Chest Label resets");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "greek_fire_grenade" + "." + "throw", "Grenade flings");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "olives" + "." + "pop", "Olives pop");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "spell" + "." + "shoot", "Spell shoots");

@@ -1364,7 +1364,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Teppich abmontiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Kistenetikett angebracht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "clear", "Kistenetikett abmontiert");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "reset", "Kistenetikett zurückgesetzt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "greek_fire_grenade" + "." + "throw", "Granate schleudert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "olives" + "." + "pop", "Oliven poppen");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "spell" + "." + "shoot", "Zauber schießt");
