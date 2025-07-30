@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:black_dye",
+    "landsoficaria:arachne_string_block"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:black_arachne_string_block"
+  }
+}

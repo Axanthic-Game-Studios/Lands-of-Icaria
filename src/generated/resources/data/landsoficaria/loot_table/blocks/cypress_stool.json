@@ -1,0 +1,320 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:cypress_stool"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "white_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:white_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "light_gray_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:light_gray_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "gray_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:gray_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "black_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:black_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "brown_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:brown_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "red_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:red_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "orange_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:orange_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "yellow_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:yellow_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "lime_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:lime_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "green_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:green_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "cyan_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:cyan_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "light_blue_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:light_blue_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "blue_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:blue_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "purple_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:purple_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "magenta_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:magenta_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:cypress_stool",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "carpet": "pink_arachne_string_carpet"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:pink_arachne_string_carpet"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/cypress_stool"
+}

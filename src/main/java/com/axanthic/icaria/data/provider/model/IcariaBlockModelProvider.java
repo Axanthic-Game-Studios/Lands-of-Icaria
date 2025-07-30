@@ -42,6 +42,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.cake(pBlockModelGenerators);
 		IcariaBlockModelProvider.calciteCrystal(pBlockModelGenerators);
 		IcariaBlockModelProvider.cardonCactus(pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(pBlockModelGenerators);
 		IcariaBlockModelProvider.chain(pBlockModelGenerators);
 		IcariaBlockModelProvider.craftingTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.crop(pBlockModelGenerators);
@@ -112,6 +113,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.slab(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(pBlockModelGenerators);
 		IcariaBlockModelProvider.storageVase(pBlockModelGenerators);
 		IcariaBlockModelProvider.strawberryBush(pBlockModelGenerators);
 		IcariaBlockModelProvider.strawberryCrop(pBlockModelGenerators);
@@ -197,6 +199,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolderModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.stoolModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.storageVaseModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.strawberryBushModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.strippedDeadLogModel(pBlockModelGenerators);
@@ -335,6 +338,22 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.block(IcariaBlocks.BUDDING_ZIRCON.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.block(IcariaBlocks.PACKED_ARISTONE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.block(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.block(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.block(IcariaBlocks.VINE_REED_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.block(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.block(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), pBlockModelGenerators);
@@ -437,6 +456,26 @@ public class IcariaBlockModelProvider {
 
 	public static void cardonCactus(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.cardonCactus(IcariaBlocks.CARDON_CACTUS.get(), pBlockModelGenerators);
+	}
+
+	public static void carpet(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.carpet(IcariaBlocks.ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.carpet(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
 	}
 
 	public static void chain(BlockModelGenerators pBlockModelGenerators) {
@@ -992,6 +1031,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.stairs(IcariaBlocks.OLIVE_STAIRS.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.PLANE_STAIRS.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.POPULUS_STAIRS.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
+	}
+
+	public static void stool(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.stool(IcariaBlocks.CYPRESS_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.DROUGHTROOT_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.FIR_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.LAUREL_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.OLIVE_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.PLANE_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stool(IcariaBlocks.POPULUS_STOOL.get(), pBlockModelGenerators);
 	}
 
 	public static void storageVase(BlockModelGenerators pBlockModelGenerators) {
@@ -1659,6 +1708,13 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock, "stem"), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "side"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void carpet(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "carpet")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.WOOL, IcariaModelProvider.blockFile(pBlock, "carpet", "block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "carpet", "block")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chain(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -2857,6 +2913,94 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void stool(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("white", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "white_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("light_gray", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("gray", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("black", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("brown", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("red", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("orange", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("yellow", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellow_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("lime", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "lime_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("green", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "green_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("cyan", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("light_blue", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("blue", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("purple", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "purple_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("magenta", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "magenta_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool")).build()
+			.create(IcariaModelProvider.blockFile("pink", pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "pink_arachne_string_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void storageVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_storage_vase")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -3500,6 +3644,10 @@ public class IcariaBlockModelProvider {
 
 	public static void spoonHolderModel(BlockModelGenerators pBlockModelGenerators) {
 		SpoonHolderModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_spoon_holder"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void stoolModel(BlockModelGenerators pBlockModelGenerators) {
+		StoolModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_stool"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void storageVaseModel(BlockModelGenerators pBlockModelGenerators) {

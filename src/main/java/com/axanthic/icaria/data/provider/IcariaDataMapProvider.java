@@ -151,6 +151,39 @@ public class IcariaDataMapProvider extends DataMapProvider {
 	public void furnaceFuels() {
 		this.furnaceFuels(IcariaItems.SURFACE_LIGNITE.get(), 800);
 		this.furnaceFuels(IcariaItems.ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.RED_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get(), 100);
+		this.furnaceFuels(IcariaItems.ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.RED_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.LIME_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), 67);
+		this.furnaceFuels(IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), 67);
 		this.furnaceFuels(IcariaItems.VINE_REED_BLOCK.get(), 300);
 		this.furnaceFuels(IcariaItems.LIGNITE_BLOCK.get(), 7200);
 		this.furnaceFuels(IcariaItems.ANTHRACITE_BLOCK.get(), 28800);
@@ -158,6 +191,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.TRAPPED_CHEST.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.CYPRESS_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.CYPRESS_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_PRESSURE_PLATE.get(), 300);
@@ -165,6 +199,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.CYPRESS_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.DROUGHTROOT_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_PRESSURE_PLATE.get(), 300);
@@ -172,6 +207,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.FIR_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.FIR_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_PRESSURE_PLATE.get(), 300);
@@ -179,6 +215,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.FIR_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.LAUREL_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.LAUREL_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_PRESSURE_PLATE.get(), 300);
@@ -186,6 +223,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.LAUREL_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.OLIVE_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.OLIVE_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_PRESSURE_PLATE.get(), 300);
@@ -193,6 +231,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.OLIVE_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.PLANE_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.PLANE_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_PRESSURE_PLATE.get(), 300);
@@ -200,6 +239,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.PLANE_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_TWIGS.get(), 100);
 		this.furnaceFuels(IcariaItems.POPULUS_TROUGH.get(), 300);
+		this.furnaceFuels(IcariaItems.POPULUS_STOOL.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_CRAFTING_TABLE.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_PRESSURE_PLATE.get(), 300);

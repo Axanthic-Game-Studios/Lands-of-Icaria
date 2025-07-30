@@ -427,7 +427,43 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
 			pEvent.accept(IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
 			pEvent.accept(IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
+
 			pEvent.accept(IcariaItems.ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.RED_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get());
+			pEvent.accept(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get());
+
+			pEvent.accept(IcariaItems.ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.RED_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.LIME_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get());
+			pEvent.accept(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
+
 			pEvent.accept(IcariaItems.SPELT_BALE_BLOCK.get());
 			pEvent.accept(IcariaItems.VINE_REED_BLOCK.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES_BLOCK.get());
@@ -545,6 +581,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_CYPRESS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_CYPRESS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.CYPRESS_TROUGH.get());
+			pEvent.accept(IcariaItems.CYPRESS_STOOL.get());
 			pEvent.accept(IcariaItems.CYPRESS_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_TOWEL_HOLDER.get());
@@ -580,6 +617,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_DROUGHTROOT_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_DROUGHTROOT_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TROUGH.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_STOOL.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get());
@@ -615,6 +653,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_FIR_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_FIR_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.FIR_TROUGH.get());
+			pEvent.accept(IcariaItems.FIR_STOOL.get());
 			pEvent.accept(IcariaItems.FIR_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_TOWEL_HOLDER.get());
@@ -650,6 +689,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_LAUREL_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_LAUREL_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.LAUREL_TROUGH.get());
+			pEvent.accept(IcariaItems.LAUREL_STOOL.get());
 			pEvent.accept(IcariaItems.LAUREL_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_TOWEL_HOLDER.get());
@@ -685,6 +725,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_OLIVE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_OLIVE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.OLIVE_TROUGH.get());
+			pEvent.accept(IcariaItems.OLIVE_STOOL.get());
 			pEvent.accept(IcariaItems.OLIVE_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_TOWEL_HOLDER.get());
@@ -720,6 +761,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_PLANE_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_PLANE_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.PLANE_TROUGH.get());
+			pEvent.accept(IcariaItems.PLANE_STOOL.get());
 			pEvent.accept(IcariaItems.PLANE_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_TOWEL_HOLDER.get());
@@ -755,6 +797,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.TAPPED_POPULUS_BARREL.get());
 			pEvent.accept(IcariaItems.TRIPLE_POPULUS_BARREL_RACK.get());
 			pEvent.accept(IcariaItems.POPULUS_TROUGH.get());
+			pEvent.accept(IcariaItems.POPULUS_STOOL.get());
 			pEvent.accept(IcariaItems.POPULUS_PAN_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_TOWEL_HOLDER.get());

@@ -327,7 +327,43 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), "Natur-Quallengeleeblock");
 		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Leeren-Quallengeleeblock");
 		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Wasser-Quallengeleeblock");
+
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Arachnefadenblock");
+		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), "Weißer Arachnefadenblock");
+		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), "Hellgrauer Arachnefadenblock");
+		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), "Grauer Arachnefadenblock");
+		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), "Schwarzer Arachnefadenblock");
+		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), "Brauner Arachnefadenblock");
+		this.add(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), "Roter Arachnefadenblock");
+		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), "Oranger Arachnefadenblock");
+		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), "Gelber Arachnefadenblock");
+		this.add(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), "Hellgrüner Arachnefadenblock");
+		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), "Grüner Arachnefadenblock");
+		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), "Türkiser Arachnefadenblock");
+		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), "Hellblauer Arachnefadenblock");
+		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), "Blauer Arachnefadenblock");
+		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), "Violetter Arachnefadenblock");
+		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), "Magenta Arachnefadenblock");
+		this.add(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), "Rosa Arachnefadenblock");
+
+		this.add(IcariaBlocks.ARACHNE_STRING_CARPET.get(), "Arachnefadenteppich");
+		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), "Weißer Arachnefadenteppich");
+		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), "Hellgrauer Arachnefadenteppich");
+		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), "Grauer Arachnefadenteppich");
+		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), "Schwarzer Arachnefadenteppich");
+		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), "Brauner Arachnefadenteppich");
+		this.add(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), "Roter Arachnefadenteppich");
+		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), "Oranger Arachnefadenteppich");
+		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), "Gelber Arachnefadenteppich");
+		this.add(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), "Hellgrüner Arachnefadenteppich");
+		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), "Grüner Arachnefadenteppich");
+		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), "Türkiser Arachnefadenteppich");
+		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), "Hellblauer Arachnefadenteppich");
+		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), "Blauer Arachnefadenteppich");
+		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), "Violetter Arachnefadenteppich");
+		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), "Magenta Arachnefadenteppich");
+		this.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), "Rosa Arachnefadenteppich");
+
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Dinkelballen");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Weinschilfblock");
 		this.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), "Verrotteter Knochenblock");
@@ -442,6 +478,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Gezapftes Zypressenholzfass");
 		this.add(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), "Dreifaches Zypressenholzfassgestell");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Zypressenholztrog");
+		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Zypressenholzhocker");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Zypressenholzpfannenhalter");
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Zypressenholzlöffelhalter");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Zypressenholzhandtuchhalter");
@@ -478,6 +515,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Gezapftes Dürrwurzelholzfass");
 		this.add(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), "Dreifaches Dürrwurzelholzfassgestell");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Dürrwurzelholztrog");
+		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Dürrwurzelholzhocker");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Dürrwurzelholzpfannenhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Dürrwurzelholzlöffelhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Dürrwurzelholzhandtuchhalter");
@@ -514,6 +552,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Gezapftes Tannenholzfass");
 		this.add(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), "Dreifaches Tannenholzfassgestell");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Tannenholztrog");
+		this.add(IcariaBlocks.FIR_STOOL.get(), "Tannenholzhocker");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Tannenholzpfannenhalter");
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Tannenholzlöffelhalter");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Tannenholzhandtuchhalter");
@@ -550,6 +589,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Gezapftes Lorbeerholzfass");
 		this.add(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), "Dreifaches Lorbeerholzfassgestell");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Lorbeerholztrog");
+		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Lorbeerholzhocker");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Lorbeerholzpfannenhalter");
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Lorbeerholzlöffelhalter");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Lorbeerholzhandtuchhalter");
@@ -586,6 +626,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Gezapftes Olivenholzfass");
 		this.add(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), "Dreifaches Olivenholzfassgestell");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olivenholztrog");
+		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olivenholzhocker");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olivenholzpfannenhalter");
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olivenholzlöffelhalter");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olivenholzhandtuchhalter");
@@ -622,6 +663,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Gezapftes Plantanenholzfass");
 		this.add(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), "Dreifaches Plantanenholzfassgestell");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plantanenholztrog");
+		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plantanenholzhocker");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plantanenholzpfannenhalter");
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plantanenholzlöffelhalter");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plantanenholzhandtuchhalter");
@@ -658,6 +700,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Gezapftes Pappelholzfass");
 		this.add(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), "Dreifaches Pappelholzfassgestell");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Pappelholztrog");
+		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Pappelholzhocker");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Pappelholzpfannenhalter");
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Pappelholzlöffelhalter");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Pappelholzhandtuchhalter");
@@ -1317,6 +1360,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit_ground", "Bident vibriert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "throw", "Bident klirrt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "calcite" + "." + "fertilize", "Calcit düngt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "apply", "Teppich angebracht");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Teppich abmontiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Kistenetikett angebracht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "clear", "Kistenetikett abmontiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "reset", "Kistenetikett zurückgesetzt");

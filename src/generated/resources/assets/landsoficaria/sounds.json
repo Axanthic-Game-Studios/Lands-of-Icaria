@@ -933,6 +933,24 @@
     ],
     "subtitle": "subtitle.landsoficaria.capella_horn.fail"
   },
+  "item.carpet.apply": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.wool.place"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.carpet.apply"
+  },
+  "item.carpet.clear": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.wool.break"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.carpet.clear"
+  },
   "item.chalkos_armor.equip": {
     "sounds": [
       {

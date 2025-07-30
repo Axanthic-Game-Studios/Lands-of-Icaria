@@ -1,0 +1,259 @@
+{
+  "variants": {
+    "carpet=arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/laurel_stool",
+      "y": 90
+    },
+    "carpet=arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/laurel_stool"
+    },
+    "carpet=arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/laurel_stool",
+      "y": 180
+    },
+    "carpet=arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/laurel_stool",
+      "y": 270
+    },
+    "carpet=black_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/black_laurel_stool",
+      "y": 90
+    },
+    "carpet=black_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/black_laurel_stool"
+    },
+    "carpet=black_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/black_laurel_stool",
+      "y": 180
+    },
+    "carpet=black_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/black_laurel_stool",
+      "y": 270
+    },
+    "carpet=blue_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/blue_laurel_stool",
+      "y": 90
+    },
+    "carpet=blue_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/blue_laurel_stool"
+    },
+    "carpet=blue_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/blue_laurel_stool",
+      "y": 180
+    },
+    "carpet=blue_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/blue_laurel_stool",
+      "y": 270
+    },
+    "carpet=brown_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/brown_laurel_stool",
+      "y": 90
+    },
+    "carpet=brown_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/brown_laurel_stool"
+    },
+    "carpet=brown_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/brown_laurel_stool",
+      "y": 180
+    },
+    "carpet=brown_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/brown_laurel_stool",
+      "y": 270
+    },
+    "carpet=cyan_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/cyan_laurel_stool",
+      "y": 90
+    },
+    "carpet=cyan_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/cyan_laurel_stool"
+    },
+    "carpet=cyan_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/cyan_laurel_stool",
+      "y": 180
+    },
+    "carpet=cyan_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/cyan_laurel_stool",
+      "y": 270
+    },
+    "carpet=gray_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/gray_laurel_stool",
+      "y": 90
+    },
+    "carpet=gray_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/gray_laurel_stool"
+    },
+    "carpet=gray_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/gray_laurel_stool",
+      "y": 180
+    },
+    "carpet=gray_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/gray_laurel_stool",
+      "y": 270
+    },
+    "carpet=green_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/green_laurel_stool",
+      "y": 90
+    },
+    "carpet=green_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/green_laurel_stool"
+    },
+    "carpet=green_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/green_laurel_stool",
+      "y": 180
+    },
+    "carpet=green_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/green_laurel_stool",
+      "y": 270
+    },
+    "carpet=light_blue_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/light_blue_laurel_stool",
+      "y": 90
+    },
+    "carpet=light_blue_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/light_blue_laurel_stool"
+    },
+    "carpet=light_blue_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/light_blue_laurel_stool",
+      "y": 180
+    },
+    "carpet=light_blue_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/light_blue_laurel_stool",
+      "y": 270
+    },
+    "carpet=light_gray_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/light_gray_laurel_stool",
+      "y": 90
+    },
+    "carpet=light_gray_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/light_gray_laurel_stool"
+    },
+    "carpet=light_gray_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/light_gray_laurel_stool",
+      "y": 180
+    },
+    "carpet=light_gray_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/light_gray_laurel_stool",
+      "y": 270
+    },
+    "carpet=lime_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/lime_laurel_stool",
+      "y": 90
+    },
+    "carpet=lime_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/lime_laurel_stool"
+    },
+    "carpet=lime_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/lime_laurel_stool",
+      "y": 180
+    },
+    "carpet=lime_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/lime_laurel_stool",
+      "y": 270
+    },
+    "carpet=magenta_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/magenta_laurel_stool",
+      "y": 90
+    },
+    "carpet=magenta_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/magenta_laurel_stool"
+    },
+    "carpet=magenta_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/magenta_laurel_stool",
+      "y": 180
+    },
+    "carpet=magenta_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/magenta_laurel_stool",
+      "y": 270
+    },
+    "carpet=orange_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/orange_laurel_stool",
+      "y": 90
+    },
+    "carpet=orange_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/orange_laurel_stool"
+    },
+    "carpet=orange_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/orange_laurel_stool",
+      "y": 180
+    },
+    "carpet=orange_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/orange_laurel_stool",
+      "y": 270
+    },
+    "carpet=pink_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/pink_laurel_stool",
+      "y": 90
+    },
+    "carpet=pink_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/pink_laurel_stool"
+    },
+    "carpet=pink_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/pink_laurel_stool",
+      "y": 180
+    },
+    "carpet=pink_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/pink_laurel_stool",
+      "y": 270
+    },
+    "carpet=purple_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/purple_laurel_stool",
+      "y": 90
+    },
+    "carpet=purple_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/purple_laurel_stool"
+    },
+    "carpet=purple_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/purple_laurel_stool",
+      "y": 180
+    },
+    "carpet=purple_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/purple_laurel_stool",
+      "y": 270
+    },
+    "carpet=red_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/red_laurel_stool",
+      "y": 90
+    },
+    "carpet=red_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/red_laurel_stool"
+    },
+    "carpet=red_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/red_laurel_stool",
+      "y": 180
+    },
+    "carpet=red_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/red_laurel_stool",
+      "y": 270
+    },
+    "carpet=white_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/white_laurel_stool",
+      "y": 90
+    },
+    "carpet=white_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/white_laurel_stool"
+    },
+    "carpet=white_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/white_laurel_stool",
+      "y": 180
+    },
+    "carpet=white_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/white_laurel_stool",
+      "y": 270
+    },
+    "carpet=yellow_arachne_string_carpet,facing=east": {
+      "model": "landsoficaria:block/yellow_laurel_stool",
+      "y": 90
+    },
+    "carpet=yellow_arachne_string_carpet,facing=north": {
+      "model": "landsoficaria:block/yellow_laurel_stool"
+    },
+    "carpet=yellow_arachne_string_carpet,facing=south": {
+      "model": "landsoficaria:block/yellow_laurel_stool",
+      "y": 180
+    },
+    "carpet=yellow_arachne_string_carpet,facing=west": {
+      "model": "landsoficaria:block/yellow_laurel_stool",
+      "y": 270
+    }
+  }
+}

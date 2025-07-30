@@ -356,6 +356,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation BIDENT_HIT_GROUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bident.hit_ground");
 	public static final ResourceLocation BIDENT_THROW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bident.throw");
 	public static final ResourceLocation CALCITE_FERTILIZE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.calcite.fertilize");
+	public static final ResourceLocation CARPET_APPLY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.carpet.apply");
+	public static final ResourceLocation CARPET_CLEAR = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.carpet.clear");
 	public static final ResourceLocation CHEST_LABEL_APPLY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.apply");
 	public static final ResourceLocation CHEST_LABEL_CLEAR = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.clear");
 	public static final ResourceLocation GREEK_FIRE_GRENADE_THROW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.greek_fire_grenade.throw");

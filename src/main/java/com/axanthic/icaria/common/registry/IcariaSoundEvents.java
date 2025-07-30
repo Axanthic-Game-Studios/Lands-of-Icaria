@@ -116,6 +116,8 @@ public class IcariaSoundEvents {
 	public static final SoundEvent BIDENT_HIT_GROUND = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BIDENT_HIT_GROUND);
 	public static final SoundEvent BIDENT_THROW = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BIDENT_THROW);
 	public static final SoundEvent CALCITE_FERTILIZE = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CALCITE_FERTILIZE);
+	public static final SoundEvent CARPET_APPLY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CARPET_APPLY);
+	public static final SoundEvent CARPET_CLEAR = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CARPET_CLEAR);
 	public static final SoundEvent CHEST_LABEL_APPLY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CHEST_LABEL_APPLY);
 	public static final SoundEvent CHEST_LABEL_CLEAR = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CHEST_LABEL_CLEAR);
 	public static final SoundEvent GREEK_FIRE_GRENADE_THROW = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.GREEK_FIRE_GRENADE_THROW);

@@ -333,6 +333,7 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.BUBBLE_SPELL.get(), BubbleSpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FREEZING_SPELL.get(), SpellRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), SpellRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.STOOL.get(), StoolRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.THOG.get(), ThogRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAR.get(), ThrownItemRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);

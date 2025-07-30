@@ -1,5 +1,6 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.data.registry.IcariaEquipmentAssets;
 
@@ -12,6 +13,7 @@ import net.minecraft.client.data.models.EquipmentAssetProvider;
 import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 
 @MethodsReturnNonnullByDefault
@@ -30,5 +32,9 @@ public class IcariaEquipmentAssetProvider extends EquipmentAssetProvider {
 		pBiConsumer.accept(IcariaEquipmentAssets.ORICHALCUM, EquipmentClientInfo.builder().addHumanoidLayers(IcariaResourceLocations.ORICHALCUM, false).build());
 		pBiConsumer.accept(IcariaEquipmentAssets.VANADIUMSTEEL, EquipmentClientInfo.builder().addHumanoidLayers(IcariaResourceLocations.VANADIUMSTEEL, false).build());
 		pBiConsumer.accept(IcariaEquipmentAssets.LAUREL, EquipmentClientInfo.builder().addMainHumanoidLayer(IcariaResourceLocations.LAUREL, false).build());
+
+		for (var entry : IcariaEquipmentAssets.CARPET.entrySet()) {
+			pBiConsumer.accept(entry.getValue(), EquipmentClientInfo.builder().addLayers(EquipmentClientInfo.LayerType.LLAMA_BODY, new EquipmentClientInfo.Layer(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, entry.getKey().getSerializedName()))).build());
+		}
 	}
 }

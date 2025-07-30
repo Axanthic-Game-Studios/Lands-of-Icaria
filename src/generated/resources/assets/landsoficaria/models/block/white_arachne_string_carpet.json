@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "particle": "landsoficaria:block/white_arachne_string_block",
+    "wool": "landsoficaria:block/white_arachne_string_block"
+  }
+}

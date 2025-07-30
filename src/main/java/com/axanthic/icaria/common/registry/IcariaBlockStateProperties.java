@@ -26,11 +26,13 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
 	public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
 	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
+	public static final BooleanProperty STOOL_TAKEN = BooleanProperty.create("stool_taken");
 	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
 
 	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, (direction) -> direction != Direction.DOWN);
 
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
+	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
 	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);

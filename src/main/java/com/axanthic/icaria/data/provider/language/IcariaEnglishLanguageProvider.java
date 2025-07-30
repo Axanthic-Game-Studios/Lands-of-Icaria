@@ -327,7 +327,43 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), "Block of Nature Jellyfish Jelly");
 		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Block of Void Jellyfish Jelly");
 		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Block of Water Jellyfish Jelly");
+
 		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Block of Arachne String");
+		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), "White Block of Arachne String");
+		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), "Light Gray Block of Arachne String");
+		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), "Gray Block of Arachne String");
+		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), "Black Block of Arachne String");
+		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), "Brown Block of Arachne String");
+		this.add(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), "Red Block of Arachne String");
+		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), "Orange Block of Arachne String");
+		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), "Yellow Block of Arachne String");
+		this.add(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), "Lime Block of Arachne String");
+		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), "Green Block of Arachne String");
+		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), "Cyan Block of Arachne String");
+		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), "Light Blue Block of Arachne String");
+		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), "Blue Block of Arachne String");
+		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), "Purple Block of Arachne String");
+		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), "Magenta Block of Arachne String");
+		this.add(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), "Pink Block of Arachne String");
+
+		this.add(IcariaBlocks.ARACHNE_STRING_CARPET.get(), "Arachne String Carpet");
+		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), "White Arachne String Carpet");
+		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), "Light Gray Arachne String Carpet");
+		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), "Gray Arachne String Carpet");
+		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), "Black Arachne String Carpet");
+		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), "Brown Arachne String Carpet");
+		this.add(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), "Red Arachne String Carpet");
+		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), "Orange Arachne String Carpet");
+		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), "Yellow Arachne String Carpet");
+		this.add(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), "Lime Arachne String Carpet");
+		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), "Green Arachne String Carpet");
+		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), "Cyan Arachne String Carpet");
+		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), "Light Blue Arachne String Carpet");
+		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), "Blue Arachne String Carpet");
+		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), "Purple Arachne String Carpet");
+		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), "Magenta Arachne String Carpet");
+		this.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), "Pink Arachne String Carpet");
+
 		this.add(IcariaBlocks.SPELT_BALE_BLOCK.get(), "Spelt Bale");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Block of Vine Reed");
 		this.add(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), "Block of Rotten Bones");
@@ -442,6 +478,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Tapped Cypress Barrel");
 		this.add(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), "Triple Cypress Barrel Rack");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Cypress Trough");
+		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Cypress Stool");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Cypress Pan Holder");
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Cypress Spoon Holder");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Cypress Towel Holder");
@@ -478,6 +515,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Tapped Droughtroot Barrel");
 		this.add(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), "Triple Droughtroot Barrel Rack");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Droughtroot Trough");
+		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Droughtroot Stool");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Droughtroot Pan Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Droughtroot Spoon Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Droughtroot Towel Holder");
@@ -514,6 +552,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Tapped Fir Barrel");
 		this.add(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), "Triple Fir Barrel Rack");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Fir Trough");
+		this.add(IcariaBlocks.FIR_STOOL.get(), "Fir Stool");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Fir Pan Holder");
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Fir Spoon Holder");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Fir Towel Holder");
@@ -550,6 +589,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Tapped Laurel Barrel");
 		this.add(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), "Triple Laurel Barrel Rack");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Laurel Trough");
+		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Laurel Stool");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Laurel Pan Holder");
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Laurel Spoon Holder");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Laurel Towel Holder");
@@ -586,6 +626,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Tapped Olive Barrel");
 		this.add(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), "Triple Olive Barrel Rack");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olive Trough");
+		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olive Stool");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olive Pan Holder");
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olive Spoon Holder");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olive Towel Holder");
@@ -622,6 +663,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Tapped Plane Barrel");
 		this.add(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), "Triple Plane Barrel Rack");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plane Trough");
+		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plane Stool");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plane Pan Holder");
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plane Spoon Holder");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plane Towel Holder");
@@ -658,6 +700,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Tapped Populus Barrel");
 		this.add(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), "Triple Populus Barrel Rack");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Populus Trough");
+		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Populus Stool");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Populus Pan Holder");
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Populus Spoon Holder");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Populus Towel Holder");
@@ -1317,6 +1360,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit_ground", "Bident vibrates");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "throw", "Bident clangs");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "calcite" + "." + "fertilize", "Calcite fertilizes");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "apply", "Carpet applies");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Carpet clears");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Chest Label applies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "clear", "Chest Label clears");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "reset", "Chest Label resets");

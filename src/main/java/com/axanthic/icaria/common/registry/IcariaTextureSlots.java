@@ -88,6 +88,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot VOIDSHALE = TextureSlot.create("voidshale");
 	public static final TextureSlot WALL = TextureSlot.create("wall");
 	public static final TextureSlot WEST = TextureSlot.create("west");
+	public static final TextureSlot WOOL = TextureSlot.create("wool");
 	public static final TextureSlot YELLOWSTONE = TextureSlot.create("yellowstone");
 	public static final TextureSlot YELLOWSTONE_BRICKS = TextureSlot.create("yellowstone_bricks");
 }
