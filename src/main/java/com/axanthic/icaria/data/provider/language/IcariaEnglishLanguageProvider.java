@@ -1279,7 +1279,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "death", "Capella dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "hurt", "Capella hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "step", "Capella steps");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella_horn" + "." + "fail", "Capella horn plays");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "ambient", "Catoblepas moos");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "death", "Catoblepas dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "hurt", "Catoblepas hurts");
@@ -1350,16 +1349,17 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "hurt", "Vinegaroon hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "shoot", "Vinegaroon shoots");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "step", "Vinegaroon steps");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "laurel_wreath" + "." + "equip", "Laurel Wreath equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae_hide_armor" + "." + "equip", "Aeternae Hide Armor equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chalkos_armor" + "." + "equip", "Chalkos Armor equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kassiteros_armor" + "." + "equip", "Kassiteros Armor equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "orichalcum_armor" + "." + "equip", "Orichalcum Armor equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vanadiumsteel_armor" + "." + "equip", "Vanadiumsteel Armor equips");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "laurel_wreath" + "." + "equip", "Laurel Wreath equips");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit", "Bident stabs");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit_ground", "Bident vibrates");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "throw", "Bident clangs");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "calcite" + "." + "fertilize", "Calcite fertilizes");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella_horn" + "." + "fail", "Capella horn plays");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "apply", "Carpet applies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Carpet clears");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Chest Label applies");

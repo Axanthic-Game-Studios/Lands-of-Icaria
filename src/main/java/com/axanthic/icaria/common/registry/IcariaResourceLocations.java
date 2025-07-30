@@ -273,7 +273,6 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation ARGAN_HOUND_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.argan_hound.step");
 	public static final ResourceLocation CAPELLA_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.ambient");
 	public static final ResourceLocation CAPELLA_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.death");
-	public static final ResourceLocation CAPELLA_HORN_FAIL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.capella_horn.fail");
 	public static final ResourceLocation CAPELLA_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.hurt");
 	public static final ResourceLocation CAPELLA_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.capella.step");
 	public static final ResourceLocation CATOBLEPAS_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.catoblepas.ambient");
@@ -346,16 +345,17 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation VINEGAROON_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.hurt");
 	public static final ResourceLocation VINEGAROON_SHOOT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.shoot");
 	public static final ResourceLocation VINEGAROON_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.vinegaroon.step");
-	public static final ResourceLocation LAUREL_WREATH_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.laurel_wreath.equip");
 	public static final ResourceLocation AETERNAE_HIDE_ARMOR_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.aeternae_hide_armor.equip");
 	public static final ResourceLocation CHALKOS_ARMOR_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chalkos_armor.equip");
 	public static final ResourceLocation KASSITEROS_ARMOR_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.kassiteros_armor.equip");
 	public static final ResourceLocation ORICHALCUM_ARMOR_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.orichalcum_armor.equip");
 	public static final ResourceLocation VANADIUMSTEEL_ARMOR_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.vanadiumsteel.equip");
+	public static final ResourceLocation LAUREL_WREATH_EQUIP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.laurel_wreath.equip");
 	public static final ResourceLocation BIDENT_HIT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bident.hit");
 	public static final ResourceLocation BIDENT_HIT_GROUND = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bident.hit_ground");
 	public static final ResourceLocation BIDENT_THROW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.bident.throw");
 	public static final ResourceLocation CALCITE_FERTILIZE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.calcite.fertilize");
+	public static final ResourceLocation CAPELLA_HORN_FAIL = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.capella_horn.fail");
 	public static final ResourceLocation CARPET_APPLY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.carpet.apply");
 	public static final ResourceLocation CARPET_CLEAR = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.carpet.clear");
 	public static final ResourceLocation CHEST_LABEL_APPLY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "item.chest_label.apply");

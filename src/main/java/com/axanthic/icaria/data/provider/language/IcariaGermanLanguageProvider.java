@@ -1279,7 +1279,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "death", "Kapella stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "hurt", "Kapella nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella" + "." + "step", "Kapellaschritte");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella_horn" + "." + "fail", "Kapellahorn spielt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "ambient", "Katoblepas muht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "death", "Katoblepas stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "catoblepas" + "." + "hurt", "Katoblepas nimmt Schaden");
@@ -1350,16 +1349,17 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "hurt", "Geißelskorpion nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "shoot", "Geißelskorpion schießt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vinegaroon" + "." + "step", "Geißelskorpionschritte");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "laurel_wreath" + "." + "equip", "Lorbeerkranz angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae_hide_armor" + "." + "equip", "Äternenrüstung angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chalkos_armor" + "." + "equip", "Kuffarrüstung angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kassiteros_armor" + "." + "equip", "Galmeirüstung angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "orichalcum_armor" + "." + "equip", "Goldmessingrüstung angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vanadiumsteel_armor" + "." + "equip", "Vanadinstahlrüstung angelegt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "laurel_wreath" + "." + "equip", "Lorbeerkranz angelegt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit", "Bident spießt auf");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "hit_ground", "Bident vibriert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "bident" + "." + "throw", "Bident klirrt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "calcite" + "." + "fertilize", "Calcit düngt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "capella_horn" + "." + "fail", "Kapellahorn spielt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "apply", "Teppich angebracht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "carpet" + "." + "clear", "Teppich abmontiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "apply", "Kistenetikett angebracht");

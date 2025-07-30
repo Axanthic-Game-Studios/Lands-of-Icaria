@@ -50,7 +50,6 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.ARGAN_HOUND_STEP, SoundEvents.WOLF_STEP, "argan_hound", "step");
 		this.register(IcariaSoundEvents.CAPELLA_AMBIENT, SoundEvents.GOAT_AMBIENT, "capella", "ambient");
 		this.register(IcariaSoundEvents.CAPELLA_DEATH, SoundEvents.GOAT_DEATH, "capella", "death");
-		this.register(IcariaSoundEvents.CAPELLA_HORN_FAIL, "item", "capella_horn", "fail", 1);
 		this.register(IcariaSoundEvents.CAPELLA_HURT, SoundEvents.GOAT_HURT, "capella", "hurt");
 		this.register(IcariaSoundEvents.CAPELLA_STEP, SoundEvents.GOAT_STEP, "capella", "step");
 		this.register(IcariaSoundEvents.CATOBLEPAS_AMBIENT, SoundEvents.COW_AMBIENT, "catoblepas", "ambient");
@@ -123,16 +122,17 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.VINEGAROON_HURT, "entity", "vinegaroon", "hurt", 3);
 		this.register(IcariaSoundEvents.VINEGAROON_SHOOT, SoundEvents.ARROW_SHOOT, "vinegaroon", "shoot");
 		this.register(IcariaSoundEvents.VINEGAROON_STEP, SoundEvents.SPIDER_STEP, "vinegaroon", "step");
-		this.register(IcariaSoundEvents.LAUREL_WREATH_EQUIP, SoundEvents.ARMOR_EQUIP_GENERIC, "laurel_wreath", "equip");
 		this.register(IcariaSoundEvents.AETERNAE_HIDE_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_LEATHER, "aeternae_hide_armor", "equip");
 		this.register(IcariaSoundEvents.CHALKOS_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_IRON, "chalkos_armor", "equip");
 		this.register(IcariaSoundEvents.KASSITEROS_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_IRON, "kassiteros_armor", "equip");
 		this.register(IcariaSoundEvents.ORICHALCUM_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_GOLD, "orichalcum_armor", "equip");
 		this.register(IcariaSoundEvents.VANADIUMSTEEL_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_CHAIN, "vanadiumsteel_armor", "equip");
+		this.register(IcariaSoundEvents.LAUREL_WREATH_EQUIP, SoundEvents.ARMOR_EQUIP_GENERIC, "laurel_wreath", "equip");
 		this.register(IcariaSoundEvents.BIDENT_HIT, SoundEvents.TRIDENT_HIT, "bident", "hit");
 		this.register(IcariaSoundEvents.BIDENT_HIT_GROUND, SoundEvents.TRIDENT_HIT_GROUND, "bident", "hit_ground");
 		this.register(IcariaSoundEvents.BIDENT_THROW, SoundEvents.TRIDENT_THROW, "bident", "throw");
 		this.register(IcariaSoundEvents.CALCITE_FERTILIZE, SoundEvents.HOE_TILL, "calcite", "fertilize");
+		this.register(IcariaSoundEvents.CAPELLA_HORN_FAIL, "item", "capella_horn", "fail", 1);
 		this.register(IcariaSoundEvents.CARPET_APPLY, SoundEvents.WOOL_PLACE, "carpet", "apply");
 		this.register(IcariaSoundEvents.CARPET_CLEAR, SoundEvents.WOOL_BREAK, "carpet", "clear");
 		this.register(IcariaSoundEvents.CHEST_LABEL_APPLY, SoundEvents.AXE_STRIP, "chest_label", "apply");

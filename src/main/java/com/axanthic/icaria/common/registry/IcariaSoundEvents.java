@@ -33,7 +33,6 @@ public class IcariaSoundEvents {
 	public static final SoundEvent ARGAN_HOUND_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.ARGAN_HOUND_STEP);
 	public static final SoundEvent CAPELLA_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_AMBIENT);
 	public static final SoundEvent CAPELLA_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_DEATH);
-	public static final SoundEvent CAPELLA_HORN_FAIL = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_HORN_FAIL);
 	public static final SoundEvent CAPELLA_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_HURT);
 	public static final SoundEvent CAPELLA_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_STEP);
 	public static final SoundEvent CATOBLEPAS_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CATOBLEPAS_AMBIENT);
@@ -106,16 +105,17 @@ public class IcariaSoundEvents {
 	public static final SoundEvent VINEGAROON_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_HURT);
 	public static final SoundEvent VINEGAROON_SHOOT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_SHOOT);
 	public static final SoundEvent VINEGAROON_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VINEGAROON_STEP);
-	public static final SoundEvent LAUREL_WREATH_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.LAUREL_WREATH_EQUIP);
 	public static final SoundEvent AETERNAE_HIDE_ARMOR_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.AETERNAE_HIDE_ARMOR_EQUIP);
 	public static final SoundEvent CHALKOS_ARMOR_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CHALKOS_ARMOR_EQUIP);
 	public static final SoundEvent KASSITEROS_ARMOR_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.KASSITEROS_ARMOR_EQUIP);
 	public static final SoundEvent ORICHALCUM_ARMOR_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.ORICHALCUM_ARMOR_EQUIP);
 	public static final SoundEvent VANADIUMSTEEL_ARMOR_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VANADIUMSTEEL_ARMOR_EQUIP);
+	public static final SoundEvent LAUREL_WREATH_EQUIP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.LAUREL_WREATH_EQUIP);
 	public static final SoundEvent BIDENT_HIT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BIDENT_HIT);
 	public static final SoundEvent BIDENT_HIT_GROUND = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BIDENT_HIT_GROUND);
 	public static final SoundEvent BIDENT_THROW = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.BIDENT_THROW);
 	public static final SoundEvent CALCITE_FERTILIZE = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CALCITE_FERTILIZE);
+	public static final SoundEvent CAPELLA_HORN_FAIL = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CAPELLA_HORN_FAIL);
 	public static final SoundEvent CARPET_APPLY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CARPET_APPLY);
 	public static final SoundEvent CARPET_CLEAR = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CARPET_CLEAR);
 	public static final SoundEvent CHEST_LABEL_APPLY = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CHEST_LABEL_APPLY);
