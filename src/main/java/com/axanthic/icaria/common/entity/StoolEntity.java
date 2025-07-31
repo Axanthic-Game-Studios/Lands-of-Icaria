@@ -22,7 +22,7 @@ import net.minecraft.world.phys.Vec3;
 @ParametersAreNonnullByDefault
 
 public class StoolEntity extends Entity {
-	public StoolEntity(EntityType<?> pEntityType, Level pLevel) {
+	public StoolEntity(EntityType<? extends StoolEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
 
