@@ -26,6 +26,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -181,8 +182,8 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		if (Block.byItem(pItemStack.getItem()) instanceof IcariaBarrelBlock block && block.woodType() == this.woodType() && !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
-			var blockState = block.defaultBlockState();
+		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof IcariaBarrelBlock barrelBlock && barrelBlock.woodType() == this.woodType() && !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
+			var blockState = barrelBlock.defaultBlockState();
 			pLevel.playSound(null, pBlockPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_LOADED)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_TAPPED)));
 			pItemStack.consume(1, pPlayer);
