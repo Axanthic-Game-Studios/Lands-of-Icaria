@@ -755,6 +755,86 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
 
+		this.tag(Tags.Blocks.DYED_WHITE)
+			.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.WHITE_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_LIGHT_GRAY)
+			.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_GRAY)
+			.add(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.GRAY_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_BLACK)
+			.add(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.BLACK_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_BROWN)
+			.add(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.BROWN_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_RED)
+			.add(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.RED_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_ORANGE)
+			.add(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.ORANGE_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_YELLOW)
+			.add(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.YELLOW_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_LIME)
+			.add(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.LIME_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_GREEN)
+			.add(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.GREEN_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_CYAN)
+			.add(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.CYAN_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_LIGHT_BLUE)
+			.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_BLUE)
+			.add(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.BLUE_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_PURPLE)
+			.add(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.PURPLE_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_MAGENTA)
+			.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get());
+
+		this.tag(Tags.Blocks.DYED_PINK)
+			.add(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get())
+			.add(IcariaBlocks.PINK_STORAGE_VASE.get());
+
 		this.tag(Tags.Blocks.SKULLS)
 			.add(IcariaBlocks.AETERNAE_SKULL.get())
 			.add(IcariaBlocks.AETERNAE_WALL_SKULL.get())
@@ -1592,54 +1672,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 		this.tag(Tags.Blocks.CHESTS_WOODEN)
 			.add(IcariaBlocks.CHEST.get())
 			.add(IcariaBlocks.TRAPPED_CHEST.get());
-
-		this.tag(Tags.Blocks.DYED_WHITE)
-			.add(IcariaBlocks.WHITE_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_LIGHT_GRAY)
-			.add(IcariaBlocks.LIGHT_GRAY_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_GRAY)
-			.add(IcariaBlocks.GRAY_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_BLACK)
-			.add(IcariaBlocks.BLACK_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_BROWN)
-			.add(IcariaBlocks.BROWN_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_RED)
-			.add(IcariaBlocks.RED_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_ORANGE)
-			.add(IcariaBlocks.ORANGE_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_YELLOW)
-			.add(IcariaBlocks.YELLOW_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_LIME)
-			.add(IcariaBlocks.LIME_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_GREEN)
-			.add(IcariaBlocks.GREEN_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_CYAN)
-			.add(IcariaBlocks.CYAN_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_LIGHT_BLUE)
-			.add(IcariaBlocks.LIGHT_BLUE_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_BLUE)
-			.add(IcariaBlocks.BLUE_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_PURPLE)
-			.add(IcariaBlocks.PURPLE_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_MAGENTA)
-			.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get());
-
-		this.tag(Tags.Blocks.DYED_PINK)
-			.add(IcariaBlocks.PINK_STORAGE_VASE.get());
 
 		this.tag(Tags.Blocks.FENCE_GATES_WOODEN)
 			.add(IcariaBlocks.CYPRESS_FENCE_GATE.get())
