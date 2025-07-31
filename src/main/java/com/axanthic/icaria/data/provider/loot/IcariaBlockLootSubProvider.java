@@ -70,7 +70,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropRipeVineWithLoot();
 		this.dropSeed();
 		this.dropSlab();
-		this.dropStool();
+		this.dropThisWithCarpet();
 		this.dropThis();
 		this.dropThisWithSilk();
 		this.dropThisWithSilkOrBone();
@@ -352,16 +352,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropSlab(IcariaBlocks.POPULUS_SLAB.get());
 	}
 
-	public void dropStool() {
-		this.dropStool(IcariaBlocks.CYPRESS_STOOL.get());
-		this.dropStool(IcariaBlocks.DROUGHTROOT_STOOL.get());
-		this.dropStool(IcariaBlocks.FIR_STOOL.get());
-		this.dropStool(IcariaBlocks.LAUREL_STOOL.get());
-		this.dropStool(IcariaBlocks.OLIVE_STOOL.get());
-		this.dropStool(IcariaBlocks.PLANE_STOOL.get());
-		this.dropStool(IcariaBlocks.POPULUS_STOOL.get());
-	}
-
 	public void dropThis() {
 		this.dropThis(IcariaBlocks.MARL.get());
 		this.dropThis(IcariaBlocks.COARSE_MARL.get());
@@ -614,7 +604,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CYPRESS_TROUGH.get());
 		this.dropThis(IcariaBlocks.CYPRESS_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.CYPRESS_TRAPDOOR.get());
@@ -637,7 +626,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TROUGH.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get());
@@ -660,7 +648,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.FIR_TROUGH.get());
 		this.dropThis(IcariaBlocks.FIR_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.FIR_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.FIR_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.FIR_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.FIR_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.FIR_TRAPDOOR.get());
@@ -683,7 +670,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.LAUREL_TROUGH.get());
 		this.dropThis(IcariaBlocks.LAUREL_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.LAUREL_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.LAUREL_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.LAUREL_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.LAUREL_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.LAUREL_TRAPDOOR.get());
@@ -706,7 +692,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.OLIVE_TROUGH.get());
 		this.dropThis(IcariaBlocks.OLIVE_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.OLIVE_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.OLIVE_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.OLIVE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.OLIVE_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.OLIVE_TRAPDOOR.get());
@@ -729,7 +714,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PLANE_TROUGH.get());
 		this.dropThis(IcariaBlocks.PLANE_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.PLANE_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.PLANE_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.PLANE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.PLANE_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.PLANE_TRAPDOOR.get());
@@ -752,7 +736,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.POPULUS_TROUGH.get());
 		this.dropThis(IcariaBlocks.POPULUS_PAN_HOLDER.get());
 		this.dropThis(IcariaBlocks.POPULUS_SPOON_HOLDER.get());
-		this.dropThis(IcariaBlocks.POPULUS_TOWEL_HOLDER.get());
 		this.dropThis(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.POPULUS_SCROLLSHELF.get());
 		this.dropThis(IcariaBlocks.POPULUS_TRAPDOOR.get());
@@ -798,6 +781,23 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get());
 		this.dropThis(IcariaBlocks.UNNAMED_TREE_SHROOMS.get());
 		this.dropThis(IcariaBlocks.CARDON_CACTUS.get());
+	}
+
+	public void dropThisWithCarpet() {
+		this.dropThisWithCarpet(IcariaBlocks.CYPRESS_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.DROUGHTROOT_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.FIR_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.FIR_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.LAUREL_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.LAUREL_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.OLIVE_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.OLIVE_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.PLANE_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.PLANE_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.POPULUS_STOOL.get());
+		this.dropThisWithCarpet(IcariaBlocks.POPULUS_TOWEL_HOLDER.get());
 	}
 
 	public void dropThisWithSilk() {
@@ -937,12 +937,12 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.BOTTOM))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.TOP))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE))))));
 	}
 
-	public void dropStool(Block pBlock) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.WHITE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.GRAY_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BLACK_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BROWN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.RED_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.RED_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.ORANGE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.YELLOW_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIME_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.GREEN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.CYAN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BLUE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.PURPLE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.MAGENTA_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PINK_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.PINK_ARACHNE_STRING_CARPET)))));
-	}
-
 	public void dropThis(Block pBlock) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock))));
+	}
+
+	public void dropThisWithCarpet(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.WHITE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.GRAY_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BLACK_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BROWN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.RED_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.RED_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.ORANGE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.YELLOW_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIME_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.GREEN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.CYAN_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.BLUE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.PURPLE_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.MAGENTA_ARACHNE_STRING_CARPET)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PINK_ARACHNE_STRING_CARPET.get())).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.CARPET, Carpet.PINK_ARACHNE_STRING_CARPET)))));
 	}
 
 	public void dropThisWithSilk(Block pBlock) {

@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_towel_holder",
+  "textures": {
+    "arachne_string_block": "landsoficaria:block/blue_arachne_string_block",
+    "log": "landsoficaria:block/olive_log",
+    "log_top": "landsoficaria:block/olive_log_top",
+    "particle": "landsoficaria:block/olive_planks",
+    "planks": "landsoficaria:block/olive_planks"
+  }
+}
