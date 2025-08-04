@@ -56,9 +56,7 @@ public class TripleBarrelRackBlock extends Block {
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_LEFT) {
-			Block.dropResources(pBlockState, pLevel, pBlockPos);
-		}
+		Block.dropResources(pBlockState, pLevel, pBlockPos);
 	}
 
 	@Override

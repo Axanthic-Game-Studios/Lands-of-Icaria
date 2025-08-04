@@ -16,7 +16,7 @@ Updates
 
 Fixes
 
-- 
+- Triple Barrel Racks do not drop Loot when the lower right or upper Barrel is broken, only when the lower left Barrel is broken
 
 Removals
 
