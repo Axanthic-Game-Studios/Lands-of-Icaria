@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_inventory",
+  "textures": {
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/cypress_planks",
+    "planks": "landsoficaria:block/cypress_planks",
+    "skull": "landsoficaria:block/skull",
+    "surface_bones": "landsoficaria:block/surface_bones"
+  }
+}

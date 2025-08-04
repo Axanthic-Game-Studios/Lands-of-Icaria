@@ -1,0 +1,145 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "texture": "#log"
+        },
+        "north": {
+          "texture": "#log"
+        },
+        "up": {
+          "texture": "#planks"
+        },
+        "west": {
+          "texture": "#log"
+        }
+      },
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          16
+        ]
+      },
+      "to": [
+        15,
+        1,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#planks"
+        },
+        "north": {
+          "texture": "#planks"
+        },
+        "up": {
+          "texture": "#planks"
+        },
+        "west": {
+          "texture": "#planks"
+        }
+      },
+      "from": [
+        14,
+        1,
+        1
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          -1,
+          16
+        ]
+      },
+      "to": [
+        15,
+        14,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#planks"
+        },
+        "north": {
+          "texture": "#planks"
+        },
+        "up": {
+          "texture": "#planks"
+        },
+        "west": {
+          "texture": "#planks"
+        }
+      },
+      "from": [
+        1,
+        1,
+        1
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          -1,
+          16
+        ]
+      },
+      "to": [
+        2,
+        14,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#planks"
+        },
+        "south": {
+          "texture": "#planks"
+        },
+        "up": {
+          "texture": "#planks"
+        }
+      },
+      "from": [
+        2,
+        1,
+        1
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          -1,
+          16
+        ]
+      },
+      "to": [
+        14,
+        14,
+        2
+      ]
+    }
+  ]
+}

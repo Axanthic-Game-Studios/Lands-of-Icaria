@@ -407,6 +407,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_CYPRESS_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_CYPRESS_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_CYPRESS_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_PAN_HOLDER.get(), pItemModelGenerators);
@@ -442,6 +443,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_DROUGHTROOT_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_DROUGHTROOT_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_PAN_HOLDER.get(), pItemModelGenerators);
@@ -477,6 +479,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_FIR_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_FIR_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_FIR_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_PAN_HOLDER.get(), pItemModelGenerators);
@@ -512,6 +515,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_LAUREL_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_LAUREL_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_LAUREL_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_PAN_HOLDER.get(), pItemModelGenerators);
@@ -547,6 +551,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_OLIVE_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_OLIVE_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_OLIVE_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_PAN_HOLDER.get(), pItemModelGenerators);
@@ -582,6 +587,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_PLANE_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_PLANE_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_PLANE_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_PAN_HOLDER.get(), pItemModelGenerators);
@@ -617,6 +623,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LOADED_POPULUS_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TAPPED_POPULUS_BARREL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.TRIPLE_POPULUS_BARREL_RACK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_BATHTUB.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TROUGH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_STOOL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_PAN_HOLDER.get(), pItemModelGenerators);

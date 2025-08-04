@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStateProperties {
+	public static final BooleanProperty BATHTUB_REMAINS = BooleanProperty.create("bathtub_remains");
 	public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");
 	public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
 	public static final BooleanProperty LABEL_UP = BooleanProperty.create("label_up");
@@ -31,6 +32,7 @@ public class IcariaBlockStateProperties {
 
 	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, (direction) -> direction != Direction.DOWN);
 
+	public static final EnumProperty<Bathtub> BATHTUB = EnumProperty.create("bathtub", Bathtub.class);
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
@@ -38,12 +40,14 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
+	public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
 	public static final EnumProperty<Ripe> RIPE = EnumProperty.create("ripe", Ripe.class);
 	public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
 	public static final EnumProperty<Trough> TROUGH = EnumProperty.create("trough", Trough.class);
 	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 
+	public static final IntegerProperty BATHTUB_FILL = IntegerProperty.create("bathtub_fill", 0, 12);
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
 }

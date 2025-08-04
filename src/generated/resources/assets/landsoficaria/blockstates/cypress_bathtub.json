@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "bathtub_remains=false,facing=east,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 90
+    },
+    "bathtub_remains=false,facing=east,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head",
+      "y": 90
+    },
+    "bathtub_remains=false,facing=north,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot"
+    },
+    "bathtub_remains=false,facing=north,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head"
+    },
+    "bathtub_remains=false,facing=south,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 180
+    },
+    "bathtub_remains=false,facing=south,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head",
+      "y": 180
+    },
+    "bathtub_remains=false,facing=west,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 270
+    },
+    "bathtub_remains=false,facing=west,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head",
+      "y": 270
+    },
+    "bathtub_remains=true,facing=east,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 90
+    },
+    "bathtub_remains=true,facing=east,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head_remains",
+      "y": 90
+    },
+    "bathtub_remains=true,facing=north,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot"
+    },
+    "bathtub_remains=true,facing=north,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head_remains"
+    },
+    "bathtub_remains=true,facing=south,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 180
+    },
+    "bathtub_remains=true,facing=south,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head_remains",
+      "y": 180
+    },
+    "bathtub_remains=true,facing=west,part=foot": {
+      "model": "landsoficaria:block/cypress_bathtub_foot",
+      "y": 270
+    },
+    "bathtub_remains=true,facing=west,part=head": {
+      "model": "landsoficaria:block/cypress_bathtub_head_remains",
+      "y": 270
+    }
+  }
+}

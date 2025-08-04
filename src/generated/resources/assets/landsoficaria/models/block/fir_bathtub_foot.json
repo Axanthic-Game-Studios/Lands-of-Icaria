@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_foot",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "log": "landsoficaria:block/fir_log",
+    "particle": "landsoficaria:block/fir_planks",
+    "planks": "landsoficaria:block/fir_planks"
+  }
+}

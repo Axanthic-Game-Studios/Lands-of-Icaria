@@ -477,6 +477,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), "Geladenes Zypressenholzfass");
 		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Gezapftes Zypressenholzfass");
 		this.add(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), "Dreifaches Zypressenholzfassgestell");
+		this.add(IcariaBlocks.CYPRESS_BATHTUB.get(), "Zypressenholzbadewanne");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Zypressenholztrog");
 		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Zypressenholzhocker");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Zypressenholzpfannenhalter");
@@ -514,6 +515,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), "Geladenes Dürrwurzelholzfass");
 		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Gezapftes Dürrwurzelholzfass");
 		this.add(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), "Dreifaches Dürrwurzelholzfassgestell");
+		this.add(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), "Dürrwurzelholzbadewanne");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Dürrwurzelholztrog");
 		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Dürrwurzelholzhocker");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Dürrwurzelholzpfannenhalter");
@@ -551,6 +553,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_FIR_BARREL.get(), "Geladenes Tannenholzfass");
 		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Gezapftes Tannenholzfass");
 		this.add(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), "Dreifaches Tannenholzfassgestell");
+		this.add(IcariaBlocks.FIR_BATHTUB.get(), "Tannenholzbadewanne");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Tannenholztrog");
 		this.add(IcariaBlocks.FIR_STOOL.get(), "Tannenholzhocker");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Tannenholzpfannenhalter");
@@ -588,6 +591,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_LAUREL_BARREL.get(), "Geladenes Lorbeerholzfass");
 		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Gezapftes Lorbeerholzfass");
 		this.add(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), "Dreifaches Lorbeerholzfassgestell");
+		this.add(IcariaBlocks.LAUREL_BATHTUB.get(), "Lorbeerholzbadewanne");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Lorbeerholztrog");
 		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Lorbeerholzhocker");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Lorbeerholzpfannenhalter");
@@ -625,6 +629,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_OLIVE_BARREL.get(), "Geladenes Olivenholzfass");
 		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Gezapftes Olivenholzfass");
 		this.add(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), "Dreifaches Olivenholzfassgestell");
+		this.add(IcariaBlocks.OLIVE_BATHTUB.get(), "Olivenholzbadewanne");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olivenholztrog");
 		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olivenholzhocker");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olivenholzpfannenhalter");
@@ -662,6 +667,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_PLANE_BARREL.get(), "Geladenes Plantanenholzfass");
 		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Gezapftes Plantanenholzfass");
 		this.add(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), "Dreifaches Plantanenholzfassgestell");
+		this.add(IcariaBlocks.PLANE_BATHTUB.get(), "Plantanenholzbadewanne");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plantanenholztrog");
 		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plantanenholzhocker");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plantanenholzpfannenhalter");
@@ -699,6 +705,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_POPULUS_BARREL.get(), "Geladenes Pappelholzfass");
 		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Gezapftes Pappelholzfass");
 		this.add(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), "Dreifaches Pappelholzfassgestell");
+		this.add(IcariaBlocks.POPULUS_BATHTUB.get(), "Pappelholzbadewanne");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Pappelholztrog");
 		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Pappelholzhocker");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Pappelholzpfannenhalter");

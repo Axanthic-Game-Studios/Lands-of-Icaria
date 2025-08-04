@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_head_remains",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "log": "landsoficaria:block/fir_log",
+    "particle": "landsoficaria:block/fir_planks",
+    "planks": "landsoficaria:block/fir_planks",
+    "skull": "landsoficaria:block/skull",
+    "surface_bones": "landsoficaria:block/surface_bones"
+  }
+}

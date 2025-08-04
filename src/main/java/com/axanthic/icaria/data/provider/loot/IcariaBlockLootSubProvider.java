@@ -54,6 +54,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	@Override
 	public void generate() {
+		this.dropBathtub();
 		this.dropBush();
 		this.dropCake();
 		this.dropCrop();
@@ -77,6 +78,16 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilkOrElse();
 		this.dropVine();
 		this.dropVineWithLoot();
+	}
+
+	public void dropBathtub() {
+		this.dropBathtub(IcariaBlocks.CYPRESS_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.DROUGHTROOT_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.FIR_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.LAUREL_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.OLIVE_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.PLANE_BATHTUB.get());
+		this.dropBathtub(IcariaBlocks.POPULUS_BATHTUB.get());
 	}
 
 	public void dropBush() {
@@ -871,6 +882,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropVineWithLoot() {
 		this.dropVineWithLoot(IcariaBlocks.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
+	}
+
+	public void dropBathtub(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.BONE)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.BATHTUB_REMAINS, true)))));
 	}
 
 	public void dropBush(Block pBlock, Item pItem) {

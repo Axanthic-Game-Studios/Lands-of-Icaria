@@ -30,6 +30,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.axis(pBlockModelGenerators);
 		IcariaBlockModelProvider.barrel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bars(pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(pBlockModelGenerators);
 		IcariaBlockModelProvider.block(pBlockModelGenerators);
 		IcariaBlockModelProvider.blockCutout(pBlockModelGenerators);
 		IcariaBlockModelProvider.blockTranslucent(pBlockModelGenerators);
@@ -145,6 +146,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.anthraciteWallTorchModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.barrelModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.barsInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtubInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtubModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bolbosModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bromeliaModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.brownGroundShroomsModel(pBlockModelGenerators);
@@ -258,6 +261,16 @@ public class IcariaBlockModelProvider {
 
 	public static void bars(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.bars(IcariaBlocks.VANADIUMSTEEL_BARS.get(), pBlockModelGenerators);
+	}
+
+	public static void bathtub(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.CYPRESS_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.FIR_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.LAUREL_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.OLIVE_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.PLANE_BATHTUB.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.bathtub(IcariaBlocks.POPULUS_BATHTUB.get(), pBlockModelGenerators);
 	}
 
 	public static void block(BlockModelGenerators pBlockModelGenerators) {
@@ -1333,6 +1346,33 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bathtub(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
+				.putForced(IcariaTextureSlots.SKULL, IcariaModelProvider.blockFile(IcariaIdents.ID, "skull"))
+				.putForced(IcariaTextureSlots.SURFACE_BONES, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_bones"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_head_remains")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "head_remains"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
+				.putForced(IcariaTextureSlots.SKULL, IcariaModelProvider.blockFile(IcariaIdents.ID, "skull"))
+				.putForced(IcariaTextureSlots.SURFACE_BONES, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_bones"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void block(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -3484,6 +3524,16 @@ public class IcariaBlockModelProvider {
 
 	public static void barsInventoryModel(BlockModelGenerators pBlockModelGenerators) {
 		BarsInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bars_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bathtubInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		BathtubInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void bathtubModel(BlockModelGenerators pBlockModelGenerators) {
+		BathtubModel.head().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_head"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BathtubModel.headRemains().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_head_remains"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BathtubModel.foot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bathtub_foot"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bolbosModel(BlockModelGenerators pBlockModelGenerators) {

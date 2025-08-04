@@ -272,6 +272,7 @@ public class IcariaClientModEvents {
 	}
 
 	public static void blockEntityRenderers() {
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.BATHTUB.get(), BathtubBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), IcariaChestBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);

@@ -17,6 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class IcariaBlockEntityTypes {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaIdents.ID);
 
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BathtubBlockEntity>> BATHTUB = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("bathtub", () -> new BlockEntityType<>(BathtubBlockEntity::new, IcariaBlocks.CYPRESS_BATHTUB.get(), IcariaBlocks.DROUGHTROOT_BATHTUB.get(), IcariaBlocks.FIR_BATHTUB.get(), IcariaBlocks.LAUREL_BATHTUB.get(), IcariaBlocks.OLIVE_BATHTUB.get(), IcariaBlocks.PLANE_BATHTUB.get(), IcariaBlocks.POPULUS_BATHTUB.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IcariaChestBlockEntity>> CHEST = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("icaria_chest", () -> new BlockEntityType<>(IcariaChestBlockEntity::new, IcariaBlocks.CHEST.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalBlockEntity>> CRYSTAL = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("crystal", () -> new BlockEntityType<>(CrystalBlockEntity::new, IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaBlocks.HALITE_CRYSTAL.get(), IcariaBlocks.JASPER_CRYSTAL.get(), IcariaBlocks.ZIRCON_CRYSTAL.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ForgeBlockEntity>> FORGE = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("forge", () -> new BlockEntityType<>(ForgeBlockEntity::new, IcariaBlocks.FORGE.get()));

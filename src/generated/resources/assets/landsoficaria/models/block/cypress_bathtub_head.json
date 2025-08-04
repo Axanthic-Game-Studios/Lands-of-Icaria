@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_head",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/cypress_planks",
+    "planks": "landsoficaria:block/cypress_planks"
+  }
+}

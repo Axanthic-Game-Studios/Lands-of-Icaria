@@ -5,6 +5,7 @@ Additions
 - Stool Blocks for each Wood Type
 - Scrollshelf Blocks for each Wood Type
 - Pan, Spoon and Towel Holder for each Wood Type
+- Bathtub Blocks for each Wood Type
 
 Updates
 

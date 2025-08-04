@@ -477,6 +477,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_CYPRESS_BARREL.get(), "Loaded Cypress Barrel");
 		this.add(IcariaBlocks.TAPPED_CYPRESS_BARREL.get(), "Tapped Cypress Barrel");
 		this.add(IcariaBlocks.TRIPLE_CYPRESS_BARREL_RACK.get(), "Triple Cypress Barrel Rack");
+		this.add(IcariaBlocks.CYPRESS_BATHTUB.get(), "Cypress Bathtub");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Cypress Trough");
 		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Cypress Stool");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Cypress Pan Holder");
@@ -514,6 +515,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), "Loaded Droughtroot Barrel");
 		this.add(IcariaBlocks.TAPPED_DROUGHTROOT_BARREL.get(), "Tapped Droughtroot Barrel");
 		this.add(IcariaBlocks.TRIPLE_DROUGHTROOT_BARREL_RACK.get(), "Triple Droughtroot Barrel Rack");
+		this.add(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), "Droughtroot Bathtub");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Droughtroot Trough");
 		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Droughtroot Stool");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Droughtroot Pan Holder");
@@ -551,6 +553,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_FIR_BARREL.get(), "Loaded Fir Barrel");
 		this.add(IcariaBlocks.TAPPED_FIR_BARREL.get(), "Tapped Fir Barrel");
 		this.add(IcariaBlocks.TRIPLE_FIR_BARREL_RACK.get(), "Triple Fir Barrel Rack");
+		this.add(IcariaBlocks.FIR_BATHTUB.get(), "Fir Bathtub");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Fir Trough");
 		this.add(IcariaBlocks.FIR_STOOL.get(), "Fir Stool");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Fir Pan Holder");
@@ -588,6 +591,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_LAUREL_BARREL.get(), "Loaded Laurel Barrel");
 		this.add(IcariaBlocks.TAPPED_LAUREL_BARREL.get(), "Tapped Laurel Barrel");
 		this.add(IcariaBlocks.TRIPLE_LAUREL_BARREL_RACK.get(), "Triple Laurel Barrel Rack");
+		this.add(IcariaBlocks.LAUREL_BATHTUB.get(), "Laurel Bathtub");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Laurel Trough");
 		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Laurel Stool");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Laurel Pan Holder");
@@ -625,6 +629,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_OLIVE_BARREL.get(), "Loaded Olive Barrel");
 		this.add(IcariaBlocks.TAPPED_OLIVE_BARREL.get(), "Tapped Olive Barrel");
 		this.add(IcariaBlocks.TRIPLE_OLIVE_BARREL_RACK.get(), "Triple Olive Barrel Rack");
+		this.add(IcariaBlocks.OLIVE_BATHTUB.get(), "Olive Bathtub");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olive Trough");
 		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olive Stool");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olive Pan Holder");
@@ -662,6 +667,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_PLANE_BARREL.get(), "Loaded Plane Barrel");
 		this.add(IcariaBlocks.TAPPED_PLANE_BARREL.get(), "Tapped Plane Barrel");
 		this.add(IcariaBlocks.TRIPLE_PLANE_BARREL_RACK.get(), "Triple Plane Barrel Rack");
+		this.add(IcariaBlocks.PLANE_BATHTUB.get(), "Plane Bathtub");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plane Trough");
 		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plane Stool");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plane Pan Holder");
@@ -699,6 +705,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LOADED_POPULUS_BARREL.get(), "Loaded Populus Barrel");
 		this.add(IcariaBlocks.TAPPED_POPULUS_BARREL.get(), "Tapped Populus Barrel");
 		this.add(IcariaBlocks.TRIPLE_POPULUS_BARREL_RACK.get(), "Triple Populus Barrel Rack");
+		this.add(IcariaBlocks.POPULUS_BATHTUB.get(), "Populus Bathtub");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Populus Trough");
 		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Populus Stool");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Populus Pan Holder");
