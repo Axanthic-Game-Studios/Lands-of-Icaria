@@ -167,23 +167,23 @@ public class IcariaClientHelper {
 		}
 	}
 
-	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
+	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
 		if (pDirection == Direction.NORTH) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pUMin, pUMax, pVMin, pVMax, pXMin, pXMax, pZMin, pZMax, pY, pRed, pGreen, pBlue, pAlpha);
+			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pUMin, pUMax, pVMin, pVMax, pXMin, pXMax, pZMin, pZMax, pY, pRed, pGreen, pBlue, pAlpha);
 		} else if (pDirection == Direction.EAST) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pVMax, 1.0F - pVMin, pUMin, pUMax, 1.0F - pZMax, 1.0F - pZMin, pXMin, pXMax, pY, pRed, pGreen, pBlue, pAlpha);
+			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pVMax, 1.0F - pVMin, pUMin, pUMax, 1.0F - pZMax, 1.0F - pZMin, pXMin, pXMax, pY, pRed, pGreen, pBlue, pAlpha);
 		} else if (pDirection == Direction.SOUTH) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pUMax, 1.0F - pUMin, 1.0F - pVMax, 1.0F - pVMin, 1.0F - pXMax, 1.0F - pXMin, 1.0F - pZMax, 1.0F - pZMin, pY, pRed, pGreen, pBlue, pAlpha);
+			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pUMax, 1.0F - pUMin, 1.0F - pVMax, 1.0F - pVMin, 1.0F - pXMax, 1.0F - pXMin, 1.0F - pZMax, 1.0F - pZMin, pY, pRed, pGreen, pBlue, pAlpha);
 		} else if (pDirection == Direction.WEST) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pVMin, pVMax, 1.0F - pUMax, 1.0F - pUMin, pZMin, pZMax, 1.0F - pXMax, 1.0F - pXMin, pY, pRed, pGreen, pBlue, pAlpha);
+			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pVMin, pVMax, 1.0F - pUMax, 1.0F - pUMin, pZMin, pZMax, 1.0F - pXMax, 1.0F - pXMin, pY, pRed, pGreen, pBlue, pAlpha);
 		}
 	}
 
-	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pAtlasSprite, Matrix4f pMatrix4f, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pAtlasSprite.getU(pUMin), pAtlasSprite.getV(pVMin));
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pAtlasSprite.getU(pUMin), pAtlasSprite.getV(pVMax));
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pAtlasSprite.getU(pUMax), pAtlasSprite.getV(pVMax));
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pAtlasSprite.getU(pUMax), pAtlasSprite.getV(pVMin));
+	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMin));
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMax));
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMax));
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMin));
 	}
 
 	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue) {

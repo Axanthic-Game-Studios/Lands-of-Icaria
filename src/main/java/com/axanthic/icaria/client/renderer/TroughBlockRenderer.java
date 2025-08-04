@@ -29,6 +29,7 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context pContext) 
 	@Override
 	public void render(TroughBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var blockState = pBlockEntity.getBlockState();
+		var blockPos = pBlockEntity.getBlockPos();
 		var level = pBlockEntity.getLevel();
 
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
@@ -36,11 +37,12 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context pContext) 
 		var troughFill = blockState.getValue(IcariaBlockStateProperties.TROUGH_FILL);
 
 		var minecraft = Minecraft.getInstance();
+		var renderType = Sheets.translucentItemSheet();
 
-		var vertexConsumer = pMultiBufferSource.getBuffer(Sheets.translucentItemSheet());
+		var vertexConsumer = pMultiBufferSource.getBuffer(renderType);
 
 		if (level != null && trough != Trough.NONE) {
-			var color = BiomeColors.getAverageWaterColor(level, pBlockEntity.getBlockPos());
+			var color = BiomeColors.getAverageWaterColor(level, blockPos);
 
 			var sprite = this.getSprite(minecraft, trough);
 

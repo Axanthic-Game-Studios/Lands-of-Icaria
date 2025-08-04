@@ -97,27 +97,27 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		var i = pBlockState.getValue(IcariaBlockStateProperties.TROUGH_FILL);
+		var fill = pBlockState.getValue(IcariaBlockStateProperties.TROUGH_FILL);
 		if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.NONE) {
-			return this.fill(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer, i);
+			return this.fill(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer, fill);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.POWDER_SNOW) {
 			return this.powderSnow(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.WATER) {
-			return this.water(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer, i);
+			return this.water(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer, fill);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.MEDITERRANEAN_WATER) {
 			return this.mediterraneanWater(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.ONION) {
-			return this.onion(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, i);
+			return this.onion(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, fill);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.SPELT) {
-			return this.spelt(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, i);
+			return this.spelt(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, fill);
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.TROUGH) == Trough.VINEBERRIES) {
-			return this.vineberries(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, i);
+			return this.vineberries(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, fill);
 		} else {
 			return InteractionResult.FAIL;
 		}
 	}
 
-	public InteractionResult fill(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
+	public InteractionResult fill(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
 		if (pItemStack.is(Items.POWDER_SNOW_BUCKET)) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY_POWDER_SNOW, SoundSource.BLOCKS);
@@ -139,24 +139,24 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 3));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 3));
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POTION));
 			return InteractionResult.SUCCESS;
 		} else if (pItemStack.is(IcariaItems.ONION.get())) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.ONION).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.ONION).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.ONION.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (pItemStack.is(IcariaItems.SPELT.get())) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.SPELT).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.SPELT).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.SPELT.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (pItemStack.is(IcariaItems.VINEBERRIES.get())) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.VINEBERRIES).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.VINEBERRIES).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.VINEBERRIES.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
@@ -177,26 +177,26 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 		}
 	}
 
-	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
-		if (pItemStack.is(Items.BUCKET) && i > 8) {
+	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
+		if (pItemStack.is(Items.BUCKET) && pFill > 8) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.WATER_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, 0));
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && i < 7) {
+		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && pFill < 7) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 3));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 3));
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POTION));
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.GLASS_BOTTLE) && i > 3) {
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill > 3) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, i - 3));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill - 3));
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLASS_BOTTLE));
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.GLASS_BOTTLE) && i > 2) {
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill > 2) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, 0));
@@ -219,10 +219,10 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 		}
 	}
 
-	public InteractionResult onion(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
-		if (pItemStack.is(IcariaItems.ONION.get()) && i < 9) {
+	public InteractionResult onion(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
+		if (pItemStack.is(IcariaItems.ONION.get()) && pFill < 9) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.ONION).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.ONION).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.ONION.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
@@ -231,10 +231,10 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 		}
 	}
 
-	public InteractionResult spelt(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
-		if (pItemStack.is(IcariaItems.SPELT.get()) && i < 9) {
+	public InteractionResult spelt(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
+		if (pItemStack.is(IcariaItems.SPELT.get()) && pFill < 9) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.SPELT).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.SPELT).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.SPELT.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
@@ -243,10 +243,10 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 		}
 	}
 
-	public InteractionResult vineberries(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
-		if (pItemStack.is(IcariaItems.VINEBERRIES.get()) && i < 9) {
+	public InteractionResult vineberries(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
+		if (pItemStack.is(IcariaItems.VINEBERRIES.get()) && pFill < 9) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.TROUGH_FILL, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.VINEBERRIES).setValue(IcariaBlockStateProperties.TROUGH_FILL, i + 1));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.VINEBERRIES).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.VINEBERRIES.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
