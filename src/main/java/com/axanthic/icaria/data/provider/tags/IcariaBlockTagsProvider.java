@@ -79,8 +79,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 	public static final TagKey<Block> SUPPORT_BLOCKS_RELICSTONE_RUBBLE = IcariaBlockTagsProvider.icariaKey("support_blocks/relicstone_rubble");
 	public static final TagKey<Block> SUPPORT_BLOCKS_RUBBLE = IcariaBlockTagsProvider.icariaKey("support_blocks/rubble");
 
-	public static final TagKey<Block> TROUGHS = IcariaBlockTagsProvider.icariaKey("troughs");
-
 	// ITEMBLOCKS
 
 	public static final TagKey<Block> LOGS_CYPRESS = IcariaBlockTagsProvider.cKey("logs/cypress");
@@ -1393,15 +1391,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get())
 			.add(IcariaBlocks.YELLOWSTONE.get());
-
-		this.tag(IcariaBlockTagsProvider.TROUGHS)
-			.add(IcariaBlocks.CYPRESS_TROUGH.get())
-			.add(IcariaBlocks.DROUGHTROOT_TROUGH.get())
-			.add(IcariaBlocks.FIR_TROUGH.get())
-			.add(IcariaBlocks.LAUREL_TROUGH.get())
-			.add(IcariaBlocks.OLIVE_TROUGH.get())
-			.add(IcariaBlocks.PLANE_TROUGH.get())
-			.add(IcariaBlocks.POPULUS_TROUGH.get());
 
 		// ITEMBLOCKS
 

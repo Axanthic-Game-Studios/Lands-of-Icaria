@@ -1445,8 +1445,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE, "Relicstone Rubble Support Blocks");
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE, "Rubble Support Blocks");
 
-		this.add(IcariaBlockTagsProvider.TROUGHS, "Troughs");
-
 		this.add(IcariaBlockTagsProvider.LOGS_CYPRESS, "Cypress Logs");
 		this.add(IcariaBlockTagsProvider.LOGS_DROUGHTROOT, "Droughtroot Logs");
 		this.add(IcariaBlockTagsProvider.LOGS_FIR, "Fir Logs");

@@ -1445,8 +1445,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE, "Reliktensteingeröllunterstützungsblöcke");
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE, "Geröllunterstützungsblöcke");
 
-		this.add(IcariaBlockTagsProvider.TROUGHS, "Tröge");
-
 		this.add(IcariaBlockTagsProvider.LOGS_CYPRESS, "Zypressenholzstämme");
 		this.add(IcariaBlockTagsProvider.LOGS_DROUGHTROOT, "Dürrwurzelholzstämme");
 		this.add(IcariaBlockTagsProvider.LOGS_FIR, "Tannenholzstämme");
