@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_amphora_triple",
+  "textures": {
+    "black_storage_vase_lite": "landsoficaria:block/black_storage_vase_lite",
+    "brown_storage_vase": "landsoficaria:block/brown_storage_vase",
+    "gray_storage_vase": "landsoficaria:block/gray_storage_vase",
+    "light_gray_storage_vase_lite": "landsoficaria:block/light_gray_storage_vase_lite",
+    "orange_storage_vase_lite": "landsoficaria:block/orange_storage_vase_lite",
+    "particle": "landsoficaria:block/light_gray_storage_vase_lite",
+    "red_storage_vase": "landsoficaria:block/red_storage_vase"
+  }
+}

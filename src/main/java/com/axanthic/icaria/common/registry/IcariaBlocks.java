@@ -379,6 +379,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> MAGENTA_STORAGE_VASE = IcariaBlocks.register("magenta_storage_vase", StorageVaseBlock::new, IcariaBlocks.propertiesStorageVase(MapColor.COLOR_MAGENTA, SoundType.DECORATED_POT));
 	public static final DeferredHolder<Block, Block> PINK_STORAGE_VASE = IcariaBlocks.register("pink_storage_vase", StorageVaseBlock::new, IcariaBlocks.propertiesStorageVase(MapColor.COLOR_PINK, SoundType.DECORATED_POT));
 
+	public static final DeferredHolder<Block, Block> AMPHORA = IcariaBlocks.register("amphora", AmphoraBlock::new, IcariaBlocks.propertiesAmphora(MapColor.COLOR_LIGHT_GRAY, SoundType.DECORATED_POT));
+
 	public static final DeferredHolder<Block, Block> RED_LOOT_VASE = IcariaBlocks.register("red_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.VASE));
 	public static final DeferredHolder<Block, Block> LOST_LOOT_VASE = IcariaBlocks.register("lost_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.PODZOL, IcariaSoundTypes.VASE));
 	public static final DeferredHolder<Block, Block> CYAN_LOOT_VASE = IcariaBlocks.register("cyan_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.VASE));
@@ -969,6 +971,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesStorageVase(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.25F).explosionResistance(4.2F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesAmphora(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.25F).explosionResistance(1.25F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesLootVase(MapColor pMapColor, SoundType pSoundType) {

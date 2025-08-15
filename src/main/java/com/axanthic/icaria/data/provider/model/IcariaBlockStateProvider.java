@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.*;
 public class IcariaBlockStateProvider {
 
 	public static void register(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.amphora(pBlockModelGenerators);
 		IcariaBlockStateProvider.axis(pBlockModelGenerators);
 		IcariaBlockStateProvider.barrel(pBlockModelGenerators);
 		IcariaBlockStateProvider.bars(pBlockModelGenerators);
@@ -74,6 +75,10 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.tripleBarrelRack(pBlockModelGenerators);
 		IcariaBlockStateProvider.vine(pBlockModelGenerators);
 		IcariaBlockStateProvider.wall(pBlockModelGenerators);
+	}
+
+	public static void amphora(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.amphora(IcariaBlocks.AMPHORA.get(), pBlockModelGenerators);
 	}
 
 	public static void axis(BlockModelGenerators pBlockModelGenerators) {
@@ -1158,6 +1163,16 @@ public class IcariaBlockStateProvider {
 				.select(Direction.Axis.X, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "horizontal")).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_90)))
 				.select(Direction.Axis.Y, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
 				.select(Direction.Axis.Z, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "horizontal")).with(BlockModelGenerators.X_ROT_90)))
+			)
+		);
+	}
+
+	public static void amphora(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(IcariaBlockStateProperties.AMPHORA_AMOUNT)
+				.select(1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

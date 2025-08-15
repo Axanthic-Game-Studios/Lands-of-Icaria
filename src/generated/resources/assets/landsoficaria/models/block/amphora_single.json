@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_amphora_single",
+  "textures": {
+    "gray_storage_vase": "landsoficaria:block/gray_storage_vase",
+    "light_gray_storage_vase_lite": "landsoficaria:block/light_gray_storage_vase_lite",
+    "particle": "landsoficaria:block/light_gray_storage_vase_lite"
+  }
+}

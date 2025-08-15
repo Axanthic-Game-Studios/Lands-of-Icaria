@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockStateProperties {
+	public static final BooleanProperty AMOUNT_LOCKED = BooleanProperty.create("amount_locked");
 	public static final BooleanProperty BATHTUB_REMAINS = BooleanProperty.create("bathtub_remains");
 	public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");
 	public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
@@ -47,6 +48,7 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 
+	public static final IntegerProperty AMPHORA_AMOUNT = IntegerProperty.create("amphora_amount", 1, 3);
 	public static final IntegerProperty BATHTUB_FILL = IntegerProperty.create("bathtub_fill", 0, 12);
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);

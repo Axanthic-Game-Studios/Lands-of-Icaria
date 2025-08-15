@@ -1,0 +1,55 @@
+{
+  "variants": {
+    "amphora_amount=1": [
+      {
+        "model": "landsoficaria:block/amphora_single"
+      },
+      {
+        "model": "landsoficaria:block/amphora_single",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/amphora_single",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/amphora_single",
+        "y": 270
+      }
+    ],
+    "amphora_amount=2": [
+      {
+        "model": "landsoficaria:block/amphora_double"
+      },
+      {
+        "model": "landsoficaria:block/amphora_double",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/amphora_double",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/amphora_double",
+        "y": 270
+      }
+    ],
+    "amphora_amount=3": [
+      {
+        "model": "landsoficaria:block/amphora_triple"
+      },
+      {
+        "model": "landsoficaria:block/amphora_triple",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/amphora_triple",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/amphora_triple",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -54,6 +54,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	@Override
 	public void generate() {
+		this.dropAmphora();
 		this.dropBathtub();
 		this.dropBush();
 		this.dropCake();
@@ -78,6 +79,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilkOrElse();
 		this.dropVine();
 		this.dropVineWithLoot();
+	}
+
+	public void dropAmphora() {
+		this.dropAmphora(IcariaBlocks.AMPHORA.get());
 	}
 
 	public void dropBathtub() {
@@ -882,6 +887,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropVineWithLoot() {
 		this.dropVineWithLoot(IcariaBlocks.REEDY_VINE.get(), IcariaItems.VINE_REED.get());
+	}
+
+	public void dropAmphora(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.AMPHORA_AMOUNT, 1))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.AMPHORA_AMOUNT, 2))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.AMPHORA_AMOUNT, 3))))));
 	}
 
 	public void dropBathtub(Block pBlock) {

@@ -705,6 +705,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.PURPLE_STORAGE_VASE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.MAGENTA_STORAGE_VASE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PINK_STORAGE_VASE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.AMPHORA.get(), "single", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.RED_LOOT_VASE.get(), "2", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LOST_LOOT_VASE.get(), "2", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYAN_LOOT_VASE.get(), "2", pItemModelGenerators);

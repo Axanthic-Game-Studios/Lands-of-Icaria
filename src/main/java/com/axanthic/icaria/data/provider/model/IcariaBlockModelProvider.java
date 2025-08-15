@@ -25,6 +25,7 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void provider(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.amphora(pBlockModelGenerators);
 		IcariaBlockModelProvider.anthraciteTorch(pBlockModelGenerators);
 		IcariaBlockModelProvider.anthraciteWallTorch(pBlockModelGenerators);
 		IcariaBlockModelProvider.axis(pBlockModelGenerators);
@@ -142,6 +143,7 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void template(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.amphoraModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.anthraciteTorchModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.anthraciteWallTorchModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.barrelModel(pBlockModelGenerators);
@@ -219,6 +221,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.unnamedTreeShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.wiltedElmModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.zirconCrystalModel(pBlockModelGenerators);
+	}
+
+	public static void amphora(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.amphora(IcariaBlocks.AMPHORA.get(), pBlockModelGenerators);
 	}
 
 	public static void anthraciteTorch(BlockModelGenerators pBlockModelGenerators) {
@@ -1263,6 +1269,30 @@ public class IcariaBlockModelProvider {
 
 	public static void zirconCrystal(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.zirconCrystal(IcariaBlocks.ZIRCON_CRYSTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void amphora(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_single")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "single"), new TextureMapping()
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_storage_vase"))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_double")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "double"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_storage_vase"))
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_storage_vase"))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_triple")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "triple"), new TextureMapping()
+				.putForced(IcariaTextureSlots.BLACK_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_storage_vase"))
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_storage_vase"))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_storage_vase_lite"))
+				.putForced(IcariaTextureSlots.RED_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_storage_vase"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void anthraciteTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -3507,6 +3537,12 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void amphoraModel(BlockModelGenerators pBlockModelGenerators) {
+		AmphoraModel.singleAmphora().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_single"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		AmphoraModel.doubleAmphora().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_double"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		AmphoraModel.tripleAmphora().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_amphora_triple"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void anthraciteTorchModel(BlockModelGenerators pBlockModelGenerators) {
