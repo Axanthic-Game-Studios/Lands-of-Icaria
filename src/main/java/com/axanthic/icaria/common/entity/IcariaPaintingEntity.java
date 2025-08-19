@@ -111,7 +111,7 @@ public class IcariaPaintingEntity extends Painting {
 	public static Optional<Painting> create(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
 		var arrayList = new ArrayList<Holder<PaintingVariant>>();
 		var paintingEntity = new IcariaPaintingEntity(pLevel, pBlockPos);
-		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingVariantTagsProvider.PLACEABLE).forEach(arrayList::add);
+		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingVariantTagsProvider.PAINTINGS).forEach(arrayList::add);
 		if (arrayList.isEmpty()) {
 			return Optional.empty();
 		} else {

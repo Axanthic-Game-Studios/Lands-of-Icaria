@@ -1662,7 +1662,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdenumsteel Storage Blocks");
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM, "Bluridium Storage Blocks");
 
-		this.add(IcariaPaintingVariantTagsProvider.PLACEABLE, "Placeable");
+		this.add(IcariaPaintingVariantTagsProvider.PAINTINGS, "Paintings");
 
 		this.add(IcariaStructureTagsProvider.FOREST_VILLAGES, "Forest Villages");
 		this.add(IcariaStructureTagsProvider.SCRUBLAND_VILLAGES, "Scrubland Villages");

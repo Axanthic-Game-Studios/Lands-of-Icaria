@@ -1662,7 +1662,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL, "Molybdänstahlspeicherblöcke");
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM, "Bluritspeicherblöcke");
 
-		this.add(IcariaPaintingVariantTagsProvider.PLACEABLE, "Platzierbar");
+		this.add(IcariaPaintingVariantTagsProvider.PAINTINGS, "Gemälde");
 
 		this.add(IcariaStructureTagsProvider.FOREST_VILLAGES, "Walddörfer");
 		this.add(IcariaStructureTagsProvider.SCRUBLAND_VILLAGES, "Buschlanddörfer");

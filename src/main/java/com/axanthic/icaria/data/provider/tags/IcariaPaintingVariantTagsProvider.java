@@ -22,7 +22,7 @@ import net.minecraft.world.entity.decoration.PaintingVariant;
 @ParametersAreNonnullByDefault
 
 public class IcariaPaintingVariantTagsProvider extends PaintingVariantTagsProvider {
-	public static final TagKey<PaintingVariant> PLACEABLE = IcariaPaintingVariantTagsProvider.icariaKey("placeable");
+	public static final TagKey<PaintingVariant> PAINTINGS = IcariaPaintingVariantTagsProvider.icariaKey("paintings");
 
 	public IcariaPaintingVariantTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
 		super(pPackOutput, pProvider, pId);
@@ -30,7 +30,7 @@ public class IcariaPaintingVariantTagsProvider extends PaintingVariantTagsProvid
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(IcariaPaintingVariantTagsProvider.PLACEABLE)
+		this.tag(IcariaPaintingVariantTagsProvider.PAINTINGS)
 			.add(IcariaPaintingVariants.BRIDGE)
 			.add(IcariaPaintingVariants.CACTUS)
 			.add(IcariaPaintingVariants.ENDER_JELLYFISH)
