@@ -936,6 +936,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.BUBBLE_SPELL.get(), "Bubble Spell");
 		this.add(IcariaEntityTypes.FREEZING_SPELL.get(), "Freezing Spell");
 		this.add(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), "Magic Missile Spell");
+		this.add(IcariaEntityTypes.STOOL.get(), "Stool");
 		this.add(IcariaEntityTypes.THOG.get(), "Thog");
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Vinegar");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Vinegaroon");

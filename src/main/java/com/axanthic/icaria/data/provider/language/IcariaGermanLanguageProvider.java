@@ -936,6 +936,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.BUBBLE_SPELL.get(), "Blasen-Zauber");
 		this.add(IcariaEntityTypes.FREEZING_SPELL.get(), "Vereisungs-Zauber");
 		this.add(IcariaEntityTypes.MAGIC_MISSILE_SPELL.get(), "Magie-Geschoss-Zauber");
+		this.add(IcariaEntityTypes.STOOL.get(), "Hocker");
 		this.add(IcariaEntityTypes.THOG.get(), "Wildschwein");
 		this.add(IcariaEntityTypes.VINEGAR.get(), "Essig");
 		this.add(IcariaEntityTypes.VINEGAROON.get(), "Geißelskorpion");
