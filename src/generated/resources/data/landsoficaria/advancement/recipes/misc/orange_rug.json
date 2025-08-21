@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:arachne_string": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:arachne_string"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:orange_arachne_string_carpet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:orange_arachne_string_carpet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:orange_rug"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:arachne_string",
+      "has_landsoficaria:orange_arachne_string_carpet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:orange_rug"
+    ]
+  }
+}

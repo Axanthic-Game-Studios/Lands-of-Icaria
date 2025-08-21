@@ -323,6 +323,7 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.PYROMANCER_REVENANT.get(), PyromancerRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), NetherPyromancerRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.RUG.get(), RugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SCORPION.get(), ScorpionRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), CrystalSlugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);

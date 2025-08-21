@@ -925,6 +925,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromanen-Wiedergänger");
 		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Netherpyromanen-Wiedergänger");
 		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldaten-Wiedergänger");
+		this.add(IcariaEntityTypes.RUG.get(), "Läufer");
 		this.add(IcariaEntityTypes.SCORPION.get(), "Skorpion");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Kristall-Nacktschnecke");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
@@ -962,6 +963,10 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Verweiltrank der Verdorrung");
 
 		this.add(IcariaItems.PAINTING.get(), "Gemälde");
+
+		this.add(IcariaItems.BROWN_RUG.get(), "Brauner Läufer");
+		this.add(IcariaItems.GREEN_RUG.get(), "Grüner Läufer");
+		this.add(IcariaItems.ORANGE_RUG.get(), "Oranger Läufer");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Lehmklumpen");

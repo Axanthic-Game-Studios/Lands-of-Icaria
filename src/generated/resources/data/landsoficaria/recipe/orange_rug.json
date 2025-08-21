@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:arachne_string",
+    "B": "landsoficaria:orange_arachne_string_carpet"
+  },
+  "pattern": [
+    "ABA",
+    "BAB",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:orange_rug"
+  }
+}

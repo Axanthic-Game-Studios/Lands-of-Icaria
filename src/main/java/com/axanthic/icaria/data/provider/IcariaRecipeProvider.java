@@ -80,6 +80,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.leggings();
 		this.pickaxe();
 		this.pillarHead();
+		this.rug();
 		this.scythe();
 		this.shovel();
 		this.sign();
@@ -1194,6 +1195,12 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.pillarHead(2, IcariaItems.QUARTZ_PILLAR_HEAD.get(), Items.QUARTZ_BRICKS, Items.QUARTZ_PILLAR);
 	}
 
+	public void rug() {
+		this.rug(1, IcariaItems.BROWN_RUG.get(), IcariaItems.BROWN_ARACHNE_STRING_CARPET.get());
+		this.rug(1, IcariaItems.GREEN_RUG.get(), IcariaItems.GREEN_ARACHNE_STRING_CARPET.get());
+		this.rug(1, IcariaItems.ORANGE_RUG.get(), IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get());
+	}
+
 	public void scythe() {
 		this.scythe(1, IcariaItems.CHERT_SCYTHE.get(), IcariaItems.CHERT.get());
 		this.scythe(1, IcariaItems.CHALKOS_SCYTHE.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -1911,6 +1918,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("B")
 			.unlockedBy(this.name(pBricks), this.has(pBricks))
 			.unlockedBy(this.name(pPillar), this.has(pPillar))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void rug(int pAmount, Item pResult, Item pResource) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', IcariaItems.ARACHNE_STRING.get())
+			.define('B', pResource)
+			.pattern("ABA")
+			.pattern("BAB")
+			.pattern("ABA")
+			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING.get()), this.has(IcariaItems.ARACHNE_STRING.get()))
+			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
 

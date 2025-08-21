@@ -138,6 +138,9 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.WHITE_GROUND_FLOWERS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_BUSH.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.PAINTING.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.BROWN_RUG.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.GREEN_RUG.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.ORANGE_RUG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.BONE_REMAINS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.LOAM_LUMP.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.LOAM_BRICK.get(), pItemModelGenerators);

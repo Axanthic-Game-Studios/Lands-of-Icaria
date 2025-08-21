@@ -925,6 +925,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.PYROMANCER_REVENANT.get(), "Pyromancer Revenant");
 		this.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), "Nether Pyromancer Revenant");
 		this.add(IcariaEntityTypes.SOLDIER_REVENANT.get(), "Soldier Revenant");
+		this.add(IcariaEntityTypes.RUG.get(), "Rug");
 		this.add(IcariaEntityTypes.SCORPION.get(), "Scorpion");
 		this.add(IcariaEntityTypes.CRYSTAL_SLUG.get(), "Crystal Slug");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
@@ -962,6 +963,10 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("item" + "." + IcariaIdents.MC + "." + "lingering_potion" + "." + "effect" + "." + "wither", "Lingering Potion of Wither");
 
 		this.add(IcariaItems.PAINTING.get(), "Painting");
+
+		this.add(IcariaItems.BROWN_RUG.get(), "Brown Rug");
+		this.add(IcariaItems.GREEN_RUG.get(), "Green Rug");
+		this.add(IcariaItems.ORANGE_RUG.get(), "Orange Rug");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Bone Remains");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Loam Lump");

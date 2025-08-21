@@ -7,6 +7,7 @@ Additions
 - Pan, Spoon and Towel Holder for each Wood Type
 - Bathtub Blocks for each Wood Type
 - Amphora Block
+- Rugs
 
 Updates
 

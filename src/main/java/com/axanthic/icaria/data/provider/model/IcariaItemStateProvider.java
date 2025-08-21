@@ -701,6 +701,9 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.GRINDER_SHAFT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRINDER_STONE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PAINTING.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BROWN_RUG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.GREEN_RUG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ORANGE_RUG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BONE_REMAINS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOAM_LUMP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOAM_BRICK.get(), pItemModelGenerators);

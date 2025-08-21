@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.item.*;
 import com.axanthic.icaria.common.properties.Carpet;
+import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaInstruments;
 
 import java.util.function.Function;
@@ -750,6 +751,10 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> GRINDER_STONE = IcariaItems.register("grinder_stone", properties -> new BlockItem(IcariaBlocks.GRINDER_STONE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> PAINTING = IcariaItems.register("painting", IcariaPaintingItem::new, IcariaItems.propertiesItem());
+
+	public static final DeferredHolder<Item, Item> BROWN_RUG = IcariaItems.register("brown_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.BROWN_RUGS, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> GREEN_RUG = IcariaItems.register("green_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.GREEN_RUGS, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> ORANGE_RUG = IcariaItems.register("orange_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.ORANGE_RUGS, properties), IcariaItems.propertiesItem());
 
 	public static final DeferredHolder<Item, Item> BONE_REMAINS = IcariaItems.register("bone_remains", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> LOAM_LUMP = IcariaItems.register("loam_lump", Item::new, IcariaItems.propertiesItem());

@@ -904,6 +904,10 @@ public class IcariaCommonModEvents {
 		if (pEvent.getTab() == IcariaCreativeModeTabs.ITEMS.get()) {
 			pEvent.accept(IcariaItems.PAINTING.get());
 
+			pEvent.accept(IcariaItems.BROWN_RUG.get());
+			pEvent.accept(IcariaItems.GREEN_RUG.get());
+			pEvent.accept(IcariaItems.ORANGE_RUG.get());
+
 			pEvent.accept(IcariaItems.BONE_REMAINS.get());
 			pEvent.accept(IcariaItems.LOAM_LUMP.get());
 			pEvent.accept(IcariaItems.LOAM_BRICK.get());
