@@ -19,6 +19,7 @@ public class IcariaLootTables {
 	public static final ResourceKey<LootTable> TRIPLE_AMPHORA = IcariaLootTables.createKey("amphoras/triple_amphora");
 	public static final ResourceKey<LootTable> BARREL = IcariaLootTables.createKey("barrels/barrel");
 	public static final ResourceKey<LootTable> CHEST = IcariaLootTables.createKey("chests/chest");
+	public static final ResourceKey<LootTable> DECORATED_POT = IcariaLootTables.createKey("decorated_pots/decorated_pot");
 	public static final ResourceKey<LootTable> RED_LOOT_VASE = IcariaLootTables.createKey("loot_vases/red_loot_vase");
 	public static final ResourceKey<LootTable> LOST_LOOT_VASE = IcariaLootTables.createKey("loot_vases/lost_loot_vase");
 	public static final ResourceKey<LootTable> CYAN_LOOT_VASE = IcariaLootTables.createKey("loot_vases/cyan_loot_vase");

@@ -21,6 +21,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -70,6 +71,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
 					this.setLootForChest(level, blockPos, random);
 					this.setLootForVases(level, blockPos, random);
+					this.setLootForDecoratedPots(level, blockPos, random);
 					this.setMobsForSpawners(level, blockPos, random);
 				}
 			}
@@ -153,6 +155,12 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void setLootForVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+	public void setLootForDecoratedPots(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof DecoratedPotBlockEntity blockEntity) {
+			blockEntity.setLootTable(IcariaLootTables.DECORATED_POT, pRandomSource.nextLong());
+		}
+	}
+
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
 				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE, pRandomSource.nextLong());
