@@ -4,11 +4,15 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.AmphoraShapes;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -17,6 +21,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +31,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.storage.loot.LootParams;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -77,6 +85,19 @@ public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	@Override
+	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
+		var enchantment = pBuilder.getLevel().registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SILK_TOUCH);
+		var itemStack = pBuilder.getOptionalParameter(LootContextParams.TOOL);
+		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
+		var lootTable = pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT) == 1 ? IcariaLootTables.SINGLE_AMPHORA : pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT) == 2 ? IcariaLootTables.DOUBLE_AMPHORA : IcariaLootTables.TRIPLE_AMPHORA;
+		if (itemStack != null && itemStack.getEnchantmentLevel(enchantment) == 0) {
+			return pBuilder.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootParams);
+		} else {
+			return super.getDrops(pBlockState, pBuilder);
 		}
 	}
 

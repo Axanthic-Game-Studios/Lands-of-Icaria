@@ -14,6 +14,9 @@ import net.minecraft.world.level.storage.loot.LootTable;
 @ParametersAreNonnullByDefault
 
 public class IcariaLootTables {
+	public static final ResourceKey<LootTable> SINGLE_AMPHORA = IcariaLootTables.createKey("amphoras/single_amphora");
+	public static final ResourceKey<LootTable> DOUBLE_AMPHORA = IcariaLootTables.createKey("amphoras/double_amphora");
+	public static final ResourceKey<LootTable> TRIPLE_AMPHORA = IcariaLootTables.createKey("amphoras/triple_amphora");
 	public static final ResourceKey<LootTable> BARREL = IcariaLootTables.createKey("barrels/barrel");
 	public static final ResourceKey<LootTable> CHEST = IcariaLootTables.createKey("chests/chest");
 	public static final ResourceKey<LootTable> RED_LOOT_VASE = IcariaLootTables.createKey("loot_vases/red_loot_vase");
