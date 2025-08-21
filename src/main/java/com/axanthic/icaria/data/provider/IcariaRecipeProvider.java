@@ -85,6 +85,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shovel();
 		this.sign();
 		this.stairs();
+		this.stool();
 		this.sword();
 		this.torch();
 		this.trough();
@@ -1278,6 +1279,16 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stairs(4, IcariaItems.POPULUS_STAIRS.get(), IcariaItems.POPULUS_PLANKS.get());
 	}
 
+	public void stool() {
+		this.stool(1, IcariaItems.CYPRESS_STOOL.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get());
+		this.stool(1, IcariaItems.DROUGHTROOT_STOOL.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get());
+		this.stool(1, IcariaItems.FIR_STOOL.get(), IcariaItems.STRIPPED_FIR_WOOD.get());
+		this.stool(1, IcariaItems.LAUREL_STOOL.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get());
+		this.stool(1, IcariaItems.OLIVE_STOOL.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get());
+		this.stool(1, IcariaItems.PLANE_STOOL.get(), IcariaItems.STRIPPED_PLANE_WOOD.get());
+		this.stool(1, IcariaItems.POPULUS_STOOL.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get());
+	}
+
 	public void sword() {
 		this.sword(1, IcariaItems.CHERT_SWORD.get(), IcariaItems.CHERT.get());
 		this.sword(1, IcariaItems.CHALKOS_SWORD.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -1975,6 +1986,20 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("A  ")
 			.pattern("AA ")
 			.pattern("AAA")
+			.unlockedBy(this.name(pResource), this.has(pResource))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void stool(int pAmount, Item pResult, Item pResource) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.define('B', IcariaItems.ARACHNE_STRING_CARPET.get())
+			.define('C', pResource)
+			.pattern("ABA")
+			.pattern(" C ")
+			.pattern("C C")
+			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_BLOCK.get()), this.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
+			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_CARPET.get()), this.has(IcariaItems.ARACHNE_STRING_CARPET.get()))
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}

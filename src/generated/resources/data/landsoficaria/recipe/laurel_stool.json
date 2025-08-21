@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:arachne_string_block",
+    "B": "landsoficaria:arachne_string_carpet",
+    "C": "landsoficaria:stripped_laurel_wood"
+  },
+  "pattern": [
+    "ABA",
+    " C ",
+    "C C"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:laurel_stool"
+  }
+}
