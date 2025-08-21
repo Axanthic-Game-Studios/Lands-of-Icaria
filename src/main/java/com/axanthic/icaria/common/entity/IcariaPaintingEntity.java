@@ -43,7 +43,7 @@ public class IcariaPaintingEntity extends Painting {
 
 	public IcariaPaintingEntity(Level pLevel, BlockPos pBlockPos) {
 		super(IcariaEntityTypes.PAINTING.get(), pLevel);
-		this.pos = pBlockPos;
+		this.setPos(pBlockPos.getX(), pBlockPos.getY(), pBlockPos.getZ());
 	}
 
 	public static int variantArea(Holder<PaintingVariant> pVariant) {
@@ -68,7 +68,8 @@ public class IcariaPaintingEntity extends Painting {
 
 	@Override
 	public void onSyncedDataUpdated(EntityDataAccessor<?> pEntityDataAccessor) {
-		if (IcariaPaintingEntity.PAINTING_VARIANT.equals(pEntityDataAccessor)) {
+		super.onSyncedDataUpdated(pEntityDataAccessor);
+		if (pEntityDataAccessor.equals(IcariaPaintingEntity.PAINTING_VARIANT)) {
 			this.recalculateBoundingBox();
 		}
 	}
