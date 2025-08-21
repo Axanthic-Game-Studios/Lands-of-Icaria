@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:droughtroot_log",
+    "B": "landsoficaria:droughtroot_planks"
+  },
+  "pattern": [
+    "B B",
+    "B B",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:droughtroot_bathtub"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:olive_log",
+    "B": "landsoficaria:olive_planks"
+  },
+  "pattern": [
+    "B B",
+    "B B",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:olive_bathtub"
+  }
+}

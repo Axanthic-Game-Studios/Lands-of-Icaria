@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:plane_log",
+    "B": "landsoficaria:plane_planks"
+  },
+  "pattern": [
+    "B B",
+    "B B",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:plane_bathtub"
+  }
+}

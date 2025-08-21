@@ -61,6 +61,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shaped1x2();
 		this.adobe();
 		this.axe();
+		this.bathtub();
 		this.bident();
 		this.boots();
 		this.bowl();
@@ -1016,6 +1017,16 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.axe(1, IcariaItems.MOLYBDENUMSTEEL_AXE.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 	}
 
+	public void bathtub() {
+		this.bathtub(1, IcariaItems.CYPRESS_BATHTUB.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.bathtub(1, IcariaItems.DROUGHTROOT_BATHTUB.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.bathtub(1, IcariaItems.FIR_BATHTUB.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.bathtub(1, IcariaItems.LAUREL_BATHTUB.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.bathtub(1, IcariaItems.OLIVE_BATHTUB.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.bathtub(1, IcariaItems.PLANE_BATHTUB.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.bathtub(1, IcariaItems.POPULUS_BATHTUB.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
 	public void bident() {
 		this.bident(1, IcariaItems.CHERT_BIDENT.get(), IcariaItems.CHERT.get());
 		this.bident(1, IcariaItems.CHALKOS_BIDENT.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -1721,6 +1732,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern(" B ")
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.unlockedBy(this.name(Items.BONE), this.has(Items.BONE))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void bathtub(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pPlanks)
+			.pattern("B B")
+			.pattern("B B")
+			.pattern("AAA")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
 			.save(this.output, this.key(pResult));
 	}
 
