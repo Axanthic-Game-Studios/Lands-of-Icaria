@@ -69,9 +69,9 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 					this.replaceBlocks(level, blockPos, newState);
 					this.replaceRuined(level, blockPos);
 
-					this.setLootForChest(level, blockPos, random);
-					this.setLootForVases(level, blockPos, random);
+					this.setLootForChests(level, blockPos, random);
 					this.setLootForDecoratedPots(level, blockPos, random);
+					this.setLootForStorageVases(level, blockPos, random);
 					this.setMobsForSpawners(level, blockPos, random);
 				}
 			}
@@ -148,19 +148,19 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 		}
 	}
 
-	public void setLootForChest(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
+	public void setLootForChests(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaChestBlockEntity blockEntity) {
 			blockEntity.setLootTable(IcariaLootTables.CHEST, pRandomSource.nextLong());
 		}
 	}
 
-	public void setLootForVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 	public void setLootForDecoratedPots(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof DecoratedPotBlockEntity blockEntity) {
 			blockEntity.setLootTable(IcariaLootTables.DECORATED_POT, pRandomSource.nextLong());
 		}
 	}
 
+	public void setLootForStorageVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
 				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE, pRandomSource.nextLong());
