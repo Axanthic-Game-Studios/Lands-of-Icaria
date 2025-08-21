@@ -1,10 +1,7 @@
 package com.axanthic.icaria.data.provider.loot;
 
 import com.axanthic.icaria.common.properties.*;
-import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaIdents;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.*;
 
 import java.util.List;
 import java.util.Set;
@@ -42,12 +39,6 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
-	public static final float[] CHERRY_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
-	public static final float[] GARLIC_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
-	public static final float[] SAPLING_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
-	public static final float[] SEED_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
-	public static final float[] STICK_CHANCES = new float[]{0.05F, 0.06666666666F, 0.08333333333F, 0.1F};
-
 	public IcariaBlockLootSubProvider(HolderLookup.Provider pProvider) {
 		super(Set.of(), FeatureFlags.REGISTRY.allFlags(), pProvider);
 	}
@@ -922,7 +913,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropLaurelLeaves(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.CHERRY_CHANCES)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.CHERRY_CHANCES)))));
 	}
 
 	public void dropLayers(Block pBlock) {
@@ -930,7 +921,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropLeaves(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.STICK_CHANCES)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.STICK_CHANCES)))));
 	}
 
 	public void dropNone(Block pBlock) {
@@ -938,11 +929,11 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropOliveLeaves(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SAPLING_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(Items.STICK).when(this.noShearsOrSilk()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.STICK_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get())).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get())).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK)))));
 	}
 
 	public void dropOnionCrop(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.GARLIC_CHANCES)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.GARLIC_CHANCES)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlockStateProperties.AGE_7, 7))))));
 	}
 
 	public void dropPotted(Block pBlock, Item pItem) {
@@ -954,7 +945,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropSeed(Block pBlock) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaBlockLootSubProvider.SEED_CHANCES)))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SEED_CHANCES)))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).when(this.noShears()).when(BonusLevelTableCondition.bonusLevelFlatChance(this.enchantments().getOrThrow(Enchantments.FORTUNE), IcariaValues.SEED_CHANCES)))));
 	}
 
 	public void dropSlab(Block pBlock) {
