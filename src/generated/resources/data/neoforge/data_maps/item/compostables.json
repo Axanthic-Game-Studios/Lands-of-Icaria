@@ -282,6 +282,9 @@
     "landsoficaria:strawberries": {
       "chance": 0.3
     },
+    "landsoficaria:strawberry_bush": {
+      "chance": 0.3
+    },
     "landsoficaria:strawberry_cake": {
       "chance": 1.0
     },
@@ -313,7 +316,7 @@
       "chance": 1.0
     },
     "landsoficaria:vine_reed": {
-      "chance": 0.5
+      "chance": 0.65
     },
     "landsoficaria:vine_reed_block": {
       "chance": 0.85
