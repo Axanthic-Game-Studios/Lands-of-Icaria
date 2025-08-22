@@ -49,7 +49,7 @@ public class FloatingBlockEntity extends Entity {
 		var boundingBox = this.getBoundingBox();
 		var damageSource = this.damageSources().fallingBlock(this);
 		var predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
-		this.level().getEntities(this, boundingBox, predicate).forEach((entity) -> IcariaCommonHelper.hurt(damageSource, entity, (float) amount));
+		this.level().getEntities(this, boundingBox, predicate).forEach(entity -> IcariaCommonHelper.hurt(damageSource, entity, (float) amount));
 		return true;
 	}
 

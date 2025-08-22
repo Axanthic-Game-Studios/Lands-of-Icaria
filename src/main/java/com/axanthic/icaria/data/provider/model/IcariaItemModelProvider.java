@@ -955,10 +955,10 @@ public class IcariaItemModelProvider {
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
-			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(-50.0F, 90.0F, -25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
-			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(-50.0F, -90.0F, 25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
-			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(195.0F, 90.0F, -55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
-			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(195.0F, -90.0F, 55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
+			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, 90.0F, -25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
+			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, -90.0F, 25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
+			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, 90.0F, -55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
+			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, -90.0F, 55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
 			.build()
 			.create(IcariaModelProvider.itemFile("throwing", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 	}
@@ -980,17 +980,17 @@ public class IcariaItemModelProvider {
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
-			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, 90.0F, -25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
-			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, -90.0F, 25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
-			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
-			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, 180.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
+			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 90.0F, -25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
+			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -90.0F, 25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
+			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
+			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 180.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
-			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, 115.0F, 5.0F).translation(0.0F, -2.5F, -7.5F))
-			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, -55.0F, -5.0F).translation(-1.0F, -2.5F, -7.5F))
-			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, 55.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
-			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, (transformVecBuilder) -> transformVecBuilder.rotation(0.0F, -125.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
+			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 115.0F, 5.0F).translation(0.0F, -2.5F, -7.5F))
+			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -55.0F, -5.0F).translation(-1.0F, -2.5F, -7.5F))
+			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 55.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
+			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -125.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
 			.build()
 			.create(IcariaModelProvider.itemFile("tooting", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 	}

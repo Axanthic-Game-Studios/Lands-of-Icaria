@@ -52,7 +52,7 @@ public class IcariaVineBlock extends Block {
 
 	public static final Map<Direction, BooleanProperty> MAP = ImmutableMap.copyOf(
 		Util.make(
-			Maps.newEnumMap(Direction.class), (enumMap) -> {
+			Maps.newEnumMap(Direction.class), enumMap -> {
 				enumMap.put(Direction.NORTH, BlockStateProperties.NORTH);
 				enumMap.put(Direction.EAST, BlockStateProperties.EAST);
 				enumMap.put(Direction.SOUTH, BlockStateProperties.SOUTH);
@@ -112,7 +112,7 @@ public class IcariaVineBlock extends Block {
 	}
 
 	public int facesCount(BlockState pBlockState) {
-		return IcariaVineBlock.MAP.values().stream().mapToInt((booleanProperty) -> pBlockState.getValue(booleanProperty) ? 1 : 0).sum();
+		return IcariaVineBlock.MAP.values().stream().mapToInt(booleanProperty -> pBlockState.getValue(booleanProperty) ? 1 : 0).sum();
 	}
 
 	@Override

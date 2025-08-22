@@ -181,7 +181,7 @@ public class IcariaCommonGameEvents {
 
 	@SubscribeEvent
 	public static void onRegisterCommands(RegisterCommandsEvent pEvent) {
-		pEvent.getDispatcher().register(Commands.literal("heal").requires((commandSourceStack) -> commandSourceStack.hasPermission(2)).executes((commandContext) -> IcariaCommonGameEvents.heal(commandContext.getSource(), Integer.MAX_VALUE)).then(Commands.argument("amount", IntegerArgumentType.integer(0)).executes((commandContext) -> IcariaCommonGameEvents.heal(commandContext.getSource(), IntegerArgumentType.getInteger(commandContext, "amount")))));
+		pEvent.getDispatcher().register(Commands.literal("heal").requires(commandSourceStack -> commandSourceStack.hasPermission(2)).executes(commandContext -> IcariaCommonGameEvents.heal(commandContext.getSource(), Integer.MAX_VALUE)).then(Commands.argument("amount", IntegerArgumentType.integer(0)).executes(commandContext -> IcariaCommonGameEvents.heal(commandContext.getSource(), IntegerArgumentType.getInteger(commandContext, "amount")))));
 	}
 
 	public static int heal(CommandSourceStack pCommandSourceStack, int pAmount) {

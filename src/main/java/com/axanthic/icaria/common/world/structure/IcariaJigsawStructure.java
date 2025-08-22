@@ -56,19 +56,19 @@ public class IcariaJigsawStructure extends Structure {
 	public Optional<ResourceLocation> startJigsawName;
 
 	public static final MapCodec<IcariaJigsawStructure> CODEC = RecordCodecBuilder.<IcariaJigsawStructure>mapCodec(
-		(instance) -> instance.group(
+		instance -> instance.group(
 			Structure.settingsCodec(instance),
-			StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.startPool),
-			ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.startJigsawName),
-			Codec.intRange(0, 64).fieldOf("size").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.maxDepth),
-			HeightProvider.CODEC.fieldOf("min_height").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.minHeight),
-			HeightProvider.CODEC.fieldOf("max_height").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.maxHeight),
-			Codec.BOOL.fieldOf("use_expansion_hack").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.useExpansionHack),
-			Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.projectStartToHeightmap),
-			Codec.intRange(1, 256).fieldOf("max_distance_from_center").forGetter((icariaJigsawStructure) -> icariaJigsawStructure.maxDistanceFromCenter),
-			Codec.list(PoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter((icariaJigsawStructure) -> icariaJigsawStructure.poolAliases),
-			DimensionPadding.CODEC.optionalFieldOf("dimension_padding", DimensionPadding.ZERO).forGetter((icariaJigsawStructure) -> icariaJigsawStructure.dimensionPadding),
-			LiquidSettings.CODEC.optionalFieldOf("liquid_settings", LiquidSettings.APPLY_WATERLOGGING).forGetter((icariaJigsawStructure) -> icariaJigsawStructure.liquidSettings)
+			StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(icariaJigsawStructure -> icariaJigsawStructure.startPool),
+			ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(icariaJigsawStructure -> icariaJigsawStructure.startJigsawName),
+			Codec.intRange(0, 64).fieldOf("size").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxDepth),
+			HeightProvider.CODEC.fieldOf("min_height").forGetter(icariaJigsawStructure -> icariaJigsawStructure.minHeight),
+			HeightProvider.CODEC.fieldOf("max_height").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxHeight),
+			Codec.BOOL.fieldOf("use_expansion_hack").forGetter(icariaJigsawStructure -> icariaJigsawStructure.useExpansionHack),
+			Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(icariaJigsawStructure -> icariaJigsawStructure.projectStartToHeightmap),
+			Codec.intRange(1, 256).fieldOf("max_distance_from_center").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxDistanceFromCenter),
+			Codec.list(PoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter(icariaJigsawStructure -> icariaJigsawStructure.poolAliases),
+			DimensionPadding.CODEC.optionalFieldOf("dimension_padding", DimensionPadding.ZERO).forGetter(icariaJigsawStructure -> icariaJigsawStructure.dimensionPadding),
+			LiquidSettings.CODEC.optionalFieldOf("liquid_settings", LiquidSettings.APPLY_WATERLOGGING).forGetter(icariaJigsawStructure -> icariaJigsawStructure.liquidSettings)
 		).apply(instance, IcariaJigsawStructure::new)
 	).validate(IcariaJigsawStructure::verifyRange);
 

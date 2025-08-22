@@ -57,7 +57,7 @@ public class IcariaPaintingEntity extends Painting {
 	}
 
 	public static void area(ArrayList<Holder<PaintingVariant>> pVariants) {
-		pVariants.removeIf((variant) -> IcariaPaintingEntity.variantArea(variant) < pVariants.stream().mapToInt(IcariaPaintingEntity::variantArea).max().orElse(0));
+		pVariants.removeIf(variant -> IcariaPaintingEntity.variantArea(variant) < pVariants.stream().mapToInt(IcariaPaintingEntity::variantArea).max().orElse(0));
 	}
 
 	@Override
@@ -86,7 +86,7 @@ public class IcariaPaintingEntity extends Painting {
 
 	public static void survives(ArrayList<Holder<PaintingVariant>> pVariants, IcariaPaintingEntity pEntity) {
 		pVariants.removeIf(
-			(variant) -> {
+			variant -> {
 				pEntity.setVariant(variant);
 				return !pEntity.survives();
 			}

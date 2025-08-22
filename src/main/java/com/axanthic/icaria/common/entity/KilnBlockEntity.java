@@ -266,7 +266,7 @@ public class KilnBlockEntity extends BlockEntity {
 		var arrayList = new ArrayList<RecipeHolder<?>>();
 		for (var entry : this.recipes.reference2IntEntrySet()) {
 			pServerLevel.recipeAccess().byKey(entry.getKey()).ifPresent(
-				(recipeHolder) -> {
+				recipeHolder -> {
 					arrayList.add(recipeHolder);
 					if (recipeHolder.value() instanceof FiringRecipe firingRecipe) {
 						ExperienceOrb.award(pServerLevel, Vec3.atCenterOf(pBlockPos), Mth.ceil(entry.getIntValue() * firingRecipe.experience()));

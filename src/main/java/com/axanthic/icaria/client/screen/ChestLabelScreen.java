@@ -56,8 +56,8 @@ public class ChestLabelScreen extends Screen {
 
 	@Override
 	public void init() {
-		this.cancel = this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, (button) -> this.cancel()).bounds(this.width / 2 + 2, this.height / 2 + 64, 98, 20).build());
-		this.done = this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, (button) -> this.done()).bounds(this.width / 2 - 100, this.height / 2 + 64, 98, 20).build());
+		this.cancel = this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, button -> this.cancel()).bounds(this.width / 2 + 2, this.height / 2 + 64, 98, 20).build());
+		this.done = this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, button -> this.done()).bounds(this.width / 2 - 100, this.height / 2 + 64, 98, 20).build());
 		this.editBox = new EditBox(this.font, this.width / 2 - 35, this.height / 2 - 3, 196, 20, Component.translatable("screen" + "." + IcariaIdents.ID + "." + "chest_label"));
 		this.editBox.setBordered(false);
 		this.editBox.setMaxLength(12);

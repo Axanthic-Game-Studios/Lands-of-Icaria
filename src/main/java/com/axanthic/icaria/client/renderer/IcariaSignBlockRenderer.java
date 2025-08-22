@@ -43,7 +43,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 	public IcariaSignBlockRenderer(BlockEntityRendererProvider.Context pContext) {
 		super(pContext);
 		this.font = pContext.getFont();
-		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap((woodType) -> woodType, (woodType) -> new SignModel(SignRenderer.createSignModel(pContext.getModelSet(), woodType, true), SignRenderer.createSignModel(pContext.getModelSet(), woodType, false))));
+		this.map = WoodType.values().collect(ImmutableMap.toImmutableMap(woodType -> woodType, woodType -> new SignModel(SignRenderer.createSignModel(pContext.getModelSet(), woodType, true), SignRenderer.createSignModel(pContext.getModelSet(), woodType, false))));
 	}
 
 	public void drawFont(FormattedCharSequence pFormattedCharSequence, MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, float pX, float pY, int pPackedLight) {
@@ -91,7 +91,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 	}
 
 	public void renderText(MultiBufferSource pMultiBufferSource, PoseStack pPoseStack, SignText pSignText, int pLineHeight, int pLineWidth, int pPackedLight) {
-		var formattedCharSequences = pSignText.getRenderMessages(Minecraft.getInstance().isTextFilteringEnabled(), (component) -> this.font.split(component, pLineWidth).stream().findFirst().orElse(FormattedCharSequence.EMPTY));
+		var formattedCharSequences = pSignText.getRenderMessages(Minecraft.getInstance().isTextFilteringEnabled(), component -> this.font.split(component, pLineWidth).stream().findFirst().orElse(FormattedCharSequence.EMPTY));
 		for (var line = 0; line < 4; ++line) {
 			var formattedCharSequence = formattedCharSequences[line];
 			this.drawFont(formattedCharSequence, pMultiBufferSource, pPoseStack, pSignText, this.font.width(formattedCharSequence) * 0.5F, line * pLineHeight - pLineHeight * 2.0F, pPackedLight);

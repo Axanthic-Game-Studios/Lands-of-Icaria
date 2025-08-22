@@ -31,7 +31,7 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty STOOL_TAKEN = BooleanProperty.create("stool_taken");
 	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
 
-	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, (direction) -> direction != Direction.DOWN);
+	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, direction -> direction != Direction.DOWN);
 
 	public static final EnumProperty<Bathtub> BATHTUB = EnumProperty.create("bathtub", Bathtub.class);
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);

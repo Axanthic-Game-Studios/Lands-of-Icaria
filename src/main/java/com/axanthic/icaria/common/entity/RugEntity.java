@@ -75,7 +75,7 @@ public class RugEntity extends HangingEntity {
 	}
 
 	public static void area(ArrayList<Holder<PaintingVariant>> pPaintingVariants) {
-		pPaintingVariants.removeIf((paintingVariant) -> RugEntity.variantArea(paintingVariant) < pPaintingVariants.stream().mapToInt(RugEntity::variantArea).max().orElse(0));
+		pPaintingVariants.removeIf(paintingVariant -> RugEntity.variantArea(paintingVariant) < pPaintingVariants.stream().mapToInt(RugEntity::variantArea).max().orElse(0));
 	}
 
 	@Override
@@ -150,7 +150,7 @@ public class RugEntity extends HangingEntity {
 
 	public static void survives(ArrayList<Holder<PaintingVariant>> pPaintingVariants, RugEntity pRugEntity) {
 		pPaintingVariants.removeIf(
-			(paintingVariant) -> {
+			paintingVariant -> {
 				pRugEntity.setPaintingVariant(paintingVariant);
 				return !pRugEntity.survives();
 			}

@@ -419,10 +419,10 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> THOG_SKULL = IcariaBlocks.register("thog_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> THOG_WALL_SKULL = IcariaBlocks.register("thog_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
 
-	public static final DeferredHolder<Block, Block> LIGNITE_TORCH = IcariaBlocks.register("lignite_torch", properties -> new TorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 10));
-	public static final DeferredHolder<Block, Block> LIGNITE_WALL_TORCH = IcariaBlocks.register("lignite_wall_torch", properties -> new WallTorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 10));
-	public static final DeferredHolder<Block, Block> ANTHRACITE_TORCH = IcariaBlocks.register("anthracite_torch", properties -> new TorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 14));
-	public static final DeferredHolder<Block, Block> ANTHRACITE_WALL_TORCH = IcariaBlocks.register("anthracite_wall_torch", properties -> new WallTorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel((pBlockState) -> 14));
+	public static final DeferredHolder<Block, Block> LIGNITE_TORCH = IcariaBlocks.register("lignite_torch", properties -> new TorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 10));
+	public static final DeferredHolder<Block, Block> LIGNITE_WALL_TORCH = IcariaBlocks.register("lignite_wall_torch", properties -> new WallTorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 10));
+	public static final DeferredHolder<Block, Block> ANTHRACITE_TORCH = IcariaBlocks.register("anthracite_torch", properties -> new TorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 14));
+	public static final DeferredHolder<Block, Block> ANTHRACITE_WALL_TORCH = IcariaBlocks.register("anthracite_wall_torch", properties -> new WallTorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 14));
 
 	public static final DeferredHolder<Block, Block> LAUREL_CHERRY_CAKE = IcariaBlocks.register("laurel_cherry_cake", properties -> new IcariaCakeBlock(true, 600, IcariaMobEffects.LIFESTEAL, properties), IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL));
 	public static final DeferredHolder<Block, Block> STRAWBERRY_CAKE = IcariaBlocks.register("strawberry_cake", properties -> new IcariaCakeBlock(false, 600, MobEffects.FIRE_RESISTANCE, properties), IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL));
@@ -902,7 +902,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesCrystal(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).lightLevel((pBlockState) -> 6).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).lightLevel(blockState -> 6).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesAristone(MapColor pMapColor, SoundType pSoundType) {
@@ -1114,11 +1114,11 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesFire(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).lightLevel((pBlockState) -> 15).instabreak().noCollission().noTerrainParticles().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).lightLevel(blockState -> 15).instabreak().noCollission().noTerrainParticles().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesPortal(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel((pBlockState) -> 11).noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel(blockState -> 11).noCollission().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesNone() {

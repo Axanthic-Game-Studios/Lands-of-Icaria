@@ -69,7 +69,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 			if (pServerLevel.getBlockState(blockPos).is(this)) {
 				var blockPosAbove = blockPos.above();
 				if (pServerLevel.getBlockState(blockPosAbove).isAir()) {
-					pServerLevel.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(IcariaPlacedFeatures.CALCITE_DUST).ifPresent((reference) -> reference.value().place(pServerLevel, pServerLevel.getChunkSource().getGenerator(), pRandomSource, blockPosAbove));
+					pServerLevel.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(IcariaPlacedFeatures.CALCITE_DUST).ifPresent(reference -> reference.value().place(pServerLevel, pServerLevel.getChunkSource().getGenerator(), pRandomSource, blockPosAbove));
 				}
 			}
 		}

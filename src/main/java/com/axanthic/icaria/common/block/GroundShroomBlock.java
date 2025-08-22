@@ -43,7 +43,7 @@ public class GroundShroomBlock extends Block {
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		var aabb = AABB.ofSize(pBlockPos.getCenter(), 9, 3, 9);
 		var blockPos = pBlockPos.offset(pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1);
-		if (pServerLevel.getBlockStates(aabb).toList().stream().filter((blockState) -> blockState.is(this)).count() < 5) {
+		if (pServerLevel.getBlockStates(aabb).toList().stream().filter(blockState -> blockState.is(this)).count() < 5) {
 			if (pServerLevel.getBlockState(blockPos).isAir()) {
 				if (pBlockState.canSurvive(pServerLevel, blockPos)) {
 					if (pRandomSource.nextInt(25) == 0) {

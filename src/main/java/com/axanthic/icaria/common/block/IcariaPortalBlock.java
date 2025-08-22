@@ -216,7 +216,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	}
 
 	public BlockUtil.FoundRectangle rectangle(Direction.Axis pAxis, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
-		return BlockUtil.getLargestRectangleAround(pBlockPos, pAxis, 21, Direction.Axis.Y, 21, (blockPos) -> pServerLevel.getBlockState(blockPos) == pBlockState);
+		return BlockUtil.getLargestRectangleAround(pBlockPos, pAxis, 21, Direction.Axis.Y, 21, blockPos -> pServerLevel.getBlockState(blockPos) == pBlockState);
 	}
 
 	public BlockUtil.FoundRectangle portalRectangle(Optional<BlockPos> pOptional, BlockPos pEntrance, BlockPos pExit, Entity pEntity, ServerLevel pServerLevel) {
@@ -235,7 +235,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 		var i = 128;
 		var poiManager = pServerLevel.getPoiManager();
 		poiManager.ensureLoadedAndValid(pServerLevel, pBlockPos, i);
-		return poiManager.getInSquare((holder) -> holder.is(IcariaPoiTypes.ICARIA_PORTAL), pBlockPos, i, PoiManager.Occupancy.ANY).map(PoiRecord::getPos).filter(pWorldBorder::isWithinBounds).filter((blockPos) -> pServerLevel.getBlockState(blockPos).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).min(Comparator.<BlockPos>comparingDouble((blockPos) -> blockPos.distSqr(pBlockPos)).thenComparingInt(Vec3i::getY));
+		return poiManager.getInSquare(holder -> holder.is(IcariaPoiTypes.ICARIA_PORTAL), pBlockPos, i, PoiManager.Occupancy.ANY).map(PoiRecord::getPos).filter(pWorldBorder::isWithinBounds).filter(blockPos -> pServerLevel.getBlockState(blockPos).hasProperty(BlockStateProperties.HORIZONTAL_AXIS)).min(Comparator.<BlockPos>comparingDouble(blockPos -> blockPos.distSqr(pBlockPos)).thenComparingInt(Vec3i::getY));
 	}
 
 	public Optional<BlockUtil.FoundRectangle> createPortal(Direction.Axis pAxis, BlockPos pBlockPos, ServerLevel pServerLevel) {
@@ -290,7 +290,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	}
 
 	public TeleportTransition.PostTeleportTransition postTeleportTransition(Optional<BlockPos> pOptional) {
-		return pOptional.map(blockPos -> TeleportTransition.PLAY_PORTAL_SOUND.then((entity) -> entity.placePortalTicket(blockPos))).orElseGet(() -> TeleportTransition.PLAY_PORTAL_SOUND.then(TeleportTransition.PLACE_PORTAL_TICKET));
+		return pOptional.map(blockPos -> TeleportTransition.PLAY_PORTAL_SOUND.then(entity -> entity.placePortalTicket(blockPos))).orElseGet(() -> TeleportTransition.PLAY_PORTAL_SOUND.then(TeleportTransition.PLACE_PORTAL_TICKET));
 	}
 
 	@Nullable

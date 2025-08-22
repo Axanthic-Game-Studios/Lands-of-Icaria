@@ -171,6 +171,6 @@ public class IcariaEntityLootSubProvider extends EntityLootSubProvider {
 
 	@Override
 	public Stream<EntityType<?>> getKnownEntityTypes() {
-		return BuiltInRegistries.ENTITY_TYPE.stream().filter((entityType) -> BuiltInRegistries.ENTITY_TYPE.getKey(entityType).getNamespace().equals(IcariaIdents.ID));
+		return BuiltInRegistries.ENTITY_TYPE.stream().filter(entityType -> BuiltInRegistries.ENTITY_TYPE.getKey(entityType).getNamespace().equals(IcariaIdents.ID));
 	}
 }

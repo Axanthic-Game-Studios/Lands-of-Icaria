@@ -990,7 +990,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
-		return BuiltInRegistries.BLOCK.stream().filter((block) -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(IcariaIdents.ID)).collect(Collectors.toList());
+		return BuiltInRegistries.BLOCK.stream().filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(IcariaIdents.ID)).collect(Collectors.toList());
 	}
 
 	public LootItemCondition.Builder noShears() {

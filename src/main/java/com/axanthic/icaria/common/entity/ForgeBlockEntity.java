@@ -313,7 +313,7 @@ public class ForgeBlockEntity extends BlockEntity {
 		var arrayList = new ArrayList<RecipeHolder<?>>();
 		for (var entry : this.recipes.reference2IntEntrySet()) {
 			pServerLevel.recipeAccess().byKey(entry.getKey()).ifPresent(
-				(recipeHolder) -> {
+				recipeHolder -> {
 					arrayList.add(recipeHolder);
 					if (recipeHolder.value() instanceof ForgingRecipe forgingRecipe) {
 						ExperienceOrb.award(pServerLevel, Vec3.atCenterOf(pBlockPos), Mth.ceil(entry.getIntValue() * forgingRecipe.experience()));
