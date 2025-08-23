@@ -26,6 +26,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 	// ITEMS
 
+	public static final TagKey<Item> ARACHNE_STRING_BLOCKS = IcariaItemTagsProvider.cKey("arachne_string_blocks");
+	public static final TagKey<Item> ARACHNE_STRING_CARPETS = IcariaItemTagsProvider.cKey("arachne_string_carpets");
+
 	public static final TagKey<Item> CROPS_SPELT = IcariaItemTagsProvider.cKey("crops/spelt");
 	public static final TagKey<Item> CROPS_STRAWBERRIES = IcariaItemTagsProvider.cKey("crops/strawberries");
 	public static final TagKey<Item> CROPS_PHYSALIS = IcariaItemTagsProvider.cKey("crops/physalis");
@@ -89,6 +92,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	public static final TagKey<Item> SEEDS_STRAWBERRY = IcariaItemTagsProvider.cKey("seeds/strawberry");
 	public static final TagKey<Item> SEEDS_PHYSALIS = IcariaItemTagsProvider.cKey("seeds/physalis");
 	public static final TagKey<Item> SEEDS_ONION = IcariaItemTagsProvider.cKey("seeds/onion");
+
+	public static final TagKey<Item> STORAGE_VASES = IcariaItemTagsProvider.cKey("storage_vases");
 
 	public static final TagKey<Item> TOOL_MATERIALS_CHERT = IcariaItemTagsProvider.icariaKey("tool_materials/chert");
 	public static final TagKey<Item> TOOL_MATERIALS_CHALKOS = IcariaItemTagsProvider.icariaKey("tool_materials/chalkos");
@@ -809,6 +814,44 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_BIDENT.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
 
+		this.tag(IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS)
+			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.RED_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get())
+			.add(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get());
+
+		this.tag(IcariaItemTagsProvider.ARACHNE_STRING_CARPETS)
+			.add(IcariaItems.ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.RED_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())
+			.add(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
+
 		this.tag(IcariaItemTagsProvider.CROPS_SPELT)
 			.add(IcariaItems.SPELT.get());
 
@@ -979,6 +1022,25 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 		this.tag(IcariaItemTagsProvider.SEEDS_ONION)
 			.add(IcariaItems.ONION.get());
+
+		this.tag(IcariaItemTagsProvider.STORAGE_VASES)
+			.add(IcariaItems.UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.RED_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.LIME_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get())
+			.add(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
 
 		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_CHERT)
 			.add(IcariaItems.CHERT.get());

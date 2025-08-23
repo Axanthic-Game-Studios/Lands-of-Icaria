@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:purple_dye",
+    "#c:arachne_string_blocks"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:purple_arachne_string_block"
+  }
+}

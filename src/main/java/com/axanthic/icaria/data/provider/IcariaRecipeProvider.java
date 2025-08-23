@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaPotions;
+import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -107,6 +108,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.target();
 		this.tnt();
 		this.vanadiumsteelChain();
+		this.dyeing();
 		this.shapeless();
 		this.mossy();
 		this.planks();
@@ -1325,6 +1327,57 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.trough(1, IcariaItems.POPULUS_TROUGH.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 	}
 
+	public void dyeing() {
+		this.dyeing(1, IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get(), Items.WHITE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), Items.LIGHT_GRAY_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get(), Items.GRAY_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get(), Items.BLACK_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get(), Items.BROWN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.RED_ARACHNE_STRING_BLOCK.get(), Items.RED_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get(), Items.ORANGE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get(), Items.YELLOW_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.LIME_ARACHNE_STRING_BLOCK.get(), Items.LIME_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get(), Items.GREEN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get(), Items.CYAN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), Items.LIGHT_BLUE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get(), Items.BLUE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get(), Items.PURPLE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get(), Items.MAGENTA_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.PINK_ARACHNE_STRING_BLOCK.get(), Items.PINK_DYE, IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS);
+		this.dyeing(1, IcariaItems.WHITE_ARACHNE_STRING_CARPET.get(), Items.WHITE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), Items.LIGHT_GRAY_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.GRAY_ARACHNE_STRING_CARPET.get(), Items.GRAY_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.BLACK_ARACHNE_STRING_CARPET.get(), Items.BLACK_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.BROWN_ARACHNE_STRING_CARPET.get(), Items.BROWN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.RED_ARACHNE_STRING_CARPET.get(), Items.RED_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get(), Items.ORANGE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get(), Items.YELLOW_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.LIME_ARACHNE_STRING_CARPET.get(), Items.LIME_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.GREEN_ARACHNE_STRING_CARPET.get(), Items.GREEN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.CYAN_ARACHNE_STRING_CARPET.get(), Items.CYAN_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), Items.LIGHT_BLUE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.BLUE_ARACHNE_STRING_CARPET.get(), Items.BLUE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), Items.PURPLE_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), Items.MAGENTA_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), Items.PINK_DYE, IcariaItemTagsProvider.ARACHNE_STRING_CARPETS);
+		this.dyeing(1, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), Items.WHITE_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), Items.LIGHT_GRAY_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), Items.GRAY_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get(), Items.BLACK_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get(), Items.BROWN_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.RED_UNFIRED_STORAGE_VASE.get(), Items.RED_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get(), Items.ORANGE_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get(), Items.YELLOW_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get(), Items.LIME_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get(), Items.GREEN_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get(), Items.CYAN_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get(), Items.LIGHT_BLUE_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get(), Items.BLUE_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), Items.PURPLE_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), Items.MAGENTA_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+		this.dyeing(1, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), Items.PINK_DYE, IcariaItemTagsProvider.STORAGE_VASES);
+	}
+
 	public void shapeless() {
 		this.shapeless(1, Items.BLACK_DYE, IcariaItems.VOIDLILY.get());
 		this.shapeless(1, Items.BLUE_DYE, IcariaItems.BLUE_HYDRACINTH.get());
@@ -1367,38 +1420,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shapeless(1, IcariaItems.OLIVE_BUTTON.get(), IcariaItems.OLIVE_PLANKS.get());
 		this.shapeless(1, IcariaItems.PLANE_BUTTON.get(), IcariaItems.PLANE_PLANKS.get());
 		this.shapeless(1, IcariaItems.POPULUS_BUTTON.get(), IcariaItems.POPULUS_PLANKS.get());
-		this.shapeless(1, IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get(), Items.WHITE_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), Items.LIGHT_GRAY_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get(), Items.GRAY_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get(), Items.BLACK_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get(), Items.BROWN_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.RED_ARACHNE_STRING_BLOCK.get(), Items.RED_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get(), Items.ORANGE_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get(), Items.YELLOW_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.LIME_ARACHNE_STRING_BLOCK.get(), Items.LIME_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get(), Items.GREEN_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get(), Items.CYAN_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), Items.LIGHT_BLUE_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get(), Items.BLUE_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get(), Items.PURPLE_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get(), Items.MAGENTA_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.PINK_ARACHNE_STRING_BLOCK.get(), Items.PINK_DYE, IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.shapeless(1, IcariaItems.WHITE_ARACHNE_STRING_CARPET.get(), Items.WHITE_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), Items.LIGHT_GRAY_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.GRAY_ARACHNE_STRING_CARPET.get(), Items.GRAY_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.BLACK_ARACHNE_STRING_CARPET.get(), Items.BLACK_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.BROWN_ARACHNE_STRING_CARPET.get(), Items.BROWN_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.RED_ARACHNE_STRING_CARPET.get(), Items.RED_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get(), Items.ORANGE_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get(), Items.YELLOW_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.LIME_ARACHNE_STRING_CARPET.get(), Items.LIME_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.GREEN_ARACHNE_STRING_CARPET.get(), Items.GREEN_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.CYAN_ARACHNE_STRING_CARPET.get(), Items.CYAN_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), Items.LIGHT_BLUE_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.BLUE_ARACHNE_STRING_CARPET.get(), Items.BLUE_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), Items.PURPLE_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), Items.MAGENTA_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
-		this.shapeless(1, IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), Items.PINK_DYE, IcariaItems.ARACHNE_STRING_CARPET.get());
 		this.shapeless(4, IcariaItems.LOAM_LUMP.get(), IcariaItems.LOAM.get());
 		this.shapeless(9, IcariaItems.CHERT.get(), IcariaItems.CHERT_BLOCK.get());
 		this.shapeless(9, IcariaItems.ENDER_JELLYFISH_JELLY.get(), IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
@@ -1441,22 +1462,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shapeless(9, IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.MOLYBDENUM_BLOCK.get());
 		this.shapeless(9, IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.MOLYBDENUMSTEEL_BLOCK.get());
 		this.shapeless(9, IcariaItems.BLURIDIUM_INGOT.get(), IcariaItems.BLURIDIUM_BLOCK.get());
-		this.shapeless(1, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), Items.WHITE_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), Items.LIGHT_GRAY_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), Items.GRAY_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get(), Items.BLACK_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get(), Items.BROWN_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.RED_UNFIRED_STORAGE_VASE.get(), Items.RED_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get(), Items.ORANGE_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get(), Items.YELLOW_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.LIME_UNFIRED_STORAGE_VASE.get(), Items.LIME_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get(), Items.GREEN_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get(), Items.CYAN_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get(), Items.LIGHT_BLUE_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get(), Items.BLUE_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get(), Items.PURPLE_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get(), Items.MAGENTA_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
-		this.shapeless(1, IcariaItems.PINK_UNFIRED_STORAGE_VASE.get(), Items.PINK_DYE, IcariaItems.UNFIRED_STORAGE_VASE.get());
 		this.shapeless(1, IcariaItems.ANTI_GRAVITY_FLASK.get(), IcariaItems.ANTI_GRAVITY_SPELL.get(), IcariaItems.EMPTY_FLASK.get());
 		this.shapeless(1, IcariaItems.FORTIFYING_FLASK.get(), IcariaItems.FORTIFYING_SPELL.get(), IcariaItems.EMPTY_FLASK.get());
 		this.shapeless(1, IcariaItems.HEALING_FLASK.get(), IcariaItems.HEALING_SPELL.get(), IcariaItems.EMPTY_FLASK.get());
@@ -2281,6 +2286,15 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(IcariaItems.VANADIUMSTEEL_NUGGET.get()), this.has(IcariaItems.VANADIUMSTEEL_NUGGET.get()))
 			.unlockedBy(this.name(IcariaItems.VANADIUMSTEEL_INGOT.get()), this.has(IcariaItems.VANADIUMSTEEL_INGOT.get()))
 			.save(this.output, this.key(IcariaItems.VANADIUMSTEEL_CHAIN.get()));
+	}
+
+	public void dyeing(int pAmount, Item pResult, Item pResourceA, TagKey<Item> pResourceB) {
+		this.shapeless(RecipeCategory.MISC, pResult, pAmount)
+			.requires(pResourceA)
+			.requires(pResourceB)
+			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
+			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
+			.save(this.output, this.key("dyeing", pResult));
 	}
 
 	public void shapeless(int pAmount, Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {

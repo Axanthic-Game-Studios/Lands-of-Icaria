@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:lime_dye",
+    "#c:storage_vases"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:lime_unfired_storage_vase"
+  }
+}

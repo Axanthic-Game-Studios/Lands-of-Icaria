@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:light_gray_dye",
+    "#c:storage_vases"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:light_gray_unfired_storage_vase"
+  }
+}

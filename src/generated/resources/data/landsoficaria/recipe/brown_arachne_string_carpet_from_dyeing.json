@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:brown_dye",
+    "#c:arachne_string_carpets"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:brown_arachne_string_carpet"
+  }
+}

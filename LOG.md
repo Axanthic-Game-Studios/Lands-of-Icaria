@@ -11,6 +11,7 @@ Additions
 
 Updates
 
+- Unfired Storage Vases that have been colored already can be recolored now
 - Surface Lignite can be set on Fire now
 - Surface Lignite, Twigs, Palm Ferns and Moss can ignite from Lava now
 - Spelt Bale Blocks no longer ignite from Lava to be in line with vanilla Hay Bale Blocks

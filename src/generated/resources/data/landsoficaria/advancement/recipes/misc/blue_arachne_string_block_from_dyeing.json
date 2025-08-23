@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_TagKey[minecraft:item / c:arachne_string_blocks]": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:arachne_string_blocks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_minecraft:blue_dye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:blue_dye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:blue_arachne_string_block_from_dyeing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:blue_dye",
+      "has_TagKey[minecraft:item / c:arachne_string_blocks]"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:blue_arachne_string_block_from_dyeing"
+    ]
+  }
+}
