@@ -80,7 +80,7 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	public boolean canAddItems(ServerLevel pServerLevel, int pSlot) {
-		return this.getStack(pServerLevel).getItem() == this.simpleContainer.getItem(pSlot).getItem() || this.simpleContainer.getItem(pSlot).isEmpty();
+		return this.getStack(pServerLevel).getItem() == this.simpleContainer.getItem(pSlot).getItem() && this.simpleContainer.getItem(pSlot).isStackable() || this.simpleContainer.getItem(pSlot).isEmpty();
 	}
 
 	public boolean canAddStack(ServerLevel pServerLevel, int pSlot) {
