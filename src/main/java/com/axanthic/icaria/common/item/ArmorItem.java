@@ -12,15 +12,15 @@ import net.minecraft.world.item.equipment.ArmorType;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaArmorItem extends Item {
+public class ArmorItem extends Item {
 	public boolean walkablePowderedSnow;
 
-	public IcariaArmorItem(ArmorMaterial pArmorMaterial, ArmorType pArmorType, boolean pWalkablePowderedSnow, int pDurabilityMultiplier, Properties pProperties) {
+	public ArmorItem(ArmorMaterial pArmorMaterial, ArmorType pArmorType, boolean pWalkablePowderedSnow, int pDurabilityMultiplier, Properties pProperties) {
 		super(pProperties.durability(pArmorType.getDurability(pDurabilityMultiplier)).humanoidArmor(pArmorMaterial, pArmorType));
 		this.walkablePowderedSnow = pWalkablePowderedSnow;
 	}
 
-	public IcariaArmorItem(ArmorMaterial pArmorMaterial, ArmorType pArmorType, boolean pWalkablePowderedSnow, Properties pProperties) {
+	public ArmorItem(ArmorMaterial pArmorMaterial, ArmorType pArmorType, boolean pWalkablePowderedSnow, Properties pProperties) {
 		super(pProperties.humanoidArmor(pArmorMaterial, pArmorType));
 		this.walkablePowderedSnow = pWalkablePowderedSnow;
 	}

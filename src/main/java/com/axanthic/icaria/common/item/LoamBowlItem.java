@@ -10,8 +10,8 @@ import net.minecraft.world.item.Item;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ConcoctionFlaskItem extends Item {
-	public ConcoctionFlaskItem(Properties pProperties) {
-		super(pProperties.usingConvertsTo(IcariaItems.EMPTY_FLASK.get()));
+public class LoamBowlItem extends Item {
+	public LoamBowlItem(Properties pProperties) {
+		super(pProperties.craftRemainder(IcariaItems.LOAM_BOWL.get()).usingConvertsTo(IcariaItems.LOAM_BOWL.get()));
 	}
 }

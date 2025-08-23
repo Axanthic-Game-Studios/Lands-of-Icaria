@@ -18,7 +18,7 @@ import net.minecraft.world.item.context.UseOnContext;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HyliastrumVialItem extends Item {
+public class HyliastrumVialItem extends VialItem {
 	public HyliastrumVialItem(Properties pProperties) {
 		super(pProperties);
 	}

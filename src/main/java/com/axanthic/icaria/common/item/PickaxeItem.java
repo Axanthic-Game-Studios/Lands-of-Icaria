@@ -9,8 +9,8 @@ import net.minecraft.world.item.ToolMaterial;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaSwordItem extends Item {
-	public IcariaSwordItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed, Properties pProperties) {
-		super(pProperties.sword(pToolMaterial, pAttackDamage, pAttackSpeed));
+public class PickaxeItem extends Item {
+	public PickaxeItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed, Properties pProperties) {
+		super(pProperties.pickaxe(pToolMaterial, pAttackDamage, pAttackSpeed));
 	}
 }

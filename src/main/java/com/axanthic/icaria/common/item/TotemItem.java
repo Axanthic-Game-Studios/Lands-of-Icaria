@@ -10,8 +10,8 @@ import net.minecraft.world.item.Item;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaBowlFoodItem extends Item {
-	public IcariaBowlFoodItem(Properties pProperties) {
-		super(pProperties.usingConvertsTo(IcariaItems.LOAM_BOWL.get()));
+public class TotemItem extends Item {
+	public TotemItem(Properties pProperties) {
+		super(pProperties.repairable(IcariaItems.BLURIDIUM_NUGGET.get()));
 	}
 }

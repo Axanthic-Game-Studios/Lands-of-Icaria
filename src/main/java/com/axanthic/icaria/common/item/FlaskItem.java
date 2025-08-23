@@ -10,8 +10,8 @@ import net.minecraft.world.item.Item;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaTotemItem extends Item {
-	public IcariaTotemItem(Properties pProperties) {
-		super(pProperties.repairable(IcariaItems.BLURIDIUM_NUGGET.get()));
+public class FlaskItem extends Item {
+	public FlaskItem(Properties pProperties) {
+		super(pProperties.craftRemainder(IcariaItems.EMPTY_FLASK.get()).usingConvertsTo(IcariaItems.EMPTY_FLASK.get()));
 	}
 }
