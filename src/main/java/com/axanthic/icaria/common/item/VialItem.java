@@ -12,6 +12,6 @@ import net.minecraft.world.item.Item;
 
 public class VialItem extends Item {
 	public VialItem(Properties pProperties) {
-		super(pProperties.craftRemainder(IcariaItems.EMPTY_VIAL.get()).usingConvertsTo(IcariaItems.EMPTY_VIAL.get()));
+		super(pProperties.craftRemainder(IcariaItems.EMPTY_VIAL.get()));
 	}
 }

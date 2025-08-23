@@ -11,6 +11,9 @@ Additions
 
 Updates
 
+- Surface Lignite can be set on Fire now
+- Surface Lignite, Twigs, Palm Ferns and Moss can ignite from Lava now
+- Spelt Bale Blocks no longer ignite from Lava to be in line with vanilla Hay Bale Blocks
 - Strawberry Bushes can be composted now
 - Vine Reeds can be composted with a Chance of 65 % instead of 50 % now
 - several previously unburnable Items can be uses as Fuel now, this is true for all Types of Barrel Racks and Vine Reeds

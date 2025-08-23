@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.FireBlock;
 public class IcariaFlammables {
 
 	public static void setup() {
+		IcariaFlammables.set(IcariaBlocks.SURFACE_LIGNITE.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), 30, 60);
@@ -204,9 +205,9 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.RED_GROUND_FLOWERS.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.WHITE_GROUND_FLOWERS.get(), 60, 100);
-		IcariaFlammables.set(IcariaBlocks.FOREST_MOSS.get(), 60, 20);
-		IcariaFlammables.set(IcariaBlocks.SCRUBLAND_MOSS.get(), 60, 20);
-		IcariaFlammables.set(IcariaBlocks.STEPPE_MOSS.get(), 60, 20);
+		IcariaFlammables.set(IcariaBlocks.FOREST_MOSS.get(), 5, 100);
+		IcariaFlammables.set(IcariaBlocks.SCRUBLAND_MOSS.get(), 5, 100);
+		IcariaFlammables.set(IcariaBlocks.STEPPE_MOSS.get(), 5, 100);
 		IcariaFlammables.set(IcariaBlocks.PALM_FERN.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.WHITE_BROMELIA.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.ORANGE_BROMELIA.get(), 60, 100);
