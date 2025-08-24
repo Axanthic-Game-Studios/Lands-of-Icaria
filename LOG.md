@@ -11,6 +11,7 @@ Additions
 
 Updates
 
+- Jellyfish Jelly Blocks and Spawners use updated Sounds now
 - Unfired Storage Vases that have been colored already can be recolored now
 - Surface Lignite can be set on Fire now
 - Surface Lignite, Twigs, Palm Ferns and Moss can ignite from Lava now
@@ -27,8 +28,9 @@ Updates
 
 Fixes
 
+- Loam Brick Slabs, Stairs and Walls were using Grass instead of Stone Sounds
 - Workstations, including the Forge, Grinder, Kiln and Kettle, were consuming but not yielding an Item, when the Result Item has a maximum Stack Size of 1
-- Triple Barrel Racks do not drop Loot when the lower right or upper Barrel is broken, only when the lower left Barrel is broken
+- Triple Barrel Racks did not drop Loot when the lower right or upper Barrel was broken, only when the lower left Barrel was broken
 
 Removals
 
