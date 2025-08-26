@@ -45,6 +45,16 @@ public class SizedFlyingMobEntity extends Mob {
 		return this.getSize() < this.maxSize;
 	}
 
+	@Override
+	public boolean shouldDropExperience() {
+		return true;
+	}
+
+	@Override
+	public boolean shouldDropLoot() {
+		return true;
+	}
+
 	public float getSizeForHitbox() {
 		return this.getSize() * this.hitboxMult;
 	}

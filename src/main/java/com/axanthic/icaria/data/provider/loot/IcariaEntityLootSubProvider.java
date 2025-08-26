@@ -65,13 +65,13 @@ public class IcariaEntityLootSubProvider extends EntityLootSubProvider {
 	public void dropItemPlusScnd() {
 		this.dropItemPlusScnd(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
 		this.dropItemPlusScnd(IcariaEntityTypes.OVERGROWN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE, IcariaItems.CALCITE_SHARD.get());
+		this.dropItemPlusScnd(IcariaEntityTypes.CRYSTAL_SLUG.get(), IcariaItems.SLUG_SCALES.get(), IcariaItems.JASPER_SHARD.get());
 		this.dropItemPlusScnd(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.SNULL_CREAM.get(), IcariaItems.MOTH_AGARIC.get());
 	}
 
 	public void dropItemPlusScndPlusThrd() {
 		this.dropItemPlusScndPlusThrd(IcariaEntityTypes.PYROMANCER_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE, IcariaItems.GREENPOWDER.get(), IcariaItems.GREEK_FIRE_GRENADE.get());
 		this.dropItemPlusScndPlusThrd(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE, IcariaItems.GREENPOWDER.get(), IcariaItems.GREEK_FIRE_GRENADE.get());
-		this.dropItemPlusScndPlusThrd(IcariaEntityTypes.CRYSTAL_SLUG.get(), IcariaItems.SNULL_CREAM.get(), IcariaItems.SLUG_SCALES.get(), IcariaItems.JASPER_SHARD.get());
 	}
 
 	public void dropItemWithCookFunc() {

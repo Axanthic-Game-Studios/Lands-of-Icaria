@@ -101,6 +101,16 @@ public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
 		return false;
 	}
 
+	@Override
+	public boolean shouldDropExperience() {
+		return this.getSize() == this.maxSize;
+	}
+
+	@Override
+	public boolean shouldDropLoot() {
+		return this.getSize() == this.maxSize;
+	}
+
 	public int age(int pAge) {
 		if (this.getTick() < 16000) {
 			return Math.min(this.getTick() + pAge, 16000);
