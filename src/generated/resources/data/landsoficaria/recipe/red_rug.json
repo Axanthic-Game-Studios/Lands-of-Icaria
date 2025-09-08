@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": "landsoficaria:arachne_string",
-    "B": "landsoficaria:orange_arachne_string_carpet"
+    "B": "landsoficaria:red_arachne_string_carpet"
   },
   "pattern": [
     "ABA",
@@ -12,6 +12,6 @@
   ],
   "result": {
     "count": 1,
-    "id": "landsoficaria:orange_rug"
+    "id": "landsoficaria:red_rug"
   }
 }

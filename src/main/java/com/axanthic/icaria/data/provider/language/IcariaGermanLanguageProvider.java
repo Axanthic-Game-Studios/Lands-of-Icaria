@@ -966,7 +966,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaItems.BROWN_RUG.get(), "Brauner Läufer");
 		this.add(IcariaItems.GREEN_RUG.get(), "Grüner Läufer");
-		this.add(IcariaItems.ORANGE_RUG.get(), "Oranger Läufer");
+		this.add(IcariaItems.RED_RUG.get(), "Roter Läufer");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Knochenreste");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Lehmklumpen");

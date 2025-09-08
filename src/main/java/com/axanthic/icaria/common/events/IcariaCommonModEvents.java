@@ -906,7 +906,7 @@ public class IcariaCommonModEvents {
 
 			pEvent.accept(IcariaItems.BROWN_RUG.get());
 			pEvent.accept(IcariaItems.GREEN_RUG.get());
-			pEvent.accept(IcariaItems.ORANGE_RUG.get());
+			pEvent.accept(IcariaItems.RED_RUG.get());
 
 			pEvent.accept(IcariaItems.BONE_REMAINS.get());
 			pEvent.accept(IcariaItems.LOAM_LUMP.get());

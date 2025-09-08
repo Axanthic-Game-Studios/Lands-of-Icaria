@@ -966,7 +966,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaItems.BROWN_RUG.get(), "Brown Rug");
 		this.add(IcariaItems.GREEN_RUG.get(), "Green Rug");
-		this.add(IcariaItems.ORANGE_RUG.get(), "Orange Rug");
+		this.add(IcariaItems.RED_RUG.get(), "Red Rug");
 
 		this.add(IcariaItems.BONE_REMAINS.get(), "Bone Remains");
 		this.add(IcariaItems.LOAM_LUMP.get(), "Loam Lump");

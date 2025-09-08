@@ -703,7 +703,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PAINTING.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROWN_RUG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GREEN_RUG.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.ORANGE_RUG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.RED_RUG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BONE_REMAINS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOAM_LUMP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOAM_BRICK.get(), pItemModelGenerators);

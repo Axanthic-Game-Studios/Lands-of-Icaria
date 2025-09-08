@@ -25,7 +25,7 @@ public class IcariaPaintingVariantTagsProvider extends PaintingVariantTagsProvid
 	public static final TagKey<PaintingVariant> PAINTINGS = IcariaPaintingVariantTagsProvider.icariaKey("paintings");
 	public static final TagKey<PaintingVariant> BROWN_RUGS = IcariaPaintingVariantTagsProvider.icariaKey("brown_rugs");
 	public static final TagKey<PaintingVariant> GREEN_RUGS = IcariaPaintingVariantTagsProvider.icariaKey("green_rugs");
-	public static final TagKey<PaintingVariant> ORANGE_RUGS = IcariaPaintingVariantTagsProvider.icariaKey("orange_rugs");
+	public static final TagKey<PaintingVariant> RED_RUGS = IcariaPaintingVariantTagsProvider.icariaKey("red_rugs");
 
 	public IcariaPaintingVariantTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
 		super(pPackOutput, pProvider, pId);
@@ -63,15 +63,15 @@ public class IcariaPaintingVariantTagsProvider extends PaintingVariantTagsProvid
 			.add(IcariaPaintingVariants.GREEN_RUG_3_X_3)
 			.add(IcariaPaintingVariants.GREEN_RUG_3_X_4);
 
-		this.tag(IcariaPaintingVariantTagsProvider.ORANGE_RUGS)
-			.add(IcariaPaintingVariants.ORANGE_RUG_1_X_2)
-			.add(IcariaPaintingVariants.ORANGE_RUG_1_X_3)
-			.add(IcariaPaintingVariants.ORANGE_RUG_1_X_4)
-			.add(IcariaPaintingVariants.ORANGE_RUG_2_X_2)
-			.add(IcariaPaintingVariants.ORANGE_RUG_2_X_3)
-			.add(IcariaPaintingVariants.ORANGE_RUG_2_X_4)
-			.add(IcariaPaintingVariants.ORANGE_RUG_3_X_3)
-			.add(IcariaPaintingVariants.ORANGE_RUG_3_X_4);
+		this.tag(IcariaPaintingVariantTagsProvider.RED_RUGS)
+			.add(IcariaPaintingVariants.RED_RUG_1_X_2)
+			.add(IcariaPaintingVariants.RED_RUG_1_X_3)
+			.add(IcariaPaintingVariants.RED_RUG_1_X_4)
+			.add(IcariaPaintingVariants.RED_RUG_2_X_2)
+			.add(IcariaPaintingVariants.RED_RUG_2_X_3)
+			.add(IcariaPaintingVariants.RED_RUG_2_X_4)
+			.add(IcariaPaintingVariants.RED_RUG_3_X_3)
+			.add(IcariaPaintingVariants.RED_RUG_3_X_4);
 	}
 
 	@Override

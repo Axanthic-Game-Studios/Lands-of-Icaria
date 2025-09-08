@@ -754,7 +754,7 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> BROWN_RUG = IcariaItems.register("brown_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.BROWN_RUGS, properties), IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> GREEN_RUG = IcariaItems.register("green_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.GREEN_RUGS, properties), IcariaItems.propertiesItem());
-	public static final DeferredHolder<Item, Item> ORANGE_RUG = IcariaItems.register("orange_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.ORANGE_RUGS, properties), IcariaItems.propertiesItem());
+	public static final DeferredHolder<Item, Item> RED_RUG = IcariaItems.register("red_rug", properties -> new RugItem(IcariaPaintingVariantTagsProvider.RED_RUGS, properties), IcariaItems.propertiesItem());
 
 	public static final DeferredHolder<Item, Item> BONE_REMAINS = IcariaItems.register("bone_remains", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> LOAM_LUMP = IcariaItems.register("loam_lump", Item::new, IcariaItems.propertiesItem());

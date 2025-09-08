@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "landsoficaria:item/orange_rug"
+    "layer0": "landsoficaria:item/red_rug"
   }
 }

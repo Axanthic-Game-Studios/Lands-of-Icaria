@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_landsoficaria:orange_arachne_string_carpet": {
+    "has_landsoficaria:red_arachne_string_carpet": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:orange_arachne_string_carpet"
+            "items": "landsoficaria:red_arachne_string_carpet"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orange_rug"
+        "recipe": "landsoficaria:red_rug"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -32,12 +32,12 @@
     [
       "has_the_recipe",
       "has_landsoficaria:arachne_string",
-      "has_landsoficaria:orange_arachne_string_carpet"
+      "has_landsoficaria:red_arachne_string_carpet"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:orange_rug"
+      "landsoficaria:red_rug"
     ]
   }
 }

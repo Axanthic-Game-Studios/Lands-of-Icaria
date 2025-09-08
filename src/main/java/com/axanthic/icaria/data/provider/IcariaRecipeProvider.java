@@ -1212,7 +1212,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	public void rug() {
 		this.rug(1, IcariaItems.BROWN_RUG.get(), IcariaItems.BROWN_ARACHNE_STRING_CARPET.get());
 		this.rug(1, IcariaItems.GREEN_RUG.get(), IcariaItems.GREEN_ARACHNE_STRING_CARPET.get());
-		this.rug(1, IcariaItems.ORANGE_RUG.get(), IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get());
+		this.rug(1, IcariaItems.RED_RUG.get(), IcariaItems.RED_ARACHNE_STRING_CARPET.get());
 	}
 
 	public void scythe() {
