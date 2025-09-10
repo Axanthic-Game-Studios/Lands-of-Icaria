@@ -1668,6 +1668,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM, "Bluritspeicherblöcke");
 
 		this.add(IcariaPaintingVariantTagsProvider.PAINTINGS, "Gemälde");
+		this.add(IcariaPaintingVariantTagsProvider.BROWN_RUGS, "Braune Läufer");
+		this.add(IcariaPaintingVariantTagsProvider.GREEN_RUGS, "Grüne Läufer");
+		this.add(IcariaPaintingVariantTagsProvider.RED_RUGS, "Rote Läufer");
 
 		this.add(IcariaStructureTagsProvider.FOREST_VILLAGES, "Walddörfer");
 		this.add(IcariaStructureTagsProvider.SCRUBLAND_VILLAGES, "Buschlanddörfer");
