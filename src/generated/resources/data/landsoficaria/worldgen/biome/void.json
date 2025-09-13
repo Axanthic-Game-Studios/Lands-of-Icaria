@@ -13,38 +13,7 @@
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
-    "ambient": [
-      {
-        "type": "landsoficaria:ender_jellyfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:fire_jellyfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:nature_jellyfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:void_jellyfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:water_jellyfish",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      }
-    ],
+    "ambient": [],
     "axolotls": [],
     "creature": [],
     "misc": [],
@@ -74,6 +43,36 @@
         "maxCount": 15,
         "minCount": 5,
         "weight": 100
+      },
+      {
+        "type": "landsoficaria:ender_jellyfish",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 80
+      },
+      {
+        "type": "landsoficaria:fire_jellyfish",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 80
+      },
+      {
+        "type": "landsoficaria:nature_jellyfish",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 80
+      },
+      {
+        "type": "landsoficaria:void_jellyfish",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 80
+      },
+      {
+        "type": "landsoficaria:water_jellyfish",
+        "maxCount": 3,
+        "minCount": 1,
+        "weight": 80
       }
     ],
     "water_creature": []
