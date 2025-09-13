@@ -25,6 +25,10 @@ public class IcariaModelLayerLocations {
 	public static final ModelLayerLocation CERVER_SKULL = new ModelLayerLocation(IcariaResourceLocations.CERVER_SKULL_LAYER, "main");
 	public static final ModelLayerLocation CROCOTTA = new ModelLayerLocation(IcariaResourceLocations.CROCOTTA_LAYER, "main");
 	public static final ModelLayerLocation CROCOTTA_SKULL = new ModelLayerLocation(IcariaResourceLocations.CROCOTTA_SKULL_LAYER, "main");
+	public static final ModelLayerLocation FEESH = new ModelLayerLocation(IcariaResourceLocations.FEESH, "main");
+	public static final ModelLayerLocation FICHE = new ModelLayerLocation(IcariaResourceLocations.FICHE, "main");
+	public static final ModelLayerLocation FISSHH = new ModelLayerLocation(IcariaResourceLocations.FISSHH, "main");
+	public static final ModelLayerLocation FYSH = new ModelLayerLocation(IcariaResourceLocations.FYSH, "main");
 	public static final ModelLayerLocation CYPRESS_FOREST_HAG = new ModelLayerLocation(IcariaResourceLocations.CYPRESS_FOREST_HAG_LAYER, "main");
 	public static final ModelLayerLocation CYPRESS_FOREST_HAG_SKULL = new ModelLayerLocation(IcariaResourceLocations.CYPRESS_FOREST_HAG_SKULL_LAYER, "main");
 	public static final ModelLayerLocation DROUGHTROOT_FOREST_HAG = new ModelLayerLocation(IcariaResourceLocations.DROUGHTROOT_FOREST_HAG_LAYER, "main");

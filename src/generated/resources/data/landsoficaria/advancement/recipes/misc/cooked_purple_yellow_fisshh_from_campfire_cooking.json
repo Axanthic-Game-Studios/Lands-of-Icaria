@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_purple_yellow_fisshh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_purple_yellow_fisshh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_purple_yellow_fisshh_from_campfire_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_purple_yellow_fisshh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_purple_yellow_fisshh_from_campfire_cooking"
+    ]
+  }
+}

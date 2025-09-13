@@ -100,6 +100,10 @@ public class IcariaClientModEvents {
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CERVER_SKULL, CerverSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CROCOTTA, CrocottaModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CROCOTTA_SKULL, CrocottaSkullModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FEESH, FeeshModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FICHE, FicheModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FISSHH, FisshhModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FYSH, FyshModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CYPRESS_FOREST_HAG, CypressForestHagModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CYPRESS_FOREST_HAG_SKULL, CypressForestHagSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG, DroughtrootForestHagModel::createLayer);
@@ -296,6 +300,10 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CERVER.get(), CerverRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CROCOTTA.get(), CrocottaRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FEESH.get(), FeeshRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FICHE.get(), FicheRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FISSHH.get(), FisshhRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.FYSH.get(), FyshRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FLOATING_BLOCK.get(), FloatingBlockRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), ThrownItemRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), CypressForestHagRenderer::new);

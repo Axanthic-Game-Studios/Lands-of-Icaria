@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_brown_orange_feesh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_brown_orange_feesh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_brown_orange_feesh_from_campfire_cooking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_brown_orange_feesh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_brown_orange_feesh_from_campfire_cooking"
+    ]
+  }
+}

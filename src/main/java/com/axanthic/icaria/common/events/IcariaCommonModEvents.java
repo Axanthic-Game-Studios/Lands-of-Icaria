@@ -2,6 +2,10 @@ package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.variant.FeeshVariant;
+import com.axanthic.icaria.common.variant.FicheVariant;
+import com.axanthic.icaria.common.variant.FisshhVariant;
+import com.axanthic.icaria.common.variant.FyshVariant;
 import com.axanthic.icaria.data.IcariaRecipeRunner;
 import com.axanthic.icaria.data.provider.*;
 import com.axanthic.icaria.data.provider.advancement.IcariaAdvancementProvider;
@@ -10,6 +14,7 @@ import com.axanthic.icaria.data.provider.language.IcariaGermanLanguageProvider;
 import com.axanthic.icaria.data.provider.loot.IcariaLootTableProvider;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 import com.axanthic.icaria.data.provider.tags.*;
+import com.axanthic.icaria.data.registry.IcariaRegistries;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -27,6 +32,7 @@ import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
+import net.neoforged.neoforge.registries.DataPackRegistryEvent;
 
 @SuppressWarnings("unused")
 
@@ -51,6 +57,14 @@ public class IcariaCommonModEvents {
 	}
 
 	@SubscribeEvent
+	public static void onDataPackRegistry(DataPackRegistryEvent.NewRegistry pEvent) {
+		pEvent.dataPackRegistry(IcariaRegistries.FEESH_VARIANT, FeeshVariant.CODEC, FeeshVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistries.FICHE_VARIANT, FicheVariant.CODEC, FicheVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistries.FISSHH_VARIANT, FisshhVariant.CODEC, FisshhVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistries.FYSH_VARIANT, FyshVariant.CODEC, FyshVariant.CODEC);
+	}
+
+	@SubscribeEvent
 	public static void onEntityAttributeCreation(EntityAttributeCreationEvent pEvent) {
 		pEvent.put(IcariaEntityTypes.AETERNAE.get(), AeternaeEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.ARACHNE.get(), ArachneEntity.registerAttributes().build());
@@ -60,6 +74,10 @@ public class IcariaCommonModEvents {
 		pEvent.put(IcariaEntityTypes.CATOBLEPAS.get(), CatoblepasEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CERVER.get(), CerverEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CROCOTTA.get(), CrocottaEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FEESH.get(), FeeshEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FICHE.get(), FicheEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FISSHH.get(), FisshhEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.FYSH.get(), FyshEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FIR_FOREST_HAG.get(), ForestHagEntity.registerAttributes().build());
@@ -146,6 +164,10 @@ public class IcariaCommonModEvents {
 		pEvent.register(IcariaEntityTypes.CATOBLEPAS.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CatoblepasEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CERVER.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CerverEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CROCOTTA.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrocottaEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FEESH.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, FeeshEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FICHE.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, FicheEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FISSHH.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, FisshhEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.FYSH.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, FyshEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ForestHagEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
@@ -1116,6 +1138,54 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.COOKED_CROCOTTA_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_THOG_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_THOG_MEAT.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_GRAY_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_GRAY_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_BROWN_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_BROWN_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_BROWN_ORANGE_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_BROWN_ORANGE_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_PINK_RED_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_PINK_RED_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_PURPLE_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_PURPLE_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_RED_FEESH.get());
+			pEvent.accept(IcariaItems.COOKED_RED_FEESH.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_RED_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_RED_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_BROWN_CYAN_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_BROWN_CYAN_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_GRAY_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_GRAY_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_RED_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_RED_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_WHITE_YELLOW_FICHE.get());
+			pEvent.accept(IcariaItems.COOKED_WHITE_YELLOW_FICHE.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_BROWN_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_BROWN_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_RED_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_RED_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_BROWN_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_BROWN_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get());
+			pEvent.accept(IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_FYSH.get());
+			pEvent.accept(IcariaItems.RAW_BLUE_PURPLE_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_BLUE_PURPLE_FYSH.get());
+			pEvent.accept(IcariaItems.RAW_GRAY_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_GRAY_FYSH.get());
+			pEvent.accept(IcariaItems.RAW_RAINBOW_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_RAINBOW_FYSH.get());
+			pEvent.accept(IcariaItems.RAW_RED_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_RED_FYSH.get());
+			pEvent.accept(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+			pEvent.accept(IcariaItems.COOKED_RED_YELLOW_FYSH.get());
 			pEvent.accept(IcariaItems.CAPELLA_HORN.get());
 			pEvent.accept(IcariaItems.MYRMEKE_SCALES.get());
 			pEvent.accept(IcariaItems.SLUG_SCALES.get());
@@ -1142,6 +1212,10 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CATOBLEPAS_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CERVER_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CROCOTTA_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.FEESH_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.FICHE_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.FISSHH_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.FYSH_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.CYPRESS_FOREST_HAG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_FOREST_HAG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.FIR_FOREST_HAG_SPAWN_EGG.get());

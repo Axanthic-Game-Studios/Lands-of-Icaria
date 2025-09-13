@@ -39,6 +39,12 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 			.add(IcariaEntityTypes.SOLIFUGAE.get())
 			.add(IcariaEntityTypes.VINEGAR.get());
 
+		this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE)
+			.add(IcariaEntityTypes.FEESH.get())
+			.add(IcariaEntityTypes.FICHE.get())
+			.add(IcariaEntityTypes.FISSHH.get())
+			.add(IcariaEntityTypes.FYSH.get());
+
 		this.tag(EntityTypeTags.FOLLOWABLE_FRIENDLY_MOBS)
 			.add(IcariaEntityTypes.AETERNAE.get())
 			.add(IcariaEntityTypes.CAPELLA.get())

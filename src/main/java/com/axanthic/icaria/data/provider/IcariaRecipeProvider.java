@@ -130,6 +130,30 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
 		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_GRAY_FEESH.get(), IcariaItems.RAW_BLUE_GRAY_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BROWN_FEESH.get(), IcariaItems.RAW_BROWN_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BROWN_ORANGE_FEESH.get(), IcariaItems.RAW_BROWN_ORANGE_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_PINK_RED_FEESH.get(), IcariaItems.RAW_PINK_RED_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_PURPLE_FEESH.get(), IcariaItems.RAW_PURPLE_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_RED_FEESH.get(), IcariaItems.RAW_RED_FEESH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_RED_FICHE.get(), IcariaItems.RAW_BLUE_RED_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BROWN_CYAN_FICHE.get(), IcariaItems.RAW_BROWN_CYAN_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_GRAY_FICHE.get(), IcariaItems.RAW_GRAY_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get(), IcariaItems.RAW_GREEN_MAGENTA_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_RED_FICHE.get(), IcariaItems.RAW_RED_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_WHITE_YELLOW_FICHE.get(), IcariaItems.RAW_WHITE_YELLOW_FICHE.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_BROWN_FISSHH.get(), IcariaItems.RAW_BLUE_BROWN_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_RED_FISSHH.get(), IcariaItems.RAW_BLUE_RED_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get(), IcariaItems.RAW_BLUE_YELLOW_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BROWN_FISSHH.get(), IcariaItems.RAW_BROWN_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get(), IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get(), IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_FYSH.get(), IcariaItems.RAW_BLUE_FYSH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_BLUE_PURPLE_FYSH.get(), IcariaItems.RAW_BLUE_PURPLE_FYSH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_GRAY_FYSH.get(), IcariaItems.RAW_GRAY_FYSH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_RAINBOW_FYSH.get(), IcariaItems.RAW_RAINBOW_FYSH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_RED_FYSH.get(), IcariaItems.RAW_RED_FYSH.get());
+		this.campfireCooking(0.35F, 600, IcariaItems.COOKED_RED_YELLOW_FYSH.get(), IcariaItems.RAW_RED_YELLOW_FYSH.get());
 	}
 
 	public void smelting() {
@@ -149,6 +173,30 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.smelting(0.35F, 200, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.smelting(0.35F, 200, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
 		this.smelting(0.35F, 200, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_GRAY_FEESH.get(), IcariaItems.RAW_BLUE_GRAY_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BROWN_FEESH.get(), IcariaItems.RAW_BROWN_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BROWN_ORANGE_FEESH.get(), IcariaItems.RAW_BROWN_ORANGE_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_PINK_RED_FEESH.get(), IcariaItems.RAW_PINK_RED_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_PURPLE_FEESH.get(), IcariaItems.RAW_PURPLE_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_RED_FEESH.get(), IcariaItems.RAW_RED_FEESH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_RED_FICHE.get(), IcariaItems.RAW_BLUE_RED_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BROWN_CYAN_FICHE.get(), IcariaItems.RAW_BROWN_CYAN_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_GRAY_FICHE.get(), IcariaItems.RAW_GRAY_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get(), IcariaItems.RAW_GREEN_MAGENTA_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_RED_FICHE.get(), IcariaItems.RAW_RED_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_WHITE_YELLOW_FICHE.get(), IcariaItems.RAW_WHITE_YELLOW_FICHE.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_BROWN_FISSHH.get(), IcariaItems.RAW_BLUE_BROWN_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_RED_FISSHH.get(), IcariaItems.RAW_BLUE_RED_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get(), IcariaItems.RAW_BLUE_YELLOW_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BROWN_FISSHH.get(), IcariaItems.RAW_BROWN_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get(), IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get(), IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_FYSH.get(), IcariaItems.RAW_BLUE_FYSH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_BLUE_PURPLE_FYSH.get(), IcariaItems.RAW_BLUE_PURPLE_FYSH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_GRAY_FYSH.get(), IcariaItems.RAW_GRAY_FYSH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_RAINBOW_FYSH.get(), IcariaItems.RAW_RAINBOW_FYSH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_RED_FYSH.get(), IcariaItems.RAW_RED_FYSH.get());
+		this.smelting(0.35F, 200, IcariaItems.COOKED_RED_YELLOW_FYSH.get(), IcariaItems.RAW_RED_YELLOW_FYSH.get());
 	}
 
 	public void smoking() {
@@ -158,6 +206,30 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.smoking(0.35F, 100, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
 		this.smoking(0.35F, 100, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
 		this.smoking(0.35F, 100, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_GRAY_FEESH.get(), IcariaItems.RAW_BLUE_GRAY_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BROWN_FEESH.get(), IcariaItems.RAW_BROWN_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BROWN_ORANGE_FEESH.get(), IcariaItems.RAW_BROWN_ORANGE_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_PINK_RED_FEESH.get(), IcariaItems.RAW_PINK_RED_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_PURPLE_FEESH.get(), IcariaItems.RAW_PURPLE_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_RED_FEESH.get(), IcariaItems.RAW_RED_FEESH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_RED_FICHE.get(), IcariaItems.RAW_BLUE_RED_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BROWN_CYAN_FICHE.get(), IcariaItems.RAW_BROWN_CYAN_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_GRAY_FICHE.get(), IcariaItems.RAW_GRAY_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get(), IcariaItems.RAW_GREEN_MAGENTA_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_RED_FICHE.get(), IcariaItems.RAW_RED_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_WHITE_YELLOW_FICHE.get(), IcariaItems.RAW_WHITE_YELLOW_FICHE.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_BROWN_FISSHH.get(), IcariaItems.RAW_BLUE_BROWN_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_RED_FISSHH.get(), IcariaItems.RAW_BLUE_RED_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get(), IcariaItems.RAW_BLUE_YELLOW_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BROWN_FISSHH.get(), IcariaItems.RAW_BROWN_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get(), IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get(), IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_FYSH.get(), IcariaItems.RAW_BLUE_FYSH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_BLUE_PURPLE_FYSH.get(), IcariaItems.RAW_BLUE_PURPLE_FYSH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_GRAY_FYSH.get(), IcariaItems.RAW_GRAY_FYSH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_RAINBOW_FYSH.get(), IcariaItems.RAW_RAINBOW_FYSH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_RED_FYSH.get(), IcariaItems.RAW_RED_FYSH.get());
+		this.smoking(0.35F, 100, IcariaItems.COOKED_RED_YELLOW_FYSH.get(), IcariaItems.RAW_RED_YELLOW_FYSH.get());
 	}
 
 	public void stonecutting() {

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_brown_cyan_fiche",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_brown_cyan_fiche"
+  }
+}

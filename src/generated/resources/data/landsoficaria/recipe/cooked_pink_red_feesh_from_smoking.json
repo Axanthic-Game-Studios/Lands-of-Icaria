@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_pink_red_feesh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_pink_red_feesh"
+  }
+}

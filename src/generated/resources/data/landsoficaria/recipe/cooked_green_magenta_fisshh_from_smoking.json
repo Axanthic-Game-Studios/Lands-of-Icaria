@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_green_magenta_fisshh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_green_magenta_fisshh"
+  }
+}

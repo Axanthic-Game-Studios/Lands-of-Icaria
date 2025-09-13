@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_blue_fysh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_blue_fysh"
+  }
+}

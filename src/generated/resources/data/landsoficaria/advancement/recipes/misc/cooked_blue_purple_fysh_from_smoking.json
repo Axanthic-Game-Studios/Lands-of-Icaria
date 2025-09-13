@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_blue_purple_fysh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_blue_purple_fysh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_blue_purple_fysh_from_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_blue_purple_fysh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_blue_purple_fysh_from_smoking"
+    ]
+  }
+}

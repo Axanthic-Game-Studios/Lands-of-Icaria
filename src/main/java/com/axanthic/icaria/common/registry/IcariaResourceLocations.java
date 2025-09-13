@@ -56,6 +56,10 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CATOBLEPAS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/catoblepas.png");
 	public static final ResourceLocation CERVER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cerver.png");
 	public static final ResourceLocation CROCOTTA = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/crocotta.png");
+	public static final ResourceLocation FEESH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/feesh/blue_gray.png");
+	public static final ResourceLocation FICHE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/fiche/blue_red.png");
+	public static final ResourceLocation FISSHH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/fisshh/blue_brown.png");
+	public static final ResourceLocation FYSH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/fysh/blue.png");
 	public static final ResourceLocation CYPRESS_FOREST_HAG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cypress_forest_hag.png");
 	public static final ResourceLocation CYPRESS_FOREST_HAG_EMISSIVE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/cypress_forest_hag_emissive.png");
 	public static final ResourceLocation DROUGHTROOT_FOREST_HAG = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/entity/droughtroot_forest_hag.png");
@@ -237,6 +241,10 @@ public class IcariaResourceLocations {
 	// REGISTRY KEY
 
 	public static final ResourceLocation EQUIPMENT_ASSET_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "equipment_asset");
+	public static final ResourceLocation FEESH_VARIANT_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "feesh_variant");
+	public static final ResourceLocation FICHE_VARIANT_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "fiche_variant");
+	public static final ResourceLocation FISSHH_VARIANT_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "fisshh_variant");
+	public static final ResourceLocation FYSH_VARIANT_REGISTRY_KEY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "fysh_variant");
 
 	// RENDERER
 

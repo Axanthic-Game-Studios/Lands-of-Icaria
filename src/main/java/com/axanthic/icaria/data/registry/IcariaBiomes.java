@@ -1253,6 +1253,10 @@ public class IcariaBiomes {
 		pBuilder.addSpawn(MobCategory.AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NATURE_JELLYFISH.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VOID_JELLYFISH.get(), 1, 3));
 		pBuilder.addSpawn(MobCategory.AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.WATER_JELLYFISH.get(), 1, 3));
+		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FEESH.get(), 5, 15));
+		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FICHE.get(), 5, 15));
+		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FISSHH.get(), 5, 15));
+		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FYSH.get(), 5, 15));
 	}
 
 	public static Biome voidBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {

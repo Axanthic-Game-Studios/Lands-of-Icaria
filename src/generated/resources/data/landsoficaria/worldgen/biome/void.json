@@ -50,7 +50,32 @@
     "misc": [],
     "monster": [],
     "underground_water_creature": [],
-    "water_ambient": [],
+    "water_ambient": [
+      {
+        "type": "landsoficaria:feesh",
+        "maxCount": 15,
+        "minCount": 5,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:fiche",
+        "maxCount": 15,
+        "minCount": 5,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:fisshh",
+        "maxCount": 15,
+        "minCount": 5,
+        "weight": 100
+      },
+      {
+        "type": "landsoficaria:fysh",
+        "maxCount": 15,
+        "minCount": 5,
+        "weight": 100
+      }
+    ],
     "water_creature": []
   },
   "temperature": 1.0
