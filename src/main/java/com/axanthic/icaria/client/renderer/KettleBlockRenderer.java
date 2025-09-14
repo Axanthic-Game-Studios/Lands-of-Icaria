@@ -26,7 +26,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record KettleBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<KettleBlockEntity> {
+public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<KettleBlockEntity> {
 
 	@Override
 	public int getViewDistance() {

@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record KilnBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<KilnBlockEntity> {
+public record KilnBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<KilnBlockEntity> {
 
 	@Override
 	public int getViewDistance() {

@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record GrinderBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<GrinderBlockEntity> {
+public record GrinderBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<GrinderBlockEntity> {
 
 	@Override
 	public int getViewDistance() {

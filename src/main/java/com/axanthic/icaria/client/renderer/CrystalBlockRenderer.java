@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record CrystalBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<CrystalBlockEntity> {
+public record CrystalBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<CrystalBlockEntity> {
 
 	@Override
 	public int getViewDistance() {

@@ -20,7 +20,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record IcariaBarrelLootSubProvider(HolderLookup.Provider pProvider) implements LootTableSubProvider {
+public record IcariaBarrelLootSubProvider(HolderLookup.Provider provider) implements LootTableSubProvider {
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {

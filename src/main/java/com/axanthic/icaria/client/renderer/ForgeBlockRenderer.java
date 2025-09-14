@@ -18,7 +18,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record ForgeBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<ForgeBlockEntity> {
+public record ForgeBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<ForgeBlockEntity> {
 
 	@Override
 	public int getViewDistance() {

@@ -24,7 +24,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record TroughBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<TroughBlockEntity> {
+public record TroughBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<TroughBlockEntity> {
 
 	@Override
 	public void render(TroughBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {

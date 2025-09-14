@@ -20,7 +20,7 @@ import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record IcariaSuspiciousSandLootSubProvider(HolderLookup.Provider pProvider) implements LootTableSubProvider {
+public record IcariaSuspiciousSandLootSubProvider(HolderLookup.Provider provider) implements LootTableSubProvider {
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {

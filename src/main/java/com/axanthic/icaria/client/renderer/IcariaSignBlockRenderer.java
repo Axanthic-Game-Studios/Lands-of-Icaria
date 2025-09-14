@@ -60,7 +60,7 @@ public class IcariaSignBlockRenderer extends SignRenderer {
 		if (blockState.getBlock() instanceof SignBlock signBlock) {
 			var woodType = this.getWoodType(signBlock);
 			var signModel = this.map.get(woodType);
-			var model = signBlock instanceof StandingSignBlock ? signModel.pModelStanding() : signModel.pModelWall();
+			var model = signBlock instanceof StandingSignBlock ? signModel.modelStanding() : signModel.modelWall();
 			this.renderSignWithText(blockState, model, pMultiBufferSource, pPoseStack, signBlock, pBlockEntity, woodType, pPackedLight, pPackedOverlay);
 		}
 	}

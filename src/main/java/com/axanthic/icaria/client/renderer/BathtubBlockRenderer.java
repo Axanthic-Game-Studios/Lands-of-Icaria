@@ -27,7 +27,7 @@ import net.minecraft.world.phys.Vec3;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record BathtubBlockRenderer(BlockEntityRendererProvider.Context pContext) implements BlockEntityRenderer<BathtubBlockEntity> {
+public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<BathtubBlockEntity> {
 
 	@Override
 	public void render(BathtubBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
