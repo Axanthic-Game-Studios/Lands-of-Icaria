@@ -31,12 +31,12 @@ public class RugRenderer extends EntityRenderer<RugEntity, RugRenderState> {
 		super.extractRenderState(pRugEntity, pRugRenderState, pPartialTick);
 		pRugRenderState.direction = pRugEntity.getDirection();
 		pRugRenderState.placementDirection = pRugEntity.getPlacementDirection();
-		pRugRenderState.paintingVariant = pRugEntity.getPaintingVariant().value();
+		pRugRenderState.paintingVariant = pRugEntity.getPaintingVariant();
 	}
 
 	@Override
 	public void render(RugRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
-		var textureAtlasSprite = Minecraft.getInstance().getPaintingTextures().get(pRenderState.paintingVariant);
+		var textureAtlasSprite = Minecraft.getInstance().getPaintingTextures().get(pRenderState.paintingVariant.value());
 		var resourceLocation = textureAtlasSprite.atlasLocation();
 		var renderType = RenderType.entitySolidZOffsetForward(resourceLocation);
 		var vertexConsumer = pMultiBufferSource.getBuffer(renderType);
@@ -50,7 +50,7 @@ public class RugRenderer extends EntityRenderer<RugEntity, RugRenderState> {
 			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
 			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			this.render(pPoseStack, pTextureAtlasSprite, pVertexConsumer, pRenderState.paintingVariant.height(), pRenderState.paintingVariant.width(), pPackedLight);
+			this.render(pPoseStack, pTextureAtlasSprite, pVertexConsumer, pRenderState.paintingVariant.value().height(), pRenderState.paintingVariant.value().width(), pPackedLight);
 			pPoseStack.popPose();
 		}
 	}
@@ -61,7 +61,7 @@ public class RugRenderer extends EntityRenderer<RugEntity, RugRenderState> {
 			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
 			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			this.render(pPoseStack, pTextureAtlasSprite, pVertexConsumer, pRenderState.paintingVariant.height(), pRenderState.paintingVariant.width(), pPackedLight);
+			this.render(pPoseStack, pTextureAtlasSprite, pVertexConsumer, pRenderState.paintingVariant.value().height(), pRenderState.paintingVariant.value().width(), pPackedLight);
 			pPoseStack.popPose();
 		}
 	}
