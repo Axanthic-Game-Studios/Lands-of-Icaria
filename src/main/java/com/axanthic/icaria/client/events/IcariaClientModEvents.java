@@ -305,7 +305,6 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.FISSHH.get(), FisshhRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FYSH.get(), FyshRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FLOATING_BLOCK.get(), FloatingBlockRenderer::new);
-		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), ThrownItemRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), CypressForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), DroughtrootForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FIR_FOREST_HAG.get(), FirForestHagRenderer::new);
@@ -313,6 +312,7 @@ public class IcariaClientModEvents {
 		EntityRenderers.register(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), OliveForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.PLANE_FOREST_HAG.get(), PlaneForestHagRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), PopulusForestHagRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.GREEK_FIRE_GRENADE.get(), ThrownItemRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.HYLIASTER.get(), HyliasterRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.ENDER_JELLYFISH.get(), EnderJellyfishRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FIRE_JELLYFISH.get(), FireJellyfishRenderer::new);
