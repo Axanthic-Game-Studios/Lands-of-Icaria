@@ -295,6 +295,9 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CROCOTTA_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.death");
 	public static final ResourceLocation CROCOTTA_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.hurt");
 	public static final ResourceLocation CROCOTTA_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.crocotta.step");
+	public static final ResourceLocation FISH_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.fish.ambient");
+	public static final ResourceLocation FISH_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.fish.death");
+	public static final ResourceLocation FISH_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.fish.hurt");
 	public static final ResourceLocation FOREST_HAG_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.forest_hag.ambient");
 	public static final ResourceLocation FOREST_HAG_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.forest_hag.death");
 	public static final ResourceLocation FOREST_HAG_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.forest_hag.hurt");

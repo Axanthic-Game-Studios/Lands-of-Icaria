@@ -1364,6 +1364,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "death", "Hyäne stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "hurt", "Hyäne nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "step", "Hyänenschritte");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "ambient", "Fisch schwimmt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "death", "Fisch stirbt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "hurt", "Fisch nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "ambient", "Baumwächter woopt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "death", "Baumwächter stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "hurt", "Baumwächter nimmt Schaden");

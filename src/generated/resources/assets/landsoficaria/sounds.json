@@ -397,6 +397,33 @@
     ],
     "subtitle": "subtitle.landsoficaria.crocotta.step"
   },
+  "entity.fish.ambient": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.ambient"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.fish.ambient"
+  },
+  "entity.fish.death": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.death"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.fish.death"
+  },
+  "entity.fish.hurt": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.squid.hurt"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.fish.hurt"
+  },
   "entity.forest_hag.ambient": {
     "sounds": [
       {

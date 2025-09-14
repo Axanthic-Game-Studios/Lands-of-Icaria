@@ -2,18 +2,18 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.FishFollowGoal;
 import com.axanthic.icaria.common.goal.FishSwimGoal;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.control.FlyingMoveControl;
@@ -78,8 +78,28 @@ public class FishEntity extends IcariaPathfinderMobEntity {
 	}
 
 	@Override
+	public Entity.MovementEmission getMovementEmission() {
+		return Entity.MovementEmission.EVENTS;
+	}
+
+	@Override
 	public PathNavigation createNavigation(Level pLevel) {
 		return new FlyingPathNavigation(this, pLevel);
+	}
+
+	@Override
+	public SoundEvent getAmbientSound() {
+		return IcariaSoundEvents.FISH_AMBIENT;
+	}
+
+	@Override
+	public SoundEvent getDeathSound() {
+		return IcariaSoundEvents.FISH_DEATH;
+	}
+
+	@Override
+	public SoundEvent getHurtSound(DamageSource pDamageSource) {
+		return IcariaSoundEvents.FISH_HURT;
 	}
 
 	@Nullable

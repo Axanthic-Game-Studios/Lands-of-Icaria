@@ -47,6 +47,9 @@ public class IcariaSoundEvents {
 	public static final SoundEvent CROCOTTA_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CROCOTTA_DEATH);
 	public static final SoundEvent CROCOTTA_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CROCOTTA_HURT);
 	public static final SoundEvent CROCOTTA_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.CROCOTTA_STEP);
+	public static final SoundEvent FISH_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FISH_AMBIENT);
+	public static final SoundEvent FISH_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FISH_DEATH);
+	public static final SoundEvent FISH_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FISH_HURT);
 	public static final SoundEvent FOREST_HAG_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FOREST_HAG_AMBIENT);
 	public static final SoundEvent FOREST_HAG_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FOREST_HAG_DEATH);
 	public static final SoundEvent FOREST_HAG_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.FOREST_HAG_HURT);

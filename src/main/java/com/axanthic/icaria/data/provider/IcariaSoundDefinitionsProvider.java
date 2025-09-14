@@ -64,6 +64,9 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.CROCOTTA_DEATH, "entity", "crocotta", "death", 3);
 		this.register(IcariaSoundEvents.CROCOTTA_HURT, "entity", "crocotta", "hurt", 3);
 		this.register(IcariaSoundEvents.CROCOTTA_STEP, SoundEvents.WOLF_STEP, "crocotta", "step");
+		this.register(IcariaSoundEvents.FISH_AMBIENT, SoundEvents.SQUID_AMBIENT, "fish", "ambient");
+		this.register(IcariaSoundEvents.FISH_DEATH, SoundEvents.SQUID_DEATH, "fish", "death");
+		this.register(IcariaSoundEvents.FISH_HURT, SoundEvents.SQUID_HURT, "fish", "hurt");
 		this.register(IcariaSoundEvents.FOREST_HAG_AMBIENT, SoundEvents.ENDERMAN_AMBIENT, "forest_hag", "ambient");
 		this.register(IcariaSoundEvents.FOREST_HAG_DEATH, SoundEvents.ENDERMAN_DEATH, "forest_hag", "death");
 		this.register(IcariaSoundEvents.FOREST_HAG_HURT, SoundEvents.ENDERMAN_HURT, "forest_hag", "hurt");

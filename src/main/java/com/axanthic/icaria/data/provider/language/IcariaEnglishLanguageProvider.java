@@ -1364,6 +1364,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "death", "Crocotta dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "hurt", "Crocotta hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "crocotta" + "." + "step", "Crocotta steps");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "ambient", "Fish swims");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "death", "Fish dies");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "fish" + "." + "hurt", "Fish hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "ambient", "Forest Hag whoops");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "death", "Forest Hag dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "forest_hag" + "." + "hurt", "Forest Hag hurts");
