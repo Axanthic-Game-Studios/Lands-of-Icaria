@@ -26,8 +26,8 @@ public class IcariaInstruments {
 		IcariaInstruments.register(pBootstrapContext, IcariaInstruments.FAIL_CAPELLA_HORN, IcariaSoundEvents.CAPELLA_HORN_FAIL, 7.0F, 256.0F);
 	}
 
-	public static void register(BootstrapContext<Instrument> pBootstrapContext, ResourceKey<Instrument> pInstruments, SoundEvent pSoundEvent, float pDuration, float pRange) {
-		pBootstrapContext.register(pInstruments, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, Component.translatable(Util.makeDescriptionId("instrument", pInstruments.location()))));
+	public static void register(BootstrapContext<Instrument> pBootstrapContext, ResourceKey<Instrument> pInstrument, SoundEvent pSoundEvent, float pDuration, float pRange) {
+		pBootstrapContext.register(pInstrument, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, Component.translatable(Util.makeDescriptionId("instrument", pInstrument.location()))));
 	}
 
 	public static ResourceKey<Instrument> createKey(String pName) {

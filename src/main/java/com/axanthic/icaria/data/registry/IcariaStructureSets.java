@@ -40,8 +40,8 @@ public class IcariaStructureSets {
 		IcariaStructureSets.register(pBootstrapContext, IcariaStructureSets.VILLAGES, List.of(StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_FOREST_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_SCRUBLAND_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_STEPPE_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.ERODED_DESERT_VILLAGE), 1), StructureSet.entry(structures.getOrThrow(IcariaStructures.RUINED_DESERT_VILLAGE), 1)), Optional.empty(), 1117821874, 8, 10);
 	}
 
-	public static Holder.Reference<StructureSet> register(BootstrapContext<StructureSet> pBootstrapContext, ResourceKey<StructureSet> pStructureSets, List<StructureSet.StructureSelectionEntry> pStructureSelectionEntries, Optional<StructurePlacement.ExclusionZone> pExclusionZone, int pSalt, int pSeparation, int pSpacing) {
-		return pBootstrapContext.register(pStructureSets, new StructureSet(pStructureSelectionEntries, new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F, pSalt, pExclusionZone, pSpacing, pSeparation, RandomSpreadType.LINEAR)));
+	public static Holder.Reference<StructureSet> register(BootstrapContext<StructureSet> pBootstrapContext, ResourceKey<StructureSet> pStructureSet, List<StructureSet.StructureSelectionEntry> pStructureSelectionEntries, Optional<StructurePlacement.ExclusionZone> pExclusionZone, int pSalt, int pSeparation, int pSpacing) {
+		return pBootstrapContext.register(pStructureSet, new StructureSet(pStructureSelectionEntries, new RandomSpreadStructurePlacement(Vec3i.ZERO, StructurePlacement.FrequencyReductionMethod.DEFAULT, 1.0F, pSalt, pExclusionZone, pSpacing, pSeparation, RandomSpreadType.LINEAR)));
 	}
 
 	public static ResourceKey<StructureSet> createKey(String pName) {

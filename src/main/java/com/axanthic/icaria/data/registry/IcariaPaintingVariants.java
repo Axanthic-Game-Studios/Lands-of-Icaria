@@ -92,8 +92,8 @@ public class IcariaPaintingVariants {
 		IcariaPaintingVariants.register(pBootstrapContext, IcariaPaintingVariants.RED_RUG_3_X_4, 4, 3);
 	}
 
-	public static void register(BootstrapContext<PaintingVariant> pBootstrapContext, ResourceKey<PaintingVariant> pPaintingVariants, int pHeight, int pWidth) {
-		pBootstrapContext.register(pPaintingVariants, new PaintingVariant(pWidth, pHeight, pPaintingVariants.location(), Optional.of(Component.translatable(pPaintingVariants.location().toLanguageKey("painting", "title"))), Optional.of(Component.translatable(pPaintingVariants.location().toLanguageKey("painting", "author")))));
+	public static void register(BootstrapContext<PaintingVariant> pBootstrapContext, ResourceKey<PaintingVariant> pVariant, int pHeight, int pWidth) {
+		pBootstrapContext.register(pVariant, new PaintingVariant(pWidth, pHeight, pVariant.location(), Optional.of(Component.translatable(pVariant.location().toLanguageKey("painting", "title"))), Optional.of(Component.translatable(pVariant.location().toLanguageKey("painting", "author")))));
 	}
 
 	public static ResourceKey<PaintingVariant> createKey(String pName) {
