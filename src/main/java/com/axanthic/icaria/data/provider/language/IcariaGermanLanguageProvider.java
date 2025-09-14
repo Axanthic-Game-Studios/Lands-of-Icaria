@@ -1228,10 +1228,12 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.COOKED_RED_FYSH.get(), "Gekochter roter Fysch");
 		this.add(IcariaItems.RAW_RED_YELLOW_FYSH.get(), "Roher rot-gelber Fysch");
 		this.add(IcariaItems.COOKED_RED_YELLOW_FYSH.get(), "Gekochter rot-gelber Fysch");
+		this.add(IcariaItems.FERMENTED_FISH.get(), "Fermentierter Fisch");
 		this.add(IcariaItems.CAPELLA_HORN.get(), "Kapellahorn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Ameisenschuppen");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Nacktschneckenschuppen");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Creme");
+		this.add(IcariaItems.FERMENTED_SNULL_CREAM.get(), "Fermentierte Snull Creme");
 		this.add(IcariaItems.VINEGAR.get(), "Essig");
 
 		this.add(IcariaItems.UNFIRED_LOAM_BOWL.get(), "Ungebrannte Lehmschüssel");

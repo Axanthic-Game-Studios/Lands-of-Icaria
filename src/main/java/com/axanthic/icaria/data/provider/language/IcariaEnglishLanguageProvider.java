@@ -1228,10 +1228,12 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItems.COOKED_RED_FYSH.get(), "Cooked Red Fysh");
 		this.add(IcariaItems.RAW_RED_YELLOW_FYSH.get(), "Raw Red-Yellow Fysh");
 		this.add(IcariaItems.COOKED_RED_YELLOW_FYSH.get(), "Cooked Red-Yellow Fysh");
+		this.add(IcariaItems.FERMENTED_FISH.get(), "Fermented Fish");
 		this.add(IcariaItems.CAPELLA_HORN.get(), "Capella Horn");
 		this.add(IcariaItems.MYRMEKE_SCALES.get(), "Myrmeke Scales");
 		this.add(IcariaItems.SLUG_SCALES.get(), "Slug Scales");
 		this.add(IcariaItems.SNULL_CREAM.get(), "Snull Cream");
+		this.add(IcariaItems.FERMENTED_SNULL_CREAM.get(), "Fermented Snull Cream");
 		this.add(IcariaItems.VINEGAR.get(), "Vinegar");
 
 		this.add(IcariaItems.UNFIRED_LOAM_BOWL.get(), "Unfired Loam Bowl");

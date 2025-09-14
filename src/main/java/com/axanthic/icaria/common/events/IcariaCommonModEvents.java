@@ -1186,10 +1186,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.COOKED_RED_FYSH.get());
 			pEvent.accept(IcariaItems.RAW_RED_YELLOW_FYSH.get());
 			pEvent.accept(IcariaItems.COOKED_RED_YELLOW_FYSH.get());
+			pEvent.accept(IcariaItems.FERMENTED_FISH.get());
 			pEvent.accept(IcariaItems.CAPELLA_HORN.get());
 			pEvent.accept(IcariaItems.MYRMEKE_SCALES.get());
 			pEvent.accept(IcariaItems.SLUG_SCALES.get());
 			pEvent.accept(IcariaItems.SNULL_CREAM.get());
+			pEvent.accept(IcariaItems.FERMENTED_SNULL_CREAM.get());
 
 			pEvent.accept(IcariaItems.UNFIRED_LOAM_BOWL.get());
 			pEvent.accept(IcariaItems.LOAM_BOWL.get());

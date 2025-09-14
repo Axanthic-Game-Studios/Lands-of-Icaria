@@ -862,7 +862,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
 			.add(IcariaItems.RAW_RED_FYSH.get())
 			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get())
-			.add(IcariaItems.SNULL_CREAM.get());
+			.add(IcariaItems.FERMENTED_FISH.get())
+			.add(IcariaItems.SNULL_CREAM.get())
+			.add(IcariaItems.FERMENTED_SNULL_CREAM.get());
 
 		this.tag(Tags.Items.FOODS_FRUIT)
 			.add(IcariaItems.PHYSALIS.get())

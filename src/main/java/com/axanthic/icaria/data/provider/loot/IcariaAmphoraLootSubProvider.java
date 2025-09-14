@@ -1,5 +1,6 @@
 package com.axanthic.icaria.data.provider.loot;
 
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import java.util.function.BiConsumer;
@@ -10,7 +11,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -27,19 +27,22 @@ public record IcariaAmphoraLootSubProvider(HolderLookup.Provider provider) imple
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
 		pBiConsumer.accept(IcariaLootTables.SINGLE_AMPHORA, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
-				.add(LootItem.lootTableItem(Items.FERMENTED_SPIDER_EYE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_FISH.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_SNULL_CREAM.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 			)
 		);
 
 		pBiConsumer.accept(IcariaLootTables.DOUBLE_AMPHORA, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(2.0F))
-				.add(LootItem.lootTableItem(Items.FERMENTED_SPIDER_EYE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_FISH.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_SNULL_CREAM.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 			)
 		);
 
 		pBiConsumer.accept(IcariaLootTables.TRIPLE_AMPHORA, LootTable.lootTable()
 			.withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(3.0F))
-				.add(LootItem.lootTableItem(Items.FERMENTED_SPIDER_EYE).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_FISH.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+				.add(LootItem.lootTableItem(IcariaItems.FERMENTED_SNULL_CREAM.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 			)
 		);
 	}

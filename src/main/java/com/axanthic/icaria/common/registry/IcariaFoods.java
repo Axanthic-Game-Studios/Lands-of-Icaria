@@ -79,7 +79,9 @@ public class IcariaFoods {
 	public static final FoodProperties COOKED_RED_FYSH = new FoodProperties.Builder().nutrition(5).saturationModifier(1.0F).build();
 	public static final FoodProperties RAW_RED_YELLOW_FYSH = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
 	public static final FoodProperties COOKED_RED_YELLOW_FYSH = new FoodProperties.Builder().nutrition(5).saturationModifier(1.0F).build();
+	public static final FoodProperties FERMENTED_FISH = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
 	public static final FoodProperties SNULL_CREAM = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
+	public static final FoodProperties FERMENTED_SNULL_CREAM = new FoodProperties.Builder().nutrition(2).saturationModifier(0.5F).build();
 	public static final FoodProperties FRUIT_SALAD = new FoodProperties.Builder().nutrition(8).saturationModifier(1.0F).build();
 	public static final FoodProperties ONION_SOUP = new FoodProperties.Builder().nutrition(4).saturationModifier(1.0F).build();
 	public static final FoodProperties AETERNAE_STEW = new FoodProperties.Builder().nutrition(9).saturationModifier(1.0F).build();

@@ -933,9 +933,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.COOKED_RED_FYSH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_RED_YELLOW_FYSH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.COOKED_RED_YELLOW_FYSH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FERMENTED_FISH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MYRMEKE_SCALES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SLUG_SCALES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SNULL_CREAM.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FERMENTED_SNULL_CREAM.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINEGAR.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.UNFIRED_LOAM_BOWL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOAM_BOWL.get(), pItemModelGenerators);

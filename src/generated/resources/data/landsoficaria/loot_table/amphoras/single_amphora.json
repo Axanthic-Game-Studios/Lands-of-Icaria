@@ -17,7 +17,22 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "minecraft:fermented_spider_eye"
+          "name": "landsoficaria:fermented_fish"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 3.0,
+                "min": 1.0
+              },
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:fermented_snull_cream"
         }
       ],
       "rolls": 1.0

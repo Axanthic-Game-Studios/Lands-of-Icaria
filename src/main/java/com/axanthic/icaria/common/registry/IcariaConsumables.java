@@ -51,7 +51,9 @@ public class IcariaConsumables {
 	public static final Consumable RAW_RAINBOW_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable RAW_RED_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
 	public static final Consumable RAW_RED_YELLOW_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable FERMENTED_FISH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
+	public static final Consumable SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 1.0F, 200);
+	public static final Consumable FERMENTED_SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
 	public static final Consumable FRUIT_SALAD = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.REGENERATION, 1.0F, 200);
 	public static final Consumable ONION_SOUP = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 	public static final Consumable AETERNAE_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);

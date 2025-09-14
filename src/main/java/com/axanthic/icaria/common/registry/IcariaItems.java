@@ -1023,10 +1023,12 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> COOKED_RED_FYSH = IcariaItems.register("cooked_red_fysh", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_RED_FYSH));
 	public static final DeferredHolder<Item, Item> RAW_RED_YELLOW_FYSH = IcariaItems.register("raw_red_yellow_fysh", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.RAW_RED_YELLOW_FYSH, IcariaConsumables.RAW_RED_YELLOW_FYSH));
 	public static final DeferredHolder<Item, Item> COOKED_RED_YELLOW_FYSH = IcariaItems.register("cooked_red_yellow_fysh", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.COOKED_RED_YELLOW_FYSH));
+	public static final DeferredHolder<Item, Item> FERMENTED_FISH = IcariaItems.register("fermented_fish", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.FERMENTED_FISH, IcariaConsumables.FERMENTED_FISH));
 	public static final DeferredHolder<Item, Item> CAPELLA_HORN = IcariaItems.register("capella_horn", InstrumentItem::new, IcariaItems.propertiesItem().stacksTo(1).rarity(Rarity.UNCOMMON).component(DataComponents.INSTRUMENT, new InstrumentComponent(IcariaInstruments.FAIL_CAPELLA_HORN)));
 	public static final DeferredHolder<Item, Item> MYRMEKE_SCALES = IcariaItems.register("myrmeke_scales", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SLUG_SCALES = IcariaItems.register("slug_scales", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> SNULL_CREAM = IcariaItems.register("snull_cream", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.SNULL_CREAM, IcariaConsumables.SNULL_CREAM));
+	public static final DeferredHolder<Item, Item> FERMENTED_SNULL_CREAM = IcariaItems.register("fermented_snull_cream", Item::new, IcariaItems.propertiesItem().food(IcariaFoods.FERMENTED_SNULL_CREAM, IcariaConsumables.FERMENTED_SNULL_CREAM));
 	public static final DeferredHolder<Item, Item> VINEGAR = IcariaItems.register("vinegar", Item::new, IcariaItems.propertiesItem());
 
 	public static final DeferredHolder<Item, Item> UNFIRED_LOAM_BOWL = IcariaItems.register("unfired_loam_bowl", Item::new, IcariaItems.propertiesItem());
