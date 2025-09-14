@@ -38,7 +38,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SnullEntity extends SizedPathfinderMobEntity {
+public class SnullEntity extends IcariaPathfinderMobEntity {
 	public int maxCooldown = 400;
 	public int minCooldown = 0;
 	public int maxHide = 80;

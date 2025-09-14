@@ -43,7 +43,12 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 			.add(IcariaEntityTypes.FEESH.get())
 			.add(IcariaEntityTypes.FICHE.get())
 			.add(IcariaEntityTypes.FISSHH.get())
-			.add(IcariaEntityTypes.FYSH.get());
+			.add(IcariaEntityTypes.FYSH.get())
+			.add(IcariaEntityTypes.ENDER_JELLYFISH.get())
+			.add(IcariaEntityTypes.FIRE_JELLYFISH.get())
+			.add(IcariaEntityTypes.NATURE_JELLYFISH.get())
+			.add(IcariaEntityTypes.VOID_JELLYFISH.get())
+			.add(IcariaEntityTypes.WATER_JELLYFISH.get());
 
 		this.tag(EntityTypeTags.FOLLOWABLE_FRIENDLY_MOBS)
 			.add(IcariaEntityTypes.AETERNAE.get())

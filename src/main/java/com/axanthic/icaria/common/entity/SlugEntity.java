@@ -44,7 +44,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SlugEntity extends SizedPathfinderMobEntity {
+public class SlugEntity extends IcariaPathfinderMobEntity {
 	public float red;
 	public float green;
 	public float blue;

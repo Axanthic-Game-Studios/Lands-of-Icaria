@@ -28,7 +28,7 @@ import net.minecraft.world.level.ServerLevelAccessor;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FishEntity extends SizedPathfinderMobEntity {
+public class FishEntity extends IcariaPathfinderMobEntity {
 	public boolean isLeader;
 
 	public FishEntity leader;

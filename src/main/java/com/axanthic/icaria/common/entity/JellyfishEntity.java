@@ -10,8 +10,10 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -21,15 +23,16 @@ import net.minecraft.world.entity.ai.navigation.FlyingPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings("deprecation, unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public abstract class JellyfishEntity extends SizedFlyingMobEntity {
+public abstract class JellyfishEntity extends IcariaPathfinderMobEntity {
 	public float tentacleAngle;
 	public float tentacleAngleOld;
 	public float tentacleMovement;
@@ -45,6 +48,10 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 		super(pEntityType, pLevel, 0.25F, 0.25F, 0.15F);
 		this.setMovementVector();
 		this.setSeed();
+	}
+
+	public static boolean checkMobSpawnRules(EntityType<? extends Mob> pEntityType, LevelAccessor pLevelAccessor, EntitySpawnReason pEntitySpawnReason, BlockPos pBlockPos, RandomSource pRandomSource) {
+		return true;
 	}
 
 	@Override
@@ -151,7 +158,7 @@ public abstract class JellyfishEntity extends SizedFlyingMobEntity {
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {
-		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.MAX_HEALTH, 16.0D);
+		return Mob.createMobAttributes().add(Attributes.ATTACK_DAMAGE, 4.0D).add(Attributes.FLYING_SPEED, 0.4F).add(Attributes.GRAVITY, 0.0F).add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.MOVEMENT_SPEED, 0.2F);
 	}
 
 	@Override

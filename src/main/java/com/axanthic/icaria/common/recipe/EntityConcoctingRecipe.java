@@ -102,14 +102,9 @@ public class EntityConcoctingRecipe implements Recipe<RecipeInput> {
 						soldierRevenantEntity.populateDefaultEquipmentSlots();
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
-					} else if (livingEntity instanceof SizedFlyingMobEntity sizedFlyingMobEntity) {
-						sizedFlyingMobEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
-						sizedFlyingMobEntity.setSize(1);
-						pLevel.addFreshEntity(livingEntity);
-						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
-					} else if (livingEntity instanceof SizedPathfinderMobEntity sizedPathfinderMobEntity) {
-						sizedPathfinderMobEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
-						sizedPathfinderMobEntity.setSize(1);
+					} else if (livingEntity instanceof IcariaPathfinderMobEntity icariaPathfinderMobEntity) {
+						icariaPathfinderMobEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(state), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(state));
+						icariaPathfinderMobEntity.setSize(1);
 						pLevel.addFreshEntity(livingEntity);
 						pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_POP, SoundSource.BLOCKS);
 					} else {

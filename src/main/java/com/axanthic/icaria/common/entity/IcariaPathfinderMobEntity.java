@@ -3,23 +3,21 @@ package com.axanthic.icaria.common.entity;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
-
-@SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SizedFlyingMobEntity extends Mob {
+public class IcariaPathfinderMobEntity extends PathfinderMob {
 	public float hitboxMult;
 	public float renderMult;
 	public float shadowMult;
@@ -27,17 +25,13 @@ public class SizedFlyingMobEntity extends Mob {
 	public int maxSize = 4;
 	public int minSize = 1;
 
-	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(SizedFlyingMobEntity.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(IcariaPathfinderMobEntity.class, EntityDataSerializers.INT);
 
-	public SizedFlyingMobEntity(EntityType<? extends SizedFlyingMobEntity> pEntityType, Level pLevel, float pHitboxMult, float pRenderMult, float pShadowMult) {
+	public IcariaPathfinderMobEntity(EntityType<? extends IcariaPathfinderMobEntity> pEntityType, Level pLevel, float pHitboxMult, float pRenderMult, float pShadowMult) {
 		super(pEntityType, pLevel);
 		this.hitboxMult = pHitboxMult;
 		this.renderMult = pRenderMult;
 		this.shadowMult = pShadowMult;
-	}
-
-	public static boolean checkMobSpawnRules(EntityType<? extends Mob> pEntityType, LevelAccessor pLevelAccessor, EntitySpawnReason pEntitySpawnReason, BlockPos pBlockPos, RandomSource pRandomSource) {
-		return true;
 	}
 
 	@Override
@@ -68,7 +62,7 @@ public class SizedFlyingMobEntity extends Mob {
 	}
 
 	public int getSize() {
-		return this.getEntityData().get(SizedFlyingMobEntity.SIZE);
+		return this.getEntityData().get(IcariaPathfinderMobEntity.SIZE);
 	}
 
 	@Override
@@ -80,7 +74,7 @@ public class SizedFlyingMobEntity extends Mob {
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(SizedFlyingMobEntity.SIZE, this.minSize);
+		pBuilder.define(IcariaPathfinderMobEntity.SIZE, this.minSize);
 	}
 
 	@Override
@@ -96,7 +90,7 @@ public class SizedFlyingMobEntity extends Mob {
 	}
 
 	public void setSize(int pSize) {
-		this.getEntityData().set(SizedFlyingMobEntity.SIZE, pSize);
+		this.getEntityData().set(IcariaPathfinderMobEntity.SIZE, pSize);
 		this.xpReward = pSize;
 	}
 

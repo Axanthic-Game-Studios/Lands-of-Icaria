@@ -43,7 +43,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public abstract class IcariaAnimalEntity extends SizedPathfinderMobEntity {
+public abstract class IcariaAnimalEntity extends IcariaPathfinderMobEntity {
 	public int maxCooldown = 16000;
 	public int minCooldown = 0;
 	public int maxDuration = 1200;
