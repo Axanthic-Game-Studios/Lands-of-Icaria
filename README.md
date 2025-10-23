@@ -1,4 +1,4 @@
-# Lands of Icaria [![Discord](https://img.shields.io/discord/453173961463955458?style=flat-square&logo=discord&logoColor=FFFFFF&label=discord&labelColor=5865F2&color=808080)](https://discord.gg/EAVsmRHTvM) [![Modrinth](https://img.shields.io/modrinth/dt/y6ptCp9V?style=flat-square&logo=modrinth&logoColor=FFFFFF&label=modrinth&labelColor=1BD96A&color=808080)](https://modrinth.com/mod/lands-of-icaria) [![CurseForge](https://img.shields.io/curseforge/dt/463988?style=flat-square&logo=curseforge&logoColor=FFFFFF&label=curseforge&labelColor=F16436&color=808080)](https://www.curseforge.com/minecraft/mc-mods/lands-of-icaria)
+# Lands of Icaria [![Discord](https://img.shields.io/discord/453173961463955458?style=flat-square&logo=discord&logoColor=FFFFFF&label=Discord&labelColor=5865F2&color=808080)](https://discord.gg/EAVsmRHTvM) [![Modrinth](https://img.shields.io/modrinth/dt/y6ptCp9V?style=flat-square&logo=modrinth&logoColor=FFFFFF&label=Modrinth&labelColor=1BD96A&color=808080)](https://modrinth.com/mod/lands-of-icaria) [![CurseForge](https://img.shields.io/curseforge/dt/463988?style=flat-square&logo=curseforge&logoColor=FFFFFF&label=CurseForge&labelColor=F16436&color=808080)](https://www.curseforge.com/minecraft/mc-mods/lands-of-icaria)
 
 ![An image showing the mods banner](https://cdn.zekro.de/mods/icaria/media/banner_v2.png)
 
@@ -45,7 +45,7 @@ This project is still very much work in progress and we hope to expand our team 
 
 ### License
 
-[![Assets License](https://img.shields.io/badge/assets-CC%20BY--NC--SA%204.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=License-1-ov-file) [![License](https://img.shields.io/badge/source-GPL--3.0-808080?style=flat-square&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=GPL-3.0-2-ov-file)
+[![Assets License](https://img.shields.io/badge/assets-CC%20BY--NC--SA%204.0-808080?style=flat-square&label=Assets&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=License-1-ov-file) [![License](https://img.shields.io/badge/source-GPL--3.0-808080?style=flat-square&label=Source&labelColor=ffffff)](https://github.com/Axanthic-Game-Studios/Lands-of-Icaria?tab=GPL-3.0-2-ov-file)
 
 Assets of this program are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. Source code of this program is redistributed under the GNU General Public License 3.0.
 
