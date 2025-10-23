@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.shapes;
 
+import java.util.List;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -29,7 +31,5 @@ public class LayerShapes {
 	public static final VoxelShape Y_15 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 	public static final VoxelShape Y_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-	public static final VoxelShape[] SHAPES = new VoxelShape[] {
-		LayerShapes.Y_02, LayerShapes.Y_04, LayerShapes.Y_06, LayerShapes.Y_08, LayerShapes.Y_10, LayerShapes.Y_12, LayerShapes.Y_14, LayerShapes.Y_16
-	};
+	public static final List<VoxelShape> SHAPES = List.of(LayerShapes.Y_02, LayerShapes.Y_04, LayerShapes.Y_06, LayerShapes.Y_08, LayerShapes.Y_10, LayerShapes.Y_12, LayerShapes.Y_14, LayerShapes.Y_16);
 }

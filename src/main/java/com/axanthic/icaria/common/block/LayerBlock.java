@@ -96,6 +96,6 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.SHAPES[pBlockState.getValue(BlockStateProperties.LAYERS) - 1];
+		return LayerShapes.SHAPES.get(pBlockState.getValue(BlockStateProperties.LAYERS) - 1);
 	}
 }

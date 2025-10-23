@@ -12,6 +12,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -30,6 +31,6 @@ public class OnionCropBlock extends CropBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.SHAPES[pBlockState.getValue(this.getAgeProperty())];
+		return LayerShapes.SHAPES.get(pBlockState.getValue(BlockStateProperties.AGE_7));
 	}
 }
