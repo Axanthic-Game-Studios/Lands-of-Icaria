@@ -355,6 +355,6 @@ public class IcariaClientModEvents {
 	}
 
 	public static BlockColor blockColor() {
-		return (blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : IcariaColors.ITEM;
+		return (blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : IcariaColors.TINT;
 	}
 }

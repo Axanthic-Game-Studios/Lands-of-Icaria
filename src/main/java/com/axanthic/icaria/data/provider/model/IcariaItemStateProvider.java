@@ -1060,6 +1060,6 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void tinted(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of(new Constant(IcariaColors.ITEM))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of(new Constant(IcariaColors.TINT))));
 	}
 }
