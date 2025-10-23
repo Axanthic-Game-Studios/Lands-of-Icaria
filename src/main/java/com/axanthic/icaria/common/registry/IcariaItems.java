@@ -1094,12 +1094,12 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> RIGHT_GRINDER_CHAIN = IcariaItems.register("right_grinder_chain", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> STATIC_RIGHT_GRINDER_CHAIN = IcariaItems.register("static_right_grinder_chain", Item::new, IcariaItems.propertiesItem());
 
-	public static Item.Properties propertiesItem() {
-		return new Item.Properties().useItemDescriptionPrefix();
-	}
-
 	public static Item.Properties propertiesBlock() {
 		return new Item.Properties().useBlockDescriptionPrefix();
+	}
+
+	public static Item.Properties propertiesItem() {
+		return new Item.Properties().useItemDescriptionPrefix();
 	}
 
 	public static <T extends Item> DeferredHolder<Item, T> register(String pName, Function<Item.Properties, T> pFunction, Item.Properties pProperties) {
