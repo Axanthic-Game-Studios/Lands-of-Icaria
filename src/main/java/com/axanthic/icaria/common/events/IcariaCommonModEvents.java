@@ -121,26 +121,26 @@ public class IcariaCommonModEvents {
 
 		var registryProvider = builtinEntries.getRegistryProvider();
 
-		generator.addProvider(true, new IcariaAdvancementProvider(packOutput, lookupProvider));
-		generator.addProvider(true, new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
-		generator.addProvider(true, new IcariaGermanLanguageProvider(packOutput, IcariaIdents.ID, "de_de"));
-		generator.addProvider(true, new IcariaLootTableProvider(packOutput, lookupProvider));
-		generator.addProvider(true, new IcariaModelProvider(packOutput, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaDataMapProvider(packOutput, lookupProvider));
-		generator.addProvider(true, builtinEntries);
-		generator.addProvider(true, new IcariaEquipmentAssetProvider(packOutput));
-		generator.addProvider(true, new IcariaParticleDescriptionProvider(packOutput));
-		generator.addProvider(true, new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaSoundDefinitionsProvider(packOutput, IcariaIdents.ID));
-		generator.addProvider(true, new IcariaRecipeRunner(packOutput, lookupProvider));
+		pEvent.addProvider(new IcariaAdvancementProvider(packOutput, lookupProvider));
+		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
+		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaIdents.ID, "de_de"));
+		pEvent.addProvider(new IcariaLootTableProvider(packOutput, lookupProvider));
+		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaDataMapProvider(packOutput, lookupProvider));
+		pEvent.addProvider(builtinEntries);
+		pEvent.addProvider(new IcariaEquipmentAssetProvider(packOutput));
+		pEvent.addProvider(new IcariaParticleDescriptionProvider(packOutput));
+		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaRecipeRunner(packOutput, lookupProvider));
 	}
 
 	@SubscribeEvent
