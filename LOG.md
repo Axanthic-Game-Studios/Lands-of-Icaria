@@ -30,6 +30,7 @@ Updates
 
 Fixes
 
+- Mediterranean Water had missing Textures when facing non-opaque Blocks and its underwater Overlay
 - Loam Brick Slabs, Stairs and Walls were using Gravel instead of Stone Sounds
 - Workstations, including the Forge, Grinder, Kiln and Kettle, were consuming but not yielding an Item, when the Result Item has a maximum Stack Size of 1
 - Triple Barrel Racks did not drop Loot when the lower right or upper Barrel was broken, only when the lower left Barrel was broken

@@ -27,6 +27,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation CONCOCTION_SLOW = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/kettle_concoction_slow");
 	public static final ResourceLocation FLOWING_MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/flowing_mediterranean_water");
 	public static final ResourceLocation MEDITERRANEAN_WATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water");
+	public static final ResourceLocation MEDITERRANEAN_WATER_OVERLAY = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/mediterranean_water_overlay");
 	public static final ResourceLocation ONION = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/trough_onion");
 	public static final ResourceLocation SPELT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/spelt_bale_block_top");
 	public static final ResourceLocation SUNSTONE_BRICKS = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block/sunstone_bricks");
@@ -208,6 +209,10 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation THOG_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "thog");
 	public static final ResourceLocation THOG_SKULL_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "thog_skull");
 	public static final ResourceLocation VINEGAROON_LAYER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "vinegaroon");
+
+	// MISC
+
+	public static final ResourceLocation MEDITERRANEAN_WATER_UNDERWATER = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "textures/misc/mediterranean_water_underwater.png");
 
 	// PACKET TYPE
 

@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -32,6 +33,16 @@ public class MediterraneanWaterClientFluidTypeExtensions implements IClientFluid
 	@Override
 	public ResourceLocation getFlowingTexture() {
 		return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER;
+	}
+
+	@Override
+	public ResourceLocation getOverlayTexture() {
+		return IcariaResourceLocations.MEDITERRANEAN_WATER_OVERLAY;
+	}
+
+	@Override
+	public ResourceLocation getRenderOverlayTexture(Minecraft pMinecraft) {
+		return IcariaResourceLocations.MEDITERRANEAN_WATER_UNDERWATER;
 	}
 
 	@Override
