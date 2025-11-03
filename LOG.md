@@ -14,6 +14,7 @@ Updates
 
 - now Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
+- Grainel, Silksand and Surface Lignite play ambient Block Sounds now
 - Unfired Storage Vases that have been colored already can be recolored now
 - Surface Lignite can be set on Fire now
 - Surface Lignite, Twigs, Palm Ferns and Moss can ignite from Lava now
@@ -34,6 +35,7 @@ Fixes
 - Loam Brick Slabs, Stairs and Walls were using Gravel instead of Stone Sounds
 - Workstations, including the Forge, Grinder, Kiln and Kettle, were consuming but not yielding an Item, when the Result Item has a maximum Stack Size of 1
 - Triple Barrel Racks did not drop Loot when the lower right or upper Barrel was broken, only when the lower left Barrel was broken
+- Ink Sacs used on Chest Labels applied to Icaria Chests had their Uses counted towards Glow Ink Sacs instead of Ink Sacs in the Statistics
 
 Removals
 
