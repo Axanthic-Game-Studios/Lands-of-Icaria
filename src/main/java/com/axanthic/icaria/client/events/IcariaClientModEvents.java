@@ -12,11 +12,11 @@ import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.registry.IcariaRenderPipelines;
 import com.axanthic.icaria.client.renderer.*;
+import com.axanthic.icaria.client.renderer.unbaked.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.client.screen.ForgeScreen;
 import com.axanthic.icaria.client.screen.GrinderScreen;
 import com.axanthic.icaria.client.screen.KilnScreen;
 import com.axanthic.icaria.client.screen.StorageVaseScreen;
-import com.axanthic.icaria.client.special.unbaked.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 

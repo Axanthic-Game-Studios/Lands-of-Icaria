@@ -1,4 +1,4 @@
-package com.axanthic.icaria.client.special;
+package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.recipe.ItemConcoctingRecipe;

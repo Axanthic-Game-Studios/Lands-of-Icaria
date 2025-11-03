@@ -1,6 +1,6 @@
-package com.axanthic.icaria.client.special.unbaked;
+package com.axanthic.icaria.client.renderer.unbaked;
 
-import com.axanthic.icaria.client.special.ScrollItemSpecialModelRenderer;
+import com.axanthic.icaria.client.renderer.ScrollItemSpecialModelRenderer;
 
 import com.mojang.serialization.MapCodec;
 

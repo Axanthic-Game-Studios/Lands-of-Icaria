@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.events;
 
+import com.axanthic.icaria.client.renderer.ScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.client.screen.ChestLabelScreen;
-import com.axanthic.icaria.client.special.ScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;

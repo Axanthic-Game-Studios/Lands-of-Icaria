@@ -1,6 +1,6 @@
 package com.axanthic.icaria.data.provider.model;
 
-import com.axanthic.icaria.client.special.unbaked.UnbakedScrollItemSpecialModelRenderer;
+import com.axanthic.icaria.client.renderer.unbaked.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
