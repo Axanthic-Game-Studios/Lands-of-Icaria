@@ -799,6 +799,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.SWIRLY_VINE.get())
 			.add(IcariaBlocks.THORNY_VINE.get());
 
+		this.tag(BlockTags.TRIGGERS_AMBIENT_DESERT_SAND_BLOCK_SOUNDS)
+			.add(IcariaBlocks.GRAINEL.get())
+			.add(IcariaBlocks.SILKSAND.get());
+
 		this.tag(BlockTags.WALL_HANGING_SIGNS)
 			.add(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get())
 			.add(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get())
