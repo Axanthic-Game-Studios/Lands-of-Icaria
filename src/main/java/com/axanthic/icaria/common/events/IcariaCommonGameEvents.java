@@ -7,8 +7,8 @@ import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.item.ScytheItem;
-import com.axanthic.icaria.common.network.packet.LootVasePacket;
-import com.axanthic.icaria.common.network.packet.TotemPacket;
+import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;

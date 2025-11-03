@@ -1,10 +1,10 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
-import com.axanthic.icaria.common.network.packet.GrinderPacket;
-import com.axanthic.icaria.common.network.packet.LootVasePacket;
-import com.axanthic.icaria.common.network.packet.TotemPacket;
+import com.axanthic.icaria.common.packet.ChestLabelPacket;
+import com.axanthic.icaria.common.packet.GrinderPacket;
+import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.packet.TotemPacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
 

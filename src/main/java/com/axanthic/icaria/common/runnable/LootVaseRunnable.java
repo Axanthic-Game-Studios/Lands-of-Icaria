@@ -1,6 +1,6 @@
-package com.axanthic.icaria.common.network.runnable;
+package com.axanthic.icaria.common.runnable;
 
-import com.axanthic.icaria.common.network.packet.LootVasePacket;
+import com.axanthic.icaria.common.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.IcariaAttachmentTypes;
 
 import javax.annotation.ParametersAreNonnullByDefault;

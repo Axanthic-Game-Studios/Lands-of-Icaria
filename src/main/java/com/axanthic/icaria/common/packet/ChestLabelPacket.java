@@ -1,7 +1,7 @@
-package com.axanthic.icaria.common.network.packet;
+package com.axanthic.icaria.common.packet;
 
-import com.axanthic.icaria.common.network.runnable.ChestLabelRunnable;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.runnable.ChestLabelRunnable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

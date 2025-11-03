@@ -1,7 +1,7 @@
-package com.axanthic.icaria.common.network.packet;
+package com.axanthic.icaria.common.packet;
 
-import com.axanthic.icaria.common.network.runnable.TotemRunnable;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.runnable.TotemRunnable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.handler.stack.GrinderFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderGearItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderInputItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderOutputItemStackHandler;
-import com.axanthic.icaria.common.network.packet.GrinderPacket;
+import com.axanthic.icaria.common.packet.GrinderPacket;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.recipe.input.DoubleRecipeInput;

@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.network.packet.LootVasePacket;
+import com.axanthic.icaria.common.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 

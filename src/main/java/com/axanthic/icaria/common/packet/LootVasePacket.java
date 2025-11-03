@@ -1,8 +1,8 @@
-package com.axanthic.icaria.common.network.packet;
+package com.axanthic.icaria.common.packet;
 
-import com.axanthic.icaria.common.network.runnable.LootVaseRunnable;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 import com.axanthic.icaria.common.registry.IcariaStreamCodecs;
+import com.axanthic.icaria.common.runnable.LootVaseRunnable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.screen;
 
-import com.axanthic.icaria.common.network.packet.ChestLabelPacket;
+import com.axanthic.icaria.common.packet.ChestLabelPacket;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;

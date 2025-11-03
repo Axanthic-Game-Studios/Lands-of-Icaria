@@ -1,7 +1,7 @@
-package com.axanthic.icaria.common.network.runnable;
+package com.axanthic.icaria.common.runnable;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.network.packet.GrinderPacket;
+import com.axanthic.icaria.common.packet.GrinderPacket;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
