@@ -1,4 +1,4 @@
-package com.axanthic.icaria.compat.jei.category;
+package com.axanthic.icaria.common.recipe.category;
 
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.recipe.display.GrindingRecipeDisplay;

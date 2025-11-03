@@ -1,15 +1,15 @@
-package com.axanthic.icaria.compat.jei;
+package com.axanthic.icaria.compat;
 
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
+import com.axanthic.icaria.common.recipe.category.FiringRecipeCategory;
+import com.axanthic.icaria.common.recipe.category.ForgingRecipeCategory;
+import com.axanthic.icaria.common.recipe.category.GrindingRecipeCategory;
 import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
-import com.axanthic.icaria.compat.jei.category.FiringRecipeCategory;
-import com.axanthic.icaria.compat.jei.category.ForgingRecipeCategory;
-import com.axanthic.icaria.compat.jei.category.GrindingRecipeCategory;
 
 import java.util.function.Supplier;
 
