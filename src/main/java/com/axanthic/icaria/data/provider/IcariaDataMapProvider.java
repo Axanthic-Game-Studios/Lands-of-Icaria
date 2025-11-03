@@ -1,5 +1,9 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.common.datamap.Freezable;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -11,6 +15,10 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.Fluids;
 
 import net.neoforged.neoforge.common.data.DataMapProvider;
 import net.neoforged.neoforge.registries.datamaps.builtin.Compostable;
@@ -28,6 +36,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 	@Override
 	public void gather(HolderLookup.Provider pProvider) {
 		this.compostables();
+		this.freezables();
 		this.furnaceFuels();
 	}
 
@@ -149,6 +158,11 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.compostables(IcariaItems.PHYSALIS_SEEDS.get(), 0.3F);
 	}
 
+	public void freezables() {
+		this.freezables(Fluids.WATER, Blocks.ICE);
+		this.freezables(IcariaFluids.MEDITERRANEAN_WATER.get(), IcariaBlocks.ARISTONE.get());
+	}
+
 	public void furnaceFuels() {
 		this.furnaceFuels(IcariaItems.SURFACE_LIGNITE.get(), 800);
 		this.furnaceFuels(IcariaItems.ARACHNE_STRING_BLOCK.get(), 100);
@@ -267,6 +281,10 @@ public class IcariaDataMapProvider extends DataMapProvider {
 
 	public void compostables(Item pItem, float pChance) {
 		this.builder(NeoForgeDataMaps.COMPOSTABLES).add(BuiltInRegistries.ITEM.getKey(pItem), new Compostable(pChance), false);
+	}
+
+	public void freezables(Fluid pFluid, Block pBlock) {
+		this.builder(IcariaDataMapTypes.FREEZABLES).add(BuiltInRegistries.FLUID.getKey(pFluid), new Freezable(pBlock), false);
 	}
 
 	public void furnaceFuels(Item pItem, int pBurnTime) {

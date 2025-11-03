@@ -33,6 +33,7 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
+import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
 @SuppressWarnings("unused")
 
@@ -152,6 +153,11 @@ public class IcariaCommonModEvents {
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KETTLE.get(), KettleBlockEntity::getCapability);
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KILN.get(), KilnBlockEntity::getCapability);
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.KILN_REDIRECTOR.get(), KilnRedirectorBlockEntity::getCapability);
+	}
+
+	@SubscribeEvent
+	public static void onRegisterDataMapTypesEvent(RegisterDataMapTypesEvent pEvent) {
+		pEvent.register(IcariaDataMapTypes.FREEZABLES);
 	}
 
 	@SubscribeEvent

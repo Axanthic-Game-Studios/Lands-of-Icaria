@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -18,9 +17,10 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SnowLayerBlock;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
+
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -72,12 +72,9 @@ public class FreezingSpellEntity extends SpellEntity {
 		var level = this.level();
 		var blockPos = this.blockPosition();
 		var blockState = level.getBlockState(blockPos);
-		var fluidState = blockState.getFluidState();
-		if (blockState.canBeReplaced() && fluidState.is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
-			level.setBlockAndUpdate(blockPos, IcariaBlocks.ARISTONE.get().defaultBlockState());
-			this.discard();
-		} else if (blockState.canBeReplaced() && fluidState.is(Fluids.WATER)) {
-			level.setBlockAndUpdate(blockPos, Blocks.ICE.defaultBlockState());
+		var data = blockState.getFluidState().getType().builtInRegistryHolder().getData(IcariaDataMapTypes.FREEZABLES);
+		if (blockState.canBeReplaced() && data != null) {
+			level.setBlockAndUpdate(blockPos, data.block().defaultBlockState());
 			this.discard();
 		}
 	}

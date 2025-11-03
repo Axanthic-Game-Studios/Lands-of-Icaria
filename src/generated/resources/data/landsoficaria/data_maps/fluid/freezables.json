@@ -1,0 +1,10 @@
+{
+  "values": {
+    "landsoficaria:mediterranean_water": {
+      "block": "landsoficaria:aristone"
+    },
+    "minecraft:water": {
+      "block": "minecraft:ice"
+    }
+  }
+}
