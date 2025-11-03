@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shapes.DirectionShapes;
+import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -30,6 +30,6 @@ public class PhysalisCropBlock extends CropBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return DirectionShapes.UP;
+		return DirectionVoxelShapes.UP;
 	}
 }

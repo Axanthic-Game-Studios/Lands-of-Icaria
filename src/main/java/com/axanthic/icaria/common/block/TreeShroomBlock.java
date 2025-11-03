@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.shapes.DirectionShapes;
+import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -82,10 +82,10 @@ public class TreeShroomBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> DirectionShapes.NORTH;
-			case EAST -> DirectionShapes.EAST;
-			case SOUTH -> DirectionShapes.SOUTH;
-			default -> DirectionShapes.WEST;
+			case NORTH -> DirectionVoxelShapes.NORTH;
+			case EAST -> DirectionVoxelShapes.EAST;
+			case SOUTH -> DirectionVoxelShapes.SOUTH;
+			default -> DirectionVoxelShapes.WEST;
 		};
 	}
 }

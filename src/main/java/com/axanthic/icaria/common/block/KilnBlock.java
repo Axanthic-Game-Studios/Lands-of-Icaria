@@ -5,7 +5,7 @@ import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.shapes.KilnShapes;
+import com.axanthic.icaria.common.shapes.KilnVoxelShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -195,19 +195,19 @@ public class KilnBlock extends BaseEntityBlock {
 
 	public VoxelShape getLower(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KilnShapes.LOWER_NORTH;
-			case EAST -> KilnShapes.LOWER_EAST;
-			case SOUTH -> KilnShapes.LOWER_SOUTH;
-			default -> KilnShapes.LOWER_WEST;
+			case NORTH -> KilnVoxelShapes.LOWER_NORTH;
+			case EAST -> KilnVoxelShapes.LOWER_EAST;
+			case SOUTH -> KilnVoxelShapes.LOWER_SOUTH;
+			default -> KilnVoxelShapes.LOWER_WEST;
 		};
 	}
 
 	public VoxelShape getUpper(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KilnShapes.UPPER_NORTH;
-			case EAST -> KilnShapes.UPPER_EAST;
-			case SOUTH -> KilnShapes.UPPER_SOUTH;
-			default -> KilnShapes.UPPER_WEST;
+			case NORTH -> KilnVoxelShapes.UPPER_NORTH;
+			case EAST -> KilnVoxelShapes.UPPER_EAST;
+			case SOUTH -> KilnVoxelShapes.UPPER_SOUTH;
+			default -> KilnVoxelShapes.UPPER_WEST;
 		};
 	}
 

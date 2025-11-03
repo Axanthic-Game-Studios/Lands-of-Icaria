@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.properties.Bathtub;
 import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shapes.BathtubShapes;
+import com.axanthic.icaria.common.shapes.BathtubVoxelShapes;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -329,19 +329,19 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	public VoxelShape getHead(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> BathtubShapes.HEAD_NORTH;
-			case EAST -> BathtubShapes.HEAD_EAST;
-			case SOUTH -> BathtubShapes.HEAD_SOUTH;
-			default -> BathtubShapes.HEAD_WEST;
+			case NORTH -> BathtubVoxelShapes.HEAD_NORTH;
+			case EAST -> BathtubVoxelShapes.HEAD_EAST;
+			case SOUTH -> BathtubVoxelShapes.HEAD_SOUTH;
+			default -> BathtubVoxelShapes.HEAD_WEST;
 		};
 	}
 
 	public VoxelShape getFoot(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> BathtubShapes.FOOT_NORTH;
-			case EAST -> BathtubShapes.FOOT_EAST;
-			case SOUTH -> BathtubShapes.FOOT_SOUTH;
-			default -> BathtubShapes.FOOT_WEST;
+			case NORTH -> BathtubVoxelShapes.FOOT_NORTH;
+			case EAST -> BathtubVoxelShapes.FOOT_EAST;
+			case SOUTH -> BathtubVoxelShapes.FOOT_SOUTH;
+			default -> BathtubVoxelShapes.FOOT_WEST;
 		};
 	}
 }

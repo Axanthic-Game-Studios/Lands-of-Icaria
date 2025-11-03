@@ -7,7 +7,7 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.shapes.TroughShapes;
+import com.axanthic.icaria.common.shapes.TroughVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -258,10 +258,10 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TroughShapes.NORTH;
-			case EAST -> TroughShapes.EAST;
-			case SOUTH -> TroughShapes.SOUTH;
-			default -> TroughShapes.WEST;
+			case NORTH -> TroughVoxelShapes.NORTH;
+			case EAST -> TroughVoxelShapes.EAST;
+			case SOUTH -> TroughVoxelShapes.SOUTH;
+			default -> TroughVoxelShapes.WEST;
 		};
 	}
 }

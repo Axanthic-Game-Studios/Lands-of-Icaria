@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.network.packet.LootVasePacket;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.shapes.LayerShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
@@ -241,7 +241,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : LayerShapes.Y_04;
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : LayerVoxelShapes.Y_04;
 	}
 
 	public WoodType woodType() {

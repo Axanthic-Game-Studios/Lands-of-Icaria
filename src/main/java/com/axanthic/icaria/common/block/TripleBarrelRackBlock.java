@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.shapes.TripleBarrelRackShapes;
+import com.axanthic.icaria.common.shapes.TripleBarrelRackVoxelShapes;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import java.util.List;
@@ -148,37 +148,37 @@ public class TripleBarrelRackBlock extends Block {
 
 	public VoxelShape getNorth(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TripleBarrelRackShapes.BOTTOM_LEFT_NORTH;
-			case EAST -> TripleBarrelRackShapes.BOTTOM_LEFT_EAST;
-			case SOUTH -> TripleBarrelRackShapes.BOTTOM_LEFT_SOUTH;
-			default -> TripleBarrelRackShapes.BOTTOM_LEFT_WEST;
+			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_NORTH;
+			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_EAST;
+			case SOUTH -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_SOUTH;
+			default -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getEast(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_NORTH;
-			case EAST -> TripleBarrelRackShapes.BOTTOM_RIGHT_EAST;
-			case SOUTH -> TripleBarrelRackShapes.BOTTOM_RIGHT_SOUTH;
-			default -> TripleBarrelRackShapes.BOTTOM_RIGHT_WEST;
+			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_NORTH;
+			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_EAST;
+			case SOUTH -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_SOUTH;
+			default -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_WEST;
 		};
 	}
 
 	public VoxelShape getSouth(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TripleBarrelRackShapes.TOP_LEFT_NORTH;
-			case EAST -> TripleBarrelRackShapes.TOP_LEFT_EAST;
-			case SOUTH -> TripleBarrelRackShapes.TOP_LEFT_SOUTH;
-			default -> TripleBarrelRackShapes.TOP_LEFT_WEST;
+			case NORTH -> TripleBarrelRackVoxelShapes.TOP_LEFT_NORTH;
+			case EAST -> TripleBarrelRackVoxelShapes.TOP_LEFT_EAST;
+			case SOUTH -> TripleBarrelRackVoxelShapes.TOP_LEFT_SOUTH;
+			default -> TripleBarrelRackVoxelShapes.TOP_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getWest(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TripleBarrelRackShapes.TOP_RIGHT_NORTH;
-			case EAST -> TripleBarrelRackShapes.TOP_RIGHT_EAST;
-			case SOUTH -> TripleBarrelRackShapes.TOP_RIGHT_SOUTH;
-			default -> TripleBarrelRackShapes.TOP_RIGHT_WEST;
+			case NORTH -> TripleBarrelRackVoxelShapes.TOP_RIGHT_NORTH;
+			case EAST -> TripleBarrelRackVoxelShapes.TOP_RIGHT_EAST;
+			case SOUTH -> TripleBarrelRackVoxelShapes.TOP_RIGHT_SOUTH;
+			default -> TripleBarrelRackVoxelShapes.TOP_RIGHT_WEST;
 		};
 	}
 }

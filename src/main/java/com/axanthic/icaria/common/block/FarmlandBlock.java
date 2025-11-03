@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.shapes.LayerShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -153,6 +153,6 @@ public class FarmlandBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.Y_15;
+		return LayerVoxelShapes.Y_15;
 	}
 }

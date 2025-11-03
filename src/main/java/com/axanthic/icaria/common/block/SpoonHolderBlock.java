@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.shapes.SpoonHolderShapes;
+import com.axanthic.icaria.common.shapes.SpoonHolderVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,10 +23,10 @@ public class SpoonHolderBlock extends HolderBlock {
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> SpoonHolderShapes.NORTH;
-			case EAST -> SpoonHolderShapes.EAST;
-			case SOUTH -> SpoonHolderShapes.SOUTH;
-			default -> SpoonHolderShapes.WEST;
+			case NORTH -> SpoonHolderVoxelShapes.NORTH;
+			case EAST -> SpoonHolderVoxelShapes.EAST;
+			case SOUTH -> SpoonHolderVoxelShapes.SOUTH;
+			default -> SpoonHolderVoxelShapes.WEST;
 		};
 	}
 }

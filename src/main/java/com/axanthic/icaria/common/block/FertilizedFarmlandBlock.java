@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.shapes.LayerShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -41,6 +41,6 @@ public class FertilizedFarmlandBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.Y_15;
+		return LayerVoxelShapes.Y_15;
 	}
 }

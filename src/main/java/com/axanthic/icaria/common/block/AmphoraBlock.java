@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shapes.AmphoraShapes;
+import com.axanthic.icaria.common.shapes.AmphoraVoxelShapes;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import java.util.List;
@@ -103,6 +103,6 @@ public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return AmphoraShapes.AMPHORA;
+		return AmphoraVoxelShapes.AMPHORA;
 	}
 }

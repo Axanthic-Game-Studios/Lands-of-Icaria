@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.shapes.DirectionShapes;
+import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -62,6 +62,6 @@ public class GroundShroomBlock extends Block {
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		var vec3 = pBlockState.getOffset(pBlockPos);
-		return DirectionShapes.UP.move(vec3.x, vec3.y, vec3.z);
+		return DirectionVoxelShapes.UP.move(vec3.x, vec3.y, vec3.z);
 	}
 }

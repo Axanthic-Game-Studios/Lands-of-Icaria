@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.shapes.TowelHolderShapes;
+import com.axanthic.icaria.common.shapes.TowelHolderVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -92,10 +92,10 @@ public class TowelHolderBlock extends HolderBlock {
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TowelHolderShapes.NORTH;
-			case EAST -> TowelHolderShapes.EAST;
-			case SOUTH -> TowelHolderShapes.SOUTH;
-			default -> TowelHolderShapes.WEST;
+			case NORTH -> TowelHolderVoxelShapes.NORTH;
+			case EAST -> TowelHolderVoxelShapes.EAST;
+			case SOUTH -> TowelHolderVoxelShapes.SOUTH;
+			default -> TowelHolderVoxelShapes.WEST;
 		};
 	}
 }

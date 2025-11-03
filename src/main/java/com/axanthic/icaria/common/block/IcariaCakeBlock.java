@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.properties.Candle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.shapes.IcariaCakeShapes;
+import com.axanthic.icaria.common.shapes.IcariaCakeVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -263,6 +263,6 @@ public class IcariaCakeBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE ? IcariaCakeShapes.CAKE_SHAPES.get(pBlockState.getValue(IcariaBlockStateProperties.CAKE_BITE)) : IcariaCakeShapes.CANDLE_CAKE;
+		return pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE ? IcariaCakeVoxelShapes.CAKE_SHAPES.get(pBlockState.getValue(IcariaBlockStateProperties.CAKE_BITE)) : IcariaCakeVoxelShapes.CANDLE_CAKE;
 	}
 }

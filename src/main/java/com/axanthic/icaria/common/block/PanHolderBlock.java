@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.shapes.PanHolderShapes;
+import com.axanthic.icaria.common.shapes.PanHolderVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -23,10 +23,10 @@ public class PanHolderBlock extends HolderBlock {
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> PanHolderShapes.NORTH;
-			case EAST -> PanHolderShapes.EAST;
-			case SOUTH -> PanHolderShapes.SOUTH;
-			default -> PanHolderShapes.WEST;
+			case NORTH -> PanHolderVoxelShapes.NORTH;
+			case EAST -> PanHolderVoxelShapes.EAST;
+			case SOUTH -> PanHolderVoxelShapes.SOUTH;
+			default -> PanHolderVoxelShapes.WEST;
 		};
 	}
 }

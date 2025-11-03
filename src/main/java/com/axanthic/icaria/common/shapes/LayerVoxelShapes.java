@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LayerShapes {
+public class LayerVoxelShapes {
 	public static final VoxelShape Y_01 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 1.0D, 16.0D);
 	public static final VoxelShape Y_02 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D);
 	public static final VoxelShape Y_03 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);
@@ -31,5 +31,5 @@ public class LayerShapes {
 	public static final VoxelShape Y_15 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D);
 	public static final VoxelShape Y_16 = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 
-	public static final List<VoxelShape> SHAPES = List.of(LayerShapes.Y_02, LayerShapes.Y_04, LayerShapes.Y_06, LayerShapes.Y_08, LayerShapes.Y_10, LayerShapes.Y_12, LayerShapes.Y_14, LayerShapes.Y_16);
+	public static final List<VoxelShape> SHAPES = List.of(LayerVoxelShapes.Y_02, LayerVoxelShapes.Y_04, LayerVoxelShapes.Y_06, LayerVoxelShapes.Y_08, LayerVoxelShapes.Y_10, LayerVoxelShapes.Y_12, LayerVoxelShapes.Y_14, LayerVoxelShapes.Y_16);
 }

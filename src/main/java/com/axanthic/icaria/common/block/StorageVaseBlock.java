@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.shapes.StorageVaseShapes;
+import com.axanthic.icaria.common.shapes.StorageVaseVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -81,6 +81,6 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return StorageVaseShapes.STORAGE_VASE;
+		return StorageVaseVoxelShapes.STORAGE_VASE;
 	}
 }

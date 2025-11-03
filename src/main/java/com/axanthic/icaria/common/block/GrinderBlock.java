@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.menu.provider.GrinderMenuProvider;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.shapes.GrinderShapes;
+import com.axanthic.icaria.common.shapes.GrinderVoxelShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -207,19 +207,19 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	public VoxelShape getLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> GrinderShapes.LEFT_NORTH;
-			case EAST -> GrinderShapes.LEFT_EAST;
-			case SOUTH -> GrinderShapes.LEFT_SOUTH;
-			default -> GrinderShapes.LEFT_WEST;
+			case NORTH -> GrinderVoxelShapes.LEFT_NORTH;
+			case EAST -> GrinderVoxelShapes.LEFT_EAST;
+			case SOUTH -> GrinderVoxelShapes.LEFT_SOUTH;
+			default -> GrinderVoxelShapes.LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> GrinderShapes.RIGHT_NORTH;
-			case EAST -> GrinderShapes.RIGHT_EAST;
-			case SOUTH -> GrinderShapes.RIGHT_SOUTH;
-			default -> GrinderShapes.RIGHT_WEST;
+			case NORTH -> GrinderVoxelShapes.RIGHT_NORTH;
+			case EAST -> GrinderVoxelShapes.RIGHT_EAST;
+			case SOUTH -> GrinderVoxelShapes.RIGHT_SOUTH;
+			default -> GrinderVoxelShapes.RIGHT_WEST;
 		};
 	}
 

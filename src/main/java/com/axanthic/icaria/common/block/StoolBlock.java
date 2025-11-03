@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.StoolEntity;
 import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.shapes.StoolShapes;
+import com.axanthic.icaria.common.shapes.StoolVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -158,6 +158,6 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return StoolShapes.STOOL;
+		return StoolVoxelShapes.STOOL;
 	}
 }

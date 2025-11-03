@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shapes.LayerShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -31,6 +31,6 @@ public class OnionCropBlock extends CropBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.SHAPES.get(pBlockState.getValue(BlockStateProperties.AGE_7));
+		return LayerVoxelShapes.SHAPES.get(pBlockState.getValue(BlockStateProperties.AGE_7));
 	}
 }

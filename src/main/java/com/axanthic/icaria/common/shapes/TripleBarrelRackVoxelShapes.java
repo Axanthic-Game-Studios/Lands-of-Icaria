@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class TripleBarrelRackShapes {
+public class TripleBarrelRackVoxelShapes {
 	public static final VoxelShape BOTTOM_LEFT_NORTH = Stream.of(Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.box(-16.0D, 0.0D, 0.0D, 0.0D, 16.0D, 16.0D), Block.box(-8.0D, 16.0D, 0.0D, 8.0D, 29.0D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 	public static final VoxelShape BOTTOM_LEFT_EAST = Stream.of(Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.box(0.0D, 0.0D, -16.0D, 16.0D, 16.0D, 0.0D), Block.box(0.0D, 16.0D, -8.0D, 16.0D, 29.0D, 8.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 	public static final VoxelShape BOTTOM_LEFT_SOUTH = Stream.of(Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D), Block.box(16.0D, 0.0D, 0.0D, 32.0D, 16.0D, 16.0D), Block.box(8.0D, 16.0D, 0.0D, 24.0D, 29.0D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();

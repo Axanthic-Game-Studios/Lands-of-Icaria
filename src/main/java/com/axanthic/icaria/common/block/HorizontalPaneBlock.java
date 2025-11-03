@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.shapes.HorizontalPaneShapes;
+import com.axanthic.icaria.common.shapes.HorizontalPaneVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -64,6 +64,6 @@ public class HorizontalPaneBlock extends Block implements MediterraneanWaterlogg
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return HorizontalPaneShapes.HORIZONTAL_PANE;
+		return HorizontalPaneVoxelShapes.HORIZONTAL_PANE;
 	}
 }

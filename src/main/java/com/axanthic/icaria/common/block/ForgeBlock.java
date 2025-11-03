@@ -7,7 +7,7 @@ import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.shapes.ForgeShapes;
+import com.axanthic.icaria.common.shapes.ForgeVoxelShapes;
 
 import com.mojang.serialization.MapCodec;
 
@@ -286,73 +286,73 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	public VoxelShape getBottomFrontLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.BOTTOM_FRONT_LEFT_NORTH;
-			case EAST -> ForgeShapes.BOTTOM_FRONT_LEFT_EAST;
-			case SOUTH -> ForgeShapes.BOTTOM_FRONT_LEFT_SOUTH;
-			default -> ForgeShapes.BOTTOM_FRONT_LEFT_WEST;
+			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getBottomFrontRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_NORTH;
-			case EAST -> ForgeShapes.BOTTOM_FRONT_RIGHT_EAST;
-			case SOUTH -> ForgeShapes.BOTTOM_FRONT_RIGHT_SOUTH;
-			default -> ForgeShapes.BOTTOM_FRONT_RIGHT_WEST;
+			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_WEST;
 		};
 	}
 
 	public VoxelShape getBottomBackLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.BOTTOM_BACK_LEFT_NORTH;
-			case EAST -> ForgeShapes.BOTTOM_BACK_LEFT_EAST;
-			case SOUTH -> ForgeShapes.BOTTOM_BACK_LEFT_SOUTH;
-			default -> ForgeShapes.BOTTOM_BACK_LEFT_WEST;
+			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getBottomBackRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.BOTTOM_BACK_RIGHT_NORTH;
-			case EAST -> ForgeShapes.BOTTOM_BACK_RIGHT_EAST;
-			case SOUTH -> ForgeShapes.BOTTOM_BACK_RIGHT_SOUTH;
-			default -> ForgeShapes.BOTTOM_BACK_RIGHT_WEST;
+			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_WEST;
 		};
 	}
 
 	public VoxelShape getTopFrontLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.TOP_FRONT_LEFT_NORTH;
-			case EAST -> ForgeShapes.TOP_FRONT_LEFT_EAST;
-			case SOUTH -> ForgeShapes.TOP_FRONT_LEFT_SOUTH;
-			default -> ForgeShapes.TOP_FRONT_LEFT_WEST;
+			case NORTH -> ForgeVoxelShapes.TOP_FRONT_LEFT_NORTH;
+			case EAST -> ForgeVoxelShapes.TOP_FRONT_LEFT_EAST;
+			case SOUTH -> ForgeVoxelShapes.TOP_FRONT_LEFT_SOUTH;
+			default -> ForgeVoxelShapes.TOP_FRONT_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getTopFrontRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.TOP_FRONT_RIGHT_NORTH;
-			case EAST -> ForgeShapes.TOP_FRONT_RIGHT_EAST;
-			case SOUTH -> ForgeShapes.TOP_FRONT_RIGHT_SOUTH;
-			default -> ForgeShapes.TOP_FRONT_RIGHT_WEST;
+			case NORTH -> ForgeVoxelShapes.TOP_FRONT_RIGHT_NORTH;
+			case EAST -> ForgeVoxelShapes.TOP_FRONT_RIGHT_EAST;
+			case SOUTH -> ForgeVoxelShapes.TOP_FRONT_RIGHT_SOUTH;
+			default -> ForgeVoxelShapes.TOP_FRONT_RIGHT_WEST;
 		};
 	}
 
 	public VoxelShape getTopBackLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.TOP_BACK_LEFT_NORTH;
-			case EAST -> ForgeShapes.TOP_BACK_LEFT_EAST;
-			case SOUTH -> ForgeShapes.TOP_BACK_LEFT_SOUTH;
-			default -> ForgeShapes.TOP_BACK_LEFT_WEST;
+			case NORTH -> ForgeVoxelShapes.TOP_BACK_LEFT_NORTH;
+			case EAST -> ForgeVoxelShapes.TOP_BACK_LEFT_EAST;
+			case SOUTH -> ForgeVoxelShapes.TOP_BACK_LEFT_SOUTH;
+			default -> ForgeVoxelShapes.TOP_BACK_LEFT_WEST;
 		};
 	}
 
 	public VoxelShape getTopBackRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeShapes.TOP_BACK_RIGHT_NORTH;
-			case EAST -> ForgeShapes.TOP_BACK_RIGHT_EAST;
-			case SOUTH -> ForgeShapes.TOP_BACK_RIGHT_SOUTH;
-			default -> ForgeShapes.TOP_BACK_RIGHT_WEST;
+			case NORTH -> ForgeVoxelShapes.TOP_BACK_RIGHT_NORTH;
+			case EAST -> ForgeVoxelShapes.TOP_BACK_RIGHT_EAST;
+			case SOUTH -> ForgeVoxelShapes.TOP_BACK_RIGHT_SOUTH;
+			default -> ForgeVoxelShapes.TOP_BACK_RIGHT_WEST;
 		};
 	}
 

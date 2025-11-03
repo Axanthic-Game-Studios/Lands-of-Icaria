@@ -13,7 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BathtubShapes {
+public class BathtubVoxelShapes {
 	public static final VoxelShape HEAD_NORTH = Stream.of(Block.box(1.0F, 1.0F, 0.0F, 2.0F, 14.0F, 15.0F), Block.box(2.0F, 1.0F, 14.0F, 14.0F, 14.0F, 15.0F), Block.box(14.0F, 1.0F, 0.0F, 15.0F, 14.0F, 15.0F), Block.box(1.0F, 0.0F, 0.0F, 15.0F, 1.0F, 15.0F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 	public static final VoxelShape HEAD_EAST = Stream.of(Block.box(1.0F, 1.0F, 1.0F, 16.0F, 14.0F, 2.0F), Block.box(1.0F, 1.0F, 2.0F, 2.0F, 14.0F, 14.0F), Block.box(1.0F, 1.0F, 14.0F, 16.0F, 14.0F, 15.0F), Block.box(1.0F, 0.0F, 1.0F, 16.0F, 1.0F, 15.0F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 	public static final VoxelShape HEAD_SOUTH = Stream.of(Block.box(14.0F, 1.0F, 1.0F, 15.0F, 14.0F, 16.0F), Block.box(2.0F, 1.0F, 1.0F, 14.0F, 14.0F, 2.0F), Block.box(1.0F, 1.0F, 1.0F, 2.0F, 14.0F, 16.0F), Block.box(1.0F, 0.0F, 1.0F, 15.0F, 1.0F, 16.0F)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();

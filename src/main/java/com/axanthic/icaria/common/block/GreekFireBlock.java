@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.shapes.LayerShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -128,6 +128,6 @@ public class GreekFireBlock extends Block implements MediterraneanWaterloggedBlo
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return LayerShapes.Y_01;
+		return LayerVoxelShapes.Y_01;
 	}
 }
