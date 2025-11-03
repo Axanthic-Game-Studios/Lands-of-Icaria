@@ -40,7 +40,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, MediterraneanWaterloggedBlock {
 	public IcariaWallSignBlock(WoodType pWoodType, Properties pProperties) {
 		super(pWoodType, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.ATTACH_FACE, AttachFace.WALL).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

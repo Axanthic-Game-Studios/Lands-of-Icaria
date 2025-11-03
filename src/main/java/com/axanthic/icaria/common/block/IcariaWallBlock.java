@@ -33,7 +33,7 @@ public class IcariaWallBlock extends WallBlock implements MediterraneanWaterlogg
 
 	public IcariaWallBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.NORTH_WALL, WallSide.NONE).setValue(BlockStateProperties.EAST_WALL, WallSide.NONE).setValue(BlockStateProperties.SOUTH_WALL, WallSide.NONE).setValue(BlockStateProperties.WEST_WALL, WallSide.NONE).setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.NORTH_WALL, WallSide.NONE).setValue(BlockStateProperties.EAST_WALL, WallSide.NONE).setValue(BlockStateProperties.SOUTH_WALL, WallSide.NONE).setValue(BlockStateProperties.WEST_WALL, WallSide.NONE).setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.WATERLOGGED, false));
 		this.collisionShape = this.makeShapes(3.0D, 24.0D, 0.0D, 24.0D, 24.0D, 4.0D);
 		this.shape = this.makeShapes(3.0D, 14.0D, 0.0D, 16.0D, 16.0D, 4.0D);
 	}

@@ -36,7 +36,7 @@ public class CardonCactusBlock extends PipeBlock {
 
 	public CardonCactusBlock(Properties pProperties) {
 		super(8.0F, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false).setValue(BlockStateProperties.DOWN, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false).setValue(BlockStateProperties.DOWN, false));
 	}
 
 	@Override

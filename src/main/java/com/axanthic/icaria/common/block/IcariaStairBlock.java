@@ -23,7 +23,7 @@ import net.minecraft.world.level.material.FluidState;
 public class IcariaStairBlock extends StairBlock implements MediterraneanWaterloggedBlock {
 	public IcariaStairBlock(BlockState pBlockState, Properties properties) {
 		super(pBlockState, properties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HALF, Half.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.STAIRS_SHAPE, StairsShape.STRAIGHT).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HALF, Half.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.STAIRS_SHAPE, StairsShape.STRAIGHT).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

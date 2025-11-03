@@ -63,7 +63,7 @@ public class IcariaVineBlock extends Block {
 
 	public IcariaVineBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
 		this.map = ImmutableMap.copyOf(this.stateDefinition.getPossibleStates().stream().collect(Collectors.toMap(Function.identity(), IcariaVineBlock::calculateShape)));
 	}
 

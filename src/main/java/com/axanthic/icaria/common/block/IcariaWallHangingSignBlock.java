@@ -24,7 +24,7 @@ import net.minecraft.world.level.material.Fluids;
 public class IcariaWallHangingSignBlock extends WallHangingSignBlock implements MediterraneanWaterloggedBlock {
 	public IcariaWallHangingSignBlock(WoodType pWoodType, Properties pProperties) {
 		super(pWoodType, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

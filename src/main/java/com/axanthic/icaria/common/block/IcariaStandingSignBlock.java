@@ -24,7 +24,7 @@ import net.minecraft.world.level.material.FluidState;
 public class IcariaStandingSignBlock extends StandingSignBlock implements MediterraneanWaterloggedBlock {
 	public IcariaStandingSignBlock(WoodType pWoodType, Properties pProperties) {
 		super(pWoodType, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.ROTATION_16, 0).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

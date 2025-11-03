@@ -30,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class TreeShroomBlock extends Block {
 	public TreeShroomBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
 	}
 
 	@Override

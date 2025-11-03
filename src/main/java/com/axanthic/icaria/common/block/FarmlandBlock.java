@@ -48,7 +48,7 @@ import net.neoforged.neoforge.common.FarmlandWaterManager;
 public class FarmlandBlock extends Block {
 	public FarmlandBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.MOISTURE, 0));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.MOISTURE, 0));
 	}
 
 	@Override

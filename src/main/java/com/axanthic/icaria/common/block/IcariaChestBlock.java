@@ -45,7 +45,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterloggedBlock {
 	public IcariaChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, Properties pProperties) {
 		super(pBlockEntityType, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.CHEST_TYPE, ChestType.SINGLE).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.LABEL_UP, false).setValue(IcariaBlockStateProperties.LABEL_NORTH, false).setValue(IcariaBlockStateProperties.LABEL_EAST, false).setValue(IcariaBlockStateProperties.LABEL_SOUTH, false).setValue(IcariaBlockStateProperties.LABEL_WEST, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.CHEST_TYPE, ChestType.SINGLE).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.LABEL_UP, false).setValue(IcariaBlockStateProperties.LABEL_NORTH, false).setValue(IcariaBlockStateProperties.LABEL_EAST, false).setValue(IcariaBlockStateProperties.LABEL_SOUTH, false).setValue(IcariaBlockStateProperties.LABEL_WEST, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

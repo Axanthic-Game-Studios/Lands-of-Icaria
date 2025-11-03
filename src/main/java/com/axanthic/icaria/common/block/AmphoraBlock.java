@@ -44,7 +44,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public AmphoraBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.AMOUNT_LOCKED, false).setValue(IcariaBlockStateProperties.AMPHORA_AMOUNT, 1).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.AMOUNT_LOCKED, false).setValue(IcariaBlockStateProperties.AMPHORA_AMOUNT, 1).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

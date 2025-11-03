@@ -46,7 +46,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class BathtubBlock extends Block implements EntityBlock {
 	public BathtubBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.BATHTUB, Bathtub.NONE).setValue(IcariaBlockStateProperties.BATHTUB_FILL, 0).setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.BATHTUB, Bathtub.NONE).setValue(IcariaBlockStateProperties.BATHTUB_FILL, 0).setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
 	}
 
 	@Override

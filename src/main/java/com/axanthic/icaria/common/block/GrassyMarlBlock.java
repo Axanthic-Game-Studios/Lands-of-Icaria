@@ -29,7 +29,7 @@ import net.minecraft.world.level.lighting.LightEngine;
 public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	public GrassyMarlBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MOSS, Moss.NONE));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MOSS, Moss.NONE));
 	}
 
 	public boolean canRemain(BlockPos pBlockPos, BlockState pBlockState, LevelReader pLevelReader) {

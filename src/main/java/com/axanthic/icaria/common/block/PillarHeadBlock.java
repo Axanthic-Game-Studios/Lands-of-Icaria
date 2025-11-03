@@ -23,7 +23,7 @@ public class PillarHeadBlock extends DirectionalBlock {
 
 	public PillarHeadBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.FACING, Direction.NORTH));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.FACING, Direction.NORTH));
 	}
 
 	@Override

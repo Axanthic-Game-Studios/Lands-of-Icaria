@@ -42,7 +42,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public GroundDecoBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

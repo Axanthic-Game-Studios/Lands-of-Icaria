@@ -60,7 +60,7 @@ public class IcariaCakeBlock extends Block {
 		this.teleport = pTeleport;
 		this.duration = pDuration;
 		this.mobEffect = pMobEffect;
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.CAKE_BITE, 0).setValue(IcariaBlockStateProperties.CANDLE, Candle.NONE).setValue(BlockStateProperties.LIT, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.CAKE_BITE, 0).setValue(IcariaBlockStateProperties.CANDLE, Candle.NONE).setValue(BlockStateProperties.LIT, false));
 	}
 
 	public boolean canHit(BlockHitResult pBlockHitResult) {

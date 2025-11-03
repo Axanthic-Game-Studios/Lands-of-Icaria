@@ -28,7 +28,7 @@ public class IcariaLeavesBlock extends TintedParticleLeavesBlock implements Medi
 	public IcariaLeavesBlock(int pColor, Properties pProperties) {
 		super(0.01F, pProperties);
 		this.color = pColor;
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.DISTANCE, 7).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.PERSISTENT, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.DISTANCE, 7).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.PERSISTENT, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

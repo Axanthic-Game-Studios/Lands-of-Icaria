@@ -23,7 +23,7 @@ import net.minecraft.world.level.material.FluidState;
 public class IcariaTrapDoorBlock extends TrapDoorBlock implements MediterraneanWaterloggedBlock {
 	public IcariaTrapDoorBlock(BlockSetType pBlockSetType, Properties pProperties) {
 		super(pBlockSetType, pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HALF, Half.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.OPEN, false).setValue(BlockStateProperties.POWERED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HALF, Half.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.OPEN, false).setValue(BlockStateProperties.POWERED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

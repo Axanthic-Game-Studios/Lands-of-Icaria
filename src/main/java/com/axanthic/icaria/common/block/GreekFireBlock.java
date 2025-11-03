@@ -39,7 +39,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class GreekFireBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public GreekFireBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override

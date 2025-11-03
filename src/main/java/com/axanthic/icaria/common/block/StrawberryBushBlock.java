@@ -27,7 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class StrawberryBushBlock extends IcariaBushBlock {
 	public StrawberryBushBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE));
 	}
 
 	@Override

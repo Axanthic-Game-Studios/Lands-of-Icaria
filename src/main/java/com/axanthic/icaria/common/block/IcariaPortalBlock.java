@@ -57,7 +57,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class IcariaPortalBlock extends Block implements Portal {
 	public IcariaPortalBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_AXIS, Direction.Axis.X));
 	}
 
 	public boolean canSet(Direction.Axis pAxis, BlockPos pBlockPos, ServerLevel pServerLevel) {

@@ -21,7 +21,7 @@ import net.minecraft.world.level.material.Fluids;
 public class WaterloggedBushBlock extends IcariaBushBlock implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public WaterloggedBushBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.stateDefinition.any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
