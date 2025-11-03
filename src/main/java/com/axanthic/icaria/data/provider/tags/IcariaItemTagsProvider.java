@@ -47,6 +47,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	public static final TagKey<Item> GEMS_SLIVER = IcariaItemTagsProvider.cKey("gems/sliver");
 	public static final TagKey<Item> GEMS_ANTHRACITE = IcariaItemTagsProvider.cKey("gems/anthracite");
 
+	public static final TagKey<Item> GRINDER_GEARS = IcariaItemTagsProvider.icariaKey("grinder_gears");
+
 	public static final TagKey<Item> INGOTS_CHALKOS = IcariaItemTagsProvider.cKey("ingots/chalkos");
 	public static final TagKey<Item> INGOTS_KASSITEROS = IcariaItemTagsProvider.cKey("ingots/kassiteros");
 	public static final TagKey<Item> INGOTS_ORICHALCUM = IcariaItemTagsProvider.cKey("ingots/orichalcum");
@@ -1133,6 +1135,13 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 		this.tag(IcariaItemTagsProvider.GEMS_ANTHRACITE)
 			.add(IcariaItems.ANTHRACITE.get());
+
+		this.tag(IcariaItemTagsProvider.GRINDER_GEARS)
+			.add(IcariaItems.YELLOWSTONE_GEAR.get())
+			.add(IcariaItems.LOAM_GEAR.get())
+			.add(IcariaItems.VOIDSHALE_GEAR.get())
+			.add(IcariaItems.VANADIUM_GEAR.get())
+			.add(IcariaItems.DAEDALIAN_GEAR.get());
 
 		this.tag(IcariaItemTagsProvider.INGOTS_CHALKOS)
 			.add(IcariaItems.CHALKOS_INGOT.get());
