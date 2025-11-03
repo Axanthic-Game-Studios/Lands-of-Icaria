@@ -1331,6 +1331,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "concoct", "Kessel braut");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "lignite" + "." + "crackle", "Braunkohle knistert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase zerstört");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "death", "Äterne stirbt");

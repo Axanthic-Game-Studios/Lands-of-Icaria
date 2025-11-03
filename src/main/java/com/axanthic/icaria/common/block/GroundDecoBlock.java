@@ -4,6 +4,7 @@ import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import javax.annotation.Nullable;
@@ -13,6 +14,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
@@ -76,6 +78,7 @@ public class GroundDecoBlock extends Block implements MediterraneanWaterloggedBl
 	public void particlesLava(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
 		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.addParticle(ParticleTypes.LAVA, pBlockPos.getX() + pRandomSource.nextDouble(), pBlockPos.getY(), pBlockPos.getZ() + pRandomSource.nextDouble(), 0.0D, 0.0D, 0.0D);
+			pLevel.playLocalSound(pBlockPos, IcariaSoundEvents.LIGNITE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
 

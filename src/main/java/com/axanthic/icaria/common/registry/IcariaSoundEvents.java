@@ -14,6 +14,7 @@ public class IcariaSoundEvents {
 	public static final SoundEvent KETTLE_CONCOCT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.KETTLE_CONCOCT);
 	public static final SoundEvent KETTLE_CONSUME = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.KETTLE_CONSUME);
 	public static final SoundEvent KETTLE_POP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.KETTLE_POP);
+	public static final SoundEvent LIGNITE_CRACKLE = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.LIGNITE_CRACKLE);
 	public static final SoundEvent VASE_BREAK = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.VASE_BREAK);
 	public static final SoundEvent AETERNAE_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.AETERNAE_AMBIENT);
 	public static final SoundEvent AETERNAE_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.AETERNAE_DEATH);
