@@ -1,4 +1,4 @@
-package com.axanthic.icaria.common.datamap;
+package com.axanthic.icaria.data.map;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.datamap.Freezable;
+import com.axanthic.icaria.data.map.Freezable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

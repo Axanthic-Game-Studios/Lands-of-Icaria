@@ -1,10 +1,10 @@
 package com.axanthic.icaria.data.provider;
 
-import com.axanthic.icaria.common.datamap.Freezable;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.data.map.Freezable;
 
 import java.util.concurrent.CompletableFuture;
 
