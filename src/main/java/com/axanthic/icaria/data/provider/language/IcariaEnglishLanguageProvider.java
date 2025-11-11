@@ -21,22 +21,22 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 	@Override
 	public void addTranslations() {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "title", "The Lands of Icaria");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Caught in the Net!");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "I got a Headache!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Caught in the Net");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "I got a Headache");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "title", "Wasn't it dead already?");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "title", "Chert Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "title", "Label everything");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "It's Food for Plants!");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "title", "Heavy lifting");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "title", "Labeling Everything");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "Feeding Plants");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "title", "Heavy Lifting");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Bigger than a Chest");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "title", "Chalkos Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "I am Kiln' it!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "I am Kiln it");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "title", "Kassiteros Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Gettin' hot in here!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Getting hot in here");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "title", "Orichalcum Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "I had to grind for this!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "I had to grind for this");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadiumsteel Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "It's not a Teapot!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "It's not a Teapot");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "title", "Sideros Pickaxe");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "hyliaster" + "." + "title", "Slimy Foe");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdenumsteel Pickaxe");
@@ -46,7 +46,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Carry a Barrel");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "description", "Kill a Captain Revenant");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "description", "Craft a Chert Pickaxe");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Place Chest Labels on a Chest");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Place a Label on a Chest");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "description", "Fertilize Farmland with Calcite");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Carry a Loot Vase");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "description", "Place a Storage Vase");

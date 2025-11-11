@@ -21,34 +21,34 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 	@Override
 	public void addTranslations() {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "title", "Die Lands of Icaria");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Im Netz der Spinne!");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "Jetzt habe ich Kopfschmerzen!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "title", "Im Netz der Spinne");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "title", "Jetzt habe ich Kopfschmerzen");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "title", "War es nicht schon längst tot?");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "title", "Hornsteinspitzhacke");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "title", "Alles etikettieren");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "Wie Essen für Pflanzen!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "title", "Pflanzen füttern");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "title", "Gewicht stemmen");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "title", "Größer als eine Kiste");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "title", "Kuffarspitzhacke");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "title", "Ich habe es gerockt");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "kassiteros_pickaxe" + "." + "title", "Galmeispitzhacke");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Hier gehts heiß her!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "forge" + "." + "title", "Es geht heiß her");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "orichalcum_pickaxe" + "." + "title", "Goldmessingspitzhacke");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "grinder" + "." + "title", "Das war mühlsame Arbeit");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "vanadiumsteel_pickaxe" + "." + "title", "Vanadinstahlspitzhacke");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne!");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "kettle" + "." + "title", "Das ist keine Teekanne");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "sideros_pickaxe" + "." + "title", "Schirbelspitzhacke");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "hyliaster" + "." + "title", "Schleimiger Feind");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "molybdenumsteel_pickaxe" + "." + "title", "Molybdänstahlspitzhacke");
 
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "root" + "." + "description", "Reise in die Lands of Icaria");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "arachne" + "." + "description", "Töte eine Arachne");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Trage ein Fass umher");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Trage ein Fass");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Befestige ein Kistenetiekett an einer Kiste");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Befestige ein Etiekett an einer Kiste");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "description", "Dünge Ackerboden mit Calcit");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase umher");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chalkos_pickaxe" + "." + "description", "Stelle eine Kuffarspitzhacke her");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "kiln" + "." + "description", "Stelle einen Töpferofen auf");
