@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.item.*;
 import com.axanthic.icaria.common.properties.Carpet;
+import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaInstruments;
 
@@ -941,11 +942,11 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> CHEST_LABEL = IcariaItems.register("chest_label", ChestLabelItem::new, IcariaItems.propertiesItem());
 
-	public static final DeferredHolder<Item, Item> YELLOWSTONE_GEAR = IcariaItems.register("yellowstone_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(256));
+	public static final DeferredHolder<Item, Item> YELLOWSTONE_GEAR = IcariaItems.register("yellowstone_gear", properties -> new GearItem(IcariaItemTagsProvider.REPAIRS_YELLOWSTONE_GEAR, properties), IcariaItems.propertiesItem().stacksTo(1).durability(256));
 	public static final DeferredHolder<Item, Item> UNFIRED_LOAM_GEAR = IcariaItems.register("unfired_loam_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1));
-	public static final DeferredHolder<Item, Item> LOAM_GEAR = IcariaItems.register("loam_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(512));
-	public static final DeferredHolder<Item, Item> VOIDSHALE_GEAR = IcariaItems.register("voidshale_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(768));
-	public static final DeferredHolder<Item, Item> VANADIUM_GEAR = IcariaItems.register("vanadium_gear", Item::new, IcariaItems.propertiesItem().stacksTo(1).durability(1024));
+	public static final DeferredHolder<Item, Item> LOAM_GEAR = IcariaItems.register("loam_gear", properties -> new GearItem(IcariaItemTagsProvider.REPAIRS_LOAM_GEAR, properties), IcariaItems.propertiesItem().stacksTo(1).durability(512));
+	public static final DeferredHolder<Item, Item> VOIDSHALE_GEAR = IcariaItems.register("voidshale_gear", properties -> new GearItem(IcariaItemTagsProvider.REPAIRS_VOIDSHALE_GEAR, properties), IcariaItems.propertiesItem().stacksTo(1).durability(768));
+	public static final DeferredHolder<Item, Item> VANADIUM_GEAR = IcariaItems.register("vanadium_gear", properties -> new GearItem(IcariaItemTagsProvider.REPAIRS_VANADIUM_GEAR, properties), IcariaItems.propertiesItem().stacksTo(1).durability(1024));
 	public static final DeferredHolder<Item, Item> BLUE_GEARFRAGMENT = IcariaItems.register("blue_gearfragment", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> GREEN_GEARFRAGMENT = IcariaItems.register("green_gearfragment", Item::new, IcariaItems.propertiesItem());
 	public static final DeferredHolder<Item, Item> YELLOW_GEARFRAGMENT = IcariaItems.register("yellow_gearfragment", Item::new, IcariaItems.propertiesItem());

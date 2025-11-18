@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.item;
 
+import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -16,7 +18,7 @@ import net.minecraft.world.level.Level;
 
 public class VineSproutItem extends Item {
 	public VineSproutItem(Properties pProperties) {
-		super(pProperties);
+		super(pProperties.repairable(IcariaItemTagsProvider.REPAIRS_VINE_SPROUT));
 	}
 
 	public void handleAction(ItemStack pItemStack, Level pLevel, LivingEntity pLivingEntity) {

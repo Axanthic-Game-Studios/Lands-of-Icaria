@@ -28,6 +28,7 @@ Updates
 - empty Barrel Racks of all Types no longer have a Collision Hitbox, allowing easier Pass-Through for Players and other Entities
 - now several ground-covering Blocks play corresponding Sounds when walking above instead of playing Stepping Sounds from the Block below, this is true for Fallen Leaves and Moss
 - now several ground-covering non-collision Blocks play corresponding Sounds when walking through instead of playing Stepping Sounds from the Block below, this is true for Surface Chert, Surface Bones, Surface Lignite, Rubble, Twigs and Racks
+- Just Enough Items Compatibility shows Anvil Repair Recipes for all damageable Items now
 
 Fixes
 

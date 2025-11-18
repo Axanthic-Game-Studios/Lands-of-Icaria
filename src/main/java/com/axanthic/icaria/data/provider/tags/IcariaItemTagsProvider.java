@@ -27,6 +27,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	// ITEMS
 
 	public static final TagKey<Item> ARACHNE_STRING_BLOCKS = IcariaItemTagsProvider.cKey("arachne_string_blocks");
+
 	public static final TagKey<Item> ARACHNE_STRING_CARPETS = IcariaItemTagsProvider.cKey("arachne_string_carpets");
 
 	public static final TagKey<Item> CROPS_SPELT = IcariaItemTagsProvider.cKey("crops/spelt");
@@ -89,6 +90,15 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	public static final TagKey<Item> REPAIRS_ORICHALCUM_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_orichalcum_armor");
 	public static final TagKey<Item> REPAIRS_VANADIUMSTEEL_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_vanadiumsteel_armor");
 	public static final TagKey<Item> REPAIRS_LAUREL_WREATH = IcariaItemTagsProvider.icariaKey("repairs_laurel_wreath");
+
+	public static final TagKey<Item> REPAIRS_TOTEM = IcariaItemTagsProvider.icariaKey("repairs_totem");
+
+	public static final TagKey<Item> REPAIRS_VINE_SPROUT = IcariaItemTagsProvider.icariaKey("repairs_vine_sprout");
+
+	public static final TagKey<Item> REPAIRS_YELLOWSTONE_GEAR = IcariaItemTagsProvider.icariaKey("repairs_yellowstone_gear");
+	public static final TagKey<Item> REPAIRS_LOAM_GEAR = IcariaItemTagsProvider.icariaKey("repairs_loam_gear");
+	public static final TagKey<Item> REPAIRS_VOIDSHALE_GEAR = IcariaItemTagsProvider.icariaKey("repairs_voidshale_gear");
+	public static final TagKey<Item> REPAIRS_VANADIUM_GEAR = IcariaItemTagsProvider.icariaKey("repairs_vanadium_gear");
 
 	public static final TagKey<Item> SEEDS_SPELT = IcariaItemTagsProvider.cKey("seeds/spelt");
 	public static final TagKey<Item> SEEDS_STRAWBERRY = IcariaItemTagsProvider.cKey("seeds/strawberry");
@@ -311,7 +321,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_DAGGER.get())
 			.add(IcariaItems.SIDEROS_BIDENT.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get())
+			.add(IcariaItems.LAUREL_WREATH.get());
 
 		this.tag(ItemTags.EQUIPPABLE_ENCHANTABLE)
 			.add(IcariaItems.LAUREL_WREATH.get());
@@ -1256,6 +1267,23 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.VANADIUMSTEEL_INGOT.get());
 
 		this.tag(IcariaItemTagsProvider.REPAIRS_LAUREL_WREATH);
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_TOTEM)
+			.add(IcariaItems.BLURIDIUM_NUGGET.get());
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_VINE_SPROUT);
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_YELLOWSTONE_GEAR)
+			.add(IcariaItems.YELLOWSTONE.get());
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_LOAM_GEAR)
+			.add(IcariaItems.LOAM_BRICK.get());
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_VOIDSHALE_GEAR)
+			.add(IcariaItems.VOIDSHALE.get());
+
+		this.tag(IcariaItemTagsProvider.REPAIRS_VANADIUM_GEAR)
+			.add(IcariaItems.VANADIUM_INGOT.get());
 
 		this.tag(IcariaItemTagsProvider.SEEDS_SPELT)
 			.add(IcariaItems.SPELT_SEEDS.get());
