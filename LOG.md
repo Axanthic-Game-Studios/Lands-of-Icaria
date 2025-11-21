@@ -4,7 +4,7 @@ Additions
 - Arachne String Carpets
 - Stool Blocks for each Wood Type
 - Scrollshelf Blocks for each Wood Type
-- Pan, Spoon and Towel Holder for each Wood Type
+- Herb, Pan, Pot, Spoon and Towel Holder for each Wood Type
 - Bathtub Blocks for each Wood Type
 - Amphora Block dropping Fermented Fish and Fermented Snull Cream Loot
 - Rugs
