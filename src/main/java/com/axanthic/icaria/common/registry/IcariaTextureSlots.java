@@ -46,6 +46,8 @@ public class IcariaTextureSlots {
 	public static final TextureSlot GRINDER_ENGINE = TextureSlot.create("grinder_engine");
 	public static final TextureSlot GRINDER_FEEDER = TextureSlot.create("grinder_feeder");
 	public static final TextureSlot GRINDER_STONE = TextureSlot.create("grinder_stone");
+	public static final TextureSlot HERB_HOLDER = TextureSlot.create("herb_holder");
+	public static final TextureSlot HERB_HOLDER_OVERLAY = TextureSlot.create("herb_holder_overlay");
 	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
 	public static final TextureSlot KETTLE_FIREWOOD = TextureSlot.create("kettle_firewood");
 	public static final TextureSlot KILN = TextureSlot.create("kiln");
@@ -53,6 +55,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot LAUREL_PLANKS = TextureSlot.create("laurel_planks");
 	public static final TextureSlot LAVA_FLOW = TextureSlot.create("lava_flow");
 	public static final TextureSlot LAVA_STILL = TextureSlot.create("lava_still");
+	public static final TextureSlot LEAVES = TextureSlot.create("leaves");
 	public static final TextureSlot LIGHT_GRAY_STORAGE_VASE_LITE = TextureSlot.create("light_gray_storage_vase_lite");
 	public static final TextureSlot LITE = TextureSlot.create("lite");
 	public static final TextureSlot LOAM_BRICKS = TextureSlot.create("loam_bricks");
@@ -70,6 +73,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
 	public static final TextureSlot PLANT = TextureSlot.create("plant");
 	public static final TextureSlot POT = TextureSlot.create("pot");
+	public static final TextureSlot POT_HOLDER = TextureSlot.create("pot_holder");
 	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");
 	public static final TextureSlot RED_STORAGE_VASE = TextureSlot.create("red_storage_vase");
 	public static final TextureSlot SHROOM = TextureSlot.create("shroom");

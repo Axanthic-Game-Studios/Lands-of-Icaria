@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_herb_holder",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "herb_holder": "landsoficaria:block/herb_holder",
+    "herb_holder_overlay": "landsoficaria:block/herb_holder_overlay",
+    "leaves": "landsoficaria:block/droughtroot_leaves",
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain"
+  }
+}

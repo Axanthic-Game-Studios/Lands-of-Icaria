@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_pot_holder",
+  "textures": {
+    "particle": "landsoficaria:block/populus_planks",
+    "planks": "landsoficaria:block/populus_planks",
+    "pot_holder": "landsoficaria:block/pot_holder",
+    "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain"
+  }
+}

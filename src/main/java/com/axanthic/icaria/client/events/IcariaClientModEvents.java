@@ -158,7 +158,7 @@ public class IcariaClientModEvents {
 
 	@SubscribeEvent
 	public static void onRegisterClientExtensions(RegisterClientExtensionsEvent pEvent) {
-		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.BLOOMY_VINE.get(), IcariaBlocks.BRANCHY_VINE.get(), IcariaBlocks.BRUSHY_VINE.get(), IcariaBlocks.REEDY_VINE.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.BLUE_GROUND_FLOWERS.get(), IcariaBlocks.CYAN_GROUND_FLOWERS.get(), IcariaBlocks.PINK_GROUND_FLOWERS.get(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), IcariaBlocks.RED_GROUND_FLOWERS.get(), IcariaBlocks.WHITE_GROUND_FLOWERS.get(), IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.CYPRESS_HERB_HOLDER.get(), IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get(), IcariaBlocks.FIR_HERB_HOLDER.get(), IcariaBlocks.LAUREL_HERB_HOLDER.get(), IcariaBlocks.OLIVE_HERB_HOLDER.get(), IcariaBlocks.PLANE_HERB_HOLDER.get(), IcariaBlocks.POPULUS_HERB_HOLDER.get(), IcariaBlocks.BLOOMY_VINE.get(), IcariaBlocks.BRANCHY_VINE.get(), IcariaBlocks.BRUSHY_VINE.get(), IcariaBlocks.REEDY_VINE.get(), IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.POTTED_BLINDWEED.get(), IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaBlocks.POTTED_CHARMONDER.get(), IcariaBlocks.POTTED_CLOVER.get(), IcariaBlocks.POTTED_FIREHILT.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_LIONFANGS.get(), IcariaBlocks.POTTED_SPEARDROPS.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_SUNKETTLE.get(), IcariaBlocks.POTTED_SUNSPONGE.get(), IcariaBlocks.POTTED_VOIDLILY.get(), IcariaBlocks.BLUE_GROUND_FLOWERS.get(), IcariaBlocks.CYAN_GROUND_FLOWERS.get(), IcariaBlocks.PINK_GROUND_FLOWERS.get(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get(), IcariaBlocks.RED_GROUND_FLOWERS.get(), IcariaBlocks.WHITE_GROUND_FLOWERS.get(), IcariaBlocks.POTTED_PALM_FERN.get(), IcariaBlocks.POTTED_WHITE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
 		pEvent.registerFluidType(new MediterraneanWaterClientFluidTypeExtensions(), IcariaFluidTypes.MEDITERRANEAN_WATER.get());
 		pEvent.registerItem(new OrichalcumHelmetClientItemExtensions(), IcariaItems.ORICHALCUM_HELMET.get());
 	}
@@ -166,6 +166,13 @@ public class IcariaClientModEvents {
 	@SubscribeEvent
 	public static void onRegisterColorHandlers(RegisterColorHandlersEvent.Block pEvent) {
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.GRASSY_MARL.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.CYPRESS_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.FIR_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.LAUREL_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.OLIVE_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.PLANE_HERB_HOLDER.get());
+		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.POPULUS_HERB_HOLDER.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.BLOOMY_VINE.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.BRANCHY_VINE.get());
 		pEvent.register(IcariaClientModEvents.blockColor(), IcariaBlocks.BRUSHY_VINE.get());

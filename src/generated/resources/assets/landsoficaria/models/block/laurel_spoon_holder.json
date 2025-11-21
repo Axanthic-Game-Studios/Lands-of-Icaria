@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_spoon_holder",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/laurel_planks",
     "planks": "landsoficaria:block/laurel_planks",

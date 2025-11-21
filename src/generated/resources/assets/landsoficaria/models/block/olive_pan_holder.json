@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_pan_holder",
-  "render_type": "minecraft:cutout",
   "textures": {
     "pan_holder": "landsoficaria:block/pan_holder",
     "particle": "landsoficaria:block/olive_planks",
