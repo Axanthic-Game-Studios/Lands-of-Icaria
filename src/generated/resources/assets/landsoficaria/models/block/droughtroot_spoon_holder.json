@@ -3,7 +3,7 @@
   "textures": {
     "particle": "landsoficaria:block/droughtroot_planks",
     "planks": "landsoficaria:block/droughtroot_planks",
-    "stripped_log": "landsoficaria:block/stripped_droughtroot_log",
+    "trapdoor": "landsoficaria:block/droughtroot_trapdoor",
     "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain"
   }
 }

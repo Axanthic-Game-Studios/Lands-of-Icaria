@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_flower_pot_countertop_1",
+  "textures": {
+    "chert_block": "landsoficaria:block/chert_block",
+    "log": "landsoficaria:block/laurel_log",
+    "particle": "landsoficaria:block/stripped_laurel_log",
+    "planks": "landsoficaria:block/laurel_planks",
+    "stripped_log": "landsoficaria:block/stripped_laurel_log",
+    "trapdoor": "landsoficaria:block/laurel_trapdoor"
+  }
+}

@@ -39,7 +39,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(pItemModelGenerators);
 		IcariaItemStateProvider.scroll(pItemModelGenerators);
 		IcariaItemStateProvider.skull(pItemModelGenerators);
-		IcariaItemStateProvider.tinted(pItemModelGenerators);
+		IcariaItemStateProvider.tint(pItemModelGenerators);
 	}
 
 	public static void bident(ItemModelGenerators pItemModelGenerators) {
@@ -416,6 +416,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_DOOR.get(), pItemModelGenerators);
@@ -454,6 +459,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_DOOR.get(), pItemModelGenerators);
@@ -492,6 +502,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.FIR_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_DOOR.get(), pItemModelGenerators);
@@ -530,6 +545,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_DOOR.get(), pItemModelGenerators);
@@ -568,6 +588,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_DOOR.get(), pItemModelGenerators);
@@ -606,6 +631,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_DOOR.get(), pItemModelGenerators);
@@ -644,6 +674,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_POT_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_SPOON_HOLDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TOWEL_HOLDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_FLOWER_POT_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_MORTAR_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_BASINS_COUNTERTOP.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_RAISED_BASINS_COUNTERTOP.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_SCROLLSHELF.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_DOOR.get(), pItemModelGenerators);
@@ -1040,13 +1075,20 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.skull(IcariaItems.THOG_SKULL.get(), IcariaSkullBlockTypes.THOG, pItemModelGenerators);
 	}
 
-	public static void tinted(ItemModelGenerators pItemModelGenerators) {
-		IcariaItemStateProvider.tinted(IcariaItems.GRASSY_MARL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.tinted(IcariaItems.PALM_FERN.get(), pItemModelGenerators);
-		IcariaItemStateProvider.tinted(IcariaItems.WHITE_BROMELIA.get(), pItemModelGenerators);
-		IcariaItemStateProvider.tinted(IcariaItems.ORANGE_BROMELIA.get(), pItemModelGenerators);
-		IcariaItemStateProvider.tinted(IcariaItems.PINK_BROMELIA.get(), pItemModelGenerators);
-		IcariaItemStateProvider.tinted(IcariaItems.PURPLE_BROMELIA.get(), pItemModelGenerators);
+	public static void tint(ItemModelGenerators pItemModelGenerators) {
+		IcariaItemStateProvider.tint(IcariaItems.GRASSY_MARL.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.CYPRESS_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.DROUGHTROOT_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.FIR_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.LAUREL_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.OLIVE_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.PLANE_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.POPULUS_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.PALM_FERN.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.WHITE_BROMELIA.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.ORANGE_BROMELIA.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.PINK_BROMELIA.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.PURPLE_BROMELIA.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
 	}
 
 	public static void bident(Item pItem, ItemModelGenerators pItemModelGenerators) {
@@ -1073,7 +1115,7 @@ public class IcariaItemStateProvider {
 		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIdents.MC, "template_skull"), new SkullSpecialRenderer.Unbaked(pType)));
 	}
 
-	public static void tinted(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of(new Constant(IcariaColors.TINT))));
+	public static void tint(Item pItem, int pColor, ItemModelGenerators pItemModelGenerators) {
+		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of(new Constant(pColor))));
 	}
 }

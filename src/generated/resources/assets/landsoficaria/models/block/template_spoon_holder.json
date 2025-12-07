@@ -83,6 +83,65 @@
         "down": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        13.5,
+        9.875,
+        14
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14.5,
+        10.125,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
             0.0,
             1.0,
             3.0,
@@ -201,65 +260,6 @@
       },
       "to": [
         12.5,
-        10.125,
-        15
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        }
-      },
-      "from": [
-        13.5,
-        9.875,
-        14
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        14.5,
         10.125,
         15
       ]
@@ -639,297 +639,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "north": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "south": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "up": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        "west": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        }
-      },
-      "from": [
-        2.5,
-        4.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0.25
-        ]
-      },
-      "to": [
-        3.5,
-        10.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#stripped_log",
-          "uv": [
-            2.0,
-            15.0,
-            0.0,
-            16.0
-          ]
-        },
-        "east": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            14.0,
-            1.0,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#stripped_log",
-          "uv": [
-            0.0,
-            14.0,
-            2.0,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#stripped_log",
-          "uv": [
-            2.0,
-            14.0,
-            0.0,
-            16.0
-          ]
-        },
-        "up": {
-          "texture": "#stripped_log",
-          "uv": [
-            2.0,
-            14.0,
-            0.0,
-            15.0
-          ]
-        },
-        "west": {
-          "texture": "#stripped_log",
-          "uv": [
-            1.0,
-            14.0,
-            2.0,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        2,
-        2.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0.25
-        ]
-      },
-      "to": [
-        4,
-        4.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            0.0,
-            16.0,
-            8.0
-          ]
-        },
-        "north": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            0.0,
-            16.0,
-            8.0
-          ]
-        },
-        "south": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            0.0,
-            16.0,
-            8.0
-          ]
-        },
-        "up": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            0.0,
-            16.0,
-            1.0
-          ]
-        },
-        "west": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            0.0,
-            16.0,
-            8.0
-          ]
-        }
-      },
-      "from": [
-        7.5,
-        2.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        8.5,
-        10.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#stripped_log",
-          "uv": [
-            16.0,
-            15.0,
-            14.0,
-            16.0
-          ]
-        },
-        "east": {
-          "texture": "#stripped_log",
-          "uv": [
-            14.0,
-            14.0,
-            15.0,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#stripped_log",
-          "uv": [
-            14.0,
-            14.0,
-            16.0,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#stripped_log",
-          "uv": [
-            16.0,
-            14.0,
-            14.0,
-            16.0
-          ]
-        },
-        "up": {
-          "texture": "#stripped_log",
-          "uv": [
-            16.0,
-            14.0,
-            14.0,
-            15.0
-          ]
-        },
-        "west": {
-          "texture": "#stripped_log",
-          "uv": [
-            15.0,
-            14.0,
-            16.0,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        7,
-        0.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        9,
-        2.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
             0.0,
@@ -938,7 +648,7 @@
           ]
         },
         "north": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
             0.0,
@@ -947,7 +657,7 @@
           ]
         },
         "south": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
             0.0,
@@ -956,7 +666,7 @@
           ]
         },
         "up": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
             0.0,
@@ -965,7 +675,7 @@
           ]
         },
         "west": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
             0.0,
@@ -997,7 +707,84 @@
     {
       "faces": {
         "down": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            1.0,
+            0.0,
+            2.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        12,
+        2.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14,
+        3.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
           "uv": [
             2.0,
             15.0,
@@ -1006,46 +793,46 @@
           ]
         },
         "east": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
-            14.0,
+            15.0,
             1.0,
             16.0
           ]
         },
         "north": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             0.0,
-            14.0,
+            15.0,
             2.0,
             16.0
           ]
         },
         "south": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             2.0,
-            14.0,
+            15.0,
             0.0,
             16.0
           ]
         },
         "up": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             2.0,
-            14.0,
+            15.0,
             0.0,
-            15.0
+            16.0
           ]
         },
         "west": {
-          "texture": "#stripped_log",
+          "texture": "#trapdoor",
           "uv": [
             1.0,
-            14.0,
+            15.0,
             2.0,
             16.0
           ]
@@ -1067,6 +854,450 @@
       },
       "to": [
         14,
+        2.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        7.5,
+        2.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        8.5,
+        10.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            15.0,
+            14.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            15.0,
+            15.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            15.0,
+            14.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            15.0,
+            14.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        0.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        1.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            0.0,
+            15.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        1.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        2.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            6.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            6.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            6.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            6.0
+          ]
+        }
+      },
+      "from": [
+        2.5,
+        4.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        3.5,
+        10.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            1.0,
+            0.0,
+            2.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        3.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
+        4.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            15.0,
+            0.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            15.0,
+            1.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            15.0,
+            2.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            15.0,
+            0.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            15.0,
+            0.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            1.0,
+            15.0,
+            2.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        2.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4,
         3.5,
         14.75
       ]

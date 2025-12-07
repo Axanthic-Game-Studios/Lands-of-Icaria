@@ -1,0 +1,14 @@
+{
+  "parent": "landsoficaria:block/template_mortar_countertop",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "arachne_string_block": "landsoficaria:block/arachne_string_block",
+    "chalkos_block": "landsoficaria:block/chalkos_block",
+    "leaves": "landsoficaria:block/droughtroot_leaves",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "storage_vase_dark": "landsoficaria:block/storage_vase_dark",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log"
+  }
+}

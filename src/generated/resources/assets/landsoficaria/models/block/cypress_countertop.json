@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_countertop_0",
+  "textures": {
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/stripped_cypress_log",
+    "planks": "landsoficaria:block/cypress_planks",
+    "stripped_log": "landsoficaria:block/stripped_cypress_log"
+  }
+}

@@ -37,6 +37,7 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+	public static final EnumProperty<Fill> FILL = EnumProperty.create("fill", Fill.class);
 	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
@@ -51,5 +52,6 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty AMPHORA_AMOUNT = IntegerProperty.create("amphora_amount", 1, 3);
 	public static final IntegerProperty BATHTUB_FILL = IntegerProperty.create("bathtub_fill", 0, 12);
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
+	public static final IntegerProperty CANDLE_AMOUNT = IntegerProperty.create("candle_amount", 0, 4);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
 }

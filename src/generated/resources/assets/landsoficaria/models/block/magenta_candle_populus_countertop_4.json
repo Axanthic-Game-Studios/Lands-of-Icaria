@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_countertop_4",
+  "textures": {
+    "candle": "minecraft:block/magenta_candle",
+    "log": "landsoficaria:block/populus_log",
+    "particle": "landsoficaria:block/stripped_populus_log",
+    "planks": "landsoficaria:block/populus_planks",
+    "stripped_log": "landsoficaria:block/stripped_populus_log"
+  }
+}

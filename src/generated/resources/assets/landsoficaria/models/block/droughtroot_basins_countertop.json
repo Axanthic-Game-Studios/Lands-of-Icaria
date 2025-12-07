@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_basins_countertop",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "leaves": "landsoficaria:block/droughtroot_leaves",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log",
+    "trapdoor": "landsoficaria:block/droughtroot_trapdoor"
+  }
+}

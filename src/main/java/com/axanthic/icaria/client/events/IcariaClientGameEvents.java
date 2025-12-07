@@ -29,15 +29,6 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 public class IcariaClientGameEvents {
 
 	@SubscribeEvent
-	public static void onPlayerInteract(PlayerInteractEvent.RightClickItem pEvent) {
-		var itemStack = pEvent.getItemStack();
-		if (pEvent.getHand() == InteractionHand.MAIN_HAND && itemStack.is(IcariaItems.CHEST_LABEL.get())) {
-			pEvent.getEntity().awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-			Minecraft.getInstance().setScreen(new ChestLabelScreen(itemStack));
-		}
-	}
-
-	@SubscribeEvent
 	public static void onRecipesReceived(RecipesReceivedEvent pEvent) {
 		ScrollItemSpecialModelRenderer.setRecipeMap(pEvent.getRecipeMap());
 	}
@@ -48,5 +39,14 @@ public class IcariaClientGameEvents {
 		var playerModel = pEvent.getRenderer().getModel();
 		playerModel.hat.visible = !flag;
 		playerModel.head.visible = !flag;
+	}
+
+	@SubscribeEvent
+	public static void onRightClickItem(PlayerInteractEvent.RightClickItem pEvent) {
+		var itemStack = pEvent.getItemStack();
+		if (pEvent.getHand() == InteractionHand.MAIN_HAND && itemStack.is(IcariaItems.CHEST_LABEL.get())) {
+			pEvent.getEntity().awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+			Minecraft.getInstance().setScreen(new ChestLabelScreen(itemStack));
+		}
 	}
 }

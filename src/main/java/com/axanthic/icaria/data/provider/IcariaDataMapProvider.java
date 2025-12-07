@@ -5,6 +5,7 @@ import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.map.Freezable;
+import com.axanthic.icaria.data.map.Pottable;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,6 +16,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.material.Fluid;
@@ -38,6 +40,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.compostables();
 		this.freezables();
 		this.furnaceFuels();
+		this.pottables();
 	}
 
 	public void compostables() {
@@ -279,6 +282,80 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.LAUREL_WREATH.get(), 100);
 	}
 
+	public void pottables() {
+		this.pottables(Items.TORCHFLOWER, Blocks.POTTED_TORCHFLOWER);
+		this.pottables(Items.OAK_SAPLING, Blocks.POTTED_OAK_SAPLING);
+		this.pottables(Items.SPRUCE_SAPLING, Blocks.POTTED_SPRUCE_SAPLING);
+		this.pottables(Items.BIRCH_SAPLING, Blocks.POTTED_BIRCH_SAPLING);
+		this.pottables(Items.JUNGLE_SAPLING, Blocks.POTTED_JUNGLE_SAPLING);
+		this.pottables(Items.ACACIA_SAPLING, Blocks.POTTED_ACACIA_SAPLING);
+		this.pottables(Items.CHERRY_SAPLING, Blocks.POTTED_CHERRY_SAPLING);
+		this.pottables(Items.DARK_OAK_SAPLING, Blocks.POTTED_DARK_OAK_SAPLING);
+		this.pottables(Items.PALE_OAK_SAPLING, Blocks.POTTED_PALE_OAK_SAPLING);
+		this.pottables(Items.MANGROVE_PROPAGULE, Blocks.POTTED_MANGROVE_PROPAGULE);
+		this.pottables(Items.FERN, Blocks.POTTED_FERN);
+		this.pottables(Items.DANDELION, Blocks.POTTED_DANDELION);
+		this.pottables(Items.POPPY, Blocks.POTTED_POPPY);
+		this.pottables(Items.BLUE_ORCHID, Blocks.POTTED_BLUE_ORCHID);
+		this.pottables(Items.ALLIUM, Blocks.POTTED_ALLIUM);
+		this.pottables(Items.AZURE_BLUET, Blocks.POTTED_AZURE_BLUET);
+		this.pottables(Items.RED_TULIP, Blocks.POTTED_RED_TULIP);
+		this.pottables(Items.ORANGE_TULIP, Blocks.POTTED_ORANGE_TULIP);
+		this.pottables(Items.WHITE_TULIP, Blocks.POTTED_WHITE_TULIP);
+		this.pottables(Items.PINK_TULIP, Blocks.POTTED_PINK_TULIP);
+		this.pottables(Items.OXEYE_DAISY, Blocks.POTTED_OXEYE_DAISY);
+		this.pottables(Items.CORNFLOWER, Blocks.POTTED_CORNFLOWER);
+		this.pottables(Items.LILY_OF_THE_VALLEY, Blocks.POTTED_LILY_OF_THE_VALLEY);
+		this.pottables(Items.WITHER_ROSE, Blocks.POTTED_WITHER_ROSE);
+		this.pottables(Items.RED_MUSHROOM, Blocks.POTTED_RED_MUSHROOM);
+		this.pottables(Items.BROWN_MUSHROOM, Blocks.POTTED_BROWN_MUSHROOM);
+		this.pottables(Items.DEAD_BUSH, Blocks.POTTED_DEAD_BUSH);
+		this.pottables(Items.CACTUS, Blocks.POTTED_CACTUS);
+		this.pottables(Items.BAMBOO, Blocks.POTTED_BAMBOO);
+		this.pottables(Items.CRIMSON_FUNGUS, Blocks.POTTED_CRIMSON_FUNGUS);
+		this.pottables(Items.WARPED_FUNGUS, Blocks.POTTED_WARPED_FUNGUS);
+		this.pottables(Items.CRIMSON_ROOTS, Blocks.POTTED_CRIMSON_ROOTS);
+		this.pottables(Items.WARPED_ROOTS, Blocks.POTTED_WARPED_ROOTS);
+		this.pottables(Items.AZALEA, Blocks.POTTED_AZALEA);
+		this.pottables(Items.FLOWERING_AZALEA, Blocks.POTTED_FLOWERING_AZALEA);
+		this.pottables(Items.OPEN_EYEBLOSSOM, Blocks.POTTED_OPEN_EYEBLOSSOM);
+		this.pottables(Items.CLOSED_EYEBLOSSOM, Blocks.POTTED_CLOSED_EYEBLOSSOM);
+		this.pottables(IcariaItems.CYPRESS_SAPLING.get(), IcariaBlocks.POTTED_CYPRESS_SAPLING.get());
+		this.pottables(IcariaItems.DROUGHTROOT_SAPLING.get(), IcariaBlocks.POTTED_DROUGHTROOT_SAPLING.get());
+		this.pottables(IcariaItems.FIR_SAPLING.get(), IcariaBlocks.POTTED_FIR_SAPLING.get());
+		this.pottables(IcariaItems.LAUREL_SAPLING.get(), IcariaBlocks.POTTED_LAUREL_SAPLING.get());
+		this.pottables(IcariaItems.OLIVE_SAPLING.get(), IcariaBlocks.POTTED_OLIVE_SAPLING.get());
+		this.pottables(IcariaItems.PLANE_SAPLING.get(), IcariaBlocks.POTTED_PLANE_SAPLING.get());
+		this.pottables(IcariaItems.POPULUS_SAPLING.get(), IcariaBlocks.POTTED_POPULUS_SAPLING.get());
+		this.pottables(IcariaItems.FERN.get(), IcariaBlocks.POTTED_FERN.get());
+		this.pottables(IcariaItems.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED.get());
+		this.pottables(IcariaItems.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE.get());
+		this.pottables(IcariaItems.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER.get());
+		this.pottables(IcariaItems.CLOVER.get(), IcariaBlocks.POTTED_CLOVER.get());
+		this.pottables(IcariaItems.FIREHILT.get(), IcariaBlocks.POTTED_FIREHILT.get());
+		this.pottables(IcariaItems.BLUE_HYDRACINTH.get(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		this.pottables(IcariaItems.PURPLE_HYDRACINTH.get(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		this.pottables(IcariaItems.LIONFANGS.get(), IcariaBlocks.POTTED_LIONFANGS.get());
+		this.pottables(IcariaItems.SPEARDROPS.get(), IcariaBlocks.POTTED_SPEARDROPS.get());
+		this.pottables(IcariaItems.PURPLE_STAGHORN.get(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		this.pottables(IcariaItems.YELLOW_STAGHORN.get(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		this.pottables(IcariaItems.BLUE_STORMCOTTON.get(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		this.pottables(IcariaItems.PINK_STORMCOTTON.get(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		this.pottables(IcariaItems.PURPLE_STORMCOTTON.get(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		this.pottables(IcariaItems.SUNKETTLE.get(), IcariaBlocks.POTTED_SUNKETTLE.get());
+		this.pottables(IcariaItems.SUNSPONGE.get(), IcariaBlocks.POTTED_SUNSPONGE.get());
+		this.pottables(IcariaItems.VOIDLILY.get(), IcariaBlocks.POTTED_VOIDLILY.get());
+		this.pottables(IcariaItems.PALM_FERN.get(), IcariaBlocks.POTTED_PALM_FERN.get());
+		this.pottables(IcariaItems.WHITE_BROMELIA.get(), IcariaBlocks.POTTED_WHITE_BROMELIA.get());
+		this.pottables(IcariaItems.ORANGE_BROMELIA.get(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
+		this.pottables(IcariaItems.PINK_BROMELIA.get(), IcariaBlocks.POTTED_PINK_BROMELIA.get());
+		this.pottables(IcariaItems.PURPLE_BROMELIA.get(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+		this.pottables(IcariaItems.GREEN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_GREEN_GROUND_SHROOMS.get());
+		this.pottables(IcariaItems.BROWN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get());
+		this.pottables(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get(), IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get());
+		this.pottables(IcariaItems.CARDON_CACTUS.get(), IcariaBlocks.POTTED_CARDON_CACTUS.get());
+	}
+
 	public void compostables(Item pItem, float pChance) {
 		this.builder(NeoForgeDataMaps.COMPOSTABLES).add(BuiltInRegistries.ITEM.getKey(pItem), new Compostable(pChance), false);
 	}
@@ -289,5 +366,9 @@ public class IcariaDataMapProvider extends DataMapProvider {
 
 	public void furnaceFuels(Item pItem, int pBurnTime) {
 		this.builder(NeoForgeDataMaps.FURNACE_FUELS).add(BuiltInRegistries.ITEM.getKey(pItem), new FurnaceFuel(pBurnTime), false);
+	}
+
+	public void pottables(Item pItem, Block pBlock) {
+		this.builder(IcariaDataMapTypes.POTTABLES).add(BuiltInRegistries.ITEM.getKey(pItem), new Pottable(pBlock), false);
 	}
 }

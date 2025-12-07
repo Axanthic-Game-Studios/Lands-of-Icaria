@@ -9,5 +9,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 
 public class IcariaColors {
 	public static final int TEXT = 0xFF504537;
-	public static final int TINT = 0xFFB5BB60;
+	public static final int TINT_GRASS = 0xFFB5BB60;
+	public static final int TINT_WATER = 0xFF4D9352;
 }

@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_raised_basins_countertop",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "halite_block": "landsoficaria:block/halite_block",
+    "log": "landsoficaria:block/fir_log",
+    "molybdenumsteel_block": "landsoficaria:block/molybdenumsteel_block",
+    "particle": "landsoficaria:block/stripped_fir_log",
+    "planks": "landsoficaria:block/fir_planks",
+    "stripped_log": "landsoficaria:block/stripped_fir_log",
+    "trapdoor": "landsoficaria:block/fir_trapdoor"
+  }
+}

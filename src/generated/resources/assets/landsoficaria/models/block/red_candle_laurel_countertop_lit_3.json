@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_countertop_3",
+  "textures": {
+    "candle": "minecraft:block/red_candle_lit",
+    "log": "landsoficaria:block/laurel_log",
+    "particle": "landsoficaria:block/stripped_laurel_log",
+    "planks": "landsoficaria:block/laurel_planks",
+    "stripped_log": "landsoficaria:block/stripped_laurel_log"
+  }
+}

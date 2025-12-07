@@ -4,7 +4,6 @@ import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.common.shapes.TowelHolderVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -19,15 +18,12 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -86,16 +82,6 @@ public class TowelHolderBlock extends HolderBlock {
 			case Carpet.PURPLE_ARACHNE_STRING_CARPET -> IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get();
 			case Carpet.MAGENTA_ARACHNE_STRING_CARPET -> IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get();
 			case Carpet.PINK_ARACHNE_STRING_CARPET -> IcariaItems.PINK_ARACHNE_STRING_CARPET.get();
-		};
-	}
-
-	@Override
-	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> TowelHolderVoxelShapes.NORTH;
-			case EAST -> TowelHolderVoxelShapes.EAST;
-			case SOUTH -> TowelHolderVoxelShapes.SOUTH;
-			default -> TowelHolderVoxelShapes.WEST;
 		};
 	}
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/laurel_mortar_countertop",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/laurel_mortar_countertop"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/laurel_mortar_countertop",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/laurel_mortar_countertop",
+      "y": 270
+    }
+  }
+}

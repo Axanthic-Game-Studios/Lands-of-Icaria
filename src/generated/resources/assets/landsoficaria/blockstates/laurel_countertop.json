@@ -1,0 +1,2704 @@
+{
+  "variants": {
+    "candle=black_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=black_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=black_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_1"
+    },
+    "candle=black_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_1"
+    },
+    "candle=black_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_2"
+    },
+    "candle=black_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_2"
+    },
+    "candle=black_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_3"
+    },
+    "candle=black_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_3"
+    },
+    "candle=black_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=black_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_4"
+    },
+    "candle=black_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_4"
+    },
+    "candle=black_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=black_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=black_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/black_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=blue_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=blue_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_1"
+    },
+    "candle=blue_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_1"
+    },
+    "candle=blue_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_2"
+    },
+    "candle=blue_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_2"
+    },
+    "candle=blue_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_3"
+    },
+    "candle=blue_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_3"
+    },
+    "candle=blue_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=blue_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_4"
+    },
+    "candle=blue_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_4"
+    },
+    "candle=blue_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=blue_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=blue_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/blue_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=brown_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=brown_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_1"
+    },
+    "candle=brown_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_1"
+    },
+    "candle=brown_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_2"
+    },
+    "candle=brown_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_2"
+    },
+    "candle=brown_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_3"
+    },
+    "candle=brown_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_3"
+    },
+    "candle=brown_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=brown_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_4"
+    },
+    "candle=brown_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_4"
+    },
+    "candle=brown_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=brown_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=brown_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/brown_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_1"
+    },
+    "candle=candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_1"
+    },
+    "candle=candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_2"
+    },
+    "candle=candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_2"
+    },
+    "candle=candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_3"
+    },
+    "candle=candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_3"
+    },
+    "candle=candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_4"
+    },
+    "candle=candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_4"
+    },
+    "candle=candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=cyan_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=cyan_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_1"
+    },
+    "candle=cyan_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_1"
+    },
+    "candle=cyan_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_2"
+    },
+    "candle=cyan_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_2"
+    },
+    "candle=cyan_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_3"
+    },
+    "candle=cyan_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_3"
+    },
+    "candle=cyan_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=cyan_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_4"
+    },
+    "candle=cyan_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_4"
+    },
+    "candle=cyan_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=cyan_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=cyan_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/cyan_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=gray_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=gray_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_1"
+    },
+    "candle=gray_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_1"
+    },
+    "candle=gray_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_2"
+    },
+    "candle=gray_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_2"
+    },
+    "candle=gray_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_3"
+    },
+    "candle=gray_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_3"
+    },
+    "candle=gray_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=gray_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_4"
+    },
+    "candle=gray_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_4"
+    },
+    "candle=gray_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=gray_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=gray_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/gray_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=green_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=green_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_1"
+    },
+    "candle=green_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_1"
+    },
+    "candle=green_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_2"
+    },
+    "candle=green_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_2"
+    },
+    "candle=green_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_3"
+    },
+    "candle=green_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_3"
+    },
+    "candle=green_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=green_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_4"
+    },
+    "candle=green_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_4"
+    },
+    "candle=green_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=green_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=green_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/green_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_1"
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_1"
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_2"
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_2"
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_3"
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_3"
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_4"
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_4"
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=light_blue_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_blue_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_1"
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_1"
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_2"
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_2"
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_3"
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_3"
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_4"
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_4"
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=light_gray_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/light_gray_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=lime_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=lime_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_1"
+    },
+    "candle=lime_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_1"
+    },
+    "candle=lime_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_2"
+    },
+    "candle=lime_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_2"
+    },
+    "candle=lime_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_3"
+    },
+    "candle=lime_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_3"
+    },
+    "candle=lime_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=lime_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_4"
+    },
+    "candle=lime_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_4"
+    },
+    "candle=lime_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=lime_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=lime_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/lime_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=magenta_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=magenta_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_1"
+    },
+    "candle=magenta_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_1"
+    },
+    "candle=magenta_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_2"
+    },
+    "candle=magenta_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_2"
+    },
+    "candle=magenta_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_3"
+    },
+    "candle=magenta_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_3"
+    },
+    "candle=magenta_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=magenta_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_4"
+    },
+    "candle=magenta_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_4"
+    },
+    "candle=magenta_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=magenta_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=magenta_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/magenta_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=none,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=none,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=none,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=none,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=none,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=orange_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=orange_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_1"
+    },
+    "candle=orange_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_1"
+    },
+    "candle=orange_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_2"
+    },
+    "candle=orange_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_2"
+    },
+    "candle=orange_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_3"
+    },
+    "candle=orange_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_3"
+    },
+    "candle=orange_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=orange_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_4"
+    },
+    "candle=orange_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_4"
+    },
+    "candle=orange_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=orange_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=orange_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/orange_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=pink_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=pink_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_1"
+    },
+    "candle=pink_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_1"
+    },
+    "candle=pink_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_2"
+    },
+    "candle=pink_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_2"
+    },
+    "candle=pink_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_3"
+    },
+    "candle=pink_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_3"
+    },
+    "candle=pink_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=pink_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_4"
+    },
+    "candle=pink_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_4"
+    },
+    "candle=pink_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=pink_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=pink_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/pink_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=purple_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=purple_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_1"
+    },
+    "candle=purple_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_1"
+    },
+    "candle=purple_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_2"
+    },
+    "candle=purple_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_2"
+    },
+    "candle=purple_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_3"
+    },
+    "candle=purple_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_3"
+    },
+    "candle=purple_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=purple_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_4"
+    },
+    "candle=purple_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_4"
+    },
+    "candle=purple_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=purple_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=purple_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/purple_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=red_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=red_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_1"
+    },
+    "candle=red_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_1"
+    },
+    "candle=red_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_2"
+    },
+    "candle=red_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_2"
+    },
+    "candle=red_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_3"
+    },
+    "candle=red_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_3"
+    },
+    "candle=red_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=red_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_4"
+    },
+    "candle=red_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_4"
+    },
+    "candle=red_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=red_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=red_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/red_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=white_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=white_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_1"
+    },
+    "candle=white_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_1"
+    },
+    "candle=white_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_2"
+    },
+    "candle=white_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_2"
+    },
+    "candle=white_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_3"
+    },
+    "candle=white_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_3"
+    },
+    "candle=white_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=white_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_4"
+    },
+    "candle=white_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_4"
+    },
+    "candle=white_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=white_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=white_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/white_candle_laurel_countertop_lit_4",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=0,facing=east,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=0,facing=east,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=0,facing=north,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=yellow_candle,candle_amount=0,facing=north,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop"
+    },
+    "candle=yellow_candle,candle_amount=0,facing=south,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=0,facing=south,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=0,facing=west,lit=false": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=0,facing=west,lit=true": {
+      "model": "landsoficaria:block/laurel_countertop",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=1,facing=east,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_1",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=1,facing=east,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_1",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=1,facing=north,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_1"
+    },
+    "candle=yellow_candle,candle_amount=1,facing=north,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_1"
+    },
+    "candle=yellow_candle,candle_amount=1,facing=south,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_1",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=1,facing=south,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_1",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=1,facing=west,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_1",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=1,facing=west,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_1",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=2,facing=east,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_2",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=2,facing=east,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_2",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=2,facing=north,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_2"
+    },
+    "candle=yellow_candle,candle_amount=2,facing=north,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_2"
+    },
+    "candle=yellow_candle,candle_amount=2,facing=south,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_2",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=2,facing=south,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_2",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=2,facing=west,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_2",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=2,facing=west,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_2",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=3,facing=east,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_3",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=3,facing=east,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_3",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=3,facing=north,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_3"
+    },
+    "candle=yellow_candle,candle_amount=3,facing=north,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_3"
+    },
+    "candle=yellow_candle,candle_amount=3,facing=south,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_3",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=3,facing=south,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_3",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=3,facing=west,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_3",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=3,facing=west,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_3",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=4,facing=east,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_4",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=4,facing=east,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_4",
+      "y": 90
+    },
+    "candle=yellow_candle,candle_amount=4,facing=north,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_4"
+    },
+    "candle=yellow_candle,candle_amount=4,facing=north,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_4"
+    },
+    "candle=yellow_candle,candle_amount=4,facing=south,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_4",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=4,facing=south,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_4",
+      "y": 180
+    },
+    "candle=yellow_candle,candle_amount=4,facing=west,lit=false": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_4",
+      "y": 270
+    },
+    "candle=yellow_candle,candle_amount=4,facing=west,lit=true": {
+      "model": "landsoficaria:block/yellow_candle_laurel_countertop_lit_4",
+      "y": 270
+    }
+  }
+}

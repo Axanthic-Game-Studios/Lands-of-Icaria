@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_raised_basins_countertop",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "halite_block": "landsoficaria:block/halite_block",
+    "log": "landsoficaria:block/cypress_log",
+    "molybdenumsteel_block": "landsoficaria:block/molybdenumsteel_block",
+    "particle": "landsoficaria:block/stripped_cypress_log",
+    "planks": "landsoficaria:block/cypress_planks",
+    "stripped_log": "landsoficaria:block/stripped_cypress_log",
+    "trapdoor": "landsoficaria:block/cypress_trapdoor"
+  }
+}

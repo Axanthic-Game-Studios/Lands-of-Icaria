@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_countertop_2",
+  "textures": {
+    "candle": "minecraft:block/yellow_candle_lit",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log"
+  }
+}

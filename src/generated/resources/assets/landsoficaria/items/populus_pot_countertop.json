@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "landsoficaria:item/populus_pot_countertop",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -11693230
+      }
+    ]
+  }
+}

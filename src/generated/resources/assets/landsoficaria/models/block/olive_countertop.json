@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_countertop_0",
+  "textures": {
+    "log": "landsoficaria:block/olive_log",
+    "particle": "landsoficaria:block/stripped_olive_log",
+    "planks": "landsoficaria:block/olive_planks",
+    "stripped_log": "landsoficaria:block/stripped_olive_log"
+  }
+}

@@ -27,6 +27,9 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CAKE_INSIDE = TextureSlot.create("cake_inside");
 	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
 	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
+	public static final TextureSlot CANDLE = TextureSlot.create("candle");
+	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
+	public static final TextureSlot CHERT_BLOCK = TextureSlot.create("chert_block");
 	public static final TextureSlot CROP = TextureSlot.create("crop");
 	public static final TextureSlot CROSS = TextureSlot.create("cross");
 	public static final TextureSlot DARK = TextureSlot.create("dark");
@@ -46,6 +49,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot GRINDER_ENGINE = TextureSlot.create("grinder_engine");
 	public static final TextureSlot GRINDER_FEEDER = TextureSlot.create("grinder_feeder");
 	public static final TextureSlot GRINDER_STONE = TextureSlot.create("grinder_stone");
+	public static final TextureSlot HALITE_BLOCK = TextureSlot.create("halite_block");
 	public static final TextureSlot HERB_HOLDER = TextureSlot.create("herb_holder");
 	public static final TextureSlot HERB_HOLDER_OVERLAY = TextureSlot.create("herb_holder_overlay");
 	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
@@ -62,6 +66,8 @@ public class IcariaTextureSlots {
 	public static final TextureSlot LOG = TextureSlot.create("log");
 	public static final TextureSlot LOG_TOP = TextureSlot.create("log_top");
 	public static final TextureSlot MARL = TextureSlot.create("marl");
+	public static final TextureSlot MEDITERRANEAN_WATER = TextureSlot.create("mediterranean_water");
+	public static final TextureSlot MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("molybdenumsteel_block");
 	public static final TextureSlot MOSS = TextureSlot.create("moss");
 	public static final TextureSlot NECK = TextureSlot.create("neck");
 	public static final TextureSlot NORTH = TextureSlot.create("north");
@@ -84,6 +90,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STATIC_RIGHT_GRINDER_CHAIN = TextureSlot.create("static_right_grinder_chain");
 	public static final TextureSlot STEM = TextureSlot.create("stem");
 	public static final TextureSlot STEM_GROUND_SHROOMS = TextureSlot.create("stem_ground_shrooms");
+	public static final TextureSlot STORAGE_VASE_DARK = TextureSlot.create("storage_vase_dark");
 	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
@@ -93,6 +100,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot TORCH_BONE = TextureSlot.create("torch_bone");
 	public static final TextureSlot TORCH_COAL = TextureSlot.create("torch_coal");
 	public static final TextureSlot TORCH_METAL = TextureSlot.create("torch_metal");
+	public static final TextureSlot TRAPDOOR = TextureSlot.create("trapdoor");
 	public static final TextureSlot UP = TextureSlot.create("up");
 	public static final TextureSlot VANADIUMSTEEL_CHAIN = TextureSlot.create("vanadiumsteel_chain");
 	public static final TextureSlot VASE = TextureSlot.create("vase");

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/fir_pot_countertop",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/fir_pot_countertop"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/fir_pot_countertop",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/fir_pot_countertop",
+      "y": 270
+    }
+  }
+}

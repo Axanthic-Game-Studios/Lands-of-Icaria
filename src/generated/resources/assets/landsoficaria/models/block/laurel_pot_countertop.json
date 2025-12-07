@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_pot_countertop",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "log": "landsoficaria:block/laurel_log",
+    "mediterranean_water": "landsoficaria:block/mediterranean_water",
+    "particle": "landsoficaria:block/stripped_laurel_log",
+    "planks": "landsoficaria:block/laurel_planks",
+    "pot_holder": "landsoficaria:block/pot_holder",
+    "stripped_log": "landsoficaria:block/stripped_laurel_log"
+  }
+}

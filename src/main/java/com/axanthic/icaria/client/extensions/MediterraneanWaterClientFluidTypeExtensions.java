@@ -1,5 +1,6 @@
 package com.axanthic.icaria.client.extensions;
 
+import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -22,7 +23,7 @@ public class MediterraneanWaterClientFluidTypeExtensions implements IClientFluid
 
 	@Override
 	public int getTintColor(FluidStack pFluidStack) {
-		return 0xFF4D9352;
+		return IcariaColors.TINT_WATER;
 	}
 
 	@Override

@@ -45,9 +45,52 @@ public class IcariaCommonModEvents {
 
 	@SubscribeEvent
 	public static void onBlockEntityTypeAddBlocks(BlockEntityTypeAddBlocksEvent pEvent) {
-		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_GRAINEL.get(), IcariaBlocks.SUSPICIOUS_SILKSAND.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get(), IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaBlocks.FIR_HANGING_SIGN.get(), IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_HANGING_SIGN.get(), IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaBlocks.OLIVE_HANGING_SIGN.get(), IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaBlocks.PLANE_HANGING_SIGN.get(), IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaBlocks.POPULUS_HANGING_SIGN.get(), IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), IcariaBlocks.CATOBLEPAS_SKULL.get(), IcariaBlocks.CATOBLEPAS_WALL_SKULL.get(), IcariaBlocks.CERVER_SKULL.get(), IcariaBlocks.CERVER_WALL_SKULL.get(), IcariaBlocks.CROCOTTA_SKULL.get(), IcariaBlocks.CROCOTTA_WALL_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get(), IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get(), IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_SKULL.get(), IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get(), IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get(), IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_SKULL.get(), IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get(), IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get(), IcariaBlocks.REVENANT_SKULL.get(), IcariaBlocks.REVENANT_WALL_SKULL.get(), IcariaBlocks.THOG_SKULL.get(), IcariaBlocks.THOG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_GRAINEL.get());
+		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_SILKSAND.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.FIR_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.FIR_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.LAUREL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.OLIVE_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.PLANE_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.PLANE_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.POPULUS_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.ARGAN_HOUND_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CAPELLA_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CAPELLA_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CATOBLEPAS_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CATOBLEPAS_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CERVER_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CERVER_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CROCOTTA_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CROCOTTA_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.FIR_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.PLANE_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.REVENANT_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.REVENANT_WALL_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.THOG_SKULL.get());
+		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.THOG_WALL_SKULL.get());
 	}
 
 	@SubscribeEvent
@@ -158,6 +201,7 @@ public class IcariaCommonModEvents {
 	@SubscribeEvent
 	public static void onRegisterDataMapTypesEvent(RegisterDataMapTypesEvent pEvent) {
 		pEvent.register(IcariaDataMapTypes.FREEZABLES);
+		pEvent.register(IcariaDataMapTypes.POTTABLES);
 	}
 
 	@SubscribeEvent
@@ -618,6 +662,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.CYPRESS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.CYPRESS_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.CYPRESS_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.CYPRESS_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.CYPRESS_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.CYPRESS_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
@@ -657,6 +707,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
@@ -696,6 +752,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.FIR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.FIR_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.FIR_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.FIR_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.FIR_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.FIR_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
@@ -735,6 +797,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.LAUREL_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.LAUREL_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.LAUREL_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.LAUREL_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.LAUREL_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.LAUREL_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
@@ -774,6 +842,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.OLIVE_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.OLIVE_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.OLIVE_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.OLIVE_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.OLIVE_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.OLIVE_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
@@ -813,6 +887,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.PLANE_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.PLANE_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.PLANE_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.PLANE_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.PLANE_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.PLANE_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
@@ -852,6 +932,12 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.POPULUS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.POPULUS_FLOWER_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.POPULUS_MORTAR_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.POPULUS_POT_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.POPULUS_BASINS_COUNTERTOP.get());
+			pEvent.accept(IcariaItems.POPULUS_RAISED_BASINS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());

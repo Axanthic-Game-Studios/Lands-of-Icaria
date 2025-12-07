@@ -3,7 +3,7 @@
   "textures": {
     "particle": "landsoficaria:block/plane_planks",
     "planks": "landsoficaria:block/plane_planks",
-    "stripped_log": "landsoficaria:block/stripped_plane_log",
+    "trapdoor": "landsoficaria:block/plane_trapdoor",
     "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain"
   }
 }

@@ -1,0 +1,2260 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:populus_countertop"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "white_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "white_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "white_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "white_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:white_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "gray_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gray_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "black_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:black_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "black_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:black_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "black_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:black_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "black_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:black_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "brown_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "brown_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "brown_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "brown_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brown_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "red_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:red_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "red_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:red_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "red_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:red_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "red_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:red_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "orange_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:orange_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "orange_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:orange_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "orange_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:orange_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "orange_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:orange_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "yellow_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "yellow_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "yellow_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "yellow_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:yellow_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "lime_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lime_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "lime_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lime_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "lime_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lime_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "lime_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lime_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "green_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "green_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "green_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "green_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:green_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "cyan_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cyan_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "cyan_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cyan_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "cyan_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cyan_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "cyan_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cyan_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "light_blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:light_blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "blue_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:blue_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "purple_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "purple_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "purple_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "purple_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:purple_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "magenta_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:magenta_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "magenta_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:magenta_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "magenta_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:magenta_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "magenta_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:magenta_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "pink_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "1"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pink_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 1.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "pink_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "2"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pink_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 2.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "pink_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "3"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pink_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 3.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle": "pink_candle"
+          }
+        },
+        {
+          "block": "landsoficaria:populus_countertop",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "candle_amount": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pink_candle"
+        }
+      ],
+      "functions": [
+        {
+          "add": false,
+          "count": 4.0,
+          "function": "minecraft:set_count"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/populus_countertop"
+}

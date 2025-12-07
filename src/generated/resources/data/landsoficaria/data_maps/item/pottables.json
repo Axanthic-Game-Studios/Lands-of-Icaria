@@ -1,0 +1,217 @@
+{
+  "values": {
+    "landsoficaria:blindweed": {
+      "block": "landsoficaria:potted_blindweed"
+    },
+    "landsoficaria:blue_hydracinth": {
+      "block": "landsoficaria:potted_blue_hydracinth"
+    },
+    "landsoficaria:blue_stormcotton": {
+      "block": "landsoficaria:potted_blue_stormcotton"
+    },
+    "landsoficaria:brown_ground_shrooms": {
+      "block": "landsoficaria:potted_brown_ground_shrooms"
+    },
+    "landsoficaria:cardon_cactus": {
+      "block": "landsoficaria:potted_cardon_cactus"
+    },
+    "landsoficaria:chameomile": {
+      "block": "landsoficaria:potted_chameomile"
+    },
+    "landsoficaria:charmonder": {
+      "block": "landsoficaria:potted_charmonder"
+    },
+    "landsoficaria:clover": {
+      "block": "landsoficaria:potted_clover"
+    },
+    "landsoficaria:cypress_sapling": {
+      "block": "landsoficaria:potted_cypress_sapling"
+    },
+    "landsoficaria:droughtroot_sapling": {
+      "block": "landsoficaria:potted_droughtroot_sapling"
+    },
+    "landsoficaria:fern": {
+      "block": "landsoficaria:potted_fern"
+    },
+    "landsoficaria:fir_sapling": {
+      "block": "landsoficaria:potted_fir_sapling"
+    },
+    "landsoficaria:firehilt": {
+      "block": "landsoficaria:potted_firehilt"
+    },
+    "landsoficaria:green_ground_shrooms": {
+      "block": "landsoficaria:potted_green_ground_shrooms"
+    },
+    "landsoficaria:large_brown_ground_shrooms": {
+      "block": "landsoficaria:potted_large_brown_ground_shrooms"
+    },
+    "landsoficaria:laurel_sapling": {
+      "block": "landsoficaria:potted_laurel_sapling"
+    },
+    "landsoficaria:lionfangs": {
+      "block": "landsoficaria:potted_lionfangs"
+    },
+    "landsoficaria:olive_sapling": {
+      "block": "landsoficaria:potted_olive_sapling"
+    },
+    "landsoficaria:orange_bromelia": {
+      "block": "landsoficaria:potted_orange_bromelia"
+    },
+    "landsoficaria:palm_fern": {
+      "block": "landsoficaria:potted_palm_fern"
+    },
+    "landsoficaria:pink_bromelia": {
+      "block": "landsoficaria:potted_pink_bromelia"
+    },
+    "landsoficaria:pink_stormcotton": {
+      "block": "landsoficaria:potted_pink_stormcotton"
+    },
+    "landsoficaria:plane_sapling": {
+      "block": "landsoficaria:potted_plane_sapling"
+    },
+    "landsoficaria:populus_sapling": {
+      "block": "landsoficaria:potted_populus_sapling"
+    },
+    "landsoficaria:purple_bromelia": {
+      "block": "landsoficaria:potted_purple_bromelia"
+    },
+    "landsoficaria:purple_hydracinth": {
+      "block": "landsoficaria:potted_purple_hydracinth"
+    },
+    "landsoficaria:purple_staghorn": {
+      "block": "landsoficaria:potted_purple_staghorn"
+    },
+    "landsoficaria:purple_stormcotton": {
+      "block": "landsoficaria:potted_purple_stormcotton"
+    },
+    "landsoficaria:speardrops": {
+      "block": "landsoficaria:potted_speardrops"
+    },
+    "landsoficaria:sunkettle": {
+      "block": "landsoficaria:potted_sunkettle"
+    },
+    "landsoficaria:sunsponge": {
+      "block": "landsoficaria:potted_sunsponge"
+    },
+    "landsoficaria:voidlily": {
+      "block": "landsoficaria:potted_voidlily"
+    },
+    "landsoficaria:white_bromelia": {
+      "block": "landsoficaria:potted_white_bromelia"
+    },
+    "landsoficaria:yellow_staghorn": {
+      "block": "landsoficaria:potted_yellow_staghorn"
+    },
+    "minecraft:acacia_sapling": {
+      "block": "minecraft:potted_acacia_sapling"
+    },
+    "minecraft:allium": {
+      "block": "minecraft:potted_allium"
+    },
+    "minecraft:azalea": {
+      "block": "minecraft:potted_azalea_bush"
+    },
+    "minecraft:azure_bluet": {
+      "block": "minecraft:potted_azure_bluet"
+    },
+    "minecraft:bamboo": {
+      "block": "minecraft:potted_bamboo"
+    },
+    "minecraft:birch_sapling": {
+      "block": "minecraft:potted_birch_sapling"
+    },
+    "minecraft:blue_orchid": {
+      "block": "minecraft:potted_blue_orchid"
+    },
+    "minecraft:brown_mushroom": {
+      "block": "minecraft:potted_brown_mushroom"
+    },
+    "minecraft:cactus": {
+      "block": "minecraft:potted_cactus"
+    },
+    "minecraft:cherry_sapling": {
+      "block": "minecraft:potted_cherry_sapling"
+    },
+    "minecraft:closed_eyeblossom": {
+      "block": "minecraft:potted_closed_eyeblossom"
+    },
+    "minecraft:cornflower": {
+      "block": "minecraft:potted_cornflower"
+    },
+    "minecraft:crimson_fungus": {
+      "block": "minecraft:potted_crimson_fungus"
+    },
+    "minecraft:crimson_roots": {
+      "block": "minecraft:potted_crimson_roots"
+    },
+    "minecraft:dandelion": {
+      "block": "minecraft:potted_dandelion"
+    },
+    "minecraft:dark_oak_sapling": {
+      "block": "minecraft:potted_dark_oak_sapling"
+    },
+    "minecraft:dead_bush": {
+      "block": "minecraft:potted_dead_bush"
+    },
+    "minecraft:fern": {
+      "block": "minecraft:potted_fern"
+    },
+    "minecraft:flowering_azalea": {
+      "block": "minecraft:potted_flowering_azalea_bush"
+    },
+    "minecraft:jungle_sapling": {
+      "block": "minecraft:potted_jungle_sapling"
+    },
+    "minecraft:lily_of_the_valley": {
+      "block": "minecraft:potted_lily_of_the_valley"
+    },
+    "minecraft:mangrove_propagule": {
+      "block": "minecraft:potted_mangrove_propagule"
+    },
+    "minecraft:oak_sapling": {
+      "block": "minecraft:potted_oak_sapling"
+    },
+    "minecraft:open_eyeblossom": {
+      "block": "minecraft:potted_open_eyeblossom"
+    },
+    "minecraft:orange_tulip": {
+      "block": "minecraft:potted_orange_tulip"
+    },
+    "minecraft:oxeye_daisy": {
+      "block": "minecraft:potted_oxeye_daisy"
+    },
+    "minecraft:pale_oak_sapling": {
+      "block": "minecraft:potted_pale_oak_sapling"
+    },
+    "minecraft:pink_tulip": {
+      "block": "minecraft:potted_pink_tulip"
+    },
+    "minecraft:poppy": {
+      "block": "minecraft:potted_poppy"
+    },
+    "minecraft:red_mushroom": {
+      "block": "minecraft:potted_red_mushroom"
+    },
+    "minecraft:red_tulip": {
+      "block": "minecraft:potted_red_tulip"
+    },
+    "minecraft:spruce_sapling": {
+      "block": "minecraft:potted_spruce_sapling"
+    },
+    "minecraft:torchflower": {
+      "block": "minecraft:potted_torchflower"
+    },
+    "minecraft:warped_fungus": {
+      "block": "minecraft:potted_warped_fungus"
+    },
+    "minecraft:warped_roots": {
+      "block": "minecraft:potted_warped_roots"
+    },
+    "minecraft:white_tulip": {
+      "block": "minecraft:potted_white_tulip"
+    },
+    "minecraft:wither_rose": {
+      "block": "minecraft:potted_wither_rose"
+    }
+  }
+}

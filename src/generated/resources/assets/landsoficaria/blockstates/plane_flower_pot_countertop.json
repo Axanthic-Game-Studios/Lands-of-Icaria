@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,fill=fill": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_1",
+      "y": 90
+    },
+    "facing=east,fill=none": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_0",
+      "y": 90
+    },
+    "facing=north,fill=fill": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_1"
+    },
+    "facing=north,fill=none": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_0"
+    },
+    "facing=south,fill=fill": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_1",
+      "y": 180
+    },
+    "facing=south,fill=none": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_0",
+      "y": 180
+    },
+    "facing=west,fill=fill": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_1",
+      "y": 270
+    },
+    "facing=west,fill=none": {
+      "model": "landsoficaria:block/plane_flower_pot_countertop_0",
+      "y": 270
+    }
+  }
+}

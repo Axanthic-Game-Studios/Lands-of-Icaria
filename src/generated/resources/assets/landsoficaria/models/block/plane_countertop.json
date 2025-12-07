@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_countertop_0",
+  "textures": {
+    "log": "landsoficaria:block/plane_log",
+    "particle": "landsoficaria:block/stripped_plane_log",
+    "planks": "landsoficaria:block/plane_planks",
+    "stripped_log": "landsoficaria:block/stripped_plane_log"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_flower_pot_countertop_0",
+  "textures": {
+    "chert_block": "landsoficaria:block/chert_block",
+    "dirt": "minecraft:block/dirt",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "pot": "minecraft:block/flower_pot",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log",
+    "trapdoor": "landsoficaria:block/droughtroot_trapdoor"
+  }
+}
