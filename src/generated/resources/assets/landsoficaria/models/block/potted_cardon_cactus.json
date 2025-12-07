@@ -3,7 +3,7 @@
   "textures": {
     "cactus": "landsoficaria:block/cardon_cactus_side",
     "dirt": "minecraft:block/dirt",
-    "particle": "minecraft:block/flower_pot",
-    "pot": "minecraft:block/flower_pot"
+    "flower_pot": "minecraft:block/flower_pot",
+    "particle": "minecraft:block/flower_pot"
   }
 }

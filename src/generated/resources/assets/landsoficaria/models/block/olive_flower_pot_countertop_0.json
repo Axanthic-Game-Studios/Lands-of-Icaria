@@ -3,10 +3,10 @@
   "textures": {
     "chert_block": "landsoficaria:block/chert_block",
     "dirt": "minecraft:block/dirt",
+    "flower_pot": "minecraft:block/flower_pot",
     "log": "landsoficaria:block/olive_log",
     "particle": "landsoficaria:block/stripped_olive_log",
     "planks": "landsoficaria:block/olive_planks",
-    "pot": "minecraft:block/flower_pot",
     "stripped_log": "landsoficaria:block/stripped_olive_log",
     "trapdoor": "landsoficaria:block/olive_trapdoor"
   }

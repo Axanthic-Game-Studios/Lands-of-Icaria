@@ -3169,7 +3169,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
 				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "log"))
 				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "planks"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log"))
 				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "trapdoor"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log")), pBlockModelGenerators.modelOutput);
@@ -3691,7 +3691,7 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
 				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
 	}
@@ -3847,7 +3847,7 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
 				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
 	}
@@ -3856,7 +3856,7 @@ public class IcariaBlockModelProvider {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_brown_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
@@ -3866,7 +3866,7 @@ public class IcariaBlockModelProvider {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_cardon_cactus")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.CACTUS, IcariaModelProvider.blockFile(pFile, "side"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
 	}
@@ -3875,7 +3875,7 @@ public class IcariaBlockModelProvider {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_green_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
@@ -3885,7 +3885,7 @@ public class IcariaBlockModelProvider {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_potted_large_brown_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaIdents.ID, "stem_ground_shrooms"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
@@ -3896,7 +3896,7 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
 				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaIdents.MC, "dirt"))
 				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
+				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot"))
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
 	}

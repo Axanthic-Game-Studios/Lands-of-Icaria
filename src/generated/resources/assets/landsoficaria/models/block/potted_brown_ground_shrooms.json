@@ -2,8 +2,8 @@
   "parent": "landsoficaria:block/template_potted_brown_ground_shrooms",
   "textures": {
     "dirt": "minecraft:block/dirt",
+    "flower_pot": "minecraft:block/flower_pot",
     "particle": "minecraft:block/flower_pot",
-    "pot": "minecraft:block/flower_pot",
     "shroom": "landsoficaria:block/brown_ground_shrooms",
     "stem": "landsoficaria:block/stem_ground_shrooms"
   }

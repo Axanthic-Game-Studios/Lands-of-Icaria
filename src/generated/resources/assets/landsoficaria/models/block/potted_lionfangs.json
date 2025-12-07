@@ -3,9 +3,9 @@
   "render_type": "minecraft:cutout",
   "textures": {
     "dirt": "minecraft:block/dirt",
+    "flower_pot": "minecraft:block/flower_pot",
     "overlay": "landsoficaria:block/lionfangs_overlay",
     "particle": "minecraft:block/flower_pot",
-    "pot": "minecraft:block/flower_pot",
     "texture": "landsoficaria:block/lionfangs"
   }
 }

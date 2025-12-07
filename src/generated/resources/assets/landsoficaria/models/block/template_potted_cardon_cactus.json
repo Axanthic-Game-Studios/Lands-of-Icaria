@@ -5,22 +5,22 @@
       "faces": {
         "down": {
           "cullface": "down",
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "east": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "north": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "south": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "up": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "west": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         }
       },
       "from": [
@@ -47,22 +47,22 @@
       "faces": {
         "down": {
           "cullface": "down",
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "east": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "north": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "south": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "up": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "west": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         }
       },
       "from": [
@@ -89,16 +89,16 @@
       "faces": {
         "down": {
           "cullface": "down",
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "north": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "south": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "up": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         }
       },
       "from": [
@@ -125,16 +125,16 @@
       "faces": {
         "down": {
           "cullface": "down",
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "north": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "south": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         },
         "up": {
-          "texture": "#pot"
+          "texture": "#flower_pot"
         }
       },
       "from": [
@@ -161,7 +161,7 @@
       "faces": {
         "down": {
           "cullface": "down",
-          "texture": "#pot",
+          "texture": "#flower_pot",
           "uv": [
             6.0,
             12.0,
