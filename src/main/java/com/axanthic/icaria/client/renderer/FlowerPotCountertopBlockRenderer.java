@@ -22,7 +22,6 @@ public record FlowerPotCountertopBlockRenderer(BlockEntityRendererProvider.Conte
 
 	@Override
 	public void render(FlowerPotCountertopBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
-		var blockPos = pBlockEntity.getBlockPos();
 		var item = pBlockEntity.getItem();
 		var level = pBlockEntity.getLevel();
 		if (item != null) {
@@ -30,7 +29,7 @@ public record FlowerPotCountertopBlockRenderer(BlockEntityRendererProvider.Conte
 			if (data != null) {
 				var block = data.block().defaultBlockState();
 				if (level != null) {
-					this.context().getBlockRenderDispatcher().renderSingleBlock(block, pPoseStack, pMultiBufferSource, pPackedLight, pPackedOverlay, level, blockPos);
+					this.context().getBlockRenderDispatcher().renderSingleBlock(block, pPoseStack, pMultiBufferSource, pPackedLight, pPackedOverlay, level, pBlockEntity.getBlockPos());
 				}
 			}
 		}

@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -42,7 +43,7 @@ public class FlowerPotCountertopBlockEntity extends BlockEntity {
 		}
 	}
 
-	public void setItem(Item pItem) {
+	public void setItem(@Nullable Item pItem) {
 		this.item = pItem;
 	}
 
@@ -51,6 +52,7 @@ public class FlowerPotCountertopBlockEntity extends BlockEntity {
 		return this.saveWithoutMetadata(pProvider);
 	}
 
+	@Nullable
 	public Item getItem() {
 		return this.item;
 	}
