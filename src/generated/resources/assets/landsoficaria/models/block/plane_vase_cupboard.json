@@ -1,0 +1,14 @@
+{
+  "parent": "landsoficaria:block/template_vase_cupboard",
+  "textures": {
+    "log": "landsoficaria:block/plane_log",
+    "particle": "landsoficaria:block/smooth_plane_log",
+    "planks": "landsoficaria:block/plane_planks",
+    "smooth_log": "landsoficaria:block/smooth_plane_log",
+    "storage_vase": "landsoficaria:block/storage_vase",
+    "storage_vase_dark": "landsoficaria:block/storage_vase_dark",
+    "storage_vase_lite": "landsoficaria:block/storage_vase_lite",
+    "storage_vase_neck": "landsoficaria:block/storage_vase_neck",
+    "stripped_log": "landsoficaria:block/stripped_plane_log"
+  }
+}

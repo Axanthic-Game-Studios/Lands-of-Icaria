@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_flasks_cupboard",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "cupboard": "landsoficaria:block/plane_cupboard",
+    "kettle": "landsoficaria:block/kettle",
+    "log": "landsoficaria:block/plane_log",
+    "particle": "landsoficaria:block/smooth_plane_log",
+    "planks": "landsoficaria:block/plane_planks",
+    "smooth_log": "landsoficaria:block/smooth_plane_log",
+    "stripped_log": "landsoficaria:block/stripped_plane_log"
+  }
+}

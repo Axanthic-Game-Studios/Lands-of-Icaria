@@ -8,7 +8,7 @@
     "log": "landsoficaria:block/populus_log",
     "particle": "landsoficaria:block/stripped_populus_log",
     "planks": "landsoficaria:block/populus_planks",
-    "storage_vase_dark": "landsoficaria:block/storage_vase_dark",
+    "smooth_loam": "landsoficaria:block/smooth_loam",
     "stripped_log": "landsoficaria:block/stripped_populus_log"
   }
 }

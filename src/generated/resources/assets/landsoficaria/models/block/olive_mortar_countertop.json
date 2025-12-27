@@ -8,7 +8,7 @@
     "log": "landsoficaria:block/olive_log",
     "particle": "landsoficaria:block/stripped_olive_log",
     "planks": "landsoficaria:block/olive_planks",
-    "storage_vase_dark": "landsoficaria:block/storage_vase_dark",
+    "smooth_loam": "landsoficaria:block/smooth_loam",
     "stripped_log": "landsoficaria:block/stripped_olive_log"
   }
 }

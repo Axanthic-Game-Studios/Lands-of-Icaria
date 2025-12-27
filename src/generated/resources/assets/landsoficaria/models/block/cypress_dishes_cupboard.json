@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_dishes_cupboard",
+  "textures": {
+    "cupboard": "landsoficaria:block/cypress_cupboard",
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/smooth_cypress_log",
+    "planks": "landsoficaria:block/cypress_planks",
+    "smooth_loam": "landsoficaria:block/smooth_loam",
+    "smooth_log": "landsoficaria:block/smooth_cypress_log",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "stripped_log": "landsoficaria:block/stripped_cypress_log"
+  }
+}

@@ -1,9 +1,9 @@
 {
   "parent": "landsoficaria:block/template_pan_holder",
   "textures": {
-    "pan_holder": "landsoficaria:block/pan_holder",
     "particle": "landsoficaria:block/olive_planks",
     "planks": "landsoficaria:block/olive_planks",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
     "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain"
   }
 }

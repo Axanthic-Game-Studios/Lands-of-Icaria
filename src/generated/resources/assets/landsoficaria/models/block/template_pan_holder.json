@@ -359,7 +359,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             5.0,
@@ -368,7 +368,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.5,
             5.0,
@@ -377,7 +377,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             5.0,
@@ -386,7 +386,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             5.0,
@@ -418,7 +418,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             5.0,
@@ -427,7 +427,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             5.0,
@@ -436,7 +436,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             5.0,
@@ -445,7 +445,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             5.0,
@@ -454,7 +454,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             5.0,
@@ -486,7 +486,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             5.0,
@@ -495,7 +495,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             5.0,
@@ -504,7 +504,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             5.0,
@@ -513,7 +513,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             5.0,
@@ -522,7 +522,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             5.0,
@@ -554,7 +554,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             15.0,
@@ -563,7 +563,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.5,
             15.0,
@@ -572,7 +572,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             15.0,
@@ -581,7 +581,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.5,
             15.0,
@@ -613,7 +613,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             15.0,
@@ -622,7 +622,7 @@
           ]
         },
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -631,7 +631,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -640,7 +640,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -649,7 +649,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -681,7 +681,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             15.0,
@@ -690,7 +690,7 @@
           ]
         },
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             14.0,
@@ -699,7 +699,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             14.0,
@@ -708,7 +708,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             14.0,
@@ -717,7 +717,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             14.0,
@@ -749,7 +749,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             7.0,
@@ -758,7 +758,7 @@
           ]
         },
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             7.0,
@@ -767,7 +767,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             7.0,
@@ -776,7 +776,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             7.0,
@@ -785,7 +785,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             7.0,
@@ -794,7 +794,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             7.0,
@@ -826,7 +826,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             12.0,
@@ -835,7 +835,7 @@
           ]
         },
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             13.0,
@@ -844,7 +844,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             13.0,
@@ -853,7 +853,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             13.0,
@@ -862,7 +862,7 @@
           ]
         },
         "up": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             12.0,
@@ -871,7 +871,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             13.0,
@@ -903,7 +903,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             8.0,
@@ -912,7 +912,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             8.0,
@@ -921,7 +921,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             8.0,
@@ -930,7 +930,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             8.0,
@@ -962,7 +962,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             8.0,
@@ -971,7 +971,7 @@
           ]
         },
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             8.0,
@@ -980,7 +980,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             8.0,
@@ -989,7 +989,7 @@
           ]
         },
         "west": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             4.0,
             8.0,
@@ -1021,7 +1021,7 @@
     {
       "faces": {
         "north": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -1030,7 +1030,7 @@
           ]
         },
         "south": {
-          "texture": "#pan_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,

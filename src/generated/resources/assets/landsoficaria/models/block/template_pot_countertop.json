@@ -499,7 +499,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             7.0,
@@ -509,7 +509,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             7.0,
@@ -519,7 +519,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             7.0,
@@ -529,7 +529,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             7.0,
@@ -561,7 +561,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             6.0,
@@ -571,7 +571,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             6.0,
@@ -581,7 +581,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             6.0,
@@ -590,7 +590,7 @@
           ]
         },
         "south": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             6.0,
@@ -600,7 +600,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             6.0,
@@ -610,7 +610,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             6.0,
@@ -642,7 +642,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             7.0,
@@ -652,7 +652,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             7.0,
@@ -662,7 +662,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             7.0,
@@ -672,7 +672,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             7.0,
@@ -704,7 +704,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -714,7 +714,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             8.0,
             8.0,
@@ -724,7 +724,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -733,7 +733,7 @@
           ]
         },
         "south": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -743,7 +743,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -753,7 +753,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             8.0,
@@ -785,7 +785,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             9.0,
@@ -795,7 +795,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             8.0,
             9.0,
@@ -805,7 +805,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             9.0,
@@ -815,7 +815,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             9.0,
@@ -847,7 +847,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             9.0,
@@ -857,7 +857,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             8.0,
             9.0,
@@ -867,7 +867,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             9.0,
@@ -877,7 +877,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             9.0,
@@ -909,7 +909,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             13.0,
@@ -919,7 +919,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             8.0,
             13.0,
@@ -929,7 +929,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             11.0,
@@ -938,7 +938,7 @@
           ]
         },
         "south": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             11.0,
@@ -948,7 +948,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             13.0,
@@ -958,7 +958,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             5.0,
             13.0,
@@ -990,7 +990,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             9.0,
@@ -1000,7 +1000,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             9.0,
@@ -1032,7 +1032,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -1042,7 +1042,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -1052,7 +1052,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -1062,7 +1062,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             14.0,
@@ -1094,7 +1094,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             15.0,
@@ -1104,7 +1104,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
             15.0,
@@ -1114,7 +1114,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             15.0,
@@ -1123,7 +1123,7 @@
           ]
         },
         "south": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             15.0,
@@ -1133,7 +1133,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             10.0,
             15.0,
@@ -1143,7 +1143,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             15.0,
@@ -1175,7 +1175,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             14.0,
@@ -1185,7 +1185,7 @@
         },
         "east": {
           "rotation": 270,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             14.0,
@@ -1195,7 +1195,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             14.0,
@@ -1205,7 +1205,7 @@
         },
         "west": {
           "rotation": 90,
-          "texture": "#pot_holder",
+          "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             6.0,
             14.0,

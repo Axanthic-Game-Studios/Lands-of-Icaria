@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_pots_cupboard",
+  "textures": {
+    "cupboard": "landsoficaria:block/populus_cupboard",
+    "log": "landsoficaria:block/populus_log",
+    "particle": "landsoficaria:block/smooth_populus_log",
+    "planks": "landsoficaria:block/populus_planks",
+    "smooth_log": "landsoficaria:block/smooth_populus_log",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "stripped_log": "landsoficaria:block/stripped_populus_log"
+  }
+}
