@@ -50,6 +50,11 @@ public class BathtubBlock extends Block implements EntityBlock {
 	}
 
 	@Override
+	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
+		return false;
+	}
+
+	@Override
 	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
 	}
