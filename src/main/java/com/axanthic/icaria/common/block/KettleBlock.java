@@ -114,6 +114,10 @@ public class KettleBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.KETTLE, BlockStateProperties.LIT);
 	}
 
+	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		Block.dropResources(pBlockState, pLevel, pBlockPos);
+	}
+
 	@Override
 	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
 		if (pEntity instanceof ItemEntity itemEntity) {
@@ -138,6 +142,7 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.drop(pBlockPos, pBlockState, pServerLevel);
 		this.removeMultiBlock(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
@@ -211,6 +216,7 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.drop(pBlockPos, pBlockState, pLevel);
 		this.removeMultiBlock(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}

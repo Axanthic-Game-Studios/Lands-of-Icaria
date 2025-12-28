@@ -85,8 +85,13 @@ public class KilnBlock extends BaseEntityBlock {
 		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
+	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		Block.dropResources(pBlockState, pLevel, pBlockPos);
+	}
+
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.drop(pBlockPos, pBlockState, pServerLevel);
 		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
@@ -155,6 +160,7 @@ public class KilnBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.drop(pBlockPos, pBlockState, pLevel);
 		this.removeMultiBlock(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}

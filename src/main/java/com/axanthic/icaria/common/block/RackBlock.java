@@ -221,7 +221,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	@Override
 	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
 		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
-		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL) || pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? List.of() : lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL).getRandomItems(lootParams) : List.of(new ItemStack(this));
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) &&  !pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL) && !pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL).getRandomItems(lootParams) : List.of();
 	}
 
 	@Override

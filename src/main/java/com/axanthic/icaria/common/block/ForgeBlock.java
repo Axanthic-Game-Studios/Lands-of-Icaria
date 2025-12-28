@@ -135,8 +135,13 @@ public class ForgeBlock extends BaseEntityBlock {
 		pBuilder.add(IcariaBlockStateProperties.CORNER, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
+	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		Block.dropResources(pBlockState, pLevel, pBlockPos);
+	}
+
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.drop(pBlockPos, pBlockState, pServerLevel);
 		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
@@ -240,6 +245,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.drop(pBlockPos, pBlockState, pLevel);
 		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}

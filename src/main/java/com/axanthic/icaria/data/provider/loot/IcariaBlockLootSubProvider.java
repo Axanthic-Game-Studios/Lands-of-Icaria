@@ -202,10 +202,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	public void dropNone() {
 		this.dropNone(IcariaBlocks.SUSPICIOUS_GRAINEL.get());
 		this.dropNone(IcariaBlocks.SUSPICIOUS_SILKSAND.get());
-		this.dropNone(IcariaBlocks.KETTLE.get());
-		this.dropNone(IcariaBlocks.GRINDER.get());
-		this.dropNone(IcariaBlocks.KILN.get());
-		this.dropNone(IcariaBlocks.FORGE.get());
 		this.dropNone(IcariaBlocks.RED_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.LOST_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
@@ -572,6 +568,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
+		this.dropThis(IcariaBlocks.KETTLE.get());
+		this.dropThis(IcariaBlocks.GRINDER.get());
+		this.dropThis(IcariaBlocks.KILN.get());
+		this.dropThis(IcariaBlocks.FORGE.get());
 		this.dropThis(IcariaBlocks.CHEST.get());
 		this.dropThis(IcariaBlocks.TRAPPED_CHEST.get());
 		this.dropThis(IcariaBlocks.STORAGE_VASE.get());

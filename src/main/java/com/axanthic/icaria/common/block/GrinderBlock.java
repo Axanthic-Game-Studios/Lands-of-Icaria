@@ -113,8 +113,13 @@ public class GrinderBlock extends BaseEntityBlock {
 		pBuilder.add(IcariaBlockStateProperties.GRINDER_GRINDING, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.SIDE);
 	}
 
+	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		Block.dropResources(pBlockState, pLevel, pBlockPos);
+	}
+
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
+		this.drop(pBlockPos, pBlockState, pServerLevel);
 		this.removeMultiBlock(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
@@ -167,6 +172,7 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
+		this.drop(pBlockPos, pBlockState, pLevel);
 		this.removeMultiBlock(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}

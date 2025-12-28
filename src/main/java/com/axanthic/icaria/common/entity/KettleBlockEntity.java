@@ -12,7 +12,6 @@ import com.axanthic.icaria.common.recipe.PotionConcoctingRecipe;
 import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import java.util.ArrayDeque;
@@ -41,7 +40,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -130,10 +128,6 @@ public class KettleBlockEntity extends BlockEntity {
 		}
 	}
 
-	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
-		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.KETTLE.get()));
-	}
-
 	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
 		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
@@ -187,7 +181,6 @@ public class KettleBlockEntity extends BlockEntity {
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
 		if (this.getLevel() instanceof ServerLevel serverLevel) {
-			this.dropBlock(pBlockPos, serverLevel);
 			this.dropItems(pBlockPos, serverLevel);
 		}
 	}

@@ -48,7 +48,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -139,10 +138,6 @@ public class GrinderBlockEntity extends BlockEntity {
 		this.recipes.clear();
 	}
 
-	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
-		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.GRINDER.get()));
-	}
-
 	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
 		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
@@ -165,7 +160,6 @@ public class GrinderBlockEntity extends BlockEntity {
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
 		if (this.getLevel() instanceof ServerLevel serverLevel) {
-			this.dropBlock(pBlockPos, serverLevel);
 			this.dropItems(pBlockPos, serverLevel);
 			this.getRecipesToAwardAndPopExperience(pBlockPos, serverLevel);
 		}

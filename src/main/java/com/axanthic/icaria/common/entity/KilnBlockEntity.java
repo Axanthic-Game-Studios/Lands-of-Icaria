@@ -6,7 +6,6 @@ import com.axanthic.icaria.common.handler.stack.KilnInputItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.KilnOutputItemStackHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import com.mojang.serialization.Codec;
@@ -40,7 +39,6 @@ import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -116,10 +114,6 @@ public class KilnBlockEntity extends BlockEntity {
 		this.recipes.clear();
 	}
 
-	public void dropBlock(BlockPos pBlockPos, ServerLevel pServerLevel) {
-		Block.popResource(pServerLevel, pBlockPos, new ItemStack(IcariaItems.KILN.get()));
-	}
-
 	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
 		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
 	}
@@ -141,7 +135,6 @@ public class KilnBlockEntity extends BlockEntity {
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
 		if (this.getLevel() instanceof ServerLevel serverLevel) {
-			this.dropBlock(pBlockPos, serverLevel);
 			this.dropItems(pBlockPos, serverLevel);
 			this.getRecipesToAwardAndPopExperience(pBlockPos, serverLevel);
 		}
