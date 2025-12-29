@@ -673,6 +673,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.CYPRESS_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.CYPRESS_DOOR.get());
@@ -723,6 +724,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_DOOR.get());
@@ -773,6 +775,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.FIR_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.FIR_DOOR.get());
@@ -823,6 +826,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.LAUREL_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.LAUREL_DOOR.get());
@@ -873,6 +877,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.OLIVE_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.OLIVE_DOOR.get());
@@ -923,6 +928,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.PLANE_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.PLANE_DOOR.get());
@@ -973,6 +979,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.POPULUS_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_SCROLLSHELF.get());
 			pEvent.accept(IcariaItems.POPULUS_DOOR.get());

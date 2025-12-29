@@ -1,0 +1,838 @@
+{
+  "parent": "minecraft:block/block",
+  "display": {
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        135,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        135,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ]
+    },
+    "fixed": {
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        -3,
+        0
+      ]
+    },
+    "ground": {
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        4.5,
+        0
+      ]
+    },
+    "gui": {
+      "rotation": [
+        30,
+        225,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        -2,
+        0
+      ]
+    },
+    "head": {
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        9,
+        0
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        135,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        135,
+        0
+      ],
+      "scale": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ]
+    }
+  },
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#log"
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        14,
+        -8
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        16,
+        16,
+        -7
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log",
+          "uv": [
+            12.0,
+            13.0,
+            14.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            12.0,
+            0.0,
+            14.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        12,
+        0,
+        20
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        14,
+        13,
+        22
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log",
+          "uv": [
+            14.0,
+            13.0,
+            16.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            12.0,
+            0.0,
+            14.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        0,
+        20
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        4,
+        13,
+        22
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#log"
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            15.0,
+            16.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        14,
+        23
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        16,
+        16,
+        24
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            15.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        15,
+        14,
+        8
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        16,
+        16,
+        23
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#smooth_log",
+          "uv": [
+            1.0,
+            0.0,
+            15.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#smooth_log",
+          "uv": [
+            0.0,
+            0.0,
+            15.0,
+            3.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_log"
+        },
+        "up": {
+          "texture": "#planks",
+          "uv": [
+            1.0,
+            1.0,
+            15.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_log",
+          "uv": [
+            1.0,
+            0.0,
+            16.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        1,
+        13,
+        8
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        15,
+        16,
+        23
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            15.0
+          ]
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            1.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        14,
+        8
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          16,
+          0,
+          24
+        ]
+      },
+      "to": [
+        1,
+        16,
+        23
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            0.0,
+            15.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        14,
+        -7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        1,
+        16,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#smooth_log",
+          "uv": [
+            1.0,
+            1.0,
+            15.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#smooth_log",
+          "uv": [
+            1.0,
+            0.0,
+            16.0,
+            3.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_log"
+        },
+        "up": {
+          "texture": "#planks",
+          "uv": [
+            1.0,
+            0.0,
+            15.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_log",
+          "uv": [
+            0.0,
+            0.0,
+            15.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        1,
+        13,
+        -7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        15,
+        16,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            1.0,
+            16.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            1.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#log",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        15,
+        14,
+        -7
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        16,
+        16,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            13.0,
+            2.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            12.0,
+            0.0,
+            14.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        0,
+        -6
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        4,
+        13,
+        -4
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log",
+          "uv": [
+            2.0,
+            13.0,
+            4.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            12.0,
+            0.0,
+            14.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            2.0,
+            0.0,
+            4.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        12,
+        0,
+        -6
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          -8
+        ]
+      },
+      "to": [
+        14,
+        13,
+        -4
+      ]
+    }
+  ]
+}

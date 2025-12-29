@@ -498,6 +498,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), "Cypress Flasks Cupboard");
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Cypress Pots Cupboard");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Cypress Vase Cupboard");
+		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Cypress Kitchen Table");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Cypress Crafting Table");
 		this.add(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), "Cypress Scrollshelf");
 		this.add(IcariaBlocks.CYPRESS_DOOR.get(), "Cypress Door");
@@ -549,6 +550,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), "Droughtroot Flasks Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Droughtroot Pots Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Droughtroot Vase Cupboard");
+		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Droughtroot Kitchen Table");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Droughtroot Crafting Table");
 		this.add(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), "Droughtroot Scrollshelf");
 		this.add(IcariaBlocks.DROUGHTROOT_DOOR.get(), "Droughtroot Door");
@@ -600,6 +602,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), "Fir Flasks Cupboard");
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Fir Pots Cupboard");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Fir Vase Cupboard");
+		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Fir Kitchen Table");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Fir Crafting Table");
 		this.add(IcariaBlocks.FIR_SCROLLSHELF.get(), "Fir Scrollshelf");
 		this.add(IcariaBlocks.FIR_DOOR.get(), "Fir Door");
@@ -651,6 +654,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), "Laurel Flasks Cupboard");
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Laurel Pots Cupboard");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Laurel Vase Cupboard");
+		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Laurel Kitchen Table");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Laurel Crafting Table");
 		this.add(IcariaBlocks.LAUREL_SCROLLSHELF.get(), "Laurel Scrollshelf");
 		this.add(IcariaBlocks.LAUREL_DOOR.get(), "Laurel Door");
@@ -702,6 +706,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), "Olive Flasks Cupboard");
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olive Pots Cupboard");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olive Vase Cupboard");
+		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olive Kitchen Table");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olive Crafting Table");
 		this.add(IcariaBlocks.OLIVE_SCROLLSHELF.get(), "Olive Scrollshelf");
 		this.add(IcariaBlocks.OLIVE_DOOR.get(), "Olive Door");
@@ -753,6 +758,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), "Plane Flasks Cupboard");
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plane Pots Cupboard");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plane Vase Cupboard");
+		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plane Kitchen Table");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plane Crafting Table");
 		this.add(IcariaBlocks.PLANE_SCROLLSHELF.get(), "Plane Scrollshelf");
 		this.add(IcariaBlocks.PLANE_DOOR.get(), "Plane Door");
@@ -804,6 +810,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), "Populus Flasks Cupboard");
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Populus Pots Cupboard");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Populus Vase Cupboard");
+		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Populus Kitchen Table");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Populus Crafting Table");
 		this.add(IcariaBlocks.POPULUS_SCROLLSHELF.get(), "Populus Scrollshelf");
 		this.add(IcariaBlocks.POPULUS_DOOR.get(), "Populus Door");

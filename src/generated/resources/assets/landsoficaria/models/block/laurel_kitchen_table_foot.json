@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_kitchen_table_foot",
+  "textures": {
+    "log": "landsoficaria:block/laurel_log",
+    "particle": "landsoficaria:block/smooth_laurel_log",
+    "planks": "landsoficaria:block/laurel_planks",
+    "smooth_log": "landsoficaria:block/smooth_laurel_log",
+    "stripped_log": "landsoficaria:block/stripped_laurel_log"
+  }
+}

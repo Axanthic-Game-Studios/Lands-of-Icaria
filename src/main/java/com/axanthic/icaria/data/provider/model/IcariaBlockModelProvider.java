@@ -81,6 +81,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.jasperCrystal(pBlockModelGenerators);
 		IcariaBlockModelProvider.kettle(pBlockModelGenerators);
 		IcariaBlockModelProvider.kiln(pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorch(pBlockModelGenerators);
@@ -195,6 +196,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kettleModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.kilnInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.kilnModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTableInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTableModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.layerModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorchModel(pBlockModelGenerators);
@@ -761,6 +764,16 @@ public class IcariaBlockModelProvider {
 
 	public static void kiln(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.kiln(IcariaBlocks.KILN.get(), pBlockModelGenerators);
+	}
+
+	public static void kitchenTable(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.FIR_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), pBlockModelGenerators);
 	}
 
 	public static void ladder(BlockModelGenerators pBlockModelGenerators) {
@@ -3580,6 +3593,30 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void kitchenTable(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_inventory")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_head")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_foot")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void ladder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -4996,6 +5033,15 @@ public class IcariaBlockModelProvider {
 	public static void kilnModel(BlockModelGenerators pBlockModelGenerators) {
 		KilnModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		KilnModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kiln_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kitchenTableInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		KitchenTableInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void kitchenTableModel(BlockModelGenerators pBlockModelGenerators) {
+		KitchenTableModel.head().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_head"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KitchenTableModel.foot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_foot"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void largeBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {

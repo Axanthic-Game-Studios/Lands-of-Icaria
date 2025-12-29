@@ -53,6 +53,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(pBlockModelGenerators);
 		IcariaBlockStateProvider.kettle(pBlockModelGenerators);
 		IcariaBlockStateProvider.kiln(pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(pBlockModelGenerators);
 		IcariaBlockStateProvider.layer(pBlockModelGenerators);
 		IcariaBlockStateProvider.lootVase(pBlockModelGenerators);
 		IcariaBlockStateProvider.oliveLeaves(pBlockModelGenerators);
@@ -727,6 +728,16 @@ public class IcariaBlockStateProvider {
 
 	public static void kiln(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.kiln(IcariaBlocks.KILN.get(), pBlockModelGenerators);
+	}
+
+	public static void kitchenTable(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.FIR_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.kitchenTable(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), pBlockModelGenerators);
 	}
 
 	public static void layer(BlockModelGenerators pBlockModelGenerators) {
@@ -2606,6 +2617,21 @@ public class IcariaBlockStateProvider {
 				.select(Direction.SOUTH, DoubleBlockHalf.UPPER, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "upper")).with(BlockModelGenerators.Y_ROT_180)))
 				.select(Direction.WEST, DoubleBlockHalf.LOWER, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "lower")).with(BlockModelGenerators.Y_ROT_270)))
 				.select(Direction.WEST, DoubleBlockHalf.UPPER, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "upper")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
+	}
+
+	public static void kitchenTable(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.PART)
+				.select(Direction.NORTH, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head"))))
+				.select(Direction.NORTH, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot"))))
+				.select(Direction.EAST, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}
