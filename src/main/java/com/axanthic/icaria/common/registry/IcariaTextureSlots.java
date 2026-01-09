@@ -13,6 +13,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot ANTHRACITE_BLOCK = TextureSlot.create("anthracite_block");
 	public static final TextureSlot ANVIL = TextureSlot.create("anvil");
 	public static final TextureSlot ARACHNE_STRING_BLOCK = TextureSlot.create("arachne_string_block");
+	public static final TextureSlot ARACHNE_STRING_MESH_BLOCK = TextureSlot.create("arachne_string_mesh_block");
 	public static final TextureSlot BARREL_BACK = TextureSlot.create("barrel_back");
 	public static final TextureSlot BARREL_FRONT = TextureSlot.create("barrel_front");
 	public static final TextureSlot BARS = TextureSlot.create("bars");

@@ -895,18 +895,25 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	public void dropThisWithCarpet() {
 		this.dropThisWithCarpet(IcariaBlocks.CYPRESS_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.CYPRESS_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.DROUGHTROOT_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.DROUGHTROOT_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.FIR_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.FIR_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.FIR_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.LAUREL_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.LAUREL_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.LAUREL_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.OLIVE_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.OLIVE_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.OLIVE_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.PLANE_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.PLANE_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.PLANE_KLINE.get());
 		this.dropThisWithCarpet(IcariaBlocks.POPULUS_STOOL.get());
 		this.dropThisWithCarpet(IcariaBlocks.POPULUS_TOWEL_HOLDER.get());
+		this.dropThisWithCarpet(IcariaBlocks.POPULUS_KLINE.get());
 	}
 
 	public void dropThisWithSilk() {

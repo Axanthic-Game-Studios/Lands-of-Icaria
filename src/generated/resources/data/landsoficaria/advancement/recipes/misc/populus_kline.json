@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:arachne_string_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:arachne_string_block"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:populus_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:populus_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:populus_kline"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:arachne_string_block",
+      "has_landsoficaria:populus_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:populus_kline"
+    ]
+  }
+}

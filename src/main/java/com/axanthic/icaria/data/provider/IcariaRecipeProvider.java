@@ -78,6 +78,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign();
 		this.harness();
 		this.helmet();
+		this.kline();
 		this.ladder();
 		this.leggings();
 		this.pickaxe();
@@ -1247,6 +1248,15 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.helmet(1, IcariaItems.VANADIUMSTEEL_HELMET.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 	}
 
+		this.kline(1, IcariaItems.CYPRESS_KLINE.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.kline(1, IcariaItems.DROUGHTROOT_KLINE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.kline(1, IcariaItems.FIR_KLINE.get(), IcariaItems.FIR_PLANKS.get());
+		this.kline(1, IcariaItems.LAUREL_KLINE.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.kline(1, IcariaItems.OLIVE_KLINE.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.kline(1, IcariaItems.PLANE_KLINE.get(), IcariaItems.PLANE_PLANKS.get());
+		this.kline(1, IcariaItems.POPULUS_KLINE.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
 	public void ladder() {
 		this.ladder(6, IcariaItems.CYPRESS_LADDER.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.ladder(6, IcariaItems.DROUGHTROOT_LADDER.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
@@ -1985,6 +1995,17 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.define('A', pResource)
 			.pattern("AAA")
 			.pattern("A A")
+			.unlockedBy(this.name(pResource), this.has(pResource))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void kline(int pAmount, Item pResult, Item pResource) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.define('B', pResource)
+			.pattern("AAA")
+			.pattern("BBB")
+			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_BLOCK.get()), this.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}

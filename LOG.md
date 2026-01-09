@@ -4,6 +4,7 @@ Additions
 - Arachne String Carpets
 - Stool Blocks for each Wood Type
 - Scrollshelf Blocks for each Wood Type
+- Kline Blocks for each Wood Type
 - Kitchen Table Blocks for each Wood Type
 - Herb, Pan, Pot, Spoon and Towel Holder for each Wood Type
 - Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop for each Wood Type

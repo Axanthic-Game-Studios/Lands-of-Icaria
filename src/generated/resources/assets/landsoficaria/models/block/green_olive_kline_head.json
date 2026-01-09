@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_kline_head",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "arachne_string_block": "landsoficaria:block/green_arachne_string_block",
+    "arachne_string_mesh_block": "landsoficaria:block/green_arachne_string_mesh_block",
+    "log": "landsoficaria:block/olive_log",
+    "particle": "landsoficaria:block/smooth_olive_log",
+    "planks": "landsoficaria:block/olive_planks",
+    "smooth_log": "landsoficaria:block/smooth_olive_log",
+    "stripped_log": "landsoficaria:block/stripped_olive_log"
+  }
+}

@@ -82,6 +82,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kettle(pBlockModelGenerators);
 		IcariaBlockModelProvider.kiln(pBlockModelGenerators);
 		IcariaBlockModelProvider.kitchenTable(pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorch(pBlockModelGenerators);
@@ -198,6 +199,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kilnModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.kitchenTableInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.kitchenTableModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.klineInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.klineModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.layerModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorchModel(pBlockModelGenerators);
@@ -774,6 +777,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.kitchenTable(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), pBlockModelGenerators);
+	}
+
+	public static void kline(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.kline(IcariaBlocks.CYPRESS_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.DROUGHTROOT_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.FIR_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.LAUREL_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.OLIVE_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.PLANE_KLINE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.kline(IcariaBlocks.POPULUS_KLINE.get(), pBlockModelGenerators);
 	}
 
 	public static void ladder(BlockModelGenerators pBlockModelGenerators) {
@@ -3617,6 +3630,324 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void kline(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_inventory")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("white", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "white_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "white_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("white", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "white_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "white_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("light_gray", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("light_gray", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_gray_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("gray", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("gray", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "gray_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("black", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("black", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "black_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("brown", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("brown", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "brown_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("red", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("red", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("orange", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("orange", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "orange_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("yellow", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellow_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellow_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("yellow", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellow_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "yellow_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("lime", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "lime_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "lime_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("lime", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "lime_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "lime_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("green", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "green_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "green_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("green", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "green_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "green_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("cyan", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("cyan", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("light_blue", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_blue_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("light_blue", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "light_blue_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("blue", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "blue_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("blue", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "blue_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "blue_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("purple", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "purple_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "purple_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("purple", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "purple_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "purple_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("magenta", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "magenta_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "magenta_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("magenta", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "magenta_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "magenta_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("pink", pBlock, "head"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "pink_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "pink_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile("pink", pBlock, "foot"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "pink_arachne_string_block"))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "pink_arachne_string_mesh_block"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void ladder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -5042,6 +5373,15 @@ public class IcariaBlockModelProvider {
 	public static void kitchenTableModel(BlockModelGenerators pBlockModelGenerators) {
 		KitchenTableModel.head().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_head"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		KitchenTableModel.foot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kitchen_table_foot"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void klineInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		KlineInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void klineModel(BlockModelGenerators pBlockModelGenerators) {
+		KlineModel.head().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_head"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		KlineModel.foot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void largeBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
