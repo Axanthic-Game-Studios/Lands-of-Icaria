@@ -30,12 +30,14 @@ Updates
 - Decorated Pots in Villages contain Loot now
 - instead of using and empty Hand and Right-Click to remove a Chest Label from an Icaria Chest, Shears are used now
 - empty Barrel Racks of all Types no longer have a Collision Hitbox, allowing easier Pass-Through for Players and other Entities
-- now several ground-covering Blocks play corresponding Sounds when walking above instead of playing Stepping Sounds from the Block below, this is true for Fallen Leaves and Moss
-- now several ground-covering non-collision Blocks play corresponding Sounds when walking through instead of playing Stepping Sounds from the Block below, this is true for Surface Chert, Surface Bones, Surface Lignite, Rubble, Twigs and Racks
+- now several ground-covering Blocks play corresponding Sounds when walking above instead of playing Stepping Sounds from the Block below
+- now several ground-covering non-collision Blocks play corresponding Sounds when walking through instead of playing Stepping Sounds from the Block below
 - Just Enough Items Compatibility shows Anvil Repair Recipes for all damageable Items now
 
 Fixes
 
+- Racks and Simple Racks had their Collision Box missing when they were filled with any Type of Barrel
+- Fallen Leaves and Moss Layers forming a full Block were connecting to Fences and Walls when regular Leaves do not connect to Fences and Walls
 - Mediterranean Water had missing Textures when facing non-opaque Blocks and its underwater Overlay
 - Loam Brick Slabs, Stairs and Walls were using Gravel instead of Stone Sounds
 - Workstations, including the Forge, Grinder, Kiln and Kettle, were consuming but not yielding an Item, when the Result Item has a maximum Stack Size of 1
