@@ -157,7 +157,7 @@ public class GrinderBlock extends BaseEntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(pBlockPlaceContext.getHorizontalDirection().getOpposite().getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+		if (level.getBlockState(blockPos.offset(pBlockPlaceContext.getHorizontalDirection().getOpposite().getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
