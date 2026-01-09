@@ -24,6 +24,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -92,6 +93,11 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	@Override
 	public FluidState getFluidState(BlockState pBlockState) {
 		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
+	}
+
+	@Override
+	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pPos) {
+		return Shapes.empty();
 	}
 
 	@Override
