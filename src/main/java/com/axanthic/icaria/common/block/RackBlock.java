@@ -236,7 +236,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return Shapes.empty();
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? Shapes.block() : Shapes.empty();
 	}
 
 	@Override
