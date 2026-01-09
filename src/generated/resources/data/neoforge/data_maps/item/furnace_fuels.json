@@ -54,9 +54,6 @@
     "landsoficaria:cypress_ladder": {
       "burn_time": 300
     },
-    "landsoficaria:cypress_rack": {
-      "burn_time": 100
-    },
     "landsoficaria:cypress_scrollshelf": {
       "burn_time": 300
     },
@@ -87,9 +84,6 @@
     "landsoficaria:droughtroot_ladder": {
       "burn_time": 300
     },
-    "landsoficaria:droughtroot_rack": {
-      "burn_time": 100
-    },
     "landsoficaria:droughtroot_scrollshelf": {
       "burn_time": 300
     },
@@ -119,9 +113,6 @@
     },
     "landsoficaria:fir_ladder": {
       "burn_time": 300
-    },
-    "landsoficaria:fir_rack": {
-      "burn_time": 100
     },
     "landsoficaria:fir_scrollshelf": {
       "burn_time": 300
@@ -164,9 +155,6 @@
     },
     "landsoficaria:laurel_ladder": {
       "burn_time": 300
-    },
-    "landsoficaria:laurel_rack": {
-      "burn_time": 100
     },
     "landsoficaria:laurel_scrollshelf": {
       "burn_time": 300
@@ -231,9 +219,6 @@
     "landsoficaria:olive_ladder": {
       "burn_time": 300
     },
-    "landsoficaria:olive_rack": {
-      "burn_time": 100
-    },
     "landsoficaria:olive_scrollshelf": {
       "burn_time": 300
     },
@@ -276,9 +261,6 @@
     "landsoficaria:plane_ladder": {
       "burn_time": 300
     },
-    "landsoficaria:plane_rack": {
-      "burn_time": 100
-    },
     "landsoficaria:plane_scrollshelf": {
       "burn_time": 300
     },
@@ -309,9 +291,6 @@
     "landsoficaria:populus_ladder": {
       "burn_time": 300
     },
-    "landsoficaria:populus_rack": {
-      "burn_time": 100
-    },
     "landsoficaria:populus_scrollshelf": {
       "burn_time": 300
     },
@@ -335,27 +314,6 @@
     },
     "landsoficaria:red_arachne_string_carpet": {
       "burn_time": 67
-    },
-    "landsoficaria:simple_cypress_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_droughtroot_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_fir_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_laurel_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_olive_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_plane_rack": {
-      "burn_time": 100
-    },
-    "landsoficaria:simple_populus_rack": {
-      "burn_time": 100
     },
     "landsoficaria:surface_lignite": {
       "burn_time": 800
