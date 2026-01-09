@@ -78,6 +78,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign();
 		this.harness();
 		this.helmet();
+		this.kitchenTable();
 		this.kline();
 		this.ladder();
 		this.leggings();
@@ -1248,6 +1249,17 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.helmet(1, IcariaItems.VANADIUMSTEEL_HELMET.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 	}
 
+	public void kitchenTable() {
+		this.kitchenTable(1, IcariaItems.CYPRESS_KITCHEN_TABLE.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.FIR_KITCHEN_TABLE.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.LAUREL_KITCHEN_TABLE.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.OLIVE_KITCHEN_TABLE.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.PLANE_KITCHEN_TABLE.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.kitchenTable(1, IcariaItems.POPULUS_KITCHEN_TABLE.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
+	public void kline() {
 		this.kline(1, IcariaItems.CYPRESS_KLINE.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.kline(1, IcariaItems.DROUGHTROOT_KLINE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
 		this.kline(1, IcariaItems.FIR_KLINE.get(), IcariaItems.FIR_PLANKS.get());
@@ -1996,6 +2008,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("AAA")
 			.pattern("A A")
 			.unlockedBy(this.name(pResource), this.has(pResource))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void kitchenTable(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pPlanks)
+			.pattern("BBB")
+			.pattern("A A")
+			.pattern("A A")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
 			.save(this.output, this.key(pResult));
 	}
 

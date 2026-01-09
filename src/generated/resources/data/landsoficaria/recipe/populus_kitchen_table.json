@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:populus_log",
+    "B": "landsoficaria:populus_planks"
+  },
+  "pattern": [
+    "BBB",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:populus_kitchen_table"
+  }
+}

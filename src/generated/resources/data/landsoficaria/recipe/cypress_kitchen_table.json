@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:cypress_log",
+    "B": "landsoficaria:cypress_planks"
+  },
+  "pattern": [
+    "BBB",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cypress_kitchen_table"
+  }
+}

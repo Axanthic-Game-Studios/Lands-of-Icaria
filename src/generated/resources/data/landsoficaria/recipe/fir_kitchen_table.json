@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:fir_log",
+    "B": "landsoficaria:fir_planks"
+  },
+  "pattern": [
+    "BBB",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:fir_kitchen_table"
+  }
+}
