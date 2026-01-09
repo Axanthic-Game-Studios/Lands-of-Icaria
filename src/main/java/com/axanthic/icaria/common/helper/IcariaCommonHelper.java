@@ -1,8 +1,10 @@
 package com.axanthic.icaria.common.helper;
 
+import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
 import javax.annotation.Nullable;
@@ -15,6 +17,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -95,5 +98,27 @@ public class IcariaCommonHelper {
 		if (!pPlayer.isCreative()) {
 			pPlayer.setItemInHand(pInteractionHand, pItemStack);
 		}
+	}
+
+	public static Item getItemByCarpet(Carpet pCarpet) {
+		return switch (pCarpet) {
+			case Carpet.ARACHNE_STRING_CARPET -> IcariaItems.ARACHNE_STRING_CARPET.get();
+			case Carpet.WHITE_ARACHNE_STRING_CARPET -> IcariaItems.WHITE_ARACHNE_STRING_CARPET.get();
+			case Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET -> IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get();
+			case Carpet.GRAY_ARACHNE_STRING_CARPET -> IcariaItems.GRAY_ARACHNE_STRING_CARPET.get();
+			case Carpet.BLACK_ARACHNE_STRING_CARPET -> IcariaItems.BLACK_ARACHNE_STRING_CARPET.get();
+			case Carpet.BROWN_ARACHNE_STRING_CARPET -> IcariaItems.BROWN_ARACHNE_STRING_CARPET.get();
+			case Carpet.RED_ARACHNE_STRING_CARPET -> IcariaItems.RED_ARACHNE_STRING_CARPET.get();
+			case Carpet.ORANGE_ARACHNE_STRING_CARPET -> IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get();
+			case Carpet.YELLOW_ARACHNE_STRING_CARPET -> IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get();
+			case Carpet.LIME_ARACHNE_STRING_CARPET -> IcariaItems.LIME_ARACHNE_STRING_CARPET.get();
+			case Carpet.GREEN_ARACHNE_STRING_CARPET -> IcariaItems.GREEN_ARACHNE_STRING_CARPET.get();
+			case Carpet.CYAN_ARACHNE_STRING_CARPET -> IcariaItems.CYAN_ARACHNE_STRING_CARPET.get();
+			case Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET -> IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get();
+			case Carpet.BLUE_ARACHNE_STRING_CARPET -> IcariaItems.BLUE_ARACHNE_STRING_CARPET.get();
+			case Carpet.PURPLE_ARACHNE_STRING_CARPET -> IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get();
+			case Carpet.MAGENTA_ARACHNE_STRING_CARPET -> IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get();
+			case Carpet.PINK_ARACHNE_STRING_CARPET -> IcariaItems.PINK_ARACHNE_STRING_CARPET.get();
+		};
 	}
 }

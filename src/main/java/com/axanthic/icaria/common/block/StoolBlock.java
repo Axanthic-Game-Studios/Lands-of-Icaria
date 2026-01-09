@@ -1,8 +1,12 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.StoolEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Carpet;
-import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.StoolVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -17,7 +21,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -70,7 +73,7 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	public void dropCarpet(BlockState pBlockState, BlockPos pBlockPos, Direction pDirection, Level pLevel) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.CARPET) != Carpet.ARACHNE_STRING_CARPET) {
-			var itemStack = new ItemStack(this.getItemByCarpet(pBlockState.getValue(IcariaBlockStateProperties.CARPET)));
+			var itemStack = new ItemStack(IcariaCommonHelper.getItemByCarpet(pBlockState.getValue(IcariaBlockStateProperties.CARPET)));
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, itemStack);
 		}
 	}
@@ -132,28 +135,6 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
-	}
-
-	public Item getItemByCarpet(Carpet pCarpet) {
-		return switch (pCarpet) {
-			case Carpet.ARACHNE_STRING_CARPET -> IcariaItems.ARACHNE_STRING_CARPET.get();
-			case Carpet.WHITE_ARACHNE_STRING_CARPET -> IcariaItems.WHITE_ARACHNE_STRING_CARPET.get();
-			case Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET -> IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get();
-			case Carpet.GRAY_ARACHNE_STRING_CARPET -> IcariaItems.GRAY_ARACHNE_STRING_CARPET.get();
-			case Carpet.BLACK_ARACHNE_STRING_CARPET -> IcariaItems.BLACK_ARACHNE_STRING_CARPET.get();
-			case Carpet.BROWN_ARACHNE_STRING_CARPET -> IcariaItems.BROWN_ARACHNE_STRING_CARPET.get();
-			case Carpet.RED_ARACHNE_STRING_CARPET -> IcariaItems.RED_ARACHNE_STRING_CARPET.get();
-			case Carpet.ORANGE_ARACHNE_STRING_CARPET -> IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get();
-			case Carpet.YELLOW_ARACHNE_STRING_CARPET -> IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get();
-			case Carpet.LIME_ARACHNE_STRING_CARPET -> IcariaItems.LIME_ARACHNE_STRING_CARPET.get();
-			case Carpet.GREEN_ARACHNE_STRING_CARPET -> IcariaItems.GREEN_ARACHNE_STRING_CARPET.get();
-			case Carpet.CYAN_ARACHNE_STRING_CARPET -> IcariaItems.CYAN_ARACHNE_STRING_CARPET.get();
-			case Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET -> IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get();
-			case Carpet.BLUE_ARACHNE_STRING_CARPET -> IcariaItems.BLUE_ARACHNE_STRING_CARPET.get();
-			case Carpet.PURPLE_ARACHNE_STRING_CARPET -> IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get();
-			case Carpet.MAGENTA_ARACHNE_STRING_CARPET -> IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get();
-			case Carpet.PINK_ARACHNE_STRING_CARPET -> IcariaItems.PINK_ARACHNE_STRING_CARPET.get();
-		};
 	}
 
 	@Override
