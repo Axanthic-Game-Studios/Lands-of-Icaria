@@ -38,6 +38,7 @@ Updates
 
 Fixes
 
+- Ladders were crashing the Game when trying to be placed on already placed Ladders
 - Slabs did not replace Mediterranean Water when both Bottom and Top Slab were placed in one Block
 - Racks and Simple Racks had their Collision Box missing when they were filled with any Type of Barrel
 - Fallen Leaves and Moss Layers forming a full Block were connecting to Fences and Walls when regular Leaves do not connect to Fences and Walls
