@@ -1,9 +1,5 @@
 {
   "values": [
-    "landsoficaria:chimney",
-    "landsoficaria:chimney_brick_crown",
-    "landsoficaria:chimney_grate_crown",
-    "landsoficaria:chimney_slab",
     "landsoficaria:marl_adobe",
     "landsoficaria:marl_adobe_stairs",
     "landsoficaria:marl_adobe_slab",
@@ -132,6 +128,10 @@
     "landsoficaria:blurred_platoshale_bricks",
     "landsoficaria:chiseled_platoshale",
     "landsoficaria:quartz_pillar_head",
+    "landsoficaria:chimney",
+    "landsoficaria:chimney_brick_crown",
+    "landsoficaria:chimney_grate_crown",
+    "landsoficaria:chimney_slab",
     "landsoficaria:lignite_ore",
     "landsoficaria:chalkos_ore",
     "landsoficaria:kassiteros_ore",

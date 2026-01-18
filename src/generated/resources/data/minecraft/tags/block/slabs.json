@@ -1,6 +1,5 @@
 {
   "values": [
-    "landsoficaria:chimney_slab",
     "landsoficaria:marl_adobe_slab",
     "landsoficaria:loam_brick_slab",
     "landsoficaria:dolomite_adobe_slab",
@@ -37,6 +36,7 @@
     "landsoficaria:cracked_relicstone_tile_slab",
     "landsoficaria:mossy_relicstone_tile_slab",
     "landsoficaria:platoshale_slab",
-    "landsoficaria:platoshale_brick_slab"
+    "landsoficaria:platoshale_brick_slab",
+    "landsoficaria:chimney_slab"
   ]
 }
