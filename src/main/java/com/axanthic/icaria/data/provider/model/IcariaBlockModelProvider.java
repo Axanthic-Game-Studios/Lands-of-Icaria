@@ -126,6 +126,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rack(pBlockModelGenerators);
 		IcariaBlockModelProvider.raisedBasinsCountertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.relicstonePillarHead(pBlockModelGenerators);
+		IcariaBlockModelProvider.rottenBoneLadder(pBlockModelGenerators);
 		IcariaBlockModelProvider.rowan(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(pBlockModelGenerators);
 		IcariaBlockModelProvider.scrollshelf(pBlockModelGenerators);
@@ -814,6 +815,7 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void ladder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.ladder(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(IcariaBlocks.CYPRESS_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(IcariaBlocks.DROUGHTROOT_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(IcariaBlocks.FIR_LADDER.get(), pBlockModelGenerators);
@@ -1107,6 +1109,10 @@ public class IcariaBlockModelProvider {
 
 	public static void relicstonePillarHead(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.relicstonePillarHead(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), pBlockModelGenerators);
+	}
+
+	public static void rottenBoneLadder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.rottenBoneLadder(IcariaBlocks.ROTTEN_BONE_LADDER.get(), pBlockModelGenerators);
 	}
 
 	public static void rowan(BlockModelGenerators pBlockModelGenerators) {
@@ -4545,6 +4551,21 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_inverted"))
 				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_top"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "relicstone_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void rottenBoneLadder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "cracked"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "cracked"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "cracked")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "ladder")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "damaged"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "damaged"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "damaged")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void rowan(Block pBlock, BlockModelGenerators pBlockModelGenerators) {

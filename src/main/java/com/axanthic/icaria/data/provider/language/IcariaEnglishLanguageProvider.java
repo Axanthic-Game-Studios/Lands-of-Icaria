@@ -437,6 +437,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachne Spawner");
 		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Revenant Spawner");
 
+		this.add(IcariaBlocks.BONE_LADDER.get(), "Bone Ladder");
+		this.add(IcariaBlocks.ROTTEN_BONE_LADDER.get(), "Rotten Bone Ladder");
+
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Aeternae Skull");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Argan Hound Skull");
 		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Capella Skull");
@@ -1442,6 +1445,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "consume", "Kettle consumes");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "pop", "Kettle pops");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "lignite" + "." + "crackle", "Lignite crackles");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "rotten_bone_ladder" + "." + "break", "Rotten Bone Ladder breaks");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase breaks");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "ambient", "Aeternae moos");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "death", "Aeternae dies");

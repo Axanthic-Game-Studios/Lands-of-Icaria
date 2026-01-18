@@ -62,6 +62,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropOnionCrop();
 		this.dropPotted();
 		this.dropRipeVineWithLoot();
+		this.dropRottenBoneLadder();
 		this.dropSeed();
 		this.dropSlab();
 		this.dropThisWithCarpet();
@@ -304,6 +305,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	public void dropRipeVineWithLoot() {
 		this.dropRipeVineWithLoot(IcariaBlocks.BLOOMY_VINE.get(), IcariaItems.VINEBERRIES.get());
 		this.dropRipeVineWithLoot(IcariaBlocks.BRUSHY_VINE.get(), IcariaItems.VINE_SPROUT.get());
+	}
+
+	public void dropRottenBoneLadder() {
+		this.dropRottenBoneLadder(IcariaBlocks.ROTTEN_BONE_LADDER.get());
 	}
 
 	public void dropSeed() {
@@ -595,6 +600,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PURPLE_STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.MAGENTA_STORAGE_VASE.get());
 		this.dropThis(IcariaBlocks.PINK_STORAGE_VASE.get());
+		this.dropThis(IcariaBlocks.BONE_LADDER.get());
 		this.dropThis(IcariaBlocks.AETERNAE_SKULL.get());
 		this.dropThis(IcariaBlocks.ARGAN_HOUND_SKULL.get());
 		this.dropThis(IcariaBlocks.CAPELLA_SKULL.get());
@@ -1059,6 +1065,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropRipeVineWithLoot(Block pBlock, Item pItem) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.NONE))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.BLOOMING))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.VINE))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.VINE, Vine.RIPE))))));
+	}
+
+	public void dropRottenBoneLadder(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.silk()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.LADDER, Ladder.NONE))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(this.noSilk()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.LADDER, Ladder.NONE))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.LADDER, Ladder.CRACKED))))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(IcariaItems.ROTTEN_BONES.get()).apply(SetItemCountFunction.setCount(ConstantValue.exactly(2.0F))).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.LADDER, Ladder.DAMAGED))))));
 	}
 
 	public void dropSeed(Block pBlock) {

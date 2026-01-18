@@ -391,6 +391,9 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> ARACHNE_SPAWNER = IcariaItems.register("arachne_spawner", properties -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> REVENANT_SPAWNER = IcariaItems.register("revenant_spawner", properties -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), properties), IcariaItems.propertiesBlock());
 
+	public static final DeferredHolder<Item, Item> BONE_LADDER = IcariaItems.register("bone_ladder", properties -> new BlockItem(IcariaBlocks.BONE_LADDER.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> ROTTEN_BONE_LADDER = IcariaItems.register("rotten_bone_ladder", properties -> new BlockItem(IcariaBlocks.ROTTEN_BONE_LADDER.get(), properties), IcariaItems.propertiesBlock());
+
 	public static final DeferredHolder<Item, Item> AETERNAE_SKULL = IcariaItems.register("aeternae_skull", properties -> new StandingAndWallBlockItem(IcariaBlocks.AETERNAE_SKULL.get(), IcariaBlocks.AETERNAE_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
 	public static final DeferredHolder<Item, Item> ARGAN_HOUND_SKULL = IcariaItems.register("argan_hound_skull", properties -> new StandingAndWallBlockItem(IcariaBlocks.ARGAN_HOUND_SKULL.get(), IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));
 	public static final DeferredHolder<Item, Item> CAPELLA_SKULL = IcariaItems.register("capella_skull", properties -> new StandingAndWallBlockItem(IcariaBlocks.CAPELLA_SKULL.get(), IcariaBlocks.CAPELLA_WALL_SKULL.get(), Direction.DOWN, properties), IcariaItems.propertiesBlock().rarity(Rarity.UNCOMMON).equippableUnswappable(EquipmentSlot.HEAD));

@@ -384,6 +384,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CYAN_LOOT_VASE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.REVENANT_SPAWNER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BONE_LADDER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ROTTEN_BONE_LADDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LIGNITE_TORCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ANTHRACITE_TORCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_CHERRY_CAKE.get(), pItemModelGenerators);

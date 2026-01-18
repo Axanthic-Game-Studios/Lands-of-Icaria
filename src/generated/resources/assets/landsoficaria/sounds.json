@@ -80,6 +80,15 @@
     ],
     "subtitle": "subtitle.landsoficaria.lignite.crackle"
   },
+  "block.rotten_bone_ladder.break": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.goat.horn_break"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.rotten_bone_ladder.break"
+  },
   "block.vase.break": {
     "sounds": [
       "landsoficaria:block/vase/break_00",

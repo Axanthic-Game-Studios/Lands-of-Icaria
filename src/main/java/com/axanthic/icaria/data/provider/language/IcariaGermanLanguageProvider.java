@@ -437,6 +437,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachnen-Spawner");
 		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Wiedergänger-Spawner");
 
+		this.add(IcariaBlocks.BONE_LADDER.get(), "Knochenleiter");
+		this.add(IcariaBlocks.ROTTEN_BONE_LADDER.get(), "Verrottete Knochenleiter");
+
 		this.add(IcariaBlocks.AETERNAE_SKULL.get(), "Äternenschädel");
 		this.add(IcariaBlocks.ARGAN_HOUND_SKULL.get(), "Arganischer Hundeschädel");
 		this.add(IcariaBlocks.CAPELLA_SKULL.get(), "Kapellaschädel");
@@ -1443,6 +1446,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "lignite" + "." + "crackle", "Braunkohle knistert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase zerstört");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "rotten_bone_ladder" + "." + "break", "Verrottete Knochenleiter bricht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "death", "Äterne stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "hurt", "Äterne nimmt Schaden");

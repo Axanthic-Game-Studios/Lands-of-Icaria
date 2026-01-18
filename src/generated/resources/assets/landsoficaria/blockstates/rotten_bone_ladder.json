@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,ladder=cracked": {
+      "model": "landsoficaria:block/rotten_bone_ladder_cracked",
+      "y": 90
+    },
+    "facing=east,ladder=damaged": {
+      "model": "landsoficaria:block/rotten_bone_ladder_damaged",
+      "y": 90
+    },
+    "facing=east,ladder=none": {
+      "model": "landsoficaria:block/rotten_bone_ladder",
+      "y": 90
+    },
+    "facing=north,ladder=cracked": {
+      "model": "landsoficaria:block/rotten_bone_ladder_cracked"
+    },
+    "facing=north,ladder=damaged": {
+      "model": "landsoficaria:block/rotten_bone_ladder_damaged"
+    },
+    "facing=north,ladder=none": {
+      "model": "landsoficaria:block/rotten_bone_ladder"
+    },
+    "facing=south,ladder=cracked": {
+      "model": "landsoficaria:block/rotten_bone_ladder_cracked",
+      "y": 180
+    },
+    "facing=south,ladder=damaged": {
+      "model": "landsoficaria:block/rotten_bone_ladder_damaged",
+      "y": 180
+    },
+    "facing=south,ladder=none": {
+      "model": "landsoficaria:block/rotten_bone_ladder",
+      "y": 180
+    },
+    "facing=west,ladder=cracked": {
+      "model": "landsoficaria:block/rotten_bone_ladder_cracked",
+      "y": 270
+    },
+    "facing=west,ladder=damaged": {
+      "model": "landsoficaria:block/rotten_bone_ladder_damaged",
+      "y": 270
+    },
+    "facing=west,ladder=none": {
+      "model": "landsoficaria:block/rotten_bone_ladder",
+      "y": 270
+    }
+  }
+}

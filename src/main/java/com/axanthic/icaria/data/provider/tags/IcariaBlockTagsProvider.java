@@ -203,6 +203,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get())
 			.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get())
 			.add(IcariaBlocks.CHIMNEY_SLAB.get())
+			.add(IcariaBlocks.BONE_LADDER.get())
+			.add(IcariaBlocks.ROTTEN_BONE_LADDER.get())
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
 			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
 			.add(IcariaBlocks.FIR_LADDER.get())

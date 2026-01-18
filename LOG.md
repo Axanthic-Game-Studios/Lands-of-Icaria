@@ -3,6 +3,7 @@ Additions
 - Amphora Block dropping Fermented Fish and Fermented Snull Cream Loot
 - Arachne String Blocks in each Color
 - Arachne String Carpets in each Color
+- Bone Ladder and Rotten Bone Ladder Blocks
 - Chimney Blocks
 - Bathtub Blocks for each Wood Type
 - Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type

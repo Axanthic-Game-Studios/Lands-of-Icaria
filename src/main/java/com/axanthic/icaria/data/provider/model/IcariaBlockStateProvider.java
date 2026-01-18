@@ -67,6 +67,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.randomHorizontal3(pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal5(pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(pBlockModelGenerators);
+		IcariaBlockStateProvider.rottenBoneLadder(pBlockModelGenerators);
 		IcariaBlockStateProvider.scrollshelf(pBlockModelGenerators);
 		IcariaBlockStateProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockStateProvider.skull(pBlockModelGenerators);
@@ -617,6 +618,7 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void horizontal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_TROUGH.get(), pBlockModelGenerators);
@@ -860,6 +862,10 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.LOAM.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.GRAINEL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.randomRotation(IcariaBlocks.SILKSAND.get(), pBlockModelGenerators);
+	}
+
+	public static void rottenBoneLadder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.rottenBoneLadder(IcariaBlocks.ROTTEN_BONE_LADDER.get(), pBlockModelGenerators);
 	}
 
 	public static void scrollshelf(BlockModelGenerators pBlockModelGenerators) {
@@ -2908,6 +2914,25 @@ public class IcariaBlockStateProvider {
 
 	public static void randomRotation(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180).with(BlockModelGenerators.X_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270).with(BlockModelGenerators.X_ROT_270))));
+	}
+
+	public static void rottenBoneLadder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.LADDER)
+				.select(Direction.NORTH, Ladder.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.NORTH, Ladder.CRACKED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "cracked"))))
+				.select(Direction.NORTH, Ladder.DAMAGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "damaged"))))
+				.select(Direction.EAST, Ladder.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Ladder.CRACKED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "cracked")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Ladder.DAMAGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "damaged")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Ladder.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Ladder.CRACKED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "cracked")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Ladder.DAMAGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "damaged")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Ladder.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Ladder.CRACKED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "cracked")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Ladder.DAMAGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "damaged")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
 	}
 
 	public static void scrollshelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
