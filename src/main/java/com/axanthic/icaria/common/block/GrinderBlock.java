@@ -204,7 +204,7 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(IcariaBlockStateProperties.SIDE)) {
 			case LEFT -> this.getLeft(pBlockState);
 			case RIGHT -> this.getRight(pBlockState);

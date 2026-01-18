@@ -99,15 +99,15 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 		this.placeCactus(pWorldGenLevel, pBlockPos.above(pOffset), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.UP, true).setValue(BlockStateProperties.DOWN, true).setValue(BlockStateProperties.NORTH, north || northBelow).setValue(BlockStateProperties.EAST, east || eastBelow).setValue(BlockStateProperties.SOUTH, south || southBelow).setValue(BlockStateProperties.WEST, west || westBelow));
 	}
 
-	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pState, int pChance) {
+	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState, int pChance) {
 		if (pWorldGenLevel.getRandom().nextInt(pChance) == 0) {
-			this.placeCactus(pWorldGenLevel, pBlockPos, pState);
+			this.placeCactus(pWorldGenLevel, pBlockPos, pBlockState);
 		}
 	}
 
-	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pState) {
+	public void placeCactus(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir()) {
-			this.setBlock(pWorldGenLevel, pBlockPos, pState);
+			this.setBlock(pWorldGenLevel, pBlockPos, pBlockState);
 		}
 	}
 

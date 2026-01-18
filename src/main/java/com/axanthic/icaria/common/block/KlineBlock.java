@@ -174,7 +174,7 @@ public class KlineBlock extends Block {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(IcariaBlockStateProperties.PART)) {
 			case HEAD -> this.getHead(pBlockState);
 			case FOOT -> this.getFoot(pBlockState);

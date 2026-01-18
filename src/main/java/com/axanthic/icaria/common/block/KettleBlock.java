@@ -280,7 +280,7 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public VoxelShape getShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
 			case LOWER -> this.getLower(pBlockState);
 			case UPPER -> this.getUpper(pBlockState);

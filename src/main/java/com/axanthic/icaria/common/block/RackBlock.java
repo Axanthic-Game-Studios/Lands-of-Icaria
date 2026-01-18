@@ -230,7 +230,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pLevel, BlockPos pPos) {
+	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
 		return Shapes.empty();
 	}
 
