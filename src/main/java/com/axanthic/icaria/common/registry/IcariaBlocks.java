@@ -28,7 +28,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("deprecation, unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -249,6 +249,11 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, IcariaWallBlock> QUARTZ_WALL = IcariaBlocks.register("quartz_wall", IcariaWallBlock::new, IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> QUARTZ_PILLAR_HEAD = IcariaBlocks.register("quartz_pillar_head", PillarHeadBlock::new, IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE));
+
+	public static final DeferredHolder<Block, Block> CHIMNEY = IcariaBlocks.register("chimney", ChimneyBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK, SoundType.STONE).forceSolidOff());
+	public static final DeferredHolder<Block, Block> CHIMNEY_BRICK_CROWN = IcariaBlocks.register("chimney_brick_crown", ChimneyBrickCrownBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW, SoundType.STONE).forceSolidOff());
+	public static final DeferredHolder<Block, Block> CHIMNEY_GRATE_CROWN = IcariaBlocks.register("chimney_grate_crown", ChimneyGrateCrownBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_ORANGE, SoundType.STONE).forceSolidOff());
+	public static final DeferredHolder<Block, Block> CHIMNEY_SLAB = IcariaBlocks.register("chimney_slab", ChimneySlabBlock::new, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK, SoundType.STONE).forceSolidOff());
 
 	public static final DeferredHolder<Block, Block> LIGNITE_ORE = IcariaBlocks.register("lignite_ore", Block::new, IcariaBlocks.propertiesStone(MapColor.WOOD, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> CHALKOS_ORE = IcariaBlocks.register("chalkos_ore", Block::new, IcariaBlocks.propertiesStone(MapColor.WOOD, SoundType.STONE));
@@ -1000,6 +1005,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesQuartz(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesChimney(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).forceSolidOff().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesMineral(MapColor pMapColor, SoundType pSoundType) {

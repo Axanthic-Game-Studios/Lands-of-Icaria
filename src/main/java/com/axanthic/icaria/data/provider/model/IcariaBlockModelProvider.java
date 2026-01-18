@@ -47,6 +47,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.cardonCactus(pBlockModelGenerators);
 		IcariaBlockModelProvider.carpet(pBlockModelGenerators);
 		IcariaBlockModelProvider.chain(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimney(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneyBrickCrown(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneyGrateCrown(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneySlab(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.craftingTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.crop(pBlockModelGenerators);
@@ -173,6 +177,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.calciteCrystalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cardonCactusInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cardonCactusModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneyModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneyBrickCrownModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneyGrateCrownModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.chimneySlabModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.dathullaModel(pBlockModelGenerators);
@@ -541,6 +549,22 @@ public class IcariaBlockModelProvider {
 
 	public static void chain(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.chain(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), pBlockModelGenerators);
+	}
+
+	public static void chimney(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chimney(IcariaBlocks.CHIMNEY.get(), pBlockModelGenerators);
+	}
+
+	public static void chimneyBrickCrown(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chimneyBrickCrown(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), pBlockModelGenerators);
+	}
+
+	public static void chimneyGrateCrown(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chimneyGrateCrown(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), pBlockModelGenerators);
+	}
+
+	public static void chimneySlab(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chimneySlab(IcariaBlocks.CHIMNEY_SLAB.get(), pBlockModelGenerators);
 	}
 
 	public static void countertop(BlockModelGenerators pBlockModelGenerators) {
@@ -1985,6 +2009,42 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
 				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimney(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneyBrickCrown(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_brick_crown")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.CHIMNEY, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneyGrateCrown(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_grate_crown")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "chalkos_mesh_block"))
+				.putForced(IcariaTextureSlots.CHIMNEY, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_sideros_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneySlab(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_bottom")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
+				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5244,6 +5304,23 @@ public class IcariaBlockModelProvider {
 	public static void cardonCactusModel(BlockModelGenerators blockModels) {
 		CardonCactusModel.cube().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_cube"), new TextureMapping(), blockModels.modelOutput);
 		CardonCactusModel.stem().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_stem"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void chimneyModel(BlockModelGenerators pBlockModelGenerators) {
+		ChimneyModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneyBrickCrownModel(BlockModelGenerators pBlockModelGenerators) {
+		ChimneyBrickCrownModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_brick_crown"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneyGrateCrownModel(BlockModelGenerators pBlockModelGenerators) {
+		ChimneyGrateCrownModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_grate_crown"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chimneySlabModel(BlockModelGenerators pBlockModelGenerators) {
+		ChimneySlabModel.bottom().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_bottom"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ChimneySlabModel.top().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_top"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertopModel(BlockModelGenerators blockModels) {

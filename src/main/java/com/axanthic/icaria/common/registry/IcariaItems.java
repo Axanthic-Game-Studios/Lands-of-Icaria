@@ -248,6 +248,11 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", properties -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 
+	public static final DeferredHolder<Item, Item> CHIMNEY = IcariaItems.register("chimney", properties -> new BlockItem(IcariaBlocks.CHIMNEY.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHIMNEY_BRICK_CROWN = IcariaItems.register("chimney_brick_crown", properties -> new BlockItem(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHIMNEY_GRATE_CROWN = IcariaItems.register("chimney_grate_crown", properties -> new BlockItem(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHIMNEY_SLAB = IcariaItems.register("chimney_slab", properties -> new BlockItem(IcariaBlocks.CHIMNEY_SLAB.get(), properties), IcariaItems.propertiesBlock());
+
 	public static final DeferredHolder<Item, Item> LIGNITE_ORE = IcariaItems.register("lignite_ore", properties -> new BlockItem(IcariaBlocks.LIGNITE_ORE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHALKOS_ORE = IcariaItems.register("chalkos_ore", properties -> new BlockItem(IcariaBlocks.CHALKOS_ORE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> KASSITEROS_ORE = IcariaItems.register("kassiteros_ore", properties -> new BlockItem(IcariaBlocks.KASSITEROS_ORE.get(), properties), IcariaItems.propertiesBlock());

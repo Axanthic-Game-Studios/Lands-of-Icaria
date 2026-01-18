@@ -294,6 +294,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quarzmauer");
 		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quarzsäulenende");
 
+		this.add(IcariaBlocks.CHIMNEY.get(), "Schornstein");
+		this.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), "Schornstein-Ziegelmündung");
+		this.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), "Schornstein-Gittermündung");
+		this.add(IcariaBlocks.CHIMNEY_SLAB.get(), "Schornsteinstufe");
+
 		this.add(IcariaBlocks.LIGNITE_ORE.get(), "Braunkohleerz");
 		this.add(IcariaBlocks.CHALKOS_ORE.get(), "Kuffarerz");
 		this.add(IcariaBlocks.KASSITEROS_ORE.get(), "Galmeierz");

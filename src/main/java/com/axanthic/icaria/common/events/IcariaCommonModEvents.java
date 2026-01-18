@@ -466,6 +466,11 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.QUARTZ_WALL.get());
 			pEvent.accept(IcariaItems.QUARTZ_PILLAR_HEAD.get());
 
+			pEvent.accept(IcariaItems.CHIMNEY.get());
+			pEvent.accept(IcariaItems.CHIMNEY_BRICK_CROWN.get());
+			pEvent.accept(IcariaItems.CHIMNEY_GRATE_CROWN.get());
+			pEvent.accept(IcariaItems.CHIMNEY_SLAB.get());
+
 			pEvent.accept(IcariaItems.LIGNITE_ORE.get());
 			pEvent.accept(IcariaItems.CHALKOS_ORE.get());
 			pEvent.accept(IcariaItems.KASSITEROS_ORE.get());

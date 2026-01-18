@@ -1474,7 +1474,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.CRACKED_RELICSTONE_TILE_SLAB.get())
 			.add(IcariaItems.MOSSY_RELICSTONE_TILE_SLAB.get())
 			.add(IcariaItems.PLATOSHALE_SLAB.get())
-			.add(IcariaItems.PLATOSHALE_BRICK_SLAB.get());
+			.add(IcariaItems.PLATOSHALE_BRICK_SLAB.get())
+			.add(IcariaItems.CHIMNEY_SLAB.get());
 
 		this.tag(ItemTags.SMALL_FLOWERS)
 			.add(IcariaItems.BLINDWEED.get())

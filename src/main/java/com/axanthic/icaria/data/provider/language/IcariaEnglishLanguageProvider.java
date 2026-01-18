@@ -294,6 +294,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quartz Wall");
 		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quartz Pillar Head");
 
+		this.add(IcariaBlocks.CHIMNEY.get(), "Chimney");
+		this.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), "Chimney Brick Crown");
+		this.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), "Chimney Grate Crown");
+		this.add(IcariaBlocks.CHIMNEY_SLAB.get(), "Chimney Slab");
+
 		this.add(IcariaBlocks.LIGNITE_ORE.get(), "Lignite Ore");
 		this.add(IcariaBlocks.CHALKOS_ORE.get(), "Chalkos Ore");
 		this.add(IcariaBlocks.KASSITEROS_ORE.get(), "Kassiteros Ore");

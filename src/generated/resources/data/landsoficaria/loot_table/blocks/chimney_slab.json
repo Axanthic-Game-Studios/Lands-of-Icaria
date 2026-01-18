@@ -1,0 +1,70 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:chimney_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "bottom"
+              }
+            }
+          ],
+          "name": "landsoficaria:chimney_slab"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:chimney_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "top"
+              }
+            }
+          ],
+          "name": "landsoficaria:chimney_slab"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:chimney_slab",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "type": "double"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "add": false,
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "landsoficaria:chimney_slab"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/chimney_slab"
+}

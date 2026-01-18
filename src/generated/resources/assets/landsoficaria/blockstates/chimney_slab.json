@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/chimney_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/chimney"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/chimney_slab_top"
+    }
+  }
+}

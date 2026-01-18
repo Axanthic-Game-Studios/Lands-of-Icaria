@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_chimney_brick_crown",
+  "textures": {
+    "chimney": "landsoficaria:block/chimney",
+    "particle": "landsoficaria:block/chimney",
+    "smooth_grainite_bricks": "landsoficaria:block/smooth_grainite_bricks"
+  }
+}

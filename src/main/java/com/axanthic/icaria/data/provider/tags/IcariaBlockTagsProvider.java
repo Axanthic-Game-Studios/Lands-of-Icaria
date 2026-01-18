@@ -199,6 +199,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_HANGING_SIGN.get());
 
 		this.tag(BlockTags.CLIMBABLE)
+			.add(IcariaBlocks.CHIMNEY.get())
+			.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get())
+			.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get())
+			.add(IcariaBlocks.CHIMNEY_SLAB.get())
 			.add(IcariaBlocks.CYPRESS_LADDER.get())
 			.add(IcariaBlocks.DROUGHTROOT_LADDER.get())
 			.add(IcariaBlocks.FIR_LADDER.get())
@@ -854,6 +858,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get())
 			.add(IcariaBlocks.CHISELED_PLATOSHALE.get())
 			.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get())
+			.add(IcariaBlocks.CHIMNEY.get())
+			.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get())
+			.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get())
+			.add(IcariaBlocks.CHIMNEY_SLAB.get())
 			.add(IcariaBlocks.LIGNITE_ORE.get())
 			.add(IcariaBlocks.CHALKOS_ORE.get())
 			.add(IcariaBlocks.KASSITEROS_ORE.get())
@@ -1757,7 +1765,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.CRACKED_RELICSTONE_TILE_SLAB.get())
 			.add(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get())
 			.add(IcariaBlocks.PLATOSHALE_SLAB.get())
-			.add(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get());
+			.add(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get())
+			.add(IcariaBlocks.CHIMNEY_SLAB.get());
 
 		this.tag(BlockTags.SMALL_FLOWERS)
 			.add(IcariaBlocks.BLINDWEED.get())

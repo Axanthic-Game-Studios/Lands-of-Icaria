@@ -216,6 +216,9 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.block(IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.BLURRED_PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.CHISELED_PLATOSHALE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.CHIMNEY.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.LIGNITE_ORE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.CHALKOS_ORE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.KASSITEROS_ORE.get(), pBlockModelGenerators);
@@ -950,6 +953,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.slab(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(IcariaBlocks.PLATOSHALE_SLAB.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.slab(IcariaBlocks.CHIMNEY_SLAB.get(), IcariaBlocks.CHIMNEY.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(IcariaBlocks.CYPRESS_SLAB.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(IcariaBlocks.DROUGHTROOT_SLAB.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(IcariaBlocks.FIR_SLAB.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);

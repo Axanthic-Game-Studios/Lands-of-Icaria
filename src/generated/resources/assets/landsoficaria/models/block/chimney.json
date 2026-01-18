@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_chimney",
+  "textures": {
+    "all": "landsoficaria:block/chimney",
+    "particle": "landsoficaria:block/chimney"
+  }
+}

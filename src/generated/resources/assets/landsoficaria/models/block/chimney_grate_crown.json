@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_chimney_grate_crown",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "chalkos_mesh_block": "landsoficaria:block/chalkos_mesh_block",
+    "chimney": "landsoficaria:block/chimney",
+    "particle": "landsoficaria:block/chimney",
+    "smooth_chalkos_block": "landsoficaria:block/smooth_chalkos_block",
+    "smooth_sideros_block": "landsoficaria:block/smooth_sideros_block"
+  }
+}

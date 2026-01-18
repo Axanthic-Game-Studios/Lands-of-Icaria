@@ -1,0 +1,381 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_grainite_bricks"
+        },
+        "north": {
+          "texture": "#smooth_grainite_bricks"
+        },
+        "south": {
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            16.0,
+            4.0,
+            0.0,
+            8.0
+          ]
+        },
+        "up": {
+          "rotation": 180,
+          "texture": "#smooth_grainite_bricks"
+        },
+        "west": {
+          "texture": "#smooth_grainite_bricks"
+        }
+      },
+      "from": [
+        0,
+        8,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        12,
+        3
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_grainite_bricks"
+        },
+        "up": {
+          "rotation": 270,
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            3.0,
+            0.0,
+            13.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            13.0,
+            4.0,
+            3.0,
+            8.0
+          ]
+        }
+      },
+      "from": [
+        13,
+        8,
+        3
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        12,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_grainite_bricks"
+        },
+        "north": {
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            16.0,
+            4.0,
+            0.0,
+            8.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_grainite_bricks"
+        },
+        "up": {
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_grainite_bricks"
+        }
+      },
+      "from": [
+        0,
+        8,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        12,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            13.0,
+            4.0,
+            3.0,
+            8.0
+          ]
+        },
+        "up": {
+          "rotation": 90,
+          "texture": "#smooth_grainite_bricks",
+          "uv": [
+            3.0,
+            0.0,
+            13.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_grainite_bricks"
+        }
+      },
+      "from": [
+        0,
+        8,
+        3
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        3,
+        12,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 180,
+          "texture": "#chimney",
+          "uv": [
+            0.0,
+            12.0,
+            16.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#chimney"
+        },
+        "north": {
+          "texture": "#chimney"
+        },
+        "south": {
+          "texture": "#chimney",
+          "uv": [
+            16.0,
+            8.0,
+            0.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#chimney"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        8,
+        3
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 90,
+          "texture": "#chimney",
+          "uv": [
+            3.0,
+            12.0,
+            13.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#chimney"
+        },
+        "west": {
+          "texture": "#chimney",
+          "uv": [
+            13.0,
+            8.0,
+            3.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        13,
+        0,
+        3
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        8,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#chimney",
+          "uv": [
+            0.0,
+            12.0,
+            16.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#chimney"
+        },
+        "north": {
+          "texture": "#chimney",
+          "uv": [
+            16.0,
+            8.0,
+            0.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#chimney"
+        },
+        "west": {
+          "texture": "#chimney"
+        }
+      },
+      "from": [
+        0,
+        0,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        16,
+        8,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 270,
+          "texture": "#chimney",
+          "uv": [
+            3.0,
+            12.0,
+            13.0,
+            15.0
+          ]
+        },
+        "east": {
+          "texture": "#chimney",
+          "uv": [
+            13.0,
+            8.0,
+            3.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#chimney"
+        }
+      },
+      "from": [
+        0,
+        0,
+        3
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        3,
+        8,
+        13
+      ]
+    }
+  ]
+}

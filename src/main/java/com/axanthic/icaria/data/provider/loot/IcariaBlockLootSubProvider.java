@@ -357,6 +357,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropSlab(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get());
 		this.dropSlab(IcariaBlocks.PLATOSHALE_SLAB.get());
 		this.dropSlab(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get());
+		this.dropSlab(IcariaBlocks.CHIMNEY_SLAB.get());
 		this.dropSlab(IcariaBlocks.CYPRESS_SLAB.get());
 		this.dropSlab(IcariaBlocks.DROUGHTROOT_SLAB.get());
 		this.dropSlab(IcariaBlocks.FIR_SLAB.get());
@@ -493,6 +494,9 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CHISELED_PLATOSHALE.get());
 		this.dropThis(IcariaBlocks.QUARTZ_WALL.get());
 		this.dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
+		this.dropThis(IcariaBlocks.CHIMNEY.get());
+		this.dropThis(IcariaBlocks.CHIMNEY_BRICK_CROWN.get());
+		this.dropThis(IcariaBlocks.CHIMNEY_GRATE_CROWN.get());
 		this.dropThis(IcariaBlocks.CALCITE.get());
 		this.dropThis(IcariaBlocks.BUDDING_CALCITE.get());
 		this.dropThis(IcariaBlocks.HALITE.get());
