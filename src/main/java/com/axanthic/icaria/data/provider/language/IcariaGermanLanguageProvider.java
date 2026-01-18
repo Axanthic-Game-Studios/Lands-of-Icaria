@@ -1439,14 +1439,14 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add("screen" + "." + IcariaIdents.ID + "." + "chest_label", "Kistenetikett");
 
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "barrel" + "." + "break", "Fass zerstört");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "barrel" + "." + "break", "Fass bricht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "grinder" + "." + "grind", "Mühle mahlt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "concoct", "Kessel braut");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "lignite" + "." + "crackle", "Braunkohle knistert");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase zerstört");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "rotten_bone_ladder" + "." + "break", "Verrottete Knochenleiter bricht");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase bricht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "death", "Äterne stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "hurt", "Äterne nimmt Schaden");
