@@ -64,7 +64,10 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		var fluid = level.getFluidState(blockPos).getType();
+
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
+
 		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
 			var blockState = this.placeState(pBlockPlaceContext, direction, fluid);
 			if (blockState.canSurvive(level, blockPos)) {

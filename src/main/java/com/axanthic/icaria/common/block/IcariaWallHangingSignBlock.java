@@ -37,7 +37,10 @@ public class IcariaWallHangingSignBlock extends WallHangingSignBlock implements 
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		var fluid = level.getFluidState(blockPos).getType();
+
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
+
 		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
 			var axis = direction.getAxis();
 			if (axis.isHorizontal()) {

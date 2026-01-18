@@ -38,7 +38,7 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public boolean canBeReplaced(BlockState pBlockState, BlockPlaceContext pBlockPlaceContext) {
-		int i = pBlockState.getValue(BlockStateProperties.LAYERS);
+		var i = pBlockState.getValue(BlockStateProperties.LAYERS);
 		if (pBlockPlaceContext.getItemInHand().is(this.asItem()) && i < 8) {
 			if (pBlockPlaceContext.replacingClickedOnBlock()) {
 				return pBlockPlaceContext.getClickedFace() == Direction.UP;
@@ -76,8 +76,11 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
+
 		var blockState = level.getBlockState(blockPos);
-		var fluid = level.getFluidState(blockPos).getType();
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
+
 		if (blockState.is(this)) {
 			return blockState.setValue(BlockStateProperties.LAYERS, Math.min(blockState.getValue(BlockStateProperties.LAYERS) + 1, 8));
 		} else {

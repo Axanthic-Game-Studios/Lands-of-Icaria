@@ -54,7 +54,7 @@ public class RottenLadderBlock extends IcariaLadderBlock {
 	public void particle(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.LADDER_TICK) == 40) {
 			var blockParticleOption = new BlockParticleOption(ParticleTypes.BLOCK, this.defaultBlockState());
-			for (int i = 0; i < 25; i++) {
+			for (var i = 0; i < 25; i++) {
 				var random = pLevel.getRandom().nextDouble();
 				this.particle(blockParticleOption, pBlockPos, pBlockState, pLevel, random);
 			}

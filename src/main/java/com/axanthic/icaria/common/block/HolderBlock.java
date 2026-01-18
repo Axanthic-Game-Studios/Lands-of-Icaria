@@ -49,9 +49,12 @@ public class HolderBlock extends Block implements MediterraneanWaterloggedBlock,
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockState = this.defaultBlockState();
+
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		var fluid = level.getFluidState(blockPos).getType();
+
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
 
 		for (var direction : pBlockPlaceContext.getNearestLookingDirections()) {
 			if (direction.getAxis().isHorizontal()) {
