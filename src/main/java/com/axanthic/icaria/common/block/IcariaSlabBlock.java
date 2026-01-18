@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,7 +32,19 @@ public class IcariaSlabBlock extends SlabBlock implements MediterraneanWaterlogg
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
-		return super.getStateForPlacement(pBlockPlaceContext).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType() == IcariaFluids.MEDITERRANEAN_WATER.get());
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var level = pBlockPlaceContext.getLevel();
+		var vec3 = pBlockPlaceContext.getClickLocation();
+
+		var blockState = level.getBlockState(blockPos);
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
+
+		if (blockState.is(this)) {
+			return blockState.setValue(BlockStateProperties.SLAB_TYPE, SlabType.DOUBLE).setValue(BlockStateProperties.WATERLOGGED, false).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false);
+		} else {
+			return this.defaultBlockState().setValue(BlockStateProperties.SLAB_TYPE, vec3.y - blockPos.getY() < 0.5D ? SlabType.BOTTOM : SlabType.TOP).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		}
 	}
 
 	@Override
