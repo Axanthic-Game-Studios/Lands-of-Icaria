@@ -1,33 +1,33 @@
 {
   "variants": {
-    "facing=east,fill=fill": {
-      "model": "landsoficaria:block/cypress_flower_pot_countertop_1",
-      "y": 90
-    },
-    "facing=east,fill=none": {
+    "facing=east,flower_potted=false": {
       "model": "landsoficaria:block/cypress_flower_pot_countertop_0",
       "y": 90
     },
-    "facing=north,fill=fill": {
-      "model": "landsoficaria:block/cypress_flower_pot_countertop_1"
+    "facing=east,flower_potted=true": {
+      "model": "landsoficaria:block/cypress_flower_pot_countertop_1",
+      "y": 90
     },
-    "facing=north,fill=none": {
+    "facing=north,flower_potted=false": {
       "model": "landsoficaria:block/cypress_flower_pot_countertop_0"
     },
-    "facing=south,fill=fill": {
-      "model": "landsoficaria:block/cypress_flower_pot_countertop_1",
-      "y": 180
+    "facing=north,flower_potted=true": {
+      "model": "landsoficaria:block/cypress_flower_pot_countertop_1"
     },
-    "facing=south,fill=none": {
+    "facing=south,flower_potted=false": {
       "model": "landsoficaria:block/cypress_flower_pot_countertop_0",
       "y": 180
     },
-    "facing=west,fill=fill": {
+    "facing=south,flower_potted=true": {
       "model": "landsoficaria:block/cypress_flower_pot_countertop_1",
+      "y": 180
+    },
+    "facing=west,flower_potted=false": {
+      "model": "landsoficaria:block/cypress_flower_pot_countertop_0",
       "y": 270
     },
-    "facing=west,fill=none": {
-      "model": "landsoficaria:block/cypress_flower_pot_countertop_0",
+    "facing=west,flower_potted=true": {
+      "model": "landsoficaria:block/cypress_flower_pot_countertop_1",
       "y": 270
     }
   }

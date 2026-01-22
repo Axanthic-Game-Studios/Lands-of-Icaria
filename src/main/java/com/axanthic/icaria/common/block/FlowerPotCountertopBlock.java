@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.FlowerPotCountertopBlockEntity;
-import com.axanthic.icaria.common.properties.Fill;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 
@@ -34,7 +33,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class FlowerPotCountertopBlock extends CountertopBlock implements EntityBlock {
 	public FlowerPotCountertopBlock(Properties properties) {
 		super(properties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.FLOWER_POTTED, false).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
@@ -50,12 +49,12 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 
 	@Override
 	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
-		return pBlockState.getValue(IcariaBlockStateProperties.FILL) == Fill.NONE ? 0 : 15;
+		return pBlockState.getValue(IcariaBlockStateProperties.FLOWER_POTTED) ? 15 : 0;
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.FILL, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(IcariaBlockStateProperties.FLOWER_POTTED, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
 	public void dropItem(BlockPos pBlockPos, Level pLevel) {
@@ -82,12 +81,12 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 		if (pLevel.getBlockEntity(pBlockPos) instanceof FlowerPotCountertopBlockEntity blockEntity && blockEntity.getItem() == null && data != null) {
 			blockEntity.setItem(item);
 			pItemStack.consume(1, pPlayer);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.FILL));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, true));
 			return InteractionResult.SUCCESS;
 		} else if (pLevel.getBlockEntity(pBlockPos) instanceof FlowerPotCountertopBlockEntity blockEntity && blockEntity.getItem() != null && data == null) {
 			this.dropItem(pBlockPos, pLevel);
 			blockEntity.setItem(null);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.NONE));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, false));
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
