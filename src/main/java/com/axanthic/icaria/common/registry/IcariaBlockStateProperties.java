@@ -29,6 +29,7 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
 	public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
 	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
+	public static final BooleanProperty RIPE_BUSH = BooleanProperty.create("ripe_bush");
 	public static final BooleanProperty STOOL_TAKEN = BooleanProperty.create("stool_taken");
 	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
 
@@ -44,7 +45,6 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
 	public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
-	public static final EnumProperty<Ripe> RIPE = EnumProperty.create("ripe", Ripe.class);
 	public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
 	public static final EnumProperty<Trough> TROUGH = EnumProperty.create("trough", Trough.class);
 	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);

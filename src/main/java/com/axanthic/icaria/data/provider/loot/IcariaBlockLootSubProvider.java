@@ -1008,7 +1008,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropBush(Block pBlock, Item pItem) {
-		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.RIPE, Ripe.RIPE))))));
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shears()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(ApplyBonusCount.addUniformBonusCount(this.enchantments().getOrThrow(Enchantments.FORTUNE), 2)).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.RIPE_BUSH, true))))));
 	}
 
 	public void dropCake(Block pBlock) {

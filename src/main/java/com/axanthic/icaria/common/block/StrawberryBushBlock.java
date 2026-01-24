@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -27,7 +26,7 @@ import net.minecraft.world.phys.BlockHitResult;
 public class StrawberryBushBlock extends IcariaBushBlock {
 	public StrawberryBushBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.RIPE_BUSH, false));
 	}
 
 	@Override
@@ -37,24 +36,24 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.RIPE);
+		pBuilder.add(IcariaBlockStateProperties.RIPE_BUSH);
 	}
 
 	@Override
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pRandomSource.nextInt(100) == 0) {
-			if (pBlockState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.NONE) {
-				pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE, Ripe.RIPE), 2);
+			if (!pBlockState.getValue(IcariaBlockStateProperties.RIPE_BUSH)) {
+				pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, true), 2);
 			}
 		}
 	}
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.RIPE) == Ripe.RIPE) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.RIPE_BUSH)) {
 			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
 			pLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE), 2);
+			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, false), 2);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.PASS;

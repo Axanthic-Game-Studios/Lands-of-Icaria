@@ -29,7 +29,7 @@
               "block": "landsoficaria:strawberry_bush",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "ripe": "ripe"
+                "ripe_bush": "true"
               }
             }
           ],

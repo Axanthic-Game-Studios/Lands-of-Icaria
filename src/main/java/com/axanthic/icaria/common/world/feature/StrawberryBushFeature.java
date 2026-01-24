@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.properties.Ripe;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
@@ -55,9 +54,9 @@ public class StrawberryBushFeature extends Feature<NoneFeatureConfiguration> {
 	public void placeBerries(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
 			if (pWorldGenLevel.getRandom().nextBoolean()) {
-				this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.STRAWBERRY_BUSH.get().defaultBlockState().setValue(IcariaBlockStateProperties.RIPE, Ripe.NONE));
+				this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.STRAWBERRY_BUSH.get().defaultBlockState().setValue(IcariaBlockStateProperties.RIPE_BUSH, false));
 			} else {
-				this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.STRAWBERRY_BUSH.get().defaultBlockState().setValue(IcariaBlockStateProperties.RIPE, Ripe.RIPE));
+				this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.STRAWBERRY_BUSH.get().defaultBlockState().setValue(IcariaBlockStateProperties.RIPE_BUSH, true));
 			}
 		}
 	}

@@ -3048,9 +3048,9 @@ public class IcariaBlockStateProvider {
 
 	public static void strawberryBush(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(IcariaBlockStateProperties.RIPE)
-				.select(Ripe.NONE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0"))))
-				.select(Ripe.RIPE, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1"))))
+			.with(PropertyDispatch.initial(IcariaBlockStateProperties.RIPE_BUSH)
+				.select(false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0"))))
+				.select(true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1"))))
 			)
 		);
 	}

@@ -1,9 +1,9 @@
 {
   "variants": {
-    "ripe=none": {
+    "ripe_bush=false": {
       "model": "landsoficaria:block/strawberry_bush_0"
     },
-    "ripe=ripe": {
+    "ripe_bush=true": {
       "model": "landsoficaria:block/strawberry_bush_1"
     }
   }
