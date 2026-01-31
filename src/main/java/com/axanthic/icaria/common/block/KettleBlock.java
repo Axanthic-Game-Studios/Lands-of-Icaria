@@ -68,16 +68,6 @@ public class KettleBlock extends BaseEntityBlock {
 		return true;
 	}
 
-	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
-		return pLevel.getBlockEntity(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof KettleBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
-	}
-
-	@Override
-	public int getLightEmission(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
-		return pBlockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
-	}
-
 	public double getX(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH, SOUTH -> 0.5D;
@@ -94,6 +84,16 @@ public class KettleBlock extends BaseEntityBlock {
 			case SOUTH -> 0.65625D;
 			default -> 1.0D;
 		};
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pLevel.getBlockEntity(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof KettleBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
+	}
+
+	@Override
+	public int getLightEmission(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
+		return pBlockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
 	}
 
 	@Override
