@@ -243,8 +243,8 @@ public class FireplaceBlock extends BaseEntityBlock {
 		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof FireplaceBlockEntity blockEntity && blockEntity.getInput().isEmpty() && pOptional.isPresent() && pOptional.get().test(pItemStack)) {
 			var itemStack = new ItemStack(pItemStack.getItem());
 			blockEntity.setStackInSlot(itemStack);
-			pItemStack.consume(1, pPlayer);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
@@ -253,10 +253,10 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
-			this.update(pBlockPos, pBlockState, pLevel, true);
-			pItemStack.consume(1, pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			this.update(pBlockPos, pBlockState, pLevel, true);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
@@ -265,10 +265,10 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
-			this.update(pBlockPos, pBlockState, pLevel, true);
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
 			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			this.update(pBlockPos, pBlockState, pLevel, true);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
@@ -277,10 +277,10 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	public InteractionResult shovel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pBlockState.getValue(BlockStateProperties.LIT)) {
-			this.update(pBlockPos, pBlockState, pLevel, false);
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
 			pLevel.playSound(null, pBlockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			this.update(pBlockPos, pBlockState, pLevel, false);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

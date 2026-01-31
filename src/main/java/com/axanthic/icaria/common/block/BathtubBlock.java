@@ -188,15 +188,15 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	public InteractionResult skeleton(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pItemStack.is(IcariaItems.SURFACE_BONES.get())) {
-			pItemStack.consume(1, pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BONE_BLOCK_PLACE, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.SURFACE_BONES.get()));
+			pItemStack.consume(1, pPlayer);
 			this.update(pBlockPos, pBlockState, pLevel);
 			return InteractionResult.SUCCESS;
 		} else if (pItemStack.is(IcariaItems.REVENANT_SKULL.get())) {
-			pItemStack.consume(1, pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.STONE_PLACE, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.REVENANT_SKULL.get()));
+			pItemStack.consume(1, pPlayer);
 			this.update(pBlockPos, pBlockState, pLevel);
 			return InteractionResult.SUCCESS;
 		} else {

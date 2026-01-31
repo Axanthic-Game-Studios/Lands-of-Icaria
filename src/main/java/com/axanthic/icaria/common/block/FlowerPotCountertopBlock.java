@@ -10,6 +10,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -80,8 +81,9 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 		var data = item.builtInRegistryHolder().getData(IcariaDataMapTypes.POTTABLES);
 		if (pLevel.getBlockEntity(pBlockPos) instanceof FlowerPotCountertopBlockEntity blockEntity && blockEntity.getItem() == null && data != null) {
 			blockEntity.setItem(item);
-			pItemStack.consume(1, pPlayer);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, true));
+			pPlayer.awardStat(Stats.ITEM_USED.get(item));
+			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (pLevel.getBlockEntity(pBlockPos) instanceof FlowerPotCountertopBlockEntity blockEntity && blockEntity.getItem() != null && data == null) {
 			this.dropItem(pBlockPos, pLevel);

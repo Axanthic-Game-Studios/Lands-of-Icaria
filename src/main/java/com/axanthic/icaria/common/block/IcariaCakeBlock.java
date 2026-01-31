@@ -152,53 +152,6 @@ public class IcariaCakeBlock extends Block {
 		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 
-	public InteractionResult candle(BlockPos pBlockPos, BlockState pBlockState, Candle pCandle, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE && pBlockState.getValue(IcariaBlockStateProperties.CAKE_BITE) == 0) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CANDLE, pCandle));
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
-	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
-	public InteractionResult extinguish(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (pBlockState.getValue(BlockStateProperties.LIT)) {
-			pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.1D, 0.0D);
-			pLevel.playSound(null, pBlockPos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, false));
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
-	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (pItemStack.is(Items.CANDLE)) {
@@ -241,6 +194,53 @@ public class IcariaCakeBlock extends Block {
 			return this.flintAndSteel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.isEmpty() && this.canHit(pBlockHitResult)) {
 			return this.extinguish(pBlockPos, pBlockState, pLevel);
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	public InteractionResult candle(BlockPos pBlockPos, BlockState pBlockState, Candle pCandle, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE && pBlockState.getValue(IcariaBlockStateProperties.CAKE_BITE) == 0) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.CAKE_ADD_CANDLE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CANDLE, pCandle));
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	public InteractionResult extinguish(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+		if (pBlockState.getValue(BlockStateProperties.LIT)) {
+			pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.1D, 0.0D);
+			pLevel.playSound(null, pBlockPos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, false));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}

@@ -226,8 +226,9 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	public InteractionResult setWaxed(IcariaChestBlockEntity pBlockEntity, BlockPos pBlockPos, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		pBlockEntity.setWaxed(true);
 		pBlockEntity.setChanged();
-		pItemStack.consume(1, pPlayer);
 		pLevel.levelEvent(null, 3003, pBlockPos, 0);
+		pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+		pItemStack.consume(1, pPlayer);
 		return InteractionResult.SUCCESS;
 	}
 

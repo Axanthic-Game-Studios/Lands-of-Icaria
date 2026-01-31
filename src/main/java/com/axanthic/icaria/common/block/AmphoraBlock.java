@@ -78,10 +78,10 @@ public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock
 		var amount = pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT);
 		var item = pItemStack.getItem();
 		if (item == IcariaItems.AMPHORA.get() && amount < 3) {
-			pItemStack.consume(1, pPlayer);
 			pLevel.playSound(pPlayer, pBlockPos, SoundEvents.DECORATED_POT_PLACE, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.AMPHORA_AMOUNT, amount + 1));
 			pPlayer.awardStat(Stats.ITEM_USED.get(item));
+			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
