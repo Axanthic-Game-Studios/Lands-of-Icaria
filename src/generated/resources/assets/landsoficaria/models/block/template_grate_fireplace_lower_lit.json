@@ -300,7 +300,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             12.0,
@@ -310,7 +310,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             15.0,
             4.0,
@@ -320,7 +320,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             4.0,
@@ -329,7 +329,7 @@
           ]
         },
         "south": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             11.0,
@@ -338,7 +338,7 @@
           ]
         },
         "up": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             4.0,
@@ -348,7 +348,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             4.0,
@@ -380,7 +380,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             4.0,
             16.0,
@@ -390,7 +390,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             11.0,
             10.0,
@@ -400,7 +400,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             4.0,
             10.0,
@@ -409,7 +409,7 @@
           ]
         },
         "south": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             4.0,
             15.0,
@@ -418,7 +418,7 @@
           ]
         },
         "up": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             4.0,
             10.0,
@@ -428,7 +428,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             4.0,
             10.0,
@@ -460,7 +460,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             0.0,
             11.0,
@@ -470,7 +470,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             7.0,
             5.0,
@@ -480,7 +480,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             0.0,
             5.0,
@@ -489,7 +489,7 @@
           ]
         },
         "south": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             0.0,
             10.0,
@@ -498,7 +498,7 @@
           ]
         },
         "up": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             0.0,
             5.0,
@@ -508,7 +508,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             0.0,
             5.0,
@@ -540,7 +540,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             5.0,
             6.0,
@@ -550,7 +550,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             10.0,
             0.0,
@@ -560,7 +560,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             5.0,
             0.0,
@@ -569,7 +569,7 @@
           ]
         },
         "south": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             5.0,
             5.0,
@@ -578,7 +578,7 @@
           ]
         },
         "up": {
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             5.0,
             0.0,
@@ -588,7 +588,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#kettle_firewood",
+          "texture": "#firewood",
           "uv": [
             5.0,
             0.0,

@@ -3524,7 +3524,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "firewood"))
 				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
 				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
 				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
@@ -3691,8 +3691,8 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kettle_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "firewood"))
 				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle"))
-				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_log"))
 				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "laurel_planks"))
 				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_loot_vase"))
@@ -4443,7 +4443,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "firewood"))
 				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
 				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
 				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))

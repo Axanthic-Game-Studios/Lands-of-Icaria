@@ -44,6 +44,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot EDGE = TextureSlot.create("edge");
 	public static final TextureSlot END = TextureSlot.create("end");
 	public static final TextureSlot FIRE = TextureSlot.create("fire");
+	public static final TextureSlot FIREWOOD = TextureSlot.create("firewood");
 	public static final TextureSlot FLOWER_POT = TextureSlot.create("flower_pot");
 	public static final TextureSlot FLOWERBED = TextureSlot.create("flowerbed");
 	public static final TextureSlot FORGE = TextureSlot.create("forge");
@@ -58,7 +59,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot HERB_HOLDER = TextureSlot.create("herb_holder");
 	public static final TextureSlot HERB_HOLDER_OVERLAY = TextureSlot.create("herb_holder_overlay");
 	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
-	public static final TextureSlot KETTLE_FIREWOOD = TextureSlot.create("kettle_firewood");
 	public static final TextureSlot KILN = TextureSlot.create("kiln");
 	public static final TextureSlot LAUREL_LOG = TextureSlot.create("laurel_log");
 	public static final TextureSlot LAUREL_PLANKS = TextureSlot.create("laurel_planks");
