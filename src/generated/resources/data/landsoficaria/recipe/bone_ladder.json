@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:bone"
+  },
+  "pattern": [
+    "A A",
+    "AAA",
+    "A A"
+  ],
+  "result": {
+    "count": 3,
+    "id": "landsoficaria:bone_ladder"
+  }
+}

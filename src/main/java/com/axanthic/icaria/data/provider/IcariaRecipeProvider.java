@@ -1313,6 +1313,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void ladder() {
+		this.ladder(3, IcariaItems.BONE_LADDER.get(), Items.BONE);
 		this.ladder(6, IcariaItems.CYPRESS_LADDER.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.ladder(6, IcariaItems.DROUGHTROOT_LADDER.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
 		this.ladder(6, IcariaItems.FIR_LADDER.get(), IcariaItems.FIR_PLANKS.get());
