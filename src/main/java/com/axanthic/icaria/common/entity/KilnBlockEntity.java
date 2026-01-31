@@ -38,7 +38,10 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeInput;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -272,7 +275,7 @@ public class KilnBlockEntity extends BlockEntity {
 	}
 
 	public Optional<RecipeHolder<FiringRecipe>> getRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.FIRING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	@Override

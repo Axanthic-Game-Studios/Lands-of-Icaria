@@ -47,7 +47,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -339,7 +338,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public Optional<RecipeHolder<GrindingRecipe>> getRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.GRINDING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	@Override

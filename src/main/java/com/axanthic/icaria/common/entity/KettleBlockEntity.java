@@ -39,7 +39,6 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -336,19 +335,19 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	public Optional<RecipeHolder<EntityConcoctingRecipe>> getEntityConcoctingRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.ENTITY_CONCOCTING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.ENTITY_CONCOCTING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	public Optional<RecipeHolder<ExplosionConcoctingRecipe>> getExplosionConcoctingRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.EXPLOSION_CONCOCTING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.EXPLOSION_CONCOCTING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	public Optional<RecipeHolder<ItemConcoctingRecipe>> getItemConcoctingRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.ITEM_CONCOCTING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.ITEM_CONCOCTING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	public Optional<RecipeHolder<PotionConcoctingRecipe>> getPotionConcoctingRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.POTION_CONCOCTING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.POTION_CONCOCTING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	@Override

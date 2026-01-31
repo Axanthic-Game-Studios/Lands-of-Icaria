@@ -44,7 +44,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
-import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -319,7 +318,7 @@ public class ForgeBlockEntity extends BlockEntity {
 	}
 
 	public Optional<RecipeHolder<ForgingRecipe>> getRecipe(ServerLevel pServerLevel) {
-		return RecipeManager.createCheck(IcariaRecipeTypes.FORGING.get()).getRecipeFor(this.getRecipeInput(), pServerLevel);
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.FORGING.get(), this.getRecipeInput(), pServerLevel);
 	}
 
 	@Override
