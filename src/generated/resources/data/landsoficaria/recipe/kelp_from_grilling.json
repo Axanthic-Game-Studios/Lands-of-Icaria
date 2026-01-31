@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "minecraft:dried_kelp",
+  "result": {
+    "count": 1,
+    "id": "minecraft:kelp"
+  },
+  "time": 600
+}

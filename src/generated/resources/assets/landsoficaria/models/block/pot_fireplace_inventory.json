@@ -1,0 +1,16 @@
+{
+  "parent": "landsoficaria:block/template_pot_fireplace_inventory",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "droughtroot_log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/smooth_loam_bricks",
+    "smooth_chalkos_block": "landsoficaria:block/smooth_chalkos_block",
+    "smooth_grainite_bricks": "landsoficaria:block/smooth_grainite_bricks",
+    "smooth_loam_bricks": "landsoficaria:block/smooth_loam_bricks",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "smooth_sideros_block": "landsoficaria:block/smooth_sideros_block",
+    "surface_chert": "landsoficaria:block/surface_chert",
+    "vanadiumsteel_chain": "landsoficaria:block/vanadiumsteel_chain",
+    "voidshale": "landsoficaria:block/voidshale"
+  }
+}

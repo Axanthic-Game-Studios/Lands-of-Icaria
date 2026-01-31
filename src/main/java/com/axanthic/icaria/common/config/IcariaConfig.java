@@ -15,10 +15,12 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 
 public class IcariaConfig {
 	public static ModConfigSpec.BooleanValue RENDER_CRYSTAL_RAYS;
+	public static ModConfigSpec.BooleanValue RENDER_FIREPLACE_ITEMS;
 	public static ModConfigSpec.BooleanValue RENDER_FORGE_ITEMS;
 	public static ModConfigSpec.BooleanValue RENDER_GRINDER_GEARS;
 	public static ModConfigSpec.BooleanValue RENDER_KETTLE_ITEMS;
 	public static ModConfigSpec.BooleanValue RENDER_KILN_ITEMS;
+	public static ModConfigSpec.BooleanValue FIREPLACE_SOUNDS;
 	public static ModConfigSpec.BooleanValue FORGE_SOUNDS;
 	public static ModConfigSpec.BooleanValue GRINDER_SOUNDS;
 	public static ModConfigSpec.BooleanValue KETTLE_SOUNDS;
@@ -26,6 +28,7 @@ public class IcariaConfig {
 	public static ModConfigSpec.BooleanValue SPAWN_ARACHNIDS;
 
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_CRYSTAL_RAYS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_FIREPLACE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_FORGE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_GRINDER_GEARS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_KETTLE_ITEMS;
@@ -37,11 +40,13 @@ public class IcariaConfig {
 		builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_settings").comment("Render Settings").push("renderSettings");
 
 		IcariaConfig.RENDER_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_crystal").comment("Default: true. Whether a Crystal should render rays.").define("renderCrystal", true);
+		IcariaConfig.RENDER_FIREPLACE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_fireplace").comment("Default: true. Whether a Fireplace should render items.").define("renderFireplace", true);
 		IcariaConfig.RENDER_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_forge").comment("Default: true. Whether a Forge should render items.").define("renderForge", true);
 		IcariaConfig.RENDER_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_grinder").comment("Default: true. Whether a Grinder should render gears.").define("renderGrinder", true);
 		IcariaConfig.RENDER_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_kettle").comment("Default: true. Whether a Kettle should render items.").define("renderKettle", true);
 		IcariaConfig.RENDER_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_kiln").comment("Default: true. Whether a Kiln should render items.").define("renderKiln", true);
 		IcariaConfig.RENDER_DISTANCE_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance").comment("Whether a Crystal should render rays based on distance to a player.").defineInRange("crystalDistance", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_FIREPLACE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "fireplace_distance").comment("Whether a Fireplace should render items based on distance to a player.").defineInRange("fireplaceDistance", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "forge_distance").comment("Whether a Forge should render items based on distance to a player.").defineInRange("forgeDistance", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "grinder_distance").comment("Whether a Grinder should render gears based on distance to a player.").defineInRange("grinderDistance", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kettle_distance").comment("Whether a Kettle should render items based on distance to a player.").defineInRange("kettleDistance", 256, 64, 1024);
@@ -57,6 +62,7 @@ public class IcariaConfig {
 
 		builder.translation("configuration" + "." + IcariaIdents.ID + "." + "sound_settings").comment("Sound Settings").push("soundSettings");
 
+		IcariaConfig.FIREPLACE_SOUNDS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds").comment("Default: true. Whether a Fireplace should play sounds.").define("fireplaceSounds", true);
 		IcariaConfig.FORGE_SOUNDS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "forge_sounds").comment("Default: true. Whether a Forge should play sounds.").define("forgeSounds", true);
 		IcariaConfig.GRINDER_SOUNDS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "grinder_sounds").comment("Default: true. Whether a Grinder should play sounds.").define("grinderSounds", true);
 		IcariaConfig.KETTLE_SOUNDS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "kettle_sounds").comment("Default: true. Whether a Kettle should play sounds.").define("kettleSounds", true);

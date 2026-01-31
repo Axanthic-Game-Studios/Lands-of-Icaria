@@ -357,6 +357,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.VANADIUMSTEEL_BARS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VANADIUMSTEEL_CHAIN.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.GRATE_FIREPLACE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POT_FIREPLACE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.KETTLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRINDER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.KILN.get(), pItemModelGenerators);

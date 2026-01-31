@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_grate_fireplace_lower_lit",
+  "textures": {
+    "kettle_firewood": "landsoficaria:block/kettle_firewood",
+    "particle": "landsoficaria:block/smooth_loam_bricks",
+    "smooth_chalkos_block": "landsoficaria:block/smooth_chalkos_block",
+    "smooth_grainite_bricks": "landsoficaria:block/smooth_grainite_bricks",
+    "smooth_loam_bricks": "landsoficaria:block/smooth_loam_bricks",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "surface_chert": "landsoficaria:block/surface_chert"
+  }
+}

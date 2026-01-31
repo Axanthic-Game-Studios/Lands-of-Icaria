@@ -22,6 +22,7 @@ public class IcariaRecipeSerializers {
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("explosion_concocting", ExplosionConcoctingSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FiringRecipe>> FIRING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("firing", FiringRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ForgingRecipe>> FORGING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("forging", ForgingRecipeSerializer::new);
+	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrillingRecipe>> GRILLING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("grilling", GrillingRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<GrindingRecipe>> GRINDING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("grinding", GrindingRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ItemConcoctingRecipe>> ITEM_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("item_concocting", ItemConcoctingRecipeSerializer::new);
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<PotionConcoctingRecipe>> POTION_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("potion_concocting", PotionConcoctingRecipeSerializer::new);

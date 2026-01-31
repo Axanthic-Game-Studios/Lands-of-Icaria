@@ -402,6 +402,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), "Vanadinstahlkette");
 
+		this.add(IcariaBlocks.GRATE_FIREPLACE.get(), "Grate Fireplace");
+		this.add(IcariaBlocks.POT_FIREPLACE.get(), "Pot Fireplace");
+
 		this.add(IcariaBlocks.KETTLE.get(), "Kessel");
 		this.add(IcariaBlocks.GRINDER.get(), "Mühle");
 		this.add(IcariaBlocks.KILN.get(), "Töpferofen");
@@ -962,6 +965,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_settings" + "." + "tooltip", "Rendereinstellungen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_crystal", "Kristall rendern");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_crystal" + "." + "tooltip", "Standard: An. Ob ein Kristall Strahlen rendern soll.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_fireplace", "Feuerstelle rendern");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_fireplace" + "." + "tooltip", "Standard: An. Ob eine Feuerstelle Gegenstände rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_forge", "Schmelze rendern");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_forge" + "." + "tooltip", "Standard: An. Ob eine Schmelze Gegenstände rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_grinder", "Mühle rendern");
@@ -972,6 +977,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_kiln" + "." + "tooltip", "Standard: An. Ob ein Töpferofen Gegenstände rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance", "Entfernung Kristall");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance" + "." + "tooltip", "Standard: 256. Ob ein Kristall Strahlen basierend auf der Entfernung zu einem Spieler rendern soll.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_distance", "Entfernung Feuerstelle");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_distance" + "." + "tooltip", "Standard: 256. Ob eine Feuerstelle Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_distance", "Entfernung Schmelze");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_distance" + "." + "tooltip", "Standard: 256. Ob eine Schmelze Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "grinder_distance", "Entfernung Mühle");
@@ -982,6 +989,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance" + "." + "tooltip", "Standard: 256. Ob ein Töpferofen Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings", "Soundeinstellungen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings" + "." + "tooltip", "Soundeinstellungen");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds", "Sounds Feuerstelle");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds" + "." + "tooltip", "Standard: An. Ob eine Feuerstelle Sounds abspielen soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_sounds", "Sounds Schmelze");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_sounds" + "." + "tooltip", "Standard: An. Ob eine Schmelze Sounds abspielen soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "grinder_sounds", "Sounds Mühle");

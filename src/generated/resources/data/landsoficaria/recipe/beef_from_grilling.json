@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "minecraft:cooked_beef",
+  "result": {
+    "count": 1,
+    "id": "minecraft:beef"
+  },
+  "time": 600
+}

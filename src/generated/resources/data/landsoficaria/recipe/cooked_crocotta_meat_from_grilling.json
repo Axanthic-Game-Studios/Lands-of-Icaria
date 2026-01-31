@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_crocotta_meat",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_crocotta_meat"
+  },
+  "time": 600
+}

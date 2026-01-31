@@ -747,6 +747,8 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.BLURIDIUM_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.VANADIUMSTEEL_BARS.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.GRATE_FIREPLACE.get(), "inventory", pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.POT_FIREPLACE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.KETTLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GRINDER.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.KILN.get(), "inventory", pItemModelGenerators);

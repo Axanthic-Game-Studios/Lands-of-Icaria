@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_green_magenta_fisshh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_green_magenta_fisshh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_green_magenta_fisshh_from_grilling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_green_magenta_fisshh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_green_magenta_fisshh_from_grilling"
+    ]
+  }
+}

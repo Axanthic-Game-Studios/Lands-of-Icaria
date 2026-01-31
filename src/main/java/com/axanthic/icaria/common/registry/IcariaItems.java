@@ -356,6 +356,9 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> VANADIUMSTEEL_CHAIN = IcariaItems.register("vanadiumsteel_chain", properties -> new BlockItem(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), properties), IcariaItems.propertiesBlock());
 
+	public static final DeferredHolder<Item, Item> GRATE_FIREPLACE = IcariaItems.register("grate_fireplace", properties -> new BlockItem(IcariaBlocks.GRATE_FIREPLACE.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POT_FIREPLACE = IcariaItems.register("pot_fireplace", properties -> new BlockItem(IcariaBlocks.POT_FIREPLACE.get(), properties), IcariaItems.propertiesBlock());
+
 	public static final DeferredHolder<Item, Item> KETTLE = IcariaItems.register("kettle", properties -> new BlockItem(IcariaBlocks.KETTLE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> GRINDER = IcariaItems.register("grinder", properties -> new BlockItem(IcariaBlocks.GRINDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> KILN = IcariaItems.register("kiln", properties -> new BlockItem(IcariaBlocks.KILN.get(), properties), IcariaItems.propertiesBlock());

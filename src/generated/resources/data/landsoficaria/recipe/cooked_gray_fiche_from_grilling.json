@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_gray_fiche",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_gray_fiche"
+  },
+  "time": 600
+}

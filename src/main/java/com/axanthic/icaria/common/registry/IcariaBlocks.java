@@ -358,6 +358,9 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, Block> VANADIUMSTEEL_CHAIN = IcariaBlocks.register("vanadiumsteel_chain", IcariaChainBlock::new, IcariaBlocks.propertiesChain(MapColor.NONE, SoundType.CHAIN));
 
+	public static final DeferredHolder<Block, Block> GRATE_FIREPLACE = IcariaBlocks.register("grate_fireplace", properties -> new GrateFireplaceBlock(1.275F, properties), IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> POT_FIREPLACE = IcariaBlocks.register("pot_fireplace", properties -> new PotFireplaceBlock(1.2425F, properties), IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));
+
 	public static final DeferredHolder<Block, Block> KETTLE = IcariaBlocks.register("kettle", KettleBlock::new, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> GRINDER = IcariaBlocks.register("grinder", GrinderBlock::new, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> KILN = IcariaBlocks.register("kiln", KilnBlock::new, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));

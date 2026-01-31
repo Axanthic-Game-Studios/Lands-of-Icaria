@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:raw_rainbow_fysh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:raw_rainbow_fysh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_rainbow_fysh_from_grilling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:raw_rainbow_fysh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_rainbow_fysh_from_grilling"
+    ]
+  }
+}

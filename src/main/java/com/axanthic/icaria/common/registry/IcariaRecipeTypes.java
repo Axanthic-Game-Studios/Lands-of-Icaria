@@ -22,6 +22,7 @@ public class IcariaRecipeTypes {
 	public static final DeferredHolder<RecipeType<?>, RecipeType<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("explosion_concocting", ExplosionConcoctingRecipeType::new);
 	public static final DeferredHolder<RecipeType<?>, RecipeType<FiringRecipe>> FIRING = IcariaRecipeTypes.RECIPE_TYPES.register("firing", FiringRecipeType::new);
 	public static final DeferredHolder<RecipeType<?>, RecipeType<ForgingRecipe>> FORGING = IcariaRecipeTypes.RECIPE_TYPES.register("forging", ForgingRecipeType::new);
+	public static final DeferredHolder<RecipeType<?>, RecipeType<GrillingRecipe>> GRILLING = IcariaRecipeTypes.RECIPE_TYPES.register("grilling", GrillingRecipeType::new);
 	public static final DeferredHolder<RecipeType<?>, RecipeType<GrindingRecipe>> GRINDING = IcariaRecipeTypes.RECIPE_TYPES.register("grinding", GrindingRecipeType::new);
 	public static final DeferredHolder<RecipeType<?>, RecipeType<ItemConcoctingRecipe>> ITEM_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("item_concocting", ItemConcoctingRecipeType::new);
 	public static final DeferredHolder<RecipeType<?>, RecipeType<PotionConcoctingRecipe>> POTION_CONCOCTING = IcariaRecipeTypes.RECIPE_TYPES.register("potion_concocting", PotionConcoctingRecipeType::new);

@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_red_feesh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_red_feesh"
+  },
+  "time": 600
+}

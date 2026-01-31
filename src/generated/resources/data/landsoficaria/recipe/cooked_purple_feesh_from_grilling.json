@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_purple_feesh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_purple_feesh"
+  },
+  "time": 600
+}

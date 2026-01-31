@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_red_yellow_fysh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_red_yellow_fysh"
+  },
+  "time": 600
+}

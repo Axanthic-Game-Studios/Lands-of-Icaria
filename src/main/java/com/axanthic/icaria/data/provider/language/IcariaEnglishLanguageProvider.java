@@ -402,6 +402,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), "Vanadiumsteel Chain");
 
+		this.add(IcariaBlocks.GRATE_FIREPLACE.get(), "Grate Fireplace");
+		this.add(IcariaBlocks.POT_FIREPLACE.get(), "Pot Fireplace");
+
 		this.add(IcariaBlocks.KETTLE.get(), "Kettle");
 		this.add(IcariaBlocks.GRINDER.get(), "Grinder");
 		this.add(IcariaBlocks.KILN.get(), "Kiln");
@@ -962,6 +965,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_settings" + "." + "tooltip", "Render Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_crystal", "Render Crystal");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_crystal" + "." + "tooltip", "Default: ON. Whether a Crystal should render rays.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_fireplace", "Render Fireplace");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_fireplace" + "." + "tooltip", "Default: ON. Whether a Fireplace should render items.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_forge", "Render Forge");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_forge" + "." + "tooltip", "Default: ON. Whether a Forge should render items.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_grinder", "Render Grinder");
@@ -972,6 +977,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_kiln" + "." + "tooltip", "Default: ON. Whether a Kiln should render items.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance", "Crystal Distance");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "crystal_distance" + "." + "tooltip", "Default: 256. Whether a Crystal should render rays based on distance to a player.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_distance", "Fireplace Distance");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_distance" + "." + "tooltip", "Default: 256. Whether a Fireplace should render items based on distance to a player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_distance", "Forge Distance");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_distance" + "." + "tooltip", "Default: 256. Whether a Forge should render items based on distance to a player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "grinder_distance", "Grinder Distance");
@@ -982,6 +989,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance" + "." + "tooltip", "Default: 256. Whether a Kiln should render items based on distance to a player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings", "Sound Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings" + "." + "tooltip", "Sound Settings");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds", "Fireplace Sounds");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds" + "." + "tooltip", "Default: ON. Whether a Fireplace should play sounds.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_sounds", "Forge Sounds");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "forge_sounds" + "." + "tooltip", "Default: ON. Whether a Forge should play sounds.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "grinder_sounds", "Grinder Sounds");

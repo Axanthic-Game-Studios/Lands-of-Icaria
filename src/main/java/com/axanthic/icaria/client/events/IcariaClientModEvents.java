@@ -360,6 +360,7 @@ public class IcariaClientModEvents {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.BATHTUB.get(), BathtubBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), IcariaChestBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.FIREPLACE.get(), FireplaceBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FLOWER_POT_COUNTERTOP.get(), FlowerPotCountertopBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);

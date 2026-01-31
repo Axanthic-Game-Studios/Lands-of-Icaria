@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_thog_meat",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_thog_meat"
+  },
+  "time": 600
+}

@@ -50,6 +50,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.explosionConcocting();
 		this.firing();
 		this.forging();
+		this.grilling();
 		this.grinding();
 		this.itemConcocting();
 		this.potionConcocting();
@@ -600,6 +601,48 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.forging(0.2F, 2, 300, IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.ANTHRACITE_ORE.get(), IcariaItems.MOLYBDENUM_ORE.get(), IcariaItems.SIDEROS_ORE.get());
 		this.forging(0.2F, 1, 150, IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.ANTHRACITE.get(), IcariaItems.RAW_MOLYBDENUM.get(), IcariaItems.RAW_SIDEROS.get());
 		this.forging(0.2F, 2, 150, IcariaItems.MOLYBDENUMSTEEL_INGOT.get(), IcariaItems.ANTHRACITE.get(), IcariaItems.MOLYBDENUM_INGOT.get(), IcariaItems.SIDEROS_INGOT.get());
+	}
+
+	public void grilling() {
+		this.grilling(1, 600, Items.BEEF, Items.COOKED_BEEF);
+		this.grilling(1, 600, Items.CHICKEN, Items.COOKED_CHICKEN);
+		this.grilling(1, 600, Items.COD, Items.COOKED_COD);
+		this.grilling(1, 600, Items.KELP, Items.DRIED_KELP);
+		this.grilling(1, 600, Items.MUTTON, Items.COOKED_MUTTON);
+		this.grilling(1, 600, Items.PORKCHOP, Items.COOKED_PORKCHOP);
+		this.grilling(1, 600, Items.POTATO, Items.BAKED_POTATO);
+		this.grilling(1, 600, Items.RABBIT, Items.COOKED_RABBIT);
+		this.grilling(1, 600, Items.SALMON, Items.COOKED_SALMON);
+		this.grilling(1, 600, IcariaItems.COOKED_AETERNAE_MEAT.get(), IcariaItems.RAW_AETERNAE_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_CAPELLA_MEAT.get(), IcariaItems.RAW_CAPELLA_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_CERVER_MEAT.get(), IcariaItems.RAW_CERVER_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_CROCOTTA_MEAT.get(), IcariaItems.RAW_CROCOTTA_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_THOG_MEAT.get(), IcariaItems.RAW_THOG_MEAT.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_GRAY_FEESH.get(), IcariaItems.RAW_BLUE_GRAY_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BROWN_FEESH.get(), IcariaItems.RAW_BROWN_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BROWN_ORANGE_FEESH.get(), IcariaItems.RAW_BROWN_ORANGE_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_PINK_RED_FEESH.get(), IcariaItems.RAW_PINK_RED_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_PURPLE_FEESH.get(), IcariaItems.RAW_PURPLE_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_RED_FEESH.get(), IcariaItems.RAW_RED_FEESH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_RED_FICHE.get(), IcariaItems.RAW_BLUE_RED_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BROWN_CYAN_FICHE.get(), IcariaItems.RAW_BROWN_CYAN_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_GRAY_FICHE.get(), IcariaItems.RAW_GRAY_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get(), IcariaItems.RAW_GREEN_MAGENTA_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_RED_FICHE.get(), IcariaItems.RAW_RED_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_WHITE_YELLOW_FICHE.get(), IcariaItems.RAW_WHITE_YELLOW_FICHE.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_BROWN_FISSHH.get(), IcariaItems.RAW_BLUE_BROWN_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_RED_FISSHH.get(), IcariaItems.RAW_BLUE_RED_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get(), IcariaItems.RAW_BLUE_YELLOW_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BROWN_FISSHH.get(), IcariaItems.RAW_BROWN_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get(), IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get(), IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_FYSH.get(), IcariaItems.RAW_BLUE_FYSH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_BLUE_PURPLE_FYSH.get(), IcariaItems.RAW_BLUE_PURPLE_FYSH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_GRAY_FYSH.get(), IcariaItems.RAW_GRAY_FYSH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_RAINBOW_FYSH.get(), IcariaItems.RAW_RAINBOW_FYSH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_RED_FYSH.get(), IcariaItems.RAW_RED_FYSH.get());
+		this.grilling(1, 600, IcariaItems.COOKED_RED_YELLOW_FYSH.get(), IcariaItems.RAW_RED_YELLOW_FYSH.get());
 	}
 
 	public void grinding() {
@@ -1676,6 +1719,12 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pExperience, pAmount, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key("forging", pResult, pResource));
+	}
+
+	public void grilling(int pAmount, int pTime, Item pResult, Item pResource) {
+		GrillingRecipeBuilder.grilling(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pAmount, pTime)
+			.unlockedBy(this.name(pResource), this.has(pResource))
+			.save(this.output, this.key("grilling", pResult));
 	}
 
 	public void grinding(float pExperience, int pAmount, int pTime, Item pResult, Item pResource, Item pGear) {

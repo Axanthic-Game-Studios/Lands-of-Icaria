@@ -914,6 +914,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get())
 			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get())
+			.add(IcariaBlocks.GRATE_FIREPLACE.get())
+			.add(IcariaBlocks.POT_FIREPLACE.get())
 			.add(IcariaBlocks.GRINDER.get())
 			.add(IcariaBlocks.KILN.get())
 			.add(IcariaBlocks.FORGE.get())

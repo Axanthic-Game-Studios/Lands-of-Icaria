@@ -90,6 +90,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot SMOOTH_CHALKOS_BLOCK = TextureSlot.create("smooth_chalkos_block");
 	public static final TextureSlot SMOOTH_GRAINITE_BRICKS = TextureSlot.create("smooth_grainite_bricks");
 	public static final TextureSlot SMOOTH_LOAM = TextureSlot.create("smooth_loam");
+	public static final TextureSlot SMOOTH_LOAM_BRICKS = TextureSlot.create("smooth_loam_bricks");
 	public static final TextureSlot SMOOTH_LOG = TextureSlot.create("smooth_log");
 	public static final TextureSlot SMOOTH_MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("smooth_molybdenumsteel_block");
 	public static final TextureSlot SMOOTH_SIDEROS_BLOCK = TextureSlot.create("smooth_sideros_block");
@@ -106,6 +107,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
 	public static final TextureSlot SURFACE_BONES = TextureSlot.create("surface_bones");
+	public static final TextureSlot SURFACE_CHERT = TextureSlot.create("surface_chert");
 	public static final TextureSlot TEXTURE = TextureSlot.create("texture");
 	public static final TextureSlot TOP = TextureSlot.create("top");
 	public static final TextureSlot TORCH_BONE = TextureSlot.create("torch_bone");

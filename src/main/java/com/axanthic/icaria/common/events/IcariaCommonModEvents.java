@@ -189,6 +189,7 @@ public class IcariaCommonModEvents {
 
 	@SubscribeEvent
 	public static void onRegisterCapabilities(RegisterCapabilitiesEvent pEvent) {
+		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.FIREPLACE.get(), FireplaceBlockEntity::getCapability);
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.FORGE.get(), ForgeBlockEntity::getCapability);
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.FORGE_REDIRECTOR.get(), ForgeRedirectorBlockEntity::getCapability);
 		pEvent.registerBlockEntity(Capabilities.ItemHandler.BLOCK, IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockEntity::getCapability);
@@ -573,6 +574,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_CHAIN.get());
+
+			pEvent.accept(IcariaItems.GRATE_FIREPLACE.get());
+			pEvent.accept(IcariaItems.POT_FIREPLACE.get());
 
 			pEvent.accept(IcariaItems.KETTLE.get());
 			pEvent.accept(IcariaItems.GRINDER.get());

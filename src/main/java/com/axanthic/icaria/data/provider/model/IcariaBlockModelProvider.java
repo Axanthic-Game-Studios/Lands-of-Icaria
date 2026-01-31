@@ -73,6 +73,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.flowerPotCross(pBlockModelGenerators);
 		IcariaBlockModelProvider.forge(pBlockModelGenerators);
 		IcariaBlockModelProvider.grassyMarl(pBlockModelGenerators);
+		IcariaBlockModelProvider.grateFireplace(pBlockModelGenerators);
 		IcariaBlockModelProvider.greenGroundShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinder(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderShaft(pBlockModelGenerators);
@@ -111,6 +112,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.physalisCrop(pBlockModelGenerators);
 		IcariaBlockModelProvider.portal(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertop(pBlockModelGenerators);
+		IcariaBlockModelProvider.potFireplace(pBlockModelGenerators);
 		IcariaBlockModelProvider.potHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.potsCupboard(pBlockModelGenerators);
 		IcariaBlockModelProvider.pottedBromelia(pBlockModelGenerators);
@@ -192,6 +194,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.flowerPotCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.forgeInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.forgeModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grateFireplaceInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.grateFireplaceModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.greenGroundShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderModel(pBlockModelGenerators);
@@ -229,6 +233,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.physalisCropModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.portalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertopModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.potFireplaceInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.potFireplaceModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potsCupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.pottedBromeliaModel(pBlockModelGenerators);
@@ -734,6 +740,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.grassyMarl(IcariaBlocks.GRASSY_MARL.get(), pBlockModelGenerators);
 	}
 
+	public static void grateFireplace(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.grateFireplace(IcariaBlocks.GRATE_FIREPLACE.get(), pBlockModelGenerators);
+	}
+
 	public static void greenGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.greenGroundShrooms(IcariaBlocks.GREEN_GROUND_SHROOMS.get(), pBlockModelGenerators);
 	}
@@ -1016,6 +1026,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.potCountertop(IcariaBlocks.OLIVE_POT_COUNTERTOP.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertop(IcariaBlocks.PLANE_POT_COUNTERTOP.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertop(IcariaBlocks.POPULUS_POT_COUNTERTOP.get(), pBlockModelGenerators);
+	}
+
+	public static void potFireplace(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.potFireplace(IcariaBlocks.POT_FIREPLACE.get(), pBlockModelGenerators);
 	}
 
 	public static void potHolder(BlockModelGenerators pBlockModelGenerators) {
@@ -3485,6 +3499,48 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "marl")), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void grateFireplace(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_inventory")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "chalkos_mesh_block"))
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_sideros_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "vanadiumsteel_chain"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower_lit")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_upper")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "chalkos_mesh_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_sideros_block"))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "vanadiumsteel_chain"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void greenGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_green_ground_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
@@ -4361,6 +4417,46 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
 				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void potFireplace(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_inventory")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_sideros_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "vanadiumsteel_chain"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_lower")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaIdents.ID, "droughtroot_log"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_lower_lit")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
+				.putForced(IcariaTextureSlots.KETTLE_FIREWOOD, IcariaModelProvider.blockFile(IcariaIdents.ID, "kettle_firewood"))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_chalkos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_grainite_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaIdents.ID, "surface_chert"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_upper")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_sideros_block"))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaIdents.ID, "vanadiumsteel_chain"))
+				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaIdents.ID, "voidshale"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5377,6 +5473,16 @@ public class IcariaBlockModelProvider {
 		DishesCupboardModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_dishes_cupboard"), new TextureMapping(), blockModels.modelOutput);
 	}
 
+	public static void grateFireplaceInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		GrateFireplaceInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void grateFireplaceModel(BlockModelGenerators pBlockModelGenerators) {
+		GrateFireplaceModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GrateFireplaceModel.lowerLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GrateFireplaceModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void flasksCupboardModel(BlockModelGenerators blockModels) {
 		FlasksCupboardModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_flasks_cupboard"), new TextureMapping(), blockModels.modelOutput);
 	}
@@ -5579,6 +5685,16 @@ public class IcariaBlockModelProvider {
 
 	public static void potCountertopModel(BlockModelGenerators blockModels) {
 		PotCountertopModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_countertop"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void potFireplaceInventoryModel(BlockModelGenerators pBlockModelGenerators) {
+		PotFireplaceInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void potFireplaceModel(BlockModelGenerators pBlockModelGenerators) {
+		PotFireplaceModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PotFireplaceModel.lowerLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PotFireplaceModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_fireplace_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potHolderModel(BlockModelGenerators pBlockModelGenerators) {

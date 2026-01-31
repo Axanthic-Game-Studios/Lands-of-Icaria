@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_brown_orange_feesh",
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:cooked_brown_orange_feesh"
+  },
+  "time": 600
+}
