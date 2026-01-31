@@ -50,8 +50,8 @@ import net.neoforged.neoforge.items.ItemStackHandler;
 @ParametersAreNonnullByDefault
 
 public class FireplaceBlockEntity extends BlockEntity {
-	public int progress;
-	public int maxProgress;
+	public int progress = 0;
+	public int maxProgress = 0;
 
 	public ItemStackHandler inputHandler = new FireplaceInputItemStackHandler(1, this);
 	public ItemStackHandler outputHandler = new FireplaceOutputItemStackHandler(1, this);
