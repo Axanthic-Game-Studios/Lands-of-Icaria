@@ -272,11 +272,6 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public RenderShape getRenderShape(BlockState pBlockState) {
-		return RenderShape.MODEL;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(IcariaBlockStateProperties.CORNER)) {
 			case BOTTOM_FRONT_LEFT -> this.getBottomFrontLeft(pBlockState);

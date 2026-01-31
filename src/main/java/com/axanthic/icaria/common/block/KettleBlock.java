@@ -275,11 +275,6 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public RenderShape getRenderShape(BlockState pBlockState) {
-		return RenderShape.MODEL;
-	}
-
-	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
 		return switch (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
 			case LOWER -> this.getLower(pBlockState);
