@@ -5,6 +5,7 @@ Additions
 - Arachne String Carpets in each Color
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Chimney Blocks
+- Fireplace Blocks
 - Bathtub Blocks for each Wood Type
 - Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
 - Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop for each Wood Type
@@ -18,7 +19,7 @@ Additions
 
 Updates
 
-- now Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size
+- Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size now
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
 - Grainel, Silksand and Surface Lignite play ambient Block Sounds now
 - Unfired Storage Vases that have been colored already can be recolored now
@@ -32,8 +33,8 @@ Updates
 - Decorated Pots in Villages contain Loot now
 - instead of using and empty Hand and Right-Click to remove a Chest Label from an Icaria Chest, Shears are used now
 - empty Barrel Racks of all Types no longer have a Collision Hitbox, allowing easier Pass-Through for Players and other Entities
-- now several ground-covering Blocks play corresponding Sounds when walking above instead of playing Stepping Sounds from the Block below
-- now several ground-covering non-collision Blocks play corresponding Sounds when walking through instead of playing Stepping Sounds from the Block below
+- several ground-covering Blocks play corresponding Sounds when walking above instead of playing Stepping Sounds from the Block below now
+- several ground-covering non-collision Blocks play corresponding Sounds when walking through instead of playing Stepping Sounds from the Block below now
 - Just Enough Items Compatibility shows Anvil Repair Recipes for all damageable Items now
 
 Fixes
