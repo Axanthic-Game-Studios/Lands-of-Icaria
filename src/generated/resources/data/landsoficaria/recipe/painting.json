@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "A": "minecraft:stick",
-    "B": "landsoficaria:arachne_string_block"
+    "B": "#c:arachne_string_blocks"
   },
   "pattern": [
     "AAA",

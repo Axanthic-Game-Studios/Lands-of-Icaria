@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:arachne_string_block": {
+    "has_TagKey[minecraft:item / c:arachne_string_blocks]": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:arachne_string_block"
+            "items": "#c:arachne_string_blocks"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_minecraft:stick",
-      "has_landsoficaria:arachne_string_block"
+      "has_TagKey[minecraft:item / c:arachne_string_blocks]"
     ]
   ],
   "rewards": {

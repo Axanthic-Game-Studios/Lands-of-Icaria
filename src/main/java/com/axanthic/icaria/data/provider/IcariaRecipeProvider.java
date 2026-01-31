@@ -104,6 +104,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.greekFireGrenade();
 		this.grindstone();
 		this.kettle();
+		this.painting();
 		this.repeater();
 		this.saddle();
 		this.stickyPiston();
@@ -1201,7 +1202,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	public void centerFilled() {
 		this.centerFilled(1, Items.ITEM_FRAME, Items.STICK, IcariaItems.AETERNAE_HIDE.get());
 		this.centerFilled(1, IcariaItems.GRINDER.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.ORICHALCUM_INGOT.get());
-		this.centerFilled(1, IcariaItems.PAINTING.get(), Items.STICK, IcariaItems.ARACHNE_STRING_BLOCK.get());
 	}
 
 	public void centerHollow() {
@@ -2365,6 +2365,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(IcariaItems.ORICHALCUM_INGOT.get()), this.has(IcariaItems.ORICHALCUM_INGOT.get()))
 			.unlockedBy(this.name(IcariaItems.VANADIUMSTEEL_BLOCK.get()), this.has(IcariaItems.VANADIUMSTEEL_BLOCK.get()))
 			.save(this.output, this.key(IcariaItems.KETTLE.get()));
+	}
+
+	public void painting() {
+		this.shaped(RecipeCategory.MISC, IcariaItems.PAINTING.get(), 1)
+			.define('A', Items.STICK)
+			.define('B', IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS)
+			.pattern("AAA")
+			.pattern("ABA")
+			.pattern("AAA")
+			.unlockedBy(this.name(Items.STICK), this.has(Items.STICK))
+			.unlockedBy(this.name(IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS), this.has(IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS))
+			.save(this.output, this.key(IcariaItems.PAINTING.get()));
 	}
 
 	public void repeater() {
