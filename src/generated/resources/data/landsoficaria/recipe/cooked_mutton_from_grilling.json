@@ -1,9 +1,9 @@
 {
   "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:cooked_rabbit",
+  "ingredient": "minecraft:mutton",
   "result": {
     "count": 1,
-    "id": "minecraft:rabbit"
+    "id": "minecraft:cooked_mutton"
   },
   "time": 600
 }

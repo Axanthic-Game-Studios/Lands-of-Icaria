@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:dried_kelp": {
+    "has_minecraft:mutton": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:dried_kelp"
+            "items": "minecraft:mutton"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kelp_from_grilling"
+        "recipe": "landsoficaria:cooked_mutton_from_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:dried_kelp"
+      "has_minecraft:mutton"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:kelp_from_grilling"
+      "landsoficaria:cooked_mutton_from_grilling"
     ]
   }
 }

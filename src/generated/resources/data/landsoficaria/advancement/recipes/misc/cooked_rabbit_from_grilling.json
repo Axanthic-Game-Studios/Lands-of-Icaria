@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:cooked_chicken": {
+    "has_minecraft:rabbit": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:cooked_chicken"
+            "items": "minecraft:rabbit"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chicken_from_grilling"
+        "recipe": "landsoficaria:cooked_rabbit_from_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:cooked_chicken"
+      "has_minecraft:rabbit"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:chicken_from_grilling"
+      "landsoficaria:cooked_rabbit_from_grilling"
     ]
   }
 }

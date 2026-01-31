@@ -1,9 +1,9 @@
 {
   "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:cooked_cod",
+  "ingredient": "minecraft:porkchop",
   "result": {
     "count": 1,
-    "id": "minecraft:cod"
+    "id": "minecraft:cooked_porkchop"
   },
   "time": 600
 }

@@ -604,15 +604,15 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void grilling() {
-		this.grilling(1, 600, Items.BEEF, Items.COOKED_BEEF);
-		this.grilling(1, 600, Items.CHICKEN, Items.COOKED_CHICKEN);
-		this.grilling(1, 600, Items.COD, Items.COOKED_COD);
-		this.grilling(1, 600, Items.KELP, Items.DRIED_KELP);
-		this.grilling(1, 600, Items.MUTTON, Items.COOKED_MUTTON);
-		this.grilling(1, 600, Items.PORKCHOP, Items.COOKED_PORKCHOP);
-		this.grilling(1, 600, Items.POTATO, Items.BAKED_POTATO);
-		this.grilling(1, 600, Items.RABBIT, Items.COOKED_RABBIT);
-		this.grilling(1, 600, Items.SALMON, Items.COOKED_SALMON);
+		this.grilling(1, 600, Items.COOKED_BEEF, Items.BEEF);
+		this.grilling(1, 600, Items.COOKED_CHICKEN, Items.CHICKEN);
+		this.grilling(1, 600, Items.COOKED_COD, Items.COD);
+		this.grilling(1, 600, Items.DRIED_KELP, Items.KELP);
+		this.grilling(1, 600, Items.COOKED_MUTTON, Items.MUTTON);
+		this.grilling(1, 600, Items.COOKED_PORKCHOP, Items.PORKCHOP);
+		this.grilling(1, 600, Items.BAKED_POTATO, Items.POTATO);
+		this.grilling(1, 600, Items.COOKED_RABBIT, Items.RABBIT);
+		this.grilling(1, 600, Items.COOKED_SALMON, Items.SALMON);
 		this.grilling(1, 600, IcariaItems.COOKED_AETERNAE_MEAT.get(), IcariaItems.RAW_AETERNAE_MEAT.get());
 		this.grilling(1, 600, IcariaItems.COOKED_CAPELLA_MEAT.get(), IcariaItems.RAW_CAPELLA_MEAT.get());
 		this.grilling(1, 600, IcariaItems.COOKED_CATOBLEPAS_MEAT.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());

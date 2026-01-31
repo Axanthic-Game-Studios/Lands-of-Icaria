@@ -1,9 +1,9 @@
 {
   "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:dried_kelp",
+  "ingredient": "minecraft:salmon",
   "result": {
     "count": 1,
-    "id": "minecraft:kelp"
+    "id": "minecraft:cooked_salmon"
   },
   "time": 600
 }

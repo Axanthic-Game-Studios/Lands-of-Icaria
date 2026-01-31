@@ -1,9 +1,9 @@
 {
   "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:cooked_chicken",
+  "ingredient": "minecraft:kelp",
   "result": {
     "count": 1,
-    "id": "minecraft:chicken"
+    "id": "minecraft:dried_kelp"
   },
   "time": 600
 }

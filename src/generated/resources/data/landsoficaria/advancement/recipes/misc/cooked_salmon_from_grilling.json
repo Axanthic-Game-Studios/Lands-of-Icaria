@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:baked_potato": {
+    "has_minecraft:salmon": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:baked_potato"
+            "items": "minecraft:salmon"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:potato_from_grilling"
+        "recipe": "landsoficaria:cooked_salmon_from_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:baked_potato"
+      "has_minecraft:salmon"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:potato_from_grilling"
+      "landsoficaria:cooked_salmon_from_grilling"
     ]
   }
 }

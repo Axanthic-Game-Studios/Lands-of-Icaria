@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_minecraft:cooked_mutton": {
+    "has_minecraft:porkchop": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:cooked_mutton"
+            "items": "minecraft:porkchop"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:mutton_from_grilling"
+        "recipe": "landsoficaria:cooked_porkchop_from_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_minecraft:cooked_mutton"
+      "has_minecraft:porkchop"
     ]
   ],
   "rewards": {
     "recipes": [
-      "landsoficaria:mutton_from_grilling"
+      "landsoficaria:cooked_porkchop_from_grilling"
     ]
   }
 }

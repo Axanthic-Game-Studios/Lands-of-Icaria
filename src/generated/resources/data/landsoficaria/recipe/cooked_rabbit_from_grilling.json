@@ -1,9 +1,9 @@
 {
   "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:cooked_salmon",
+  "ingredient": "minecraft:rabbit",
   "result": {
     "count": 1,
-    "id": "minecraft:salmon"
+    "id": "minecraft:cooked_rabbit"
   },
   "time": 600
 }
