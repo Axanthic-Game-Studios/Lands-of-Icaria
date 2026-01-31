@@ -156,6 +156,7 @@ public class IcariaCommonGameEvents {
 		pEvent.sendRecipes(IcariaRecipeTypes.EXPLOSION_CONCOCTING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.FIRING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.FORGING.get());
+		pEvent.sendRecipes(IcariaRecipeTypes.GRILLING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.GRINDING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.ITEM_CONCOCTING.get());
 		pEvent.sendRecipes(IcariaRecipeTypes.POTION_CONCOCTING.get());
