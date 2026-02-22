@@ -649,6 +649,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_CYPRESS_LEAVES.get());
 			pEvent.accept(IcariaItems.CYPRESS_TWIGS.get());
+			pEvent.accept(IcariaItems.CYPRESS_FIREWOOD.get());
+			pEvent.accept(IcariaItems.CYPRESS_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.CYPRESS_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_CYPRESS_WOOD.get());
 			pEvent.accept(IcariaItems.CYPRESS_LOG.get());
@@ -701,6 +703,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_DROUGHTROOT_LEAVES.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TWIGS.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_FIREWOOD.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_LOG.get());
@@ -753,6 +757,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_FIR_LEAVES.get());
 			pEvent.accept(IcariaItems.FIR_TWIGS.get());
+			pEvent.accept(IcariaItems.FIR_FIREWOOD.get());
+			pEvent.accept(IcariaItems.FIR_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.FIR_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_FIR_WOOD.get());
 			pEvent.accept(IcariaItems.FIR_LOG.get());
@@ -805,6 +811,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_LAUREL_LEAVES.get());
 			pEvent.accept(IcariaItems.LAUREL_TWIGS.get());
+			pEvent.accept(IcariaItems.LAUREL_FIREWOOD.get());
+			pEvent.accept(IcariaItems.LAUREL_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.LAUREL_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_LAUREL_WOOD.get());
 			pEvent.accept(IcariaItems.LAUREL_LOG.get());
@@ -857,6 +865,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_OLIVE_LEAVES.get());
 			pEvent.accept(IcariaItems.OLIVE_TWIGS.get());
+			pEvent.accept(IcariaItems.OLIVE_FIREWOOD.get());
+			pEvent.accept(IcariaItems.OLIVE_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.OLIVE_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_OLIVE_WOOD.get());
 			pEvent.accept(IcariaItems.OLIVE_LOG.get());
@@ -909,6 +919,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_PLANE_LEAVES.get());
 			pEvent.accept(IcariaItems.PLANE_TWIGS.get());
+			pEvent.accept(IcariaItems.PLANE_FIREWOOD.get());
+			pEvent.accept(IcariaItems.PLANE_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.PLANE_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_PLANE_WOOD.get());
 			pEvent.accept(IcariaItems.PLANE_LOG.get());
@@ -961,6 +973,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_LEAVES.get());
 			pEvent.accept(IcariaItems.FALLEN_POPULUS_LEAVES.get());
 			pEvent.accept(IcariaItems.POPULUS_TWIGS.get());
+			pEvent.accept(IcariaItems.POPULUS_FIREWOOD.get());
+			pEvent.accept(IcariaItems.POPULUS_FIREWOOD_WEDGE.get());
 			pEvent.accept(IcariaItems.POPULUS_WOOD.get());
 			pEvent.accept(IcariaItems.STRIPPED_POPULUS_WOOD.get());
 			pEvent.accept(IcariaItems.POPULUS_LOG.get());

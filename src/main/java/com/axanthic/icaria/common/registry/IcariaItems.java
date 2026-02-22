@@ -426,6 +426,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> CYPRESS_LEAVES = IcariaItems.register("cypress_leaves", properties -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_CYPRESS_LEAVES = IcariaItems.register("fallen_cypress_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_TWIGS = IcariaItems.register("cypress_twigs", properties -> new BlockItem(IcariaBlocks.CYPRESS_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_FIREWOOD = IcariaItems.register("cypress_firewood", properties -> new BlockItem(IcariaBlocks.CYPRESS_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_FIREWOOD_WEDGE = IcariaItems.register("cypress_firewood_wedge", properties -> new BlockItem(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_WOOD = IcariaItems.register("cypress_wood", properties -> new BlockItem(IcariaBlocks.CYPRESS_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_CYPRESS_WOOD = IcariaItems.register("stripped_cypress_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_LOG = IcariaItems.register("cypress_log", properties -> new BlockItem(IcariaBlocks.CYPRESS_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -478,6 +480,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_LEAVES = IcariaItems.register("droughtroot_leaves", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_DROUGHTROOT_LEAVES = IcariaItems.register("fallen_droughtroot_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_TWIGS = IcariaItems.register("droughtroot_twigs", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FIREWOOD = IcariaItems.register("droughtroot_firewood", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_FIREWOOD_WEDGE = IcariaItems.register("droughtroot_firewood_wedge", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_WOOD = IcariaItems.register("droughtroot_wood", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_DROUGHTROOT_WOOD = IcariaItems.register("stripped_droughtroot_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_LOG = IcariaItems.register("droughtroot_log", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -530,6 +534,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> FIR_LEAVES = IcariaItems.register("fir_leaves", properties -> new BlockItem(IcariaBlocks.FIR_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_FIR_LEAVES = IcariaItems.register("fallen_fir_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_FIR_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_TWIGS = IcariaItems.register("fir_twigs", properties -> new BlockItem(IcariaBlocks.FIR_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_FIREWOOD = IcariaItems.register("fir_firewood", properties -> new BlockItem(IcariaBlocks.FIR_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_FIREWOOD_WEDGE = IcariaItems.register("fir_firewood_wedge", properties -> new BlockItem(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_WOOD = IcariaItems.register("fir_wood", properties -> new BlockItem(IcariaBlocks.FIR_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_FIR_WOOD = IcariaItems.register("stripped_fir_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_FIR_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_LOG = IcariaItems.register("fir_log", properties -> new BlockItem(IcariaBlocks.FIR_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -582,6 +588,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> LAUREL_LEAVES = IcariaItems.register("laurel_leaves", properties -> new BlockItem(IcariaBlocks.LAUREL_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_LAUREL_LEAVES = IcariaItems.register("fallen_laurel_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_TWIGS = IcariaItems.register("laurel_twigs", properties -> new BlockItem(IcariaBlocks.LAUREL_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_FIREWOOD = IcariaItems.register("laurel_firewood", properties -> new BlockItem(IcariaBlocks.LAUREL_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_FIREWOOD_WEDGE = IcariaItems.register("laurel_firewood_wedge", properties -> new BlockItem(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_WOOD = IcariaItems.register("laurel_wood", properties -> new BlockItem(IcariaBlocks.LAUREL_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_LAUREL_WOOD = IcariaItems.register("stripped_laurel_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_LOG = IcariaItems.register("laurel_log", properties -> new BlockItem(IcariaBlocks.LAUREL_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -634,6 +642,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> OLIVE_LEAVES = IcariaItems.register("olive_leaves", properties -> new BlockItem(IcariaBlocks.OLIVE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_OLIVE_LEAVES = IcariaItems.register("fallen_olive_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_TWIGS = IcariaItems.register("olive_twigs", properties -> new BlockItem(IcariaBlocks.OLIVE_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_FIREWOOD = IcariaItems.register("olive_firewood", properties -> new BlockItem(IcariaBlocks.OLIVE_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_FIREWOOD_WEDGE = IcariaItems.register("olive_firewood_wedge", properties -> new BlockItem(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_WOOD = IcariaItems.register("olive_wood", properties -> new BlockItem(IcariaBlocks.OLIVE_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_OLIVE_WOOD = IcariaItems.register("stripped_olive_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_LOG = IcariaItems.register("olive_log", properties -> new BlockItem(IcariaBlocks.OLIVE_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -686,6 +696,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> PLANE_LEAVES = IcariaItems.register("plane_leaves", properties -> new BlockItem(IcariaBlocks.PLANE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_PLANE_LEAVES = IcariaItems.register("fallen_plane_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_TWIGS = IcariaItems.register("plane_twigs", properties -> new BlockItem(IcariaBlocks.PLANE_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_FIREWOOD = IcariaItems.register("plane_firewood", properties -> new BlockItem(IcariaBlocks.PLANE_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_FIREWOOD_WEDGE = IcariaItems.register("plane_firewood_wedge", properties -> new BlockItem(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_WOOD = IcariaItems.register("plane_wood", properties -> new BlockItem(IcariaBlocks.PLANE_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_PLANE_WOOD = IcariaItems.register("stripped_plane_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_LOG = IcariaItems.register("plane_log", properties -> new BlockItem(IcariaBlocks.PLANE_LOG.get(), properties), IcariaItems.propertiesBlock());
@@ -738,6 +750,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> POPULUS_LEAVES = IcariaItems.register("populus_leaves", properties -> new BlockItem(IcariaBlocks.POPULUS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FALLEN_POPULUS_LEAVES = IcariaItems.register("fallen_populus_leaves", properties -> new BlockItem(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_TWIGS = IcariaItems.register("populus_twigs", properties -> new BlockItem(IcariaBlocks.POPULUS_TWIGS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_FIREWOOD = IcariaItems.register("populus_firewood", properties -> new BlockItem(IcariaBlocks.POPULUS_FIREWOOD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_FIREWOOD_WEDGE = IcariaItems.register("populus_firewood_wedge", properties -> new BlockItem(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_WOOD = IcariaItems.register("populus_wood", properties -> new BlockItem(IcariaBlocks.POPULUS_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> STRIPPED_POPULUS_WOOD = IcariaItems.register("stripped_populus_wood", properties -> new BlockItem(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_LOG = IcariaItems.register("populus_log", properties -> new BlockItem(IcariaBlocks.POPULUS_LOG.get(), properties), IcariaItems.propertiesBlock());

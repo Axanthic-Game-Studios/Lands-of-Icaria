@@ -446,6 +446,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> CYPRESS_LEAVES = IcariaBlocks.register("cypress_leaves", properties -> new IcariaLeavesBlock(5203730, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_CYPRESS_LEAVES = IcariaBlocks.register("fallen_cypress_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> CYPRESS_TWIGS = IcariaBlocks.register("cypress_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_FIREWOOD = IcariaBlocks.register("cypress_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_FIREWOOD_WEDGE = IcariaBlocks.register("cypress_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_WOOD = IcariaBlocks.register("cypress_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_CYPRESS_WOOD = IcariaBlocks.register("stripped_cypress_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_LOG = IcariaBlocks.register("cypress_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
@@ -501,6 +503,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_LEAVES = IcariaBlocks.register("droughtroot_leaves", properties -> new IcariaLeavesBlock(5923354, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_DROUGHTROOT_LEAVES = IcariaBlocks.register("fallen_droughtroot_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_TWIGS = IcariaBlocks.register("droughtroot_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_FIREWOOD = IcariaBlocks.register("droughtroot_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_FIREWOOD_WEDGE = IcariaBlocks.register("droughtroot_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_WOOD = IcariaBlocks.register("droughtroot_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_DROUGHTROOT_WOOD = IcariaBlocks.register("stripped_droughtroot_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_LOG = IcariaBlocks.register("droughtroot_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BLACK, SoundType.WOOD));
@@ -556,6 +560,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> FIR_LEAVES = IcariaBlocks.register("fir_leaves", properties -> new IcariaLeavesBlock(3498818, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_FIR_LEAVES = IcariaBlocks.register("fallen_fir_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FIR_TWIGS = IcariaBlocks.register("fir_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_FIREWOOD = IcariaBlocks.register("fir_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_FIREWOOD_WEDGE = IcariaBlocks.register("fir_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_WOOD = IcariaBlocks.register("fir_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_FIR_WOOD = IcariaBlocks.register("stripped_fir_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_LOG = IcariaBlocks.register("fir_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -611,6 +617,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LAUREL_LEAVES = IcariaBlocks.register("laurel_leaves", properties -> new IcariaLeavesBlock(4347162, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_LAUREL_LEAVES = IcariaBlocks.register("fallen_laurel_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> LAUREL_TWIGS = IcariaBlocks.register("laurel_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_FIREWOOD = IcariaBlocks.register("laurel_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_FIREWOOD_WEDGE = IcariaBlocks.register("laurel_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_WOOD = IcariaBlocks.register("laurel_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_LAUREL_WOOD = IcariaBlocks.register("stripped_laurel_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_LOG = IcariaBlocks.register("laurel_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -666,6 +674,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> OLIVE_LEAVES = IcariaBlocks.register("olive_leaves", properties -> new OliveLeavesBlock(8485426, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_YELLOW, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_OLIVE_LEAVES = IcariaBlocks.register("fallen_olive_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_YELLOW, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> OLIVE_TWIGS = IcariaBlocks.register("olive_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_FIREWOOD = IcariaBlocks.register("olive_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_FIREWOOD_WEDGE = IcariaBlocks.register("olive_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_WOOD = IcariaBlocks.register("olive_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_OLIVE_WOOD = IcariaBlocks.register("stripped_olive_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_LOG = IcariaBlocks.register("olive_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
@@ -721,6 +731,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> PLANE_LEAVES = IcariaBlocks.register("plane_leaves", properties -> new IcariaLeavesBlock(5336128, properties), IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_PLANE_LEAVES = IcariaBlocks.register("fallen_plane_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> PLANE_TWIGS = IcariaBlocks.register("plane_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_FIREWOOD = IcariaBlocks.register("plane_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_FIREWOOD_WEDGE = IcariaBlocks.register("plane_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_WOOD = IcariaBlocks.register("plane_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_PLANE_WOOD = IcariaBlocks.register("stripped_plane_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_LOG = IcariaBlocks.register("plane_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_GRAY, SoundType.WOOD));
@@ -776,6 +788,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> POPULUS_LEAVES = IcariaBlocks.register("populus_leaves", properties -> new IcariaLeavesBlock(4948832, properties), IcariaBlocks.propertiesLeaves(MapColor.GLOW_LICHEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> FALLEN_POPULUS_LEAVES = IcariaBlocks.register("fallen_populus_leaves", LayerBlock::new, IcariaBlocks.propertiesLeaves(MapColor.GLOW_LICHEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> POPULUS_TWIGS = IcariaBlocks.register("populus_twigs", GroundDecoBlock::new, IcariaBlocks.propertiesTwigs(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_FIREWOOD = IcariaBlocks.register("populus_firewood", FirewoodBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_FIREWOOD_WEDGE = IcariaBlocks.register("populus_firewood_wedge", FirewoodWedgeBlock::new, IcariaBlocks.propertiesWood(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_WOOD = IcariaBlocks.register("populus_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> STRIPPED_POPULUS_WOOD = IcariaBlocks.register("stripped_populus_wood", RotatedPillarBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_YELLOW, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_LOG = IcariaBlocks.register("populus_log", IcariaLogBlock::new, IcariaBlocks.propertiesWood(MapColor.COLOR_LIGHT_GRAY, SoundType.WOOD));

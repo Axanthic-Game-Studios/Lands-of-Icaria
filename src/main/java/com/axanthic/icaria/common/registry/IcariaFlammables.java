@@ -55,6 +55,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.CYPRESS_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_LOG.get(), 5, 5);
@@ -70,6 +72,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_LOG.get(), 5, 5);
@@ -85,6 +89,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.FIR_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_FIR_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FIR_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.FIR_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.FIR_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_FIR_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.FIR_LOG.get(), 5, 5);
@@ -100,6 +106,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.LAUREL_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.LAUREL_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_LOG.get(), 5, 5);
@@ -115,6 +123,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.OLIVE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.OLIVE_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_LOG.get(), 5, 5);
@@ -130,6 +140,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.PLANE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.PLANE_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.PLANE_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.PLANE_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.PLANE_LOG.get(), 5, 5);
@@ -145,6 +157,8 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.POPULUS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_TWIGS.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.POPULUS_FIREWOOD.get(), 5, 5);
+		IcariaFlammables.set(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_LOG.get(), 5, 5);

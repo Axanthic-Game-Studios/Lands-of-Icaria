@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_firewood_wedge_smooth",
+  "textures": {
+    "firewood": "landsoficaria:block/plane_firewood",
+    "log": "landsoficaria:block/plane_log",
+    "particle": "landsoficaria:block/plane_log",
+    "smooth_log": "landsoficaria:block/smooth_plane_log"
+  }
+}

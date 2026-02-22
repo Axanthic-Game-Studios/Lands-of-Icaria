@@ -39,6 +39,7 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+	public static final EnumProperty<FirewoodWedge> FIREWOOD_WEDGE = EnumProperty.create("firewood_wedge", FirewoodWedge.class);
 	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
 	public static final EnumProperty<Ladder> LADDER = EnumProperty.create("ladder", Ladder.class);

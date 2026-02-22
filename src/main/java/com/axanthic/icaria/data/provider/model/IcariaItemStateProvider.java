@@ -399,6 +399,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_CYPRESS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_CYPRESS_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_LOG.get(), pItemModelGenerators);
@@ -449,6 +451,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_DROUGHTROOT_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_LOG.get(), pItemModelGenerators);
@@ -499,6 +503,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.FIR_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_FIR_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_FIR_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_LOG.get(), pItemModelGenerators);
@@ -549,6 +555,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_LAUREL_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_LAUREL_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_LOG.get(), pItemModelGenerators);
@@ -599,6 +607,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_OLIVE_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_OLIVE_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_LOG.get(), pItemModelGenerators);
@@ -649,6 +659,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_PLANE_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_PLANE_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_LOG.get(), pItemModelGenerators);
@@ -699,6 +711,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_POPULUS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TWIGS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_FIREWOOD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_FIREWOOD_WEDGE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRIPPED_POPULUS_WOOD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_LOG.get(), pItemModelGenerators);

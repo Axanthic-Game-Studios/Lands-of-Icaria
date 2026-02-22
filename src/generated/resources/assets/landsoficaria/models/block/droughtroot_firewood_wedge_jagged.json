@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_firewood_wedge_jagged",
+  "textures": {
+    "firewood": "landsoficaria:block/droughtroot_firewood",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/droughtroot_log",
+    "smooth_log": "landsoficaria:block/smooth_droughtroot_log"
+  }
+}

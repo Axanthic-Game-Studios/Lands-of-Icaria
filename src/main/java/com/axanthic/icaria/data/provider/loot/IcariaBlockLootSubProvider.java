@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -53,6 +54,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropCrop();
 		this.dropDoor();
 		this.dropElse();
+		this.dropFirewood();
 		this.dropGroundFlowers();
 		this.dropLaurelLeaves();
 		this.dropLayers();
@@ -164,6 +166,23 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.PLANE_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
+	}
+
+	public void dropFirewood() {
+		this.dropFirewood(IcariaBlocks.CYPRESS_FIREWOOD.get(), IcariaItems.CYPRESS_LOG.get());
+		this.dropFirewood(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), IcariaItems.CYPRESS_LOG.get());
+		this.dropFirewood(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), IcariaItems.DROUGHTROOT_LOG.get());
+		this.dropFirewood(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), IcariaItems.DROUGHTROOT_LOG.get());
+		this.dropFirewood(IcariaBlocks.FIR_FIREWOOD.get(), IcariaItems.FIR_LOG.get());
+		this.dropFirewood(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), IcariaItems.FIR_LOG.get());
+		this.dropFirewood(IcariaBlocks.LAUREL_FIREWOOD.get(), IcariaItems.LAUREL_LOG.get());
+		this.dropFirewood(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), IcariaItems.LAUREL_LOG.get());
+		this.dropFirewood(IcariaBlocks.OLIVE_FIREWOOD.get(), IcariaItems.OLIVE_LOG.get());
+		this.dropFirewood(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), IcariaItems.OLIVE_LOG.get());
+		this.dropFirewood(IcariaBlocks.PLANE_FIREWOOD.get(), IcariaItems.PLANE_LOG.get());
+		this.dropFirewood(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), IcariaItems.PLANE_LOG.get());
+		this.dropFirewood(IcariaBlocks.POPULUS_FIREWOOD.get(), IcariaItems.POPULUS_LOG.get());
+		this.dropFirewood(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), IcariaItems.POPULUS_LOG.get());
 	}
 
 	public void dropGroundFlowers() {
@@ -1031,6 +1050,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropElse(Block pBlock, Item pItem) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem))));
+	}
+
+	public void dropFirewood(Block pBlock, Item pItem) {
+		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.silk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2))).when(this.noSilk()))));
 	}
 
 	public void dropGroundFlowers(Block pBlock) {

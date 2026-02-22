@@ -473,6 +473,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), "Cypress Leaves");
 		this.add(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), "Fallen Cypress Leaves");
 		this.add(IcariaBlocks.CYPRESS_TWIGS.get(), "Cypress Twigs");
+		this.add(IcariaBlocks.CYPRESS_FIREWOOD.get(), "Cypress Firewood");
+		this.add(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), "Cypress Firewood Wedge");
 		this.add(IcariaBlocks.CYPRESS_WOOD.get(), "Cypress Wood");
 		this.add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), "Stripped Cypress Wood");
 		this.add(IcariaBlocks.CYPRESS_LOG.get(), "Cypress Log");
@@ -526,6 +528,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), "Droughtroot Leaves");
 		this.add(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), "Fallen Droughtroot Leaves");
 		this.add(IcariaBlocks.DROUGHTROOT_TWIGS.get(), "Droughtroot Twigs");
+		this.add(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), "Droughtroot Firewood");
+		this.add(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), "Droughtroot Firewood Wedge");
 		this.add(IcariaBlocks.DROUGHTROOT_WOOD.get(), "Droughtroot Wood");
 		this.add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), "Stripped Droughtroot Wood");
 		this.add(IcariaBlocks.DROUGHTROOT_LOG.get(), "Droughtroot Log");
@@ -579,6 +583,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_LEAVES.get(), "Fir Leaves");
 		this.add(IcariaBlocks.FALLEN_FIR_LEAVES.get(), "Fallen Fir Leaves");
 		this.add(IcariaBlocks.FIR_TWIGS.get(), "Fir Twigs");
+		this.add(IcariaBlocks.FIR_FIREWOOD.get(), "Fir Firewood");
+		this.add(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), "Fir Firewood Wedge");
 		this.add(IcariaBlocks.FIR_WOOD.get(), "Fir Wood");
 		this.add(IcariaBlocks.STRIPPED_FIR_WOOD.get(), "Stripped Fir Wood");
 		this.add(IcariaBlocks.FIR_LOG.get(), "Fir Log");
@@ -632,6 +638,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_LEAVES.get(), "Laurel Leaves");
 		this.add(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), "Fallen Laurel Leaves");
 		this.add(IcariaBlocks.LAUREL_TWIGS.get(), "Laurel Twigs");
+		this.add(IcariaBlocks.LAUREL_FIREWOOD.get(), "Laurel Firewood");
+		this.add(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), "Laurel Firewood Wedge");
 		this.add(IcariaBlocks.LAUREL_WOOD.get(), "Laurel Wood");
 		this.add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), "Stripped Laurel Wood");
 		this.add(IcariaBlocks.LAUREL_LOG.get(), "Laurel Log");
@@ -685,6 +693,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_LEAVES.get(), "Olive Leaves");
 		this.add(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), "Fallen Olive Leaves");
 		this.add(IcariaBlocks.OLIVE_TWIGS.get(), "Olive Twigs");
+		this.add(IcariaBlocks.OLIVE_FIREWOOD.get(), "Olive Firewood");
+		this.add(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), "Olive Firewood Wedge");
 		this.add(IcariaBlocks.OLIVE_WOOD.get(), "Olive Wood");
 		this.add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), "Stripped Olive Wood");
 		this.add(IcariaBlocks.OLIVE_LOG.get(), "Olive Log");
@@ -738,6 +748,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_LEAVES.get(), "Plane Leaves");
 		this.add(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), "Fallen Plane Leaves");
 		this.add(IcariaBlocks.PLANE_TWIGS.get(), "Plane Twigs");
+		this.add(IcariaBlocks.PLANE_FIREWOOD.get(), "Plane Firewood");
+		this.add(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), "Plane Firewood Wedge");
 		this.add(IcariaBlocks.PLANE_WOOD.get(), "Plane Wood");
 		this.add(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), "Stripped Plane Wood");
 		this.add(IcariaBlocks.PLANE_LOG.get(), "Plane Log");
@@ -791,6 +803,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_LEAVES.get(), "Populus Leaves");
 		this.add(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), "Fallen Populus Leaves");
 		this.add(IcariaBlocks.POPULUS_TWIGS.get(), "Populus Twigs");
+		this.add(IcariaBlocks.POPULUS_FIREWOOD.get(), "Populus Firewood");
+		this.add(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), "Populus Firewood Wedge");
 		this.add(IcariaBlocks.POPULUS_WOOD.get(), "Populus Wood");
 		this.add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), "Stripped Populus Wood");
 		this.add(IcariaBlocks.POPULUS_LOG.get(), "Populus Log");

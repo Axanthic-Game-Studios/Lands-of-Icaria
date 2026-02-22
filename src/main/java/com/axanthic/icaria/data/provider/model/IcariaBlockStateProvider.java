@@ -46,6 +46,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.fenceGate(pBlockModelGenerators);
 		IcariaBlockStateProvider.fire(pBlockModelGenerators);
 		IcariaBlockStateProvider.fireplace(pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(pBlockModelGenerators);
 		IcariaBlockStateProvider.flowerPotCountertop(pBlockModelGenerators);
 		IcariaBlockStateProvider.forge(pBlockModelGenerators);
 		IcariaBlockStateProvider.grassyMarl(pBlockModelGenerators);
@@ -592,6 +593,16 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.fireplace(IcariaBlocks.POT_FIREPLACE.get(), pBlockModelGenerators);
 	}
 
+	public static void firewoodWedge(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.firewoodWedge(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+	}
+
 	public static void flowerPotCountertop(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.flowerPotCountertop(IcariaBlocks.CYPRESS_FLOWER_POT_COUNTERTOP.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.flowerPotCountertop(IcariaBlocks.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get(), pBlockModelGenerators);
@@ -627,6 +638,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -642,6 +654,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -657,6 +670,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -672,6 +686,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -687,6 +702,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -702,6 +718,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -717,6 +734,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_LADDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_HERB_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_PAN_HOLDER.get(), pBlockModelGenerators);
@@ -2506,6 +2524,21 @@ public class IcariaBlockStateProvider {
 				.select(Direction.WEST, DoubleBlockHalf.LOWER, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "lower_lit")).with(BlockModelGenerators.Y_ROT_270)))
 				.select(Direction.WEST, DoubleBlockHalf.UPPER, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "upper")).with(BlockModelGenerators.Y_ROT_270)))
 				.select(Direction.WEST, DoubleBlockHalf.UPPER, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "upper")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
+	}
+
+	public static void firewoodWedge(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.FIREWOOD_WEDGE)
+				.select(Direction.NORTH, FirewoodWedge.JAGGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "jagged"))))
+				.select(Direction.NORTH, FirewoodWedge.SMOOTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "smooth"))))
+				.select(Direction.EAST, FirewoodWedge.JAGGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "jagged")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, FirewoodWedge.SMOOTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "smooth")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, FirewoodWedge.JAGGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "jagged")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, FirewoodWedge.SMOOTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "smooth")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, FirewoodWedge.JAGGED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "jagged")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, FirewoodWedge.SMOOTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "smooth")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

@@ -68,6 +68,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.fenceGate(pBlockModelGenerators);
 		IcariaBlockModelProvider.fertilizedFarmland(pBlockModelGenerators);
 		IcariaBlockModelProvider.fire(pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(pBlockModelGenerators);
 		IcariaBlockModelProvider.flasksCupboard(pBlockModelGenerators);
 		IcariaBlockModelProvider.flowerPotCountertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.flowerPotCross(pBlockModelGenerators);
@@ -190,6 +192,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.deadLogModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.deadVineModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.dishesCupboardModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedgeModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.flasksCupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.flowerPotCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.forgeInventoryModel(pBlockModelGenerators);
@@ -700,6 +704,26 @@ public class IcariaBlockModelProvider {
 
 	public static void fire(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.fire(IcariaBlocks.GREEK_FIRE.get(), pBlockModelGenerators);
+	}
+
+	public static void firewood(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.firewood(IcariaBlocks.CYPRESS_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.FIR_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.LAUREL_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.OLIVE_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.PLANE_FIREWOOD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewood(IcariaBlocks.POPULUS_FIREWOOD.get(), pBlockModelGenerators);
+	}
+
+	public static void firewoodWedge(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.firewoodWedge(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), pBlockModelGenerators);
 	}
 
 	public static void flasksCupboard(BlockModelGenerators pBlockModelGenerators) {
@@ -3352,6 +3376,30 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void firewood(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood", "log"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood", "log")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void firewoodWedge(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood_wedge_jagged")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "jagged"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood_wedge_smooth")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "smooth"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood"))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void flasksCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_flasks_cupboard")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -5481,6 +5529,15 @@ public class IcariaBlockModelProvider {
 		GrateFireplaceModel.lower().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		GrateFireplaceModel.lowerLit().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_lower_lit"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		GrateFireplaceModel.upper().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_grate_fireplace_upper"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void firewoodModel(BlockModelGenerators blockModels) {
+		FirewoodModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void firewoodWedgeModel(BlockModelGenerators blockModels) {
+		FirewoodWedgeModel.jagged().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood_wedge_jagged"), new TextureMapping(), blockModels.modelOutput);
+		FirewoodWedgeModel.smooth().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_firewood_wedge_smooth"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void flasksCupboardModel(BlockModelGenerators blockModels) {

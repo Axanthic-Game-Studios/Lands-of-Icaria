@@ -473,6 +473,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), "Zypressenlaub");
 		this.add(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), "Herabgefallenes Zypressenlaub");
 		this.add(IcariaBlocks.CYPRESS_TWIGS.get(), "Zypressenzweige");
+		this.add(IcariaBlocks.CYPRESS_FIREWOOD.get(), "Zypressen-Feuerholz");
+		this.add(IcariaBlocks.CYPRESS_FIREWOOD_WEDGE.get(), "Zypressen-Feuerholzkeil");
 		this.add(IcariaBlocks.CYPRESS_WOOD.get(), "Zypressenholz");
 		this.add(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), "Entrindetes Zypressenholz");
 		this.add(IcariaBlocks.CYPRESS_LOG.get(), "Zypressenstamm");
@@ -526,6 +528,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_LEAVES.get(), "Dürrwurzellaub");
 		this.add(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), "Herabgefallenes Dürrwurzellaub");
 		this.add(IcariaBlocks.DROUGHTROOT_TWIGS.get(), "Dürrwurzelzweige");
+		this.add(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), "Dürrwurzel-Feuerholz");
+		this.add(IcariaBlocks.DROUGHTROOT_FIREWOOD_WEDGE.get(), "Dürrwurzel-Feuerholzkeil");
 		this.add(IcariaBlocks.DROUGHTROOT_WOOD.get(), "Dürrwurzelholz");
 		this.add(IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), "Entrindetes Dürrwurzelholz");
 		this.add(IcariaBlocks.DROUGHTROOT_LOG.get(), "Dürrwurzelstamm");
@@ -579,6 +583,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_LEAVES.get(), "Tannenlaub");
 		this.add(IcariaBlocks.FALLEN_FIR_LEAVES.get(), "Herbagefallenes Tannenlaub");
 		this.add(IcariaBlocks.FIR_TWIGS.get(), "Tannenzweige");
+		this.add(IcariaBlocks.FIR_FIREWOOD.get(), "Tannen-Feuerholz");
+		this.add(IcariaBlocks.FIR_FIREWOOD_WEDGE.get(), "Tannen-Feuerholzkeil");
 		this.add(IcariaBlocks.FIR_WOOD.get(), "Tannenholz");
 		this.add(IcariaBlocks.STRIPPED_FIR_WOOD.get(), "Entrindetes Tannenholz");
 		this.add(IcariaBlocks.FIR_LOG.get(), "Tannenstamm");
@@ -632,6 +638,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_LEAVES.get(), "Lorbeerlaub");
 		this.add(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), "Herbagefallenes Lorbeerlaub");
 		this.add(IcariaBlocks.LAUREL_TWIGS.get(), "Lorbeerzweige");
+		this.add(IcariaBlocks.LAUREL_FIREWOOD.get(), "Lorbeer-Feuerholz");
+		this.add(IcariaBlocks.LAUREL_FIREWOOD_WEDGE.get(), "Lorbeer-Feuerholzkeil");
 		this.add(IcariaBlocks.LAUREL_WOOD.get(), "Lorbeerholz");
 		this.add(IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), "Entrindetes Lorbeerholz");
 		this.add(IcariaBlocks.LAUREL_LOG.get(), "Lorbeerstamm");
@@ -685,6 +693,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_LEAVES.get(), "Olivenlaub");
 		this.add(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), "Herbagefallenes Olivenlaub");
 		this.add(IcariaBlocks.OLIVE_TWIGS.get(), "Olivenzweige");
+		this.add(IcariaBlocks.OLIVE_FIREWOOD.get(), "Oliven-Feuerholz");
+		this.add(IcariaBlocks.OLIVE_FIREWOOD_WEDGE.get(), "Oliven-Feuerholzkeil");
 		this.add(IcariaBlocks.OLIVE_WOOD.get(), "Olivenholz");
 		this.add(IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), "Entrindetes Olivenholz");
 		this.add(IcariaBlocks.OLIVE_LOG.get(), "Olivenstamm");
@@ -738,6 +748,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_LEAVES.get(), "Plantanenlaub");
 		this.add(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), "Herbagefallenes Plantanenlaub");
 		this.add(IcariaBlocks.PLANE_TWIGS.get(), "Plantanenzweige");
+		this.add(IcariaBlocks.PLANE_FIREWOOD.get(), "Plantanen-Feuerholz");
+		this.add(IcariaBlocks.PLANE_FIREWOOD_WEDGE.get(), "Plantanen-Feuerholzkeil");
 		this.add(IcariaBlocks.PLANE_WOOD.get(), "Plantanenholz");
 		this.add(IcariaBlocks.STRIPPED_PLANE_WOOD.get(), "Entrindetes Plantanenholz");
 		this.add(IcariaBlocks.PLANE_LOG.get(), "Plantanenstamm");
@@ -791,6 +803,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_LEAVES.get(), "Pappellaub");
 		this.add(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), "Herbagefallenes Pappellaub");
 		this.add(IcariaBlocks.POPULUS_TWIGS.get(), "Pappelzweige");
+		this.add(IcariaBlocks.POPULUS_FIREWOOD.get(), "Pappel-Feuerholz");
+		this.add(IcariaBlocks.POPULUS_FIREWOOD_WEDGE.get(), "Pappel-Feuerholzkeil");
 		this.add(IcariaBlocks.POPULUS_WOOD.get(), "Pappelholz");
 		this.add(IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), "Entrindetes Pappelholz");
 		this.add(IcariaBlocks.POPULUS_LOG.get(), "Pappelstamm");

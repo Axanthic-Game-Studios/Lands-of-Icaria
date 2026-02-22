@@ -45,6 +45,12 @@
     "landsoficaria:cypress_crafting_table": {
       "burn_time": 300
     },
+    "landsoficaria:cypress_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:cypress_firewood_wedge": {
+      "burn_time": 300
+    },
     "landsoficaria:cypress_kitchen_table": {
       "burn_time": 600
     },
@@ -75,6 +81,12 @@
     "landsoficaria:droughtroot_crafting_table": {
       "burn_time": 300
     },
+    "landsoficaria:droughtroot_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:droughtroot_firewood_wedge": {
+      "burn_time": 300
+    },
     "landsoficaria:droughtroot_kitchen_table": {
       "burn_time": 600
     },
@@ -103,6 +115,12 @@
       "burn_time": 100
     },
     "landsoficaria:fir_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:fir_firewood_wedge": {
       "burn_time": 300
     },
     "landsoficaria:fir_kitchen_table": {
@@ -145,6 +163,12 @@
       "burn_time": 100
     },
     "landsoficaria:laurel_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:laurel_firewood_wedge": {
       "burn_time": 300
     },
     "landsoficaria:laurel_kitchen_table": {
@@ -210,6 +234,12 @@
     "landsoficaria:olive_crafting_table": {
       "burn_time": 300
     },
+    "landsoficaria:olive_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:olive_firewood_wedge": {
+      "burn_time": 300
+    },
     "landsoficaria:olive_kitchen_table": {
       "burn_time": 600
     },
@@ -252,6 +282,12 @@
     "landsoficaria:plane_crafting_table": {
       "burn_time": 300
     },
+    "landsoficaria:plane_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:plane_firewood_wedge": {
+      "burn_time": 300
+    },
     "landsoficaria:plane_kitchen_table": {
       "burn_time": 600
     },
@@ -280,6 +316,12 @@
       "burn_time": 100
     },
     "landsoficaria:populus_crafting_table": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_firewood": {
+      "burn_time": 300
+    },
+    "landsoficaria:populus_firewood_wedge": {
       "burn_time": 300
     },
     "landsoficaria:populus_kitchen_table": {

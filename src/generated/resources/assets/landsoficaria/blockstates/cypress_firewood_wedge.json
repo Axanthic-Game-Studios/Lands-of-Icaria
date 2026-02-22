@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,firewood_wedge=jagged": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_jagged",
+      "y": 90
+    },
+    "facing=east,firewood_wedge=smooth": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_smooth",
+      "y": 90
+    },
+    "facing=north,firewood_wedge=jagged": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_jagged"
+    },
+    "facing=north,firewood_wedge=smooth": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_smooth"
+    },
+    "facing=south,firewood_wedge=jagged": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_jagged",
+      "y": 180
+    },
+    "facing=south,firewood_wedge=smooth": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_smooth",
+      "y": 180
+    },
+    "facing=west,firewood_wedge=jagged": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_jagged",
+      "y": 270
+    },
+    "facing=west,firewood_wedge=smooth": {
+      "model": "landsoficaria:block/cypress_firewood_wedge_smooth",
+      "y": 270
+    }
+  }
+}

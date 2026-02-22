@@ -208,6 +208,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.CHEST.get(), 300);
 		this.furnaceFuels(IcariaItems.TRAPPED_CHEST.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.CYPRESS_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.CYPRESS_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.CYPRESS_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_STOOL.get(), 300);
@@ -217,6 +219,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.CYPRESS_SCROLLSHELF.get(), 300);
 		this.furnaceFuels(IcariaItems.CYPRESS_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.DROUGHTROOT_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.DROUGHTROOT_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_STOOL.get(), 300);
@@ -227,6 +231,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_BUTTON.get(), 100);
 		this.furnaceFuels(IcariaItems.DROUGHTROOT_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.FIR_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.FIR_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.FIR_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.FIR_STOOL.get(), 300);
@@ -237,6 +243,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.FIR_BUTTON.get(), 100);
 		this.furnaceFuels(IcariaItems.FIR_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.LAUREL_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.LAUREL_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.LAUREL_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.LAUREL_STOOL.get(), 300);
@@ -247,6 +255,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.LAUREL_BUTTON.get(), 100);
 		this.furnaceFuels(IcariaItems.LAUREL_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.OLIVE_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.OLIVE_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.OLIVE_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.OLIVE_STOOL.get(), 300);
@@ -257,6 +267,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.OLIVE_BUTTON.get(), 100);
 		this.furnaceFuels(IcariaItems.OLIVE_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.PLANE_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.PLANE_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.PLANE_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.PLANE_STOOL.get(), 300);
@@ -267,6 +279,8 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.furnaceFuels(IcariaItems.PLANE_BUTTON.get(), 100);
 		this.furnaceFuels(IcariaItems.PLANE_LADDER.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_TWIGS.get(), 100);
+		this.furnaceFuels(IcariaItems.POPULUS_FIREWOOD.get(), 300);
+		this.furnaceFuels(IcariaItems.POPULUS_FIREWOOD_WEDGE.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_BATHTUB.get(), 600);
 		this.furnaceFuels(IcariaItems.POPULUS_TROUGH.get(), 300);
 		this.furnaceFuels(IcariaItems.POPULUS_STOOL.get(), 300);

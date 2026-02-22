@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_firewood",
+  "textures": {
+    "firewood": "landsoficaria:block/droughtroot_firewood",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/droughtroot_log",
+    "smooth_log": "landsoficaria:block/smooth_droughtroot_log"
+  }
+}
