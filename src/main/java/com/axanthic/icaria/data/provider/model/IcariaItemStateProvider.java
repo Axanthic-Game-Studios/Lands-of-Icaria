@@ -395,6 +395,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_BERRY_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_SPROUT_CAKE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CHECKERS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CHESS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SAPLING.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FALLEN_CYPRESS_LEAVES.get(), pItemModelGenerators);

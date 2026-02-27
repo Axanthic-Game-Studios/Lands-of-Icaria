@@ -35,6 +35,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.cardonCactus(pBlockModelGenerators);
 		IcariaBlockStateProvider.carpetHorizontal(pBlockModelGenerators);
 		IcariaBlockStateProvider.chain(pBlockModelGenerators);
+		IcariaBlockStateProvider.chessboard(pBlockModelGenerators);
 		IcariaBlockStateProvider.countertop(pBlockModelGenerators);
 		IcariaBlockStateProvider.crop(pBlockModelGenerators);
 		IcariaBlockStateProvider.deadDroughtrootLog(pBlockModelGenerators);
@@ -504,6 +505,11 @@ public class IcariaBlockStateProvider {
 
 	public static void chain(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.chain(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), pBlockModelGenerators);
+	}
+
+	public static void chessboard(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.chessboard(IcariaBlocks.CHECKERS.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.chessboard(IcariaBlocks.CHESS.get(), pBlockModelGenerators);
 	}
 
 	public static void countertop(BlockModelGenerators pBlockModelGenerators) {
@@ -1649,6 +1655,21 @@ public class IcariaBlockStateProvider {
 				.select(Direction.Axis.X, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_90)))
 				.select(Direction.Axis.Y, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
 				.select(Direction.Axis.Z, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.X_ROT_90)))
+			)
+		);
+	}
+
+	public static void chessboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.CHESSBOARD)
+				.select(Direction.NORTH, Chessboard.PLAYED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "played"))))
+				.select(Direction.NORTH, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set"))))
+				.select(Direction.EAST, Chessboard.PLAYED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "played")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Chessboard.PLAYED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "played")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Chessboard.PLAYED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "played")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

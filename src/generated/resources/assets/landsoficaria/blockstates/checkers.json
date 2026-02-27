@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "chessboard=played,facing=east": {
+      "model": "landsoficaria:block/checkers_played",
+      "y": 90
+    },
+    "chessboard=played,facing=north": {
+      "model": "landsoficaria:block/checkers_played"
+    },
+    "chessboard=played,facing=south": {
+      "model": "landsoficaria:block/checkers_played",
+      "y": 180
+    },
+    "chessboard=played,facing=west": {
+      "model": "landsoficaria:block/checkers_played",
+      "y": 270
+    },
+    "chessboard=set,facing=east": {
+      "model": "landsoficaria:block/checkers_set",
+      "y": 90
+    },
+    "chessboard=set,facing=north": {
+      "model": "landsoficaria:block/checkers_set"
+    },
+    "chessboard=set,facing=south": {
+      "model": "landsoficaria:block/checkers_set",
+      "y": 180
+    },
+    "chessboard=set,facing=west": {
+      "model": "landsoficaria:block/checkers_set",
+      "y": 270
+    }
+  }
+}

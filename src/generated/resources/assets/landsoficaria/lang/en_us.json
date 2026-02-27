@@ -116,7 +116,9 @@
   "block.landsoficaria.chalkos_ore": "Chalkos Ore",
   "block.landsoficaria.chameomile": "Chameomile",
   "block.landsoficaria.charmonder": "Charmonder",
+  "block.landsoficaria.checkers": "Checkers",
   "block.landsoficaria.chert_block": "Block of Chert",
+  "block.landsoficaria.chess": "Chess",
   "block.landsoficaria.chest": "Chest",
   "block.landsoficaria.chimney": "Chimney",
   "block.landsoficaria.chimney_brick_crown": "Chimney Brick Crown",
@@ -1738,6 +1740,5 @@
   "tooltip.landsoficaria.chest_label.style": "Style",
   "tooltip.landsoficaria.chest_label.title": "Right click to edit",
   "tooltip.landsoficaria.chest_label.white": "White",
-  "tooltip.landsoficaria.chest_label.yellow": "Yellow",
-  "tooltip.landsoficaria.pillar_head.title": "Sneak to invert placement"
+  "tooltip.landsoficaria.chest_label.yellow": "Yellow"
 }

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_checkers_played",
+  "textures": {
+    "particle": "landsoficaria:block/chessboard_particle",
+    "texture": "landsoficaria:block/chessboard"
+  }
+}

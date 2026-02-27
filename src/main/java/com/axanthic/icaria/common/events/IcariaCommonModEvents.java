@@ -640,6 +640,9 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PHYSALIS_CAKE.get());
 			pEvent.accept(IcariaItems.VINE_BERRY_CAKE.get());
 			pEvent.accept(IcariaItems.VINE_SPROUT_CAKE.get());
+
+			pEvent.accept(IcariaItems.CHECKERS.get());
+			pEvent.accept(IcariaItems.CHESS.get());
 		}
 	}
 

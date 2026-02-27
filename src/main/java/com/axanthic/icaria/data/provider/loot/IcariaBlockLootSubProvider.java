@@ -639,6 +639,8 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.THOG_SKULL.get());
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		this.dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
+		this.dropThis(IcariaBlocks.CHECKERS.get());
+		this.dropThis(IcariaBlocks.CHESS.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SAPLING.get());
 		this.dropThis(IcariaBlocks.CYPRESS_WOOD.get());
 		this.dropThis(IcariaBlocks.STRIPPED_CYPRESS_WOOD.get());

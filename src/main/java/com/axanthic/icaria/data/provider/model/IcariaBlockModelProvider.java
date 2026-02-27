@@ -47,6 +47,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.cardonCactus(pBlockModelGenerators);
 		IcariaBlockModelProvider.carpet(pBlockModelGenerators);
 		IcariaBlockModelProvider.chain(pBlockModelGenerators);
+		IcariaBlockModelProvider.checkers(pBlockModelGenerators);
+		IcariaBlockModelProvider.chess(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimney(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyBrickCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrown(pBlockModelGenerators);
@@ -182,6 +184,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.calciteCrystalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cardonCactusInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cardonCactusModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.checkersModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.chessModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyBrickCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrownModel(pBlockModelGenerators);
@@ -560,6 +564,14 @@ public class IcariaBlockModelProvider {
 
 	public static void chain(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.chain(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), pBlockModelGenerators);
+	}
+
+	public static void checkers(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.checkers(IcariaBlocks.CHECKERS.get(), pBlockModelGenerators);
+	}
+
+	public static void chess(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.chess(IcariaBlocks.CHESS.get(), pBlockModelGenerators);
 	}
 
 	public static void chimney(BlockModelGenerators pBlockModelGenerators) {
@@ -2053,6 +2065,28 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
 				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void checkers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_played")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_set")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void chess(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_played")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_set")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
+				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chimney(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5469,6 +5503,16 @@ public class IcariaBlockModelProvider {
 	public static void cardonCactusModel(BlockModelGenerators blockModels) {
 		CardonCactusModel.cube().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_cube"), new TextureMapping(), blockModels.modelOutput);
 		CardonCactusModel.stem().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cardon_cactus_stem"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void checkersModel(BlockModelGenerators blockModels) {
+		CheckersModel.played().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_played"), new TextureMapping(), blockModels.modelOutput);
+		CheckersModel.set().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_set"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void chessModel(BlockModelGenerators blockModels) {
+		ChessModel.played().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_played"), new TextureMapping(), blockModels.modelOutput);
+		ChessModel.set().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_set"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void chimneyModel(BlockModelGenerators pBlockModelGenerators) {

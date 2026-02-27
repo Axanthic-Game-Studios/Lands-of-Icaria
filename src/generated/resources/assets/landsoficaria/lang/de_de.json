@@ -116,7 +116,9 @@
   "block.landsoficaria.chalkos_ore": "Kuffarerz",
   "block.landsoficaria.chameomile": "Kamille",
   "block.landsoficaria.charmonder": "Charvendel",
+  "block.landsoficaria.checkers": "Dame",
   "block.landsoficaria.chert_block": "Hornsteinblock",
+  "block.landsoficaria.chess": "Schach",
   "block.landsoficaria.chest": "Truhe",
   "block.landsoficaria.chimney": "Schornstein",
   "block.landsoficaria.chimney_brick_crown": "Schornstein-Ziegelmündung",
@@ -1738,6 +1740,5 @@
   "tooltip.landsoficaria.chest_label.style": "Stil",
   "tooltip.landsoficaria.chest_label.title": "Rechte Maustaste zum Bearbeiten",
   "tooltip.landsoficaria.chest_label.white": "Weiß",
-  "tooltip.landsoficaria.chest_label.yellow": "Gelb",
-  "tooltip.landsoficaria.pillar_head.title": "Schleichen zum invertierten Platzieren"
+  "tooltip.landsoficaria.chest_label.yellow": "Gelb"
 }

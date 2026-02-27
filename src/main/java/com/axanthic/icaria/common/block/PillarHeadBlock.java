@@ -34,12 +34,7 @@ public class PillarHeadBlock extends DirectionalBlock {
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var direction = pBlockPlaceContext.getNearestLookingDirection();
-		var player = pBlockPlaceContext.getPlayer();
-		if (player != null && player.isShiftKeyDown()) {
-			return this.defaultBlockState().setValue(BlockStateProperties.FACING, direction.getOpposite());
-		} else {
-			return this.defaultBlockState().setValue(BlockStateProperties.FACING, direction);
-		}
+		return this.defaultBlockState().setValue(BlockStateProperties.FACING, direction);
 	}
 
 	@Override

@@ -4,6 +4,7 @@ Additions
 - Arachne String Blocks in each Color
 - Arachne String Carpets in each Color
 - Bone Ladder and Rotten Bone Ladder Blocks
+- Checkers and Chess Blocks
 - Chimney Blocks
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type

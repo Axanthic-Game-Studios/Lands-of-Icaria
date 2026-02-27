@@ -468,6 +468,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Vine Berry Cake");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
+		this.add(IcariaBlocks.CHECKERS.get(), "Checkers");
+		this.add(IcariaBlocks.CHESS.get(), "Chess");
+
 		this.add(IcariaBlocks.CYPRESS_SAPLING.get(), "Cypress Sapling");
 		this.add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), "Potted Cypress Sapling");
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), "Cypress Leaves");
@@ -1904,7 +1907,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Style");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Classic");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Glowing");
-		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Sneak to invert placement");
 	}
 
 	@Override

@@ -776,6 +776,8 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.CYAN_LOOT_VASE.get(), "2", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.ARACHNE_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.REVENANT_SPAWNER.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CHECKERS.get(), "set", pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CHESS.get(), "set", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_LEAVES.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FALLEN_CYPRESS_LEAVES.get(), "1", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_TWIGS.get(), "3", pItemModelGenerators);

@@ -71,7 +71,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> DOLOMITE_BRICKS = IcariaItems.register("dolomite_bricks", properties -> new BlockItem(IcariaBlocks.DOLOMITE_BRICKS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHISELED_DOLOMITE = IcariaItems.register("chiseled_dolomite", properties -> new BlockItem(IcariaBlocks.CHISELED_DOLOMITE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR = IcariaItems.register("dolomite_pillar", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DOLOMITE_PILLAR_HEAD = IcariaItems.register("dolomite_pillar_head", properties -> new BlockItem(IcariaBlocks.DOLOMITE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> GRAINEL = IcariaItems.register("grainel", properties -> new BlockItem(IcariaBlocks.GRAINEL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> SUSPICIOUS_GRAINEL = IcariaItems.register("suspicious_grainel", properties -> new BlockItem(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), properties), IcariaItems.propertiesBlock());
@@ -230,7 +230,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> MOSSY_RELICSTONE_TILE_WALL = IcariaItems.register("mossy_relicstone_tile_wall", properties -> new BlockItem(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHISELED_RELICSTONE = IcariaItems.register("chiseled_relicstone", properties -> new BlockItem(IcariaBlocks.CHISELED_RELICSTONE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR = IcariaItems.register("relicstone_pillar", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> RELICSTONE_PILLAR_HEAD = IcariaItems.register("relicstone_pillar_head", properties -> new BlockItem(IcariaBlocks.RELICSTONE_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> RELICSTONE_RUBBLE = IcariaItems.register("relicstone_rubble", properties -> new BlockItem(IcariaBlocks.RELICSTONE_RUBBLE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> PLATOSHALE = IcariaItems.register("platoshale", properties -> new BlockItem(IcariaBlocks.PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
@@ -246,7 +246,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> CHISELED_PLATOSHALE = IcariaItems.register("chiseled_platoshale", properties -> new BlockItem(IcariaBlocks.CHISELED_PLATOSHALE.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> QUARTZ_WALL = IcariaItems.register("quartz_wall", properties -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), properties), IcariaItems.propertiesBlock());
-	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new PillarHeadItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register("quartz_pillar_head", properties -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> CHIMNEY = IcariaItems.register("chimney", properties -> new BlockItem(IcariaBlocks.CHIMNEY.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHIMNEY_BRICK_CROWN = IcariaItems.register("chimney_brick_crown", properties -> new BlockItem(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), properties), IcariaItems.propertiesBlock());
@@ -421,6 +421,9 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> PHYSALIS_CAKE = IcariaItems.register("physalis_cake", properties -> new BlockItem(IcariaBlocks.PHYSALIS_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
 	public static final DeferredHolder<Item, Item> VINE_BERRY_CAKE = IcariaItems.register("vine_berry_cake", properties -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
 	public static final DeferredHolder<Item, Item> VINE_SPROUT_CAKE = IcariaItems.register("vine_sprout_cake", properties -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
+
+	public static final DeferredHolder<Item, Item> CHECKERS = IcariaItems.register("checkers", properties -> new BlockItem(IcariaBlocks.CHECKERS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CHESS = IcariaItems.register("chess", properties -> new BlockItem(IcariaBlocks.CHESS.get(), properties), IcariaItems.propertiesBlock());
 
 	public static final DeferredHolder<Item, Item> CYPRESS_SAPLING = IcariaItems.register("cypress_sapling", properties -> new BlockItem(IcariaBlocks.CYPRESS_SAPLING.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_LEAVES = IcariaItems.register("cypress_leaves", properties -> new BlockItem(IcariaBlocks.CYPRESS_LEAVES.get(), properties), IcariaItems.propertiesBlock());

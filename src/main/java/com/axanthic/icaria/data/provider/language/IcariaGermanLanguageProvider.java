@@ -468,6 +468,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Rankenbeerenkuchen");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Rankensprossenkuchen");
 
+		this.add(IcariaBlocks.CHECKERS.get(), "Dame");
+		this.add(IcariaBlocks.CHESS.get(), "Schach");
+
 		this.add(IcariaBlocks.CYPRESS_SAPLING.get(), "Zypressensetzling");
 		this.add(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), "Eingetopfter Zypressensetzling");
 		this.add(IcariaBlocks.CYPRESS_LEAVES.get(), "Zypressenlaub");
@@ -1904,7 +1907,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "style", "Stil");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "classic", "Klassisch");
 		this.add("tooltip" + "." + IcariaIdents.ID + "." + "chest_label" + "." + "glowing", "Leuchtend");
-		this.add("tooltip" + "." + IcariaIdents.ID + "." + "pillar_head" + "." + "title", "Schleichen zum invertierten Platzieren");
 	}
 
 	@Override
