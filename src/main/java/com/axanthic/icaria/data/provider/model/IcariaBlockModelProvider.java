@@ -58,6 +58,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.crop(pBlockModelGenerators);
 		IcariaBlockModelProvider.cross(pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboard(pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(pBlockModelGenerators);
 		IcariaBlockModelProvider.dathulla(pBlockModelGenerators);
 		IcariaBlockModelProvider.deadDroughtrootLog(pBlockModelGenerators);
 		IcariaBlockModelProvider.deadLog(pBlockModelGenerators);
@@ -192,6 +193,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneySlabModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboardModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.dathullaModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.deadLogModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.deadVineModel(pBlockModelGenerators);
@@ -633,6 +635,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.cupboard(IcariaBlocks.OLIVE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboard(IcariaBlocks.PLANE_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboard(IcariaBlocks.POPULUS_CUPBOARD.get(), pBlockModelGenerators);
+	}
+
+	public static void cuttingBoard(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.CYPRESS_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.DROUGHTROOT_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.FIR_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.LAUREL_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.OLIVE_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.PLANE_CUTTING_BOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.cuttingBoard(IcariaBlocks.POPULUS_CUTTING_BOARD.get(), pBlockModelGenerators);
 	}
 
 	public static void dathulla(BlockModelGenerators pBlockModelGenerators) {
@@ -2070,22 +2082,22 @@ public class IcariaBlockModelProvider {
 	public static void checkers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_played")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_checkers_set")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chess(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_played")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chess_set")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
+				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
 	}
 
@@ -3149,6 +3161,16 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log"))
 				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "cupboard", "log"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cuttingBoard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cutting_board")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log"))
+				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "cutting_board", "trapdoor"))
+				.putForced(IcariaTextureSlots.TWIGS, IcariaModelProvider.blockFile(pBlock, "cutting_board", "twigs"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void dathulla(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5542,6 +5564,10 @@ public class IcariaBlockModelProvider {
 
 	public static void cupboardModel(BlockModelGenerators blockModels) {
 		CupboardModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cupboard"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void cuttingBoardModel(BlockModelGenerators blockModels) {
+		CuttingBoardModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cutting_board"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void dathullaModel(BlockModelGenerators pBlockModelGenerators) {

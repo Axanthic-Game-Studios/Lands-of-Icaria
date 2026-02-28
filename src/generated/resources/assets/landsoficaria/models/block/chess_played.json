@@ -1,7 +1,7 @@
 {
   "parent": "landsoficaria:block/template_chess_played",
   "textures": {
-    "particle": "landsoficaria:block/chessboard_particle",
-    "texture": "landsoficaria:block/chessboard"
+    "chessboard": "landsoficaria:block/chessboard",
+    "particle": "landsoficaria:block/chessboard_particle"
   }
 }

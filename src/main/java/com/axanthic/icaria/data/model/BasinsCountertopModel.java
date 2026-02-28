@@ -32,15 +32,16 @@ public class BasinsCountertopModel {
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 0.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 0.0000F, 2.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR))
-				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 2.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 2.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R90)))
 			.element(elementBuilder -> elementBuilder.from(5.0000F, 3.0000F, 11.0000F).to(6.0000F, 3.5000F, 13.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 15.0000F, 1.0000F, 16.0000F).texture(IcariaTextureSlots.TRAPDOOR))
-				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 15.0000F, 0.0000F, 16.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 15.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 15.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 15.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R90)))
+			.element(elementBuilder -> elementBuilder.from(2.0000F, 1.0000F, 5.0000F).to(7.0000F, 2.0000F, 10.0000F)
+				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 5.0000F, 5.0000F).texture(IcariaTextureSlots.LEAVES)))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 3.0000F).to(16.0000F, 3.0000F, 4.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 13.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
@@ -88,9 +89,6 @@ public class BasinsCountertopModel {
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 10.0000F, 16.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(1.0000F, 10.0000F, 2.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 11.0000F, 16.0000F, 12.0000F).texture(IcariaTextureSlots.LOG)))
-			.element(elementBuilder -> elementBuilder.from(2.0000F, 1.0000F, 5.0000F).to(7.0000F, 2.0000F, 10.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 5.0000F, 5.0000F).texture(IcariaTextureSlots.LEAVES)))
 			.build();
 	}
 }

@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_cutting_board",
+  "textures": {
+    "molybdenumsteel_block": "landsoficaria:block/molybdenumsteel_block",
+    "particle": "landsoficaria:block/stripped_cypress_log",
+    "stripped_log": "landsoficaria:block/stripped_cypress_log",
+    "trapdoor": "landsoficaria:block/cypress_trapdoor",
+    "twigs": "landsoficaria:block/cypress_twigs"
+  }
+}

@@ -3,6 +3,222 @@
   "elements": [
     {
       "faces": {
+        "north": {
+          "texture": "#halite_block",
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ]
+        },
+        "south": {
+          "texture": "#halite_block",
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ]
+        },
+        "up": {
+          "texture": "#halite_block",
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ]
+        },
+        "west": {
+          "texture": "#halite_block",
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ]
+        }
+      },
+      "from": [
+        10.25,
+        0.625,
+        6.25
+      ],
+      "rotation": {
+        "angle": -45.0,
+        "axis": "z",
+        "origin": [
+          12,
+          2.375,
+          8
+        ]
+      },
+      "to": [
+        13.75,
+        4.125,
+        9.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 180,
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            7.0
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            7.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            6.0,
+            1.0,
+            7.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            7.0
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            7.0
+          ]
+        }
+      },
+      "from": [
+        6.5,
+        5.75,
+        -1
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          7,
+          3.5,
+          10
+        ]
+      },
+      "to": [
+        7.5,
+        6.75,
+        6
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.1,
+            7.0,
+            1.0,
+            1.0
+          ]
+        },
+        "east": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.0,
+            1.0,
+            7.0,
+            4.0
+          ]
+        },
+        "north": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.0,
+            1.0,
+            1.1,
+            4.0
+          ]
+        },
+        "south": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.0,
+            1.0,
+            1.1,
+            4.0
+          ]
+        },
+        "up": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.1,
+            7.0,
+            1.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#molybdenumsteel_block",
+          "uv": [
+            1.0,
+            1.0,
+            7.0,
+            4.0
+          ]
+        }
+      },
+      "from": [
+        6.875,
+        3.5,
+        4
+      ],
+      "rotation": {
+        "angle": 22.5,
+        "axis": "x",
+        "origin": [
+          7,
+          3.5,
+          10
+        ]
+      },
+      "to": [
+        7.125,
+        6.5,
+        10
+      ]
+    },
+    {
+      "faces": {
         "east": {
           "texture": "#stripped_log",
           "uv": [
@@ -294,222 +510,6 @@
         2,
         4,
         11
-      ]
-    },
-    {
-      "faces": {
-        "north": {
-          "texture": "#halite_block",
-          "uv": [
-            6.0,
-            6.0,
-            10.0,
-            10.0
-          ]
-        },
-        "south": {
-          "texture": "#halite_block",
-          "uv": [
-            6.0,
-            6.0,
-            10.0,
-            10.0
-          ]
-        },
-        "up": {
-          "texture": "#halite_block",
-          "uv": [
-            6.0,
-            6.0,
-            10.0,
-            10.0
-          ]
-        },
-        "west": {
-          "texture": "#halite_block",
-          "uv": [
-            6.0,
-            6.0,
-            10.0,
-            10.0
-          ]
-        }
-      },
-      "from": [
-        10.25,
-        0.625,
-        6.25
-      ],
-      "rotation": {
-        "angle": -45.0,
-        "axis": "z",
-        "origin": [
-          12,
-          2.375,
-          8
-        ]
-      },
-      "to": [
-        13.75,
-        4.125,
-        9.75
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.1,
-            7.0,
-            1.0,
-            1.0
-          ]
-        },
-        "east": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.0,
-            1.0,
-            7.0,
-            4.0
-          ]
-        },
-        "north": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.0,
-            1.0,
-            1.1,
-            4.0
-          ]
-        },
-        "south": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.0,
-            1.0,
-            1.1,
-            4.0
-          ]
-        },
-        "up": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.1,
-            7.0,
-            1.0,
-            1.0
-          ]
-        },
-        "west": {
-          "texture": "#molybdenumsteel_block",
-          "uv": [
-            1.0,
-            1.0,
-            7.0,
-            4.0
-          ]
-        }
-      },
-      "from": [
-        6.875,
-        3.5,
-        5
-      ],
-      "rotation": {
-        "angle": 22.5,
-        "axis": "x",
-        "origin": [
-          7,
-          3.5,
-          11
-        ]
-      },
-      "to": [
-        7.125,
-        6.5,
-        11
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "rotation": 180,
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            7.0
-          ]
-        },
-        "east": {
-          "rotation": 90,
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            7.0
-          ]
-        },
-        "north": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        "south": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            6.0,
-            1.0,
-            7.0
-          ]
-        },
-        "up": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            7.0
-          ]
-        },
-        "west": {
-          "rotation": 270,
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            7.0
-          ]
-        }
-      },
-      "from": [
-        6.5,
-        5.75,
-        0
-      ],
-      "rotation": {
-        "angle": 22.5,
-        "axis": "x",
-        "origin": [
-          7,
-          3.5,
-          11
-        ]
-      },
-      "to": [
-        7.5,
-        6.75,
-        7
       ]
     },
     {

@@ -83,133 +83,6 @@
         "down": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        }
-      },
-      "from": [
-        13.5,
-        9.875,
-        14
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        14.5,
-        10.125,
-        15
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "north": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            3.0,
-            1.0,
-            0.0,
-            2.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            1.0,
-            2.0
-          ]
-        }
-      },
-      "from": [
-        11.5,
-        9.875,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        14.5,
-        10.125,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
             0.0,
             2.0,
             1.0,
@@ -245,7 +118,7 @@
         }
       },
       "from": [
-        11.5,
+        1.5,
         9.875,
         14
       ],
@@ -259,252 +132,7 @@
         ]
       },
       "to": [
-        12.5,
-        10.125,
-        15
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        }
-      },
-      "from": [
-        8.5,
-        9.875,
-        14
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        9.5,
-        10.125,
-        15
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "north": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            3.0,
-            1.0,
-            0.0,
-            2.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            3.0,
-            2.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            1.0,
-            1.0,
-            2.0
-          ]
-        }
-      },
-      "from": [
-        6.5,
-        9.875,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        9.5,
-        10.125,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            2.0,
-            1.0,
-            3.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            2.0,
-            1.0,
-            3.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            2.0,
-            1.0,
-            3.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            0.0,
-            2.0,
-            1.0,
-            3.0
-          ]
-        }
-      },
-      "from": [
-        6.5,
-        9.875,
-        14
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        7.5,
-        10.125,
-        15
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "east": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "up": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        },
-        "west": {
-          "texture": "#vanadiumsteel_chain",
-          "uv": [
-            2.0,
-            2.0,
-            3.0,
-            3.0
-          ]
-        }
-      },
-      "from": [
-        3.5,
-        9.875,
-        14
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        4.5,
+        2.5,
         10.125,
         15
       ]
@@ -582,42 +210,42 @@
         "down": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
-            0.0,
             2.0,
-            1.0,
+            2.0,
+            3.0,
             3.0
           ]
         },
         "east": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
-            0.0,
             2.0,
-            1.0,
+            2.0,
+            3.0,
             3.0
           ]
         },
         "up": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
-            0.0,
             2.0,
-            1.0,
+            2.0,
+            3.0,
             3.0
           ]
         },
         "west": {
           "texture": "#vanadiumsteel_chain",
           "uv": [
-            0.0,
             2.0,
-            1.0,
+            2.0,
+            3.0,
             3.0
           ]
         }
       },
       "from": [
-        1.5,
+        3.5,
         9.875,
         14
       ],
@@ -631,7 +259,7 @@
         ]
       },
       "to": [
-        2.5,
+        4.5,
         10.125,
         15
       ]
@@ -644,7 +272,7 @@
             0.0,
             0.0,
             1.0,
-            7.0
+            6.0
           ]
         },
         "north": {
@@ -653,7 +281,7 @@
             0.0,
             0.0,
             1.0,
-            7.0
+            6.0
           ]
         },
         "south": {
@@ -662,7 +290,7 @@
             0.0,
             0.0,
             1.0,
-            7.0
+            6.0
           ]
         },
         "up": {
@@ -680,13 +308,13 @@
             0.0,
             0.0,
             1.0,
-            7.0
+            6.0
           ]
         }
       },
       "from": [
-        12.5,
-        3.5,
+        2.5,
+        4.5,
         14.25
       ],
       "rotation": {
@@ -699,22 +327,13 @@
         ]
       },
       "to": [
-        13.5,
+        3.5,
         10.5,
         14.75
       ]
     },
     {
       "faces": {
-        "down": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            0.0,
-            0.0,
-            1.0
-          ]
-        },
         "east": {
           "texture": "#trapdoor",
           "uv": [
@@ -762,8 +381,8 @@
         }
       },
       "from": [
-        12,
-        2.5,
+        2,
+        3.5,
         14.25
       ],
       "rotation": {
@@ -776,8 +395,8 @@
         ]
       },
       "to": [
-        14,
-        3.5,
+        4,
+        4.5,
         14.75
       ]
     },
@@ -819,15 +438,6 @@
             16.0
           ]
         },
-        "up": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            15.0,
-            0.0,
-            16.0
-          ]
-        },
         "west": {
           "texture": "#trapdoor",
           "uv": [
@@ -839,8 +449,8 @@
         }
       },
       "from": [
-        12,
-        1.5,
+        2,
+        2.5,
         14.25
       ],
       "rotation": {
@@ -853,9 +463,195 @@
         ]
       },
       "to": [
-        14,
-        2.5,
+        4,
+        3.5,
         14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        6.5,
+        9.875,
+        14
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        7.5,
+        10.125,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            3.0,
+            1.0,
+            0.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        6.5,
+        9.875,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9.5,
+        10.125,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        8.5,
+        9.875,
+        14
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9.5,
+        10.125,
+        15
       ]
     },
     {
@@ -928,6 +724,74 @@
     },
     {
       "faces": {
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            0.0,
+            15.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            16.0,
+            0.0,
+            14.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            15.0,
+            0.0,
+            16.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        7,
+        1.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        9,
+        2.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
         "down": {
           "texture": "#trapdoor",
           "uv": [
@@ -956,15 +820,6 @@
           ]
         },
         "south": {
-          "texture": "#trapdoor",
-          "uv": [
-            16.0,
-            15.0,
-            14.0,
-            16.0
-          ]
-        },
-        "up": {
           "texture": "#trapdoor",
           "uv": [
             16.0,
@@ -1006,62 +861,375 @@
     {
       "faces": {
         "down": {
-          "texture": "#trapdoor",
+          "texture": "#vanadiumsteel_chain",
           "uv": [
-            16.0,
             0.0,
-            14.0,
-            1.0
+            2.0,
+            1.0,
+            3.0
           ]
         },
         "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            2.0,
+            1.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        11.5,
+        9.875,
+        14
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        12.5,
+        10.125,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "north": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            3.0,
+            1.0,
+            0.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            3.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            0.0,
+            1.0,
+            1.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        11.5,
+        9.875,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14.5,
+        10.125,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#vanadiumsteel_chain",
+          "uv": [
+            2.0,
+            2.0,
+            3.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        13.5,
+        9.875,
+        14
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14.5,
+        10.125,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "east": {
           "texture": "#trapdoor",
           "uv": [
-            14.0,
             0.0,
-            15.0,
-            1.0
+            0.0,
+            1.0,
+            7.0
           ]
         },
         "north": {
           "texture": "#trapdoor",
           "uv": [
-            14.0,
             0.0,
-            16.0,
-            1.0
+            0.0,
+            1.0,
+            7.0
           ]
         },
         "south": {
           "texture": "#trapdoor",
           "uv": [
-            16.0,
             0.0,
-            14.0,
-            1.0
+            0.0,
+            1.0,
+            7.0
           ]
         },
         "up": {
           "texture": "#trapdoor",
           "uv": [
-            16.0,
             0.0,
-            14.0,
+            0.0,
+            1.0,
             1.0
           ]
         },
         "west": {
           "texture": "#trapdoor",
           "uv": [
-            15.0,
             0.0,
-            16.0,
+            0.0,
+            1.0,
+            7.0
+          ]
+        }
+      },
+      "from": [
+        12.5,
+        3.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        13.5,
+        10.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            1.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            1.0,
+            0.0,
+            2.0,
             1.0
           ]
         }
       },
       "from": [
-        7,
+        12,
+        2.5,
+        14.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14,
+        3.5,
+        14.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            15.0,
+            0.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            15.0,
+            1.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#trapdoor",
+          "uv": [
+            0.0,
+            15.0,
+            2.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#trapdoor",
+          "uv": [
+            2.0,
+            15.0,
+            0.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#trapdoor",
+          "uv": [
+            1.0,
+            15.0,
+            2.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        12,
         1.5,
         14.25
       ],
@@ -1075,230 +1243,8 @@
         ]
       },
       "to": [
-        9,
+        14,
         2.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "north": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "south": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        },
-        "up": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        "west": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            6.0
-          ]
-        }
-      },
-      "from": [
-        2.5,
-        4.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        3.5,
-        10.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            0.0,
-            0.0,
-            1.0
-          ]
-        },
-        "east": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            1.0,
-            1.0
-          ]
-        },
-        "north": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            0.0,
-            2.0,
-            1.0
-          ]
-        },
-        "south": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            0.0,
-            0.0,
-            1.0
-          ]
-        },
-        "up": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            0.0,
-            0.0,
-            1.0
-          ]
-        },
-        "west": {
-          "texture": "#trapdoor",
-          "uv": [
-            1.0,
-            0.0,
-            2.0,
-            1.0
-          ]
-        }
-      },
-      "from": [
-        2,
-        3.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        4,
-        4.5,
-        14.75
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            15.0,
-            0.0,
-            16.0
-          ]
-        },
-        "east": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            15.0,
-            1.0,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#trapdoor",
-          "uv": [
-            0.0,
-            15.0,
-            2.0,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            15.0,
-            0.0,
-            16.0
-          ]
-        },
-        "up": {
-          "texture": "#trapdoor",
-          "uv": [
-            2.0,
-            15.0,
-            0.0,
-            16.0
-          ]
-        },
-        "west": {
-          "texture": "#trapdoor",
-          "uv": [
-            1.0,
-            15.0,
-            2.0,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        2,
-        2.5,
-        14.25
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        4,
-        3.5,
         14.75
       ]
     }

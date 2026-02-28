@@ -498,6 +498,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_BATHTUB.get(), "Cypress Bathtub");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Cypress Trough");
 		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Cypress Stool");
+		this.add(IcariaBlocks.CYPRESS_CUTTING_BOARD.get(), "Cypress Cutting Board");
 		this.add(IcariaBlocks.CYPRESS_HERB_HOLDER.get(), "Cypress Herb Holder");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Cypress Pan Holder");
 		this.add(IcariaBlocks.CYPRESS_POT_HOLDER.get(), "Cypress Pot Holder");
@@ -553,6 +554,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), "Droughtroot Bathtub");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Droughtroot Trough");
 		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Droughtroot Stool");
+		this.add(IcariaBlocks.DROUGHTROOT_CUTTING_BOARD.get(), "Droughtroot Cutting Board");
 		this.add(IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get(), "Droughtroot Herb Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Droughtroot Pan Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_POT_HOLDER.get(), "Droughtroot Pot Holder");
@@ -608,6 +610,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_BATHTUB.get(), "Fir Bathtub");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Fir Trough");
 		this.add(IcariaBlocks.FIR_STOOL.get(), "Fir Stool");
+		this.add(IcariaBlocks.FIR_CUTTING_BOARD.get(), "Fir Cutting Board");
 		this.add(IcariaBlocks.FIR_HERB_HOLDER.get(), "Fir Herb Holder");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Fir Pan Holder");
 		this.add(IcariaBlocks.FIR_POT_HOLDER.get(), "Fir Pot Holder");
@@ -663,6 +666,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_BATHTUB.get(), "Laurel Bathtub");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Laurel Trough");
 		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Laurel Stool");
+		this.add(IcariaBlocks.LAUREL_CUTTING_BOARD.get(), "Laurel Cutting Board");
 		this.add(IcariaBlocks.LAUREL_HERB_HOLDER.get(), "Laurel Herb Holder");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Laurel Pan Holder");
 		this.add(IcariaBlocks.LAUREL_POT_HOLDER.get(), "Laurel Pot Holder");
@@ -718,6 +722,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_BATHTUB.get(), "Olive Bathtub");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olive Trough");
 		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olive Stool");
+		this.add(IcariaBlocks.OLIVE_CUTTING_BOARD.get(), "Olive Cutting Board");
 		this.add(IcariaBlocks.OLIVE_HERB_HOLDER.get(), "Olive Herb Holder");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olive Pan Holder");
 		this.add(IcariaBlocks.OLIVE_POT_HOLDER.get(), "Olive Pot Holder");
@@ -773,6 +778,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_BATHTUB.get(), "Plane Bathtub");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plane Trough");
 		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plane Stool");
+		this.add(IcariaBlocks.PLANE_CUTTING_BOARD.get(), "Plane Cutting Board");
 		this.add(IcariaBlocks.PLANE_HERB_HOLDER.get(), "Plane Herb Holder");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plane Pan Holder");
 		this.add(IcariaBlocks.PLANE_POT_HOLDER.get(), "Plane Pot Holder");
@@ -828,6 +834,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_BATHTUB.get(), "Populus Bathtub");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Populus Trough");
 		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Populus Stool");
+		this.add(IcariaBlocks.POPULUS_CUTTING_BOARD.get(), "Populus Cutting Board");
 		this.add(IcariaBlocks.POPULUS_HERB_HOLDER.get(), "Populus Herb Holder");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Populus Pan Holder");
 		this.add(IcariaBlocks.POPULUS_POT_HOLDER.get(), "Populus Pot Holder");

@@ -471,6 +471,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> CYPRESS_BATHTUB = IcariaBlocks.register("cypress_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_TROUGH = IcariaBlocks.register("cypress_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_STOOL = IcariaBlocks.register("cypress_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_CUTTING_BOARD = IcariaBlocks.register("cypress_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_HERB_HOLDER = IcariaBlocks.register("cypress_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_PAN_HOLDER = IcariaBlocks.register("cypress_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_POT_HOLDER = IcariaBlocks.register("cypress_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -528,6 +529,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_BATHTUB = IcariaBlocks.register("droughtroot_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_TROUGH = IcariaBlocks.register("droughtroot_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_STOOL = IcariaBlocks.register("droughtroot_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_GRAY, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_CUTTING_BOARD = IcariaBlocks.register("droughtroot_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_HERB_HOLDER = IcariaBlocks.register("droughtroot_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_PAN_HOLDER = IcariaBlocks.register("droughtroot_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_POT_HOLDER = IcariaBlocks.register("droughtroot_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -585,6 +587,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> FIR_BATHTUB = IcariaBlocks.register("fir_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_TROUGH = IcariaBlocks.register("fir_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_STOOL = IcariaBlocks.register("fir_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_ORANGE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_CUTTING_BOARD = IcariaBlocks.register("fir_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_HERB_HOLDER = IcariaBlocks.register("fir_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_PAN_HOLDER = IcariaBlocks.register("fir_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_POT_HOLDER = IcariaBlocks.register("fir_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -642,6 +645,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LAUREL_BATHTUB = IcariaBlocks.register("laurel_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_TROUGH = IcariaBlocks.register("laurel_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_STOOL = IcariaBlocks.register("laurel_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_CUTTING_BOARD = IcariaBlocks.register("laurel_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_HERB_HOLDER = IcariaBlocks.register("laurel_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_PAN_HOLDER = IcariaBlocks.register("laurel_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_POT_HOLDER = IcariaBlocks.register("laurel_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -699,6 +703,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> OLIVE_BATHTUB = IcariaBlocks.register("olive_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_TROUGH = IcariaBlocks.register("olive_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_STOOL = IcariaBlocks.register("olive_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_ORANGE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_CUTTING_BOARD = IcariaBlocks.register("olive_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_HERB_HOLDER = IcariaBlocks.register("olive_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_PAN_HOLDER = IcariaBlocks.register("olive_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_POT_HOLDER = IcariaBlocks.register("olive_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -756,6 +761,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> PLANE_BATHTUB = IcariaBlocks.register("plane_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_TROUGH = IcariaBlocks.register("plane_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_STOOL = IcariaBlocks.register("plane_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_CUTTING_BOARD = IcariaBlocks.register("plane_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_HERB_HOLDER = IcariaBlocks.register("plane_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_PAN_HOLDER = IcariaBlocks.register("plane_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_POT_HOLDER = IcariaBlocks.register("plane_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -813,6 +819,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> POPULUS_BATHTUB = IcariaBlocks.register("populus_bathtub", BathtubBlock::new, IcariaBlocks.propertiesBathtub(MapColor.COLOR_GREEN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_TROUGH = IcariaBlocks.register("populus_trough", TroughBlock::new, IcariaBlocks.propertiesTrough(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_STOOL = IcariaBlocks.register("populus_stool", StoolBlock::new, IcariaBlocks.propertiesStool(MapColor.COLOR_GREEN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_CUTTING_BOARD = IcariaBlocks.register("populus_cutting_board", CuttingBoardBlock::new, IcariaBlocks.propertiesCuttingBoard(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_HERB_HOLDER = IcariaBlocks.register("populus_herb_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_PAN_HOLDER = IcariaBlocks.register("populus_pan_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_POT_HOLDER = IcariaBlocks.register("populus_pot_holder", HolderBlock::new, IcariaBlocks.propertiesHolder(MapColor.NONE, SoundType.WOOD));
@@ -1180,6 +1187,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesStool(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
+	}
+
+	public static BlockBehaviour.Properties propertiesCuttingBoard(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesHolder(MapColor pMapColor, SoundType pSoundType) {

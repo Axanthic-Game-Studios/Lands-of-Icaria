@@ -32,6 +32,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");
 	public static final TextureSlot CHERT_BLOCK = TextureSlot.create("chert_block");
+	public static final TextureSlot CHESSBOARD = TextureSlot.create("chessboard");
 	public static final TextureSlot CHIMNEY = TextureSlot.create("chimney");
 	public static final TextureSlot CROP = TextureSlot.create("crop");
 	public static final TextureSlot CROSS = TextureSlot.create("cross");
@@ -114,6 +115,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot TORCH_COAL = TextureSlot.create("torch_coal");
 	public static final TextureSlot TORCH_METAL = TextureSlot.create("torch_metal");
 	public static final TextureSlot TRAPDOOR = TextureSlot.create("trapdoor");
+	public static final TextureSlot TWIGS = TextureSlot.create("twigs");
 	public static final TextureSlot UP = TextureSlot.create("up");
 	public static final TextureSlot VANADIUMSTEEL_CHAIN = TextureSlot.create("vanadiumsteel_chain");
 	public static final TextureSlot VASE = TextureSlot.create("vase");

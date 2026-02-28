@@ -121,7 +121,7 @@
         }
       },
       "from": [
-        9.375,
+        6.375,
         10,
         12
       ],
@@ -135,7 +135,7 @@
         ]
       },
       "to": [
-        9.625,
+        6.625,
         11,
         15
       ]
@@ -198,7 +198,7 @@
         }
       },
       "from": [
-        9.375,
+        6.375,
         10,
         11
       ],
@@ -212,7 +212,7 @@
         ]
       },
       "to": [
-        9.625,
+        6.625,
         12,
         12
       ]
@@ -260,7 +260,7 @@
         }
       },
       "from": [
-        6.375,
+        9.375,
         10,
         12
       ],
@@ -274,7 +274,7 @@
         ]
       },
       "to": [
-        6.625,
+        9.625,
         11,
         15
       ]
@@ -337,7 +337,7 @@
         }
       },
       "from": [
-        6.375,
+        9.375,
         10,
         11
       ],
@@ -351,9 +351,68 @@
         ]
       },
       "to": [
-        6.625,
+        9.625,
         12,
         12
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            6.0,
+            6.0,
+            7.0
+          ]
+        }
+      },
+      "from": [
+        5.5,
+        10,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        6,
+        11,
+        14
       ]
     },
     {
@@ -361,42 +420,60 @@
         "down": {
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
-            5.5,
             5.0,
-            9.5,
+            5.0,
+            10.0,
+            6.0
+          ]
+        },
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            5.0,
+            10.0,
             6.0
           ]
         },
         "north": {
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
-            9.5,
+            10.0,
             5.0,
-            5.5,
+            5.0,
             6.0
           ]
         },
         "south": {
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
-            5.5,
             5.0,
-            9.5,
+            5.0,
+            10.0,
             6.0
           ]
         },
         "up": {
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
-            5.5,
             5.0,
-            9.5,
+            5.0,
+            10.0,
+            6.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            5.0,
+            6.0,
             6.0
           ]
         }
       },
       "from": [
-        6,
+        5.5,
         11,
         13
       ],
@@ -410,7 +487,7 @@
         ]
       },
       "to": [
-        10,
+        10.5,
         11.5,
         14
       ]
@@ -421,7 +498,7 @@
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
-            5.0,
+            6.0,
             10.0,
             7.0
           ]
@@ -430,7 +507,7 @@
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
-            5.0,
+            6.0,
             10.0,
             7.0
           ]
@@ -439,25 +516,16 @@
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
-            5.0,
+            6.0,
             10.0,
             7.0
-          ]
-        },
-        "up": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            5.0,
-            10.0,
-            6.0
           ]
         },
         "west": {
           "texture": "#smooth_molybdenumsteel_block",
           "uv": [
             9.0,
-            5.0,
+            6.0,
             10.0,
             7.0
           ]
@@ -465,7 +533,7 @@
       },
       "from": [
         10,
-        9.5,
+        10,
         13
       ],
       "rotation": {
@@ -479,270 +547,7 @@
       },
       "to": [
         10.5,
-        11.5,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            5.0,
-            6.0,
-            7.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            5.0,
-            6.0,
-            7.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            5.0,
-            6.0,
-            7.0
-          ]
-        },
-        "up": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            5.0,
-            6.0,
-            6.0
-          ]
-        },
-        "west": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            5.0,
-            6.0,
-            7.0
-          ]
-        }
-      },
-      "from": [
-        5.5,
-        9.5,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        6,
-        11.5,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.5,
-            15.0,
-            9.5,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.5,
-            15.0,
-            5.5,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.5,
-            15.0,
-            9.5,
-            16.0
-          ]
-        },
-        "up": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.5,
-            15.0,
-            9.5,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        6,
-        0.5,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        10,
-        1,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            15.0,
-            10.0,
-            16.0
-          ]
-        },
-        "east": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            14.0,
-            10.0,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            14.0,
-            10.0,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            14.0,
-            10.0,
-            16.0
-          ]
-        },
-        "west": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            14.0,
-            10.0,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        10,
-        0.5,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        10.5,
-        2.5,
-        14
-      ]
-    },
-    {
-      "faces": {
-        "down": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            15.0,
-            6.0,
-            16.0
-          ]
-        },
-        "east": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            14.0,
-            6.0,
-            16.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            14.0,
-            6.0,
-            16.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            14.0,
-            6.0,
-            16.0
-          ]
-        },
-        "west": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            5.0,
-            14.0,
-            6.0,
-            16.0
-          ]
-        }
-      },
-      "from": [
-        5.5,
-        0.5,
-        13
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        6,
-        2.5,
+        11,
         14
       ]
     },
@@ -805,7 +610,7 @@
       },
       "from": [
         4.5,
-        8.5,
+        9,
         12.5
       ],
       "rotation": {
@@ -819,7 +624,125 @@
       },
       "to": [
         11.5,
-        9.5,
+        10,
+        14.5
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            8.0,
+            11.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            10.0,
+            8.0,
+            11.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            4.0,
+            8.0,
+            5.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            4.0,
+            8.0,
+            6.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        4.5,
+        4,
+        12.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5.5,
+        9,
+        14.5
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            8.0,
+            11.0,
+            13.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            4.0,
+            8.0,
+            5.0,
+            13.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            10.0,
+            8.0,
+            11.0,
+            13.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            4.0,
+            8.0,
+            6.0,
+            13.0
+          ]
+        }
+      },
+      "from": [
+        10.5,
+        4,
+        12.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.5,
+        9,
         14.5
       ]
     },
@@ -882,7 +805,7 @@
       },
       "from": [
         4.5,
-        2.5,
+        3,
         12.5
       ],
       "rotation": {
@@ -896,125 +819,7 @@
       },
       "to": [
         11.5,
-        3.5,
-        14.5
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            8.0,
-            11.0,
-            13.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            4.0,
-            8.0,
-            5.0,
-            13.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            10.0,
-            8.0,
-            11.0,
-            13.0
-          ]
-        },
-        "west": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            4.0,
-            8.0,
-            6.0,
-            13.0
-          ]
-        }
-      },
-      "from": [
-        10.5,
-        3.5,
-        12.5
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        11.5,
-        8.5,
-        14.5
-      ]
-    },
-    {
-      "faces": {
-        "east": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            9.0,
-            8.0,
-            11.0,
-            13.0
-          ]
-        },
-        "north": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            10.0,
-            8.0,
-            11.0,
-            13.0
-          ]
-        },
-        "south": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            4.0,
-            8.0,
-            5.0,
-            13.0
-          ]
-        },
-        "west": {
-          "texture": "#smooth_molybdenumsteel_block",
-          "uv": [
-            4.0,
-            8.0,
-            6.0,
-            13.0
-          ]
-        }
-      },
-      "from": [
-        4.5,
-        3.5,
-        12.5
-      ],
-      "rotation": {
-        "angle": 0.0,
-        "axis": "y",
-        "origin": [
-          0,
-          0,
-          0
-        ]
-      },
-      "to": [
-        5.5,
-        8.5,
+        4,
         14.5
       ]
     },
@@ -1041,7 +846,7 @@
       },
       "from": [
         5.5,
-        3.5,
+        4,
         13.5
       ],
       "rotation": {
@@ -1055,8 +860,203 @@
       },
       "to": [
         10.5,
-        8.5,
+        9,
         14.5
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            14.0,
+            6.0,
+            15.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            14.0,
+            6.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            14.0,
+            6.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            14.0,
+            6.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        5.5,
+        2,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        6,
+        3,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            15.0,
+            10.0,
+            16.0
+          ]
+        },
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            15.0,
+            10.0,
+            16.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            10.0,
+            15.0,
+            5.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            15.0,
+            10.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            15.0,
+            10.0,
+            16.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            5.0,
+            15.0,
+            6.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        5.5,
+        1.5,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.5,
+        2,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            14.0,
+            10.0,
+            15.0
+          ]
+        },
+        "north": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            14.0,
+            10.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            14.0,
+            10.0,
+            15.0
+          ]
+        },
+        "west": {
+          "texture": "#smooth_molybdenumsteel_block",
+          "uv": [
+            9.0,
+            14.0,
+            10.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        10,
+        2,
+        13
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.5,
+        3,
+        14
       ]
     }
   ]

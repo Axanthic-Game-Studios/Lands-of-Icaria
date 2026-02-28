@@ -451,6 +451,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> CYPRESS_BATHTUB = IcariaItems.register("cypress_bathtub", properties -> new BlockItem(IcariaBlocks.CYPRESS_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_TROUGH = IcariaItems.register("cypress_trough", properties -> new BlockItem(IcariaBlocks.CYPRESS_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_STOOL = IcariaItems.register("cypress_stool", properties -> new BlockItem(IcariaBlocks.CYPRESS_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> CYPRESS_CUTTING_BOARD = IcariaItems.register("cypress_cutting_board", properties -> new BlockItem(IcariaBlocks.CYPRESS_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_HERB_HOLDER = IcariaItems.register("cypress_herb_holder", properties -> new BlockItem(IcariaBlocks.CYPRESS_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_PAN_HOLDER = IcariaItems.register("cypress_pan_holder", properties -> new BlockItem(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYPRESS_POT_HOLDER = IcariaItems.register("cypress_pot_holder", properties -> new BlockItem(IcariaBlocks.CYPRESS_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -505,6 +506,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_BATHTUB = IcariaItems.register("droughtroot_bathtub", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_TROUGH = IcariaItems.register("droughtroot_trough", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_STOOL = IcariaItems.register("droughtroot_stool", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> DROUGHTROOT_CUTTING_BOARD = IcariaItems.register("droughtroot_cutting_board", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_HERB_HOLDER = IcariaItems.register("droughtroot_herb_holder", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_PAN_HOLDER = IcariaItems.register("droughtroot_pan_holder", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> DROUGHTROOT_POT_HOLDER = IcariaItems.register("droughtroot_pot_holder", properties -> new BlockItem(IcariaBlocks.DROUGHTROOT_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -559,6 +561,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> FIR_BATHTUB = IcariaItems.register("fir_bathtub", properties -> new BlockItem(IcariaBlocks.FIR_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_TROUGH = IcariaItems.register("fir_trough", properties -> new BlockItem(IcariaBlocks.FIR_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_STOOL = IcariaItems.register("fir_stool", properties -> new BlockItem(IcariaBlocks.FIR_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> FIR_CUTTING_BOARD = IcariaItems.register("fir_cutting_board", properties -> new BlockItem(IcariaBlocks.FIR_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_HERB_HOLDER = IcariaItems.register("fir_herb_holder", properties -> new BlockItem(IcariaBlocks.FIR_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_PAN_HOLDER = IcariaItems.register("fir_pan_holder", properties -> new BlockItem(IcariaBlocks.FIR_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> FIR_POT_HOLDER = IcariaItems.register("fir_pot_holder", properties -> new BlockItem(IcariaBlocks.FIR_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -613,6 +616,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> LAUREL_BATHTUB = IcariaItems.register("laurel_bathtub", properties -> new BlockItem(IcariaBlocks.LAUREL_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_TROUGH = IcariaItems.register("laurel_trough", properties -> new BlockItem(IcariaBlocks.LAUREL_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_STOOL = IcariaItems.register("laurel_stool", properties -> new BlockItem(IcariaBlocks.LAUREL_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> LAUREL_CUTTING_BOARD = IcariaItems.register("laurel_cutting_board", properties -> new BlockItem(IcariaBlocks.LAUREL_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_HERB_HOLDER = IcariaItems.register("laurel_herb_holder", properties -> new BlockItem(IcariaBlocks.LAUREL_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_PAN_HOLDER = IcariaItems.register("laurel_pan_holder", properties -> new BlockItem(IcariaBlocks.LAUREL_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LAUREL_POT_HOLDER = IcariaItems.register("laurel_pot_holder", properties -> new BlockItem(IcariaBlocks.LAUREL_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -667,6 +671,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> OLIVE_BATHTUB = IcariaItems.register("olive_bathtub", properties -> new BlockItem(IcariaBlocks.OLIVE_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_TROUGH = IcariaItems.register("olive_trough", properties -> new BlockItem(IcariaBlocks.OLIVE_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_STOOL = IcariaItems.register("olive_stool", properties -> new BlockItem(IcariaBlocks.OLIVE_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> OLIVE_CUTTING_BOARD = IcariaItems.register("olive_cutting_board", properties -> new BlockItem(IcariaBlocks.OLIVE_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_HERB_HOLDER = IcariaItems.register("olive_herb_holder", properties -> new BlockItem(IcariaBlocks.OLIVE_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_PAN_HOLDER = IcariaItems.register("olive_pan_holder", properties -> new BlockItem(IcariaBlocks.OLIVE_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> OLIVE_POT_HOLDER = IcariaItems.register("olive_pot_holder", properties -> new BlockItem(IcariaBlocks.OLIVE_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -721,6 +726,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> PLANE_BATHTUB = IcariaItems.register("plane_bathtub", properties -> new BlockItem(IcariaBlocks.PLANE_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_TROUGH = IcariaItems.register("plane_trough", properties -> new BlockItem(IcariaBlocks.PLANE_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_STOOL = IcariaItems.register("plane_stool", properties -> new BlockItem(IcariaBlocks.PLANE_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLANE_CUTTING_BOARD = IcariaItems.register("plane_cutting_board", properties -> new BlockItem(IcariaBlocks.PLANE_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_HERB_HOLDER = IcariaItems.register("plane_herb_holder", properties -> new BlockItem(IcariaBlocks.PLANE_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_PAN_HOLDER = IcariaItems.register("plane_pan_holder", properties -> new BlockItem(IcariaBlocks.PLANE_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> PLANE_POT_HOLDER = IcariaItems.register("plane_pot_holder", properties -> new BlockItem(IcariaBlocks.PLANE_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());
@@ -775,6 +781,7 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> POPULUS_BATHTUB = IcariaItems.register("populus_bathtub", properties -> new BlockItem(IcariaBlocks.POPULUS_BATHTUB.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_TROUGH = IcariaItems.register("populus_trough", properties -> new BlockItem(IcariaBlocks.POPULUS_TROUGH.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_STOOL = IcariaItems.register("populus_stool", properties -> new BlockItem(IcariaBlocks.POPULUS_STOOL.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> POPULUS_CUTTING_BOARD = IcariaItems.register("populus_cutting_board", properties -> new BlockItem(IcariaBlocks.POPULUS_CUTTING_BOARD.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_HERB_HOLDER = IcariaItems.register("populus_herb_holder", properties -> new BlockItem(IcariaBlocks.POPULUS_HERB_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_PAN_HOLDER = IcariaItems.register("populus_pan_holder", properties -> new BlockItem(IcariaBlocks.POPULUS_PAN_HOLDER.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> POPULUS_POT_HOLDER = IcariaItems.register("populus_pot_holder", properties -> new BlockItem(IcariaBlocks.POPULUS_POT_HOLDER.get(), properties), IcariaItems.propertiesBlock());

@@ -498,6 +498,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_BATHTUB.get(), "Zypressenholzbadewanne");
 		this.add(IcariaBlocks.CYPRESS_TROUGH.get(), "Zypressenholztrog");
 		this.add(IcariaBlocks.CYPRESS_STOOL.get(), "Zypressenholzhocker");
+		this.add(IcariaBlocks.CYPRESS_CUTTING_BOARD.get(), "Zypressenholzschneidebrett");
 		this.add(IcariaBlocks.CYPRESS_HERB_HOLDER.get(), "Zypressenholzkrauthalter");
 		this.add(IcariaBlocks.CYPRESS_PAN_HOLDER.get(), "Zypressenholzpfannenhalter");
 		this.add(IcariaBlocks.CYPRESS_POT_HOLDER.get(), "Zypressenholztopfhalter");
@@ -553,6 +554,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_BATHTUB.get(), "Dürrwurzelholzbadewanne");
 		this.add(IcariaBlocks.DROUGHTROOT_TROUGH.get(), "Dürrwurzelholztrog");
 		this.add(IcariaBlocks.DROUGHTROOT_STOOL.get(), "Dürrwurzelholzhocker");
+		this.add(IcariaBlocks.DROUGHTROOT_CUTTING_BOARD.get(), "Dürrwurzelholzschneidebrett");
 		this.add(IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get(), "Dürrwurzelholzkrauthalter");
 		this.add(IcariaBlocks.DROUGHTROOT_PAN_HOLDER.get(), "Dürrwurzelholzpfannenhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_POT_HOLDER.get(), "Dürrwurzelholztopfhalter");
@@ -608,6 +610,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_BATHTUB.get(), "Tannenholzbadewanne");
 		this.add(IcariaBlocks.FIR_TROUGH.get(), "Tannenholztrog");
 		this.add(IcariaBlocks.FIR_STOOL.get(), "Tannenholzhocker");
+		this.add(IcariaBlocks.FIR_CUTTING_BOARD.get(), "Tannenholzschneidebrett");
 		this.add(IcariaBlocks.FIR_HERB_HOLDER.get(), "Tannenholzkrauthalter");
 		this.add(IcariaBlocks.FIR_PAN_HOLDER.get(), "Tannenholzpfannenhalter");
 		this.add(IcariaBlocks.FIR_POT_HOLDER.get(), "Tannenholztopfhalter");
@@ -663,6 +666,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_BATHTUB.get(), "Lorbeerholzbadewanne");
 		this.add(IcariaBlocks.LAUREL_TROUGH.get(), "Lorbeerholztrog");
 		this.add(IcariaBlocks.LAUREL_STOOL.get(), "Lorbeerholzhocker");
+		this.add(IcariaBlocks.LAUREL_CUTTING_BOARD.get(), "Lorbeerholzschneidebrett");
 		this.add(IcariaBlocks.LAUREL_HERB_HOLDER.get(), "Lorbeerholzkrauthalter");
 		this.add(IcariaBlocks.LAUREL_PAN_HOLDER.get(), "Lorbeerholzpfannenhalter");
 		this.add(IcariaBlocks.LAUREL_POT_HOLDER.get(), "Lorbeerholztopfhalter");
@@ -718,6 +722,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_BATHTUB.get(), "Olivenholzbadewanne");
 		this.add(IcariaBlocks.OLIVE_TROUGH.get(), "Olivenholztrog");
 		this.add(IcariaBlocks.OLIVE_STOOL.get(), "Olivenholzhocker");
+		this.add(IcariaBlocks.OLIVE_CUTTING_BOARD.get(), "Olivenholzschneidebrett");
 		this.add(IcariaBlocks.OLIVE_HERB_HOLDER.get(), "Olivenholzkrauthalter");
 		this.add(IcariaBlocks.OLIVE_PAN_HOLDER.get(), "Olivenholzpfannenhalter");
 		this.add(IcariaBlocks.OLIVE_POT_HOLDER.get(), "Olivenholztopfhalter");
@@ -773,6 +778,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_BATHTUB.get(), "Plantanenholzbadewanne");
 		this.add(IcariaBlocks.PLANE_TROUGH.get(), "Plantanenholztrog");
 		this.add(IcariaBlocks.PLANE_STOOL.get(), "Plantanenholzhocker");
+		this.add(IcariaBlocks.PLANE_CUTTING_BOARD.get(), "Plantanenholzschneidebrett");
 		this.add(IcariaBlocks.PLANE_HERB_HOLDER.get(), "Plantanenholzkrauthalter");
 		this.add(IcariaBlocks.PLANE_PAN_HOLDER.get(), "Plantanenholzpfannenhalter");
 		this.add(IcariaBlocks.PLANE_POT_HOLDER.get(), "Plantanenholztopfhalter");
@@ -828,6 +834,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_BATHTUB.get(), "Pappelholzbadewanne");
 		this.add(IcariaBlocks.POPULUS_TROUGH.get(), "Pappelholztrog");
 		this.add(IcariaBlocks.POPULUS_STOOL.get(), "Pappelholzhocker");
+		this.add(IcariaBlocks.POPULUS_CUTTING_BOARD.get(), "Pappelholzschneidebrett");
 		this.add(IcariaBlocks.POPULUS_HERB_HOLDER.get(), "Pappelholzkrauthalter");
 		this.add(IcariaBlocks.POPULUS_PAN_HOLDER.get(), "Pappelholzpfannenhalter");
 		this.add(IcariaBlocks.POPULUS_POT_HOLDER.get(), "Pappelholztopfhalter");

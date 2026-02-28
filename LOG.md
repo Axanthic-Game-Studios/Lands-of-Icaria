@@ -6,6 +6,7 @@ Additions
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Checkers and Chess Blocks
 - Chimney Blocks
+- Cutting Board Blocks for each Wood Type
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
 - Bathtub Blocks for each Wood Type
