@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/large_bowls",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/large_bowls"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/large_bowls",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/large_bowls",
+      "y": 270
+    }
+  }
+}

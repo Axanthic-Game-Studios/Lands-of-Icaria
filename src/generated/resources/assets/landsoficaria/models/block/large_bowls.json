@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_large_bowls",
+  "textures": {
+    "particle": "landsoficaria:block/smooth_loam",
+    "smooth_loam": "landsoficaria:block/smooth_loam",
+    "smooth_molibos_block": "landsoficaria:block/smooth_molibos_block"
+  }
+}

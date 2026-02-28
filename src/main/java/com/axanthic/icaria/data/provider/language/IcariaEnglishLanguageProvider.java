@@ -468,6 +468,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Vine Berry Cake");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
+		this.add(IcariaBlocks.LARGE_BOWLS.get(), "Large Bowls");
+		this.add(IcariaBlocks.SMALL_BOWLS.get(), "Small Bowls");
+		this.add(IcariaBlocks.PLATES.get(), "Plates");
+		this.add(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), "Suspicious Substance");
+
 		this.add(IcariaBlocks.CHECKERS.get(), "Checkers");
 		this.add(IcariaBlocks.CHESS.get(), "Chess");
 

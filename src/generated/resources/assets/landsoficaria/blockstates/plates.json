@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/plates",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/plates"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/plates",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/plates",
+      "y": 270
+    }
+  }
+}

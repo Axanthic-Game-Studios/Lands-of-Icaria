@@ -395,6 +395,9 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_BERRY_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_SPROUT_CAKE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LARGE_BOWLS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLATES.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_SUBSTANCE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHECKERS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHESS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SAPLING.get(), pItemModelGenerators);
@@ -1157,6 +1160,7 @@ public class IcariaItemStateProvider {
 
 	public static void tint(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.tint(IcariaItems.GRASSY_MARL.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.SMALL_BOWLS.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.CYPRESS_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.DROUGHTROOT_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.FIR_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);

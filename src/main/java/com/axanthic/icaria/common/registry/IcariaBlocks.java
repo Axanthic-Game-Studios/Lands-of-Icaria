@@ -441,6 +441,11 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> VINE_BERRY_CAKE = IcariaBlocks.register("vine_berry_cake", properties -> new IcariaCakeBlock(false, 600, MobEffects.NIGHT_VISION, properties), IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL));
 	public static final DeferredHolder<Block, Block> VINE_SPROUT_CAKE = IcariaBlocks.register("vine_sprout_cake", properties -> new IcariaCakeBlock(false, 600, MobEffects.SPEED, properties), IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL));
 
+	public static final DeferredHolder<Block, Block> LARGE_BOWLS = IcariaBlocks.register("large_bowls", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> SMALL_BOWLS = IcariaBlocks.register("small_bowls", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> PLATES = IcariaBlocks.register("plates", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> SUSPICIOUS_SUBSTANCE = IcariaBlocks.register("suspicious_substance", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
+
 	public static final DeferredHolder<Block, Block> CHECKERS = IcariaBlocks.register("checkers", ChessboardBlock::new, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> CHESS = IcariaBlocks.register("chess", ChessboardBlock::new, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE));
 
@@ -1143,6 +1148,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesCake(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+	}
+
+	public static BlockBehaviour.Properties propertiesTableDecoration(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission();
 	}
 
 	public static BlockBehaviour.Properties propertiesChessboard(MapColor pMapColor, SoundType pSoundType) {

@@ -28,6 +28,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CAKE_INSIDE = TextureSlot.create("cake_inside");
 	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
 	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
+	public static final TextureSlot CALCITE = TextureSlot.create("calcite");
 	public static final TextureSlot CANDLE = TextureSlot.create("candle");
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");
@@ -83,6 +84,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
 	public static final TextureSlot PLANT = TextureSlot.create("plant");
+	public static final TextureSlot RED_ARACHNE_STRING_BLOCK = TextureSlot.create("red_arachne_string_block");
 	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");
 	public static final TextureSlot RED_STORAGE_VASE = TextureSlot.create("red_storage_vase");
 	public static final TextureSlot SHROOM = TextureSlot.create("shroom");
@@ -93,6 +95,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot SMOOTH_LOAM = TextureSlot.create("smooth_loam");
 	public static final TextureSlot SMOOTH_LOAM_BRICKS = TextureSlot.create("smooth_loam_bricks");
 	public static final TextureSlot SMOOTH_LOG = TextureSlot.create("smooth_log");
+	public static final TextureSlot SMOOTH_MOLIBOS_BLOCK = TextureSlot.create("smooth_molibos_block");
 	public static final TextureSlot SMOOTH_MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("smooth_molybdenumsteel_block");
 	public static final TextureSlot SMOOTH_SIDEROS_BLOCK = TextureSlot.create("smooth_sideros_block");
 	public static final TextureSlot SOUTH = TextureSlot.create("south");
@@ -123,6 +126,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot VOIDSHALE = TextureSlot.create("voidshale");
 	public static final TextureSlot WALL = TextureSlot.create("wall");
 	public static final TextureSlot WEST = TextureSlot.create("west");
+	public static final TextureSlot WHITE_CONCRETE_POWDER = TextureSlot.create("white_concrete_powder");
 	public static final TextureSlot WOOL = TextureSlot.create("wool");
 	public static final TextureSlot YELLOWSTONE = TextureSlot.create("yellowstone");
 	public static final TextureSlot YELLOWSTONE_BRICKS = TextureSlot.create("yellowstone_bricks");

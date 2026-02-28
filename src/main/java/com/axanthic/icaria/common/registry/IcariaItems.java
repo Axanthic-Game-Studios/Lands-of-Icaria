@@ -422,6 +422,11 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> VINE_BERRY_CAKE = IcariaItems.register("vine_berry_cake", properties -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
 	public static final DeferredHolder<Item, Item> VINE_SPROUT_CAKE = IcariaItems.register("vine_sprout_cake", properties -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), properties), IcariaItems.propertiesBlock().stacksTo(1));
 
+	public static final DeferredHolder<Item, Item> LARGE_BOWLS = IcariaItems.register("large_bowls", properties -> new BlockItem(IcariaBlocks.LARGE_BOWLS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SMALL_BOWLS = IcariaItems.register("small_bowls", properties -> new BlockItem(IcariaBlocks.SMALL_BOWLS.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> PLATES = IcariaItems.register("plates", properties -> new BlockItem(IcariaBlocks.PLATES.get(), properties), IcariaItems.propertiesBlock());
+	public static final DeferredHolder<Item, Item> SUSPICIOUS_SUBSTANCE = IcariaItems.register("suspicious_substance", properties -> new BlockItem(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), properties), IcariaItems.propertiesBlock());
+
 	public static final DeferredHolder<Item, Item> CHECKERS = IcariaItems.register("checkers", properties -> new BlockItem(IcariaBlocks.CHECKERS.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CHESS = IcariaItems.register("chess", properties -> new BlockItem(IcariaBlocks.CHESS.get(), properties), IcariaItems.propertiesBlock());
 

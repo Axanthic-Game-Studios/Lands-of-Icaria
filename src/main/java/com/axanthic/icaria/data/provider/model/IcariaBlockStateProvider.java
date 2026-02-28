@@ -644,6 +644,10 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.LARGE_BOWLS.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.SMALL_BOWLS.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLATES.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_TROUGH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_CUTTING_BOARD.get(), pBlockModelGenerators);

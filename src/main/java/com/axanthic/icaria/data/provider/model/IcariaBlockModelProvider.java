@@ -94,6 +94,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kitchenTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.kline(pBlockModelGenerators);
 		IcariaBlockModelProvider.ladder(pBlockModelGenerators);
+		IcariaBlockModelProvider.largeBowls(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorch(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteWallTorch(pBlockModelGenerators);
@@ -115,6 +116,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.path(pBlockModelGenerators);
 		IcariaBlockModelProvider.particle(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisCrop(pBlockModelGenerators);
+		IcariaBlockModelProvider.plates(pBlockModelGenerators);
 		IcariaBlockModelProvider.portal(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.potFireplace(pBlockModelGenerators);
@@ -139,6 +141,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.scrollshelf(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(pBlockModelGenerators);
+		IcariaBlockModelProvider.smallBowls(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(pBlockModelGenerators);
 		IcariaBlockModelProvider.stool(pBlockModelGenerators);
@@ -149,6 +152,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.surfaceBones(pBlockModelGenerators);
 		IcariaBlockModelProvider.surfaceChert(pBlockModelGenerators);
 		IcariaBlockModelProvider.suspiciousSand(pBlockModelGenerators);
+		IcariaBlockModelProvider.suspiciousSubstance(pBlockModelGenerators);
 		IcariaBlockModelProvider.tappedBarrel(pBlockModelGenerators);
 		IcariaBlockModelProvider.tinderFungusTreeShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(pBlockModelGenerators);
@@ -224,6 +228,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.kitchenTableModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.klineInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.klineModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.largeBowlsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.largeBrownGroundShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.layerModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.ligniteTorchModel(pBlockModelGenerators);
@@ -241,6 +246,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.panHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.paneInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisCropModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.platesModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.portalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potFireplaceInventoryModel(pBlockModelGenerators);
@@ -259,6 +265,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rowanModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.smallBowlsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.stoolModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.storageVaseModel(pBlockModelGenerators);
@@ -266,6 +273,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.strippedDeadLogModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.surfaceBonesModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.surfaceChertModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.suspiciousSubstanceModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.tappedBarrelModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.tinderFungusTreeShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.towelHolderModel(pBlockModelGenerators);
@@ -883,6 +891,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.ladder(IcariaBlocks.POPULUS_LADDER.get(), pBlockModelGenerators);
 	}
 
+	public static void largeBowls(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.largeBowls(IcariaBlocks.LARGE_BOWLS.get(), pBlockModelGenerators);
+	}
+
 	public static void largeBrownGroundShrooms(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.largeBrownGroundShrooms(IcariaBlocks.LARGE_BROWN_GROUND_SHROOMS.get(), pBlockModelGenerators);
 	}
@@ -1060,6 +1072,10 @@ public class IcariaBlockModelProvider {
 
 	public static void physalisCrop(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.physalisCrop(IcariaBlocks.PHYSALIS_CROP.get(), pBlockModelGenerators);
+	}
+
+	public static void plates(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.plates(IcariaBlocks.PLATES.get(), pBlockModelGenerators);
 	}
 
 	public static void portal(BlockModelGenerators pBlockModelGenerators) {
@@ -1259,6 +1275,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.slab(IcariaBlocks.POPULUS_SLAB.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
 	}
 
+	public static void smallBowls(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.smallBowls(IcariaBlocks.SMALL_BOWLS.get(), pBlockModelGenerators);
+	}
+
 	public static void spoonHolder(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.spoonHolder(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolder(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), pBlockModelGenerators);
@@ -1375,6 +1395,10 @@ public class IcariaBlockModelProvider {
 	public static void suspiciousSand(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_GRAINEL.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.suspiciousSand(IcariaBlocks.SUSPICIOUS_SILKSAND.get(), pBlockModelGenerators);
+	}
+
+	public static void suspiciousSubstance(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.suspiciousSubstance(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), pBlockModelGenerators);
 	}
 
 	public static void tappedBarrel(BlockModelGenerators pBlockModelGenerators) {
@@ -4181,6 +4205,14 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void largeBowls(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_bowls")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molibos_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void largeBrownGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
@@ -4498,6 +4530,14 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "4"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "4")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void plates(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_plates")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molibos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void portal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -4856,6 +4896,16 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void smallBowls(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_small_bowls")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, IcariaModelProvider.blockFile(IcariaIdents.ID, "mediterranean_water"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molibos_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_loam")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void spoonHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_spoon_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -5104,6 +5154,15 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
 				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "3"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void suspiciousSubstance(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaIdents.MC, "calcite"))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tappedBarrel(Block pTappedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
@@ -5715,6 +5774,10 @@ public class IcariaBlockModelProvider {
 		KlineModel.foot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_kline_foot"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void largeBowlsModel(BlockModelGenerators pBlockModelGenerators) {
+		LargeBowlsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_bowls"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void largeBrownGroundShroomsModel(BlockModelGenerators pBlockModelGenerators) {
 		LargeBrownGroundShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		LargeBrownGroundShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_large_brown_ground_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
@@ -5805,6 +5868,10 @@ public class IcariaBlockModelProvider {
 		PhysalisCropModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_physalis_crop_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void platesModel(BlockModelGenerators pBlockModelGenerators) {
+		PlatesModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_plates"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void portalModel(BlockModelGenerators pBlockModelGenerators) {
 		PortalModel.x().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_x"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		PortalModel.z().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_z"), new TextureMapping(), pBlockModelGenerators.modelOutput);
@@ -5888,6 +5955,10 @@ public class IcariaBlockModelProvider {
 		SimpleRackModel.tapped().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_tapped_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void smallBowlsModel(BlockModelGenerators pBlockModelGenerators) {
+		SmallBowlsModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_small_bowls"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void spoonHolderModel(BlockModelGenerators pBlockModelGenerators) {
 		SpoonHolderModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_spoon_holder"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
@@ -5919,6 +5990,10 @@ public class IcariaBlockModelProvider {
 
 	public static void surfaceChertModel(BlockModelGenerators pBlockModelGenerators) {
 		SurfaceChertModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_surface_chert"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void suspiciousSubstanceModel(BlockModelGenerators pBlockModelGenerators) {
+		SuspiciousSubstanceModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tappedBarrelModel(BlockModelGenerators pBlockModelGenerators) {

@@ -152,6 +152,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.THOG_WALL_SKULL.get(), IcariaItems.THOG_SKULL.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
+		this.dropElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), IcariaItems.SPELT_FLOUR.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
 		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaItems.DROUGHTROOT_SIGN.get());
@@ -639,6 +640,9 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.THOG_SKULL.get());
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		this.dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
+		this.dropThis(IcariaBlocks.LARGE_BOWLS.get());
+		this.dropThis(IcariaBlocks.SMALL_BOWLS.get());
+		this.dropThis(IcariaBlocks.PLATES.get());
 		this.dropThis(IcariaBlocks.CHECKERS.get());
 		this.dropThis(IcariaBlocks.CHESS.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SAPLING.get());

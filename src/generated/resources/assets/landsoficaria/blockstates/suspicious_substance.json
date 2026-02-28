@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/suspicious_substance",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/suspicious_substance"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/suspicious_substance",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/suspicious_substance",
+      "y": 270
+    }
+  }
+}
