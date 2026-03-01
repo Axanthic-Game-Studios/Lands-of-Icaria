@@ -17,6 +17,7 @@ Additions
 - Kline Blocks for each Wood Type
 - Large Bowls Block
 - Plates Block
+- Pot Block
 - Scrollshelf Blocks for each Wood Type
 - Small Bowls Block
 - Stool Blocks for each Wood Type

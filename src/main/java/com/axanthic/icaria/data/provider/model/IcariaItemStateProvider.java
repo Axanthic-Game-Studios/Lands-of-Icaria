@@ -1160,6 +1160,7 @@ public class IcariaItemStateProvider {
 
 	public static void tint(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.tint(IcariaItems.GRASSY_MARL.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
+		IcariaItemStateProvider.tint(IcariaItems.POT.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.SMALL_BOWLS.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.CYPRESS_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.DROUGHTROOT_POT_COUNTERTOP.get(), IcariaColors.TINT_WATER, pItemModelGenerators);

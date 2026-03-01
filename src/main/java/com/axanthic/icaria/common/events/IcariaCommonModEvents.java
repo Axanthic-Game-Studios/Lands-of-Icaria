@@ -641,6 +641,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.VINE_BERRY_CAKE.get());
 			pEvent.accept(IcariaItems.VINE_SPROUT_CAKE.get());
 
+			pEvent.accept(IcariaItems.POT.get());
+
 			pEvent.accept(IcariaItems.LARGE_BOWLS.get());
 			pEvent.accept(IcariaItems.SMALL_BOWLS.get());
 			pEvent.accept(IcariaItems.PLATES.get());

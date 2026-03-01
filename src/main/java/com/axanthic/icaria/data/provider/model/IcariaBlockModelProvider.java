@@ -118,6 +118,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.physalisCrop(pBlockModelGenerators);
 		IcariaBlockModelProvider.plates(pBlockModelGenerators);
 		IcariaBlockModelProvider.portal(pBlockModelGenerators);
+		IcariaBlockModelProvider.pot(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.potFireplace(pBlockModelGenerators);
 		IcariaBlockModelProvider.potHolder(pBlockModelGenerators);
@@ -248,6 +249,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.physalisCropModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.platesModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.portalModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.potModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potFireplaceInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.potFireplaceModel(pBlockModelGenerators);
@@ -1080,6 +1082,10 @@ public class IcariaBlockModelProvider {
 
 	public static void portal(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.portal(IcariaBlocks.ICARIA_PORTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void pot(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pot(IcariaBlocks.POT.get(), pBlockModelGenerators);
 	}
 
 	public static void potCountertop(BlockModelGenerators pBlockModelGenerators) {
@@ -4551,6 +4557,15 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void pot(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, IcariaModelProvider.blockFile(IcariaIdents.ID, "mediterranean_water"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUM_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenum_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void potCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_countertop")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -5875,6 +5890,10 @@ public class IcariaBlockModelProvider {
 	public static void portalModel(BlockModelGenerators pBlockModelGenerators) {
 		PortalModel.x().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_x"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		PortalModel.z().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_portal_z"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void potModel(BlockModelGenerators blockModels) {
+		PotModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void potCountertopModel(BlockModelGenerators blockModels) {

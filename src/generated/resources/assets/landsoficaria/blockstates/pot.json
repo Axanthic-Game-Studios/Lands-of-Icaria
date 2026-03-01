@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/pot",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/pot"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/pot",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/pot",
+      "y": 270
+    }
+  }
+}

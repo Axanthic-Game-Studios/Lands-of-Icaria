@@ -963,7 +963,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PINK_STORAGE_VASE.get())
 			.add(IcariaBlocks.AMPHORA.get())
 			.add(IcariaBlocks.ARACHNE_SPAWNER.get())
-			.add(IcariaBlocks.REVENANT_SPAWNER.get());
+			.add(IcariaBlocks.REVENANT_SPAWNER.get())
+			.add(IcariaBlocks.POT.get());
 
 		this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
 			.add(IcariaBlocks.GRASSY_MARL.get())

@@ -96,6 +96,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot SMOOTH_LOAM_BRICKS = TextureSlot.create("smooth_loam_bricks");
 	public static final TextureSlot SMOOTH_LOG = TextureSlot.create("smooth_log");
 	public static final TextureSlot SMOOTH_MOLIBOS_BLOCK = TextureSlot.create("smooth_molibos_block");
+	public static final TextureSlot SMOOTH_MOLYBDENUM_BLOCK = TextureSlot.create("smooth_molybdenum_block");
 	public static final TextureSlot SMOOTH_MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("smooth_molybdenumsteel_block");
 	public static final TextureSlot SMOOTH_SIDEROS_BLOCK = TextureSlot.create("smooth_sideros_block");
 	public static final TextureSlot SOUTH = TextureSlot.create("south");
