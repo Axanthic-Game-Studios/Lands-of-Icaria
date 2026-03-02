@@ -29,6 +29,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
 	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
 	public static final TextureSlot CALCITE = TextureSlot.create("calcite");
+	public static final TextureSlot CALCITE_BLOCK = TextureSlot.create("calcite_block");
 	public static final TextureSlot CANDLE = TextureSlot.create("candle");
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");
@@ -72,6 +73,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot LOAM_BRICKS = TextureSlot.create("loam_bricks");
 	public static final TextureSlot LOG = TextureSlot.create("log");
 	public static final TextureSlot LOG_TOP = TextureSlot.create("log_top");
+	public static final TextureSlot LOOT_VASE = TextureSlot.create("loot_vase");
 	public static final TextureSlot MARL = TextureSlot.create("marl");
 	public static final TextureSlot MEDITERRANEAN_WATER = TextureSlot.create("mediterranean_water");
 	public static final TextureSlot MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("molybdenumsteel_block");

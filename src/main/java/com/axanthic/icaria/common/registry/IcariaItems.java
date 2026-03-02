@@ -387,6 +387,8 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> AMPHORA = IcariaItems.register("amphora", properties -> new BlockItem(IcariaBlocks.AMPHORA.get(), properties), IcariaItems.propertiesBlock());
 
+	public static final DeferredHolder<Item, Item> VASE = IcariaItems.register("vase", properties -> new BlockItem(IcariaBlocks.VASE.get(), properties), IcariaItems.propertiesBlock());
+
 	public static final DeferredHolder<Item, Item> RED_LOOT_VASE = IcariaItems.register("red_loot_vase", properties -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> LOST_LOOT_VASE = IcariaItems.register("lost_loot_vase", properties -> new BlockItem(IcariaBlocks.LOST_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> CYAN_LOOT_VASE = IcariaItems.register("cyan_loot_vase", properties -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), properties), IcariaItems.propertiesBlock());

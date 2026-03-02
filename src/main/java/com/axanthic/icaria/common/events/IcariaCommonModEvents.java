@@ -606,6 +606,8 @@ public class IcariaCommonModEvents {
 
 			pEvent.accept(IcariaItems.AMPHORA.get());
 
+			pEvent.accept(IcariaItems.VASE.get());
+
 			pEvent.accept(IcariaItems.RED_LOOT_VASE.get());
 			pEvent.accept(IcariaItems.LOST_LOOT_VASE.get());
 			pEvent.accept(IcariaItems.CYAN_LOOT_VASE.get());

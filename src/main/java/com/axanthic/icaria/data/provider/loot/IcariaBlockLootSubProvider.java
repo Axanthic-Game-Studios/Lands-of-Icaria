@@ -978,6 +978,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
 		this.dropThisWithSilk(IcariaBlocks.ARISTONE.get());
 		this.dropThisWithSilk(IcariaBlocks.PACKED_ARISTONE.get());
+		this.dropThisWithSilk(IcariaBlocks.VASE.get());
 	}
 
 	public void dropThisWithSilkOrBone() {

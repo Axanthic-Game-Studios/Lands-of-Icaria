@@ -962,6 +962,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.MAGENTA_STORAGE_VASE.get())
 			.add(IcariaBlocks.PINK_STORAGE_VASE.get())
 			.add(IcariaBlocks.AMPHORA.get())
+			.add(IcariaBlocks.VASE.get())
 			.add(IcariaBlocks.ARACHNE_SPAWNER.get())
 			.add(IcariaBlocks.REVENANT_SPAWNER.get())
 			.add(IcariaBlocks.POT.get());

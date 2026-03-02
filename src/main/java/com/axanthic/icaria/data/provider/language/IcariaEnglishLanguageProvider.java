@@ -433,6 +433,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.AMPHORA.get(), "Amphora");
 
+		this.add(IcariaBlocks.VASE.get(), "Vase");
+
 		this.add(IcariaBlocks.RED_LOOT_VASE.get(), "Red Loot Vase");
 		this.add(IcariaBlocks.LOST_LOOT_VASE.get(), "Lost Loot Vase");
 		this.add(IcariaBlocks.CYAN_LOOT_VASE.get(), "Cyan Loot Vase");

@@ -165,6 +165,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.turkeyTailTreeShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.twigs(pBlockModelGenerators);
 		IcariaBlockModelProvider.unnamedTreeShrooms(pBlockModelGenerators);
+		IcariaBlockModelProvider.vase(pBlockModelGenerators);
 		IcariaBlockModelProvider.vaseCupboard(pBlockModelGenerators);
 		IcariaBlockModelProvider.vine(pBlockModelGenerators);
 		IcariaBlockModelProvider.wall(pBlockModelGenerators);
@@ -285,6 +286,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.turkeyTailTreeShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.twigsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.unnamedTreeShroomsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.vaseModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.vaseCupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.wiltedElmModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.zirconCrystalModel(pBlockModelGenerators);
@@ -1488,6 +1490,10 @@ public class IcariaBlockModelProvider {
 
 	public static void unnamedTreeShrooms(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.unnamedTreeShrooms(IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), pBlockModelGenerators);
+	}
+
+	public static void vase(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.vase(IcariaBlocks.VASE.get(), pBlockModelGenerators);
 	}
 
 	public static void vaseCupboard(BlockModelGenerators pBlockModelGenerators) {
@@ -5449,6 +5455,24 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void vase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_0")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_1")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_2")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void vaseCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -6061,6 +6085,12 @@ public class IcariaBlockModelProvider {
 		UnnamedTreeShroomsModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		UnnamedTreeShroomsModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		UnnamedTreeShroomsModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_unnamed_tree_shrooms_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void vaseModel(BlockModelGenerators pBlockModelGenerators) {
+		VaseModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		VaseModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		VaseModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void vaseCupboardModel(BlockModelGenerators blockModels) {

@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_vase_1",
+  "render_type": "minecraft:translucent",
+  "textures": {
+    "calcite_block": "landsoficaria:block/calcite_block",
+    "loot_vase": "landsoficaria:block/cyan_loot_vase",
+    "particle": "landsoficaria:block/cyan_loot_vase_particle"
+  }
+}

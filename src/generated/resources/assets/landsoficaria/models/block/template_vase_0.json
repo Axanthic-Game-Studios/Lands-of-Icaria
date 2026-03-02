@@ -1,0 +1,2576 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            14.0,
+            1.75,
+            14.25,
+            2.25
+          ]
+        },
+        "north": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            13.75,
+            1.75,
+            14.25,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.75,
+            2.0,
+            14.25,
+            2.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.75,
+            1.75,
+            14.25,
+            2.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            13.75,
+            1.75,
+            14.0,
+            2.25
+          ]
+        }
+      },
+      "from": [
+        7.25,
+        8.25,
+        7.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          8,
+          7.5,
+          8
+        ]
+      },
+      "to": [
+        8.75,
+        9,
+        8.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            6.75,
+            2.75,
+            5.25,
+            1.25
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            6.5,
+            1.25,
+            6.75,
+            2.75
+          ]
+        },
+        "north": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            5.25,
+            1.25,
+            6.75,
+            1.5
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            5.25,
+            2.5,
+            6.75,
+            2.75
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            5.25,
+            1.25,
+            6.75,
+            2.75
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            5.25,
+            1.25,
+            5.5,
+            2.75
+          ]
+        }
+      },
+      "from": [
+        5.75,
+        7.5,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          8,
+          7.5,
+          8
+        ]
+      },
+      "to": [
+        10.25,
+        8.25,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.5,
+            9.0,
+            1.0
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            9.25,
+            1.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            11.0,
+            1.25
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.25,
+            11.0,
+            1.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            11.0,
+            1.5
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            11.0,
+            1.5
+          ]
+        }
+      },
+      "from": [
+        5,
+        6.75,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        7.5,
+        6.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            2.5,
+            10.5,
+            1.5
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            1.5,
+            10.75,
+            2.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            1.5,
+            11.0,
+            1.75
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            2.25,
+            11.0,
+            2.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            1.5,
+            11.0,
+            2.5
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.5,
+            11.0,
+            2.5
+          ]
+        }
+      },
+      "from": [
+        9.5,
+        6.75,
+        6.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        7.5,
+        9.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            3.0,
+            9.0,
+            2.5
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.5,
+            9.25,
+            3.0
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.5,
+            11.0,
+            2.75
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            11.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.5,
+            11.0,
+            3.0
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.5,
+            11.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        6.75,
+        9.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        7.5,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.5,
+            2.5,
+            9.0,
+            1.5
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.5,
+            9.25,
+            2.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.5,
+            9.5,
+            1.75
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.25,
+            9.5,
+            2.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.5,
+            9.5,
+            2.5
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            1.5,
+            9.5,
+            2.5
+          ]
+        }
+      },
+      "from": [
+        5,
+        6.75,
+        6.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        6.5,
+        7.5,
+        9.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            9.25,
+            0.5
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            9.5,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            10.75,
+            0.75
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.75,
+            10.75,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            10.75,
+            1.0
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            0.5,
+            10.75,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        5.75,
+        6,
+        3.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.25,
+        6.75,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            1.25,
+            8.75,
+            0.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.25,
+            1.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            1.0,
+            9.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.25,
+            1.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            0.75,
+            9.25,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        10.25,
+        6,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          6,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        6.75,
+        5.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            8.5,
+            1.25
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            8.75,
+            2.75
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            9.0,
+            1.5
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            2.5,
+            9.0,
+            2.75
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            9.0,
+            2.75
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            1.25,
+            9.0,
+            2.75
+          ]
+        }
+      },
+      "from": [
+        11,
+        6,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        12.5,
+        6.75,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.25,
+            8.75,
+            2.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.0,
+            3.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.25,
+            3.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            3.0,
+            9.25,
+            3.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.25,
+            3.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            9.25,
+            3.25
+          ]
+        }
+      },
+      "from": [
+        10.25,
+        6,
+        10.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          6,
+          0,
+          6
+        ]
+      },
+      "to": [
+        11.75,
+        6.75,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            3.5,
+            9.25,
+            3.0
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            9.5,
+            3.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            10.75,
+            3.25
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.25,
+            10.75,
+            3.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            10.75,
+            3.5
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            3.0,
+            10.75,
+            3.5
+          ]
+        }
+      },
+      "from": [
+        5.75,
+        6,
+        11
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.25,
+        6.75,
+        12.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            3.25,
+            10.75,
+            2.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.0,
+            3.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.25,
+            3.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            3.0,
+            11.25,
+            3.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.25,
+            3.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            2.75,
+            11.25,
+            3.25
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        6,
+        10.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          6
+        ]
+      },
+      "to": [
+        5.75,
+        6.75,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.5,
+            2.75,
+            11.0,
+            1.25
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.25,
+            2.75
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.5,
+            1.5
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            2.5,
+            11.5,
+            2.75
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.5,
+            2.75
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            1.25,
+            11.5,
+            2.75
+          ]
+        }
+      },
+      "from": [
+        3.5,
+        6,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5,
+        6.75,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            1.25,
+            10.75,
+            0.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.25,
+            1.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            11.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.25,
+            1.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            0.75,
+            11.25,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        6,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5.75,
+        6.75,
+        5.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            6.25,
+            6.75,
+            6.5
+          ]
+        },
+        "east": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            4.5,
+            6.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            6.75,
+            6.5
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.0,
+            11.25,
+            3.5
+          ]
+        },
+        "up": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            6.75,
+            5.25
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            6.5,
+            5.0,
+            6.75,
+            6.5
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        1.5,
+        3.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        6,
+        4.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            6.25,
+            7.25,
+            6.5
+          ]
+        },
+        "east": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            7.25,
+            6.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            7.0,
+            5.0,
+            7.25,
+            6.5
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            5.0,
+            6.5
+          ]
+        },
+        "up": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            7.25,
+            5.25
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.0,
+            11.25,
+            3.5
+          ]
+        }
+      },
+      "from": [
+        11.75,
+        1.5,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        12.5,
+        6,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            1.0,
+            15.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        12.5,
+        3,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        13.25,
+        4.5,
+        6.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            1.0,
+            14.75,
+            1.25
+          ]
+        },
+        "east": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            14.75,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.5,
+            0.75,
+            14.75,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            13.5,
+            1.25
+          ]
+        },
+        "up": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            14.75,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            13.25,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        13.25,
+        3,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        14,
+        4.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            1.0,
+            13.25,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        12.5,
+        3,
+        9.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        13.25,
+        4.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            6.25,
+            6.75,
+            6.5
+          ]
+        },
+        "east": {
+          "texture": "#loot_vase",
+          "uv": [
+            6.5,
+            5.0,
+            6.75,
+            6.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.0,
+            11.25,
+            3.5
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            6.75,
+            6.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            6.75,
+            5.25
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.25,
+            5.0,
+            4.5,
+            6.5
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        1.5,
+        11.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        6,
+        12.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            6.25,
+            7.25,
+            6.5
+          ]
+        },
+        "east": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.25,
+            11.25,
+            3.75
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            5.0,
+            6.5
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            7.0,
+            5.0,
+            7.25,
+            6.5
+          ]
+        },
+        "up": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            7.25,
+            5.25
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            4.75,
+            5.0,
+            7.25,
+            6.5
+          ]
+        }
+      },
+      "from": [
+        3.5,
+        1.5,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        4.25,
+        6,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            1.0,
+            15.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            15.0,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        2.75,
+        3,
+        9.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        3.5,
+        4.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            1.0,
+            14.75,
+            1.25
+          ]
+        },
+        "east": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.75,
+            0.75,
+            13.25,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            13.5,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            14.5,
+            0.75,
+            14.75,
+            1.25
+          ]
+        },
+        "up": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            14.75,
+            1.0
+          ]
+        },
+        "west": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.25,
+            0.75,
+            14.75,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        2,
+        3,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        2.75,
+        4.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            1.0,
+            13.25,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.25
+          ]
+        },
+        "south": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            13.0,
+            0.75,
+            13.25,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        2.75,
+        3,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        3.5,
+        4.5,
+        6.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            9.25,
+            0.5
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            9.5,
+            1.0
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            10.75,
+            0.75
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.75,
+            10.75,
+            1.0
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            0.5,
+            10.75,
+            1.0
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            0.5,
+            10.75,
+            1.0
+          ]
+        }
+      },
+      "from": [
+        5.75,
+        0.75,
+        3.5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.25,
+        1.5,
+        5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            1.25,
+            8.75,
+            0.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.25,
+            1.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            1.0,
+            9.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            0.75,
+            9.25,
+            1.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            0.75,
+            9.25,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        10.25,
+        0.75,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        1.5,
+        5.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            8.5,
+            1.25
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            8.75,
+            2.75
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            9.0,
+            1.5
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            2.5,
+            9.0,
+            2.75
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.5,
+            1.25,
+            9.0,
+            2.75
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            1.25,
+            9.0,
+            2.75
+          ]
+        }
+      },
+      "from": [
+        11,
+        0.75,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        12.5,
+        1.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.25,
+            8.75,
+            2.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.0,
+            3.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.25,
+            3.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            3.0,
+            9.25,
+            3.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            8.75,
+            2.75,
+            9.25,
+            3.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            9.25,
+            3.25
+          ]
+        }
+      },
+      "from": [
+        10.25,
+        0.75,
+        10.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        1.5,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            3.5,
+            9.25,
+            3.0
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            9.5,
+            3.5
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            10.75,
+            3.25
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.25,
+            10.75,
+            3.5
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.25,
+            3.0,
+            10.75,
+            3.5
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.5,
+            3.0,
+            10.75,
+            3.5
+          ]
+        }
+      },
+      "from": [
+        5.75,
+        0.75,
+        11
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        10.25,
+        1.5,
+        12.5
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            3.25,
+            10.75,
+            2.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.0,
+            3.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.25,
+            3.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            3.0,
+            11.25,
+            3.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            2.75,
+            11.25,
+            3.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            2.75,
+            11.25,
+            3.25
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        0.75,
+        10.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5.75,
+        1.5,
+        11.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.5,
+            2.75,
+            11.0,
+            1.25
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.25,
+            2.75
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.5,
+            1.5
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            2.5,
+            11.5,
+            2.75
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            1.25,
+            11.5,
+            2.75
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            1.25,
+            11.5,
+            2.75
+          ]
+        }
+      },
+      "from": [
+        3.5,
+        0.75,
+        5.75
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5,
+        1.5,
+        10.25
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.25,
+            1.25,
+            10.75,
+            0.75
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.0,
+            1.25
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.25,
+            1.0
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            11.25,
+            1.25
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            0.75,
+            11.25,
+            1.25
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            0.75,
+            11.25,
+            1.25
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        0.75,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        5.75,
+        1.5,
+        5.75
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#loot_vase",
+          "uv": [
+            11.0,
+            3.0,
+            9.0,
+            1.0
+          ]
+        },
+        "east": {
+          "rotation": 90,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            9.25,
+            3.0
+          ]
+        },
+        "north": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            11.0,
+            1.25
+          ]
+        },
+        "south": {
+          "rotation": 180,
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            2.75,
+            11.0,
+            3.0
+          ]
+        },
+        "up": {
+          "texture": "#loot_vase",
+          "uv": [
+            9.0,
+            1.0,
+            11.0,
+            3.0
+          ]
+        },
+        "west": {
+          "rotation": 270,
+          "texture": "#loot_vase",
+          "uv": [
+            10.75,
+            1.0,
+            11.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        5,
+        0,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        0.75,
+        11
+      ]
+    },
+    {
+      "faces": {
+        "up": {
+          "texture": "#calcite_block",
+          "uv": [
+            0.0,
+            0.0,
+            10.0,
+            10.0
+          ]
+        }
+      },
+      "from": [
+        4.25,
+        3.75,
+        4.25
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11.75,
+        3.75,
+        11.75
+      ]
+    }
+  ]
+}

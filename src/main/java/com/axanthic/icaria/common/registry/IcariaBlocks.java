@@ -389,6 +389,8 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, Block> AMPHORA = IcariaBlocks.register("amphora", AmphoraBlock::new, IcariaBlocks.propertiesAmphora(MapColor.COLOR_LIGHT_GRAY, SoundType.DECORATED_POT));
 
+	public static final DeferredHolder<Block, Block> VASE = IcariaBlocks.register("vase", VaseBlock::new, IcariaBlocks.propertiesVase(MapColor.COLOR_LIGHT_GRAY, SoundType.DECORATED_POT));
+
 	public static final DeferredHolder<Block, Block> RED_LOOT_VASE = IcariaBlocks.register("red_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.VASE));
 	public static final DeferredHolder<Block, Block> LOST_LOOT_VASE = IcariaBlocks.register("lost_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.PODZOL, IcariaSoundTypes.VASE));
 	public static final DeferredHolder<Block, Block> CYAN_LOOT_VASE = IcariaBlocks.register("cyan_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.VASE));
@@ -1130,6 +1132,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesAmphora(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.25F).explosionResistance(1.25F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesVase(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.25F).explosionResistance(1.25F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesLootVase(MapColor pMapColor, SoundType pSoundType) {
