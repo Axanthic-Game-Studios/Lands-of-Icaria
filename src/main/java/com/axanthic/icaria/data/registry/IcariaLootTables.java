@@ -14,9 +14,7 @@ import net.minecraft.world.level.storage.loot.LootTable;
 @ParametersAreNonnullByDefault
 
 public class IcariaLootTables {
-	public static final ResourceKey<LootTable> SINGLE_AMPHORA = IcariaLootTables.createKey("amphoras/single_amphora");
-	public static final ResourceKey<LootTable> DOUBLE_AMPHORA = IcariaLootTables.createKey("amphoras/double_amphora");
-	public static final ResourceKey<LootTable> TRIPLE_AMPHORA = IcariaLootTables.createKey("amphoras/triple_amphora");
+	public static final ResourceKey<LootTable> AMPHORA = IcariaLootTables.createKey("amphoras/amphora");
 	public static final ResourceKey<LootTable> BARREL = IcariaLootTables.createKey("barrels/barrel");
 	public static final ResourceKey<LootTable> CHEST = IcariaLootTables.createKey("chests/chest");
 	public static final ResourceKey<LootTable> DECORATED_POT = IcariaLootTables.createKey("decorated_pots/decorated_pot");
@@ -26,6 +24,7 @@ public class IcariaLootTables {
 	public static final ResourceKey<LootTable> RED_STORAGE_VASE = IcariaLootTables.createKey("storage_vases/red_storage_vase");
 	public static final ResourceKey<LootTable> CYAN_STORAGE_VASE = IcariaLootTables.createKey("storage_vases/cyan_storage_vase");
 	public static final ResourceKey<LootTable> SUSPICIOUS_SAND = IcariaLootTables.createKey("suspicious_sands/suspicious_sand");
+	public static final ResourceKey<LootTable> VASE = IcariaLootTables.createKey("vases/vase");
 
 	public static ResourceKey<LootTable> createKey(String pName) {
 		return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));

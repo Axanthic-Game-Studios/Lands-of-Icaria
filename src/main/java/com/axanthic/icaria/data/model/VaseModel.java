@@ -278,7 +278,7 @@ public class VaseModel {
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(11.0000F, 3.0000F, 9.0000F, 1.0000F).texture(IcariaTextureSlots.LOOT_VASE)))
 			.element(elementBuilder -> elementBuilder.from(4.2500F, 3.7500F, 4.2500F).to(11.7500F, 3.7500F, 11.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.CALCITE_BLOCK)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.HALITE_BLOCK)))
 			.build();
 	}
 
@@ -541,7 +541,7 @@ public class VaseModel {
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(11.0000F, 3.0000F, 9.0000F, 1.0000F).texture(IcariaTextureSlots.LOOT_VASE)))
 			.element(elementBuilder -> elementBuilder.from(4.2500F, 3.7500F, 4.2500F).to(11.7500F, 3.7500F, 11.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.CALCITE_BLOCK)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.HALITE_BLOCK)))
 			.build();
 	}
 
@@ -789,7 +789,7 @@ public class VaseModel {
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(11.0000F, 3.0000F, 9.0000F, 1.0000F).texture(IcariaTextureSlots.LOOT_VASE)))
 			.element(elementBuilder -> elementBuilder.from(4.2500F, 3.7500F, 4.2500F).to(11.7500F, 3.7500F, 11.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.CALCITE_BLOCK)))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.HALITE_BLOCK)))
 			.element(elementBuilder -> elementBuilder.from(5.0000F, 0.0000F, 14.2500F).to(9.5000F, 4.5000F, 15.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.angle(-22.5000F).axis(Direction.Axis.X).origin(7.2500F, 0.0000F, 14.2500F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.7500F, 2.7500F, 5.2500F, 1.2500F).texture(IcariaTextureSlots.LOOT_VASE).rotation(Quadrant.R180))

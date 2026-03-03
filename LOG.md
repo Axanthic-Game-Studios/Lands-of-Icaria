@@ -22,6 +22,7 @@ Additions
 - Small Bowls Block
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block
+- Vase Block
 - Rugs
 - Fish
 

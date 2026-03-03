@@ -29,7 +29,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
 	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
 	public static final TextureSlot CALCITE = TextureSlot.create("calcite");
-	public static final TextureSlot CALCITE_BLOCK = TextureSlot.create("calcite_block");
 	public static final TextureSlot CANDLE = TextureSlot.create("candle");
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");

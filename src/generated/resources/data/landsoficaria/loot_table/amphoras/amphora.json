@@ -35,8 +35,12 @@
           "name": "landsoficaria:fermented_snull_cream"
         }
       ],
-      "rolls": 2.0
+      "rolls": {
+        "type": "minecraft:uniform",
+        "max": 3.0,
+        "min": 1.0
+      }
     }
   ],
-  "random_sequence": "landsoficaria:amphoras/double_amphora"
+  "random_sequence": "landsoficaria:amphoras/amphora"
 }

@@ -2392,7 +2392,7 @@
     {
       "faces": {
         "up": {
-          "texture": "#calcite_block",
+          "texture": "#halite_block",
           "uv": [
             0.0,
             0.0,

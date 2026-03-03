@@ -5458,17 +5458,17 @@ public class IcariaBlockModelProvider {
 	public static void vase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_0")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "halite_block"))
 				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_1")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "halite_block"))
 				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_2")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "calcite_block"))
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "halite_block"))
 				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
 	}

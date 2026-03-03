@@ -1335,22 +1335,31 @@ public class IcariaBlockStateProvider {
 		);
 	}
 
+	public static void amphora(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.AMPHORA_AMOUNT)
+				.select(Direction.NORTH, 1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single"))))
+				.select(Direction.NORTH, 2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double"))))
+				.select(Direction.NORTH, 3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple"))))
+				.select(Direction.EAST, 1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, 2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, 3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, 1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, 2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, 3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, 1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, 2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, 3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
+	}
+
 	public static void axis(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
 			.with(PropertyDispatch.initial(BlockStateProperties.AXIS)
 				.select(Direction.Axis.X, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "horizontal")).with(BlockModelGenerators.Y_ROT_90).with(BlockModelGenerators.X_ROT_90)))
 				.select(Direction.Axis.Y, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
 				.select(Direction.Axis.Z, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "horizontal")).with(BlockModelGenerators.X_ROT_90)))
-			)
-		);
-	}
-
-	public static void amphora(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(IcariaBlockStateProperties.AMPHORA_AMOUNT)
-				.select(1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "single")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "double")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "triple")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}
