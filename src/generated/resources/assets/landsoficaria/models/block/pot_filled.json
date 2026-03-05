@@ -1,7 +1,8 @@
 {
-  "parent": "landsoficaria:block/template_pot",
+  "parent": "landsoficaria:block/template_pot_filled",
   "render_type": "minecraft:translucent",
   "textures": {
+    "mediterranean_water": "landsoficaria:block/mediterranean_water",
     "particle": "landsoficaria:block/smooth_molybdenumsteel_block",
     "smooth_molybdenum_block": "landsoficaria:block/smooth_molybdenum_block",
     "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block"

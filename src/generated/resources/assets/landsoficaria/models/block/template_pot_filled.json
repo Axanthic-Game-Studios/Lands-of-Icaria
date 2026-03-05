@@ -402,6 +402,33 @@
     },
     {
       "faces": {
+        "up": {
+          "texture": "#mediterranean_water",
+          "tintindex": 0
+        }
+      },
+      "from": [
+        5,
+        1,
+        5
+      ],
+      "rotation": {
+        "angle": 0.0,
+        "axis": "y",
+        "origin": [
+          0,
+          0,
+          0
+        ]
+      },
+      "to": [
+        11,
+        4,
+        11
+      ]
+    },
+    {
+      "faces": {
         "down": {
           "rotation": 270,
           "texture": "#smooth_molybdenumsteel_block",

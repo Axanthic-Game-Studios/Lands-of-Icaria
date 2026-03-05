@@ -64,6 +64,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.pane(pBlockModelGenerators);
 		IcariaBlockStateProvider.pillarHead(pBlockModelGenerators);
 		IcariaBlockStateProvider.portal(pBlockModelGenerators);
+		IcariaBlockStateProvider.pot(pBlockModelGenerators);
 		IcariaBlockStateProvider.pressurePlate(pBlockModelGenerators);
 		IcariaBlockStateProvider.rack(pBlockModelGenerators);
 		IcariaBlockStateProvider.randomHorizontal1(pBlockModelGenerators);
@@ -645,7 +646,6 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal(IcariaBlocks.POT.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LARGE_BOWLS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.SMALL_BOWLS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLATES.get(), pBlockModelGenerators);
@@ -835,6 +835,10 @@ public class IcariaBlockStateProvider {
 
 	public static void portal(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.portal(IcariaBlocks.ICARIA_PORTAL.get(), pBlockModelGenerators);
+	}
+
+	public static void pot(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.pot(IcariaBlocks.POT.get(), pBlockModelGenerators);
 	}
 
 	public static void pressurePlate(BlockModelGenerators pBlockModelGenerators) {
@@ -2957,6 +2961,21 @@ public class IcariaBlockStateProvider {
 			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_AXIS)
 				.select(Direction.Axis.X, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "x"))))
 				.select(Direction.Axis.Z, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "z"))))
+			)
+		);
+	}
+
+	public static void pot(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.POT_FILLED)
+				.select(Direction.NORTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.NORTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "filled"))))
+				.select(Direction.EAST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "filled")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "filled")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "filled")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

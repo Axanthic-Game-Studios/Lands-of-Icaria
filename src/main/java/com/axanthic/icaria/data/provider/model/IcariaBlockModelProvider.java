@@ -4566,6 +4566,11 @@ public class IcariaBlockModelProvider {
 	public static void pot(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot")).renderType("translucent").build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUM_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenum_block"))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_filled")).renderType("translucent").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "filled"), new TextureMapping()
 				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, IcariaModelProvider.blockFile(IcariaIdents.ID, "mediterranean_water"))
 				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUM_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenum_block"))
 				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "smooth_molybdenumsteel_block"))
@@ -5917,7 +5922,8 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void potModel(BlockModelGenerators blockModels) {
-		PotModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot"), new TextureMapping(), blockModels.modelOutput);
+		PotModel.pot().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot"), new TextureMapping(), blockModels.modelOutput);
+		PotModel.potFilled().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_pot_filled"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void potCountertopModel(BlockModelGenerators blockModels) {

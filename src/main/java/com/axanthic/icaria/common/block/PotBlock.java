@@ -31,7 +31,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class PotBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public PotBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.POT_FILLED, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
@@ -41,13 +41,26 @@ public class PotBlock extends Block implements MediterraneanWaterloggedBlock, Si
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.POT_FILLED, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
-		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
-		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var direction = pBlockPlaceContext.getHorizontalDirection();
+		var level = pBlockPlaceContext.getLevel();
+		var player = pBlockPlaceContext.getPlayer();
+
+		var fluidState = level.getFluidState(blockPos);
+		var fluid = fluidState.getType();
+
+		var blockState = this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+
+		if (player != null) {
+			return blockState.setValue(IcariaBlockStateProperties.POT_FILLED, player.isShiftKeyDown());
+		} else {
+			return blockState;
+		}
 	}
 
 	@Override
