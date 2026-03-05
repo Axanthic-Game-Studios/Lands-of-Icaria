@@ -638,9 +638,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		this.dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
 		this.dropThis(IcariaBlocks.POT.get());
-		this.dropThis(IcariaBlocks.LARGE_BOWLS.get());
-		this.dropThis(IcariaBlocks.SMALL_BOWLS.get());
-		this.dropThis(IcariaBlocks.PLATES.get());
 		this.dropThis(IcariaBlocks.CHECKERS.get());
 		this.dropThis(IcariaBlocks.CHESS.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SAPLING.get());
@@ -975,6 +972,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilk(IcariaBlocks.HYLIASTRUM_ORE.get());
 		this.dropThisWithSilk(IcariaBlocks.ARISTONE.get());
 		this.dropThisWithSilk(IcariaBlocks.PACKED_ARISTONE.get());
+		this.dropThisWithSilk(IcariaBlocks.PLATES.get());
 	}
 
 	public void dropThisWithSilkOrBone() {
@@ -1011,6 +1009,8 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilkOrElse(IcariaBlocks.HALITE_CRYSTAL.get(), IcariaItems.HALITE_SHARD.get(), 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.JASPER_CRYSTAL.get(), IcariaItems.JASPER_SHARD.get(), 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.ZIRCON_CRYSTAL.get(), IcariaItems.ZIRCON_SHARD.get(), 1.0F, 2);
+		this.dropThisWithSilkOrElse(IcariaBlocks.LARGE_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.SMALL_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2.0F, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1.0F, 2);
