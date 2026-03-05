@@ -1278,6 +1278,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             7.0,
@@ -1287,6 +1288,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             7.0,
@@ -1314,6 +1316,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             7.0,
@@ -1346,6 +1349,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1355,6 +1359,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1382,6 +1387,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1414,6 +1420,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             6.0,
@@ -1423,6 +1430,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             6.0,
@@ -1441,6 +1449,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             6.0,
@@ -1473,6 +1482,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1482,6 +1492,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1500,6 +1511,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             6.0,
@@ -1532,6 +1544,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1541,6 +1554,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1568,6 +1582,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1600,6 +1615,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1609,6 +1625,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1618,6 +1635,7 @@
           ]
         },
         "north": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1636,6 +1654,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -1668,6 +1687,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             0.0,
@@ -1677,6 +1697,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             0.0,
@@ -1695,6 +1716,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             0.0,
@@ -1727,6 +1749,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             7.0,
@@ -1736,6 +1759,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             7.0,
@@ -1754,6 +1778,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             7.0,
@@ -1786,6 +1811,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             7.0,
@@ -1795,6 +1821,7 @@
           ]
         },
         "north": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             5.0,
@@ -1822,6 +1849,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             5.0,
@@ -1854,6 +1882,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             11.0,
@@ -1863,6 +1892,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             10.0,
@@ -1872,6 +1902,7 @@
           ]
         },
         "north": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             9.0,
@@ -1922,6 +1953,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             10.0,
@@ -1931,6 +1963,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             10.0,
@@ -1949,6 +1982,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             10.0,
@@ -1981,6 +2015,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             5.0,
@@ -1990,6 +2025,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             5.0,
@@ -2008,6 +2044,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#orange_storage_vase_lite",
           "uv": [
             5.0,
@@ -2040,6 +2077,7 @@
     {
       "faces": {
         "down": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -2049,6 +2087,7 @@
           ]
         },
         "east": {
+          "rotation": 90,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -2058,6 +2097,7 @@
           ]
         },
         "north": {
+          "rotation": 180,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
@@ -2085,6 +2125,7 @@
           ]
         },
         "west": {
+          "rotation": 270,
           "texture": "#brown_storage_vase",
           "uv": [
             0.0,
