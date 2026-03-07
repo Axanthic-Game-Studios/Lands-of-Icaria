@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_pot",
-  "render_type": "minecraft:translucent",
   "textures": {
     "particle": "landsoficaria:block/smooth_molybdenumsteel_block",
     "smooth_molybdenum_block": "landsoficaria:block/smooth_molybdenum_block",

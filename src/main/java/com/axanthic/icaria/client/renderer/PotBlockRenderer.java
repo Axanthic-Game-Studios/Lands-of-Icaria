@@ -1,14 +1,12 @@
 package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
-import com.axanthic.icaria.common.entity.BathtubBlockEntity;
+import com.axanthic.icaria.common.entity.PotBlockEntity;
 import com.axanthic.icaria.common.properties.Fill;
-import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -20,25 +18,23 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<BathtubBlockEntity> {
+public record PotBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<PotBlockEntity> {
 
 	@Override
-	public void render(BathtubBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
+	public void render(PotBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var blockState = pBlockEntity.getBlockState();
 		var blockPos = pBlockEntity.getBlockPos();
 		var level = pBlockEntity.getLevel();
 
-		var bathtubFill = blockState.getValue(IcariaBlockStateProperties.BATHTUB_FILL);
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		var fill = blockState.getValue(IcariaBlockStateProperties.FILL);
-		var part = blockState.getValue(IcariaBlockStateProperties.PART);
+		var potFill = blockState.getValue(IcariaBlockStateProperties.POT_FILL);
 
 		var minecraft = Minecraft.getInstance();
 		var renderType = Sheets.translucentItemSheet();
@@ -54,17 +50,9 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 			var g = this.getColor(fill, color, 8);
 			var b = this.getColor(fill, color, 0);
 
-			var y = bathtubFill * 0.0625F + 0.0625F + 0.0005F;
+			var y = potFill * 0.0625F + 0.0625F;
 
-			this.render(part, vertexConsumer, sprite, pPoseStack, direction, pPackedLight, pPackedOverlay, y, r, g, b);
-		}
-	}
-
-	public void render(Part pPart, VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, PoseStack pPoseStack, Direction pDirection, int pPackedLight, int pPackedOverlay, float pY, float pRed, float pGreen, float pBlue) {
-		if (pPart == Part.HEAD) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pPoseStack.last().pose(), pDirection, pPackedLight, pPackedOverlay, 0.125F, 0.875F, 0.0F, 0.875F, 0.125F, 0.875F, 0.0F, 0.875F, pY, pRed, pGreen, pBlue, 1.0F);
-		} else {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pPoseStack.last().pose(), pDirection, pPackedLight, pPackedOverlay, 0.125F, 0.875F, 0.125F, 1.0F, 0.125F, 0.875F, 0.125F, 1.0F, pY, pRed, pGreen, pBlue, 1.0F);
+			IcariaClientHelper.renderQuad(vertexConsumer, sprite, pPoseStack.last().pose(), direction, pPackedLight, pPackedOverlay, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, y, r, g, b, 1.0F);
 		}
 	}
 

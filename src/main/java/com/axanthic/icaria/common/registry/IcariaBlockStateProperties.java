@@ -35,11 +35,11 @@ public class IcariaBlockStateProperties {
 
 	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, direction -> direction != Direction.DOWN);
 
-	public static final EnumProperty<Bathtub> BATHTUB = EnumProperty.create("bathtub", Bathtub.class);
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Chessboard> CHESSBOARD = EnumProperty.create("chessboard", Chessboard.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+	public static final EnumProperty<Fill> FILL = EnumProperty.create("fill", Fill.class);
 	public static final EnumProperty<FirewoodWedge> FIREWOOD_WEDGE = EnumProperty.create("firewood_wedge", FirewoodWedge.class);
 	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
@@ -57,5 +57,6 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
 	public static final IntegerProperty CANDLE_AMOUNT = IntegerProperty.create("candle_amount", 0, 4);
 	public static final IntegerProperty LADDER_TICK = IntegerProperty.create("ladder_tick", 0, 40);
+	public static final IntegerProperty POT_FILL = IntegerProperty.create("pot_fill", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
 }

@@ -178,13 +178,13 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 	}
 
 	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
-		if (pItemStack.is(Items.BUCKET) && pFill > 8) {
+		if (pItemStack.is(Items.BUCKET) && pFill == 9) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.WATER_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.NONE).setValue(IcariaBlockStateProperties.TROUGH_FILL, 0));
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && pFill < 7) {
+		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && pFill <= 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.TROUGH, Trough.WATER).setValue(IcariaBlockStateProperties.TROUGH_FILL, pFill + 3));

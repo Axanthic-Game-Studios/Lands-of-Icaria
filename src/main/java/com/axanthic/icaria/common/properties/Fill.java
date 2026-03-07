@@ -8,7 +8,7 @@ import net.minecraft.util.StringRepresentable;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public enum Bathtub implements StringRepresentable {
+public enum Fill implements StringRepresentable {
 	NONE("none"),
 	POWDER_SNOW("powder_snow"),
 	WATER("water"),
@@ -16,7 +16,7 @@ public enum Bathtub implements StringRepresentable {
 
 	public final String name;
 
-	Bathtub(String pName) {
+	Fill(String pName) {
 		this.name = pName;
 	}
 

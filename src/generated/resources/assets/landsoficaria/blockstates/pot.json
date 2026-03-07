@@ -1,33 +1,18 @@
 {
   "variants": {
-    "facing=east,pot_filled=false": {
+    "facing=east": {
       "model": "landsoficaria:block/pot",
       "y": 90
     },
-    "facing=east,pot_filled=true": {
-      "model": "landsoficaria:block/pot_filled",
-      "y": 90
-    },
-    "facing=north,pot_filled=false": {
+    "facing=north": {
       "model": "landsoficaria:block/pot"
     },
-    "facing=north,pot_filled=true": {
-      "model": "landsoficaria:block/pot_filled"
-    },
-    "facing=south,pot_filled=false": {
+    "facing=south": {
       "model": "landsoficaria:block/pot",
       "y": 180
     },
-    "facing=south,pot_filled=true": {
-      "model": "landsoficaria:block/pot_filled",
-      "y": 180
-    },
-    "facing=west,pot_filled=false": {
+    "facing=west": {
       "model": "landsoficaria:block/pot",
-      "y": 270
-    },
-    "facing=west,pot_filled=true": {
-      "model": "landsoficaria:block/pot_filled",
       "y": 270
     }
   }

@@ -44,7 +44,7 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context context) i
 		if (level != null && trough != Trough.NONE) {
 			var color = BiomeColors.getAverageWaterColor(level, blockPos);
 
-			var sprite = this.getSprite(minecraft, trough);
+			var sprite = this.getSprite(trough, minecraft);
 
 			var r = this.getColor(trough, color, 16);
 			var g = this.getColor(trough, color, 8);
@@ -64,7 +64,7 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context context) i
 		}
 	}
 
-	public TextureAtlasSprite getSprite(Minecraft pMinecraft, Trough pTrough) {
+	public TextureAtlasSprite getSprite(Trough pTrough, Minecraft pMinecraft) {
 		if (pTrough == Trough.POWDER_SNOW) {
 			return pMinecraft.getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.POWDER_SNOW);
 		} else if (pTrough == Trough.WATER) {

@@ -1,7 +1,11 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.entity.PotBlockEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.properties.Fill;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.PotVoxelShapes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -9,17 +13,31 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -28,10 +46,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class PotBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+public class PotBlock extends Block implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public PotBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.POT_FILLED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.POT_FILL, 0).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
@@ -40,27 +58,29 @@ public class PotBlock extends Block implements MediterraneanWaterloggedBlock, Si
 	}
 
 	@Override
+	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
+		return true;
+	}
+
+	@Override
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+		return pBlockState.getValue(IcariaBlockStateProperties.POT_FILL) * 5;
+	}
+
+	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.POT_FILLED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(IcariaBlockStateProperties.FILL, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.POT_FILL, BlockStateProperties.WATERLOGGED);
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
+		return new PotBlockEntity(pBlockPos, pBlockState);
 	}
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
-		var blockPos = pBlockPlaceContext.getClickedPos();
-		var direction = pBlockPlaceContext.getHorizontalDirection();
-		var level = pBlockPlaceContext.getLevel();
-		var player = pBlockPlaceContext.getPlayer();
-
-		var fluidState = level.getFluidState(blockPos);
-		var fluid = fluidState.getType();
-
-		var blockState = this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
-
-		if (player != null) {
-			return blockState.setValue(IcariaBlockStateProperties.POT_FILLED, player.isShiftKeyDown());
-		} else {
-			return blockState;
-		}
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
+		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
@@ -81,6 +101,106 @@ public class PotBlock extends Block implements MediterraneanWaterloggedBlock, Si
 	@Override
 	public FluidState getFluidState(BlockState pBlockState) {
 		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
+	}
+
+	@Override
+	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
+		var fill = pBlockState.getValue(IcariaBlockStateProperties.POT_FILL);
+		if (pBlockState.getValue(IcariaBlockStateProperties.FILL) == Fill.NONE) {
+			return this.fill(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.FILL) == Fill.POWDER_SNOW) {
+			return this.powderSnow(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.FILL) == Fill.WATER) {
+			return this.water(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer, fill);
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.FILL) == Fill.MEDITERRANEAN_WATER) {
+			return this.mediterraneanWater(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
+		} else {
+			return InteractionResult.FAIL;
+		}
+	}
+
+	public InteractionResult fill(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pItemStack.is(Items.POWDER_SNOW_BUCKET)) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY_POWDER_SNOW, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.POWDER_SNOW).setValue(IcariaBlockStateProperties.POT_FILL, 3));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POWDER_SNOW_BUCKET));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(Items.WATER_BUCKET)) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.WATER).setValue(IcariaBlockStateProperties.POT_FILL, 3));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.WATER_BUCKET));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get())) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.MEDITERRANEAN_WATER).setValue(IcariaBlockStateProperties.POT_FILL, 3));
+			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER)) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.WATER).setValue(IcariaBlockStateProperties.POT_FILL, 1));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POTION));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.FAIL;
+		}
+	}
+
+	public InteractionResult powderSnow(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pItemStack.is(Items.BUCKET)) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.POWDER_SNOW_BUCKET), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL_POWDER_SNOW, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(IcariaBlockStateProperties.POT_FILL, 0));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.FAIL;
+		}
+	}
+
+	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
+		if (pItemStack.is(Items.BUCKET) && pFill == 3) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.WATER_BUCKET), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(IcariaBlockStateProperties.POT_FILL, 0));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && pFill < 3) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.WATER).setValue(IcariaBlockStateProperties.POT_FILL, pFill + 1));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POTION));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill > 1) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.WATER).setValue(IcariaBlockStateProperties.POT_FILL, pFill - 1));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLASS_BOTTLE));
+			return InteractionResult.SUCCESS;
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill > 0) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(IcariaBlockStateProperties.POT_FILL, 0));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLASS_BOTTLE));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.FAIL;
+		}
+	}
+
+	public InteractionResult mediterraneanWater(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pItemStack.is(Items.BUCKET)) {
+			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()), pPlayer);
+			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(IcariaBlockStateProperties.POT_FILL, 0));
+			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.FAIL;
+		}
 	}
 
 	@Override

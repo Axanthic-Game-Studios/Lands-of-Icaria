@@ -288,7 +288,6 @@ public class IcariaClientModEvents {
 	}
 
 	public static void waterColor(RegisterColorHandlersEvent.Block pEvent) {
-		pEvent.register(IcariaClientModEvents.waterColor(), IcariaBlocks.POT.get());
 		pEvent.register(IcariaClientModEvents.waterColor(), IcariaBlocks.SMALL_BOWLS.get());
 		pEvent.register(IcariaClientModEvents.waterColor(), IcariaBlocks.CYPRESS_POT_COUNTERTOP.get());
 		pEvent.register(IcariaClientModEvents.waterColor(), IcariaBlocks.DROUGHTROOT_POT_COUNTERTOP.get());
@@ -301,7 +300,6 @@ public class IcariaClientModEvents {
 
 	public static void registerBlock(RegisterClientExtensionsEvent pEvent) {
 		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get());
-		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.POT.get());
 		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.SMALL_BOWLS.get());
 		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.CYPRESS_HERB_HOLDER.get());
 		pEvent.registerBlock(new ClientBlockExtensions(), IcariaBlocks.CYPRESS_POT_COUNTERTOP.get());
@@ -370,6 +368,7 @@ public class IcariaClientModEvents {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.GRINDER.get(), GrinderBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.KETTLE.get(), KettleBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.POT.get(), PotBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);
