@@ -1487,8 +1487,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "lignite" + "." + "crackle", "Braunkohle knistert");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "pottery" + "." + "break", "Keramik bricht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "rotten_bone_ladder" + "." + "break", "Verrottete Knochenleiter bricht");
-		this.add("subtitle" + "." + IcariaIdents.ID + "." + "vase" + "." + "break", "Vase bricht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "death", "Äterne stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "aeternae" + "." + "hurt", "Äterne nimmt Schaden");

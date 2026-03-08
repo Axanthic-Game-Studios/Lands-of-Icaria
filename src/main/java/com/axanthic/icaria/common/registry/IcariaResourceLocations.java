@@ -268,8 +268,8 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation KETTLE_CONSUME = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.kettle.consume");
 	public static final ResourceLocation KETTLE_POP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.kettle.pop");
 	public static final ResourceLocation LIGNITE_CRACKLE = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.lignite.crackle");
+	public static final ResourceLocation POTTERY_BREAK = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.pottery.break");
 	public static final ResourceLocation ROTTEN_BONE_LADDER_BREAK = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.rotten_bone_ladder.break");
-	public static final ResourceLocation VASE_BREAK = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "block.vase.break");
 	public static final ResourceLocation AETERNAE_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.aeternae.ambient");
 	public static final ResourceLocation AETERNAE_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.aeternae.death");
 	public static final ResourceLocation AETERNAE_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.aeternae.hurt");

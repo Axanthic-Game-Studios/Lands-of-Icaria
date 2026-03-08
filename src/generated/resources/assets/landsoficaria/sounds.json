@@ -80,6 +80,15 @@
     ],
     "subtitle": "subtitle.landsoficaria.lignite.crackle"
   },
+  "block.pottery.break": {
+    "sounds": [
+      "landsoficaria:block/pottery/break_00",
+      "landsoficaria:block/pottery/break_01",
+      "landsoficaria:block/pottery/break_02",
+      "landsoficaria:block/pottery/break_03"
+    ],
+    "subtitle": "subtitle.landsoficaria.pottery.break"
+  },
   "block.rotten_bone_ladder.break": {
     "sounds": [
       {
@@ -88,15 +97,6 @@
       }
     ],
     "subtitle": "subtitle.landsoficaria.rotten_bone_ladder.break"
-  },
-  "block.vase.break": {
-    "sounds": [
-      "landsoficaria:block/vase/break_00",
-      "landsoficaria:block/vase/break_01",
-      "landsoficaria:block/vase/break_02",
-      "landsoficaria:block/vase/break_03"
-    ],
-    "subtitle": "subtitle.landsoficaria.vase.break"
   },
   "entity.aeternae.ambient": {
     "sounds": [
