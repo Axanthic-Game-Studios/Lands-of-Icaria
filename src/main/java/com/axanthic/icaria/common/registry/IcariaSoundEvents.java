@@ -75,6 +75,7 @@ public class IcariaSoundEvents {
 	public static final SoundEvent MYRMEKE_QUEEN_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.MYRMEKE_QUEEN_DEATH);
 	public static final SoundEvent MYRMEKE_QUEEN_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.MYRMEKE_QUEEN_HURT);
 	public static final SoundEvent MYRMEKE_QUEEN_STEP = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.MYRMEKE_QUEEN_STEP);
+	public static final SoundEvent PLAYER_SNIFF = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.PLAYER_SNIFF);
 	public static final SoundEvent REVENANT_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.REVENANT_AMBIENT);
 	public static final SoundEvent REVENANT_DEATH = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.REVENANT_DEATH);
 	public static final SoundEvent REVENANT_HURT = SoundEvent.createVariableRangeEvent(IcariaResourceLocations.REVENANT_HURT);

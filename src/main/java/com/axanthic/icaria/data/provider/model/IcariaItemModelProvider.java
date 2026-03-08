@@ -781,7 +781,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.LARGE_BOWLS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.SMALL_BOWLS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLATES.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.SUSPICIOUS_SUBSTANCE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.SUSPICIOUS_SUBSTANCE.get(), "3", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CHECKERS.get(), "set", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CHESS.get(), "set", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_LEAVES.get(), pItemModelGenerators);

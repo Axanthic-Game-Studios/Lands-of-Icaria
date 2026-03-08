@@ -1547,6 +1547,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "death", "Ameisenkönigin stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "hurt", "Ameisenkönigin nimmt Schaden");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "step", "Ameisenköniginschritte");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "player" + "." + "sniff", "Spieler schnupft");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "ambient", "Wiedergänger atmet");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "death", "Wiedergänger stirbt");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "hurt", "Wiedergänger nimmt Schaden");

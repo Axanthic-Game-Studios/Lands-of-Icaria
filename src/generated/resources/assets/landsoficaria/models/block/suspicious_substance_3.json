@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_suspicious_substance_3",
+  "textures": {
+    "calcite": "minecraft:block/calcite",
+    "particle": "minecraft:block/white_concrete_powder",
+    "red_arachne_string_block": "landsoficaria:block/red_arachne_string_block",
+    "white_concrete_powder": "minecraft:block/white_concrete_powder"
+  }
+}

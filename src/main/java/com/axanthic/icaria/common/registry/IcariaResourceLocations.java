@@ -328,6 +328,7 @@ public class IcariaResourceLocations {
 	public static final ResourceLocation MYRMEKE_QUEEN_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.myrmeke_queen.death");
 	public static final ResourceLocation MYRMEKE_QUEEN_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.myrmeke_queen.hurt");
 	public static final ResourceLocation MYRMEKE_QUEEN_STEP = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.myrmeke_queen.step");
+	public static final ResourceLocation PLAYER_SNIFF = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.player.sniff");
 	public static final ResourceLocation REVENANT_AMBIENT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.revenant.ambient");
 	public static final ResourceLocation REVENANT_DEATH = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.revenant.death");
 	public static final ResourceLocation REVENANT_HURT = ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity.revenant.hurt");

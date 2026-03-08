@@ -1547,6 +1547,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "death", "Myrmeke Queen dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "hurt", "Myrmeke Queen hurts");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "myrmeke_queen" + "." + "step", "Myrmeke Queen steps");
+		this.add("subtitle" + "." + IcariaIdents.ID + "." + "player" + "." + "sniff", "Player sniffs");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "ambient", "Revenant breathes");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "death", "Revenant dies");
 		this.add("subtitle" + "." + IcariaIdents.ID + "." + "revenant" + "." + "hurt", "Revenant hurts");

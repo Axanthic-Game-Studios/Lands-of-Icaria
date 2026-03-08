@@ -58,5 +58,6 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty CANDLE_AMOUNT = IntegerProperty.create("candle_amount", 0, 4);
 	public static final IntegerProperty LADDER_TICK = IntegerProperty.create("ladder_tick", 0, 40);
 	public static final IntegerProperty POT_FILL = IntegerProperty.create("pot_fill", 0, 3);
+	public static final IntegerProperty SUSPICIOUS_SUBSTANCE = IntegerProperty.create("suspicious_substance", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
 }

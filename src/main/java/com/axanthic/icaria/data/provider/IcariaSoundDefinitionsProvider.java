@@ -92,6 +92,7 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_DEATH, SoundEvents.SPIDER_DEATH, "myrmeke_queen", "death");
 		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_HURT, SoundEvents.SPIDER_HURT, "myrmeke_queen", "hurt");
 		this.register(IcariaSoundEvents.MYRMEKE_QUEEN_STEP, SoundEvents.SPIDER_STEP, "myrmeke_queen", "step");
+		this.register(IcariaSoundEvents.PLAYER_SNIFF, "entity", "player", "sniff", 3);
 		this.register(IcariaSoundEvents.REVENANT_AMBIENT, "entity", "revenant", "ambient", 3);
 		this.register(IcariaSoundEvents.REVENANT_DEATH, "entity", "revenant", "death", 1);
 		this.register(IcariaSoundEvents.REVENANT_HURT, "entity", "revenant", "hurt", 3);

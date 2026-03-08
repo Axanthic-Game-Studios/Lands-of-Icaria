@@ -5177,8 +5177,25 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void suspiciousSubstance(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance")).build()
-			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaIdents.MC, "calcite"))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaIdents.MC, "calcite"))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaIdents.MC, "calcite"))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
 				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaIdents.MC, "calcite"))
 				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaIdents.ID, "red_arachne_string_block"))
 				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaIdents.MC, "white_concrete_powder"))
@@ -6035,7 +6052,10 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void suspiciousSubstanceModel(BlockModelGenerators pBlockModelGenerators) {
-		SuspiciousSubstanceModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SuspiciousSubstanceModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SuspiciousSubstanceModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SuspiciousSubstanceModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		SuspiciousSubstanceModel.template3().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_suspicious_substance_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tappedBarrelModel(BlockModelGenerators pBlockModelGenerators) {

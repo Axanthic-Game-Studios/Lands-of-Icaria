@@ -1,18 +1,63 @@
 {
   "variants": {
-    "facing=east": {
-      "model": "landsoficaria:block/suspicious_substance",
+    "facing=east,suspicious_substance=0": {
+      "model": "landsoficaria:block/suspicious_substance_0",
       "y": 90
     },
-    "facing=north": {
-      "model": "landsoficaria:block/suspicious_substance"
+    "facing=east,suspicious_substance=1": {
+      "model": "landsoficaria:block/suspicious_substance_1",
+      "y": 90
     },
-    "facing=south": {
-      "model": "landsoficaria:block/suspicious_substance",
+    "facing=east,suspicious_substance=2": {
+      "model": "landsoficaria:block/suspicious_substance_2",
+      "y": 90
+    },
+    "facing=east,suspicious_substance=3": {
+      "model": "landsoficaria:block/suspicious_substance_3",
+      "y": 90
+    },
+    "facing=north,suspicious_substance=0": {
+      "model": "landsoficaria:block/suspicious_substance_0"
+    },
+    "facing=north,suspicious_substance=1": {
+      "model": "landsoficaria:block/suspicious_substance_1"
+    },
+    "facing=north,suspicious_substance=2": {
+      "model": "landsoficaria:block/suspicious_substance_2"
+    },
+    "facing=north,suspicious_substance=3": {
+      "model": "landsoficaria:block/suspicious_substance_3"
+    },
+    "facing=south,suspicious_substance=0": {
+      "model": "landsoficaria:block/suspicious_substance_0",
       "y": 180
     },
-    "facing=west": {
-      "model": "landsoficaria:block/suspicious_substance",
+    "facing=south,suspicious_substance=1": {
+      "model": "landsoficaria:block/suspicious_substance_1",
+      "y": 180
+    },
+    "facing=south,suspicious_substance=2": {
+      "model": "landsoficaria:block/suspicious_substance_2",
+      "y": 180
+    },
+    "facing=south,suspicious_substance=3": {
+      "model": "landsoficaria:block/suspicious_substance_3",
+      "y": 180
+    },
+    "facing=west,suspicious_substance=0": {
+      "model": "landsoficaria:block/suspicious_substance_0",
+      "y": 270
+    },
+    "facing=west,suspicious_substance=1": {
+      "model": "landsoficaria:block/suspicious_substance_1",
+      "y": 270
+    },
+    "facing=west,suspicious_substance=2": {
+      "model": "landsoficaria:block/suspicious_substance_2",
+      "y": 270
+    },
+    "facing=west,suspicious_substance=3": {
+      "model": "landsoficaria:block/suspicious_substance_3",
       "y": 270
     }
   }

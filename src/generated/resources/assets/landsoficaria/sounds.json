@@ -657,6 +657,14 @@
     ],
     "subtitle": "subtitle.landsoficaria.nether_pyromancer_revenant.ambient"
   },
+  "entity.player.sniff": {
+    "sounds": [
+      "landsoficaria:entity/player/sniff_00",
+      "landsoficaria:entity/player/sniff_01",
+      "landsoficaria:entity/player/sniff_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.player.sniff"
+  },
   "entity.revenant.ambient": {
     "sounds": [
       "landsoficaria:entity/revenant/ambient_00",

@@ -448,7 +448,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LARGE_BOWLS = IcariaBlocks.register("large_bowls", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> SMALL_BOWLS = IcariaBlocks.register("small_bowls", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> PLATES = IcariaBlocks.register("plates", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> SUSPICIOUS_SUBSTANCE = IcariaBlocks.register("suspicious_substance", TableDecorationBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> SUSPICIOUS_SUBSTANCE = IcariaBlocks.register("suspicious_substance", SuspiciousSubstanceBlock::new, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> CHECKERS = IcariaBlocks.register("checkers", ChessboardBlock::new, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> CHESS = IcariaBlocks.register("chess", ChessboardBlock::new, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE));

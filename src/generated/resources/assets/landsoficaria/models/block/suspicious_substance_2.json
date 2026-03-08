@@ -1,5 +1,5 @@
 {
-  "parent": "landsoficaria:block/template_suspicious_substance",
+  "parent": "landsoficaria:block/template_suspicious_substance_2",
   "textures": {
     "calcite": "minecraft:block/calcite",
     "particle": "minecraft:block/white_concrete_powder",
