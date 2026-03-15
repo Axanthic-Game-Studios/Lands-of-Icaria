@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.shapes.IcariaWallSignVoxelShapes;
+import com.axanthic.icaria.common.shapes.WallSignVoxelShapes;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -115,28 +115,28 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 
 	public VoxelShape getCeiling(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> IcariaWallSignVoxelShapes.CEILING_NORTH;
-			case EAST -> IcariaWallSignVoxelShapes.CEILING_EAST;
-			case SOUTH -> IcariaWallSignVoxelShapes.CEILING_SOUTH;
-			default -> IcariaWallSignVoxelShapes.CEILING_WEST;
+			case NORTH -> WallSignVoxelShapes.CEILING_NORTH;
+			case EAST -> WallSignVoxelShapes.CEILING_EAST;
+			case SOUTH -> WallSignVoxelShapes.CEILING_SOUTH;
+			default -> WallSignVoxelShapes.CEILING_WEST;
 		};
 	}
 
 	public VoxelShape getFloor(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> IcariaWallSignVoxelShapes.FLOOR_NORTH;
-			case EAST -> IcariaWallSignVoxelShapes.FLOOR_EAST;
-			case SOUTH -> IcariaWallSignVoxelShapes.FLOOR_SOUTH;
-			default -> IcariaWallSignVoxelShapes.FLOOR_WEST;
+			case NORTH -> WallSignVoxelShapes.FLOOR_NORTH;
+			case EAST -> WallSignVoxelShapes.FLOOR_EAST;
+			case SOUTH -> WallSignVoxelShapes.FLOOR_SOUTH;
+			default -> WallSignVoxelShapes.FLOOR_WEST;
 		};
 	}
 
 	public VoxelShape getWall(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> IcariaWallSignVoxelShapes.WALL_NORTH;
-			case EAST -> IcariaWallSignVoxelShapes.WALL_EAST;
-			case SOUTH -> IcariaWallSignVoxelShapes.WALL_SOUTH;
-			default -> IcariaWallSignVoxelShapes.WALL_WEST;
+			case NORTH -> WallSignVoxelShapes.WALL_NORTH;
+			case EAST -> WallSignVoxelShapes.WALL_EAST;
+			case SOUTH -> WallSignVoxelShapes.WALL_SOUTH;
+			default -> WallSignVoxelShapes.WALL_WEST;
 		};
 	}
 }

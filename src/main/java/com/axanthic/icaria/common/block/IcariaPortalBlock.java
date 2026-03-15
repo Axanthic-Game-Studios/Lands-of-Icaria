@@ -4,7 +4,7 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaParticleTypes;
 import com.axanthic.icaria.common.registry.IcariaPoiTypes;
-import com.axanthic.icaria.common.shapes.IcariaPortalVoxelShapes;
+import com.axanthic.icaria.common.shapes.PortalVoxelShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaDimensions;
 
@@ -309,6 +309,6 @@ public class IcariaPortalBlock extends Block implements Portal {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? IcariaPortalVoxelShapes.X : IcariaPortalVoxelShapes.Z;
+		return pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS) == Direction.Axis.X ? PortalVoxelShapes.X : PortalVoxelShapes.Z;
 	}
 }
