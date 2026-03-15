@@ -13,7 +13,10 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -32,15 +35,37 @@ public class FlowerPotCountertopBlockEntity extends BlockEntity {
 	@Override
 	public void loadAdditional(ValueInput pValueInput) {
 		super.loadAdditional(pValueInput);
-		this.item = pValueInput.read("item", BuiltInRegistries.ITEM.byNameCodec()).orElse(null);
+		this.item = pValueInput.read("Item", BuiltInRegistries.ITEM.byNameCodec()).orElse(null);
 	}
 
 	@Override
 	public void saveAdditional(ValueOutput pValueOutput) {
 		super.saveAdditional(pValueOutput);
-		if (this.item != null) {
-			pValueOutput.store("item", BuiltInRegistries.ITEM.byNameCodec(), this.item);
+		this.saveItem(pValueOutput, "Item", this.item);
+	}
+
+	public void saveItem(ValueOutput pValueOutput, String pName, @Nullable Item pItem) {
+		if (pItem != null) {
+			pValueOutput.store(pName, BuiltInRegistries.ITEM.byNameCodec(), pItem);
 		}
+	}
+
+	@Override
+	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
+		if (this.getLevel() instanceof ServerLevel serverLevel) {
+			this.dropItem(serverLevel, pBlockPos, this.getItem());
+		}
+	}
+
+	public void dropItem(ServerLevel pServerLevel, BlockPos pBlockPos, @Nullable Item pItem) {
+		if (pItem != null) {
+			Block.popResource(pServerLevel, pBlockPos, new ItemStack(pItem));
+		}
+	}
+
+	@Nullable
+	public Item getItem() {
+		return this.item;
 	}
 
 	public void setItem(@Nullable Item pItem) {
@@ -50,11 +75,6 @@ public class FlowerPotCountertopBlockEntity extends BlockEntity {
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
 		return this.saveWithoutMetadata(pProvider);
-	}
-
-	@Nullable
-	public Item getItem() {
-		return this.item;
 	}
 
 	@Override
