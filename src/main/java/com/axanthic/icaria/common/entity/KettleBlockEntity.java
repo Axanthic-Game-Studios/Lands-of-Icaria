@@ -59,8 +59,6 @@ public class KettleBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int maxProgress = 0;
 
-	public long prevTime;
-
 	public Deque<ItemStack> deque = new ArrayDeque<>(3);
 
 	public ItemStackHandler inputHandler = new KettleInputItemStackHandler(3, this);

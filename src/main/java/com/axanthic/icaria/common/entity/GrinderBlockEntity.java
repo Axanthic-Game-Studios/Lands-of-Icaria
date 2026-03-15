@@ -74,8 +74,6 @@ public class GrinderBlockEntity extends BlockEntity {
 	public int maxProgress = 0;
 	public int size = 6;
 
-	public long prevTime;
-
 	public static final Codec<Map<ResourceKey<Recipe<?>>, Integer>> RECIPES_CODEC = Codec.unboundedMap(Recipe.KEY_CODEC, Codec.INT);
 
 	public ItemStackHandler fuelHandler = new GrinderFuelItemStackHandler(1, this);

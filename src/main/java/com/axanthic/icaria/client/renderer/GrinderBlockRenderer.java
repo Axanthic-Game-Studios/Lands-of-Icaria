@@ -11,11 +11,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
@@ -41,9 +39,7 @@ public record GrinderBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 		if (IcariaConfig.RENDER_GRINDER_GEARS.get() && level != null) {
 			var flag = grinding && pBlockEntity.tickClient;
-			var gameTime = level.getGameTime();
-			var rotation = flag ? Mth.lerp(Minecraft.getInstance().getDeltaTracker().getGameTimeDeltaTicks(), pBlockEntity.prevTime, gameTime) * 16.0F : 0.0F;
-			pBlockEntity.prevTime = gameTime;
+			var rotation = flag ? level.getGameTime() * 16.0F : 0.0F;
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getGear(), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.34375F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot() + rotation, 0.625F, 1.0F, 0.625F);
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, new ItemStack(IcariaItems.GRINDER_SHAFT.get()), direction, pBlockEntity, pPackedLight, 1.5F, -0.5F, 0.5F, 0.5F, 0.5F, 0.0F, 180.0F + direction.toYRot() - rotation, 0.0F, 2.0F, 2.0F, 2.0F);
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, new ItemStack(IcariaItems.GRINDER_STONE.get()), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.0F, 180.0F + direction.toYRot() - rotation, 0.0F, 2.0F, 2.0F, 2.0F);

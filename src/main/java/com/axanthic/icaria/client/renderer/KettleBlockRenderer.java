@@ -45,9 +45,7 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 		var vertexConsumer = pMultiBufferSource.getBuffer(Sheets.translucentItemSheet());
 
 		if (level != null && kettle != Kettle.EMPTY) {
-			var gameTime = level.getGameTime();
-
-			var time = Mth.lerp(minecraft.getDeltaTracker().getGameTimeDeltaTicks(), pBlockEntity.prevTime, gameTime) * 2.0F;
+			var time = level.getGameTime();
 
 			var angle = 25.0F;
 			var range = 0.15F;
@@ -66,8 +64,6 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 			var b = this.getColour(kettle, pBlockEntity, colour, 0);
 
 			var y = this.getHeight(kettle, pBlockEntity);
-
-			pBlockEntity.prevTime = gameTime;
 
 			IcariaClientHelper.renderQuad(vertexConsumer, sprite, pPoseStack.last().pose(), direction, pPackedLight, pPackedOverlay, 0.25F, 0.75F, 0.25F, 0.75F, 0.25F, 0.75F, 0.09375F, 0.59375F, y, r, g, b, 1.0F);
 
