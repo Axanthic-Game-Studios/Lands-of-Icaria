@@ -68,9 +68,9 @@ public class RugEntity extends HangingEntity {
 	@Override
 	public void addAdditionalSaveData(ValueOutput pValueOutput) {
 		super.addAdditionalSaveData(pValueOutput);
-		pValueOutput.store("direction", Direction.CODEC, this.getDirection());
-		pValueOutput.store("placement_direction", Direction.CODEC, this.getPlacementDirection());
-		pValueOutput.store("item_stack", ItemStack.CODEC, this.getItemStack());
+		pValueOutput.store("Direction", Direction.CODEC, this.getDirection());
+		pValueOutput.store("PlacementDirection", Direction.CODEC, this.getPlacementDirection());
+		pValueOutput.store("ItemStack", ItemStack.CODEC, this.getItemStack());
 		VariantUtils.writeVariant(pValueOutput, this.getPaintingVariant());
 	}
 
@@ -120,9 +120,9 @@ public class RugEntity extends HangingEntity {
 	@Override
 	public void readAdditionalSaveData(ValueInput pValueInput) {
 		super.readAdditionalSaveData(pValueInput);
-		this.setDirection(pValueInput.read("direction", Direction.CODEC).orElse(Direction.NORTH));
-		this.setPlacementDirection(pValueInput.read("placement_direction", Direction.CODEC).orElse(Direction.NORTH));
-		this.setItemStack(pValueInput.read("item_stack", ItemStack.CODEC).orElse(ItemStack.EMPTY));
+		this.setDirection(pValueInput.read("Direction", Direction.CODEC).orElse(Direction.NORTH));
+		this.setPlacementDirection(pValueInput.read("PlacementDirection", Direction.CODEC).orElse(Direction.NORTH));
+		this.setItemStack(pValueInput.read("ItemStack", ItemStack.CODEC).orElse(ItemStack.EMPTY));
 		VariantUtils.readVariant(pValueInput, Registries.PAINTING_VARIANT).ifPresent(this::setPaintingVariant);
 	}
 
