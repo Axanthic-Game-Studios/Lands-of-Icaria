@@ -140,6 +140,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rowan(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(pBlockModelGenerators);
 		IcariaBlockModelProvider.scrollshelf(pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(pBlockModelGenerators);
 		IcariaBlockModelProvider.smallBowls(pBlockModelGenerators);
@@ -169,6 +170,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.vaseCupboard(pBlockModelGenerators);
 		IcariaBlockModelProvider.vine(pBlockModelGenerators);
 		IcariaBlockModelProvider.wall(pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(pBlockModelGenerators);
 		IcariaBlockModelProvider.water(pBlockModelGenerators);
 		IcariaBlockModelProvider.wiltedElm(pBlockModelGenerators);
 		IcariaBlockModelProvider.wood(pBlockModelGenerators);
@@ -267,6 +269,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.raisedBasinsCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.rowanModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.shelfModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.smallBowlsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolderModel(pBlockModelGenerators);
@@ -288,6 +291,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.unnamedTreeShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.vaseModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.vaseCupboardModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelfModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.wiltedElmModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.zirconCrystalModel(pBlockModelGenerators);
 	}
@@ -1226,6 +1230,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.scrollshelf(IcariaBlocks.POPULUS_SCROLLSHELF.get(), pBlockModelGenerators);
 	}
 
+	public static void shelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.shelf(IcariaBlocks.CYPRESS_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.DROUGHTROOT_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.FIR_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.LAUREL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.OLIVE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.PLANE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.shelf(IcariaBlocks.POPULUS_SHELF.get(), pBlockModelGenerators);
+	}
+
 	public static void simpleRack(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_CYPRESS_RACK.get(), IcariaBlocks.CYPRESS_BARREL.get(), IcariaBlocks.LOADED_CYPRESS_BARREL.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRack(IcariaBlocks.SIMPLE_DROUGHTROOT_RACK.get(), IcariaBlocks.DROUGHTROOT_BARREL.get(), IcariaBlocks.LOADED_DROUGHTROOT_BARREL.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
@@ -1550,6 +1564,16 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.wall(IcariaBlocks.MOSSY_RELICSTONE_TILE_WALL.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.wall(IcariaBlocks.PLATOSHALE_WALL.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.wall(IcariaBlocks.PLATOSHALE_BRICK_WALL.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+	}
+
+	public static void wallShelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.CYPRESS_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.FIR_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.LAUREL_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.OLIVE_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.PLANE_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.wallShelf(IcariaBlocks.POPULUS_WALL_SHELF.get(), pBlockModelGenerators);
 	}
 
 	public static void water(BlockModelGenerators pBlockModelGenerators) {
@@ -4870,6 +4894,15 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void shelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_shelf")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "shelf", "log"))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "shelf", "log_top"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "shelf", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "shelf", "planks")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void simpleRack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
@@ -5537,6 +5570,21 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void wallShelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wall_shelf")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "log"))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "log_top"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "planks")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wall_shelf_multi")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "multi"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "log"))
+				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "log_top"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "planks"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "wall_shelf", "planks")), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void water(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -6008,6 +6056,10 @@ public class IcariaBlockModelProvider {
 		RubbleModel.template4().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_rubble_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void shelfModel(BlockModelGenerators blockModels) {
+		ShelfModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_shelf"), new TextureMapping(), blockModels.modelOutput);
+	}
+
 	public static void simpleRackModel(BlockModelGenerators pBlockModelGenerators) {
 		SimpleRackModel.simple().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		SimpleRackModel.barrel().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_simple_barrel_rack"), new TextureMapping(), pBlockModelGenerators.modelOutput);
@@ -6114,6 +6166,11 @@ public class IcariaBlockModelProvider {
 
 	public static void vaseCupboardModel(BlockModelGenerators blockModels) {
 		VaseCupboardModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_vase_cupboard"), new TextureMapping(), blockModels.modelOutput);
+	}
+
+	public static void wallShelfModel(BlockModelGenerators blockModels) {
+		WallShelfModel.wallShelf().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wall_shelf"), new TextureMapping(), blockModels.modelOutput);
+		WallShelfModel.wallShelfMulti().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_wall_shelf_multi"), new TextureMapping(), blockModels.modelOutput);
 	}
 
 	public static void wiltedElmModel(BlockModelGenerators pBlockModelGenerators) {

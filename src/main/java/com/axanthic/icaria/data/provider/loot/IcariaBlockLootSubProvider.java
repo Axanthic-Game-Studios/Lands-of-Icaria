@@ -148,18 +148,25 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
 		this.dropElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), IcariaItems.SPELT_FLOUR.get());
+		this.dropElse(IcariaBlocks.CYPRESS_WALL_SHELF.get(), IcariaItems.CYPRESS_SHELF.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), IcariaItems.DROUGHTROOT_SHELF.get());
 		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_SIGN.get(), IcariaItems.DROUGHTROOT_SIGN.get());
 		this.dropElse(IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get(), IcariaItems.DROUGHTROOT_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.FIR_WALL_SHELF.get(), IcariaItems.FIR_SHELF.get());
 		this.dropElse(IcariaBlocks.FIR_WALL_SIGN.get(), IcariaItems.FIR_SIGN.get());
 		this.dropElse(IcariaBlocks.FIR_WALL_HANGING_SIGN.get(), IcariaItems.FIR_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.LAUREL_WALL_SHELF.get(), IcariaItems.LAUREL_SHELF.get());
 		this.dropElse(IcariaBlocks.LAUREL_WALL_SIGN.get(), IcariaItems.LAUREL_SIGN.get());
 		this.dropElse(IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get(), IcariaItems.LAUREL_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.OLIVE_WALL_SHELF.get(), IcariaItems.OLIVE_SHELF.get());
 		this.dropElse(IcariaBlocks.OLIVE_WALL_SIGN.get(), IcariaItems.OLIVE_SIGN.get());
 		this.dropElse(IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get(), IcariaItems.OLIVE_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.PLANE_WALL_SHELF.get(), IcariaItems.PLANE_SHELF.get());
 		this.dropElse(IcariaBlocks.PLANE_WALL_SIGN.get(), IcariaItems.PLANE_SIGN.get());
 		this.dropElse(IcariaBlocks.PLANE_WALL_HANGING_SIGN.get(), IcariaItems.PLANE_HANGING_SIGN.get());
+		this.dropElse(IcariaBlocks.POPULUS_WALL_SHELF.get(), IcariaItems.POPULUS_SHELF.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_SIGN.get(), IcariaItems.POPULUS_SIGN.get());
 		this.dropElse(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), IcariaItems.POPULUS_HANGING_SIGN.get());
 	}
@@ -667,6 +674,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.CYPRESS_SHELF.get());
 		this.dropThis(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.CYPRESS_SCROLLSHELF.get());
@@ -703,6 +711,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.DROUGHTROOT_SHELF.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get());
@@ -739,6 +748,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.FIR_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.FIR_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.FIR_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.FIR_SHELF.get());
 		this.dropThis(IcariaBlocks.FIR_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.FIR_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.FIR_SCROLLSHELF.get());
@@ -775,6 +785,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.LAUREL_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.LAUREL_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.LAUREL_SHELF.get());
 		this.dropThis(IcariaBlocks.LAUREL_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.LAUREL_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.LAUREL_SCROLLSHELF.get());
@@ -811,6 +822,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.OLIVE_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.OLIVE_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.OLIVE_SHELF.get());
 		this.dropThis(IcariaBlocks.OLIVE_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.OLIVE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.OLIVE_SCROLLSHELF.get());
@@ -847,6 +859,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.PLANE_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.PLANE_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.PLANE_SHELF.get());
 		this.dropThis(IcariaBlocks.PLANE_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.PLANE_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.PLANE_SCROLLSHELF.get());
@@ -883,6 +896,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.POPULUS_POTS_CUPBOARD.get());
 		this.dropThis(IcariaBlocks.POPULUS_VASE_CUPBOARD.get());
+		this.dropThis(IcariaBlocks.POPULUS_SHELF.get());
 		this.dropThis(IcariaBlocks.POPULUS_KITCHEN_TABLE.get());
 		this.dropThis(IcariaBlocks.POPULUS_CRAFTING_TABLE.get());
 		this.dropThis(IcariaBlocks.POPULUS_SCROLLSHELF.get());

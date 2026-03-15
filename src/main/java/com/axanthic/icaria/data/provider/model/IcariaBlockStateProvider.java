@@ -85,6 +85,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.vase(pBlockModelGenerators);
 		IcariaBlockStateProvider.vine(pBlockModelGenerators);
 		IcariaBlockStateProvider.wall(pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(pBlockModelGenerators);
 	}
 
 	public static void amphora(BlockModelGenerators pBlockModelGenerators) {
@@ -666,6 +667,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.CYPRESS_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_TROUGH.get(), pBlockModelGenerators);
@@ -683,6 +685,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.DROUGHTROOT_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_TROUGH.get(), pBlockModelGenerators);
@@ -700,6 +703,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.FIR_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_TROUGH.get(), pBlockModelGenerators);
@@ -717,6 +721,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.LAUREL_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_TROUGH.get(), pBlockModelGenerators);
@@ -734,6 +739,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.OLIVE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_TROUGH.get(), pBlockModelGenerators);
@@ -751,6 +757,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.PLANE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_TROUGH.get(), pBlockModelGenerators);
@@ -768,6 +775,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_SHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal(IcariaBlocks.POPULUS_LADDER.get(), pBlockModelGenerators);
 	}
 
@@ -1149,6 +1157,16 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.wall(IcariaBlocks.PLATOSHALE_WALL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.wall(IcariaBlocks.PLATOSHALE_BRICK_WALL.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.wall(IcariaBlocks.QUARTZ_WALL.get(), pBlockModelGenerators);
+	}
+
+	public static void wallShelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.CYPRESS_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.FIR_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.LAUREL_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.OLIVE_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.PLANE_WALL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallShelf(IcariaBlocks.POPULUS_WALL_SHELF.get(), pBlockModelGenerators);
 	}
 
 	public static void bars(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -3265,6 +3283,21 @@ public class IcariaBlockStateProvider {
 				.select(Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_90)))
 				.select(Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_180)))
 				.select(Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_270), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
+	}
+
+	public static void wallShelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MULTI_SHELF)
+				.select(Direction.NORTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.NORTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "multi"))))
+				.select(Direction.EAST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "multi")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "multi")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "multi")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

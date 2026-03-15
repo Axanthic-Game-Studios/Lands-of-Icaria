@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_wall_shelf",
+  "textures": {
+    "log": "landsoficaria:block/droughtroot_log",
+    "log_top": "landsoficaria:block/droughtroot_log_top",
+    "particle": "landsoficaria:block/droughtroot_planks",
+    "planks": "landsoficaria:block/droughtroot_planks"
+  }
+}

@@ -369,6 +369,7 @@ public class IcariaClientModEvents {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.KETTLE.get(), KettleBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.KILN.get(), KilnBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.POT.get(), PotBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.SHELF.get(), IcariaShelfBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SIGN.get(), IcariaSignBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.SPAWNER.get(), IcariaSpawnerBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.TRAPPED_CHEST.get(), IcariaChestBlockRenderer::new);

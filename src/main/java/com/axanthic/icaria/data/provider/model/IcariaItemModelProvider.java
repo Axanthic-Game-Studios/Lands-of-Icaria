@@ -826,6 +826,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CYPRESS_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -875,6 +876,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -924,6 +926,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.FIR_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FIR_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FIR_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.FIR_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FIR_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FIR_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FIR_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -973,6 +976,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.LAUREL_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LAUREL_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -1022,6 +1026,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.OLIVE_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.OLIVE_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -1071,6 +1076,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.PLANE_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PLANE_CRAFTING_TABLE.get(), pItemModelGenerators);
@@ -1120,6 +1126,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_FLASKS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_POTS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_VASE_CUPBOARD.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.POPULUS_SHELF.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_KITCHEN_TABLE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_KLINE.get(), "inventory", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.POPULUS_CRAFTING_TABLE.get(), pItemModelGenerators);

@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,multi_shelf=false": {
+      "model": "landsoficaria:block/plane_wall_shelf",
+      "y": 90
+    },
+    "facing=east,multi_shelf=true": {
+      "model": "landsoficaria:block/plane_wall_shelf_multi",
+      "y": 90
+    },
+    "facing=north,multi_shelf=false": {
+      "model": "landsoficaria:block/plane_wall_shelf"
+    },
+    "facing=north,multi_shelf=true": {
+      "model": "landsoficaria:block/plane_wall_shelf_multi"
+    },
+    "facing=south,multi_shelf=false": {
+      "model": "landsoficaria:block/plane_wall_shelf",
+      "y": 180
+    },
+    "facing=south,multi_shelf=true": {
+      "model": "landsoficaria:block/plane_wall_shelf_multi",
+      "y": 180
+    },
+    "facing=west,multi_shelf=false": {
+      "model": "landsoficaria:block/plane_wall_shelf",
+      "y": 270
+    },
+    "facing=west,multi_shelf=true": {
+      "model": "landsoficaria:block/plane_wall_shelf_multi",
+      "y": 270
+    }
+  }
+}

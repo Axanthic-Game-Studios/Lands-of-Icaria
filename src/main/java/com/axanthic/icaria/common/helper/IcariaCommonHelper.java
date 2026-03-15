@@ -12,6 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
@@ -20,6 +21,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.block.SupportType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
@@ -31,6 +34,10 @@ public class IcariaCommonHelper {
 
 	public static boolean canCarry(Player pPlayer) {
 		return pPlayer.isCrouching() || pPlayer.isDeadOrDying() || pPlayer.isFallFlying() || pPlayer.isSleeping() || pPlayer.isVehicle() || pPlayer.isVisuallyCrawling() || pPlayer.isVisuallySwimming();
+	}
+
+	public static boolean hasSolidBlockBelow(BlockPos pBlockPos, LevelReader pLevelReader) {
+		return pLevelReader.getBlockState(pBlockPos.below()).isFaceSturdy(pLevelReader, pBlockPos, Direction.UP, SupportType.FULL);
 	}
 
 	public static void explosion(BlockPos pBlockPos, @Nullable Entity pEntity, Level.ExplosionInteraction pExplosionInteraction, Level pLevel, int pRadius) {

@@ -19,6 +19,7 @@ Additions
 - Plates Block
 - Pot Block
 - Scrollshelf Blocks for each Wood Type
+- Shelf and Wall Shelf Blocks for each Wood Type
 - Small Bowls Block
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block

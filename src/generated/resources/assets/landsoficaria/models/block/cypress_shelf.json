@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_shelf",
+  "textures": {
+    "log": "landsoficaria:block/cypress_log",
+    "log_top": "landsoficaria:block/cypress_log_top",
+    "particle": "landsoficaria:block/cypress_planks",
+    "planks": "landsoficaria:block/cypress_planks"
+  }
+}

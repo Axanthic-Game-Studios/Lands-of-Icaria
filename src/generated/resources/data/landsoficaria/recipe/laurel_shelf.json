@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "landsoficaria:laurel_log",
+    "B": "landsoficaria:laurel_planks"
+  },
+  "pattern": [
+    "ABA",
+    "A A",
+    "ABA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "landsoficaria:laurel_shelf"
+  }
+}

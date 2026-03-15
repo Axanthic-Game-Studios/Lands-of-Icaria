@@ -524,6 +524,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), "Cypress Flasks Cupboard");
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Cypress Pots Cupboard");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Cypress Vase Cupboard");
+		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Cypress Shelf");
+		this.add(IcariaBlocks.CYPRESS_WALL_SHELF.get(), "Cypress Wall Shelf");
 		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Cypress Kitchen Table");
 		this.add(IcariaBlocks.CYPRESS_KLINE.get(), "Cypress Kline");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Cypress Crafting Table");
@@ -580,6 +582,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), "Droughtroot Flasks Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Droughtroot Pots Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Droughtroot Vase Cupboard");
+		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Droughtroot Shelf");
+		this.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), "Droughtroot Wall Shelf");
 		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Droughtroot Kitchen Table");
 		this.add(IcariaBlocks.DROUGHTROOT_KLINE.get(), "Droughtroot Kline");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Droughtroot Crafting Table");
@@ -636,6 +640,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), "Fir Flasks Cupboard");
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Fir Pots Cupboard");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Fir Vase Cupboard");
+		this.add(IcariaBlocks.FIR_SHELF.get(), "Fir Shelf");
+		this.add(IcariaBlocks.FIR_WALL_SHELF.get(), "Fir Wall Shelf");
 		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Fir Kitchen Table");
 		this.add(IcariaBlocks.FIR_KLINE.get(), "Fir Kline");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Fir Crafting Table");
@@ -692,6 +698,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), "Laurel Flasks Cupboard");
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Laurel Pots Cupboard");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Laurel Vase Cupboard");
+		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Laurel Shelf");
+		this.add(IcariaBlocks.LAUREL_WALL_SHELF.get(), "Laurel Wall Shelf");
 		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Laurel Kitchen Table");
 		this.add(IcariaBlocks.LAUREL_KLINE.get(), "Laurel Kline");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Laurel Crafting Table");
@@ -748,6 +756,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), "Olive Flasks Cupboard");
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olive Pots Cupboard");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olive Vase Cupboard");
+		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olive Shelf");
+		this.add(IcariaBlocks.OLIVE_WALL_SHELF.get(), "Olive Wall Shelf");
 		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olive Kitchen Table");
 		this.add(IcariaBlocks.OLIVE_KLINE.get(), "Olive Kline");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olive Crafting Table");
@@ -804,6 +814,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), "Plane Flasks Cupboard");
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plane Pots Cupboard");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plane Vase Cupboard");
+		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plane Shelf");
+		this.add(IcariaBlocks.PLANE_WALL_SHELF.get(), "Plane Wall Shelf");
 		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plane Kitchen Table");
 		this.add(IcariaBlocks.PLANE_KLINE.get(), "Plane Kline");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plane Crafting Table");
@@ -860,6 +872,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), "Populus Flasks Cupboard");
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Populus Pots Cupboard");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Populus Vase Cupboard");
+		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Populus Shelf");
+		this.add(IcariaBlocks.POPULUS_WALL_SHELF.get(), "Populus Wall Shelf");
 		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Populus Kitchen Table");
 		this.add(IcariaBlocks.POPULUS_KLINE.get(), "Populus Kline");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Populus Crafting Table");
@@ -1020,6 +1034,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "kettle_distance" + "." + "tooltip", "Default: 256. Whether a Kettle should render items based on distance to a player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance", "Kiln Distance");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "kiln_distance" + "." + "tooltip", "Default: 256. Whether a Kiln should render items based on distance to a player.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "shelf_distance", "Shelf Distance");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "shelf_distance" + "." + "tooltip", "Default: 256. Whether a Shelf should render items based on distance to a player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings", "Sound Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "sound_settings" + "." + "tooltip", "Sound Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "fireplace_sounds", "Fireplace Sounds");

@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:populus_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:populus_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:populus_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:populus_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:populus_shelf"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:populus_log",
+      "has_landsoficaria:populus_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:populus_shelf"
+    ]
+  }
+}

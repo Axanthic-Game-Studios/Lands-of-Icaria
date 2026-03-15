@@ -87,6 +87,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.pillarHead();
 		this.rug();
 		this.scythe();
+		this.shelf();
 		this.shovel();
 		this.sign();
 		this.stairs();
@@ -1363,6 +1364,16 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.scythe(1, IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
 	}
 
+	public void shelf() {
+		this.shelf(1, IcariaItems.CYPRESS_SHELF.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.shelf(1, IcariaItems.DROUGHTROOT_SHELF.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.shelf(1, IcariaItems.FIR_SHELF.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.shelf(1, IcariaItems.LAUREL_SHELF.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.shelf(1, IcariaItems.OLIVE_SHELF.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.shelf(1, IcariaItems.PLANE_SHELF.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.shelf(1, IcariaItems.POPULUS_SHELF.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
 	public void shovel() {
 		this.shovel(1, IcariaItems.CHERT_SHOVEL.get(), IcariaItems.CHERT.get());
 		this.shovel(1, IcariaItems.CHALKOS_SHOVEL.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -2148,6 +2159,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("  B")
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.unlockedBy(this.name(Items.BONE), this.has(Items.BONE))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void shelf(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pPlanks)
+			.pattern("ABA")
+			.pattern("A A")
+			.pattern("ABA")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
 			.save(this.output, this.key(pResult));
 	}
 
