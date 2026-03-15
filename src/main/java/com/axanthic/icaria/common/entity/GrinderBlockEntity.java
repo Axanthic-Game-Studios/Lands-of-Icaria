@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.container.data.GrinderContainerData;
 import com.axanthic.icaria.common.handler.stack.GrinderFuelItemStackHandler;
 import com.axanthic.icaria.common.handler.stack.GrinderGearItemStackHandler;
@@ -259,7 +258,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public void tickSound(Optional<RecipeHolder<GrindingRecipe>> pRecipe, ServerLevel pServerLevel) {
-		if (IcariaConfig.GRINDER_SOUNDS.get() && pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
+		if (pRecipe.isPresent() && this.hasFuel() && this.hasSlot(pServerLevel)) {
 			if (this.lastSound < 6) {
 				this.lastSound++;
 			} else {

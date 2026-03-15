@@ -28,9 +28,7 @@ public record KilnBlockRenderer(BlockEntityRendererProvider.Context context) imp
 	@Override
 	public void render(KilnBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var direction = pBlockEntity.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
-			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getFuel(), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.1875F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.25F, 0.25F, 0.25F);
-			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInput(), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.625F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.25F, 0.25F, 0.25F);
-		}
+		IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getFuel(), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.1875F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.25F, 0.25F, 0.25F);
+		IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInput(), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, 0.625F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.25F, 0.25F, 0.25F);
 	}
 }

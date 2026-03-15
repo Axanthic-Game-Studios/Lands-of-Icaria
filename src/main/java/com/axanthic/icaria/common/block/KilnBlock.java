@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
@@ -97,10 +96,8 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.RENDER_KILN_ITEMS.get()) {
-			pLevel.addParticle(ParticleTypes.SMALL_FLAME, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-			pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-		}
+		pLevel.addParticle(ParticleTypes.SMALL_FLAME, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 	}
 
 	public void particlesSmoke(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
@@ -119,7 +116,7 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.KILN_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}

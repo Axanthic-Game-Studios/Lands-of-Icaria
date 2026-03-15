@@ -29,8 +29,8 @@ public record FireplaceBlockRenderer(BlockEntityRendererProvider.Context context
 	@Override
 	public void render(FireplaceBlockEntity pBlockEntity, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight, int pPackedOverlay, Vec3 pVec3) {
 		var blockState = pBlockEntity.getBlockState();
-		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (IcariaConfig.RENDER_FIREPLACE_ITEMS.get() && blockState.getBlock() instanceof FireplaceBlock fireplaceBlock) {
+		if (blockState.getBlock() instanceof FireplaceBlock fireplaceBlock) {
+			var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 			IcariaClientHelper.renderItem(pPoseStack, pMultiBufferSource, pBlockEntity.getInput(), direction, pBlockEntity, pPackedLight, 0.5F, 0.5F, fireplaceBlock.itemHeight, 0.5625F, 0.4375F, 90.0F, 0.0F, 180.0F + direction.toYRot(), 0.3F, 0.3F, 0.3F);
 		}
 	}

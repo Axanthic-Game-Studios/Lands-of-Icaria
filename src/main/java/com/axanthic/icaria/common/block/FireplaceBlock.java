@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.FireplaceBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
@@ -129,14 +128,12 @@ public class FireplaceBlock extends BaseEntityBlock {
 	}
 
 	public void particlesFireplace(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.RENDER_FIREPLACE_ITEMS.get()) {
-			pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-			pLevel.addParticle(ParticleTypes.SMOKE, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-		}
+		pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		pLevel.addParticle(ParticleTypes.SMOKE, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 	}
 
 	public void particlesItems(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.RENDER_FIREPLACE_ITEMS.get() && pLevel.getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getOutput().isEmpty() && !blockEntity.getInput().isEmpty()) {
+		if (pLevel.getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getOutput().isEmpty() && !blockEntity.getInput().isEmpty()) {
 			pLevel.addParticle(ParticleTypes.WHITE_SMOKE, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), this.itemHeight + pBlockPos.getY() + 0.1D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 		}
 	}
@@ -153,7 +150,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.FIREPLACE_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}

@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.entity.ForgeRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
@@ -153,10 +152,8 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	public void particlesItems(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.RENDER_FORGE_ITEMS.get()) {
-			pLevel.addParticle(ParticleTypes.FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-			pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-		}
+		pLevel.addParticle(ParticleTypes.FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getFlameX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, this.getFlameZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 	}
 
 	public void particlesSmoke(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
@@ -189,7 +186,7 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.FORGE_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}

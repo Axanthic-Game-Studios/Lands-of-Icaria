@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Kettle;
@@ -168,13 +167,13 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	public void soundsActive(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.KETTLE_SOUNDS.get() && pRandomSource.nextDouble() < 0.1D) {
+		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.playLocalSound(pBlockPos, SoundEvents.FIRE_AMBIENT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
 
 	public void soundsConcocting(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		if (IcariaConfig.KETTLE_SOUNDS.get() && pRandomSource.nextDouble() > 0.9D) {
+		if (pRandomSource.nextDouble() > 0.9D) {
 			pLevel.playLocalSound(pBlockPos, IcariaSoundEvents.KETTLE_CONCOCT, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
