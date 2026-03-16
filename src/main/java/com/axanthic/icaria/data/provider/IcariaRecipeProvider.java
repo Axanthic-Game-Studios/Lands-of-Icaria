@@ -1365,13 +1365,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void shelf() {
-		this.shelf(1, IcariaItems.CYPRESS_SHELF.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
-		this.shelf(1, IcariaItems.DROUGHTROOT_SHELF.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		this.shelf(1, IcariaItems.FIR_SHELF.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
-		this.shelf(1, IcariaItems.LAUREL_SHELF.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
-		this.shelf(1, IcariaItems.OLIVE_SHELF.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
-		this.shelf(1, IcariaItems.PLANE_SHELF.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
-		this.shelf(1, IcariaItems.POPULUS_SHELF.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.shelf(4, IcariaItems.CYPRESS_SHELF.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.shelf(4, IcariaItems.DROUGHTROOT_SHELF.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.shelf(4, IcariaItems.FIR_SHELF.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.shelf(4, IcariaItems.LAUREL_SHELF.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.shelf(4, IcariaItems.OLIVE_SHELF.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.shelf(4, IcariaItems.PLANE_SHELF.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.shelf(4, IcariaItems.POPULUS_SHELF.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 	}
 
 	public void shovel() {
