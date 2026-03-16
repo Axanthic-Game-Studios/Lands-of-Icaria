@@ -36,8 +36,8 @@ public class IcariaCommonHelper {
 		return pPlayer.isCrouching() || pPlayer.isDeadOrDying() || pPlayer.isFallFlying() || pPlayer.isSleeping() || pPlayer.isVehicle() || pPlayer.isVisuallyCrawling() || pPlayer.isVisuallySwimming();
 	}
 
-	public static boolean hasSolidBlockBelow(BlockPos pBlockPos, LevelReader pLevelReader) {
-		return pLevelReader.getBlockState(pBlockPos.below()).isFaceSturdy(pLevelReader, pBlockPos, Direction.UP, SupportType.FULL);
+	public static boolean hasRigidBlockBelow(BlockPos pBlockPos, LevelReader pLevelReader) {
+		return pLevelReader.getBlockState(pBlockPos.below()).isFaceSturdy(pLevelReader, pBlockPos.below(), Direction.UP, SupportType.RIGID);
 	}
 
 	public static void explosion(BlockPos pBlockPos, @Nullable Entity pEntity, Level.ExplosionInteraction pExplosionInteraction, Level pLevel, int pRadius) {

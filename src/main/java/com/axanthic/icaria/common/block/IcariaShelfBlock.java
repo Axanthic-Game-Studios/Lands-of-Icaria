@@ -47,7 +47,7 @@ public class IcariaShelfBlock extends Block implements EntityBlock, Mediterranea
 
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
-		return this.hasShelfBelow(pBlockPos, pLevelReader) || IcariaCommonHelper.hasSolidBlockBelow(pBlockPos, pLevelReader);
+		return this.hasShelfBelow(pBlockPos, pLevelReader) || IcariaCommonHelper.hasRigidBlockBelow(pBlockPos, pLevelReader);
 	}
 
 	@Override

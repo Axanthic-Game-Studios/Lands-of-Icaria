@@ -44,8 +44,7 @@ public class GreekFireBlock extends Block implements MediterraneanWaterloggedBlo
 
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
-		var blockPos = pBlockPos.below();
-		return pLevelReader.getBlockState(blockPos).isFaceSturdy(pLevelReader, blockPos, Direction.UP);
+		return IcariaCommonHelper.hasRigidBlockBelow(pBlockPos, pLevelReader);
 	}
 
 	@Override

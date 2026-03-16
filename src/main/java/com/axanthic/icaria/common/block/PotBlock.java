@@ -41,8 +41,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -54,7 +52,7 @@ public class PotBlock extends Block implements EntityBlock, MediterraneanWaterlo
 
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
-		return pLevelReader.getBlockState(pBlockPos.below()).isSolid();
+		return IcariaCommonHelper.hasRigidBlockBelow(pBlockPos, pLevelReader);
 	}
 
 	@Override

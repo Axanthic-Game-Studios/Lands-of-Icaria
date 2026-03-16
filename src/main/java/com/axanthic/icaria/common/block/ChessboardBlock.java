@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Chessboard;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
@@ -24,8 +25,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -37,7 +36,7 @@ public class ChessboardBlock extends Block implements MediterraneanWaterloggedBl
 
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
-		return pLevelReader.getBlockState(pBlockPos.below()).isSolid();
+		return IcariaCommonHelper.hasRigidBlockBelow(pBlockPos, pLevelReader);
 	}
 
 	@Override
