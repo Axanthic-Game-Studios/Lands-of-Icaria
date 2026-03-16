@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_broken_cupboard_2",
+  "textures": {
+    "cupboard": "landsoficaria:block/fir_cupboard",
+    "log": "landsoficaria:block/fir_log",
+    "particle": "landsoficaria:block/smooth_fir_log",
+    "planks": "landsoficaria:block/fir_planks",
+    "smooth_log": "landsoficaria:block/smooth_fir_log",
+    "stripped_log": "landsoficaria:block/stripped_fir_log"
+  }
+}

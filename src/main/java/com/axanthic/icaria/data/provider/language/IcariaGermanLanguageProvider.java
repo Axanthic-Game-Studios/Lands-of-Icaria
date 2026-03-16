@@ -513,6 +513,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_POT_HOLDER.get(), "Zypressenholztopfhalter");
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Zypressenholzlöffelhalter");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Zypressenholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_CYPRESS_HOLDER.get(), "Kaputter Zypressenholzhalter");
 		this.add(IcariaBlocks.CYPRESS_COUNTERTOP.get(), "Zypressenholzarbeitsplatte");
 		this.add(IcariaBlocks.CYPRESS_FLOWER_POT_COUNTERTOP.get(), "Zypressenholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.CYPRESS_MORTAR_COUNTERTOP.get(), "Zypressenholzarbeitsplatte mit Mörser");
@@ -524,6 +525,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), "Zypressenholzschrank mit Flaschen");
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Zypressenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Zypressenholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), "Kaputter Zypressenholzschrank");
 		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Zypressenholz-Regal");
 		this.add(IcariaBlocks.CYPRESS_WALL_SHELF.get(), "Zypressenholz-Wandregal");
 		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Zypressenholzküchentisch");
@@ -571,6 +573,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_POT_HOLDER.get(), "Dürrwurzelholztopfhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Dürrwurzelholzlöffelhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Dürrwurzelholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_HOLDER.get(), "Kaputter Dürrwurzelholzhalter");
 		this.add(IcariaBlocks.DROUGHTROOT_COUNTERTOP.get(), "Dürrwurzelholzarbeitsplatte");
 		this.add(IcariaBlocks.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get(), "Dürrwurzelholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.DROUGHTROOT_MORTAR_COUNTERTOP.get(), "Dürrwurzelholzarbeitsplatte mit Mörser");
@@ -582,6 +585,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), "Dürrwurzelholzschrank mit Flaschen");
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Dürrwurzelholzschrank mit Töpfen");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Dürrwurzelholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get(), "Kaputter Dürrwurzelholzschrank");
 		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Dürrwurzelholz-Regal");
 		this.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), "Dürrwurzelholz-Wandregal");
 		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Dürrwurzelholzküchentisch");
@@ -629,6 +633,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_POT_HOLDER.get(), "Tannenholztopfhalter");
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Tannenholzlöffelhalter");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Tannenholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_FIR_HOLDER.get(), "Kaputter Tannenholzhalter");
 		this.add(IcariaBlocks.FIR_COUNTERTOP.get(), "Tannenholzarbeitsplatte");
 		this.add(IcariaBlocks.FIR_FLOWER_POT_COUNTERTOP.get(), "Tannenholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.FIR_MORTAR_COUNTERTOP.get(), "Tannenholzarbeitsplatte mit Mörser");
@@ -640,6 +645,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), "Tannenholzschrank mit Flaschen");
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Tannenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Tannenholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_FIR_CUPBOARD.get(), "Kaputter Tannenholzschrank");
 		this.add(IcariaBlocks.FIR_SHELF.get(), "Tannenholz-Regal");
 		this.add(IcariaBlocks.FIR_WALL_SHELF.get(), "Tannenholz-Wandregal");
 		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Tannenholzküchentisch");
@@ -687,6 +693,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_POT_HOLDER.get(), "Lorbeerholztopfhalter");
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Lorbeerholzlöffelhalter");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Lorbeerholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_LAUREL_HOLDER.get(), "Kaputter Lorbeerholzhalter");
 		this.add(IcariaBlocks.LAUREL_COUNTERTOP.get(), "Lorbeerholzarbeitsplatte");
 		this.add(IcariaBlocks.LAUREL_FLOWER_POT_COUNTERTOP.get(), "Lorbeerholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.LAUREL_MORTAR_COUNTERTOP.get(), "Lorbeerholzarbeitsplatte mit Mörser");
@@ -698,6 +705,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), "Lorbeerholzschrank mit Flaschen");
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Lorbeerholzschrank mit Töpfen");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Lorbeerholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get(), "Kaputter Lorbeerholzschrank");
 		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Lorbeerholz-Regal");
 		this.add(IcariaBlocks.LAUREL_WALL_SHELF.get(), "Lorbeerholz-Wandregal");
 		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Lorbeerholzküchentisch");
@@ -745,6 +753,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_POT_HOLDER.get(), "Olivenholztopfhalter");
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olivenholzlöffelhalter");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olivenholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_OLIVE_HOLDER.get(), "Kaputter Olivenholzhalter");
 		this.add(IcariaBlocks.OLIVE_COUNTERTOP.get(), "Olivenholzarbeitsplatte");
 		this.add(IcariaBlocks.OLIVE_FLOWER_POT_COUNTERTOP.get(), "Olivenholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.OLIVE_MORTAR_COUNTERTOP.get(), "Olivenholzarbeitsplatte mit Mörser");
@@ -756,6 +765,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), "Olivenholzschrank mit Flaschen");
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olivenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olivenholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get(), "Kaputter Olivenholzschrank");
 		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olivenholz-Regal");
 		this.add(IcariaBlocks.OLIVE_WALL_SHELF.get(), "Olivenholz-Wandregal");
 		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olivenholzküchentisch");
@@ -803,6 +813,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_POT_HOLDER.get(), "Plantanenholztopfhalter");
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plantanenholzlöffelhalter");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plantanenholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_PLANE_HOLDER.get(), "Kaputter Plantanenholzhalter");
 		this.add(IcariaBlocks.PLANE_COUNTERTOP.get(), "Plantanenholzarbeitsplatte");
 		this.add(IcariaBlocks.PLANE_FLOWER_POT_COUNTERTOP.get(), "Plantanenholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.PLANE_MORTAR_COUNTERTOP.get(), "Plantanenholzarbeitsplatte mit Mörser");
@@ -814,6 +825,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), "Plantanenholzschrank mit Flaschen");
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plantanenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plantanenholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get(), "Kaputter Plantanenholzschrank");
 		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plantanenholz-Regal");
 		this.add(IcariaBlocks.PLANE_WALL_SHELF.get(), "Plantanenholz-Wandregal");
 		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plantanenholzküchentisch");
@@ -861,6 +873,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_POT_HOLDER.get(), "Pappelholztopfhalter");
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Pappelholzlöffelhalter");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Pappelholzhandtuchhalter");
+		this.add(IcariaBlocks.BROKEN_POPULUS_HOLDER.get(), "Kaputter Pappelholzhalter");
 		this.add(IcariaBlocks.POPULUS_COUNTERTOP.get(), "Pappelholzarbeitsplatte");
 		this.add(IcariaBlocks.POPULUS_FLOWER_POT_COUNTERTOP.get(), "Pappelholzarbeitsplatte mit Blumentopf");
 		this.add(IcariaBlocks.POPULUS_MORTAR_COUNTERTOP.get(), "Pappelholzarbeitsplatte mit Mörser");
@@ -872,6 +885,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), "Pappelholzschrank mit Flaschen");
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Pappelholzschrank mit Töpfen");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Pappelholzschrank mit Vase");
+		this.add(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get(), "Kaputter Pappelholzschrank");
 		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Pappelholz-Regal");
 		this.add(IcariaBlocks.POPULUS_WALL_SHELF.get(), "Pappelholz-Wandregal");
 		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Pappelholzküchentisch");

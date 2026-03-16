@@ -38,6 +38,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.blockTranslucent(pBlockModelGenerators);
 		IcariaBlockModelProvider.bloomyVine(pBlockModelGenerators);
 		IcariaBlockModelProvider.bolbos(pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.bromelia(pBlockModelGenerators);
 		IcariaBlockModelProvider.brownGroundShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.brushyVine(pBlockModelGenerators);
@@ -187,6 +189,8 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.bathtubInventoryModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bathtubModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bolbosModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboardModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.bromeliaModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.brownGroundShroomsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cakeModel(pBlockModelGenerators);
@@ -517,6 +521,26 @@ public class IcariaBlockModelProvider {
 
 	public static void bolbos(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.bolbos(IcariaBlocks.BOLBOS.get(), pBlockModelGenerators);
+	}
+
+	public static void brokenCupboard(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), IcariaBlocks.CYPRESS_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get(), IcariaBlocks.DROUGHTROOT_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_FIR_CUPBOARD.get(), IcariaBlocks.FIR_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get(), IcariaBlocks.LAUREL_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get(), IcariaBlocks.OLIVE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get(), IcariaBlocks.PLANE_CUPBOARD.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenCupboard(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get(), IcariaBlocks.POPULUS_CUPBOARD.get(), pBlockModelGenerators);
+	}
+
+	public static void brokenHolder(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_CYPRESS_HOLDER.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_DROUGHTROOT_HOLDER.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_FIR_HOLDER.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_LAUREL_HOLDER.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_OLIVE_HOLDER.get(), IcariaBlocks.OLIVE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_PLANE_HOLDER.get(), IcariaBlocks.PLANE_PLANKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.brokenHolder(IcariaBlocks.BROKEN_POPULUS_HOLDER.get(), IcariaBlocks.POPULUS_PLANKS.get(), pBlockModelGenerators);
 	}
 
 	public static void bromelia(BlockModelGenerators pBlockModelGenerators) {
@@ -1803,6 +1827,48 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brokenCupboard(Block pBrokenCupboard, Block pCupboard, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_0")).build()
+			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_1")).build()
+			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_2")).build()
+			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
+				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brokenHolder(Block pHolder, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_0")).build()
+			.create(IcariaModelProvider.blockFile(pHolder, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_1")).build()
+			.create(IcariaModelProvider.blockFile(pHolder, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_2")).build()
+			.create(IcariaModelProvider.blockFile(pHolder, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bromelia(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5657,6 +5723,18 @@ public class IcariaBlockModelProvider {
 
 	public static void bolbosModel(BlockModelGenerators pBlockModelGenerators) {
 		BolbosModel.template().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_bolbos"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brokenCupboardModel(BlockModelGenerators pBlockModelGenerators) {
+		BrokenCupboardModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrokenCupboardModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrokenCupboardModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_cupboard_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void brokenHolderModel(BlockModelGenerators pBlockModelGenerators) {
+		BrokenHolderModel.template0().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrokenHolderModel.template1().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrokenHolderModel.template2().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_broken_holder_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bromeliaModel(BlockModelGenerators pBlockModelGenerators) {

@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_broken_holder_1",
+  "textures": {
+    "particle": "landsoficaria:block/laurel_planks",
+    "planks": "landsoficaria:block/laurel_planks"
+  }
+}

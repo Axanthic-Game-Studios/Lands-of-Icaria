@@ -10,9 +10,9 @@ Additions
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
 - Bathtub Blocks for each Wood Type
-- Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
+- Cupboard Blocks, Broken Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
 - Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop for each Wood Type
-- Herb, Pan, Pot, Spoon and Towel Holder for each Wood Type
+- Broken, Herb, Pan, Pot, Spoon and Towel Holder for each Wood Type
 - Kitchen Table Blocks for each Wood Type
 - Kline Blocks for each Wood Type
 - Large Bowls Block

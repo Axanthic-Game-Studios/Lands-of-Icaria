@@ -513,6 +513,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_POT_HOLDER.get(), "Cypress Pot Holder");
 		this.add(IcariaBlocks.CYPRESS_SPOON_HOLDER.get(), "Cypress Spoon Holder");
 		this.add(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), "Cypress Towel Holder");
+		this.add(IcariaBlocks.BROKEN_CYPRESS_HOLDER.get(), "Broken Cypress Holder");
 		this.add(IcariaBlocks.CYPRESS_COUNTERTOP.get(), "Cypress Countertop");
 		this.add(IcariaBlocks.CYPRESS_FLOWER_POT_COUNTERTOP.get(), "Cypress Flower Pot Countertop");
 		this.add(IcariaBlocks.CYPRESS_MORTAR_COUNTERTOP.get(), "Cypress Mortar Countertop");
@@ -524,6 +525,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), "Cypress Flasks Cupboard");
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Cypress Pots Cupboard");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Cypress Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), "Broken Cypress Cupboard");
 		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Cypress Shelf");
 		this.add(IcariaBlocks.CYPRESS_WALL_SHELF.get(), "Cypress Wall Shelf");
 		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Cypress Kitchen Table");
@@ -571,6 +573,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_POT_HOLDER.get(), "Droughtroot Pot Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_SPOON_HOLDER.get(), "Droughtroot Spoon Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), "Droughtroot Towel Holder");
+		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_HOLDER.get(), "Broken Droughtroot Holder");
 		this.add(IcariaBlocks.DROUGHTROOT_COUNTERTOP.get(), "Droughtroot Countertop");
 		this.add(IcariaBlocks.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get(), "Droughtroot Flower Pot Countertop");
 		this.add(IcariaBlocks.DROUGHTROOT_MORTAR_COUNTERTOP.get(), "Droughtroot Mortar Countertop");
@@ -582,6 +585,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), "Droughtroot Flasks Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Droughtroot Pots Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Droughtroot Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get(), "Broken Droughtroot Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Droughtroot Shelf");
 		this.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), "Droughtroot Wall Shelf");
 		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Droughtroot Kitchen Table");
@@ -629,6 +633,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_POT_HOLDER.get(), "Fir Pot Holder");
 		this.add(IcariaBlocks.FIR_SPOON_HOLDER.get(), "Fir Spoon Holder");
 		this.add(IcariaBlocks.FIR_TOWEL_HOLDER.get(), "Fir Towel Holder");
+		this.add(IcariaBlocks.BROKEN_FIR_HOLDER.get(), "Broken Fir Holder");
 		this.add(IcariaBlocks.FIR_COUNTERTOP.get(), "Fir Countertop");
 		this.add(IcariaBlocks.FIR_FLOWER_POT_COUNTERTOP.get(), "Fir Flower Pot Countertop");
 		this.add(IcariaBlocks.FIR_MORTAR_COUNTERTOP.get(), "Fir Mortar Countertop");
@@ -640,6 +645,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), "Fir Flasks Cupboard");
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Fir Pots Cupboard");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Fir Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_FIR_CUPBOARD.get(), "Broken Fir Cupboard");
 		this.add(IcariaBlocks.FIR_SHELF.get(), "Fir Shelf");
 		this.add(IcariaBlocks.FIR_WALL_SHELF.get(), "Fir Wall Shelf");
 		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Fir Kitchen Table");
@@ -687,6 +693,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_POT_HOLDER.get(), "Laurel Pot Holder");
 		this.add(IcariaBlocks.LAUREL_SPOON_HOLDER.get(), "Laurel Spoon Holder");
 		this.add(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), "Laurel Towel Holder");
+		this.add(IcariaBlocks.BROKEN_LAUREL_HOLDER.get(), "Broken Laurel Holder");
 		this.add(IcariaBlocks.LAUREL_COUNTERTOP.get(), "Laurel Countertop");
 		this.add(IcariaBlocks.LAUREL_FLOWER_POT_COUNTERTOP.get(), "Laurel Flower Pot Countertop");
 		this.add(IcariaBlocks.LAUREL_MORTAR_COUNTERTOP.get(), "Laurel Mortar Countertop");
@@ -698,6 +705,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), "Laurel Flasks Cupboard");
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Laurel Pots Cupboard");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Laurel Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get(), "Broken Laurel Cupboard");
 		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Laurel Shelf");
 		this.add(IcariaBlocks.LAUREL_WALL_SHELF.get(), "Laurel Wall Shelf");
 		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Laurel Kitchen Table");
@@ -745,6 +753,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_POT_HOLDER.get(), "Olive Pot Holder");
 		this.add(IcariaBlocks.OLIVE_SPOON_HOLDER.get(), "Olive Spoon Holder");
 		this.add(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), "Olive Towel Holder");
+		this.add(IcariaBlocks.BROKEN_OLIVE_HOLDER.get(), "Broken Olive Holder");
 		this.add(IcariaBlocks.OLIVE_COUNTERTOP.get(), "Olive Countertop");
 		this.add(IcariaBlocks.OLIVE_FLOWER_POT_COUNTERTOP.get(), "Olive Flower Pot Countertop");
 		this.add(IcariaBlocks.OLIVE_MORTAR_COUNTERTOP.get(), "Olive Mortar Countertop");
@@ -756,6 +765,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), "Olive Flasks Cupboard");
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olive Pots Cupboard");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olive Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get(), "Broken Olive Cupboard");
 		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olive Shelf");
 		this.add(IcariaBlocks.OLIVE_WALL_SHELF.get(), "Olive Wall Shelf");
 		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olive Kitchen Table");
@@ -803,6 +813,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_POT_HOLDER.get(), "Plane Pot Holder");
 		this.add(IcariaBlocks.PLANE_SPOON_HOLDER.get(), "Plane Spoon Holder");
 		this.add(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), "Plane Towel Holder");
+		this.add(IcariaBlocks.BROKEN_PLANE_HOLDER.get(), "Broken Plane Holder");
 		this.add(IcariaBlocks.PLANE_COUNTERTOP.get(), "Plane Countertop");
 		this.add(IcariaBlocks.PLANE_FLOWER_POT_COUNTERTOP.get(), "Plane Flower Pot Countertop");
 		this.add(IcariaBlocks.PLANE_MORTAR_COUNTERTOP.get(), "Plane Mortar Countertop");
@@ -814,6 +825,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), "Plane Flasks Cupboard");
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plane Pots Cupboard");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plane Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get(), "Broken Plane Cupboard");
 		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plane Shelf");
 		this.add(IcariaBlocks.PLANE_WALL_SHELF.get(), "Plane Wall Shelf");
 		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plane Kitchen Table");
@@ -861,6 +873,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_POT_HOLDER.get(), "Populus Pot Holder");
 		this.add(IcariaBlocks.POPULUS_SPOON_HOLDER.get(), "Populus Spoon Holder");
 		this.add(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), "Populus Towel Holder");
+		this.add(IcariaBlocks.BROKEN_POPULUS_HOLDER.get(), "Broken Populus Holder");
 		this.add(IcariaBlocks.POPULUS_COUNTERTOP.get(), "Populus Countertop");
 		this.add(IcariaBlocks.POPULUS_FLOWER_POT_COUNTERTOP.get(), "Populus Flower Pot Countertop");
 		this.add(IcariaBlocks.POPULUS_MORTAR_COUNTERTOP.get(), "Populus Mortar Countertop");
@@ -872,6 +885,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), "Populus Flasks Cupboard");
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Populus Pots Cupboard");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Populus Vase Cupboard");
+		this.add(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get(), "Broken Populus Cupboard");
 		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Populus Shelf");
 		this.add(IcariaBlocks.POPULUS_WALL_SHELF.get(), "Populus Wall Shelf");
 		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Populus Kitchen Table");

@@ -1,0 +1,57 @@
+{
+  "variants": {
+    "facing=east": [
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_2",
+        "y": 90
+      }
+    ],
+    "facing=north": [
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_0"
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_1"
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_2"
+      }
+    ],
+    "facing=south": [
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_2",
+        "y": 180
+      }
+    ],
+    "facing=west": [
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_0",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_1",
+        "y": 270
+      },
+      {
+        "model": "landsoficaria:block/broken_olive_cupboard_2",
+        "y": 270
+      }
+    ]
+  }
+}

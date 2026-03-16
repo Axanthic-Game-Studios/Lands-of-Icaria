@@ -689,6 +689,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_CYPRESS_HOLDER.get());
 			pEvent.accept(IcariaItems.CYPRESS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.CYPRESS_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.CYPRESS_MORTAR_COUNTERTOP.get());
@@ -700,6 +701,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.CYPRESS_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_CYPRESS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_SHELF.get());
 			pEvent.accept(IcariaItems.CYPRESS_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_KLINE.get());
@@ -745,6 +747,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_DROUGHTROOT_HOLDER.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_MORTAR_COUNTERTOP.get());
@@ -756,6 +759,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_DROUGHTROOT_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SHELF.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_KLINE.get());
@@ -801,6 +805,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_FIR_HOLDER.get());
 			pEvent.accept(IcariaItems.FIR_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.FIR_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.FIR_MORTAR_COUNTERTOP.get());
@@ -812,6 +817,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.FIR_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_FIR_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_SHELF.get());
 			pEvent.accept(IcariaItems.FIR_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_KLINE.get());
@@ -857,6 +863,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_LAUREL_HOLDER.get());
 			pEvent.accept(IcariaItems.LAUREL_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.LAUREL_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.LAUREL_MORTAR_COUNTERTOP.get());
@@ -868,6 +875,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.LAUREL_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_LAUREL_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_SHELF.get());
 			pEvent.accept(IcariaItems.LAUREL_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_KLINE.get());
@@ -913,6 +921,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_OLIVE_HOLDER.get());
 			pEvent.accept(IcariaItems.OLIVE_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.OLIVE_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.OLIVE_MORTAR_COUNTERTOP.get());
@@ -924,6 +933,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.OLIVE_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_OLIVE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_SHELF.get());
 			pEvent.accept(IcariaItems.OLIVE_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_KLINE.get());
@@ -969,6 +979,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_PLANE_HOLDER.get());
 			pEvent.accept(IcariaItems.PLANE_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.PLANE_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.PLANE_MORTAR_COUNTERTOP.get());
@@ -980,6 +991,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.PLANE_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_PLANE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_SHELF.get());
 			pEvent.accept(IcariaItems.PLANE_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_KLINE.get());
@@ -1025,6 +1037,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_POT_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_SPOON_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_TOWEL_HOLDER.get());
+			pEvent.accept(IcariaItems.BROKEN_POPULUS_HOLDER.get());
 			pEvent.accept(IcariaItems.POPULUS_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.POPULUS_FLOWER_POT_COUNTERTOP.get());
 			pEvent.accept(IcariaItems.POPULUS_MORTAR_COUNTERTOP.get());
@@ -1036,6 +1049,7 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.POPULUS_FLASKS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_POTS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_VASE_CUPBOARD.get());
+			pEvent.accept(IcariaItems.BROKEN_POPULUS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_SHELF.get());
 			pEvent.accept(IcariaItems.POPULUS_KITCHEN_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_KLINE.get());

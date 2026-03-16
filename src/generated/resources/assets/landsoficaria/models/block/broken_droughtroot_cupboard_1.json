@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_broken_cupboard_1",
+  "textures": {
+    "cupboard": "landsoficaria:block/droughtroot_cupboard",
+    "log": "landsoficaria:block/droughtroot_log",
+    "particle": "landsoficaria:block/smooth_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "smooth_log": "landsoficaria:block/smooth_droughtroot_log",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log"
+  }
+}
