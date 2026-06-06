@@ -442,6 +442,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachnen-Spawner");
 		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Wiedergänger-Spawner");
 
+		this.add(IcariaBlocks.COBWEB.get(), "Spinnennetz");
+
 		this.add(IcariaBlocks.BONE_LADDER.get(), "Knochenleiter");
 		this.add(IcariaBlocks.ROTTEN_BONE_LADDER.get(), "Verrottete Knochenleiter");
 

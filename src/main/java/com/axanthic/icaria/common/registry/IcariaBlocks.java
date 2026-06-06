@@ -398,6 +398,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> ARACHNE_SPAWNER = IcariaBlocks.register("arachne_spawner", IcariaSpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.SPAWNER));
 	public static final DeferredHolder<Block, Block> REVENANT_SPAWNER = IcariaBlocks.register("revenant_spawner", IcariaSpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.SPAWNER));
 
+	public static final DeferredHolder<Block, Block> COBWEB = IcariaBlocks.register("cobweb", CobwebBlock::new, IcariaBlocks.propertiesCobweb(MapColor.WOOL, SoundType.COBWEB));
+
 	public static final DeferredHolder<Block, Block> BONE_LADDER = IcariaBlocks.register("bone_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.BONE_BLOCK));
 	public static final DeferredHolder<Block, Block> ROTTEN_BONE_LADDER = IcariaBlocks.register("rotten_bone_ladder", RottenLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.BONE_BLOCK));
 
@@ -1172,6 +1174,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesSpawner(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(5.0F).explosionResistance(5.0F).noOcclusion().requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesCobweb(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F).noCollission();
 	}
 
 	public static BlockBehaviour.Properties propertiesSkull(MapColor pMapColor, SoundType pSoundType) {

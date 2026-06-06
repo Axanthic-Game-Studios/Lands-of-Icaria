@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_cobweb_north",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cobweb": "landsoficaria:block/cobweb",
+    "particle": "landsoficaria:block/cobweb"
+  }
+}

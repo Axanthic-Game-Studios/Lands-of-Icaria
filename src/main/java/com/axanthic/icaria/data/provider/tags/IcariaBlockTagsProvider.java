@@ -347,6 +347,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.SILKSAND.get())
 			.add(IcariaBlocks.CARDON_CACTUS.get());
 
+		this.tag(BlockTags.FALL_DAMAGE_RESETTING)
+			.add(IcariaBlocks.COBWEB.get());
+
 		this.tag(BlockTags.FIRE)
 			.add(IcariaBlocks.GREEK_FIRE.get());
 
@@ -1521,7 +1524,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 		this.tag(IcariaBlockTagsProvider.REPLACE_BLOCKS_PRISTINE_VILLAGE);
 
 		this.tag(IcariaBlockTagsProvider.REPLACE_BLOCKS_ERODED_VILLAGE)
-			.add(Blocks.COBWEB) // TODO replace with Arachne web
+			.add(Blocks.COBWEB) // TODO replace with Icaria Cobweb
 			.add(Blocks.CHISELED_BOOKSHELF)
 			.add(Blocks.FLOWER_POT)
 			.add(Blocks.COMPOSTER)

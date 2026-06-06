@@ -55,6 +55,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyBrickCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlab(pBlockModelGenerators);
+		IcariaBlockModelProvider.cobweb(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.craftingTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.crop(pBlockModelGenerators);
@@ -203,6 +204,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyBrickCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlabModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cobwebModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cuttingBoardModel(pBlockModelGenerators);
@@ -630,6 +632,10 @@ public class IcariaBlockModelProvider {
 
 	public static void chimneySlab(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.chimneySlab(IcariaBlocks.CHIMNEY_SLAB.get(), pBlockModelGenerators);
+	}
+
+	public static void cobweb(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cobweb(IcariaBlocks.COBWEB.get(), pBlockModelGenerators);
 	}
 
 	public static void countertop(BlockModelGenerators pBlockModelGenerators) {
@@ -2261,6 +2267,113 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
 				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney"))
 				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaIdents.ID, "chimney")), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cobweb(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_UP, IcariaModelProvider.blockFile(pBlock, "up"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_DOWN, IcariaModelProvider.blockFile(pBlock, "down"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_WEST, IcariaModelProvider.blockFile(pBlock, "east_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_south"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_WEST, IcariaModelProvider.blockFile(pBlock, "east_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP, IcariaModelProvider.blockFile(pBlock, "west_up"))
+				.putForced(IcariaTextureSlots.COBWEB_UP_EAST, IcariaModelProvider.blockFile(pBlock, "up_east"))
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP_EAST, IcariaModelProvider.blockFile(pBlock, "west_up_east"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "down_west"))
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN, IcariaModelProvider.blockFile(pBlock, "east_down"))
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "east_down_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_DOWN_UP, IcariaModelProvider.blockFile(pBlock, "down_up"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_WEST, IcariaModelProvider.blockFile(pBlock, "east_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP_EAST, IcariaModelProvider.blockFile(pBlock, "west_up_east"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "east_down_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_south_up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP_EAST, IcariaModelProvider.blockFile(pBlock, "west_up_east"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_south_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "east_down_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.COBWEB_DOWN_WEST_UP, IcariaModelProvider.blockFile(pBlock, "down_west_up"))
+				.putForced(IcariaTextureSlots.COBWEB_UP_EAST_DOWN, IcariaModelProvider.blockFile(pBlock, "up_east_down"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_WEST, IcariaModelProvider.blockFile(pBlock, "east_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP_EAST, IcariaModelProvider.blockFile(pBlock, "west_up_east"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "east_down_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_DOWN_WEST_UP, IcariaModelProvider.blockFile(pBlock, "down_west_up"))
+				.putForced(IcariaTextureSlots.COBWEB_UP_EAST_DOWN, IcariaModelProvider.blockFile(pBlock, "up_east_down"))
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_south_up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_up")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_up"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_WEST_UP_EAST, IcariaModelProvider.blockFile(pBlock, "west_up_east"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB_EAST_DOWN_WEST, IcariaModelProvider.blockFile(pBlock, "east_down_west"))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_up_down")).renderType("cutout").build()
+			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_up_down"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COBWEB, IcariaModelProvider.blockFile(pBlock))
+				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -5792,6 +5905,33 @@ public class IcariaBlockModelProvider {
 	public static void chimneySlabModel(BlockModelGenerators pBlockModelGenerators) {
 		ChimneySlabModel.bottom().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_bottom"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		ChimneySlabModel.top().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_chimney_slab_top"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cobwebModel(BlockModelGenerators pBlockModelGenerators) {
+		CobwebModel.cobweb().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorth().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEast().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthSouth().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastWest().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthSouthUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthSouthDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastSouthWest().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastWestUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastWestDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthSouthUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_south_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastSouthWestUp().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_up"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastSouthWestDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastWestUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_west_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CobwebModel.cobwebNorthEastSouthWestUpDown().create(IcariaModelProvider.blockFile(IcariaIdents.ID, "template_cobweb_north_east_south_west_up_down"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertopModel(BlockModelGenerators blockModels) {

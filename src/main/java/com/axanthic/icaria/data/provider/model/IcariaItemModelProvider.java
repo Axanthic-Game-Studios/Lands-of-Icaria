@@ -46,6 +46,7 @@ public class IcariaItemModelProvider {
 
 	public static void generated(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemModelProvider.generated(IcariaItems.VANADIUMSTEEL_CHAIN.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.COBWEB.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.BONE_LADDER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.ROTTEN_BONE_LADDER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.LIGNITE_TORCH.get(), pItemModelGenerators);

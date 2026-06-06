@@ -442,6 +442,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.ARACHNE_SPAWNER.get(), "Arachne Spawner");
 		this.add(IcariaBlocks.REVENANT_SPAWNER.get(), "Revenant Spawner");
 
+		this.add(IcariaBlocks.COBWEB.get(), "Cobweb");
+
 		this.add(IcariaBlocks.BONE_LADDER.get(), "Bone Ladder");
 		this.add(IcariaBlocks.ROTTEN_BONE_LADDER.get(), "Rotten Bone Ladder");
 

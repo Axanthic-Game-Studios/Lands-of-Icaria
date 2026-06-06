@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
+import com.axanthic.icaria.common.registry.IcariaBlocks;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -41,7 +42,7 @@ public class IcariaArachnidEntity extends Monster {
 
 	@Override
 	public void makeStuckInBlock(BlockState pBlockState, Vec3 pVec3) {
-		if (!pBlockState.is(Blocks.COBWEB)) { // TODO replace with Arachne web
+		if (!pBlockState.is(Blocks.COBWEB) && !pBlockState.is(IcariaBlocks.COBWEB)) {
 			super.makeStuckInBlock(pBlockState, pVec3);
 		}
 	}

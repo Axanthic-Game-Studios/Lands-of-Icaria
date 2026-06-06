@@ -615,6 +615,8 @@ public class IcariaCommonModEvents {
 			pEvent.accept(IcariaItems.ARACHNE_SPAWNER.get());
 			pEvent.accept(IcariaItems.REVENANT_SPAWNER.get());
 
+			pEvent.accept(IcariaItems.COBWEB.get());
+
 			pEvent.accept(IcariaItems.BONE_LADDER.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONE_LADDER.get());
 

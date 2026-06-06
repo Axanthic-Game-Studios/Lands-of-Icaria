@@ -420,9 +420,9 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), Blocks.AIR),
 			IcariaProcessorLists.block(IcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), Blocks.AIR),
 
-			IcariaProcessorLists.block(pAdobeBlock, 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO replace with Arachne web
+			IcariaProcessorLists.block(pAdobeBlock, 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO replace with Icaria Cobweb
 
-			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO replace with Arachne web
+			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, Blocks.COBWEB, 0.25F, Blocks.AIR, Direction.Axis.Y), // TODO replace with Icaria Cobweb
 			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.5F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.5F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
 			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), Blocks.AIR),
 
