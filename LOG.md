@@ -6,6 +6,7 @@ Additions
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Checkers and Chess Blocks
 - Chimney Blocks
+- Cobweb Block
 - Cutting Board Blocks for each Wood Type
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
@@ -29,6 +30,9 @@ Additions
 
 Updates
 
+- Arachne Queens place Icaria Cobwebs instead of vanilla Cobwebs now
+- Arachne Queens place Cobwebs only in empty Blocks when attacking the Player instead of replacing any Block the Player is standing in
+- Arachne Queens play a Placement Sound when placing Cobwebs now
 - Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size now
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
 - Grainel, Silksand and Surface Lignite play ambient Block Sounds now
