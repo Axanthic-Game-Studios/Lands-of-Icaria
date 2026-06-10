@@ -361,7 +361,9 @@ public class GrinderBlockEntity extends BlockEntity {
 				}
 
 				if (pDirection == Direction.UP) {
-					if (side == Side.RIGHT) {
+					if (side == Side.LEFT) {
+						return LazyOptional.empty();
+					} else if (side == Side.RIGHT) {
 						return this.directionWrappedRightHandler.get(pDirection).cast();
 					}
 				}

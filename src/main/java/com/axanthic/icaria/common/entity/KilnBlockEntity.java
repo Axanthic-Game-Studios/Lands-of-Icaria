@@ -322,6 +322,10 @@ public class KilnBlockEntity extends BlockEntity {
 
                 var half  = state.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
                 var facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+                if (pDirection == Direction.UP) {
+                    return LazyOptional.empty();
+                }
+
                 if (pDirection == Direction.DOWN) {
                     return this.directionWrappedFuelHandler.get(pDirection).cast();
                 }
