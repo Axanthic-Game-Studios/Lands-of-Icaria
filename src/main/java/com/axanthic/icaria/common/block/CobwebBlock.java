@@ -39,7 +39,7 @@ public class CobwebBlock extends WebBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
-		return this.update(pBlockPlaceContext.getClickedPos(), this.defaultBlockState(), pBlockPlaceContext.getLevel());
+		return this.update(pBlockPlaceContext.getClickedPos(), pBlockPlaceContext.getLevel());
 	}
 
 	@Override
@@ -47,12 +47,14 @@ public class CobwebBlock extends WebBlock {
 		return pBlockState.setValue(this.getProperty(pDirection), this.connects(pBlockStateFaced));
 	}
 
-	public BlockState update(BlockPos pBlockPos, BlockState pBlockState, LevelAccessor pLevelAccessor) {
+	public BlockState update(BlockPos pBlockPos, LevelAccessor pLevelAccessor) {
+		var blockState = this.defaultBlockState();
+
 		for (var direction : Direction.values()) {
-			pBlockState = pBlockState.setValue(this.getProperty(direction), this.connects(pLevelAccessor.getBlockState(pBlockPos.relative(direction))));
+			blockState = blockState.setValue(this.getProperty(direction), this.connects(pLevelAccessor.getBlockState(pBlockPos.relative(direction))));
 		}
 
-		return pBlockState;
+		return blockState;
 	}
 
 	public BooleanProperty getProperty(Direction pDirection) {

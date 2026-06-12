@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.common.block.CobwebBlock;
 import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
@@ -36,8 +37,10 @@ public class ArachneHurtByTargetGoal extends HurtByTargetGoal {
 			if (this.mob.distanceTo(livingEntity) <= 10.0D) {
 				if (this.mob.getRandom().nextInt(50) == 0) {
 					if (level.getBlockState(livingEntity.blockPosition()).isAir()) {
-						level.playSound(null, livingEntity.blockPosition(), SoundEvents.COBWEB_PLACE, SoundSource.BLOCKS);
-						level.setBlockAndUpdate(livingEntity.blockPosition(), IcariaBlocks.COBWEB.get().defaultBlockState());
+						if (IcariaBlocks.COBWEB.get() instanceof CobwebBlock cobwebBlock) {
+							level.playSound(null, livingEntity.blockPosition(), SoundEvents.COBWEB_PLACE, SoundSource.BLOCKS);
+							level.setBlockAndUpdate(livingEntity.blockPosition(), cobwebBlock.update(livingEntity.blockPosition(), level));
+						}
 					}
 				}
 			}
