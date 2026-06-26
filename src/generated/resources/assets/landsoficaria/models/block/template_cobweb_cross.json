@@ -1,0 +1,118 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "west": {
+          "texture": "#cobweb_negative"
+        }
+      },
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "shade": false,
+      "to": [
+        8,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#cobweb_negative_opposite"
+        }
+      },
+      "from": [
+        8,
+        0,
+        0
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "shade": false,
+      "to": [
+        8,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "south": {
+          "texture": "#cobweb_positive"
+        }
+      },
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "shade": false,
+      "to": [
+        16,
+        16,
+        8
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#cobweb_positive_opposite"
+        }
+      },
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "rotation": {
+        "angle": 45.0,
+        "axis": "y",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "rescale": true
+      },
+      "shade": false,
+      "to": [
+        16,
+        16,
+        8
+      ]
+    }
+  ]
+}

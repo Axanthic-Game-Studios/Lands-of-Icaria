@@ -53,6 +53,13 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 
+	public static final EnumProperty<Connection> CONNECTION_NORTH = EnumProperty.create("connection_north", Connection.class);
+	public static final EnumProperty<Connection> CONNECTION_EAST = EnumProperty.create("connection_east", Connection.class);
+	public static final EnumProperty<Connection> CONNECTION_SOUTH = EnumProperty.create("connection_south", Connection.class);
+	public static final EnumProperty<Connection> CONNECTION_WEST = EnumProperty.create("connection_west", Connection.class);
+	public static final EnumProperty<Connection> CONNECTION_UP = EnumProperty.create("connection_up", Connection.class);
+	public static final EnumProperty<Connection> CONNECTION_DOWN = EnumProperty.create("connection_down", Connection.class);
+
 	public static final IntegerProperty AMPHORA_AMOUNT = IntegerProperty.create("amphora_amount", 1, 3);
 	public static final IntegerProperty BATHTUB_FILL = IntegerProperty.create("bathtub_fill", 0, 12);
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);

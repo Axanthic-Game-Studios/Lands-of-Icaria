@@ -1,10 +1,11 @@
 {
-  "parent": "landsoficaria:block/template_cobweb_north_down",
+  "parent": "landsoficaria:block/template_cobweb_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "cobweb_down_west": "landsoficaria:block/cobweb_down_west",
-    "cobweb_east_down": "landsoficaria:block/cobweb_east_down",
-    "cobweb_east_down_west": "landsoficaria:block/cobweb_east_down_west",
+    "cobweb_negative": "landsoficaria:block/cobweb_down_west_0",
+    "cobweb_negative_opposite": "landsoficaria:block/cobweb_east_down_0",
+    "cobweb_positive": "landsoficaria:block/cobweb_east_down_0",
+    "cobweb_positive_opposite": "landsoficaria:block/cobweb_down_west_0",
     "particle": "landsoficaria:block/cobweb"
   }
 }

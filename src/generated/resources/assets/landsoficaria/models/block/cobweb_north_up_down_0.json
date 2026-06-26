@@ -1,0 +1,11 @@
+{
+  "parent": "landsoficaria:block/template_cobweb_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cobweb_negative": "landsoficaria:block/cobweb_down_west_up_0",
+    "cobweb_negative_opposite": "landsoficaria:block/cobweb_up_east_down_0",
+    "cobweb_positive": "landsoficaria:block/cobweb_up_east_down_0",
+    "cobweb_positive_opposite": "landsoficaria:block/cobweb_down_west_up_0",
+    "particle": "landsoficaria:block/cobweb"
+  }
+}
