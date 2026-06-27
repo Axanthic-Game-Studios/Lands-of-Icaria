@@ -55,7 +55,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	public TargetingConditions targetingConditions = TargetingConditions.forCombat().range(16.0D);
 
 	public CaptainRevenantEntity(EntityType<? extends CaptainRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, true);
 	}
 
 	@Override
@@ -179,8 +179,9 @@ public class CaptainRevenantEntity extends RevenantEntity {
 		this.goalSelector.addGoal(3, new CaptainRevenantSummonGoal(this));
 		this.goalSelector.addGoal(4, new MoveTowardsRestrictionGoal(this, 1.0D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(6, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}

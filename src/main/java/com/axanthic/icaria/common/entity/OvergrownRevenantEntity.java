@@ -20,7 +20,7 @@ public class OvergrownRevenantEntity extends RevenantEntity {
 	public float blue;
 
 	public OvergrownRevenantEntity(EntityType<? extends OvergrownRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, true);
 	}
 
 	@Override

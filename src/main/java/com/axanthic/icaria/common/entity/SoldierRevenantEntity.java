@@ -25,7 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class SoldierRevenantEntity extends RevenantEntity {
 	public SoldierRevenantEntity(EntityType<? extends SoldierRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, true);
 	}
 
 	@Override

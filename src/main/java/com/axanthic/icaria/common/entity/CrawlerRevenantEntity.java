@@ -29,7 +29,7 @@ public class CrawlerRevenantEntity extends RevenantEntity {
 	public static final EntityDataAccessor<Integer> TICK = SynchedEntityData.defineId(CrawlerRevenantEntity.class, EntityDataSerializers.INT);
 
 	public CrawlerRevenantEntity(EntityType<? extends CrawlerRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, false);
 	}
 
 	@Override

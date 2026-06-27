@@ -28,8 +28,9 @@ import net.minecraft.world.level.block.state.BlockState;
 @ParametersAreNonnullByDefault
 
 public class RevenantEntity extends Monster {
-	public RevenantEntity(EntityType<? extends RevenantEntity> pEntityType, Level pLevel) {
+	public RevenantEntity(EntityType<? extends RevenantEntity> pEntityType, Level pLevel, boolean pCanOpenDoors) {
 		super(pEntityType, pLevel);
+		this.getNavigation().setCanOpenDoors(pCanOpenDoors);
 	}
 
 	@Override
@@ -43,8 +44,9 @@ public class RevenantEntity extends Monster {
 		this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 1.0D, true));
 		this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}

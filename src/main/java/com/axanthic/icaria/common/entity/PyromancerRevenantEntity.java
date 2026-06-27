@@ -44,7 +44,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	public static final EntityDataAccessor<Integer> THROWN = SynchedEntityData.defineId(PyromancerRevenantEntity.class, EntityDataSerializers.INT);
 
 	public PyromancerRevenantEntity(EntityType<? extends PyromancerRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, true);
 	}
 
 	public boolean onAiming() {
@@ -163,8 +163,9 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 		this.goalSelector.addGoal(2, new RangedAttackGoal(this, 1.0D, 80, 12.0F));
 		this.goalSelector.addGoal(3, new MoveTowardsRestrictionGoal(this, 1.0D));
 		this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D, 0.001F));
-		this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
-		this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(5, new OpenDoorGoal(this, true));
+		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 10.0F, 0.025F, false));
+		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}

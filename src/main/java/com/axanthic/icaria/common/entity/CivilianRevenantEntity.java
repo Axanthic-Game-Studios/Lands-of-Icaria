@@ -20,7 +20,7 @@ import net.minecraft.world.level.Level;
 
 public class CivilianRevenantEntity extends RevenantEntity {
 	public CivilianRevenantEntity(EntityType<? extends CivilianRevenantEntity> pEntityType, Level pLevel) {
-		super(pEntityType, pLevel);
+		super(pEntityType, pLevel, true);
 	}
 
 	@Override
