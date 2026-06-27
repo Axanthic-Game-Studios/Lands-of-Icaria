@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.ArachneHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
@@ -9,9 +10,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stats;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -34,6 +38,8 @@ import net.minecraft.world.level.block.state.BlockState;
 public class ArachneEntity extends IcariaArachnidEntity {
 	public AnimationState attackAnimationState = new AnimationState();
 
+	public ServerBossEvent serverBossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
+
 	public ArachneEntity(EntityType<? extends ArachneEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
@@ -47,6 +53,12 @@ public class ArachneEntity extends IcariaArachnidEntity {
 	@Override
 	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
 		return false;
+	}
+
+	@Override
+	public void aiStep() {
+		super.aiStep();
+		this.setBossHealth();
 	}
 
 	@Override
@@ -72,6 +84,26 @@ public class ArachneEntity extends IcariaArachnidEntity {
 		this.goalSelector.addGoal(5, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new ArachneHurtByTargetGoal(this).setAlertOthers());
 		this.targetSelector.addGoal(2, new IcariaArachnidTargetGoal<>(this, Player.class, true, true));
+	}
+
+	public void setBossHealth() {
+		if (this.getType() == IcariaEntityTypes.ARACHNE.get()) {
+			this.serverBossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+		}
+	}
+
+	@Override
+	public void startSeenByPlayer(ServerPlayer serverPlayer) {
+		if (this.getType() == IcariaEntityTypes.ARACHNE.get()) {
+			this.serverBossEvent.addPlayer(serverPlayer);
+		}
+	}
+
+	@Override
+	public void stopSeenByPlayer(ServerPlayer serverPlayer) {
+		if (this.getType() == IcariaEntityTypes.ARACHNE.get()) {
+			this.serverBossEvent.removePlayer(serverPlayer);
+		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {

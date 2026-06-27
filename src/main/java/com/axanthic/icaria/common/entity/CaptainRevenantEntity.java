@@ -11,9 +11,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
@@ -51,6 +54,8 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	public static final EntityDataAccessor<Integer> RALLYING = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> REEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> UNEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
+
+	public ServerBossEvent serverBossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
 
 	public TargetingConditions targetingConditions = TargetingConditions.forCombat().range(16.0D);
 
@@ -113,27 +118,8 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	@Override
 	public void aiStep() {
 		super.aiStep();
-		if (this.onUnequips()) {
-			var unequips = this.getUnequips();
-			if (unequips > this.minUnequips) {
-				--unequips;
-				this.setUnequips(unequips);
-				this.setRallying(this.maxRallying);
-			}
-		} else if (this.onRallying()) {
-			var rallying = this.getRallying();
-			if (rallying > this.minRallying) {
-				--rallying;
-				this.setRallying(rallying);
-				this.setReequips(this.maxReequips);
-			}
-		} else if (this.onReequips()) {
-			var reequips = this.getReequips();
-			if (reequips > this.minReequips) {
-				--reequips;
-				this.setReequips(reequips);
-			}
-		}
+		this.setBossHealth();
+		this.setBossAttack();
 	}
 
 	@Override
@@ -186,7 +172,48 @@ public class CaptainRevenantEntity extends RevenantEntity {
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true, true));
 	}
 
-	public void setMovement() {
+	public void setAnimStates() {
+		if (this.onUnequips()) {
+			this.unequipsAnimationState.startIfStopped(this.tickCount);
+			this.reequipsAnimationState.stop();
+		} else if (this.onRallying()) {
+			this.rallyingAnimationState.startIfStopped(this.tickCount);
+			this.unequipsAnimationState.stop();
+		} else if (this.onReequips()) {
+			this.reequipsAnimationState.startIfStopped(this.tickCount);
+			this.rallyingAnimationState.stop();
+		}
+	}
+
+	public void setBossAttack() {
+		if (this.onUnequips()) {
+			var unequips = this.getUnequips();
+			if (unequips > this.minUnequips) {
+				--unequips;
+				this.setUnequips(unequips);
+				this.setRallying(this.maxRallying);
+			}
+		} else if (this.onRallying()) {
+			var rallying = this.getRallying();
+			if (rallying > this.minRallying) {
+				--rallying;
+				this.setRallying(rallying);
+				this.setReequips(this.maxReequips);
+			}
+		} else if (this.onReequips()) {
+			var reequips = this.getReequips();
+			if (reequips > this.minReequips) {
+				--reequips;
+				this.setReequips(reequips);
+			}
+		}
+	}
+
+	public void setBossHealth() {
+		this.serverBossEvent.setProgress(this.getHealth() / this.getMaxHealth());
+	}
+
+	public void setMoveSpeeds() {
 		if (this.onRallying() || this.onReequips() || this.onUnequips()) {
 			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
 		} else {
@@ -206,6 +233,16 @@ public class CaptainRevenantEntity extends RevenantEntity {
 		this.getEntityData().set(CaptainRevenantEntity.UNEQUIPS, pUnequips);
 	}
 
+	@Override
+	public void startSeenByPlayer(ServerPlayer pServerPlayer) {
+		this.serverBossEvent.addPlayer(pServerPlayer);
+	}
+
+	@Override
+	public void stopSeenByPlayer(ServerPlayer pServerPlayer) {
+		this.serverBossEvent.removePlayer(pServerPlayer);
+	}
+
 	public void summon(ServerLevel pServerLevel) {
 		if (!this.onRallying() && !this.onReequips() && !this.onUnequips() && this.getLastHurtByPlayerTime() > 0 && pServerLevel.getNearbyEntities(CrawlerRevenantEntity.class, this.targetingConditions, this, this.getBoundingBox().inflate(16.0D)).size() <= 2) {
 			this.setUnequips(this.maxUnequips);
@@ -216,18 +253,9 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	public void tick() {
 		super.tick();
 		if (this.level().isClientSide()) {
-			if (this.onUnequips()) {
-				this.unequipsAnimationState.startIfStopped(this.tickCount);
-				this.reequipsAnimationState.stop();
-			} else if (this.onRallying()) {
-				this.rallyingAnimationState.startIfStopped(this.tickCount);
-				this.unequipsAnimationState.stop();
-			} else if (this.onReequips()) {
-				this.reequipsAnimationState.startIfStopped(this.tickCount);
-				this.rallyingAnimationState.stop();
-			}
+			this.setAnimStates();
 		} else {
-			this.setMovement();
+			this.setMoveSpeeds();
 		}
 	}
 

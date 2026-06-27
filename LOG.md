@@ -33,6 +33,8 @@ Updates
 - Arachne Queens place Icaria Cobwebs instead of vanilla Cobwebs now
 - Arachne Queens place Cobwebs only in empty Blocks when attacking the Player instead of replacing any Block the Player is standing in
 - Arachne Queens play a Placement Sound when placing Cobwebs now
+- Arachne Queens show a Boss Bar in their Vicinity now
+- Captain Revenants show a Boss Bar in their Vicinity now
 - Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size now
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
 - Grainel, Silksand and Surface Lignite play ambient Block Sounds now
