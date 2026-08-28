@@ -107,7 +107,7 @@ public abstract class IcariaAnimalEntity extends IcariaPathfinderMobEntity {
 	}
 
 	@Override
-	public boolean shouldDropLoot() {
+	public boolean shouldDropLoot(ServerLevel pServerLevel) {
 		return this.getSize() == this.maxSize;
 	}
 

@@ -15,6 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
@@ -37,6 +38,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 	public static final TagKey<Item> DUSTS_CALCITE = IcariaItemTagsProvider.cKey("dusts/calcite");
 	public static final TagKey<Item> DUSTS_HALITE = IcariaItemTagsProvider.cKey("dusts/halite");
+
+	public static final TagKey<Item> FIREPLACE_ITEMS = IcariaItemTagsProvider.icariaKey("fireplace_items");
 
 	public static final TagKey<Item> GEMS_CHERT = IcariaItemTagsProvider.cKey("gems/chert");
 	public static final TagKey<Item> GEMS_CALCITE = IcariaItemTagsProvider.cKey("gems/calcite");
@@ -205,6 +208,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.SIDEROS_AXE.get())
 			.add(IcariaItems.MOLYBDENUMSTEEL_AXE.get());
 
+		this.tag(ItemTags.BARS)
+			.add(IcariaItems.VANADIUMSTEEL_BARS.get());
+
 		this.tag(ItemTags.BEE_FOOD)
 			.add(IcariaItems.BLINDWEED.get())
 			.add(IcariaItems.CHAMEOMILE.get())
@@ -278,6 +284,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
 			.add(IcariaItems.RAW_RED_FYSH.get())
 			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+
+		this.tag(ItemTags.CHAINS)
+			.add(IcariaItems.VANADIUMSTEEL_CHAIN.get());
 
 		this.tag(ItemTags.CHEST_ARMOR)
 			.add(IcariaItems.AETERNAE_HIDE_CHESTPLATE.get())
@@ -672,6 +681,15 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.CATOBLEPAS_STEW.get())
 			.add(IcariaItems.CERVER_STEW.get())
 			.add(IcariaItems.THOG_STEW.get());
+
+		this.tag(ItemTags.WOODEN_SHELVES)
+			.add(IcariaItems.CYPRESS_SHELF.get())
+			.add(IcariaItems.DROUGHTROOT_SHELF.get())
+			.add(IcariaItems.FIR_SHELF.get())
+			.add(IcariaItems.LAUREL_SHELF.get())
+			.add(IcariaItems.OLIVE_SHELF.get())
+			.add(IcariaItems.PLANE_SHELF.get())
+			.add(IcariaItems.POPULUS_SHELF.get());
 
 		this.tag(Tags.Items.BRICKS)
 			.add(IcariaItems.LOAM_BRICK.get());
@@ -1119,6 +1137,47 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 		this.tag(IcariaItemTagsProvider.DUSTS_HALITE)
 			.add(IcariaItems.HALITE_DUST.get());
+
+		this.tag(IcariaItemTagsProvider.FIREPLACE_ITEMS)
+			.add(Items.BEEF)
+			.add(Items.CHICKEN)
+			.add(Items.COD)
+			.add(Items.KELP)
+			.add(Items.MUTTON)
+			.add(Items.PORKCHOP)
+			.add(Items.POTATO)
+			.add(Items.RABBIT)
+			.add(Items.SALMON)
+			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
+			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
+			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
+			.add(IcariaItems.RAW_CERVER_MEAT.get())
+			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
+			.add(IcariaItems.RAW_THOG_MEAT.get())
+			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
+			.add(IcariaItems.RAW_BROWN_FEESH.get())
+			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
+			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
+			.add(IcariaItems.RAW_PURPLE_FEESH.get())
+			.add(IcariaItems.RAW_RED_FEESH.get())
+			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
+			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
+			.add(IcariaItems.RAW_GRAY_FICHE.get())
+			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
+			.add(IcariaItems.RAW_RED_FICHE.get())
+			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
+			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
+			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
+			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
+			.add(IcariaItems.RAW_BROWN_FISSHH.get())
+			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
+			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
+			.add(IcariaItems.RAW_BLUE_FYSH.get())
+			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
+			.add(IcariaItems.RAW_GRAY_FYSH.get())
+			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
+			.add(IcariaItems.RAW_RED_FYSH.get())
+			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
 
 		this.tag(IcariaItemTagsProvider.GEMS_CHERT)
 			.add(IcariaItems.CHERT.get());

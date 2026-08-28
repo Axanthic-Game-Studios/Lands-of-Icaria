@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.entity.GrinderRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.GrinderMenuProvider;
 import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
@@ -93,14 +92,14 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pLevel.getBlockEntity(GrinderBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof GrinderBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING) && pLevel.getBlockEntity(pBlockPos) instanceof GrinderBlockEntity blockEntity) {
-			var itemStack = blockEntity.inputHandler.getStackInSlot(0);
+			var itemStack = blockEntity.getIntake();
 			if (blockEntity.tickClient && !itemStack.isEmpty()) {
 				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.25D, 0.0D);
 				pLevel.addParticle(new ItemParticleOption(ParticleTypes.ITEM, itemStack), this.getX(pBlockState) + pBlockPos.getX(), pBlockPos.getY() + 0.25D, this.getZ(pBlockState) + pBlockPos.getZ(), this.getXSpeed(pBlockState), -0.25D, this.getZSpeed(pBlockState));
@@ -137,11 +136,7 @@ public class GrinderBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
-			return new GrinderBlockEntity(pBlockPos, pBlockState);
-		} else {
-			return new GrinderRedirectorBlockEntity(pBlockPos, pBlockState);
-		}
+		return new GrinderBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
@@ -227,6 +222,6 @@ public class GrinderBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
-		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.GRINDER.get(), (level, blockPos, blockState, blockEntity) -> GrinderBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
+		return pLevel instanceof ServerLevel serverLevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.GRINDER.get(), (level, blockPos, blockState, blockEntity) -> GrinderBlockEntity.tick(blockEntity, serverLevel)) : null;
 	}
 }

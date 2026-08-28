@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.NetherPyromancerRevenantEmissiveLayer;
-import com.axanthic.icaria.client.layer.NetherPyromancerRevenantItemLayer;
+import com.axanthic.icaria.client.layer.NetherPyromancerRevenantEmissiveRenderLayer;
+import com.axanthic.icaria.client.layer.NetherPyromancerRevenantItemRenderLayer;
 import com.axanthic.icaria.client.model.NetherPyromancerRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.NetherPyromancerRevenantRenderState;
@@ -15,7 +15,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -23,8 +25,8 @@ import net.minecraft.resources.ResourceLocation;
 public class NetherPyromancerRevenantRenderer extends MobRenderer<NetherPyromancerRevenantEntity, NetherPyromancerRevenantRenderState, NetherPyromancerRevenantModel> {
 	public NetherPyromancerRevenantRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new NetherPyromancerRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.NETHER_PYROMANCER_REVENANT_BODY)), 0.5F);
-		this.addLayer(new NetherPyromancerRevenantEmissiveLayer(this));
-		this.addLayer(new NetherPyromancerRevenantItemLayer(this));
+		this.addLayer(new NetherPyromancerRevenantEmissiveRenderLayer(this));
+		this.addLayer(new NetherPyromancerRevenantItemRenderLayer(this));
 	}
 
 	@Override
@@ -34,7 +36,9 @@ public class NetherPyromancerRevenantRenderer extends MobRenderer<NetherPyromanc
 		pRenderState.id = pEntity.getId();
 		pRenderState.reloadAnimationState = pEntity.reloadAnimationState;
 		pRenderState.thrownAnimationState = pEntity.thrownAnimationState;
+		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;
+		this.itemModelResolver.updateForLiving(pRenderState.itemStackRenderState, pEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, pEntity);
 	}
 
 	@Override

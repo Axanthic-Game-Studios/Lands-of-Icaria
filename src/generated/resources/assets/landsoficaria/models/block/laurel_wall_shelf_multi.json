@@ -1,9 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_wall_shelf_multi",
-  "textures": {
-    "log": "landsoficaria:block/laurel_log",
-    "log_top": "landsoficaria:block/laurel_log_top",
-    "particle": "landsoficaria:block/laurel_planks",
-    "planks": "landsoficaria:block/laurel_planks"
-  }
-}

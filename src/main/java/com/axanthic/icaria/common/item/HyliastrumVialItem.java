@@ -11,13 +11,14 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntitySpawnReason;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HyliastrumVialItem extends VialItem {
+public class HyliastrumVialItem extends Item {
 	public HyliastrumVialItem(Properties pProperties) {
 		super(pProperties);
 	}

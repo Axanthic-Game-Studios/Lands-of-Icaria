@@ -19,7 +19,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BrushyVineFeature extends IcariaVineFeature {
+public class BrushyVineFeature extends VineFeature {
 	public BrushyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.BRUSHY_VINE.get());
 	}

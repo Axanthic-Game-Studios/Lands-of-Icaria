@@ -4,6 +4,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.world.entity.LivingEntity;
 
 @MethodsReturnNonnullByDefault
@@ -15,5 +16,6 @@ public class OvergrownRevenantRenderState extends LivingEntityRenderState {
 	public float green;
 	public float red;
 	public int id;
+	public ItemStackRenderState itemStackRenderState;
 	public LivingEntity livingEntity;
 }

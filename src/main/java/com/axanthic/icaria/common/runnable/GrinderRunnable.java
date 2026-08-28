@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.runnable;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.packet.GrinderPacket;
+import com.axanthic.icaria.common.payload.GrinderPayload;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -13,19 +13,19 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 @ParametersAreNonnullByDefault
 
 public class GrinderRunnable implements Runnable {
+	public GrinderPayload payload;
+
 	public IPayloadContext payloadContext;
 
-	public GrinderPacket packet;
-
-	public GrinderRunnable(GrinderPacket pPacket, IPayloadContext pPayloadContext) {
+	public GrinderRunnable(GrinderPayload pPayload, IPayloadContext pPayloadContext) {
+		this.payload = pPayload;
 		this.payloadContext = pPayloadContext;
-		this.packet = pPacket;
 	}
 
 	@Override
 	public void run() {
-		if (this.payloadContext.player().level().getBlockEntity(this.packet.blockPos) instanceof GrinderBlockEntity grinderBlockEntity) {
-			grinderBlockEntity.tickClient = this.packet.tickClient;
+		if (this.payloadContext.player().level().getBlockEntity(this.payload.blockPos) instanceof GrinderBlockEntity grinderBlockEntity) {
+			grinderBlockEntity.tickClient = this.payload.tickClient;
 		}
 	}
 }

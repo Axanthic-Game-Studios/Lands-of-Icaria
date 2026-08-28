@@ -18,10 +18,10 @@ import net.minecraft.world.item.ItemStack;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record FeeshVariant(ClientAsset clientAsset, ItemStack itemStack) {
+public record FeeshVariant(ClientAsset.ResourceTexture clientAsset, ItemStack itemStack) {
 	public static final Codec<FeeshVariant> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
-			ClientAsset.CODEC.fieldOf("asset").forGetter(FeeshVariant::clientAsset),
+			ClientAsset.ResourceTexture.CODEC.fieldOf("asset").forGetter(FeeshVariant::clientAsset),
 			ItemStack.CODEC.fieldOf("stack").forGetter(FeeshVariant::itemStack)
 		).apply(instance, FeeshVariant::new)
 	);

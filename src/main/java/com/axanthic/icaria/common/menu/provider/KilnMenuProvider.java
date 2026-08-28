@@ -25,7 +25,7 @@ public class KilnMenuProvider implements MenuProvider {
 
 	@Override
 	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-		return new KilnMenu(pContainerId, pInventory, this.blockEntity.getData(), this.blockEntity.fuelHandler, this.blockEntity.inputHandler, this.blockEntity.outputHandler, this.blockEntity, pPlayer);
+		return new KilnMenu(pContainerId, this.blockEntity, pPlayer, this.blockEntity.data, pInventory, this.blockEntity.handler);
 	}
 
 	@Override

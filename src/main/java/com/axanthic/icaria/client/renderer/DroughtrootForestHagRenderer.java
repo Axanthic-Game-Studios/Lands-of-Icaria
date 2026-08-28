@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.DroughtrootForestHagEmissiveLayer;
+import com.axanthic.icaria.client.layer.DroughtrootForestHagEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.DroughtrootForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.DroughtrootForestHagRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class DroughtrootForestHagRenderer extends MobRenderer<ForestHagEntity, DroughtrootForestHagRenderState, DroughtrootForestHagModel> {
 	public DroughtrootForestHagRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new DroughtrootForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG)), 0.75F);
-		this.addLayer(new DroughtrootForestHagEmissiveLayer(this));
+		this.addLayer(new DroughtrootForestHagEmissiveRenderLayer(this));
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SmallPopulusTreeFeature extends SmallIcariaTreeFeature {
+public class SmallPopulusTreeFeature extends SmallTreeFeature {
 	public SmallPopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get());
 	}

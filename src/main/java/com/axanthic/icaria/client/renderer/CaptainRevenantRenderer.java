@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.CaptainRevenantEmissiveLayer;
-import com.axanthic.icaria.client.layer.CaptainRevenantItemLayer;
+import com.axanthic.icaria.client.layer.CaptainRevenantEmissiveRenderLayer;
+import com.axanthic.icaria.client.layer.CaptainRevenantItemRenderLayer;
 import com.axanthic.icaria.client.model.CaptainRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CaptainRevenantRenderState;
@@ -15,7 +15,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -23,8 +25,8 @@ import net.minecraft.resources.ResourceLocation;
 public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, CaptainRevenantRenderState, CaptainRevenantModel> {
 	public CaptainRevenantRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CaptainRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.CAPTAIN_REVENANT_BODY)), 0.5F);
-		this.addLayer(new CaptainRevenantEmissiveLayer(this));
-		this.addLayer(new CaptainRevenantItemLayer(this));
+		this.addLayer(new CaptainRevenantEmissiveRenderLayer(this));
+		this.addLayer(new CaptainRevenantItemRenderLayer(this));
 	}
 
 	@Override
@@ -40,7 +42,9 @@ public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, 
 		pRenderState.rallyingAnimationState = pEntity.rallyingAnimationState;
 		pRenderState.reequipsAnimationState = pEntity.reequipsAnimationState;
 		pRenderState.unequipsAnimationState = pEntity.unequipsAnimationState;
+		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;
+		this.itemModelResolver.updateForLiving(pRenderState.itemStackRenderState, pEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, pEntity);
 	}
 
 	@Override

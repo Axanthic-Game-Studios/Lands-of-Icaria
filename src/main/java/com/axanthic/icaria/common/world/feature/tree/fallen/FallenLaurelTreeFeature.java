@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FallenLaurelTreeFeature extends FallenIcariaTreeFeature {
+public class FallenLaurelTreeFeature extends FallenTreeFeature {
 	public FallenLaurelTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.LAUREL_TWIGS.get());
 	}

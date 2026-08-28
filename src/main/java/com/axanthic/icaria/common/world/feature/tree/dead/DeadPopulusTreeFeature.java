@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadPopulusTreeFeature extends DeadIcariaTreeFeature {
+public class DeadPopulusTreeFeature extends DeadTreeFeature {
 	public DeadPopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.FOREST_MOSS.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get(), Moss.FOREST, 6, 8);
 	}

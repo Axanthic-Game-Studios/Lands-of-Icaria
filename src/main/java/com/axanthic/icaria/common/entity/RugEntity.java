@@ -88,9 +88,10 @@ public class RugEntity extends HangingEntity {
 
 	@Override
 	public void dropItem(ServerLevel pServerLevel, @Nullable Entity pEntity) {
+		var flag = pEntity instanceof Player player && player.hasInfiniteMaterials();
 		if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
 			this.playSound(SoundEvents.WOOL_BREAK, 1.0F, 1.0F);
-			if (pEntity instanceof Player player && !player.hasInfiniteMaterials()) {
+			if (!flag) {
 				this.spawnAtLocation(pServerLevel, this.getItemStack());
 			}
 		}
@@ -168,9 +169,9 @@ public class RugEntity extends HangingEntity {
 	}
 
 	public AABB calculateBoundingBox(BlockPos pBlockPos, Direction pDirection, PaintingVariant pPaintingVariant) {
-		var x = pDirection.getAxis() == Direction.Axis.X ? 0.03125F : pPaintingVariant.width();
+		var x = pDirection.getAxis() == Direction.Axis.X ? 0.0625F : pPaintingVariant.width();
 		var y = pPaintingVariant.height();
-		var z = pDirection.getAxis() == Direction.Axis.Z ? 0.03125F : pPaintingVariant.width();
+		var z = pDirection.getAxis() == Direction.Axis.Z ? 0.0625F : pPaintingVariant.width();
 		if (pDirection.getAxisDirection() == Direction.AxisDirection.NEGATIVE) {
 			return new AABB(pBlockPos.getX() + 1.0F, pBlockPos.getY() + 1.0F, pBlockPos.getZ() + 1.0F, pBlockPos.getX() - x + 1.0F, pBlockPos.getY() - y + 1.0F, pBlockPos.getZ() - z + 1.0F);
 		} else {

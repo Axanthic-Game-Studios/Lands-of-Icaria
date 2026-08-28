@@ -11,10 +11,10 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class CobwebVoxelShapes {
-	public static final VoxelShape NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 1.0D);
-	public static final VoxelShape EAST = Block.box(15.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape SOUTH = Block.box(0.0D, 0.0D, 15.0D, 16.0D, 16.0D, 16.0D);
-	public static final VoxelShape WEST = Block.box(0.0D, 0.0D, 0.0D, 1.0D, 16.0D, 16.0D);
+	public static final VoxelShape NORTH = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 8.0D);
+	public static final VoxelShape EAST = Block.box(8.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	public static final VoxelShape SOUTH = Block.box(0.0D, 0.0D, 8.0D, 16.0D, 16.0D, 16.0D);
+	public static final VoxelShape WEST = Block.box(0.0D, 0.0D, 0.0D, 8.0D, 16.0D, 16.0D);
 	public static final VoxelShape UP = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D);
 	public static final VoxelShape DOWN = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D);
 }

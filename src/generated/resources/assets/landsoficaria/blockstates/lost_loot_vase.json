@@ -1,36 +1,34 @@
 {
   "variants": {
-    "": [
-      {
-        "model": "landsoficaria:block/lost_loot_vase_0"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_1"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_2"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_3"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_4"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_5"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_6"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_7"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_8"
-      },
-      {
-        "model": "landsoficaria:block/lost_loot_vase_9"
-      }
-    ]
+    "vase_variant=0": {
+      "model": "landsoficaria:block/lost_loot_vase_0"
+    },
+    "vase_variant=1": {
+      "model": "landsoficaria:block/lost_loot_vase_1"
+    },
+    "vase_variant=2": {
+      "model": "landsoficaria:block/lost_loot_vase_2"
+    },
+    "vase_variant=3": {
+      "model": "landsoficaria:block/lost_loot_vase_3"
+    },
+    "vase_variant=4": {
+      "model": "landsoficaria:block/lost_loot_vase_4"
+    },
+    "vase_variant=5": {
+      "model": "landsoficaria:block/lost_loot_vase_5"
+    },
+    "vase_variant=6": {
+      "model": "landsoficaria:block/lost_loot_vase_6"
+    },
+    "vase_variant=7": {
+      "model": "landsoficaria:block/lost_loot_vase_7"
+    },
+    "vase_variant=8": {
+      "model": "landsoficaria:block/lost_loot_vase_8"
+    },
+    "vase_variant=9": {
+      "model": "landsoficaria:block/lost_loot_vase_9"
+    }
   }
 }

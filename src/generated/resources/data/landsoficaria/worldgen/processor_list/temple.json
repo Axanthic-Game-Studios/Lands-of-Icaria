@@ -5039,6 +5039,7 @@
               "Name": "landsoficaria:red_loot_vase",
               "Properties": {
                 "mediterranean_waterlogged": "false",
+                "vase_variant": "0",
                 "waterlogged": "false"
               }
             },
@@ -5052,6 +5053,7 @@
             "Name": "landsoficaria:cyan_loot_vase",
             "Properties": {
               "mediterranean_waterlogged": "false",
+              "vase_variant": "0",
               "waterlogged": "false"
             }
           }
@@ -5062,6 +5064,7 @@
               "Name": "landsoficaria:red_loot_vase",
               "Properties": {
                 "mediterranean_waterlogged": "false",
+                "vase_variant": "0",
                 "waterlogged": "false"
               }
             },
@@ -5081,6 +5084,7 @@
               "Name": "landsoficaria:red_loot_vase",
               "Properties": {
                 "mediterranean_waterlogged": "false",
+                "vase_variant": "0",
                 "waterlogged": "false"
               }
             },

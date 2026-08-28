@@ -19,7 +19,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BloomyVineFeature extends IcariaVineFeature {
+public class BloomyVineFeature extends VineFeature {
 	public BloomyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.BLOOMY_VINE.get());
 	}

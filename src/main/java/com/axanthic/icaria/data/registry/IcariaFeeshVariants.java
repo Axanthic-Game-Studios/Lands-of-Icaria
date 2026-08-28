@@ -35,7 +35,7 @@ public class IcariaFeeshVariants {
 	}
 
 	public static void register(BootstrapContext<FeeshVariant> pBootstrapContext, ResourceKey<FeeshVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "feesh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "feesh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FeeshVariant> createKey(String pName) {

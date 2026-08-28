@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.payload.LootVasePayload;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
@@ -47,12 +47,12 @@ import net.neoforged.neoforge.network.PacketDistributor;
 public class LootVaseBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public LootVaseBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.VASE_VARIANT, 0).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.VASE_VARIANT, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
@@ -70,7 +70,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public void tick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pServerLevel, pBlockState, pBlockPos);
+		var entity = new LootVaseEntity(IcariaEntityTypes.LOOT_VASE.get(), pServerLevel, pBlockState);
 		if (pServerLevel.getBlockState(pBlockPos.below()).canBeReplaced()) {
 			entity.snapTo(pBlockPos, 0, 0);
 			pServerLevel.addFreshEntity(entity);
@@ -80,8 +80,9 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
-		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
-		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		var blockPos = pBlockPlaceContext.getClickedPos();
+		var fluid = pBlockPlaceContext.getLevel().getFluidState(blockPos).getType();
+		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.VASE_VARIANT, Math.floorMod(blockPos.asLong(), 10)).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
@@ -97,15 +98,14 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || IcariaCommonHelper.canCarry(pPlayer)) {
+		if (pLevel.isClientSide() || pPlayer.getData(IcariaAttachmentTypes.BARREL) || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || IcariaCommonHelper.hasWrongCarrySetup(pPlayer)) {
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "loot_vase"), true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
-			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pPlayer.getId(), pBlockPos, pBlockState));
+			PacketDistributor.sendToAllPlayers(new LootVasePayload(true, pPlayer.getId(), pBlockState));
 			return InteractionResult.PASS;
 		}
 	}

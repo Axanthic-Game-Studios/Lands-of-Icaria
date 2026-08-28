@@ -32,12 +32,12 @@ import net.minecraft.world.level.material.Fluids;
 
 public class IcariaCommonHelper {
 
-	public static boolean canCarry(Player pPlayer) {
-		return pPlayer.isCrouching() || pPlayer.isDeadOrDying() || pPlayer.isFallFlying() || pPlayer.isSleeping() || pPlayer.isVehicle() || pPlayer.isVisuallyCrawling() || pPlayer.isVisuallySwimming();
-	}
-
 	public static boolean hasRigidBlockBelow(BlockPos pBlockPos, LevelReader pLevelReader) {
 		return pLevelReader.getBlockState(pBlockPos.below()).isFaceSturdy(pLevelReader, pBlockPos.below(), Direction.UP, SupportType.RIGID);
+	}
+
+	public static boolean hasWrongCarrySetup(Player pPlayer) {
+		return pPlayer.isCrouching() || pPlayer.isDeadOrDying() || pPlayer.isFallFlying() || pPlayer.isSleeping() || pPlayer.isVehicle() || pPlayer.isVisuallyCrawling() || pPlayer.isVisuallySwimming();
 	}
 
 	public static void explosion(BlockPos pBlockPos, @Nullable Entity pEntity, Level.ExplosionInteraction pExplosionInteraction, Level pLevel, int pRadius) {

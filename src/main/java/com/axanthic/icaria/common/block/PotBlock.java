@@ -61,7 +61,7 @@ public class PotBlock extends Block implements EntityBlock, MediterraneanWaterlo
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.POT_FILL) * 5;
 	}
 

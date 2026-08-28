@@ -21,10 +21,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.model.geom.ModelPart;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.player.PlayerRenderer;
+import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
@@ -36,8 +35,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.PlayerModelPart;
-import net.minecraft.world.item.ItemDisplayContext;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 import org.joml.Matrix4f;
@@ -59,16 +56,16 @@ public class IcariaClientHelper {
 		}
 	}
 
-	public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
-		return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity, pPartialTick) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
-	}
-
 	public static float getBlockBasedAlpha(LivingEntity pLivingEntity) {
 		return (15.0F - pLivingEntity.level().getRawBrightness(pLivingEntity.blockPosition(), 15)) / 15.0F;
 	}
 
 	public static float getLocalBasedAlpha(LivingEntity pLivingEntity) {
 		return (15.0F - pLivingEntity.level().getMaxLocalRawBrightness(pLivingEntity.blockPosition(), 0)) / 15.0F;
+	}
+
+	public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
+		return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity, pPartialTick) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
 	}
 
 	public static float getRed(BlockEntity pBlockEntity) {
@@ -115,123 +112,26 @@ public class IcariaClientHelper {
 		pAnimationDefinition.bake(pModelPart).apply(pAnimationState, pAgeInTicks);
 	}
 
-	public static void renderItem(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, ItemStack pItemStack, Direction pDirection, BlockEntity pBlockEntity, int pPackedLight, float pXMin, float pXMax, float pY, float pZMin, float pZMax, float pXRot, float pYRot, float pZRot, float pXScale, float pYScale, float pZScale) {
-		if (!pItemStack.isEmpty()) {
-			pPoseStack.pushPose();
-			IcariaClientHelper.translate(pPoseStack, pDirection, pXMin, pXMax, pY, pZMin, pZMax);
-			pPoseStack.scale(pXScale, pYScale, pZScale);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-			Minecraft.getInstance().getItemRenderer().renderStatic(pItemStack, ItemDisplayContext.FIXED, pPackedLight, OverlayTexture.NO_OVERLAY, pPoseStack, pMultiBufferSource, pBlockEntity.getLevel(), 0);
-			pPoseStack.popPose();
-		}
-	}
-
-	public static void renderItem(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, ItemStack pItemStack, ClientLevel pClientLevel, int pPackedLight, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot, float pXScale, float pYScale, float pZScale) {
-		if (!pItemStack.isEmpty()) {
-			pPoseStack.pushPose();
-			pPoseStack.translate(pX, pY, pZ);
-			pPoseStack.scale(pXScale, pYScale, pZScale);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-			Minecraft.getInstance().getItemRenderer().renderStatic(pItemStack, ItemDisplayContext.GUI, pPackedLight, OverlayTexture.NO_OVERLAY, pPoseStack, pMultiBufferSource, pClientLevel, 0);
-			pPoseStack.popPose();
-		}
-	}
-
-	public static void renderLeftHand(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LocalPlayer pLocalPlayer, int pPackedLight, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
-		if (Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(pLocalPlayer) instanceof PlayerRenderer playerRenderer) {
-			pPoseStack.pushPose();
-			pPoseStack.translate(pX, pY, pZ);
-			pPoseStack.scale(pScale, pScale, pScale);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-			playerRenderer.renderLeftHand(pPoseStack, pMultiBufferSource, pPackedLight, pLocalPlayer.getSkin().texture(), pLocalPlayer.isModelPartShown(PlayerModelPart.LEFT_SLEEVE), pLocalPlayer);
-			pPoseStack.popPose();
-		}
-	}
-
-	public static void renderMainHand(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LocalPlayer pLocalPlayer, int pPackedLight, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
-		if (Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(pLocalPlayer) instanceof PlayerRenderer playerRenderer) {
-			pPoseStack.pushPose();
-			pPoseStack.translate(pX, pY, pZ);
-			pPoseStack.scale(pScale, pScale, pScale);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-			playerRenderer.renderRightHand(pPoseStack, pMultiBufferSource, pPackedLight, pLocalPlayer.getSkin().texture(), pLocalPlayer.isModelPartShown(PlayerModelPart.RIGHT_SLEEVE), pLocalPlayer);
-			pPoseStack.popPose();
-		}
-	}
-
-	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
-		if (pDirection == Direction.NORTH) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pUMin, pUMax, pVMin, pVMax, pXMin, pXMax, pZMin, pZMax, pY, pRed, pGreen, pBlue, pAlpha);
-		} else if (pDirection == Direction.EAST) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pVMax, 1.0F - pVMin, pUMin, pUMax, 1.0F - pZMax, 1.0F - pZMin, pXMin, pXMax, pY, pRed, pGreen, pBlue, pAlpha);
-		} else if (pDirection == Direction.SOUTH) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pUMax, 1.0F - pUMin, 1.0F - pVMax, 1.0F - pVMin, 1.0F - pXMax, 1.0F - pXMin, 1.0F - pZMax, 1.0F - pZMin, pY, pRed, pGreen, pBlue, pAlpha);
-		} else if (pDirection == Direction.WEST) {
-			IcariaClientHelper.renderQuad(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pVMin, pVMax, 1.0F - pUMax, 1.0F - pUMin, pZMin, pZMax, 1.0F - pXMax, 1.0F - pXMin, pY, pRed, pGreen, pBlue, pAlpha);
-		}
-	}
-
-	public static void renderQuad(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMin));
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMax));
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMax));
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMin));
-	}
-
-	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.1F;
-		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
-	}
-
-	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
-		IcariaClientHelper.renderRays(pPoseStack, pMultiBufferSource, pRed, pGreen, pBlue, alpha);
-	}
-
-	public static void renderRays(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, float pRed, float pGreen, float pBlue, float pAlpha) {
-		var matrix4f = pPoseStack.last().pose();
-		var randomSource = RandomSource.create(432L);
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE);
-		var length = randomSource.nextFloat() * 2.0F + 2.0F;
-		var width = randomSource.nextFloat() * 0.5F + 0.5F;
-		if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
-			for (var i = 0; i < 96; ++i) {
-				pPoseStack.mulPose(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-				IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
-				IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
-				IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
-				pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-				IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
-				IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
-				IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
-				pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-				IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
-				IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
-				IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
-			}
-		}
-	}
-
-	public static void renderString(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, Component pComponent, int pPackedLight, float pScale, float pX, float pY, float pXRot, float pYRot, float pZRot) {
+	public static void renderLeftHand(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LocalPlayer pLocalPlayer, int pPackedLight, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
 		pPoseStack.pushPose();
+		pPoseStack.translate(pX, pY, pZ);
 		pPoseStack.scale(pScale, pScale, pScale);
 		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
 		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
 		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-		Minecraft.getInstance().font.drawInBatch(pComponent, pX - Minecraft.getInstance().font.width(pComponent) * 0.5F, pY, IcariaColors.TEXT, false, pPoseStack.last().pose(), pMultiBufferSource, Font.DisplayMode.POLYGON_OFFSET, 0, pPackedLight);
+		Minecraft.getInstance().getEntityRenderDispatcher().getPlayerRenderer(pLocalPlayer).renderLeftHand(pPoseStack, pSubmitNodeCollector, pPackedLight, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.LEFT_SLEEVE), pLocalPlayer);
 		pPoseStack.popPose();
 	}
 
-	public static void setItem(PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, LivingEntity pLivingEntity, int pPackedLight) {
-		Minecraft.getInstance().getItemRenderer().renderStatic(pLivingEntity, pLivingEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, pPoseStack, pMultiBufferSource, pLivingEntity.level(), pPackedLight, OverlayTexture.NO_OVERLAY, pLivingEntity.getId() + ItemDisplayContext.THIRD_PERSON_RIGHT_HAND.ordinal());
+	public static void renderRightHand(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LocalPlayer pLocalPlayer, int pPackedLight, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
+		pPoseStack.pushPose();
+		pPoseStack.translate(pX, pY, pZ);
+		pPoseStack.scale(pScale, pScale, pScale);
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
+		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+		Minecraft.getInstance().getEntityRenderDispatcher().getPlayerRenderer(pLocalPlayer).renderRightHand(pPoseStack, pSubmitNodeCollector, pPackedLight, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.RIGHT_SLEEVE), pLocalPlayer);
+		pPoseStack.popPose();
 	}
 
 	public static void setPart(PoseStack pPoseStack, ModelPart pModelPart) {
@@ -264,6 +164,86 @@ public class IcariaClientHelper {
 		pModelPart.xRot = pX;
 		pModelPart.yRot = pY;
 		pModelPart.zRot = pZ;
+	}
+
+	public static void submitItem(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, ItemStackRenderState pItemStackRenderState, Direction pDirection, int pPackedLight, float pXMin, float pXMax, float pY, float pZMin, float pZMax, float pXRot, float pYRot, float pZRot, float pXScale, float pYScale, float pZScale) {
+		if (!pItemStackRenderState.isEmpty()) {
+			pPoseStack.pushPose();
+			IcariaClientHelper.translate(pPoseStack, pDirection, pXMin, pXMax, pY, pZMin, pZMax);
+			pPoseStack.scale(pXScale, pYScale, pZScale);
+			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
+			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
+			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+			pItemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pPackedLight, OverlayTexture.NO_OVERLAY, 0);
+			pPoseStack.popPose();
+		}
+	}
+
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, float pRed, float pGreen, float pBlue) {
+		var alpha = 0.1F;
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
+	}
+
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
+		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
+	}
+
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, float pRed, float pGreen, float pBlue, float pAlpha) {
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack,
+			IcariaRenderTypes.ADDITIVE,
+			(pose, vertexConsumer) -> {
+				var matrix4f = pose.pose();
+				var randomSource = RandomSource.create(432L);
+				var length = randomSource.nextFloat() * 2.0F + 2.0F;
+				var width = randomSource.nextFloat() * 0.5F + 0.5F;
+				if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
+					for (var i = 0; i < 96; ++i) {
+						pose.rotate(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
+						IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
+						pose.rotate(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
+						IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
+						pose.rotate(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
+						IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
+					}
+				}
+			}
+		);
+	}
+
+	public static void submitSprite(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
+		if (pDirection == Direction.NORTH) {
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pUMin, pUMax, pVMin, pVMax, pXMin, pXMax, pZMin, pZMax, pY, pRed, pGreen, pBlue, pAlpha);
+		} else if (pDirection == Direction.EAST) {
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pVMax, 1.0F - pVMin, pUMin, pUMax, 1.0F - pZMax, 1.0F - pZMin, pXMin, pXMax, pY, pRed, pGreen, pBlue, pAlpha);
+		} else if (pDirection == Direction.SOUTH) {
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, 1.0F - pUMax, 1.0F - pUMin, 1.0F - pVMax, 1.0F - pVMin, 1.0F - pXMax, 1.0F - pXMin, 1.0F - pZMax, 1.0F - pZMin, pY, pRed, pGreen, pBlue, pAlpha);
+		} else if (pDirection == Direction.WEST) {
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pPackedLight, pPackedOverlay, pVMin, pVMax, 1.0F - pUMax, 1.0F - pUMin, pZMin, pZMax, 1.0F - pXMax, 1.0F - pXMin, pY, pRed, pGreen, pBlue, pAlpha);
+		}
+	}
+
+	public static void submitSprite(VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, int pPackedLight, int pPackedOverlay, float pUMin, float pUMax, float pVMin, float pVMax, float pXMin, float pXMax, float pZMin, float pZMax, float pY, float pRed, float pGreen, float pBlue, float pAlpha) {
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMax));
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMax));
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMax), pTextureAtlasSprite.getV(pVMin));
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(1.0F, 1.0F, 1.0F).setOverlay(pPackedOverlay).setUv(pTextureAtlasSprite.getU(pUMin), pTextureAtlasSprite.getV(pVMin));
+	}
+
+	public static void submitString(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, Component pComponent, int pPackedLight, float pScale, float pX, float pY, float pXRot, float pYRot, float pZRot) {
+		pPoseStack.pushPose();
+		pPoseStack.scale(pScale, pScale, pScale);
+		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
+		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
+		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+		pSubmitNodeCollector.submitText(pPoseStack, pX - Minecraft.getInstance().font.width(pComponent) * 0.5F, pY, pComponent.getVisualOrderText(), false, Font.DisplayMode.POLYGON_OFFSET, pPackedLight, IcariaColors.TEXT, 0, 0);
+		pPoseStack.popPose();
 	}
 
 	public static void translate(PoseStack pPoseStack, Direction pDirection, float pXMin, float pXMax, float pY, float pZMin, float pZMax) {

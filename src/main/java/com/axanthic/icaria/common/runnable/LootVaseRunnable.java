@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.runnable;
 
-import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.payload.LootVasePayload;
 import com.axanthic.icaria.common.registry.IcariaAttachmentTypes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -13,22 +13,21 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 @ParametersAreNonnullByDefault
 
 public class LootVaseRunnable implements Runnable {
+	public LootVasePayload payload;
+
 	public IPayloadContext payloadContext;
 
-	public LootVasePacket packet;
-
-	public LootVaseRunnable(LootVasePacket pPacket, IPayloadContext pPayloadContext) {
+	public LootVaseRunnable(LootVasePayload pPayload, IPayloadContext pPayloadContext) {
+		this.payload = pPayload;
 		this.payloadContext = pPayloadContext;
-		this.packet = pPacket;
 	}
 
 	@Override
 	public void run() {
-		var player = this.payloadContext.player().level().getEntity(packet.id);
+		var player = this.payloadContext.player().level().getEntity(payload.id);
 		if (player != null) {
-			player.setData(IcariaAttachmentTypes.LOOT_VASE, this.packet.lootVase);
-			player.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, this.packet.blockPos);
-			player.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.packet.blockState);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE, this.payload.lootVase);
+			player.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.payload.blockState);
 		}
 	}
 }

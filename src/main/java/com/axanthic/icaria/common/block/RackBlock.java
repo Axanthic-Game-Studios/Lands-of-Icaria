@@ -1,7 +1,7 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
@@ -23,7 +23,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.BlockItem;
@@ -67,7 +66,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) ? 15 : 0;
 	}
 
@@ -196,7 +195,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FLINT_AND_STEEL) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
 			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pInteractionHand));
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand.asEquipmentSlot());
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
@@ -205,15 +204,14 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (!pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) || pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || IcariaCommonHelper.canCarry(pPlayer)) {
+		if (!pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) || pLevel.isClientSide() || pPlayer.getData(IcariaAttachmentTypes.BARREL) || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || IcariaCommonHelper.hasWrongCarrySetup(pPlayer)) {
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, this.getRenderState(pBlockState));
-			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pPlayer.getId(), pBlockPos, this.getRenderState(pBlockState)));
+			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
+			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, this.getRenderState(pBlockState));
+			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), this.getRenderState(pBlockState)));
 			return InteractionResult.PASS;
 		}
 	}

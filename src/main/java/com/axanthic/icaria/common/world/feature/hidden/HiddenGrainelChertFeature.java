@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HiddenGrainelChertFeature extends HiddenIcariaFeature {
+public class HiddenGrainelChertFeature extends HiddenFeature {
 	public HiddenGrainelChertFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.GRAINEL_CHERT.get(), IcariaBlocks.SURFACE_CHERT.get());
 	}

@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
-import com.axanthic.icaria.common.entity.ForgeRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
@@ -110,7 +109,7 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof ForgeBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
@@ -193,11 +192,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
-			return new ForgeBlockEntity(pBlockPos, pBlockState);
-		} else {
-			return new ForgeRedirectorBlockEntity(pBlockPos, pBlockState);
-		}
+		return new ForgeBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
@@ -357,6 +352,6 @@ public class ForgeBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
-		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FORGE.get(), (level, blockPos, blockState, blockEntity) -> ForgeBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
+		return pLevel instanceof ServerLevel serverLevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FORGE.get(), (level, blockPos, blockState, blockEntity) -> ForgeBlockEntity.tick(blockEntity, serverLevel)) : null;
 	}
 }

@@ -4,6 +4,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.world.entity.LivingEntity;
 
 @MethodsReturnNonnullByDefault
@@ -15,5 +16,6 @@ public class CrawlerRevenantRenderState extends LivingEntityRenderState {
 	public int id;
 	public int maxTick;
 	public int tick;
+	public ItemStackRenderState itemStackRenderState;
 	public LivingEntity livingEntity;
 }

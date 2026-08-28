@@ -20,8 +20,6 @@ import net.minecraft.world.level.block.SnowLayerBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -72,7 +70,7 @@ public class FreezingSpellEntity extends SpellEntity {
 		var level = this.level();
 		var blockPos = this.blockPosition();
 		var blockState = level.getBlockState(blockPos);
-		var data = blockState.getFluidState().getType().builtInRegistryHolder().getData(IcariaDataMapTypes.FREEZABLES);
+		var data = blockState.getFluidState().holder().getData(IcariaDataMapTypes.FREEZABLES);
 		if (blockState.canBeReplaced() && data != null) {
 			level.setBlockAndUpdate(blockPos, data.block().defaultBlockState());
 			this.discard();

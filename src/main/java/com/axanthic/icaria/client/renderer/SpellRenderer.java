@@ -1,22 +1,24 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.client.state.SpellRenderState;
 import com.axanthic.icaria.common.entity.SpellEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.Mth;
+
+import org.joml.Matrix4f;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -45,15 +47,10 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 	}
 
 	@Override
-	public void render(SpellRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
+	public void submit(SpellRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		pPoseStack.pushPose();
 
-		var matrix4f = pPoseStack.last().pose();
-
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE_TEXTURED);
-
 		var color = pRenderState.color;
-
 		var ticks = pRenderState.ageInTicks;
 
 		var distance = 25.0F;
@@ -79,15 +76,20 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 
 			var resolution = f / distance;
 
-			var textureAtlasSprite = Minecraft.getInstance().getTextureAtlas(IcariaResourceLocations.BLOCK_ATLAS).apply(IcariaResourceLocations.SPELL);
-
-			IcariaClientHelper.renderQuad(vertexConsumer, textureAtlasSprite, matrix4f, pPackedLight, 0, 0.0F, 1.0F, 0.0F, 1.0F, x - width, x + width, y - width, y + width, resolution, red, green, blue, alpha);
-			IcariaClientHelper.renderQuad(vertexConsumer, textureAtlasSprite, matrix4f, pPackedLight, 0, 0.0F, 1.0F, 0.0F, 1.0F, x + width, x - width, y - width, y + width, resolution, red, green, blue, alpha);
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE_TEXTURED, (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, red, green, blue, alpha, x - width, x + width, resolution, y + width, y - width));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE_TEXTURED, (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, red, green, blue, alpha, x + width, x - width, resolution, y + width, y - width));
 		}
 
 		pPoseStack.popPose();
 
-		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
+	}
+
+	public void submit(Matrix4f pMatrix4f, SpellRenderState pRenderState, VertexConsumer pVertexConsumer, float pRed, float pGreen, float pBlue, float pAlpha, float pXMin, float pXMax, float pY, float pZMin, float pZMax) {
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 1.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 1.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 0.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 0.0F);
 	}
 
 	@Override

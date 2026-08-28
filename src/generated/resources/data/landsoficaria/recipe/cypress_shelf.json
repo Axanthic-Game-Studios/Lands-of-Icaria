@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": "landsoficaria:cypress_log",
-    "B": "landsoficaria:cypress_planks"
+    "A": "landsoficaria:stripped_cypress_log"
   },
   "pattern": [
-    "ABA",
-    "A A",
-    "ABA"
+    "AAA",
+    "   ",
+    "AAA"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "landsoficaria:cypress_shelf"
   }
 }

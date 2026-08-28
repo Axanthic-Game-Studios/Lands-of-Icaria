@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,multi_hutch=false": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch",
+      "y": 90
+    },
+    "facing=east,multi_hutch=true": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch_multi",
+      "y": 90
+    },
+    "facing=north,multi_hutch=false": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch"
+    },
+    "facing=north,multi_hutch=true": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch_multi"
+    },
+    "facing=south,multi_hutch=false": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch",
+      "y": 180
+    },
+    "facing=south,multi_hutch=true": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch_multi",
+      "y": 180
+    },
+    "facing=west,multi_hutch=false": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch",
+      "y": 270
+    },
+    "facing=west,multi_hutch=true": {
+      "model": "landsoficaria:block/droughtroot_wall_hutch_multi",
+      "y": 270
+    }
+  }
+}

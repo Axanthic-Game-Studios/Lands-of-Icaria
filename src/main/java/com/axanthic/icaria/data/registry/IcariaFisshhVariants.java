@@ -35,7 +35,7 @@ public class IcariaFisshhVariants {
 	}
 
 	public static void register(BootstrapContext<FisshhVariant> pBootstrapContext, ResourceKey<FisshhVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fisshh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fisshh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FisshhVariant> createKey(String pName) {

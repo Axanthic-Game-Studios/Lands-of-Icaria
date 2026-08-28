@@ -69,6 +69,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.CYPRESS_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.CYPRESS_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_TWIGS.get(), 30, 60);
@@ -86,6 +87,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.DROUGHTROOT_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.FIR_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_FIR_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FIR_TWIGS.get(), 30, 60);
@@ -103,6 +105,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.FIR_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.FIR_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.FIR_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.FIR_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_TWIGS.get(), 30, 60);
@@ -120,6 +123,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.LAUREL_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.LAUREL_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.LAUREL_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_OLIVE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_TWIGS.get(), 30, 60);
@@ -137,6 +141,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.OLIVE_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.OLIVE_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.OLIVE_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.PLANE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_PLANE_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.PLANE_TWIGS.get(), 30, 60);
@@ -154,6 +159,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.PLANE_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.PLANE_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.PLANE_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.PLANE_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.FALLEN_POPULUS_LEAVES.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_TWIGS.get(), 30, 60);
@@ -171,6 +177,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.POPULUS_FENCE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_FENCE_GATE.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.POPULUS_SCROLLSHELF.get(), 30, 20);
+		IcariaFlammables.set(IcariaBlocks.POPULUS_SHELF.get(), 30, 20);
 		IcariaFlammables.set(IcariaBlocks.BLOOMY_VINE.get(), 15, 100);
 		IcariaFlammables.set(IcariaBlocks.BRANCHY_VINE.get(), 15, 100);
 		IcariaFlammables.set(IcariaBlocks.BRUSHY_VINE.get(), 15, 100);

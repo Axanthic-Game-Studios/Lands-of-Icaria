@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.CypressForestHagEmissiveLayer;
+import com.axanthic.icaria.client.layer.CypressForestHagEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.CypressForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CypressForestHagRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class CypressForestHagRenderer extends MobRenderer<ForestHagEntity, CypressForestHagRenderState, CypressForestHagModel> {
 	public CypressForestHagRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CypressForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.CYPRESS_FOREST_HAG)), 0.75F);
-		this.addLayer(new CypressForestHagEmissiveLayer(this));
+		this.addLayer(new CypressForestHagEmissiveRenderLayer(this));
 	}
 
 	@Override

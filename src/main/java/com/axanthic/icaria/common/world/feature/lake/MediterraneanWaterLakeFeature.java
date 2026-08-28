@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class MediterraneanWaterLakeFeature extends IcariaLakeFeature {
+public class MediterraneanWaterLakeFeature extends LakeFeature {
 	public MediterraneanWaterLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.MEDITERRANEAN_WATER.get());
 	}

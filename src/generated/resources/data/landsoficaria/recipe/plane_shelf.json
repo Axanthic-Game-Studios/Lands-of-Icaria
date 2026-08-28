@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": "landsoficaria:plane_log",
-    "B": "landsoficaria:plane_planks"
+    "A": "landsoficaria:stripped_plane_log"
   },
   "pattern": [
-    "ABA",
-    "A A",
-    "ABA"
+    "AAA",
+    "   ",
+    "AAA"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "landsoficaria:plane_shelf"
   }
 }

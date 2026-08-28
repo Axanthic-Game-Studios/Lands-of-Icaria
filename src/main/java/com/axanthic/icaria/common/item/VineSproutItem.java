@@ -29,7 +29,7 @@ public class VineSproutItem extends Item {
 				player.getFoodData().eat(food);
 				if (!pLevel.isClientSide()) {
 					player.getCooldowns().addCooldown(pItemStack, 400);
-					pItemStack.hurtAndBreak(1, player, LivingEntity.getSlotForHand(player.getUsedItemHand()));
+					pItemStack.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
 				}
 			}
 		}

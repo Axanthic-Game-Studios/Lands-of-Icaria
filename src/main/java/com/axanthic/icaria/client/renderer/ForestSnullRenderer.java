@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.ForestSnullEmissiveLayer;
+import com.axanthic.icaria.client.layer.ForestSnullEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.ForestSnullModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ForestSnullRenderState;
@@ -23,7 +23,7 @@ import net.minecraft.resources.ResourceLocation;
 public class ForestSnullRenderer extends MobRenderer<SnullEntity, ForestSnullRenderState, ForestSnullModel> {
 	public ForestSnullRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new ForestSnullModel(pContext.bakeLayer(IcariaModelLayerLocations.FOREST_SNULL)), 1.0F);
-		this.addLayer(new ForestSnullEmissiveLayer(this));
+		this.addLayer(new ForestSnullEmissiveRenderLayer(this));
 	}
 
 	@Override

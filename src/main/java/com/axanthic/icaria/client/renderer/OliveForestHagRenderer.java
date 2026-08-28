@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.OliveForestHagEmissiveLayer;
+import com.axanthic.icaria.client.layer.OliveForestHagEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.OliveForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.OliveForestHagRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class OliveForestHagRenderer extends MobRenderer<ForestHagEntity, OliveForestHagRenderState, OliveForestHagModel> {
 	public OliveForestHagRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new OliveForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.OLIVE_FOREST_HAG)), 0.75F);
-		this.addLayer(new OliveForestHagEmissiveLayer(this));
+		this.addLayer(new OliveForestHagEmissiveRenderLayer(this));
 	}
 
 	@Override

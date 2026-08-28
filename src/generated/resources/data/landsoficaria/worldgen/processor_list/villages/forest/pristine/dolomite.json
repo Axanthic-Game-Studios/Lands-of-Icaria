@@ -1228,6 +1228,7 @@
               "Name": "landsoficaria:red_loot_vase",
               "Properties": {
                 "mediterranean_waterlogged": "false",
+                "vase_variant": "0",
                 "waterlogged": "false"
               }
             },
@@ -3494,9 +3495,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -3508,9 +3509,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -3520,9 +3521,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -3534,9 +3535,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -3546,9 +3547,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -3560,9 +3561,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -3572,9 +3573,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -3586,9 +3587,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "west",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -3598,9 +3599,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -3612,9 +3613,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -3624,9 +3625,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -3638,9 +3639,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -3650,9 +3651,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -3664,9 +3665,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -3676,9 +3677,9 @@
             "block_state": {
               "Name": "landsoficaria:laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -3690,321 +3691,9 @@
           "output_state": {
             "Name": "landsoficaria:populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "west",
               "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4019,9 +3708,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4033,9 +3722,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4045,9 +3734,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4059,9 +3748,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4071,9 +3760,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4085,9 +3774,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4097,9 +3786,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4111,9 +3800,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "west",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4123,9 +3812,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4137,9 +3826,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4149,9 +3838,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4163,9 +3852,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4175,9 +3864,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4189,9 +3878,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4201,9 +3890,9 @@
             "block_state": {
               "Name": "landsoficaria:loaded_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4215,321 +3904,9 @@
           "output_state": {
             "Name": "landsoficaria:loaded_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "west",
               "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4544,9 +3921,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4558,9 +3935,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4570,9 +3947,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4584,9 +3961,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4596,9 +3973,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4610,9 +3987,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4622,9 +3999,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "up",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "false",
                 "waterlogged": "false"
               }
             },
@@ -4636,9 +4013,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "up",
               "facing": "west",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "false",
               "waterlogged": "false"
             }
           }
@@ -4648,9 +4025,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4662,9 +4039,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "north",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4674,9 +4051,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4688,9 +4065,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "east",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4700,9 +4077,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4714,9 +4091,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "south",
               "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }
@@ -4726,9 +4103,9 @@
             "block_state": {
               "Name": "landsoficaria:tapped_laurel_barrel",
               "Properties": {
-                "barrel_facing": "north",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
+                "standing_barrel": "true",
                 "waterlogged": "false"
               }
             },
@@ -4740,321 +4117,9 @@
           "output_state": {
             "Name": "landsoficaria:tapped_populus_barrel",
             "Properties": {
-              "barrel_facing": "north",
               "facing": "west",
               "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "east",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "east",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "south",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "south",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "east",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "east",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "south",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "south",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
-        },
-        {
-          "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "barrel_facing": "west",
-                "facing": "west",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
-            "predicate_type": "minecraft:blockstate_match"
-          },
-          "location_predicate": {
-            "predicate_type": "minecraft:always_true"
-          },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "barrel_facing": "west",
-              "facing": "west",
-              "mediterranean_waterlogged": "false",
+              "standing_barrel": "true",
               "waterlogged": "false"
             }
           }

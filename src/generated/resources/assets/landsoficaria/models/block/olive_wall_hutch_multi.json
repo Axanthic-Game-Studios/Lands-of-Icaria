@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_wall_hutch_multi",
+  "textures": {
+    "log": "landsoficaria:block/olive_log",
+    "log_top": "landsoficaria:block/olive_log_top",
+    "particle": "landsoficaria:block/olive_planks",
+    "planks": "landsoficaria:block/olive_planks"
+  }
+}

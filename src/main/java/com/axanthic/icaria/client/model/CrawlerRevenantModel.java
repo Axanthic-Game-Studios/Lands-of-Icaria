@@ -23,7 +23,7 @@ import net.minecraft.world.entity.HumanoidArm;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CrawlerRevenantModel extends EntityModel<CrawlerRevenantRenderState> implements ArmedModel {
+public class CrawlerRevenantModel extends EntityModel<CrawlerRevenantRenderState> implements ArmedModel<CrawlerRevenantRenderState> {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart shoulderMain;
@@ -90,7 +90,7 @@ public class CrawlerRevenantModel extends EntityModel<CrawlerRevenantRenderState
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+	public void translateToHand(CrawlerRevenantRenderState pRenderState, HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
 		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);

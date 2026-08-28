@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.screen;
 
-import com.axanthic.icaria.common.packet.ChestLabelPacket;
+import com.axanthic.icaria.common.payload.ChestLabelPayload;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdents;
@@ -50,7 +50,7 @@ public class ChestLabelScreen extends Screen {
 	public void done() {
 		if (this.minecraft != null) {
 			this.minecraft.setScreen(null);
-			ClientPacketDistributor.sendToServer(new ChestLabelPacket(this.itemStack, this.editBox.getValue()));
+			ClientPacketDistributor.sendToServer(new ChestLabelPayload(this.itemStack, this.editBox.getValue()));
 		}
 	}
 

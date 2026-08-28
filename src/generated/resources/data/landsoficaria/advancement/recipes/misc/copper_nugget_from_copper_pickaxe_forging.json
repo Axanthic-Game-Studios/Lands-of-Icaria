@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:copper_pickaxe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_pickaxe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:copper_nugget_from_copper_pickaxe_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:copper_pickaxe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:copper_nugget_from_copper_pickaxe_forging"
+    ]
+  }
+}

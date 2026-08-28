@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FallenPopulusTreeFeature extends FallenIcariaTreeFeature {
+public class FallenPopulusTreeFeature extends FallenTreeFeature {
 	public FallenPopulusTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.POPULUS_LEAVES.get(), IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.POPULUS_TWIGS.get());
 	}

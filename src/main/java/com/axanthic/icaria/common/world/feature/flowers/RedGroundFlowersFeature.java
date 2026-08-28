@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class RedGroundFlowersFeature extends IcariaGroundFlowersFeature {
+public class RedGroundFlowersFeature extends GroundFlowersFeature {
 	public RedGroundFlowersFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.RED_GROUND_FLOWERS.get());
 	}

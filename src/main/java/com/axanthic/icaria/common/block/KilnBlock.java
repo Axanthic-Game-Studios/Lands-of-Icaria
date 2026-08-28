@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
-import com.axanthic.icaria.common.entity.KilnRedirectorBlockEntity;
 import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.shapes.KilnVoxelShapes;
@@ -61,7 +60,7 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pLevel.getBlockEntity(KilnBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof KilnBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
@@ -73,8 +72,8 @@ public class KilnBlock extends BaseEntityBlock {
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(BlockStateProperties.LIT)) {
+			this.particlesBlock(pBlockPos, pLevel, pRandomSource);
 			this.particlesItems(pBlockPos, pLevel, pRandomSource);
-			this.particlesSmoke(pBlockPos, pLevel, pRandomSource);
 			this.sounds(pBlockPos, pLevel, pRandomSource);
 		}
 	}
@@ -95,13 +94,15 @@ public class KilnBlock extends BaseEntityBlock {
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
-	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+	public void particlesBlock(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
 		pLevel.addParticle(ParticleTypes.SMALL_FLAME, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.25D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
-		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 2.0D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 	}
 
-	public void particlesSmoke(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
-		pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 2.0D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+	public void particlesItems(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
+		if (pLevel.getBlockEntity(pBlockPos) instanceof KilnBlockEntity blockEntity && !blockEntity.getIntake().isEmpty()) {
+			pLevel.addParticle(ParticleTypes.WHITE_SMOKE, pBlockPos.getX() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + 0.5D + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
+		}
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Level pLevel) {
@@ -123,11 +124,7 @@ public class KilnBlock extends BaseEntityBlock {
 
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			return new KilnBlockEntity(pBlockPos, pBlockState);
-		} else {
-			return new KilnRedirectorBlockEntity(pBlockPos, pBlockState);
-		}
+		return new KilnBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
@@ -212,6 +209,6 @@ public class KilnBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
-		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KILN.get(), (level, blockPos, blockState, blockEntity) -> KilnBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
+		return pLevel instanceof ServerLevel serverLevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KILN.get(), (level, blockPos, blockState, blockEntity) -> KilnBlockEntity.tick(blockEntity, serverLevel)) : null;
 	}
 }

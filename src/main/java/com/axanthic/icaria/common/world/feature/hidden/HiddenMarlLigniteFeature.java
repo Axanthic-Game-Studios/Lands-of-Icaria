@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HiddenMarlLigniteFeature extends HiddenIcariaFeature {
+public class HiddenMarlLigniteFeature extends HiddenFeature {
 	public HiddenMarlLigniteFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.MARL_LIGNITE.get(), IcariaBlocks.SURFACE_LIGNITE.get());
 	}

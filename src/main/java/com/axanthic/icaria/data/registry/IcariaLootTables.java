@@ -21,10 +21,14 @@ public class IcariaLootTables {
 	public static final ResourceKey<LootTable> RED_LOOT_VASE = IcariaLootTables.createKey("loot_vases/red_loot_vase");
 	public static final ResourceKey<LootTable> LOST_LOOT_VASE = IcariaLootTables.createKey("loot_vases/lost_loot_vase");
 	public static final ResourceKey<LootTable> CYAN_LOOT_VASE = IcariaLootTables.createKey("loot_vases/cyan_loot_vase");
+	public static final ResourceKey<LootTable> OLIVE_LEAVES = IcariaLootTables.createKey("olive_leaves/olive_leaves");
 	public static final ResourceKey<LootTable> RED_STORAGE_VASE = IcariaLootTables.createKey("storage_vases/red_storage_vase");
 	public static final ResourceKey<LootTable> CYAN_STORAGE_VASE = IcariaLootTables.createKey("storage_vases/cyan_storage_vase");
+	public static final ResourceKey<LootTable> STRAWBERRY_BUSH = IcariaLootTables.createKey("strawberry_bushes/strawberry_bush");
 	public static final ResourceKey<LootTable> SUSPICIOUS_SAND = IcariaLootTables.createKey("suspicious_sands/suspicious_sand");
 	public static final ResourceKey<LootTable> VASE = IcariaLootTables.createKey("vases/vase");
+	public static final ResourceKey<LootTable> BLOOMY_VINE = IcariaLootTables.createKey("vines/bloomy_vine");
+	public static final ResourceKey<LootTable> BRUSHY_VINE = IcariaLootTables.createKey("vines/brushy_vine");
 
 	public static ResourceKey<LootTable> createKey(String pName) {
 		return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));

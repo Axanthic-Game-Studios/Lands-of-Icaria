@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SmallFirTreeFeature extends SmallIcariaTreeFeature {
+public class SmallFirTreeFeature extends SmallTreeFeature {
 	public SmallFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_LOG.get());
 	}

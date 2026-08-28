@@ -1,23 +1,27 @@
 package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 
 @MethodsReturnNonnullByDefault
@@ -50,13 +54,17 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.RIPE_BUSH)) {
-			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.STRAWBERRIES.get()));
-			pLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-			pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, false), 2);
-			return InteractionResult.SUCCESS;
+		if (pLevel instanceof ServerLevel serverLevel && pBlockState.getValue(IcariaBlockStateProperties.RIPE_BUSH)) {
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.STRAWBERRY_BUSH);
 		} else {
 			return InteractionResult.PASS;
 		}
+	}
+
+	public InteractionResult dropFromLootTable(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
+		Block.dropFromLootTable(pServerLevel, pResourceKey, builder -> builder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK_INTERACT), (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
+		pServerLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
+		pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, false), 2);
+		return InteractionResult.SUCCESS;
 	}
 }

@@ -4,8 +4,8 @@ import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.VineVoxelShapes;
+import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
@@ -21,6 +21,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -30,7 +31,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
@@ -39,6 +39,9 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.pathfinder.PathType;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
@@ -271,19 +274,20 @@ public class IcariaVineBlock extends Block {
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pBlockState.is(IcariaBlocks.BLOOMY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
-			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.VINEBERRIES.get()));
-			pLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, this.setPropForFace(pBlockState).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
-			return InteractionResult.SUCCESS;
-		} else if (pBlockState.is(IcariaBlocks.BRUSHY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
-			Block.popResource(pLevel, pBlockPos, new ItemStack(IcariaItems.VINE_SPROUT.get()));
-			pLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, this.setPropForFace(pBlockState).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
-			return InteractionResult.SUCCESS;
+		if (pLevel instanceof ServerLevel serverLevel && pBlockState.is(IcariaBlocks.BLOOMY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.BLOOMY_VINE);
+		} else if (pLevel instanceof ServerLevel serverLevel && pBlockState.is(IcariaBlocks.BRUSHY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.BRUSHY_VINE);
 		} else {
 			return InteractionResult.PASS;
 		}
+	}
+
+	public InteractionResult dropFromLootTable(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
+		Block.dropFromLootTable(pServerLevel, pResourceKey, builder -> builder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK_INTERACT), (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
+		pServerLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
+		pServerLevel.setBlockAndUpdate(pBlockPos, this.setPropForFace(pBlockState).setValue(IcariaBlockStateProperties.VINE, Vine.NONE));
+		return InteractionResult.SUCCESS;
 	}
 
 	@Nullable

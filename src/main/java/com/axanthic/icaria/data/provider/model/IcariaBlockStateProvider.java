@@ -74,6 +74,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.randomRotation(pBlockModelGenerators);
 		IcariaBlockStateProvider.rottenBoneLadder(pBlockModelGenerators);
 		IcariaBlockStateProvider.scrollshelf(pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(pBlockModelGenerators);
 		IcariaBlockStateProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockStateProvider.skull(pBlockModelGenerators);
 		IcariaBlockStateProvider.slab(pBlockModelGenerators);
@@ -86,7 +87,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.vase(pBlockModelGenerators);
 		IcariaBlockStateProvider.vine(pBlockModelGenerators);
 		IcariaBlockStateProvider.wall(pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(pBlockModelGenerators);
 	}
 
 	public static void amphora(BlockModelGenerators pBlockModelGenerators) {
@@ -672,7 +673,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.CYPRESS_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_TROUGH.get(), pBlockModelGenerators);
@@ -690,7 +691,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.DROUGHTROOT_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_TROUGH.get(), pBlockModelGenerators);
@@ -708,7 +709,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.FIR_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_TROUGH.get(), pBlockModelGenerators);
@@ -726,7 +727,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LAUREL_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_TROUGH.get(), pBlockModelGenerators);
@@ -744,7 +745,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.OLIVE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_TROUGH.get(), pBlockModelGenerators);
@@ -762,7 +763,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.PLANE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_FIREWOOD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_TROUGH.get(), pBlockModelGenerators);
@@ -780,7 +781,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_FLASKS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_HUTCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.POPULUS_LADDER.get(), pBlockModelGenerators);
 	}
 
@@ -952,6 +953,16 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.OLIVE_SCROLLSHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.PLANE_SCROLLSHELF.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.scrollshelf(IcariaBlocks.POPULUS_SCROLLSHELF.get(), pBlockModelGenerators);
+	}
+
+	public static void shelf(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.shelf(IcariaBlocks.CYPRESS_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.DROUGHTROOT_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.FIR_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.LAUREL_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.OLIVE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.PLANE_SHELF.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.shelf(IcariaBlocks.POPULUS_SHELF.get(), pBlockModelGenerators);
 	}
 
 	public static void simpleRack(BlockModelGenerators pBlockModelGenerators) {
@@ -1178,14 +1189,14 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.wall(IcariaBlocks.QUARTZ_WALL.get(), pBlockModelGenerators);
 	}
 
-	public static void wallShelf(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.CYPRESS_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.FIR_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.LAUREL_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.OLIVE_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.PLANE_WALL_SHELF.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.wallShelf(IcariaBlocks.POPULUS_WALL_SHELF.get(), pBlockModelGenerators);
+	public static void wallHutch(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.CYPRESS_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.DROUGHTROOT_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.FIR_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.LAUREL_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.OLIVE_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.PLANE_WALL_HUTCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.wallHutch(IcariaBlocks.POPULUS_WALL_HUTCH.get(), pBlockModelGenerators);
 	}
 
 	public static void bars(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -1280,10 +1291,10 @@ public class IcariaBlockStateProvider {
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.OTHER).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_90)))
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.OTHER).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_180)))
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.OTHER).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_270)))
-			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north"))))
+			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "north")).with(BlockModelGenerators.Y_ROT_270)))
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.OTHER).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "up"))))
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.SELF).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "up"))))
 			.with(BlockModelGenerators.condition().term(IcariaBlockStateProperties.CONNECTION_NORTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_EAST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_SOUTH, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_WEST, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_UP, Connection.NONE).term(IcariaBlockStateProperties.CONNECTION_DOWN, Connection.OTHER), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "down"))))
@@ -2075,6 +2086,35 @@ public class IcariaBlockStateProvider {
 		);
 	}
 
+	public static void shelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiPartGenerator.multiPart(pBlock)
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).term(BlockStateProperties.POWERED, false), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unpowered"))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST).term(BlockStateProperties.POWERED, false), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unpowered")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH).term(BlockStateProperties.POWERED, false), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unpowered")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST).term(BlockStateProperties.POWERED, false), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unpowered")).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.UNCONNECTED), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unconnected"))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.UNCONNECTED), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unconnected")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.UNCONNECTED), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unconnected")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.UNCONNECTED), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "unconnected")).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.LEFT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "left"))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.LEFT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "left")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.LEFT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "left")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.LEFT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "left")).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.CENTER), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "center"))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.CENTER), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "center")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.CENTER), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "center")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.CENTER), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "center")).with(BlockModelGenerators.Y_ROT_270)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.RIGHT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "right"))))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.EAST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.RIGHT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "right")).with(BlockModelGenerators.Y_ROT_90)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.SOUTH).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.RIGHT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "right")).with(BlockModelGenerators.Y_ROT_180)))
+			.with(BlockModelGenerators.condition().term(BlockStateProperties.HORIZONTAL_FACING, Direction.WEST).term(BlockStateProperties.POWERED, true).term(BlockStateProperties.SIDE_CHAIN_PART, SideChainPart.RIGHT), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "right")).with(BlockModelGenerators.Y_ROT_270)))
+		);
+	}
+
 	public static void vine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiPartGenerator.multiPart(pBlock)
 			.with(BlockModelGenerators.condition().term(BlockStateProperties.NORTH, true).term(IcariaBlockStateProperties.VINE, Vine.NONE), BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.UV_LOCK)))
@@ -2141,27 +2181,15 @@ public class IcariaBlockStateProvider {
 
 	public static void barrel(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.BARREL_FACING)
-				.select(Direction.NORTH, Direction.NORTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-				.select(Direction.NORTH, Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-				.select(Direction.NORTH, Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-				.select(Direction.NORTH, Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-				.select(Direction.NORTH, Direction.UP, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock))))
-				.select(Direction.EAST, Direction.NORTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Direction.UP, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Direction.NORTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Direction.UP, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Direction.NORTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Direction.EAST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Direction.SOUTH, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Direction.WEST, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Direction.UP, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.STANDING_BARREL)
+				.select(Direction.NORTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.NORTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock))))
+				.select(Direction.EAST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("standing", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}
@@ -3710,7 +3738,20 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void lootVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "8")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "9")))));
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(IcariaBlockStateProperties.VASE_VARIANT)
+				.select(0, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0"))))
+				.select(1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1"))))
+				.select(2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2"))))
+				.select(3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3"))))
+				.select(4, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4"))))
+				.select(5, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5"))))
+				.select(6, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6"))))
+				.select(7, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7"))))
+				.select(8, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "8"))))
+				.select(9, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "9"))))
+			)
+		);
 	}
 
 	public static void oliveLeaves(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -4040,9 +4081,9 @@ public class IcariaBlockStateProvider {
 		);
 	}
 
-	public static void wallShelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+	public static void wallHutch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MULTI_SHELF)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MULTI_HUTCH)
 				.select(Direction.NORTH, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
 				.select(Direction.NORTH, true, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "multi"))))
 				.select(Direction.EAST, false, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))

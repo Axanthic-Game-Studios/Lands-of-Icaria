@@ -1,21 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:cypress_log": {
+    "has_landsoficaria:stripped_cypress_log": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:cypress_log"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_landsoficaria:cypress_planks": {
-      "conditions": {
-        "items": [
-          {
-            "items": "landsoficaria:cypress_planks"
+            "items": "landsoficaria:stripped_cypress_log"
           }
         ]
       },
@@ -31,8 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:cypress_log",
-      "has_landsoficaria:cypress_planks"
+      "has_landsoficaria:stripped_cypress_log"
     ]
   ],
   "rewards": {

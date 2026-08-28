@@ -1,9 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.block.KettleBlock;
-import com.axanthic.icaria.common.container.data.KettleContainerData;
-import com.axanthic.icaria.common.handler.stack.KettleInputItemStackHandler;
-import com.axanthic.icaria.common.handler.stack.KettleOutputItemStackHandler;
+import com.axanthic.icaria.common.handler.KettleHandler;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.recipe.EntityConcoctingRecipe;
 import com.axanthic.icaria.common.recipe.ExplosionConcoctingRecipe;
@@ -14,8 +12,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
@@ -32,10 +28,8 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Containers;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -48,8 +42,10 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 import net.neoforged.neoforge.capabilities.Capabilities;
-import net.neoforged.neoforge.items.IItemHandler;
-import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.transfer.RangedResourceHandler;
+import net.neoforged.neoforge.transfer.ResourceHandler;
+import net.neoforged.neoforge.transfer.item.ItemResource;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -59,35 +55,30 @@ public class KettleBlockEntity extends BlockEntity {
 	public int progress = 0;
 	public int maxProgress = 0;
 
-	public Deque<ItemStack> deque = new ArrayDeque<>(3);
-
-	public ItemStackHandler inputHandler = new KettleInputItemStackHandler(3, this);
-	public ItemStackHandler outputHandler = new KettleOutputItemStackHandler(1, this);
-
-	public SimpleContainer simpleContainer = new SimpleContainer(4);
+	public ItemStacksResourceHandler handler = new KettleHandler(this);
 
 	public KettleBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
 		super(IcariaBlockEntityTypes.KETTLE.get(), pBlockPos, pBlockState);
 	}
 
 	public boolean canAddCount(ServerLevel pServerLevel, int pSlot) {
-		return this.getStack(pServerLevel).getCount() + this.simpleContainer.getItem(pSlot).getCount() <= 64;
+		return this.hasRecipe(pServerLevel) && this.getResult(pServerLevel).getCount() + this.handler.getAmountAsInt(pSlot) <= 64;
 	}
 
 	public boolean canAddItems(ServerLevel pServerLevel, int pSlot) {
-		return this.getStack(pServerLevel).getItem() == this.simpleContainer.getItem(pSlot).getItem() && this.simpleContainer.getItem(pSlot).isStackable() || this.simpleContainer.getItem(pSlot).isEmpty();
+		return this.hasRecipe(pServerLevel) && this.getResult(pServerLevel).getItem() == this.handler.getResource(pSlot).getItem() && this.handler.getResource(pSlot).toStack().isStackable() || this.handler.getResource(pSlot).toStack().isEmpty();
 	}
 
 	public boolean canAddStack(ServerLevel pServerLevel, int pSlot) {
 		return this.canAddCount(pServerLevel, pSlot) && this.canAddItems(pServerLevel, pSlot);
 	}
 
-	public boolean hasSlot(ServerLevel pServerLevel) {
-		return this.canAddStack(pServerLevel, 3);
-	}
-
 	public boolean hasRecipe(ServerLevel pServerLevel) {
 		return this.getEntityConcoctingRecipe(pServerLevel).isPresent() || this.getExplosionConcoctingRecipe(pServerLevel).isPresent() || this.getItemConcoctingRecipe(pServerLevel).isPresent() || this.getPotionConcoctingRecipe(pServerLevel).isPresent();
+	}
+
+	public boolean hasSlot(ServerLevel pServerLevel) {
+		return this.canAddStack(pServerLevel, 3);
 	}
 
 	public int getColor(ServerLevel pServerLevel) {
@@ -104,11 +95,8 @@ public class KettleBlockEntity extends BlockEntity {
 		}
 	}
 
-	public int getRedstoneStrength() {
-		var i = this.inputHandler.getStackInSlot(0).getCount() * 5;
-		var j = this.inputHandler.getStackInSlot(1).getCount() * 5;
-		var k = this.inputHandler.getStackInSlot(2).getCount() * 5;
-		return i + j + k;
+	public int getSize() {
+		return 4;
 	}
 
 	public int getTime(ServerLevel pServerLevel) {
@@ -125,64 +113,44 @@ public class KettleBlockEntity extends BlockEntity {
 		}
 	}
 
-	public void dropItems(BlockPos pBlockPos, ServerLevel pServerLevel) {
-		Containers.dropContents(pServerLevel, pBlockPos, this.simpleContainer);
+	public void dropContents(BlockPos pBlockPos, ServerLevel pServerLevel) {
+		Containers.dropContents(pServerLevel, pBlockPos, this.handler.copyToList());
 	}
 
 	@Override
 	public void loadAdditional(ValueInput pValueInput) {
 		super.loadAdditional(pValueInput);
-		this.inputHandler.deserialize(pValueInput.childOrEmpty("InputHandler"));
-		this.outputHandler.deserialize(pValueInput.childOrEmpty("OutputHandler"));
+		this.handler.deserialize(pValueInput.childOrEmpty("Handler"));
 		this.color = pValueInput.getIntOr("Color", 0);
-		this.progress = pValueInput.getIntOr("ProgressTick", 0);
-		this.maxProgress = pValueInput.getIntOr("MaxProgressTick", 0);
+		this.progress = pValueInput.getIntOr("Progress", 0);
+		this.maxProgress = pValueInput.getIntOr("MaxProgress", 0);
 	}
 
-	@Override
-	public void onLoad() {
-		super.onLoad();
-		this.deque.offer(this.inputHandler.getStackInSlot(0));
-		this.deque.offer(this.inputHandler.getStackInSlot(1));
-		this.deque.offer(this.inputHandler.getStackInSlot(2));
-	}
-
-	public void outputRecipe(ServerLevel pServerLevel) {
-		var blockEntity = pServerLevel.getBlockEntity(this.getBlockPos().below());
-		if (blockEntity == null || (blockEntity.getLevel() != null && blockEntity.getLevel().getCapability(Capabilities.ItemHandler.BLOCK, this.getBlockPos().below(), Direction.UP) == null)) {
-			var itemEntity = EntityType.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
-			if (itemEntity != null) {
-				itemEntity.setItem(this.outputHandler.getStackInSlot(0));
-				if (this.getBlockState().getBlock() instanceof KettleBlock kettleBlock) {
-					itemEntity.snapTo(this.getBlockPos().getX() + kettleBlock.getX(this.getBlockState()), this.getBlockPos().getY() + 0.75D, this.getBlockPos().getZ() + kettleBlock.getZ(this.getBlockState()));
-					itemEntity.setDeltaMovement(0.0D, 0.25D, 0.0D);
-					pServerLevel.addFreshEntity(itemEntity);
-					this.outputHandler.setStackInSlot(0, ItemStack.EMPTY);
-				}
-			}
-		}
-	}
-
-	public void performRecipe(BlockPos pBlockPos, ServerLevel pServerLevel) {
+	public void performRecipe(ServerLevel pServerLevel) {
 		if (this.getEntityConcoctingRecipe(pServerLevel).isPresent()) {
-			this.getEntityConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
+			this.getEntityConcoctingRecipe(pServerLevel).get().value().performRecipe(this.getBlockPos(), pServerLevel);
 		} else if (this.getExplosionConcoctingRecipe(pServerLevel).isPresent()) {
-			this.getExplosionConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
+			this.getExplosionConcoctingRecipe(pServerLevel).get().value().performRecipe(this.getBlockPos(), pServerLevel);
 		} else if (this.getItemConcoctingRecipe(pServerLevel).isPresent()) {
-			this.getItemConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
+			this.getItemConcoctingRecipe(pServerLevel).get().value().performRecipe(this.getBlockPos(), pServerLevel);
 		} else if (this.getPotionConcoctingRecipe(pServerLevel).isPresent()) {
-			this.getPotionConcoctingRecipe(pServerLevel).get().value().performRecipe(pBlockPos, pServerLevel);
+			this.getPotionConcoctingRecipe(pServerLevel).get().value().performRecipe(this.getBlockPos(), pServerLevel);
 		}
+	}
+
+	public void performUpdate(ServerLevel pServerLevel) {
+		pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
+		pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
 	}
 
 	@Override
 	public void preRemoveSideEffects(BlockPos pBlockPos, BlockState pBlockState) {
 		if (this.getLevel() instanceof ServerLevel serverLevel) {
-			this.dropItems(pBlockPos, serverLevel);
+			this.dropContents(pBlockPos, serverLevel);
 		}
 	}
 
-	public void resetProgress() {
+	public void reset() {
 		this.progress = 0;
 		this.maxProgress = 0;
 	}
@@ -190,47 +158,40 @@ public class KettleBlockEntity extends BlockEntity {
 	@Override
 	public void saveAdditional(ValueOutput pValueOutput) {
 		super.saveAdditional(pValueOutput);
-		this.inputHandler.serialize(pValueOutput.child("InputHandler"));
-		this.outputHandler.serialize(pValueOutput.child("OutputHandler"));
+		this.handler.serialize(pValueOutput.child("Handler"));
 		pValueOutput.putInt("Color", this.color);
-		pValueOutput.putInt("ProgressTick", this.progress);
-		pValueOutput.putInt("MaxProgressTick", this.maxProgress);
+		pValueOutput.putInt("Progress", this.progress);
+		pValueOutput.putInt("MaxProgress", this.maxProgress);
 	}
 
-	public void setContainer() {
-		this.simpleContainer.setItem(0, this.inputHandler.getStackInSlot(0));
-		this.simpleContainer.setItem(1, this.inputHandler.getStackInSlot(1));
-		this.simpleContainer.setItem(2, this.inputHandler.getStackInSlot(2));
-		this.simpleContainer.setItem(3, this.outputHandler.getStackInSlot(0));
-	}
-
-	public void setStackInSlot(int pSlot) {
-		if (this.deque.size() > pSlot) {
-			this.inputHandler.setStackInSlot(pSlot, new ItemStack(this.deque.stream().toList().get(pSlot).getItem()));
+	public void set(ItemStack pItemStack) {
+		if (this.handler.getResource(0).isEmpty()) {
+			this.handler.set(0, ItemResource.of(pItemStack), 1);
+		} else if (this.handler.getResource(1).isEmpty()) {
+			this.handler.set(1, ItemResource.of(pItemStack), 1);
+		} else if (this.handler.getResource(2).isEmpty()) {
+			this.handler.set(2, ItemResource.of(pItemStack), 1);
+		} else {
+			this.handler.set(0, this.handler.getResource(1), 1);
+			this.handler.set(1, this.handler.getResource(2), 1);
+			this.handler.set(2, ItemResource.of(pItemStack), 1);
 		}
 	}
 
-	public static void tick(KettleBlockEntity pBlockEntity, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
-		pBlockEntity.setContainer();
-		pBlockEntity.tickPoll();
-		pBlockEntity.tickSlot();
+	public static void tick(KettleBlockEntity pBlockEntity, ServerLevel pServerLevel) {
 		pBlockEntity.tickProgress(pServerLevel);
 		pBlockEntity.tickRecipe(pServerLevel);
-		pBlockEntity.update(pBlockPos, pBlockState, pServerLevel);
-		pBlockEntity.updateStates(pBlockPos, pBlockState, pServerLevel, pBlockEntity.hasRecipe(pServerLevel) && pBlockEntity.hasSlot(pServerLevel));
-	}
-
-	public void tickPoll() {
-		if (this.deque.size() > 3) {
-			this.deque.poll();
-		}
+		pBlockEntity.tickResult(pServerLevel);
+		pBlockEntity.tickIntake(pServerLevel);
+		pBlockEntity.tickUpdate(pServerLevel);
+		pBlockEntity.tickStates(pServerLevel);
+		pBlockEntity.tickColour(pServerLevel);
 	}
 
 	public void tickProgress(ServerLevel pServerLevel) {
 		if (this.progress < this.maxProgress && this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
 			this.progress++;
 		} else if (this.getTime(pServerLevel) > 0 && this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
-			this.color = this.getColor(pServerLevel);
 			this.progress = 1;
 			this.maxProgress = this.getTime(pServerLevel);
 		} else {
@@ -241,84 +202,117 @@ public class KettleBlockEntity extends BlockEntity {
 
 	public void tickRecipe(ServerLevel pServerLevel) {
 		if (this.progress == this.maxProgress && this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
-			this.outputHandler.setStackInSlot(0, new ItemStack(this.getStack(pServerLevel).getItem(), this.getStack(pServerLevel).getCount() + this.outputHandler.getStackInSlot(0).getCount()));
-			this.performRecipe(this.getBlockPos(), pServerLevel);
-			this.outputRecipe(pServerLevel);
-			this.updateStates(this.getBlockPos(), this.getBlockState(), pServerLevel);
-			this.inputHandler.extractItem(0, 1, false);
-			this.inputHandler.extractItem(1, 1, false);
-			this.inputHandler.extractItem(2, 1, false);
-			this.deque.clear();
+			this.performRecipe(pServerLevel);
+			this.performUpdate(pServerLevel);
 		}
 	}
 
-	public void tickSlot() {
-		this.setStackInSlot(0);
-		this.setStackInSlot(1);
-		this.setStackInSlot(2);
+	public void tickResult(ServerLevel pServerLevel) {
+		if (this.progress == this.maxProgress && this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
+			this.setResult(this.getBlockPos(), this.getBlockState(), pServerLevel);
+		}
 	}
 
-	public void update(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
+	public void setResult(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
+		this.handler.set(3, ItemResource.of(this.getResult(pServerLevel).getItem()), this.getResult(pServerLevel).getCount() + this.handler.getAmountAsInt(3));
+		if (pServerLevel.getCapability(Capabilities.Item.BLOCK, pBlockPos.below(), Direction.UP) == null) {
+			var itemEntity = EntityType.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
+			if (itemEntity != null) {
+				itemEntity.setItem(this.handler.getResource(3).toStack());
+				if (pBlockState.getBlock() instanceof KettleBlock kettleBlock) {
+					itemEntity.snapTo(pBlockPos.getX() + kettleBlock.getX(pBlockState), pBlockPos.getY() + 0.75D, pBlockPos.getZ() + kettleBlock.getZ(pBlockState));
+					itemEntity.setDeltaMovement(0.0D, 0.25D, 0.0D);
+					pServerLevel.addFreshEntity(itemEntity);
+					this.handler.set(3, ItemResource.EMPTY, 0);
+				}
+			}
+		}
+	}
+
+	public void tickIntake(ServerLevel pServerLevel) {
+		if (this.progress == this.maxProgress && this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
+			this.setIntake(0);
+			this.setIntake(1);
+			this.setIntake(2);
+		}
+	}
+
+	public void setIntake(int pIndex) {
+		if (this.handler.getAmountAsInt(pIndex) > 0) {
+			this.handler.set(pIndex, this.handler.getResource(pIndex), this.handler.getAmountAsInt(pIndex) - 1);
+		}
+	}
+
+	public void tickUpdate(ServerLevel pServerLevel) {
+		if (this.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+			this.setUpdate(this.getBlockPos(), this.getBlockState(), pServerLevel);
+			this.setUpdate(this.getBlockPos().above(), this.getBlockState(), pServerLevel);
+		}
+	}
+
+	public void setUpdate(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
 		pServerLevel.blockEntityChanged(pBlockPos);
 		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, 3);
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
-		pServerLevel.updateNeighbourForOutputSignal(pBlockPos.above(), pBlockState.getBlock());
 	}
 
-	public void updateStates(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, boolean pBrewing) {
-		if (pBrewing) {
-			pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
-			pServerLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
+	public void tickStates(ServerLevel pServerLevel) {
+		if (this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
+			pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
+			pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
 		}
 	}
 
-	public void updateStates(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
-		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
-		pServerLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
+	public void tickColour(ServerLevel pServerLevel) {
+		this.color = this.getColor(pServerLevel);
 	}
 
 	@Override
 	public CompoundTag getUpdateTag(HolderLookup.Provider pProvider) {
 		var compoundTag = this.getUpdateTagOutput(pProvider);
 		compoundTag.putInt("Color", this.color);
-		compoundTag.putInt("ProgressTick", this.progress);
-		compoundTag.putInt("MaxProgressTick", this.maxProgress);
+		compoundTag.putInt("Progress", this.progress);
+		compoundTag.putInt("MaxProgress", this.maxProgress);
 		return compoundTag;
 	}
 
 	public CompoundTag getUpdateTagOutput(HolderLookup.Provider pProvider) {
 		var tagValueOutput = TagValueOutput.createWithContext(ProblemReporter.DISCARDING, pProvider);
-		this.inputHandler.serialize(tagValueOutput.child("InputHandler"));
-		this.outputHandler.serialize(tagValueOutput.child("OutputHandler"));
+		this.handler.serialize(tagValueOutput.child("Handler"));
 		return tagValueOutput.buildResult();
 	}
 
-	public ContainerData getData() {
-		return new KettleContainerData(this);
+	@Nullable
+	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
+		if (pBlockEntity.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pDirection == Direction.DOWN) {
+			return this.getCap(pBlockEntity, pBlockEntity.getBlockPos(), 3, 4);
+		} else {
+			return null;
+		}
 	}
 
 	@Nullable
-	public static IItemHandler getCapability(KettleBlockEntity pBlockEntity, Direction pDirection) {
-		if (pDirection == Direction.DOWN) {
-			return pBlockEntity.outputHandler;
+	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, BlockPos pBlockPos, int p0, int p1) {
+		if (pBlockEntity.getLevel() != null && pBlockEntity.getLevel().getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
+			return RangedResourceHandler.of(blockEntity.handler, p0, p1);
+		} else {
+			return null;
 		}
-
-		return null;
 	}
 
-	public ItemStack getInputA() {
-		return this.inputHandler.getStackInSlot(0);
+	public ItemStack getIntakeA() {
+		return this.handler.getResource(0).toStack();
 	}
 
-	public ItemStack getInputB() {
-		return this.inputHandler.getStackInSlot(1);
+	public ItemStack getIntakeB() {
+		return this.handler.getResource(1).toStack();
 	}
 
-	public ItemStack getInputC() {
-		return this.inputHandler.getStackInSlot(2);
+	public ItemStack getIntakeC() {
+		return this.handler.getResource(2).toStack();
 	}
 
-	public ItemStack getStack(ServerLevel pServerLevel) {
+	public ItemStack getResult(ServerLevel pServerLevel) {
 		if (this.getEntityConcoctingRecipe(pServerLevel).isPresent()) {
 			return this.getEntityConcoctingRecipe(pServerLevel).get().value().result();
 		} else if (this.getExplosionConcoctingRecipe(pServerLevel).isPresent()) {
@@ -354,6 +348,6 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	public RecipeInput getRecipeInput() {
-		return new TripleRecipeInput(this.inputHandler.getStackInSlot(0), this.inputHandler.getStackInSlot(1), this.inputHandler.getStackInSlot(2));
+		return new TripleRecipeInput(this.handler.getResource(0).toStack(), this.handler.getResource(1).toStack(), this.handler.getResource(2).toStack());
 	}
 }

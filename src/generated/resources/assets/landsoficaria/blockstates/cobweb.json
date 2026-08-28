@@ -70,7 +70,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cobweb"
+        "model": "landsoficaria:block/cobweb_north"
       },
       "when": {
         "connection_down": "none",
@@ -83,7 +83,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cobweb",
+        "model": "landsoficaria:block/cobweb_north",
         "y": 90
       },
       "when": {
@@ -97,7 +97,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cobweb",
+        "model": "landsoficaria:block/cobweb_north",
         "y": 180
       },
       "when": {
@@ -111,7 +111,7 @@
     },
     {
       "apply": {
-        "model": "landsoficaria:block/cobweb",
+        "model": "landsoficaria:block/cobweb_north",
         "y": 270
       },
       "when": {

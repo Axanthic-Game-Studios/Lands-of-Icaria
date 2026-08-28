@@ -1,8 +1,8 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.OvergrownRevenantEmissiveLayer;
-import com.axanthic.icaria.client.layer.OvergrownRevenantItemLayer;
-import com.axanthic.icaria.client.layer.OvergrownRevenantRaysLayer;
+import com.axanthic.icaria.client.layer.OvergrownRevenantEmissiveRenderLayer;
+import com.axanthic.icaria.client.layer.OvergrownRevenantItemRenderLayer;
+import com.axanthic.icaria.client.layer.OvergrownRevenantRaysRenderLayer;
 import com.axanthic.icaria.client.model.OvergrownRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.OvergrownRevenantRenderState;
@@ -16,7 +16,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -24,9 +26,9 @@ import net.minecraft.resources.ResourceLocation;
 public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEntity, OvergrownRevenantRenderState, OvergrownRevenantModel> {
 	public OvergrownRevenantRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new OvergrownRevenantModel(pContext.bakeLayer(IcariaModelLayerLocations.OVERGROWN_REVENANT_BODY)), 0.5F);
-		this.addLayer(new OvergrownRevenantEmissiveLayer(this));
-		this.addLayer(new OvergrownRevenantItemLayer(this));
-		this.addLayer(new OvergrownRevenantRaysLayer(this));
+		this.addLayer(new OvergrownRevenantEmissiveRenderLayer(this));
+		this.addLayer(new OvergrownRevenantItemRenderLayer(this));
+		this.addLayer(new OvergrownRevenantRaysRenderLayer(this));
 	}
 
 	@Override
@@ -37,7 +39,9 @@ public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEnti
 		pRenderState.green = pEntity.green;
 		pRenderState.red = pEntity.red;
 		pRenderState.id = pEntity.getId();
+		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;
+		this.itemModelResolver.updateForLiving(pRenderState.itemStackRenderState, pEntity.getMainHandItem(), ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, pEntity);
 	}
 
 	@Override

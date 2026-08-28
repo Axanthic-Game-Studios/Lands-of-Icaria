@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.common.combiner.ChestBlockCombiner;
 import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaChestBlockCombiner;
 
 import java.util.function.Supplier;
 
@@ -13,6 +13,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -43,8 +44,8 @@ import net.minecraft.world.phys.BlockHitResult;
 @ParametersAreNonnullByDefault
 
 public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterloggedBlock {
-	public IcariaChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, Properties pProperties) {
-		super(pBlockEntityType, pProperties);
+	public IcariaChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, SoundEvent pOpen, SoundEvent pClose, Properties pProperties) {
+		super(pBlockEntityType, pOpen, pClose, pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.CHEST_TYPE, ChestType.SINGLE).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.LABEL_UP, false).setValue(IcariaBlockStateProperties.LABEL_NORTH, false).setValue(IcariaBlockStateProperties.LABEL_EAST, false).setValue(IcariaBlockStateProperties.LABEL_SOUTH, false).setValue(IcariaBlockStateProperties.LABEL_WEST, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
@@ -706,6 +707,6 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	@Nullable
 	@Override
 	public MenuProvider getMenuProvider(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
-		return this.combine(pBlockState, pLevel, pBlockPos, false).apply(new IcariaChestBlockCombiner()).orElse(null);
+		return this.combine(pBlockState, pLevel, pBlockPos, false).apply(new ChestBlockCombiner()).orElse(null);
 	}
 }

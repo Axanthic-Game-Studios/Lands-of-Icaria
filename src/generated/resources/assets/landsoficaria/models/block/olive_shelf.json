@@ -1,9 +1,7 @@
 {
-  "parent": "landsoficaria:block/template_shelf",
+  "parent": "minecraft:block/template_shelf_body",
   "textures": {
-    "log": "landsoficaria:block/olive_log",
-    "log_top": "landsoficaria:block/olive_log_top",
-    "particle": "landsoficaria:block/olive_planks",
-    "planks": "landsoficaria:block/olive_planks"
+    "all": "landsoficaria:block/olive_shelf",
+    "particle": "landsoficaria:block/stripped_olive_log"
   }
 }

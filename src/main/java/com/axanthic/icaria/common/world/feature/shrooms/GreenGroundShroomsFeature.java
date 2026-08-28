@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class GreenGroundShroomsFeature extends IcariaGroundShroomsFeature {
+public class GreenGroundShroomsFeature extends GroundShroomsFeature {
 	public GreenGroundShroomsFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.GREEN_GROUND_SHROOMS.get());
 	}

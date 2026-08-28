@@ -129,7 +129,7 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.VINEGAROON_SHOOT, SoundEvents.ARROW_SHOOT, "vinegaroon", "shoot");
 		this.register(IcariaSoundEvents.VINEGAROON_STEP, SoundEvents.SPIDER_STEP, "vinegaroon", "step");
 		this.register(IcariaSoundEvents.AETERNAE_HIDE_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_LEATHER, "aeternae_hide_armor", "equip");
-		this.register(IcariaSoundEvents.CHALKOS_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_IRON, "chalkos_armor", "equip");
+		this.register(IcariaSoundEvents.CHALKOS_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_COPPER, "chalkos_armor", "equip");
 		this.register(IcariaSoundEvents.KASSITEROS_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_IRON, "kassiteros_armor", "equip");
 		this.register(IcariaSoundEvents.ORICHALCUM_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_GOLD, "orichalcum_armor", "equip");
 		this.register(IcariaSoundEvents.VANADIUMSTEEL_ARMOR_EQUIP, SoundEvents.ARMOR_EQUIP_CHAIN, "vanadiumsteel_armor", "equip");

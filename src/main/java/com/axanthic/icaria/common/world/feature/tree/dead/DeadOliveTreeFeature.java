@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadOliveTreeFeature extends DeadIcariaTreeFeature {
+public class DeadOliveTreeFeature extends DeadTreeFeature {
 	public DeadOliveTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STEPPE_MOSS.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.OLIVE_TWIGS.get(), Moss.STEPPE, 5, 5);
 	}

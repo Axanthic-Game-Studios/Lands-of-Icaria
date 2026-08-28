@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.common.display.GrinderFuelSlotDisplay;
 import com.axanthic.icaria.common.recipe.display.GrindingRecipeDisplay;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
@@ -53,10 +54,6 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 		return this.time;
 	}
 
-	public Ingredient fuel() {
-		return Ingredient.of(IcariaItems.SLIVER.get(), IcariaItems.SLIVER_BLOCK.get());
-	}
-
 	public Ingredient gear() {
 		return this.gear;
 	}
@@ -80,7 +77,7 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 
 	@Override
 	public List<RecipeDisplay> display() {
-		return List.of(new GrindingRecipeDisplay(new SlotDisplay.ItemStackSlotDisplay(this.result()), new SlotDisplay.ItemSlotDisplay(this.craftingStation()), this.ingredient().display(), this.gear().display(), this.fuel().display(), this.time(), this.experience()));
+		return List.of(new GrindingRecipeDisplay(new SlotDisplay.ItemStackSlotDisplay(this.result()), new SlotDisplay.ItemSlotDisplay(this.craftingStation()), this.ingredient().display(), this.gear().display(), GrinderFuelSlotDisplay.INSTANCE, this.time(), this.experience()));
 	}
 
 	@Override

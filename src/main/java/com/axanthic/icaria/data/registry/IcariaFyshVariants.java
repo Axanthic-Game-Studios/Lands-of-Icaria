@@ -35,7 +35,7 @@ public class IcariaFyshVariants {
 	}
 
 	public static void register(BootstrapContext<FyshVariant> pBootstrapContext, ResourceKey<FyshVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FyshVariant(new ClientAsset(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fysh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FyshVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fysh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FyshVariant> createKey(String pName) {

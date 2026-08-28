@@ -46,7 +46,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "barrel" + "." + "description", "Trage ein Fass");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "captain_revenant" + "." + "description", "Töte einen Kommandanten-Wiedergänger");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "chert_pickaxe" + "." + "description", "Stelle eine Hornsteinspitzhacke her");
-		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Befestige ein Etiekett an einer Kiste");
+		this.add("advancement" + "." + IcariaIdents.ID + "." + "chest" + "." + "description", "Befestige ein Etikett an einer Kiste");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "fertilized_farmland" + "." + "description", "Dünge Ackerboden mit Calcit");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "loot_vase" + "." + "description", "Trage eine Beutevase");
 		this.add("advancement" + "." + IcariaIdents.ID + "." + "storage_vase" + "." + "description", "Stelle eine Speichervase auf");
@@ -528,8 +528,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Zypressenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Zypressenholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), "Kaputter Zypressenholzschrank");
-		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Zypressenholz-Regal");
-		this.add(IcariaBlocks.CYPRESS_WALL_SHELF.get(), "Zypressenholz-Wandregal");
+		this.add(IcariaBlocks.CYPRESS_HUTCH.get(), "Zypressenholz-Regalgestell");
+		this.add(IcariaBlocks.CYPRESS_WALL_HUTCH.get(), "Zypressenholz-Wandregalgestell");
 		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Zypressenholzküchentisch");
 		this.add(IcariaBlocks.CYPRESS_KLINE.get(), "Zypressenholzkline");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Zypressenholzwerkbank");
@@ -538,6 +538,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Zypressenholzfalltür");
 		this.add(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), "Zypressenholzdruckplatte");
 		this.add(IcariaBlocks.CYPRESS_BUTTON.get(), "Zypressenholzknopf");
+		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Zypressenholzregal");
 		this.add(IcariaBlocks.CYPRESS_LADDER.get(), "Zypressenholzleiter");
 		this.add(IcariaBlocks.CYPRESS_SIGN.get(), "Zypressenholzschild");
 		this.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), "Zypressenholzhängeschild");
@@ -588,8 +589,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Dürrwurzelholzschrank mit Töpfen");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Dürrwurzelholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get(), "Kaputter Dürrwurzelholzschrank");
-		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Dürrwurzelholz-Regal");
-		this.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), "Dürrwurzelholz-Wandregal");
+		this.add(IcariaBlocks.DROUGHTROOT_HUTCH.get(), "Dürrwurzelholz-Regal");
+		this.add(IcariaBlocks.DROUGHTROOT_WALL_HUTCH.get(), "Dürrwurzelholz-Wandregal");
 		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Dürrwurzelholzküchentisch");
 		this.add(IcariaBlocks.DROUGHTROOT_KLINE.get(), "Dürrwurzelholzkline");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Dürrwurzelholzwerkbank");
@@ -598,6 +599,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Dürrwurzelholzfalltür");
 		this.add(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), "Dürrwurzelholzdruckplatte");
 		this.add(IcariaBlocks.DROUGHTROOT_BUTTON.get(), "Dürrwurzelholzknopf");
+		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Dürrwurzelholzregal");
 		this.add(IcariaBlocks.DROUGHTROOT_LADDER.get(), "Dürrwurzelholzleiter");
 		this.add(IcariaBlocks.DROUGHTROOT_SIGN.get(), "Dürrwurzelholzschild");
 		this.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), "Dürrwurzelholzhängeschild");
@@ -648,8 +650,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Tannenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Tannenholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_FIR_CUPBOARD.get(), "Kaputter Tannenholzschrank");
-		this.add(IcariaBlocks.FIR_SHELF.get(), "Tannenholz-Regal");
-		this.add(IcariaBlocks.FIR_WALL_SHELF.get(), "Tannenholz-Wandregal");
+		this.add(IcariaBlocks.FIR_HUTCH.get(), "Tannenholz-Regal");
+		this.add(IcariaBlocks.FIR_WALL_HUTCH.get(), "Tannenholz-Wandregal");
 		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Tannenholzküchentisch");
 		this.add(IcariaBlocks.FIR_KLINE.get(), "Tannenholzkline");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Tannenholzwerkbank");
@@ -658,6 +660,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Tannenholzfalltür");
 		this.add(IcariaBlocks.FIR_PRESSURE_PLATE.get(), "Tannenholzdruckplatte");
 		this.add(IcariaBlocks.FIR_BUTTON.get(), "Tannenholzknopf");
+		this.add(IcariaBlocks.FIR_SHELF.get(), "Tannenholzregal");
 		this.add(IcariaBlocks.FIR_LADDER.get(), "Tannenholzleiter");
 		this.add(IcariaBlocks.FIR_SIGN.get(), "Tannenholzschild");
 		this.add(IcariaBlocks.FIR_HANGING_SIGN.get(), "Tannenholzhängeschild");
@@ -708,8 +711,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Lorbeerholzschrank mit Töpfen");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Lorbeerholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get(), "Kaputter Lorbeerholzschrank");
-		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Lorbeerholz-Regal");
-		this.add(IcariaBlocks.LAUREL_WALL_SHELF.get(), "Lorbeerholz-Wandregal");
+		this.add(IcariaBlocks.LAUREL_HUTCH.get(), "Lorbeerholz-Regal");
+		this.add(IcariaBlocks.LAUREL_WALL_HUTCH.get(), "Lorbeerholz-Wandregal");
 		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Lorbeerholzküchentisch");
 		this.add(IcariaBlocks.LAUREL_KLINE.get(), "Lorbeerholzkline");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Lorbeerholzwerkbank");
@@ -718,6 +721,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Lorbeerholzfalltür");
 		this.add(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), "Lorbeerholzdruckplatte");
 		this.add(IcariaBlocks.LAUREL_BUTTON.get(), "Lorbeerholzknopf");
+		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Lorbeerholzregal");
 		this.add(IcariaBlocks.LAUREL_LADDER.get(), "Lorbeerholzleiter");
 		this.add(IcariaBlocks.LAUREL_SIGN.get(), "Lorbeerholzschild");
 		this.add(IcariaBlocks.LAUREL_HANGING_SIGN.get(), "Lorbeerholzhängeschild");
@@ -768,8 +772,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olivenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olivenholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get(), "Kaputter Olivenholzschrank");
-		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olivenholz-Regal");
-		this.add(IcariaBlocks.OLIVE_WALL_SHELF.get(), "Olivenholz-Wandregal");
+		this.add(IcariaBlocks.OLIVE_HUTCH.get(), "Olivenholz-Regal");
+		this.add(IcariaBlocks.OLIVE_WALL_HUTCH.get(), "Olivenholz-Wandregal");
 		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olivenholzküchentisch");
 		this.add(IcariaBlocks.OLIVE_KLINE.get(), "Olivenholzkline");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olivenholzwerkbank");
@@ -778,6 +782,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olivenholzfalltür");
 		this.add(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), "Olivenholzdruckplatte");
 		this.add(IcariaBlocks.OLIVE_BUTTON.get(), "Olivenholzknopf");
+		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olivenholzregal");
 		this.add(IcariaBlocks.OLIVE_LADDER.get(), "Olivenholzleiter");
 		this.add(IcariaBlocks.OLIVE_SIGN.get(), "Olivenholzschild");
 		this.add(IcariaBlocks.OLIVE_HANGING_SIGN.get(), "Olivenholzhängeschild");
@@ -828,8 +833,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plantanenholzschrank mit Töpfen");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plantanenholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get(), "Kaputter Plantanenholzschrank");
-		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plantanenholz-Regal");
-		this.add(IcariaBlocks.PLANE_WALL_SHELF.get(), "Plantanenholz-Wandregal");
+		this.add(IcariaBlocks.PLANE_HUTCH.get(), "Plantanenholz-Regal");
+		this.add(IcariaBlocks.PLANE_WALL_HUTCH.get(), "Plantanenholz-Wandregal");
 		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plantanenholzküchentisch");
 		this.add(IcariaBlocks.PLANE_KLINE.get(), "Plantanenholzkline");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plantanenholzwerkbank");
@@ -838,6 +843,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plantanenholzfalltür");
 		this.add(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), "Plantanenholzdruckplatte");
 		this.add(IcariaBlocks.PLANE_BUTTON.get(), "Plantanenholzknopf");
+		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plantanenholzregal");
 		this.add(IcariaBlocks.PLANE_LADDER.get(), "Plantanenholzleiter");
 		this.add(IcariaBlocks.PLANE_SIGN.get(), "Plantanenholzschild");
 		this.add(IcariaBlocks.PLANE_HANGING_SIGN.get(), "Plantanenholzhängeschild");
@@ -888,8 +894,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Pappelholzschrank mit Töpfen");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Pappelholzschrank mit Vase");
 		this.add(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get(), "Kaputter Pappelholzschrank");
-		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Pappelholz-Regal");
-		this.add(IcariaBlocks.POPULUS_WALL_SHELF.get(), "Pappelholz-Wandregal");
+		this.add(IcariaBlocks.POPULUS_HUTCH.get(), "Pappelholz-Regal");
+		this.add(IcariaBlocks.POPULUS_WALL_HUTCH.get(), "Pappelholz-Wandregal");
 		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Pappelholzküchentisch");
 		this.add(IcariaBlocks.POPULUS_KLINE.get(), "Pappelholzkline");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Pappelholzwerkbank");
@@ -898,6 +904,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Pappelholzfalltür");
 		this.add(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), "Pappelholzdruckplatte");
 		this.add(IcariaBlocks.POPULUS_BUTTON.get(), "Pappelholzknopf");
+		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Pappelholzregal");
 		this.add(IcariaBlocks.POPULUS_LADDER.get(), "Pappelholzleiter");
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Pappelholzschild");
 		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Pappelholzhängeschild");
@@ -1042,8 +1049,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kettle_items" + "." + "tooltip", "Standard: 256. Ob ein Kessel Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kiln_items", "Renderentfernung Töpferofengegenstände");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kiln_items" + "." + "tooltip", "Standard: 256. Ob ein Töpferofen Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_shelf_items", "Renderentfernung Regalgegenstände");
-		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_shelf_items" + "." + "tooltip", "Default: 256. Ob ein Regal Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_hutch_items", "Renderentfernung Regalgegenstände");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_hutch_items" + "." + "tooltip", "Default: 256. Ob ein Regal Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings", "Spawneinstellungen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings" + "." + "tooltip", "Spawneinstellungen");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids", "Spinnentiere spawnen");

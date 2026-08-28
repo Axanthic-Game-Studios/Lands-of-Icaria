@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.util.IcariaPortalShape;
+import com.axanthic.icaria.common.shape.PortalShape;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -60,9 +60,9 @@ public class GreekFireGrenadeEntity extends ThrowableItemProjectile {
 	}
 
 	@Nullable
-	public IcariaPortalShape getIcariaPortalShape(BlockPos pBlockPos, Level pLevel) {
-		var icariaPortalShapeX = new IcariaPortalShape(Direction.Axis.X, pBlockPos, pLevel);
-		var icariaPortalShapeZ = new IcariaPortalShape(Direction.Axis.Z, pBlockPos, pLevel);
+	public PortalShape getIcariaPortalShape(BlockPos pBlockPos, Level pLevel) {
+		var icariaPortalShapeX = new PortalShape(Direction.Axis.X, pBlockPos, pLevel);
+		var icariaPortalShapeZ = new PortalShape(Direction.Axis.Z, pBlockPos, pLevel);
 		if (icariaPortalShapeX.canSet() && icariaPortalShapeX.isComplete()) {
 			return icariaPortalShapeX;
 		} else if (icariaPortalShapeZ.canSet() && icariaPortalShapeZ.isComplete()) {

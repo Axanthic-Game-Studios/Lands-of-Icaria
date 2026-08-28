@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.FireJellyfishEmissiveLayer;
+import com.axanthic.icaria.client.layer.FireJellyfishEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.FireJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.FireJellyfishRenderState;
@@ -24,7 +24,7 @@ import net.minecraft.util.Mth;
 public class FireJellyfishRenderer extends MobRenderer<FireJellyfishEntity, FireJellyfishRenderState, FireJellyfishModel> {
 	public FireJellyfishRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new FireJellyfishModel(pContext.bakeLayer(IcariaModelLayerLocations.FIRE_JELLYFISH)), 1.0F);
-		this.addLayer(new FireJellyfishEmissiveLayer(this));
+		this.addLayer(new FireJellyfishEmissiveRenderLayer(this));
 	}
 
 	@Override

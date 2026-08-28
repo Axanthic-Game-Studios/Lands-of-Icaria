@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
-import com.axanthic.icaria.common.handler.item.KilnOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.slot.KilnSlot;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -17,8 +17,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,41 +28,41 @@ public class KilnMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public KilnMenu(int pContainerId, Inventory pInventory) {
-		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), null, null);
-	}
-
-	public KilnMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pInput, ItemStackHandler pOutput, @Nullable KilnBlockEntity pBlockEntity, @Nullable Player pPlayer) {
+	public KilnMenu(int pContainerId, @Nullable KilnBlockEntity pBlockEntity, @Nullable Player pPlayer, ContainerData pContainerData, Inventory pInventory, ItemStacksResourceHandler pHandler) {
 		super(IcariaMenus.KILN.get(), pContainerId);
-		this.blockEntity = pBlockEntity;
-		this.containerData = pContainerData;
+		this.setBlockEntity(pBlockEntity);
+		this.setContainerData(pContainerData);
 		this.addDataSlots(pContainerData);
-		this.addSlot(new SlotItemHandler(pFuel, 0, 45, 58));
-		this.addSlot(new SlotItemHandler(pInput, 0, 45, 22));
-		this.addSlot(new KilnOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 111, 40));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 0, 45, 58));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 1, 45, 22));
+		this.addSlot(new KilnSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 2, 111, 40));
 		this.addSlots(pInventory, 9, 9, 3, 8, 94);
 		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
-	@Override
-	public boolean stillValid(Player pPlayer) {
-		return !this.blockEntity.isRemoved();
+	public KilnMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, null, null, new SimpleContainerData(4), pInventory, new ItemStacksResourceHandler(3));
 	}
 
-	public int getMaxFuel() {
-		return this.containerData.get(0);
+	@Override
+	public boolean stillValid(Player pPlayer) {
+		return !this.getBlockEntity().isRemoved();
 	}
 
 	public int getFuel() {
-		return this.containerData.get(1);
+		return this.getContainerData().get(0);
 	}
 
-	public int getMaxProgress() {
-		return this.containerData.get(2);
+	public int getMaxFuel() {
+		return this.getContainerData().get(1);
 	}
 
 	public int getProgress() {
-		return this.containerData.get(3);
+		return this.getContainerData().get(2);
+	}
+
+	public int getMaxProgress() {
+		return this.getContainerData().get(3);
 	}
 
 	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
@@ -87,6 +87,22 @@ public class KilnMenu extends AbstractContainerMenu {
 		} else {
 			this.moveItemStackTo(pItemStack, 3, 30, false);
 		}
+	}
+
+	public void setBlockEntity(@Nullable KilnBlockEntity pBlockEntity) {
+		this.blockEntity = pBlockEntity;
+	}
+
+	public void setContainerData(ContainerData pContainerData) {
+		this.containerData = pContainerData;
+	}
+
+	public KilnBlockEntity getBlockEntity() {
+		return this.blockEntity;
+	}
+
+	public ContainerData getContainerData() {
+		return this.containerData;
 	}
 
 	@Override

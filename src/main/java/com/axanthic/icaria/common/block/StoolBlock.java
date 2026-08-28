@@ -54,7 +54,7 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.STOOL_TAKEN) ? 15 : 0;
 	}
 

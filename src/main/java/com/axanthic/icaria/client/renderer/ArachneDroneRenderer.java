@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.ArachneDroneEmissiveLayer;
+import com.axanthic.icaria.client.layer.ArachneDroneEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.ArachneDroneModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ArachneDroneRenderState;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 public class ArachneDroneRenderer extends MobRenderer<ArachneDroneEntity, ArachneDroneRenderState, ArachneDroneModel> {
 	public ArachneDroneRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new ArachneDroneModel(pContext.bakeLayer(IcariaModelLayerLocations.ARACHNE_DRONE)), 1.0F);
-		this.addLayer(new ArachneDroneEmissiveLayer(this));
+		this.addLayer(new ArachneDroneEmissiveRenderLayer(this));
 	}
 
 	@Override

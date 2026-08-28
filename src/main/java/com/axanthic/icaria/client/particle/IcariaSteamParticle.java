@@ -4,18 +4,17 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.particle.ParticleRenderType;
+import net.minecraft.client.particle.SingleQuadParticle;
 import net.minecraft.client.particle.SpriteSet;
-import net.minecraft.client.particle.TextureSheetParticle;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaSteamParticle extends TextureSheetParticle {
+public class IcariaSteamParticle extends SingleQuadParticle {
 	public SpriteSet spriteSet;
 
 	public IcariaSteamParticle(ClientLevel pClientLevel, double pX, double pY, double pZ, double pXSpeed, double pYSpeed, double pZSpeed, SpriteSet pSpriteSet) {
-		super(pClientLevel, pX, pY, pZ);
+		super(pClientLevel, pX, pY, pZ, pSpriteSet.first());
 		this.spriteSet = pSpriteSet;
 		this.xd = pXSpeed;
 		this.yd = pYSpeed;
@@ -41,7 +40,7 @@ public class IcariaSteamParticle extends TextureSheetParticle {
 	}
 
 	@Override
-	public ParticleRenderType getRenderType() {
-		return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+	public Layer getLayer() {
+		return Layer.TRANSLUCENT;
 	}
 }

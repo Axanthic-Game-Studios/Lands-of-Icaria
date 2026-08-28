@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DryVineFeature extends IcariaVineFeature {
+public class DryVineFeature extends VineFeature {
 	public DryVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DRY_VINE.get());
 	}

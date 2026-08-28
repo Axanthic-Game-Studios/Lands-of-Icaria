@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
-import com.axanthic.icaria.common.handler.item.ForgeOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.slot.ForgeSlot;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -17,8 +17,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,44 +28,44 @@ public class ForgeMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public ForgeMenu(int pContainerId, Inventory pInventory) {
-		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(2), null, null);
-	}
-
-	public ForgeMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pInputA, ItemStackHandler pInputB, ItemStackHandler pInputC, ItemStackHandler pOutput, @Nullable ForgeBlockEntity pBlockEntity, @Nullable Player pPlayer) {
+	public ForgeMenu(int pContainerId, @Nullable ForgeBlockEntity pBlockEntity, @Nullable Player pPlayer, ContainerData pContainerData, Inventory pInventory, ItemStacksResourceHandler pHandler) {
 		super(IcariaMenus.FORGE.get(), pContainerId);
-		this.blockEntity = pBlockEntity;
-		this.containerData = pContainerData;
+		this.setBlockEntity(pBlockEntity);
+		this.setContainerData(pContainerData);
 		this.addDataSlots(pContainerData);
-		this.addSlot(new SlotItemHandler(pFuel, 0, 54, 58));
-		this.addSlot(new SlotItemHandler(pInputA, 0, 36, 22));
-		this.addSlot(new SlotItemHandler(pInputB, 0, 54, 22));
-		this.addSlot(new SlotItemHandler(pInputC, 0, 72, 22));
-		this.addSlot(new ForgeOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 120, 54));
-		this.addSlot(new ForgeOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 1, 120, 26));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 0, 54, 58));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 1, 36, 22));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 2, 54, 22));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 3, 72, 22));
+		this.addSlot(new ForgeSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 4, 120, 54));
+		this.addSlot(new ForgeSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 5, 120, 26));
 		this.addSlots(pInventory, 9, 9, 3, 8, 94);
 		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
-	@Override
-	public boolean stillValid(Player pPlayer) {
-		return !this.blockEntity.isRemoved();
+	public ForgeMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, null, null, new SimpleContainerData(4), pInventory, new ItemStacksResourceHandler(6));
 	}
 
-	public int getMaxFuel() {
-		return this.containerData.get(0);
+	@Override
+	public boolean stillValid(Player pPlayer) {
+		return !this.getBlockEntity().isRemoved();
 	}
 
 	public int getFuel() {
-		return this.containerData.get(1);
+		return this.getContainerData().get(0);
 	}
 
-	public int getMaxProgress() {
-		return this.containerData.get(2);
+	public int getMaxFuel() {
+		return this.getContainerData().get(1);
 	}
 
 	public int getProgress() {
-		return this.containerData.get(3);
+		return this.getContainerData().get(2);
+	}
+
+	public int getMaxProgress() {
+		return this.getContainerData().get(3);
 	}
 
 	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
@@ -90,6 +90,22 @@ public class ForgeMenu extends AbstractContainerMenu {
 		} else {
 			this.moveItemStackTo(pItemStack, 6, 33, false);
 		}
+	}
+
+	public void setBlockEntity(@Nullable ForgeBlockEntity pBlockEntity) {
+		this.blockEntity = pBlockEntity;
+	}
+
+	public void setContainerData(ContainerData pContainerData) {
+		this.containerData = pContainerData;
+	}
+
+	public ForgeBlockEntity getBlockEntity() {
+		return this.blockEntity;
+	}
+
+	public ContainerData getContainerData() {
+		return this.containerData;
 	}
 
 	@Override

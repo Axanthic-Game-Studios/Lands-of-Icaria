@@ -1,17 +1,16 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class TotemItem extends Item {
-	public TotemItem(Properties pProperties) {
-		super(pProperties.repairable(IcariaItemTagsProvider.REPAIRS_TOTEM));
+	public TotemItem(TagKey<Item> pTagKey, Properties pProperties) {
+		super(pProperties.repairable(pTagKey));
 	}
 }

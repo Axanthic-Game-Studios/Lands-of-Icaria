@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveLayer;
-import com.axanthic.icaria.client.layer.MyrmekeQueenRaysLayer;
+import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveRenderLayer;
+import com.axanthic.icaria.client.layer.MyrmekeQueenRaysRenderLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
@@ -21,8 +21,8 @@ import net.minecraft.resources.ResourceLocation;
 public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, MyrmekeQueenRenderState, MyrmekeQueenModel> {
 	public MyrmekeQueenRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new MyrmekeQueenModel(pContext.bakeLayer(IcariaModelLayerLocations.MYRMEKE_QUEEN_BODY)), 0.75F);
-		this.addLayer(new MyrmekeQueenEmissiveLayer(this));
-		this.addLayer(new MyrmekeQueenRaysLayer(this));
+		this.addLayer(new MyrmekeQueenEmissiveRenderLayer(this));
+		this.addLayer(new MyrmekeQueenRaysRenderLayer(this));
 	}
 
 	@Override

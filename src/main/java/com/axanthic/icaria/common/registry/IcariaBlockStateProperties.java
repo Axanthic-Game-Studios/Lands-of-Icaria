@@ -5,7 +5,6 @@ import com.axanthic.icaria.common.properties.*;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
@@ -20,21 +19,22 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty FLOWER_POTTED = BooleanProperty.create("flower_potted");
 	public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");
 	public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
-	public static final BooleanProperty LABEL_UP = BooleanProperty.create("label_up");
+	public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
+	public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
+	public static final BooleanProperty MULTI_HUTCH = BooleanProperty.create("multi_hutch");
+	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
+	public static final BooleanProperty POT_FILLED = BooleanProperty.create("pot_filled");
+	public static final BooleanProperty RIPE_BUSH = BooleanProperty.create("ripe_bush");
+	public static final BooleanProperty STANDING_BARREL = BooleanProperty.create("standing_barrel");
+	public static final BooleanProperty STOOL_TAKEN = BooleanProperty.create("stool_taken");
+	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
+
 	public static final BooleanProperty LABEL_NORTH = BooleanProperty.create("label_north");
 	public static final BooleanProperty LABEL_EAST = BooleanProperty.create("label_east");
 	public static final BooleanProperty LABEL_SOUTH = BooleanProperty.create("label_south");
 	public static final BooleanProperty LABEL_WEST = BooleanProperty.create("label_west");
-	public static final BooleanProperty LOADED_BARREL = BooleanProperty.create("loaded_barrel");
-	public static final BooleanProperty MEDITERRANEAN_WATERLOGGED = BooleanProperty.create("mediterranean_waterlogged");
-	public static final BooleanProperty MULTI_SHELF = BooleanProperty.create("multi_shelf");
-	public static final BooleanProperty PLAYER_PLACED = BooleanProperty.create("player_placed");
-	public static final BooleanProperty POT_FILLED = BooleanProperty.create("pot_filled");
-	public static final BooleanProperty RIPE_BUSH = BooleanProperty.create("ripe_bush");
-	public static final BooleanProperty STOOL_TAKEN = BooleanProperty.create("stool_taken");
-	public static final BooleanProperty TAPPED_BARREL = BooleanProperty.create("tapped_barrel");
-
-	public static final EnumProperty<Direction> BARREL_FACING = EnumProperty.create("barrel_facing", Direction.class, direction -> direction != Direction.DOWN);
+	public static final BooleanProperty LABEL_UP = BooleanProperty.create("label_up");
+	public static final BooleanProperty LABEL_DOWN = BooleanProperty.create("label_down");
 
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
@@ -68,4 +68,5 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty POT_FILL = IntegerProperty.create("pot_fill", 0, 3);
 	public static final IntegerProperty SUSPICIOUS_SUBSTANCE = IntegerProperty.create("suspicious_substance", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);
+	public static final IntegerProperty VASE_VARIANT = IntegerProperty.create("vase_variant", 0, 9);
 }

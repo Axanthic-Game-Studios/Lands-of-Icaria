@@ -65,7 +65,7 @@ public class IcariaRenderTypes {
 		.setLineState(RenderStateShard.DEFAULT_LINE)
 		.setOutputState(RenderStateShard.MAIN_TARGET)
 		.setOverlayState(RenderStateShard.NO_OVERLAY)
-		.setTextureState(RenderStateShard.BLOCK_SHEET)
+		.setTextureState(IcariaRenderStateShards.SPELL_TEXTURE)
 		.setTexturingState(RenderStateShard.DEFAULT_TEXTURING)
 		.createCompositeState(false)
 	);

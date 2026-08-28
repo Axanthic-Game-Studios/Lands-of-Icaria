@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.block;
 
-import com.axanthic.icaria.common.menu.IcariaCraftingMenu;
+import com.axanthic.icaria.common.menu.CraftingTableMenu;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -24,6 +24,6 @@ public class IcariaCraftingTableBlock extends CraftingTableBlock {
 
 	@Override
 	public MenuProvider getMenuProvider(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
-		return new SimpleMenuProvider((i, inventory, player) -> new IcariaCraftingMenu(i, inventory, ContainerLevelAccess.create(pLevel, pBlockPos), this), Component.translatable("container.crafting"));
+		return new SimpleMenuProvider((i, inventory, player) -> new CraftingTableMenu(i, inventory, ContainerLevelAccess.create(pLevel, pBlockPos), this), Component.translatable("container.crafting"));
 	}
 }

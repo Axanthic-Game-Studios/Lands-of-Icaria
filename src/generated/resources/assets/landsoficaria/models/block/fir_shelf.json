@@ -1,9 +1,7 @@
 {
-  "parent": "landsoficaria:block/template_shelf",
+  "parent": "minecraft:block/template_shelf_body",
   "textures": {
-    "log": "landsoficaria:block/fir_log",
-    "log_top": "landsoficaria:block/fir_log_top",
-    "particle": "landsoficaria:block/fir_planks",
-    "planks": "landsoficaria:block/fir_planks"
+    "all": "landsoficaria:block/fir_shelf",
+    "particle": "landsoficaria:block/stripped_fir_log"
   }
 }

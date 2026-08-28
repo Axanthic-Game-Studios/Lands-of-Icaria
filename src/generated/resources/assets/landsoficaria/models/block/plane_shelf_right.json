@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_right",
+  "textures": {
+    "all": "landsoficaria:block/plane_shelf",
+    "particle": "landsoficaria:block/stripped_plane_log"
+  }
+}

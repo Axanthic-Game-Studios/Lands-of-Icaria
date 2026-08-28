@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": "landsoficaria:fir_log",
-    "B": "landsoficaria:fir_planks"
+    "A": "landsoficaria:stripped_fir_log"
   },
   "pattern": [
-    "ABA",
-    "A A",
-    "ABA"
+    "AAA",
+    "   ",
+    "AAA"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "landsoficaria:fir_shelf"
   }
 }

@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.menu;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.handler.item.GrinderOutputSlotItemHandler;
 import com.axanthic.icaria.common.registry.IcariaMenus;
+import com.axanthic.icaria.common.slot.GrinderSlot;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -17,8 +17,8 @@ import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-import net.neoforged.neoforge.items.ItemStackHandler;
-import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.transfer.item.ItemStacksResourceHandler;
+import net.neoforged.neoforge.transfer.item.ResourceHandlerSlot;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,44 +28,44 @@ public class GrinderMenu extends AbstractContainerMenu {
 
 	public ContainerData containerData;
 
-	public GrinderMenu(int pContainerId, Inventory pInventory) {
-		this(pContainerId, pInventory, new SimpleContainerData(4), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(1), new ItemStackHandler(3), null, null);
-	}
-
-	public GrinderMenu(int pContainerId, Inventory pInventory, ContainerData pContainerData, ItemStackHandler pFuel, ItemStackHandler pGear, ItemStackHandler pInput, ItemStackHandler pOutput, @Nullable GrinderBlockEntity pBlockEntity, @Nullable Player pPlayer) {
+	public GrinderMenu(int pContainerId, @Nullable GrinderBlockEntity pBlockEntity, @Nullable Player pPlayer, ContainerData pContainerData, Inventory pInventory, ItemStacksResourceHandler pHandler) {
 		super(IcariaMenus.GRINDER.get(), pContainerId);
-		this.blockEntity = pBlockEntity;
-		this.containerData = pContainerData;
+		this.setBlockEntity(pBlockEntity);
+		this.setContainerData(pContainerData);
 		this.addDataSlots(pContainerData);
-		this.addSlot(new SlotItemHandler(pFuel, 0, 36, 58));
-		this.addSlot(new SlotItemHandler(pGear, 0, 98, 49));
-		this.addSlot(new SlotItemHandler(pInput, 0, 36, 22));
-		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 0, 124, 58));
-		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 1, 124, 40));
-		this.addSlot(new GrinderOutputSlotItemHandler(pOutput, pBlockEntity, pPlayer, 2, 124, 22));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 0, 36, 58));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 1, 98, 49));
+		this.addSlot(new ResourceHandlerSlot(pHandler, pHandler::set, 2, 36, 22));
+		this.addSlot(new GrinderSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 3, 124, 58));
+		this.addSlot(new GrinderSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 4, 124, 40));
+		this.addSlot(new GrinderSlot(pBlockEntity, pPlayer, pHandler, pHandler::set, 5, 124, 22));
 		this.addSlots(pInventory, 9, 9, 3, 8, 94);
 		this.addSlots(pInventory, 0, 9, 1, 8, 152);
 	}
 
-	@Override
-	public boolean stillValid(Player pPlayer) {
-		return !this.blockEntity.isRemoved();
+	public GrinderMenu(int pContainerId, Inventory pInventory) {
+		this(pContainerId, null, null, new SimpleContainerData(4), pInventory, new ItemStacksResourceHandler(6));
 	}
 
-	public int getMaxFuel() {
-		return this.containerData.get(0);
+	@Override
+	public boolean stillValid(Player pPlayer) {
+		return !this.getBlockEntity().isRemoved();
 	}
 
 	public int getFuel() {
-		return this.containerData.get(1);
+		return this.getContainerData().get(0);
 	}
 
-	public int getMaxProgress() {
-		return this.containerData.get(2);
+	public int getMaxFuel() {
+		return this.getContainerData().get(1);
 	}
 
 	public int getProgress() {
-		return this.containerData.get(3);
+		return this.getContainerData().get(2);
+	}
+
+	public int getMaxProgress() {
+		return this.getContainerData().get(3);
 	}
 
 	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
@@ -90,6 +90,22 @@ public class GrinderMenu extends AbstractContainerMenu {
 		} else {
 			this.moveItemStackTo(pItemStack, 6, 33, false);
 		}
+	}
+
+	public void setBlockEntity(@Nullable GrinderBlockEntity pBlockEntity) {
+		this.blockEntity = pBlockEntity;
+	}
+
+	public void setContainerData(ContainerData pContainerData) {
+		this.containerData = pContainerData;
+	}
+
+	public GrinderBlockEntity getBlockEntity() {
+		return this.blockEntity;
+	}
+
+	public ContainerData getContainerData() {
+		return this.containerData;
 	}
 
 	@Override

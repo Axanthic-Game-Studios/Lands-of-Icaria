@@ -1,12 +1,9 @@
 package com.axanthic.icaria;
 
 import com.axanthic.icaria.common.config.IcariaConfig;
-import com.axanthic.icaria.common.packet.ChestLabelPacket;
-import com.axanthic.icaria.common.packet.GrinderPacket;
-import com.axanthic.icaria.common.packet.LootVasePacket;
-import com.axanthic.icaria.common.packet.TotemPacket;
+import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
+import com.axanthic.icaria.common.types.SkullBlockTypes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -83,6 +80,7 @@ public class Icaria {
 		IcariaRecipeDisplays.RECIPE_DISPLAYS.register(pBus);
 		IcariaRecipeSerializers.RECIPE_SERIALIZERS.register(pBus);
 		IcariaRecipeTypes.RECIPE_TYPES.register(pBus);
+		IcariaSlotDisplayTypes.SLOT_DISPLAY_TYPES.register(pBus);
 		IcariaStructureTypes.STRUCTURE_TYPES.register(pBus);
 	}
 
@@ -91,21 +89,21 @@ public class Icaria {
 	}
 
 	public static void registerSkullTypes(FMLClientSetupEvent pEvent) {
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CAPELLA, IcariaResourceLocations.CAPELLA));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CERVER, IcariaResourceLocations.CERVER));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CROCOTTA, IcariaResourceLocations.CROCOTTA));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(IcariaSkullBlockTypes.THOG, IcariaResourceLocations.THOG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CAPELLA, IcariaResourceLocations.CAPELLA));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CERVER, IcariaResourceLocations.CERVER));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CROCOTTA, IcariaResourceLocations.CROCOTTA));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT));
+		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.THOG, IcariaResourceLocations.THOG));
 	}
 
 	public static void registerWoodTypes(FMLClientSetupEvent pEvent) {
@@ -125,9 +123,10 @@ public class Icaria {
 	}
 
 	public static void registerPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		pEvent.registrar(IcariaIdents.ID).playToClient(GrinderPacket.TYPE, GrinderPacket.STREAM_CODEC, GrinderPacket::handle);
-		pEvent.registrar(IcariaIdents.ID).playToClient(LootVasePacket.TYPE, LootVasePacket.STREAM_CODEC, LootVasePacket::handle);
-		pEvent.registrar(IcariaIdents.ID).playToClient(TotemPacket.TYPE, TotemPacket.STREAM_CODEC, TotemPacket::handle);
-		pEvent.registrar(IcariaIdents.ID).playToServer(ChestLabelPacket.TYPE, ChestLabelPacket.STREAM_CODEC, ChestLabelPacket::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
+		pEvent.registrar(IcariaIdents.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(LootVasePayload.TYPE, LootVasePayload.STREAM_CODEC, LootVasePayload::handle);
+		pEvent.registrar(IcariaIdents.ID).playToClient(TotemPayload.TYPE, TotemPayload.STREAM_CODEC, TotemPayload::handle);
 	}
 }

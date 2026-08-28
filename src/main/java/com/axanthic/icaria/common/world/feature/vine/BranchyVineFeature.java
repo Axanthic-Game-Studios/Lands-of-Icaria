@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class BranchyVineFeature extends IcariaVineFeature {
+public class BranchyVineFeature extends VineFeature {
 	public BranchyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.BRANCHY_VINE.get());
 	}

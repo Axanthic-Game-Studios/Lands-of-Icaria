@@ -22,8 +22,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
-@SuppressWarnings("deprecation")
-
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
@@ -39,7 +37,7 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.FLOWER_POTTED) ? 15 : 0;
 	}
 
@@ -63,12 +61,12 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 	}
 
 	public InteractionResult useItemOn(FlowerPotCountertopBlockEntity blockEntity, ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer) {
-		if (blockEntity.getItem() == null && pItemStack.getItem().builtInRegistryHolder().getData(IcariaDataMapTypes.POTTABLES) != null) {
+		if (blockEntity.getItem() == null && pItemStack.getItemHolder().getData(IcariaDataMapTypes.POTTABLES) != null) {
 			blockEntity.setItem(pItemStack.getItem());
 			pItemStack.consume(1, pPlayer);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, true));
 			return InteractionResult.SUCCESS;
-		} else if (blockEntity.getItem() != null && pItemStack.getItem().builtInRegistryHolder().getData(IcariaDataMapTypes.POTTABLES) == null) {
+		} else if (blockEntity.getItem() != null && pItemStack.getItemHolder().getData(IcariaDataMapTypes.POTTABLES) == null) {
 			Block.popResource(pLevel, pBlockPos, new ItemStack(blockEntity.getItem()));
 			blockEntity.setItem(null);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, false));

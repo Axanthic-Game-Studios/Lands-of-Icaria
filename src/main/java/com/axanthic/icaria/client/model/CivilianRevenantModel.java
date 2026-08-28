@@ -23,7 +23,7 @@ import net.minecraft.world.entity.HumanoidArm;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CivilianRevenantModel extends EntityModel<CivilianRevenantRenderState> implements ArmedModel {
+public class CivilianRevenantModel extends EntityModel<CivilianRevenantRenderState> implements ArmedModel<CivilianRevenantRenderState> {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart jawUpper;
@@ -124,7 +124,7 @@ public class CivilianRevenantModel extends EntityModel<CivilianRevenantRenderSta
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+	public void translateToHand(CivilianRevenantRenderState pRenderState, HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
 		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);

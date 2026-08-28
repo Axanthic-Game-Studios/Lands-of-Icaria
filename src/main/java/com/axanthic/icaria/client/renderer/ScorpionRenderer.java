@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.ScorpionEmissiveLayer;
+import com.axanthic.icaria.client.layer.ScorpionEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.ScorpionModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ScorpionRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class ScorpionRenderer extends MobRenderer<ScorpionEntity, ScorpionRenderState, ScorpionModel> {
 	public ScorpionRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new ScorpionModel(pContext.bakeLayer(IcariaModelLayerLocations.SCORPION)), 1.375F);
-		this.addLayer(new ScorpionEmissiveLayer(this));
+		this.addLayer(new ScorpionEmissiveRenderLayer(this));
 	}
 
 	@Override

@@ -19,9 +19,9 @@ public class IcariaRenderPipelines {
 		.withDepthWrite(false)
 		.withBlend(IcariaBlendFunctions.ADDITIVE)
 		.withFragmentShader(IcariaResourceLocations.ADDITIVE_SHADER)
+		.withVertexShader(IcariaResourceLocations.ADDITIVE_SHADER)
 		.withLocation(IcariaResourceLocations.ADDITIVE_RENDER_PIPELINE)
 		.withVertexFormat(DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS)
-		.withVertexShader(IcariaResourceLocations.ADDITIVE_SHADER)
 		.build();
 
 	public static final RenderPipeline ADDITIVE_TEXTURED = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
@@ -29,8 +29,8 @@ public class IcariaRenderPipelines {
 		.withSampler("Sampler0")
 		.withBlend(IcariaBlendFunctions.ADDITIVE)
 		.withFragmentShader(IcariaResourceLocations.ADDITIVE_TEXTURED_SHADER)
+		.withVertexShader(IcariaResourceLocations.ADDITIVE_TEXTURED_SHADER)
 		.withLocation(IcariaResourceLocations.ADDITIVE_TEXTURED_RENDER_PIPELINE)
 		.withVertexFormat(DefaultVertexFormat.POSITION_TEX_COLOR, VertexFormat.Mode.QUADS)
-		.withVertexShader(IcariaResourceLocations.ADDITIVE_TEXTURED_SHADER)
 		.build();
 }

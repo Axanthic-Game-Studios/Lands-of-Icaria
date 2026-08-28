@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.fluid.type.MediterraneanWaterFluidType;
+import com.axanthic.icaria.common.type.MediterraneanWaterFluidType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 

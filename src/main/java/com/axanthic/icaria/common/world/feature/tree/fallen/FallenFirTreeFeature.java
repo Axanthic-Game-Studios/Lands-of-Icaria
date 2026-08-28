@@ -15,7 +15,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FallenFirTreeFeature extends FallenIcariaTreeFeature {
+public class FallenFirTreeFeature extends FallenTreeFeature {
 	public FallenFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.FIR_TWIGS.get());
 	}

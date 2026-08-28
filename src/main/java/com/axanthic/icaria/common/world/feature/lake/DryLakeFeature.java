@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DryLakeFeature extends IcariaLakeFeature {
+public class DryLakeFeature extends LakeFeature {
 	public DryLakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DRY_LAKE_BED.get(), Blocks.AIR);
 	}

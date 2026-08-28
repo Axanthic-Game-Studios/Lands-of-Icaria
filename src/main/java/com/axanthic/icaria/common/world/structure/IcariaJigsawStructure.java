@@ -28,6 +28,7 @@ import net.minecraft.world.level.levelgen.structure.pools.JigsawPlacement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasBinding;
 import net.minecraft.world.level.levelgen.structure.pools.alias.PoolAliasLookup;
+import net.minecraft.world.level.levelgen.structure.structures.JigsawStructure;
 import net.minecraft.world.level.levelgen.structure.templatesystem.LiquidSettings;
 
 @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
@@ -39,7 +40,7 @@ public class IcariaJigsawStructure extends Structure {
 	public boolean useExpansionHack;
 
 	public int maxDepth;
-	public int maxDistanceFromCenter;
+	public JigsawStructure.MaxDistance maxDistanceFromCenter;
 
 	public DimensionPadding dimensionPadding;
 
@@ -65,14 +66,14 @@ public class IcariaJigsawStructure extends Structure {
 			HeightProvider.CODEC.fieldOf("max_height").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxHeight),
 			Codec.BOOL.fieldOf("use_expansion_hack").forGetter(icariaJigsawStructure -> icariaJigsawStructure.useExpansionHack),
 			Heightmap.Types.CODEC.optionalFieldOf("project_start_to_heightmap").forGetter(icariaJigsawStructure -> icariaJigsawStructure.projectStartToHeightmap),
-			Codec.intRange(1, 256).fieldOf("max_distance_from_center").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxDistanceFromCenter),
+			JigsawStructure.MaxDistance.CODEC.fieldOf("max_distance_from_center").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxDistanceFromCenter),
 			Codec.list(PoolAliasBinding.CODEC).optionalFieldOf("pool_aliases", List.of()).forGetter(icariaJigsawStructure -> icariaJigsawStructure.poolAliases),
 			DimensionPadding.CODEC.optionalFieldOf("dimension_padding", DimensionPadding.ZERO).forGetter(icariaJigsawStructure -> icariaJigsawStructure.dimensionPadding),
 			LiquidSettings.CODEC.optionalFieldOf("liquid_settings", LiquidSettings.APPLY_WATERLOGGING).forGetter(icariaJigsawStructure -> icariaJigsawStructure.liquidSettings)
 		).apply(instance, IcariaJigsawStructure::new)
 	).validate(IcariaJigsawStructure::verifyRange);
 
-	public IcariaJigsawStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<ResourceLocation> pStartJigsawName, int pMaxDepth, HeightProvider pMinHeight, HeightProvider pMaxHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, int pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
+	public IcariaJigsawStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<ResourceLocation> pStartJigsawName, int pMaxDepth, HeightProvider pMinHeight, HeightProvider pMaxHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, JigsawStructure.MaxDistance pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
 		super(pStructureSettings);
 		this.startPool = pStartPool;
 		this.startJigsawName = pStartJigsawName;
@@ -95,7 +96,7 @@ public class IcariaJigsawStructure extends Structure {
 	}
 
 	public static DataResult<IcariaJigsawStructure> verifyRange(IcariaJigsawStructure pStructure) {
-		return pStructure.maxDistanceFromCenter + IcariaJigsawStructure.terrainAdaptation(pStructure) > 256 ? DataResult.error(() -> "Structure size including terrain adaptation must not exceed 256.") : DataResult.success(pStructure);
+		return pStructure.maxDistanceFromCenter.horizontal() + IcariaJigsawStructure.terrainAdaptation(pStructure) > 256 ? DataResult.error(() -> "Structure size including terrain adaptation must not exceed 256.") : DataResult.success(pStructure);
 	}
 
 	@Override

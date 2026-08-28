@@ -18,10 +18,10 @@ import net.minecraft.world.item.ItemStack;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record FicheVariant(ClientAsset clientAsset, ItemStack itemStack) {
+public record FicheVariant(ClientAsset.ResourceTexture clientAsset, ItemStack itemStack) {
 	public static final Codec<FicheVariant> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
-			ClientAsset.CODEC.fieldOf("asset").forGetter(FicheVariant::clientAsset),
+			ClientAsset.ResourceTexture.CODEC.fieldOf("asset").forGetter(FicheVariant::clientAsset),
 			ItemStack.CODEC.fieldOf("stack").forGetter(FicheVariant::itemStack)
 		).apply(instance, FicheVariant::new)
 	);

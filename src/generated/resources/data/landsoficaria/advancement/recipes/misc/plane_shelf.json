@@ -1,21 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:plane_log": {
+    "has_landsoficaria:stripped_plane_log": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:plane_log"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
-    "has_landsoficaria:plane_planks": {
-      "conditions": {
-        "items": [
-          {
-            "items": "landsoficaria:plane_planks"
+            "items": "landsoficaria:stripped_plane_log"
           }
         ]
       },
@@ -31,8 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_landsoficaria:plane_log",
-      "has_landsoficaria:plane_planks"
+      "has_landsoficaria:stripped_plane_log"
     ]
   ],
   "rewards": {

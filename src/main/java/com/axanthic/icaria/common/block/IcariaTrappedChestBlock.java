@@ -10,6 +10,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stat;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
@@ -23,8 +24,8 @@ import net.minecraft.world.level.block.state.BlockState;
 @ParametersAreNonnullByDefault
 
 public class IcariaTrappedChestBlock extends IcariaChestBlock {
-	public IcariaTrappedChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, Properties pProperties) {
-		super(pBlockEntityType, pProperties);
+	public IcariaTrappedChestBlock(Supplier<BlockEntityType<? extends ChestBlockEntity>> pBlockEntityType, SoundEvent pOpen, SoundEvent pClose, Properties pProperties) {
+		super(pBlockEntityType, pOpen, pClose, pProperties);
 	}
 
 	@Override

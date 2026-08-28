@@ -17,7 +17,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractThrownPotion;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -60,7 +59,7 @@ public class CandleCountertopBlock extends CountertopBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) * 3;
 	}
 
@@ -197,7 +196,7 @@ public class CandleCountertopBlock extends CountertopBlock {
 		} else if (pItemStack.is(Items.PINK_CANDLE)) {
 			return this.candle(pBlockPos, pBlockState, Candle.PINK_CANDLE, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FIRE_CHARGE)) {
-			return this.charge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+			return this.fireCharge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FLINT_AND_STEEL)) {
 			return this.flintAndSteel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.isEmpty() && this.canHit(pBlockHitResult)) {
@@ -211,18 +210,6 @@ public class CandleCountertopBlock extends CountertopBlock {
 		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == Candle.NONE || pBlockState.getValue(IcariaBlockStateProperties.CANDLE) == pCandle && pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) < 4) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.CANDLE_PLACE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CANDLE, pCandle).setValue(IcariaBlockStateProperties.CANDLE_AMOUNT, pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) + 1));
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
-	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
@@ -245,12 +232,24 @@ public class CandleCountertopBlock extends CountertopBlock {
 		}
 	}
 
+	public InteractionResult fireCharge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
 	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT) && !pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

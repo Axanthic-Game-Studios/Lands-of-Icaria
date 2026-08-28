@@ -86,13 +86,13 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
-		return pLevel.getBlockEntity(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof KettleBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
+		return pBlockState.getValue(BlockStateProperties.LIT) ? 15 : 0;
 	}
 
 	@Override
 	public int getLightEmission(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
-		return pBlockState.getValue(BlockStateProperties.LIT) ? 13 : 0;
+		return pBlockState.getValue(BlockStateProperties.LIT) ? 15 : 0;
 	}
 
 	@Override
@@ -123,12 +123,11 @@ public class KettleBlock extends BaseEntityBlock {
 			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
 				if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
 					if (pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
-						var item = itemEntity.getItem();
-						if (item.is(IcariaItemTagsProvider.KETTLE_ITEMS)) {
-							var itemStack = new ItemStack(item.getItem());
-							blockEntity.resetProgress();
-							blockEntity.deque.offer(itemStack);
-							item.shrink(1);
+						var itemStack = itemEntity.getItem();
+						if (itemStack.is(IcariaItemTagsProvider.KETTLE_ITEMS)) {
+							blockEntity.reset();
+							blockEntity.set(itemStack);
+							itemStack.shrink(1);
 							pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
 							pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
 							pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
@@ -181,11 +180,7 @@ public class KettleBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			return new KettleBlockEntity(pBlockPos, pBlockState);
-		} else {
-			return null;
-		}
+		return new KettleBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
@@ -238,10 +233,11 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	public InteractionResult items(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
+		var blockPos = KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState);
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
-		if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity && pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			blockEntity.deque.offer(itemStack);
-			blockEntity.resetProgress();
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pLevel.getBlockEntity(blockPos) instanceof KettleBlockEntity blockEntity) {
+			blockEntity.reset();
+			blockEntity.set(itemStack);
 			itemStack.consume(1, pPlayer);
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
@@ -254,10 +250,8 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
-		if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity && pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
-			blockEntity.deque.clear();
-			blockEntity.resetProgress();
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
 			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
@@ -302,6 +296,6 @@ public class KettleBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
-		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KETTLE.get(), (level, blockPos, blockState, blockEntity) -> KettleBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
+		return pLevel instanceof ServerLevel serverLevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.KETTLE.get(), (level, blockPos, blockState, blockEntity) -> KettleBlockEntity.tick(blockEntity, serverLevel)) : null;
 	}
 }

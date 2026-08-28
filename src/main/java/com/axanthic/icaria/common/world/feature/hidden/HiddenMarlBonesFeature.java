@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class HiddenMarlBonesFeature extends HiddenIcariaFeature {
+public class HiddenMarlBonesFeature extends HiddenFeature {
 	public HiddenMarlBonesFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.MARL_BONES.get(), IcariaBlocks.SURFACE_BONES.get());
 	}

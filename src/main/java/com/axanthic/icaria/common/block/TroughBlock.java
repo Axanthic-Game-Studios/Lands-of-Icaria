@@ -60,7 +60,7 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(IcariaBlockStateProperties.TROUGH_FILL);
 	}
 

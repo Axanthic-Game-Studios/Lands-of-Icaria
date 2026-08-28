@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_hutch",
+  "textures": {
+    "log": "landsoficaria:block/fir_log",
+    "log_top": "landsoficaria:block/fir_log_top",
+    "particle": "landsoficaria:block/fir_planks",
+    "planks": "landsoficaria:block/fir_planks"
+  }
+}

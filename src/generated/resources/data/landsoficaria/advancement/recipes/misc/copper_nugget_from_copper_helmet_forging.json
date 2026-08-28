@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:copper_helmet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_helmet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:copper_nugget_from_copper_helmet_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:copper_helmet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:copper_nugget_from_copper_helmet_forging"
+    ]
+  }
+}

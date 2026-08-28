@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.packet.LootVasePacket;
+import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
@@ -21,7 +21,6 @@ import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
@@ -54,12 +53,12 @@ import net.neoforged.neoforge.network.PacketDistributor;
 public class IcariaBarrelBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public IcariaBarrelBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.BARREL_FACING, Direction.NORTH).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.STANDING_BARREL, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.BARREL_FACING, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.STANDING_BARREL, BlockStateProperties.WATERLOGGED);
 	}
 
 	@Override
@@ -89,7 +88,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public void tick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pServerLevel.getBlockState(pBlockPos.below()).canBeReplaced()) {
-			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pServerLevel, pBlockState, pBlockPos);
+			var entity = new IcariaBarrelEntity(IcariaEntityTypes.BARREL.get(), pServerLevel, pBlockState);
 			entity.snapTo(pBlockPos, 0, 0);
 			pServerLevel.addFreshEntity(entity);
 			pServerLevel.removeBlock(pBlockPos, false);
@@ -101,17 +100,17 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 		var fluid = pBlockPlaceContext.getLevel().getFluidState(pBlockPlaceContext.getClickedPos()).getType();
 		var horizontalDirection = pBlockPlaceContext.getHorizontalDirection();
 		var nearestLookingDirection = pBlockPlaceContext.getNearestLookingDirection();
-		return nearestLookingDirection == Direction.UP ? this.defaultBlockState().setValue(IcariaBlockStateProperties.BARREL_FACING, Direction.UP).setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER) : this.defaultBlockState().setValue(IcariaBlockStateProperties.BARREL_FACING, nearestLookingDirection.getOpposite()).setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, horizontalDirection.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.STANDING_BARREL, nearestLookingDirection == Direction.DOWN).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
 	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
-		return pBlockState.setValue(IcariaBlockStateProperties.BARREL_FACING, pMirror.mirror(pBlockState.getValue(IcariaBlockStateProperties.BARREL_FACING))).setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
 	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
-		return pBlockState.setValue(IcariaBlockStateProperties.BARREL_FACING, pRotation.rotate(pBlockState.getValue(IcariaBlockStateProperties.BARREL_FACING))).setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
 	}
 
 	@Override
@@ -135,7 +134,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 		} else if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED) && pItemStack.is(Items.FLINT_AND_STEEL)) {
 			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pInteractionHand));
+			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand.asEquipmentSlot());
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
@@ -144,15 +143,14 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel.isClientSide() || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || IcariaCommonHelper.canCarry(pPlayer)) {
+		if (pLevel.isClientSide() || pPlayer.getData(IcariaAttachmentTypes.BARREL) || pPlayer.getData(IcariaAttachmentTypes.LOOT_VASE) || !pPlayer.getMainHandItem().isEmpty() || !pPlayer.getOffhandItem().isEmpty() || IcariaCommonHelper.hasWrongCarrySetup(pPlayer)) {
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
 			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_POS, pBlockPos);
-			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
-			PacketDistributor.sendToAllPlayers(new LootVasePacket(true, pPlayer.getId(), pBlockPos, pBlockState));
+			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
+			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, pBlockState);
+			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), pBlockState));
 			return InteractionResult.PASS;
 		}
 	}

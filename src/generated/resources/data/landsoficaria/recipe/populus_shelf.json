@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": "landsoficaria:populus_log",
-    "B": "landsoficaria:populus_planks"
+    "A": "landsoficaria:stripped_populus_log"
   },
   "pattern": [
-    "ABA",
-    "A A",
-    "ABA"
+    "AAA",
+    "   ",
+    "AAA"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "landsoficaria:populus_shelf"
   }
 }

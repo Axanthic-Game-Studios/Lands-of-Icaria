@@ -1,7 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.CrystalSlugEmissiveLayer;
-import com.axanthic.icaria.client.layer.CrystalSlugRaysLayer;
+import com.axanthic.icaria.client.layer.CrystalSlugEmissiveRenderLayer;
+import com.axanthic.icaria.client.layer.CrystalSlugRaysRenderLayer;
 import com.axanthic.icaria.client.model.CrystalSlugModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrystalSlugRenderState;
@@ -14,9 +14,10 @@ import com.mojang.math.Axis;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.resources.ResourceLocation;
 
 @MethodsReturnNonnullByDefault
@@ -25,8 +26,8 @@ import net.minecraft.resources.ResourceLocation;
 public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRenderState, CrystalSlugModel> {
 	public CrystalSlugRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new CrystalSlugModel(pContext.bakeLayer(IcariaModelLayerLocations.CRYSTAL_SLUG_BODY)), 1.0F);
-		this.addLayer(new CrystalSlugEmissiveLayer(this));
-		this.addLayer(new CrystalSlugRaysLayer(this));
+		this.addLayer(new CrystalSlugEmissiveRenderLayer(this));
+		this.addLayer(new CrystalSlugRaysRenderLayer(this));
 	}
 
 	@Override
@@ -52,12 +53,6 @@ public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRend
 	}
 
 	@Override
-	public void render(CrystalSlugRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
-		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
-		this.shadowStrength = pRenderState.shadowStrength;
-	}
-
-	@Override
 	public void scale(CrystalSlugRenderState pRenderState, PoseStack pPoseStack) {
 		pPoseStack.scale(pRenderState.renderScale, pRenderState.renderScale, pRenderState.renderScale);
 	}
@@ -70,6 +65,12 @@ public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRend
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
 			pPoseStack.translate(0.0F, pRenderState.renderScale * -0.5F, 0.0F);
 		}
+	}
+
+	@Override
+	public void submit(CrystalSlugRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
+		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
+		this.shadowStrength = pRenderState.shadowStrength;
 	}
 
 	@Override

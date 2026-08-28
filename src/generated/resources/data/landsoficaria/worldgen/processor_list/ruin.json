@@ -2524,6 +2524,7 @@
               "Name": "landsoficaria:lost_loot_vase",
               "Properties": {
                 "mediterranean_waterlogged": "false",
+                "vase_variant": "0",
                 "waterlogged": "false"
               }
             },

@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.PopulusForestHagEmissiveLayer;
+import com.axanthic.icaria.client.layer.PopulusForestHagEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.PopulusForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PopulusForestHagRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class PopulusForestHagRenderer extends MobRenderer<ForestHagEntity, PopulusForestHagRenderState, PopulusForestHagModel> {
 	public PopulusForestHagRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new PopulusForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.POPULUS_FOREST_HAG)), 0.75F);
-		this.addLayer(new PopulusForestHagEmissiveLayer(this));
+		this.addLayer(new PopulusForestHagEmissiveRenderLayer(this));
 	}
 
 	@Override

@@ -13,7 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DeadPlaneTreeFeature extends DeadIcariaTreeFeature {
+public class DeadPlaneTreeFeature extends DeadTreeFeature {
 	public DeadPlaneTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.SCRUBLAND_MOSS.get(), IcariaBlocks.TURKEY_TAIL_TREE_SHROOMS.get(), IcariaBlocks.PLANE_TWIGS.get(), Moss.SCRUBLAND, 1, 3);
 	}

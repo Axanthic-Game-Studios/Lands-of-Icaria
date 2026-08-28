@@ -9,7 +9,6 @@ import com.axanthic.icaria.data.registry.IcariaLootTables;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -31,16 +30,14 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 @ParametersAreNonnullByDefault
 
 public class IcariaBarrelEntity extends Entity {
-	public static final EntityDataAccessor<BlockPos> BLOCK_POS = SynchedEntityData.defineId(IcariaBarrelEntity.class, EntityDataSerializers.BLOCK_POS);
 	public static final EntityDataAccessor<BlockState> BLOCK_STATE = SynchedEntityData.defineId(IcariaBarrelEntity.class, EntityDataSerializers.BLOCK_STATE);
 
 	public IcariaBarrelEntity(EntityType<? extends IcariaBarrelEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
 
-	public IcariaBarrelEntity(EntityType<? extends IcariaBarrelEntity> pEntityType, Level pLevel, BlockState pBlockState, BlockPos pBlockPos) {
+	public IcariaBarrelEntity(EntityType<? extends IcariaBarrelEntity> pEntityType, Level pLevel, BlockState pBlockState) {
 		this(pEntityType, pLevel);
-		this.setBlockPos(pBlockPos);
 		this.setBlockState(pBlockState);
 	}
 
@@ -61,13 +58,11 @@ public class IcariaBarrelEntity extends Entity {
 
 	@Override
 	public void addAdditionalSaveData(ValueOutput pValueOutput) {
-		pValueOutput.store("BlockPos", BlockPos.CODEC, this.getBlockPos());
 		pValueOutput.store("BlockState", BlockState.CODEC, this.getBlockState());
 	}
 
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-		pBuilder.define(IcariaBarrelEntity.BLOCK_POS, BlockPos.ZERO);
 		pBuilder.define(IcariaBarrelEntity.BLOCK_STATE, Blocks.AIR.defaultBlockState());
 	}
 
@@ -82,12 +77,7 @@ public class IcariaBarrelEntity extends Entity {
 
 	@Override
 	public void readAdditionalSaveData(ValueInput pValueInput) {
-		this.setBlockPos(pValueInput.read("BlockPos", BlockPos.CODEC).orElse(BlockPos.ZERO));
 		this.setBlockState(pValueInput.read("BlockState", BlockState.CODEC).orElse(Blocks.AIR.defaultBlockState()));
-	}
-
-	public void setBlockPos(BlockPos pBlockPos) {
-		this.entityData.set(IcariaBarrelEntity.BLOCK_POS, pBlockPos);
 	}
 
 	public void setBlockState(BlockState pBlockState) {
@@ -112,10 +102,6 @@ public class IcariaBarrelEntity extends Entity {
 			this.move(MoverType.SELF, this.getDeltaMovement());
 			this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.05D, 0.0D));
 		}
-	}
-
-	public BlockPos getBlockPos() {
-		return this.entityData.get(IcariaBarrelEntity.BLOCK_POS);
 	}
 
 	public BlockState getBlockState() {

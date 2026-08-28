@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:fir_log": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:fir_log"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:fir_planks": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:fir_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:fir_hutch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:fir_log",
+      "has_landsoficaria:fir_planks"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:fir_hutch"
+    ]
+  }
+}

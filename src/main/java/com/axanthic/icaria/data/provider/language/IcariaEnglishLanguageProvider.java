@@ -528,8 +528,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get(), "Cypress Pots Cupboard");
 		this.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get(), "Cypress Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), "Broken Cypress Cupboard");
-		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Cypress Shelf");
-		this.add(IcariaBlocks.CYPRESS_WALL_SHELF.get(), "Cypress Wall Shelf");
+		this.add(IcariaBlocks.CYPRESS_HUTCH.get(), "Cypress Hutch");
+		this.add(IcariaBlocks.CYPRESS_WALL_HUTCH.get(), "Cypress Wall Hutch");
 		this.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get(), "Cypress Kitchen Table");
 		this.add(IcariaBlocks.CYPRESS_KLINE.get(), "Cypress Kline");
 		this.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get(), "Cypress Crafting Table");
@@ -538,6 +538,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.CYPRESS_TRAPDOOR.get(), "Cypress Trapdoor");
 		this.add(IcariaBlocks.CYPRESS_PRESSURE_PLATE.get(), "Cypress Pressure Plate");
 		this.add(IcariaBlocks.CYPRESS_BUTTON.get(), "Cypress Button");
+		this.add(IcariaBlocks.CYPRESS_SHELF.get(), "Cypress Shelf");
 		this.add(IcariaBlocks.CYPRESS_LADDER.get(), "Cypress Ladder");
 		this.add(IcariaBlocks.CYPRESS_SIGN.get(), "Cypress Sign");
 		this.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get(), "Cypress Hanging Sign");
@@ -588,8 +589,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get(), "Droughtroot Pots Cupboard");
 		this.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get(), "Droughtroot Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get(), "Broken Droughtroot Cupboard");
-		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Droughtroot Shelf");
-		this.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get(), "Droughtroot Wall Shelf");
+		this.add(IcariaBlocks.DROUGHTROOT_HUTCH.get(), "Droughtroot Hutch");
+		this.add(IcariaBlocks.DROUGHTROOT_WALL_HUTCH.get(), "Droughtroot Wall Hutch");
 		this.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get(), "Droughtroot Kitchen Table");
 		this.add(IcariaBlocks.DROUGHTROOT_KLINE.get(), "Droughtroot Kline");
 		this.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get(), "Droughtroot Crafting Table");
@@ -598,6 +599,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.DROUGHTROOT_TRAPDOOR.get(), "Droughtroot Trapdoor");
 		this.add(IcariaBlocks.DROUGHTROOT_PRESSURE_PLATE.get(), "Droughtroot Pressure Plate");
 		this.add(IcariaBlocks.DROUGHTROOT_BUTTON.get(), "Droughtroot Button");
+		this.add(IcariaBlocks.DROUGHTROOT_SHELF.get(), "Droughtroot Shelf");
 		this.add(IcariaBlocks.DROUGHTROOT_LADDER.get(), "Droughtroot Ladder");
 		this.add(IcariaBlocks.DROUGHTROOT_SIGN.get(), "Droughtroot Sign");
 		this.add(IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get(), "Droughtroot Hanging Sign");
@@ -648,8 +650,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_POTS_CUPBOARD.get(), "Fir Pots Cupboard");
 		this.add(IcariaBlocks.FIR_VASE_CUPBOARD.get(), "Fir Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_FIR_CUPBOARD.get(), "Broken Fir Cupboard");
-		this.add(IcariaBlocks.FIR_SHELF.get(), "Fir Shelf");
-		this.add(IcariaBlocks.FIR_WALL_SHELF.get(), "Fir Wall Shelf");
+		this.add(IcariaBlocks.FIR_HUTCH.get(), "Fir Hutch");
+		this.add(IcariaBlocks.FIR_WALL_HUTCH.get(), "Fir Wall Hutch");
 		this.add(IcariaBlocks.FIR_KITCHEN_TABLE.get(), "Fir Kitchen Table");
 		this.add(IcariaBlocks.FIR_KLINE.get(), "Fir Kline");
 		this.add(IcariaBlocks.FIR_CRAFTING_TABLE.get(), "Fir Crafting Table");
@@ -658,6 +660,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.FIR_TRAPDOOR.get(), "Fir Trapdoor");
 		this.add(IcariaBlocks.FIR_PRESSURE_PLATE.get(), "Fir Pressure Plate");
 		this.add(IcariaBlocks.FIR_BUTTON.get(), "Fir Button");
+		this.add(IcariaBlocks.FIR_SHELF.get(), "Fir Shelf");
 		this.add(IcariaBlocks.FIR_LADDER.get(), "Fir Ladder");
 		this.add(IcariaBlocks.FIR_SIGN.get(), "Fir Sign");
 		this.add(IcariaBlocks.FIR_HANGING_SIGN.get(), "Fir Hanging Sign");
@@ -708,8 +711,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get(), "Laurel Pots Cupboard");
 		this.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get(), "Laurel Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get(), "Broken Laurel Cupboard");
-		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Laurel Shelf");
-		this.add(IcariaBlocks.LAUREL_WALL_SHELF.get(), "Laurel Wall Shelf");
+		this.add(IcariaBlocks.LAUREL_HUTCH.get(), "Laurel Hutch");
+		this.add(IcariaBlocks.LAUREL_WALL_HUTCH.get(), "Laurel Wall Hutch");
 		this.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get(), "Laurel Kitchen Table");
 		this.add(IcariaBlocks.LAUREL_KLINE.get(), "Laurel Kline");
 		this.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get(), "Laurel Crafting Table");
@@ -718,6 +721,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.LAUREL_TRAPDOOR.get(), "Laurel Trapdoor");
 		this.add(IcariaBlocks.LAUREL_PRESSURE_PLATE.get(), "Laurel Pressure Plate");
 		this.add(IcariaBlocks.LAUREL_BUTTON.get(), "Laurel Button");
+		this.add(IcariaBlocks.LAUREL_SHELF.get(), "Laurel Shelf");
 		this.add(IcariaBlocks.LAUREL_LADDER.get(), "Laurel Ladder");
 		this.add(IcariaBlocks.LAUREL_SIGN.get(), "Laurel Sign");
 		this.add(IcariaBlocks.LAUREL_HANGING_SIGN.get(), "Laurel Hanging Sign");
@@ -768,8 +772,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get(), "Olive Pots Cupboard");
 		this.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get(), "Olive Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get(), "Broken Olive Cupboard");
-		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olive Shelf");
-		this.add(IcariaBlocks.OLIVE_WALL_SHELF.get(), "Olive Wall Shelf");
+		this.add(IcariaBlocks.OLIVE_HUTCH.get(), "Olive Hutch");
+		this.add(IcariaBlocks.OLIVE_WALL_HUTCH.get(), "Olive Wall Hutch");
 		this.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get(), "Olive Kitchen Table");
 		this.add(IcariaBlocks.OLIVE_KLINE.get(), "Olive Kline");
 		this.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get(), "Olive Crafting Table");
@@ -778,6 +782,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.OLIVE_TRAPDOOR.get(), "Olive Trapdoor");
 		this.add(IcariaBlocks.OLIVE_PRESSURE_PLATE.get(), "Olive Pressure Plate");
 		this.add(IcariaBlocks.OLIVE_BUTTON.get(), "Olive Button");
+		this.add(IcariaBlocks.OLIVE_SHELF.get(), "Olive Shelf");
 		this.add(IcariaBlocks.OLIVE_LADDER.get(), "Olive Ladder");
 		this.add(IcariaBlocks.OLIVE_SIGN.get(), "Olive Sign");
 		this.add(IcariaBlocks.OLIVE_HANGING_SIGN.get(), "Olive Hanging Sign");
@@ -828,8 +833,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get(), "Plane Pots Cupboard");
 		this.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get(), "Plane Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get(), "Broken Plane Cupboard");
-		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plane Shelf");
-		this.add(IcariaBlocks.PLANE_WALL_SHELF.get(), "Plane Wall Shelf");
+		this.add(IcariaBlocks.PLANE_HUTCH.get(), "Plane Hutch");
+		this.add(IcariaBlocks.PLANE_WALL_HUTCH.get(), "Plane Wall Hutch");
 		this.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get(), "Plane Kitchen Table");
 		this.add(IcariaBlocks.PLANE_KLINE.get(), "Plane Kline");
 		this.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get(), "Plane Crafting Table");
@@ -838,6 +843,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLANE_TRAPDOOR.get(), "Plane Trapdoor");
 		this.add(IcariaBlocks.PLANE_PRESSURE_PLATE.get(), "Plane Pressure Plate");
 		this.add(IcariaBlocks.PLANE_BUTTON.get(), "Plane Button");
+		this.add(IcariaBlocks.PLANE_SHELF.get(), "Plane Shelf");
 		this.add(IcariaBlocks.PLANE_LADDER.get(), "Plane Ladder");
 		this.add(IcariaBlocks.PLANE_SIGN.get(), "Plane Sign");
 		this.add(IcariaBlocks.PLANE_HANGING_SIGN.get(), "Plane Hanging Sign");
@@ -888,8 +894,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get(), "Populus Pots Cupboard");
 		this.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get(), "Populus Vase Cupboard");
 		this.add(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get(), "Broken Populus Cupboard");
-		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Populus Shelf");
-		this.add(IcariaBlocks.POPULUS_WALL_SHELF.get(), "Populus Wall Shelf");
+		this.add(IcariaBlocks.POPULUS_HUTCH.get(), "Populus Hutch");
+		this.add(IcariaBlocks.POPULUS_WALL_HUTCH.get(), "Populus Wall Hutch");
 		this.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get(), "Populus Kitchen Table");
 		this.add(IcariaBlocks.POPULUS_KLINE.get(), "Populus Kline");
 		this.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get(), "Populus Crafting Table");
@@ -898,6 +904,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.POPULUS_TRAPDOOR.get(), "Populus Trapdoor");
 		this.add(IcariaBlocks.POPULUS_PRESSURE_PLATE.get(), "Populus Pressure Plate");
 		this.add(IcariaBlocks.POPULUS_BUTTON.get(), "Populus Button");
+		this.add(IcariaBlocks.POPULUS_SHELF.get(), "Populus Shelf");
 		this.add(IcariaBlocks.POPULUS_LADDER.get(), "Populus Ladder");
 		this.add(IcariaBlocks.POPULUS_SIGN.get(), "Populus Sign");
 		this.add(IcariaBlocks.POPULUS_HANGING_SIGN.get(), "Populus Hanging Sign");
@@ -1042,8 +1049,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kettle_items" + "." + "tooltip", "Default: 256. Whether a Kettle should render Items based on Distance to a Player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kiln_items", "Render Distance Kiln Items");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kiln_items" + "." + "tooltip", "Default: 256. Whether a Kiln should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_shelf_items", "Render Distance Shelf Items");
-		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_shelf_items" + "." + "tooltip", "Default: 256. Whether a Shelf should render Items based on Distance to a Player.");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_hutch_items", "Render Distance Hutch Items");
+		this.add("configuration" + "." + IcariaIdents.ID + "." + "render_distance_hutch_items" + "." + "tooltip", "Default: 256. Whether a Hutch should render Items based on Distance to a Player.");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings", "Spawn Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_settings" + "." + "tooltip", "Spawn Settings");
 		this.add("configuration" + "." + IcariaIdents.ID + "." + "spawn_arachnids", "Spawn Arachnids");

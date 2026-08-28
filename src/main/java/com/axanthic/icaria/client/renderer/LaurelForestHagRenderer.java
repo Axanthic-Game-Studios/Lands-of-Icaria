@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.LaurelForestHagEmissiveLayer;
+import com.axanthic.icaria.client.layer.LaurelForestHagEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.LaurelForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.LaurelForestHagRenderState;
@@ -20,7 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 public class LaurelForestHagRenderer extends MobRenderer<ForestHagEntity, LaurelForestHagRenderState, LaurelForestHagModel> {
 	public LaurelForestHagRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new LaurelForestHagModel(pContext.bakeLayer(IcariaModelLayerLocations.LAUREL_FOREST_HAG)), 0.75F);
-		this.addLayer(new LaurelForestHagEmissiveLayer(this));
+		this.addLayer(new LaurelForestHagEmissiveRenderLayer(this));
 	}
 
 	@Override

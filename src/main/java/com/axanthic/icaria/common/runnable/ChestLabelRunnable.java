@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.runnable;
 
-import com.axanthic.icaria.common.packet.ChestLabelPacket;
+import com.axanthic.icaria.common.payload.ChestLabelPayload;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -13,17 +13,17 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 @ParametersAreNonnullByDefault
 
 public class ChestLabelRunnable implements Runnable {
+	public ChestLabelPayload payload;
+
 	public IPayloadContext payloadContext;
 
-	public ChestLabelPacket packet;
-
-	public ChestLabelRunnable(ChestLabelPacket pPacket, IPayloadContext pPayloadContext) {
+	public ChestLabelRunnable(ChestLabelPayload pPayload, IPayloadContext pPayloadContext) {
+		this.payload = pPayload;
 		this.payloadContext = pPayloadContext;
-		this.packet = pPacket;
 	}
 
 	@Override
 	public void run() {
-		this.payloadContext.player().getMainHandItem().set(IcariaDataComponents.LABEL, this.packet.string);
+		this.payloadContext.player().getMainHandItem().set(IcariaDataComponents.LABEL, this.payload.string);
 	}
 }

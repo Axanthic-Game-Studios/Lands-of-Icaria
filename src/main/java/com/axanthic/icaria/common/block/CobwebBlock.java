@@ -117,13 +117,13 @@ public class CobwebBlock extends WebBlock {
 	}
 
 	public VoxelShape getShape(BlockState pBlockState) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_NORTH) == Connection.OTHER) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_NORTH) != Connection.NONE) {
 			return CobwebVoxelShapes.NORTH;
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_EAST) == Connection.OTHER) {
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_EAST) != Connection.NONE) {
 			return CobwebVoxelShapes.EAST;
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_SOUTH) == Connection.OTHER) {
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_SOUTH) != Connection.NONE) {
 			return CobwebVoxelShapes.SOUTH;
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_WEST) == Connection.OTHER) {
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_WEST) != Connection.NONE) {
 			return CobwebVoxelShapes.WEST;
 		} else if (pBlockState.getValue(IcariaBlockStateProperties.CONNECTION_UP) != Connection.NONE) {
 			return CobwebVoxelShapes.UP;

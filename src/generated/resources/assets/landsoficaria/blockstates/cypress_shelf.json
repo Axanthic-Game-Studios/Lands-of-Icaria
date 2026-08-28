@@ -1,19 +1,250 @@
 {
-  "variants": {
-    "facing=east": {
-      "model": "landsoficaria:block/cypress_shelf",
-      "y": 90
+  "multipart": [
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf"
+      },
+      "when": {
+        "facing": "north"
+      }
     },
-    "facing=north": {
-      "model": "landsoficaria:block/cypress_shelf"
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf",
+        "y": 90
+      },
+      "when": {
+        "facing": "east"
+      }
     },
-    "facing=south": {
-      "model": "landsoficaria:block/cypress_shelf",
-      "y": 180
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf",
+        "y": 180
+      },
+      "when": {
+        "facing": "south"
+      }
     },
-    "facing=west": {
-      "model": "landsoficaria:block/cypress_shelf",
-      "y": 270
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf",
+        "y": 270
+      },
+      "when": {
+        "facing": "west"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unpowered"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unpowered",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unpowered",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unpowered",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unconnected"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "unconnected"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unconnected",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "unconnected"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unconnected",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "unconnected"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_unconnected",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "unconnected"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_left"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "left"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_left",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "left"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_left",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "left"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_left",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "left"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_center"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "center"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_center",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "center"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_center",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "center"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_center",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "center"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_right"
+      },
+      "when": {
+        "facing": "north",
+        "powered": "true",
+        "side_chain": "right"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_right",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "powered": "true",
+        "side_chain": "right"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_right",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "powered": "true",
+        "side_chain": "right"
+      }
+    },
+    {
+      "apply": {
+        "model": "landsoficaria:block/cypress_shelf_right",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "powered": "true",
+        "side_chain": "right"
+      }
     }
-  }
+  ]
 }

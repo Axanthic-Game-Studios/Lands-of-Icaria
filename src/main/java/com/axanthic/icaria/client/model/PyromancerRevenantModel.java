@@ -25,7 +25,7 @@ import net.minecraft.world.entity.HumanoidArm;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class PyromancerRevenantModel extends EntityModel<PyromancerRevenantRenderState> implements ArmedModel {
+public class PyromancerRevenantModel extends EntityModel<PyromancerRevenantRenderState> implements ArmedModel<PyromancerRevenantRenderState> {
 	public ModelPart bodyUpper;
 	public ModelPart headMain;
 	public ModelPart jawUpper;
@@ -124,7 +124,7 @@ public class PyromancerRevenantModel extends EntityModel<PyromancerRevenantRende
 	}
 
 	@Override
-	public void translateToHand(HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
+	public void translateToHand(PyromancerRevenantRenderState pRenderState, HumanoidArm pHumanoidArm, PoseStack pPoseStack) {
 		this.root.translateAndRotate(pPoseStack);
 		this.bodyUpper.translateAndRotate(pPoseStack);
 		this.shoulderMain.translateAndRotate(pPoseStack);

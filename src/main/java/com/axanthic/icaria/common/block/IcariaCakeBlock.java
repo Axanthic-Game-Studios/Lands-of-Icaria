@@ -21,7 +21,6 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.AbstractThrownPotion;
 import net.minecraft.world.entity.projectile.Projectile;
@@ -83,7 +82,7 @@ public class IcariaCakeBlock extends Block {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return (4 - pBlockState.getValue(IcariaBlockStateProperties.CAKE_BITE)) * 3;
 	}
 
@@ -189,7 +188,7 @@ public class IcariaCakeBlock extends Block {
 		} else if (pItemStack.is(Items.PINK_CANDLE)) {
 			return this.candle(pBlockPos, pBlockState, Candle.PINK_CANDLE, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FIRE_CHARGE)) {
-			return this.charge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+			return this.fireCharge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FLINT_AND_STEEL)) {
 			return this.flintAndSteel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.isEmpty() && this.canHit(pBlockHitResult)) {
@@ -211,18 +210,6 @@ public class IcariaCakeBlock extends Block {
 		}
 	}
 
-	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
 	public InteractionResult extinguish(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
 		if (pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.addParticle(ParticleTypes.SMOKE, pBlockPos.getX() + 0.5D, pBlockPos.getY() + 1.0D, pBlockPos.getZ() + 0.5D, 0.0D, 0.1D, 0.0D);
@@ -234,12 +221,24 @@ public class IcariaCakeBlock extends Block {
 		}
 	}
 
+	public InteractionResult fireCharge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
 	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE) != Candle.NONE && !pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, true));
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

@@ -2,11 +2,9 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.FireplaceBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
+import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 
 import com.mojang.serialization.MapCodec;
-
-import java.util.Optional;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -28,9 +26,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeManager;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
@@ -43,8 +38,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
-
-@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -93,7 +86,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos) {
+	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
 		return pBlockState.getValue(BlockStateProperties.LIT) ? 15 : 0;
 	}
 
@@ -105,7 +98,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(BlockStateProperties.LIT)) {
-			this.particlesFireplace(pBlockPos, pBlockState, pLevel, pRandomSource);
+			this.particlesBlock(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.particlesItems(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.sounds(pBlockPos, pLevel, pRandomSource);
 		}
@@ -127,13 +120,13 @@ public class FireplaceBlock extends BaseEntityBlock {
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
-	public void particlesFireplace(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
+	public void particlesBlock(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
 		pLevel.addParticle(ParticleTypes.SMALL_FLAME, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 		pLevel.addParticle(ParticleTypes.SMOKE, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), pBlockPos.getY() + 1.0D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 4.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 	}
 
 	public void particlesItems(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource) {
-		if (pLevel.getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getOutput().isEmpty() && !blockEntity.getInput().isEmpty()) {
+		if (pLevel.getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity && !blockEntity.getIntake().isEmpty()) {
 			pLevel.addParticle(ParticleTypes.WHITE_SMOKE, this.getX(pBlockState) + pBlockPos.getX() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), this.itemHeight + pBlockPos.getY() + 0.1D, this.getZ(pBlockState) + pBlockPos.getZ() + pRandomSource.nextDouble() / 8.0D * (pRandomSource.nextBoolean() ? 1 : -1), 0.0D, 0.0D, 0.0D);
 		}
 	}
@@ -168,11 +161,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public BlockEntity newBlockEntity(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			return new FireplaceBlockEntity(pBlockPos, pBlockState);
-		} else {
-			return null;
-		}
+		return new FireplaceBlockEntity(pBlockPos, pBlockState);
 	}
 
 	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
@@ -215,40 +204,19 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (pItemStack.is(Items.FIRE_CHARGE)) {
-			return this.charge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+			return this.fireCharge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FLINT_AND_STEEL)) {
 			return this.flintAndSteel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+		} else if (pItemStack.is(IcariaItemTagsProvider.FIREPLACE_ITEMS)) {
+			return this.items(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(ItemTags.SHOVELS)) {
-			return this.shovel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
-		} else {
-			return this.ingredient(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
-		}
-	}
-
-	public InteractionResult ingredient(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pLevel instanceof ServerLevel serverLevel) {
-			var singleRecipeInput = new SingleRecipeInput(pItemStack);
-			var cachedCheck = RecipeManager.createCheck(IcariaRecipeTypes.GRILLING.get());
-			var optional = cachedCheck.getRecipeFor(singleRecipeInput, serverLevel).map(recipeHolder -> recipeHolder.value().ingredient());
-			return this.ingredient(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer, optional);
+			return this.shovels(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult ingredient(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer, Optional<Ingredient> pOptional) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof FireplaceBlockEntity blockEntity && blockEntity.getInput().isEmpty() && pOptional.isPresent() && pOptional.get().test(pItemStack)) {
-			var itemStack = new ItemStack(pItemStack.getItem());
-			blockEntity.setStackInSlot(itemStack);
-			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
-			return InteractionResult.SUCCESS;
-		} else {
-			return InteractionResult.TRY_WITH_EMPTY_HAND;
-		}
-	}
-
-	public InteractionResult charge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+	public InteractionResult fireCharge(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.FIRECHARGE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
@@ -264,7 +232,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
 			this.update(pBlockPos, pBlockState, pLevel, true);
 			return InteractionResult.SUCCESS;
 		} else {
@@ -272,11 +240,23 @@ public class FireplaceBlock extends BaseEntityBlock {
 		}
 	}
 
-	public InteractionResult shovel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+	public InteractionResult items(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockPos = FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(blockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getIntake().isEmpty()) {
+			blockEntity.set(pItemStack);
+			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
+			pItemStack.consume(1, pPlayer);
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.TRY_WITH_EMPTY_HAND;
+		}
+	}
+
+	public InteractionResult shovels(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, LivingEntity.getSlotForHand(pPlayer.getUsedItemHand()));
+			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
 			this.update(pBlockPos, pBlockState, pLevel, false);
 			return InteractionResult.SUCCESS;
 		} else {
@@ -292,6 +272,6 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Nullable
 	@Override
 	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pBlockState, BlockEntityType<T> pBlockEntityType) {
-		return pLevel instanceof ServerLevel serverlevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FIREPLACE.get(), (level, blockPos, blockState, blockEntity) -> FireplaceBlockEntity.tick(blockEntity, blockPos, blockState, serverlevel)) : null;
+		return pLevel instanceof ServerLevel serverLevel ? BaseEntityBlock.createTickerHelper(pBlockEntityType, IcariaBlockEntityTypes.FIREPLACE.get(), (level, blockPos, blockState, blockEntity) -> FireplaceBlockEntity.tick(blockEntity, serverLevel)) : null;
 	}
 }

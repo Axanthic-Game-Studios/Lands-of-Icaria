@@ -10,17 +10,19 @@ Additions
 - Cutting Board Blocks for each Wood Type
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
+- Forge Recipes for Copper Nuggets from Copper Armor Pieces and Tools
 - Bathtub Blocks for each Wood Type
 - Cupboard Blocks, Broken Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
 - Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop for each Wood Type
 - Broken, Herb, Pan, Pot, Spoon and Towel Holder for each Wood Type
+- Hutch and Wall Hutch Blocks for each Wood Type
 - Kitchen Table Blocks for each Wood Type
 - Kline Blocks for each Wood Type
 - Large Bowls Block
 - Plates Block
 - Pot Block
 - Scrollshelf Blocks for each Wood Type
-- Shelf and Wall Shelf Blocks for each Wood Type
+- Shelf Blocks for each Wood Type
 - Small Bowls Block
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block
@@ -35,8 +37,11 @@ Updates
 - Arachne Queens play a Placement Sound when placing Cobwebs now
 - Arachne Queens show a Boss Bar in their Vicinity now
 - Captain Revenants show a Boss Bar in their Vicinity now
+- Chalkos Armor uses Copper Armor Sounds instead of Iron Armor Sounds now
 - Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size now
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
+- Kilns no longer show Smoke Particles inside the Burning Chamber when no Input Item is present
+- Kilns now show light instead of dark Smoke Particles inside the Burning Chamber when an Input Item is present
 - Grainel, Silksand and Surface Lignite play ambient Block Sounds now
 - Unfired Storage Vases that have been colored already can be recolored now
 - Revenants can open, close and walk through Doors now
@@ -56,6 +61,10 @@ Updates
 
 Fixes
 
+- Inconsistent Scroll Item Lighting
+- Misspelled German Chest Label Advancement Description Localization
+- Barrels and Loot Vases could be carried at the same Time
+- Forge Items skipped Rendering on the Edge of the Screen on high FOV
 - Stats for Waxing Icaria Chest were missing
 - Ladders were crashing the Game when trying to be placed on already placed Ladders
 - Slabs did not replace Mediterranean Water when both Bottom and Top Slab were placed in one Block

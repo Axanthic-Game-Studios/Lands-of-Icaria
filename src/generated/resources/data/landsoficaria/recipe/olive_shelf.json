@@ -2,16 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "A": "landsoficaria:olive_log",
-    "B": "landsoficaria:olive_planks"
+    "A": "landsoficaria:stripped_olive_log"
   },
   "pattern": [
-    "ABA",
-    "A A",
-    "ABA"
+    "AAA",
+    "   ",
+    "AAA"
   ],
   "result": {
-    "count": 4,
+    "count": 6,
     "id": "landsoficaria:olive_shelf"
   }
 }

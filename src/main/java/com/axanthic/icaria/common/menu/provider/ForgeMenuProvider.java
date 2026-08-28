@@ -25,7 +25,7 @@ public class ForgeMenuProvider implements MenuProvider {
 
 	@Override
 	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-		return new ForgeMenu(pContainerId, pInventory, this.blockEntity.getData(), this.blockEntity.fuelHandler, this.blockEntity.inputHandlerA, this.blockEntity.inputHandlerB, this.blockEntity.inputHandlerC, this.blockEntity.outputHandler, this.blockEntity, pPlayer);
+		return new ForgeMenu(pContainerId, this.blockEntity, pPlayer, this.blockEntity.data, pInventory, this.blockEntity.handler);
 	}
 
 	@Override

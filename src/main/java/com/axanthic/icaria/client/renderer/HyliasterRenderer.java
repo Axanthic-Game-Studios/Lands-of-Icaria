@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.HyliasterTranslucentLayer;
+import com.axanthic.icaria.client.layer.HyliasterTranslucentRenderLayer;
 import com.axanthic.icaria.client.model.HyliasterModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.HyliasterRenderState;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterRenderState, HyliasterModel> {
 	public HyliasterRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new HyliasterModel(pContext.bakeLayer(IcariaModelLayerLocations.HYLIASTER)), 1.0F);
-		this.addLayer(new HyliasterTranslucentLayer(this));
+		this.addLayer(new HyliasterTranslucentRenderLayer(this));
 	}
 
 	@Override

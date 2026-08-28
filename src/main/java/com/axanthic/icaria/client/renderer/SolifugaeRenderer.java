@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.SolifugaeEmissiveLayer;
+import com.axanthic.icaria.client.layer.SolifugaeEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.SolifugaeModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SolifugaeRenderState;
@@ -22,7 +22,7 @@ import net.minecraft.resources.ResourceLocation;
 public class SolifugaeRenderer extends MobRenderer<SolifugaeEntity, SolifugaeRenderState, SolifugaeModel> {
 	public SolifugaeRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new SolifugaeModel(pContext.bakeLayer(IcariaModelLayerLocations.SOLIFUGAE)), 0.75F);
-		this.addLayer(new SolifugaeEmissiveLayer(this));
+		this.addLayer(new SolifugaeEmissiveRenderLayer(this));
 	}
 
 	@Override

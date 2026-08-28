@@ -1,6 +1,6 @@
 package com.axanthic.icaria.common.runnable;
 
-import com.axanthic.icaria.common.packet.TotemPacket;
+import com.axanthic.icaria.common.payload.TotemPayload;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -16,24 +16,24 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 @ParametersAreNonnullByDefault
 
 public class TotemRunnable implements Runnable {
+	public TotemPayload payload;
+
 	public IPayloadContext payloadContext;
 
-	public TotemPacket packet;
-
-	public TotemRunnable(TotemPacket pPacket, IPayloadContext pPayloadContext) {
+	public TotemRunnable(TotemPayload pPayload, IPayloadContext pPayloadContext) {
+		this.payload = pPayload;
 		this.payloadContext = pPayloadContext;
-		this.packet = pPacket;
 	}
 
 	@Override
 	public void run() {
 		var minecraft = Minecraft.getInstance();
-		var player = this.payloadContext.player().level().getEntity(packet.id);
+		var player = this.payloadContext.player().level().getEntity(payload.id);
 		if (player != null && player.level() instanceof ClientLevel clientLevel) {
 			clientLevel.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.TOTEM_USE, player.getSoundSource(), 1.0F, 1.0F, false);
 			minecraft.particleEngine.createTrackingEmitter(player, ParticleTypes.TOTEM_OF_UNDYING, 20);
 			if (player == this.payloadContext.player()) {
-				minecraft.gameRenderer.displayItemActivation(this.packet.itemStack);
+				minecraft.gameRenderer.displayItemActivation(this.payload.itemStack);
 			}
 		}
 	}

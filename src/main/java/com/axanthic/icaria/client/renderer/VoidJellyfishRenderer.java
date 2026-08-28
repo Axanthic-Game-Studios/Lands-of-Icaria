@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.VoidJellyfishEmissiveLayer;
+import com.axanthic.icaria.client.layer.VoidJellyfishEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.VoidJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.VoidJellyfishRenderState;
@@ -24,7 +24,7 @@ import net.minecraft.util.Mth;
 public class VoidJellyfishRenderer extends MobRenderer<VoidJellyfishEntity, VoidJellyfishRenderState, VoidJellyfishModel> {
 	public VoidJellyfishRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new VoidJellyfishModel(pContext.bakeLayer(IcariaModelLayerLocations.VOID_JELLYFISH)), 1.0F);
-		this.addLayer(new VoidJellyfishEmissiveLayer(this));
+		this.addLayer(new VoidJellyfishEmissiveRenderLayer(this));
 	}
 
 	@Override

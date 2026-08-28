@@ -35,7 +35,7 @@ public class IcariaFicheVariants {
 	}
 
 	public static void register(BootstrapContext<FicheVariant> pBootstrapContext, ResourceKey<FicheVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FicheVariant(new ClientAsset(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fiche" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FicheVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fiche" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FicheVariant> createKey(String pName) {

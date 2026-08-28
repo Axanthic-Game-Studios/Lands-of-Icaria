@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_shelf_center",
+  "textures": {
+    "all": "landsoficaria:block/olive_shelf",
+    "particle": "landsoficaria:block/stripped_olive_log"
+  }
+}

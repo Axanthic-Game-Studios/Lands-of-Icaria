@@ -9,11 +9,12 @@ import com.mojang.math.Axis;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 
@@ -39,14 +40,14 @@ public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderSta
 	}
 
 	@Override
-	public void render(BidentRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
+	public void submit(BidentRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		pPoseStack.pushPose();
 		pPoseStack.translate(0.0F, 0.25F, 0.0F);
 		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.yRot - 90.0F));
 		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pRenderState.xRot - 45.0F));
-		pRenderState.itemStackRenderState.render(pPoseStack, pMultiBufferSource, pPackedLight, OverlayTexture.NO_OVERLAY);
+		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 		pPoseStack.popPose();
-		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
 	}
 
 	@Override

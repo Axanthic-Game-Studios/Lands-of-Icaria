@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
-import com.axanthic.icaria.common.effect.BlindnessImmunityEffect;
-import com.axanthic.icaria.common.effect.FreezingEffect;
-import com.axanthic.icaria.common.effect.LifestealEffect;
+import com.axanthic.icaria.common.effect.BlindnessImmunityMobEffect;
+import com.axanthic.icaria.common.effect.FreezingMobEffect;
+import com.axanthic.icaria.common.effect.LifestealMobEffect;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -22,7 +22,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class IcariaMobEffects {
 	public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, IcariaIdents.ID);
 
-	public static final DeferredHolder<MobEffect, MobEffect> BLINDNESS_IMMUNITY = IcariaMobEffects.MOB_EFFECTS.register("blindness_immunity", () -> new BlindnessImmunityEffect(MobEffectCategory.BENEFICIAL, 14737628));
-	public static final DeferredHolder<MobEffect, MobEffect> FREEZING = IcariaMobEffects.MOB_EFFECTS.register("freezing", () -> new FreezingEffect(MobEffectCategory.HARMFUL, 14277081).addAttributeModifier(Attributes.MOVEMENT_SPEED, IcariaResourceLocations.FREEZING_EFFECT, -10.0F, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
-	public static final DeferredHolder<MobEffect, MobEffect> LIFESTEAL = IcariaMobEffects.MOB_EFFECTS.register("lifesteal", () -> new LifestealEffect(MobEffectCategory.BENEFICIAL, 14893141));
+	public static final DeferredHolder<MobEffect, MobEffect> BLINDNESS_IMMUNITY = IcariaMobEffects.MOB_EFFECTS.register("blindness_immunity", () -> new BlindnessImmunityMobEffect(MobEffectCategory.BENEFICIAL, 14737628));
+	public static final DeferredHolder<MobEffect, MobEffect> FREEZING = IcariaMobEffects.MOB_EFFECTS.register("freezing", () -> new FreezingMobEffect(MobEffectCategory.HARMFUL, 14277081).addAttributeModifier(Attributes.MOVEMENT_SPEED, IcariaResourceLocations.FREEZING_EFFECT, -10.0F, AttributeModifier.Operation.ADD_MULTIPLIED_TOTAL));
+	public static final DeferredHolder<MobEffect, MobEffect> LIFESTEAL = IcariaMobEffects.MOB_EFFECTS.register("lifesteal", () -> new LifestealMobEffect(MobEffectCategory.BENEFICIAL, 14893141));
 }

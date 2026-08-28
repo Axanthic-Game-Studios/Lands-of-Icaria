@@ -21,9 +21,9 @@ public class IcariaConfig {
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_FIREPLACE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_FORGE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_GRINDER_GEARS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_HUTCH_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_KETTLE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_KILN_ITEMS;
-	public static ModConfigSpec.IntValue RENDER_DISTANCE_SHELF_ITEMS;
 
 	public static void registerClientConfig() {
 		var builder = new ModConfigSpec.Builder();
@@ -39,9 +39,9 @@ public class IcariaConfig {
 		IcariaConfig.RENDER_DISTANCE_FIREPLACE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_fireplace_items").comment("Whether a Fireplace should render Items based on Distance to a Player.").defineInRange("Render Distance Fireplace Items", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_forge_items").comment("Whether a Forge should render Items based on Distance to a Player.").defineInRange("Render Distance Forge Items", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_grinder_gears").comment("Whether a Grinder should render Gears based on Distance to a Player.").defineInRange("Render Distance Grinder Gears", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_HUTCH_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_hutch_items").comment("Whether a Hutch should render Items based on Distance to a Player.").defineInRange("Render Distance Hutch Items", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kettle_items").comment("Whether a Kettle should render Items based on Distance to a Player.").defineInRange("Render Distance Kettle Items", 256, 64, 1024);
 		IcariaConfig.RENDER_DISTANCE_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_kiln_items").comment("Whether a Kiln should render Items based on Distance to a Player.").defineInRange("Render Distance Kiln Items", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_SHELF_ITEMS = builder.translation("configuration" + "." + IcariaIdents.ID + "." + "render_distance_shelf_items").comment("Whether a Shelf should render Items based on Distance to a Player.").defineInRange("Render Distance Shelf Items", 256, 64, 1024);
 
 		builder.pop();
 

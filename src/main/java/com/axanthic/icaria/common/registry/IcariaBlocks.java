@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.block.*;
 import com.axanthic.icaria.common.properties.Carpet;
-import com.axanthic.icaria.common.util.IcariaSkullBlockTypes;
+import com.axanthic.icaria.common.types.SkullBlockTypes;
 
 import java.util.function.Function;
 
@@ -366,8 +366,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> KILN = IcariaBlocks.register("kiln", KilnBlock::new, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> FORGE = IcariaBlocks.register("forge", ForgeBlock::new, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE));
 
-	public static final DeferredHolder<Block, Block> CHEST = IcariaBlocks.register("chest", properties -> new IcariaChestBlock(IcariaBlockEntityTypes.CHEST::get, properties), IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", properties -> new IcariaTrappedChestBlock(IcariaBlockEntityTypes.TRAPPED_CHEST::get, properties), IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CHEST = IcariaBlocks.register("chest", properties -> new IcariaChestBlock(IcariaBlockEntityTypes.CHEST::get, SoundEvents.CHEST_OPEN, SoundEvents.CHEST_CLOSE, properties), IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> TRAPPED_CHEST = IcariaBlocks.register("trapped_chest", properties -> new IcariaTrappedChestBlock(IcariaBlockEntityTypes.TRAPPED_CHEST::get, SoundEvents.CHEST_OPEN, SoundEvents.CHEST_CLOSE, properties), IcariaBlocks.propertiesChest(MapColor.COLOR_BROWN, SoundType.WOOD));
 
 	public static final DeferredHolder<Block, Block> STORAGE_VASE = IcariaBlocks.register("storage_vase", StorageVaseBlock::new, IcariaBlocks.propertiesStorageVase(MapColor.TERRACOTTA_PINK, SoundType.DECORATED_POT));
 	public static final DeferredHolder<Block, Block> WHITE_STORAGE_VASE = IcariaBlocks.register("white_storage_vase", StorageVaseBlock::new, IcariaBlocks.propertiesStorageVase(MapColor.SNOW, SoundType.DECORATED_POT));
@@ -395,44 +395,44 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LOST_LOOT_VASE = IcariaBlocks.register("lost_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.PODZOL, IcariaSoundTypes.POTTERY));
 	public static final DeferredHolder<Block, Block> CYAN_LOOT_VASE = IcariaBlocks.register("cyan_loot_vase", LootVaseBlock::new, IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.POTTERY));
 
-	public static final DeferredHolder<Block, Block> ARACHNE_SPAWNER = IcariaBlocks.register("arachne_spawner", IcariaSpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.SPAWNER));
-	public static final DeferredHolder<Block, Block> REVENANT_SPAWNER = IcariaBlocks.register("revenant_spawner", IcariaSpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.SPAWNER));
+	public static final DeferredHolder<Block, Block> ARACHNE_SPAWNER = IcariaBlocks.register("arachne_spawner", SpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.SPAWNER));
+	public static final DeferredHolder<Block, Block> REVENANT_SPAWNER = IcariaBlocks.register("revenant_spawner", SpawnerBlock::new, IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.SPAWNER));
 
 	public static final DeferredHolder<Block, Block> COBWEB = IcariaBlocks.register("cobweb", CobwebBlock::new, IcariaBlocks.propertiesCobweb(MapColor.WOOL, SoundType.COBWEB));
 
 	public static final DeferredHolder<Block, Block> BONE_LADDER = IcariaBlocks.register("bone_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.BONE_BLOCK));
 	public static final DeferredHolder<Block, Block> ROTTEN_BONE_LADDER = IcariaBlocks.register("rotten_bone_ladder", RottenLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.BONE_BLOCK));
 
-	public static final DeferredHolder<Block, Block> AETERNAE_SKULL = IcariaBlocks.register("aeternae_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.AETERNAE, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> AETERNAE_WALL_SKULL = IcariaBlocks.register("aeternae_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.AETERNAE, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> ARGAN_HOUND_SKULL = IcariaBlocks.register("argan_hound_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.ARGAN_HOUND, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> ARGAN_HOUND_WALL_SKULL = IcariaBlocks.register("argan_hound_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.ARGAN_HOUND, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CAPELLA_SKULL = IcariaBlocks.register("capella_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.CAPELLA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CAPELLA_WALL_SKULL = IcariaBlocks.register("capella_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.CAPELLA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CATOBLEPAS_SKULL = IcariaBlocks.register("catoblepas_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.CATOBLEPAS, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CATOBLEPAS_WALL_SKULL = IcariaBlocks.register("catoblepas_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.CATOBLEPAS, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CERVER_SKULL = IcariaBlocks.register("cerver_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.CERVER, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CERVER_WALL_SKULL = IcariaBlocks.register("cerver_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.CERVER, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CROCOTTA_SKULL = IcariaBlocks.register("crocotta_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.CROCOTTA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CROCOTTA_WALL_SKULL = IcariaBlocks.register("crocotta_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.CROCOTTA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CYPRESS_FOREST_HAG_SKULL = IcariaBlocks.register("cypress_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> CYPRESS_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("cypress_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.CYPRESS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> DROUGHTROOT_FOREST_HAG_SKULL = IcariaBlocks.register("droughtroot_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> DROUGHTROOT_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("droughtroot_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.DROUGHTROOT_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> FIR_FOREST_HAG_SKULL = IcariaBlocks.register("fir_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.FIR_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> FIR_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("fir_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.FIR_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> LAUREL_FOREST_HAG_SKULL = IcariaBlocks.register("laurel_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> LAUREL_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("laurel_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.LAUREL_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> OLIVE_FOREST_HAG_SKULL = IcariaBlocks.register("olive_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> OLIVE_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("olive_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.OLIVE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> PLANE_FOREST_HAG_SKULL = IcariaBlocks.register("plane_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.PLANE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> PLANE_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("plane_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.PLANE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> POPULUS_FOREST_HAG_SKULL = IcariaBlocks.register("populus_forest_hag_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> POPULUS_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("populus_forest_hag_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.POPULUS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> REVENANT_SKULL = IcariaBlocks.register("revenant_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.REVENANT, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> REVENANT_WALL_SKULL = IcariaBlocks.register("revenant_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.REVENANT, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> THOG_SKULL = IcariaBlocks.register("thog_skull", properties -> new SkullBlock(IcariaSkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
-	public static final DeferredHolder<Block, Block> THOG_WALL_SKULL = IcariaBlocks.register("thog_wall_skull", properties -> new WallSkullBlock(IcariaSkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> AETERNAE_SKULL = IcariaBlocks.register("aeternae_skull", properties -> new SkullBlock(SkullBlockTypes.AETERNAE, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> AETERNAE_WALL_SKULL = IcariaBlocks.register("aeternae_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.AETERNAE, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> ARGAN_HOUND_SKULL = IcariaBlocks.register("argan_hound_skull", properties -> new SkullBlock(SkullBlockTypes.ARGAN_HOUND, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> ARGAN_HOUND_WALL_SKULL = IcariaBlocks.register("argan_hound_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.ARGAN_HOUND, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CAPELLA_SKULL = IcariaBlocks.register("capella_skull", properties -> new SkullBlock(SkullBlockTypes.CAPELLA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CAPELLA_WALL_SKULL = IcariaBlocks.register("capella_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.CAPELLA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CATOBLEPAS_SKULL = IcariaBlocks.register("catoblepas_skull", properties -> new SkullBlock(SkullBlockTypes.CATOBLEPAS, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CATOBLEPAS_WALL_SKULL = IcariaBlocks.register("catoblepas_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.CATOBLEPAS, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CERVER_SKULL = IcariaBlocks.register("cerver_skull", properties -> new SkullBlock(SkullBlockTypes.CERVER, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CERVER_WALL_SKULL = IcariaBlocks.register("cerver_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.CERVER, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CROCOTTA_SKULL = IcariaBlocks.register("crocotta_skull", properties -> new SkullBlock(SkullBlockTypes.CROCOTTA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CROCOTTA_WALL_SKULL = IcariaBlocks.register("crocotta_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.CROCOTTA, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CYPRESS_FOREST_HAG_SKULL = IcariaBlocks.register("cypress_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.CYPRESS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> CYPRESS_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("cypress_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.CYPRESS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_FOREST_HAG_SKULL = IcariaBlocks.register("droughtroot_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("droughtroot_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> FIR_FOREST_HAG_SKULL = IcariaBlocks.register("fir_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.FIR_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> FIR_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("fir_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.FIR_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> LAUREL_FOREST_HAG_SKULL = IcariaBlocks.register("laurel_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.LAUREL_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> LAUREL_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("laurel_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.LAUREL_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> OLIVE_FOREST_HAG_SKULL = IcariaBlocks.register("olive_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.OLIVE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> OLIVE_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("olive_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.OLIVE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> PLANE_FOREST_HAG_SKULL = IcariaBlocks.register("plane_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.PLANE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> PLANE_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("plane_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.PLANE_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> POPULUS_FOREST_HAG_SKULL = IcariaBlocks.register("populus_forest_hag_skull", properties -> new SkullBlock(SkullBlockTypes.POPULUS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> POPULUS_FOREST_HAG_WALL_SKULL = IcariaBlocks.register("populus_forest_hag_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.POPULUS_FOREST_HAG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> REVENANT_SKULL = IcariaBlocks.register("revenant_skull", properties -> new SkullBlock(SkullBlockTypes.REVENANT, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> REVENANT_WALL_SKULL = IcariaBlocks.register("revenant_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.REVENANT, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> THOG_SKULL = IcariaBlocks.register("thog_skull", properties -> new SkullBlock(SkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
+	public static final DeferredHolder<Block, Block> THOG_WALL_SKULL = IcariaBlocks.register("thog_wall_skull", properties -> new WallSkullBlock(SkullBlockTypes.THOG, properties), IcariaBlocks.propertiesSkull(MapColor.NONE, SoundType.STONE));
 
 	public static final DeferredHolder<Block, Block> LIGNITE_TORCH = IcariaBlocks.register("lignite_torch", properties -> new TorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 10));
 	public static final DeferredHolder<Block, Block> LIGNITE_WALL_TORCH = IcariaBlocks.register("lignite_wall_torch", properties -> new WallTorchBlock(ParticleTypes.FLAME, properties), IcariaBlocks.propertiesTorch(MapColor.NONE, SoundType.METAL).lightLevel(blockState -> 10));
@@ -501,8 +501,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> CYPRESS_POTS_CUPBOARD = IcariaBlocks.register("cypress_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_VASE_CUPBOARD = IcariaBlocks.register("cypress_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_CYPRESS_CUPBOARD = IcariaBlocks.register("broken_cypress_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> CYPRESS_SHELF = IcariaBlocks.register("cypress_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> CYPRESS_WALL_SHELF = IcariaBlocks.register("cypress_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_HUTCH = IcariaBlocks.register("cypress_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_WALL_HUTCH = IcariaBlocks.register("cypress_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_KITCHEN_TABLE = IcariaBlocks.register("cypress_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_KLINE = IcariaBlocks.register("cypress_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_CRAFTING_TABLE = IcariaBlocks.register("cypress_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -511,6 +511,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> CYPRESS_TRAPDOOR = IcariaBlocks.register("cypress_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.CYPRESS, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_PRESSURE_PLATE = IcariaBlocks.register("cypress_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.CYPRESS, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_BUTTON = IcariaBlocks.register("cypress_button", properties -> new ButtonBlock(IcariaBlockSetTypes.CYPRESS, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> CYPRESS_SHELF = IcariaBlocks.register("cypress_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> CYPRESS_LADDER = IcariaBlocks.register("cypress_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> CYPRESS_SIGN = IcariaBlocks.register("cypress_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.CYPRESS, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> CYPRESS_WALL_SIGN = IcariaBlocks.register("cypress_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.CYPRESS, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -563,8 +564,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_POTS_CUPBOARD = IcariaBlocks.register("droughtroot_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_VASE_CUPBOARD = IcariaBlocks.register("droughtroot_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_DROUGHTROOT_CUPBOARD = IcariaBlocks.register("broken_droughtroot_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> DROUGHTROOT_SHELF = IcariaBlocks.register("droughtroot_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> DROUGHTROOT_WALL_SHELF = IcariaBlocks.register("droughtroot_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_HUTCH = IcariaBlocks.register("droughtroot_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_WALL_HUTCH = IcariaBlocks.register("droughtroot_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_KITCHEN_TABLE = IcariaBlocks.register("droughtroot_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_KLINE = IcariaBlocks.register("droughtroot_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_CRAFTING_TABLE = IcariaBlocks.register("droughtroot_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GRAY, SoundType.WOOD));
@@ -573,6 +574,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_TRAPDOOR = IcariaBlocks.register("droughtroot_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.DROUGHTROOT, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_PRESSURE_PLATE = IcariaBlocks.register("droughtroot_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.DROUGHTROOT, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_GRAY, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_BUTTON = IcariaBlocks.register("droughtroot_button", properties -> new ButtonBlock(IcariaBlockSetTypes.DROUGHTROOT, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> DROUGHTROOT_SHELF = IcariaBlocks.register("droughtroot_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_LADDER = IcariaBlocks.register("droughtroot_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_SIGN = IcariaBlocks.register("droughtroot_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.DROUGHTROOT, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> DROUGHTROOT_WALL_SIGN = IcariaBlocks.register("droughtroot_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.DROUGHTROOT, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -625,8 +627,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> FIR_POTS_CUPBOARD = IcariaBlocks.register("fir_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_VASE_CUPBOARD = IcariaBlocks.register("fir_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_FIR_CUPBOARD = IcariaBlocks.register("broken_fir_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> FIR_SHELF = IcariaBlocks.register("fir_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> FIR_WALL_SHELF = IcariaBlocks.register("fir_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_HUTCH = IcariaBlocks.register("fir_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_WALL_HUTCH = IcariaBlocks.register("fir_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_KITCHEN_TABLE = IcariaBlocks.register("fir_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_KLINE = IcariaBlocks.register("fir_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_CRAFTING_TABLE = IcariaBlocks.register("fir_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD));
@@ -635,6 +637,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> FIR_TRAPDOOR = IcariaBlocks.register("fir_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.FIR, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_PRESSURE_PLATE = IcariaBlocks.register("fir_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.FIR, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_BUTTON = IcariaBlocks.register("fir_button", properties -> new ButtonBlock(IcariaBlockSetTypes.FIR, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> FIR_SHELF = IcariaBlocks.register("fir_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> FIR_LADDER = IcariaBlocks.register("fir_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> FIR_SIGN = IcariaBlocks.register("fir_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.FIR, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> FIR_WALL_SIGN = IcariaBlocks.register("fir_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.FIR, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -687,8 +690,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LAUREL_POTS_CUPBOARD = IcariaBlocks.register("laurel_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_VASE_CUPBOARD = IcariaBlocks.register("laurel_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_LAUREL_CUPBOARD = IcariaBlocks.register("broken_laurel_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> LAUREL_SHELF = IcariaBlocks.register("laurel_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> LAUREL_WALL_SHELF = IcariaBlocks.register("laurel_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_HUTCH = IcariaBlocks.register("laurel_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_WALL_HUTCH = IcariaBlocks.register("laurel_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_KITCHEN_TABLE = IcariaBlocks.register("laurel_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_KLINE = IcariaBlocks.register("laurel_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_CRAFTING_TABLE = IcariaBlocks.register("laurel_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -697,6 +700,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> LAUREL_TRAPDOOR = IcariaBlocks.register("laurel_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.LAUREL, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_PRESSURE_PLATE = IcariaBlocks.register("laurel_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.LAUREL, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_BUTTON = IcariaBlocks.register("laurel_button", properties -> new ButtonBlock(IcariaBlockSetTypes.LAUREL, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> LAUREL_SHELF = IcariaBlocks.register("laurel_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> LAUREL_LADDER = IcariaBlocks.register("laurel_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> LAUREL_SIGN = IcariaBlocks.register("laurel_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.LAUREL, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> LAUREL_WALL_SIGN = IcariaBlocks.register("laurel_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.LAUREL, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -749,8 +753,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> OLIVE_POTS_CUPBOARD = IcariaBlocks.register("olive_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_VASE_CUPBOARD = IcariaBlocks.register("olive_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_OLIVE_CUPBOARD = IcariaBlocks.register("broken_olive_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> OLIVE_SHELF = IcariaBlocks.register("olive_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> OLIVE_WALL_SHELF = IcariaBlocks.register("olive_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_HUTCH = IcariaBlocks.register("olive_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_WALL_HUTCH = IcariaBlocks.register("olive_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_KITCHEN_TABLE = IcariaBlocks.register("olive_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_KLINE = IcariaBlocks.register("olive_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_CRAFTING_TABLE = IcariaBlocks.register("olive_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_ORANGE, SoundType.WOOD));
@@ -759,6 +763,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> OLIVE_TRAPDOOR = IcariaBlocks.register("olive_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.OLIVE, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_PRESSURE_PLATE = IcariaBlocks.register("olive_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.OLIVE, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_BUTTON = IcariaBlocks.register("olive_button", properties -> new ButtonBlock(IcariaBlockSetTypes.OLIVE, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> OLIVE_SHELF = IcariaBlocks.register("olive_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> OLIVE_LADDER = IcariaBlocks.register("olive_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> OLIVE_SIGN = IcariaBlocks.register("olive_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.OLIVE, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> OLIVE_WALL_SIGN = IcariaBlocks.register("olive_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.OLIVE, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -811,8 +816,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> PLANE_POTS_CUPBOARD = IcariaBlocks.register("plane_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_VASE_CUPBOARD = IcariaBlocks.register("plane_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_PLANE_CUPBOARD = IcariaBlocks.register("broken_plane_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> PLANE_SHELF = IcariaBlocks.register("plane_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> PLANE_WALL_SHELF = IcariaBlocks.register("plane_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_HUTCH = IcariaBlocks.register("plane_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_WALL_HUTCH = IcariaBlocks.register("plane_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_KITCHEN_TABLE = IcariaBlocks.register("plane_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_KLINE = IcariaBlocks.register("plane_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_CRAFTING_TABLE = IcariaBlocks.register("plane_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_BROWN, SoundType.WOOD));
@@ -821,6 +826,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> PLANE_TRAPDOOR = IcariaBlocks.register("plane_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.PLANE, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_ORANGE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_PRESSURE_PLATE = IcariaBlocks.register("plane_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.PLANE, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_BUTTON = IcariaBlocks.register("plane_button", properties -> new ButtonBlock(IcariaBlockSetTypes.PLANE, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> PLANE_SHELF = IcariaBlocks.register("plane_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> PLANE_LADDER = IcariaBlocks.register("plane_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> PLANE_SIGN = IcariaBlocks.register("plane_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.PLANE, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> PLANE_WALL_SIGN = IcariaBlocks.register("plane_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.PLANE, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -873,8 +879,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> POPULUS_POTS_CUPBOARD = IcariaBlocks.register("populus_pots_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_VASE_CUPBOARD = IcariaBlocks.register("populus_vase_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> BROKEN_POPULUS_CUPBOARD = IcariaBlocks.register("broken_populus_cupboard", CupboardBlock::new, IcariaBlocks.propertiesCupboard(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> POPULUS_SHELF = IcariaBlocks.register("populus_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
-	public static final DeferredHolder<Block, Block> POPULUS_WALL_SHELF = IcariaBlocks.register("populus_wall_shelf", IcariaWallShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_HUTCH = IcariaBlocks.register("populus_hutch", HutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_WALL_HUTCH = IcariaBlocks.register("populus_wall_hutch", WallHutchBlock::new, IcariaBlocks.propertiesHutch(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_KITCHEN_TABLE = IcariaBlocks.register("populus_kitchen_table", KitchenTableBlock::new, IcariaBlocks.propertiesKitchenTable(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_KLINE = IcariaBlocks.register("populus_kline", KlineBlock::new, IcariaBlocks.propertiesKline(MapColor.COLOR_BROWN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_CRAFTING_TABLE = IcariaBlocks.register("populus_crafting_table", IcariaCraftingTableBlock::new, IcariaBlocks.propertiesCraftingTable(MapColor.COLOR_GREEN, SoundType.WOOD));
@@ -883,6 +889,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> POPULUS_TRAPDOOR = IcariaBlocks.register("populus_trapdoor", properties -> new IcariaTrapDoorBlock(IcariaBlockSetTypes.POPULUS, properties), IcariaBlocks.propertiesTrapDoor(MapColor.COLOR_YELLOW, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_PRESSURE_PLATE = IcariaBlocks.register("populus_pressure_plate", properties -> new PressurePlateBlock(IcariaBlockSetTypes.POPULUS, properties), IcariaBlocks.propertiesPressurePlate(MapColor.COLOR_GREEN, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_BUTTON = IcariaBlocks.register("populus_button", properties -> new ButtonBlock(IcariaBlockSetTypes.POPULUS, 30, properties), IcariaBlocks.propertiesButton(MapColor.NONE, SoundType.WOOD));
+	public static final DeferredHolder<Block, Block> POPULUS_SHELF = IcariaBlocks.register("populus_shelf", IcariaShelfBlock::new, IcariaBlocks.propertiesShelf(MapColor.COLOR_BROWN, SoundType.SHELF));
 	public static final DeferredHolder<Block, Block> POPULUS_LADDER = IcariaBlocks.register("populus_ladder", IcariaLadderBlock::new, IcariaBlocks.propertiesLadder(MapColor.NONE, SoundType.LADDER));
 	public static final DeferredHolder<Block, Block> POPULUS_SIGN = IcariaBlocks.register("populus_sign", properties -> new IcariaStandingSignBlock(IcariaWoodTypes.POPULUS, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
 	public static final DeferredHolder<Block, Block> POPULUS_WALL_SIGN = IcariaBlocks.register("populus_wall_sign", properties -> new IcariaWallSignBlock(IcariaWoodTypes.POPULUS, properties), IcariaBlocks.propertiesSign(MapColor.NONE, SoundType.WOOD));
@@ -1037,11 +1044,11 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesFloorDecoration(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesSurfaceLignite(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollission().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesFarmland(MapColor pMapColor, SoundType pSoundType) {
@@ -1177,7 +1184,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesCobweb(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F).noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F).noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesLadder(MapColor pMapColor, SoundType pSoundType) {
@@ -1189,7 +1196,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesTorch(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesCake(MapColor pMapColor, SoundType pSoundType) {
@@ -1201,7 +1208,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesTableDecoration(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesChessboard(MapColor pMapColor, SoundType pSoundType) {
@@ -1209,7 +1216,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesSapling(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesFlowerPot(MapColor pMapColor, SoundType pSoundType) {
@@ -1221,7 +1228,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesTwigs(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollission().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesWood(MapColor pMapColor, SoundType pSoundType) {
@@ -1264,7 +1271,7 @@ public class IcariaBlocks {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
-	public static BlockBehaviour.Properties propertiesShelf(MapColor pMapColor, SoundType pSoundType) {
+	public static BlockBehaviour.Properties propertiesHutch(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
@@ -1293,31 +1300,35 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesPressurePlate(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).forceSolidOn().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).forceSolidOn().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesButton(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesSign(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noCollision();
+	}
+
+	public static BlockBehaviour.Properties propertiesShelf(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesVine(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).ignitedByLava().noCollission().randomTicks().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).ignitedByLava().noCollision().randomTicks().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesGrass(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollission().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesPlant(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundFlower(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesMoss(MapColor pMapColor, SoundType pSoundType) {
@@ -1325,15 +1336,15 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesPalmFern(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundShroom(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(IcariaBlocks::always).instabreak().noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(IcariaBlocks::always).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesTreeShroom(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesCactus(MapColor pMapColor, SoundType pSoundType) {
@@ -1341,23 +1352,23 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesBush(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesCrop(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesWater(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(100.0F).explosionResistance(100.0F).noCollission().liquid().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(100.0F).explosionResistance(100.0F).noCollision().liquid().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesFire(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).lightLevel(blockState -> 15).instabreak().noCollission().noTerrainParticles().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).lightLevel(blockState -> 15).instabreak().noCollision().noTerrainParticles().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesPortal(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel(blockState -> 11).noCollission().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel(blockState -> 11).noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesNone() {

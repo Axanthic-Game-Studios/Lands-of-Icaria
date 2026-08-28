@@ -8,4 +8,4 @@ import net.minecraft.client.model.Model;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record SignModel(Model modelStanding, Model modelWall) {}
+public record SignModel(Model.Simple modelStanding, Model.Simple modelWall) {}

@@ -1008,7 +1008,7 @@
     "sounds": [
       {
         "type": "event",
-        "name": "item.armor.equip_iron"
+        "name": "item.armor.equip_copper"
       }
     ],
     "subtitle": "subtitle.landsoficaria.chalkos_armor.equip"

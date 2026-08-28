@@ -5,15 +5,19 @@ import com.axanthic.icaria.client.state.BubbleSpellRenderState;
 import com.axanthic.icaria.common.entity.BubbleSpellEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.util.RandomSource;
+
+import org.joml.Matrix4f;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -30,47 +34,14 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity, Bubbl
 	}
 
 	@Override
-	public void render(BubbleSpellRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
-		pPoseStack.pushPose();
-
+	public void submit(BubbleSpellRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		var randomSource = RandomSource.create(pRenderState.id);
-
-		var matrix4f = pPoseStack.last().pose();
-
-		var vertexConsumer = pMultiBufferSource.getBuffer(IcariaRenderTypes.ADDITIVE);
-
-		var alpha = 0.25F;
-
-		var scale = 0.25F;
 
 		var speed = 0.5F;
 
 		var ticks = pRenderState.ageInTicks;
 
-		var r0 = randomSource.nextFloat();
-		var g0 = randomSource.nextFloat();
-		var b0 = randomSource.nextFloat();
-		var r1 = randomSource.nextFloat();
-		var g1 = randomSource.nextFloat();
-		var b1 = randomSource.nextFloat();
-		var r2 = randomSource.nextFloat();
-		var g2 = randomSource.nextFloat();
-		var b2 = randomSource.nextFloat();
-		var r3 = randomSource.nextFloat();
-		var g3 = randomSource.nextFloat();
-		var b3 = randomSource.nextFloat();
-		var r4 = randomSource.nextFloat();
-		var g4 = randomSource.nextFloat();
-		var b4 = randomSource.nextFloat();
-		var r5 = randomSource.nextFloat();
-		var g5 = randomSource.nextFloat();
-		var b5 = randomSource.nextFloat();
-		var r6 = randomSource.nextFloat();
-		var g6 = randomSource.nextFloat();
-		var b6 = randomSource.nextFloat();
-		var r7 = randomSource.nextFloat();
-		var g7 = randomSource.nextFloat();
-		var b7 = randomSource.nextFloat();
+		pPoseStack.pushPose();
 
 		pPoseStack.translate(0.0D, 0.25D, 0.0D);
 
@@ -78,39 +49,68 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity, Bubbl
 		pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F + speed * ticks));
 		pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F + speed * ticks));
 
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
-
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
-
-		vertexConsumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
-
-		vertexConsumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
-
-		vertexConsumer.addVertex(matrix4f, scale, scale, scale).setColor(r6, g6, b6, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, scale, -scale).setColor(r4, g4, b4, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, -scale).setColor(r2, g2, b2, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, scale, scale).setColor(r1, g1, b1, alpha);
-
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, -scale).setColor(r3, g3, b3, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, -scale, -scale).setColor(r5, g5, b5, alpha);
-		vertexConsumer.addVertex(matrix4f, scale, -scale, scale).setColor(r7, g7, b7, alpha);
-		vertexConsumer.addVertex(matrix4f, -scale, -scale, scale).setColor(r0, g0, b0, alpha);
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE, (pose, vertexConsumer) -> this.submit(pose.pose(), randomSource, vertexConsumer, 0.25F, 0.25F));
 
 		pPoseStack.popPose();
 
-		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
+	}
+
+	public void submit(Matrix4f pMatrix4f, RandomSource pRandomSource, VertexConsumer pVertexConsumer, float pAlpha, float pScale) {
+		var r0 = pRandomSource.nextFloat();
+		var g0 = pRandomSource.nextFloat();
+		var b0 = pRandomSource.nextFloat();
+		var r1 = pRandomSource.nextFloat();
+		var g1 = pRandomSource.nextFloat();
+		var b1 = pRandomSource.nextFloat();
+		var r2 = pRandomSource.nextFloat();
+		var g2 = pRandomSource.nextFloat();
+		var b2 = pRandomSource.nextFloat();
+		var r3 = pRandomSource.nextFloat();
+		var g3 = pRandomSource.nextFloat();
+		var b3 = pRandomSource.nextFloat();
+		var r4 = pRandomSource.nextFloat();
+		var g4 = pRandomSource.nextFloat();
+		var b4 = pRandomSource.nextFloat();
+		var r5 = pRandomSource.nextFloat();
+		var g5 = pRandomSource.nextFloat();
+		var b5 = pRandomSource.nextFloat();
+		var r6 = pRandomSource.nextFloat();
+		var g6 = pRandomSource.nextFloat();
+		var b6 = pRandomSource.nextFloat();
+		var r7 = pRandomSource.nextFloat();
+		var g7 = pRandomSource.nextFloat();
+		var b7 = pRandomSource.nextFloat();
+
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, pScale).setColor(r0, g0, b0, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, pScale).setColor(r1, g1, b1, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, -pScale).setColor(r2, g2, b2, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, -pScale).setColor(r3, g3, b3, pAlpha);
+
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, -pScale).setColor(r3, g3, b3, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, -pScale).setColor(r2, g2, b2, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, -pScale).setColor(r4, g4, b4, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, -pScale).setColor(r5, g5, b5, pAlpha);
+
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, -pScale).setColor(r5, g5, b5, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, -pScale).setColor(r4, g4, b4, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, pScale).setColor(r6, g6, b6, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, pScale).setColor(r7, g7, b7, pAlpha);
+
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, pScale).setColor(r7, g7, b7, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, pScale).setColor(r6, g6, b6, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, pScale).setColor(r1, g1, b1, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, pScale).setColor(r0, g0, b0, pAlpha);
+
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, pScale).setColor(r6, g6, b6, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, pScale, -pScale).setColor(r4, g4, b4, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, -pScale).setColor(r2, g2, b2, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, pScale, pScale).setColor(r1, g1, b1, pAlpha);
+
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, -pScale).setColor(r3, g3, b3, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, -pScale).setColor(r5, g5, b5, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, pScale, -pScale, pScale).setColor(r7, g7, b7, pAlpha);
+		pVertexConsumer.addVertex(pMatrix4f, -pScale, -pScale, pScale).setColor(r0, g0, b0, pAlpha);
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package com.axanthic.icaria.common.world.feature;
 
 import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
-import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
@@ -22,6 +21,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -171,7 +171,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void setMobsForSpawners(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof SpawnerBlockEntity blockEntity) {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.ARACHNE_SPAWNER.get())) {
 				blockEntity.setEntityId(IcariaEntityTypes.ARACHNE_DRONE.get(), pRandomSource);
 			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.REVENANT_SPAWNER.get())) {

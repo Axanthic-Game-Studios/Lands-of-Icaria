@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.MyrmekeSoldierEmissiveLayer;
+import com.axanthic.icaria.client.layer.MyrmekeSoldierEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.MyrmekeSoldierModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.MyrmekeSoldierRenderState;
@@ -12,9 +12,10 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.resources.ResourceLocation;
 
 @MethodsReturnNonnullByDefault
@@ -23,7 +24,7 @@ import net.minecraft.resources.ResourceLocation;
 public class MyrmekeSoldierRenderer extends MobRenderer<MyrmekeSoldierEntity, MyrmekeSoldierRenderState, MyrmekeSoldierModel> {
 	public MyrmekeSoldierRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new MyrmekeSoldierModel(pContext.bakeLayer(IcariaModelLayerLocations.MYRMEKE_SOLDIER)), 0.75F);
-		this.addLayer(new MyrmekeSoldierEmissiveLayer(this));
+		this.addLayer(new MyrmekeSoldierEmissiveRenderLayer(this));
 	}
 
 	@Override
@@ -37,8 +38,8 @@ public class MyrmekeSoldierRenderer extends MobRenderer<MyrmekeSoldierEntity, My
 	}
 
 	@Override
-	public void render(MyrmekeSoldierRenderState pRenderState, PoseStack pPoseStack, MultiBufferSource pMultiBufferSource, int pPackedLight) {
-		super.render(pRenderState, pPoseStack, pMultiBufferSource, pPackedLight);
+	public void submit(MyrmekeSoldierRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
+		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
 		this.shadowStrength = pRenderState.shadowStrength;
 	}
 

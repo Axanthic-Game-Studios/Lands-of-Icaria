@@ -1,6 +1,6 @@
 package com.axanthic.icaria.client.renderer;
 
-import com.axanthic.icaria.client.layer.EnderJellyfishEmissiveLayer;
+import com.axanthic.icaria.client.layer.EnderJellyfishEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.EnderJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.EnderJellyfishRenderState;
@@ -24,7 +24,7 @@ import net.minecraft.util.Mth;
 public class EnderJellyfishRenderer extends MobRenderer<EnderJellyfishEntity, EnderJellyfishRenderState, EnderJellyfishModel> {
 	public EnderJellyfishRenderer(EntityRendererProvider.Context pContext) {
 		super(pContext, new EnderJellyfishModel(pContext.bakeLayer(IcariaModelLayerLocations.ENDER_JELLYFISH)), 1.0F);
-		this.addLayer(new EnderJellyfishEmissiveLayer(this));
+		this.addLayer(new EnderJellyfishEmissiveRenderLayer(this));
 	}
 
 	@Override

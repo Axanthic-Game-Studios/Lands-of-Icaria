@@ -160,6 +160,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 
 		// BLOCKS
 
+		this.tag(BlockTags.BARS)
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get());
+
 		this.tag(BlockTags.BEE_ATTRACTIVE)
 			.add(IcariaBlocks.BLINDWEED.get())
 			.add(IcariaBlocks.CHAMEOMILE.get())
@@ -197,6 +200,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_HANGING_SIGN.get())
 			.add(IcariaBlocks.PLANE_HANGING_SIGN.get())
 			.add(IcariaBlocks.POPULUS_HANGING_SIGN.get());
+
+		this.tag(BlockTags.CHAINS)
+			.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 
 		this.tag(BlockTags.CLIMBABLE)
 			.add(IcariaBlocks.CHIMNEY.get())
@@ -402,6 +408,15 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.GRAINGLASS.get())
 			.add(IcariaBlocks.SILKGLASS.get());
 
+		this.tag(BlockTags.INCORRECT_FOR_COPPER_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_CHERT_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_CHALKOS_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_KASSITEROS_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_ORICHALCUM_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_VANADIUMSTEEL_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_SIDEROS_TOOL)
+			.addTag(IcariaBlockTagsProvider.NEEDS_MOLYBDENUMSTEEL_TOOL);
+
 		this.tag(BlockTags.INCORRECT_FOR_DIAMOND_TOOL)
 			.addTag(IcariaBlockTagsProvider.NEEDS_CHALKOS_TOOL)
 			.addTag(IcariaBlockTagsProvider.NEEDS_KASSITEROS_TOOL)
@@ -573,8 +588,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.CYPRESS_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.CYPRESS_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get())
-			.add(IcariaBlocks.CYPRESS_SHELF.get())
-			.add(IcariaBlocks.CYPRESS_WALL_SHELF.get())
+			.add(IcariaBlocks.CYPRESS_HUTCH.get())
+			.add(IcariaBlocks.CYPRESS_WALL_HUTCH.get())
 			.add(IcariaBlocks.CYPRESS_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.CYPRESS_KLINE.get())
 			.add(IcariaBlocks.CYPRESS_CRAFTING_TABLE.get())
@@ -604,8 +619,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.DROUGHTROOT_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.DROUGHTROOT_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_DROUGHTROOT_CUPBOARD.get())
-			.add(IcariaBlocks.DROUGHTROOT_SHELF.get())
-			.add(IcariaBlocks.DROUGHTROOT_WALL_SHELF.get())
+			.add(IcariaBlocks.DROUGHTROOT_HUTCH.get())
+			.add(IcariaBlocks.DROUGHTROOT_WALL_HUTCH.get())
 			.add(IcariaBlocks.DROUGHTROOT_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.DROUGHTROOT_KLINE.get())
 			.add(IcariaBlocks.DROUGHTROOT_CRAFTING_TABLE.get())
@@ -635,8 +650,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.FIR_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.FIR_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_FIR_CUPBOARD.get())
-			.add(IcariaBlocks.FIR_SHELF.get())
-			.add(IcariaBlocks.FIR_WALL_SHELF.get())
+			.add(IcariaBlocks.FIR_HUTCH.get())
+			.add(IcariaBlocks.FIR_WALL_HUTCH.get())
 			.add(IcariaBlocks.FIR_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.FIR_KLINE.get())
 			.add(IcariaBlocks.FIR_CRAFTING_TABLE.get())
@@ -666,8 +681,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.LAUREL_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.LAUREL_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_LAUREL_CUPBOARD.get())
-			.add(IcariaBlocks.LAUREL_SHELF.get())
-			.add(IcariaBlocks.LAUREL_WALL_SHELF.get())
+			.add(IcariaBlocks.LAUREL_HUTCH.get())
+			.add(IcariaBlocks.LAUREL_WALL_HUTCH.get())
 			.add(IcariaBlocks.LAUREL_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.LAUREL_KLINE.get())
 			.add(IcariaBlocks.LAUREL_CRAFTING_TABLE.get())
@@ -697,8 +712,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.OLIVE_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_OLIVE_CUPBOARD.get())
-			.add(IcariaBlocks.OLIVE_SHELF.get())
-			.add(IcariaBlocks.OLIVE_WALL_SHELF.get())
+			.add(IcariaBlocks.OLIVE_HUTCH.get())
+			.add(IcariaBlocks.OLIVE_WALL_HUTCH.get())
 			.add(IcariaBlocks.OLIVE_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.OLIVE_KLINE.get())
 			.add(IcariaBlocks.OLIVE_CRAFTING_TABLE.get())
@@ -728,8 +743,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PLANE_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.PLANE_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_PLANE_CUPBOARD.get())
-			.add(IcariaBlocks.PLANE_SHELF.get())
-			.add(IcariaBlocks.PLANE_WALL_SHELF.get())
+			.add(IcariaBlocks.PLANE_HUTCH.get())
+			.add(IcariaBlocks.PLANE_WALL_HUTCH.get())
 			.add(IcariaBlocks.PLANE_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.PLANE_KLINE.get())
 			.add(IcariaBlocks.PLANE_CRAFTING_TABLE.get())
@@ -759,8 +774,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_POTS_CUPBOARD.get())
 			.add(IcariaBlocks.POPULUS_VASE_CUPBOARD.get())
 			.add(IcariaBlocks.BROKEN_POPULUS_CUPBOARD.get())
-			.add(IcariaBlocks.POPULUS_SHELF.get())
-			.add(IcariaBlocks.POPULUS_WALL_SHELF.get())
+			.add(IcariaBlocks.POPULUS_HUTCH.get())
+			.add(IcariaBlocks.POPULUS_WALL_HUTCH.get())
 			.add(IcariaBlocks.POPULUS_KITCHEN_TABLE.get())
 			.add(IcariaBlocks.POPULUS_KLINE.get())
 			.add(IcariaBlocks.POPULUS_CRAFTING_TABLE.get())
@@ -1115,6 +1130,15 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_WALL_SIGN.get())
 			.add(IcariaBlocks.PLANE_WALL_SIGN.get())
 			.add(IcariaBlocks.POPULUS_WALL_SIGN.get());
+
+		this.tag(BlockTags.WOODEN_SHELVES)
+			.add(IcariaBlocks.CYPRESS_SHELF.get())
+			.add(IcariaBlocks.DROUGHTROOT_SHELF.get())
+			.add(IcariaBlocks.FIR_SHELF.get())
+			.add(IcariaBlocks.LAUREL_SHELF.get())
+			.add(IcariaBlocks.OLIVE_SHELF.get())
+			.add(IcariaBlocks.PLANE_SHELF.get())
+			.add(IcariaBlocks.POPULUS_SHELF.get());
 
 		this.tag(Tags.Blocks.DYED_WHITE)
 			.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get())

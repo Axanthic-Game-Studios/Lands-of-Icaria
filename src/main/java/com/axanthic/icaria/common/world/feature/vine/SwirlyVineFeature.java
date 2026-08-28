@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SwirlyVineFeature extends IcariaVineFeature {
+public class SwirlyVineFeature extends VineFeature {
 	public SwirlyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.SWIRLY_VINE.get());
 	}

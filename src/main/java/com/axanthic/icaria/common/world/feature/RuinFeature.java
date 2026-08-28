@@ -1,6 +1,5 @@
 package com.axanthic.icaria.common.world.feature;
 
-import com.axanthic.icaria.common.entity.IcariaSpawnerBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
@@ -15,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -71,7 +71,7 @@ public class RuinFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void setMobsForSpawners(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaSpawnerBlockEntity blockEntity) {
+		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof SpawnerBlockEntity blockEntity) {
 			blockEntity.setEntityId(this.getMob(pRandomSource), pRandomSource);
 		}
 	}

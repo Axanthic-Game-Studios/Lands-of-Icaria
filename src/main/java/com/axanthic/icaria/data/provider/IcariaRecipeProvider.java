@@ -79,6 +79,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign();
 		this.harness();
 		this.helmet();
+		this.hutch();
 		this.kitchenTable();
 		this.kline();
 		this.ladder();
@@ -482,6 +483,16 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.forging(0.1F, 1, 100, Items.COPPER_INGOT, Items.COPPER_ORE);
 		this.forging(0.1F, 1, 100, Items.COPPER_INGOT, Items.DEEPSLATE_COPPER_ORE);
 		this.forging(0.1F, 1, 100, Items.COPPER_INGOT, Items.RAW_COPPER);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_AXE);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_BOOTS);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_CHESTPLATE);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_HELMET);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_HOE);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_HORSE_ARMOR);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_LEGGINGS);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_PICKAXE);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_SHOVEL);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_SWORD);
 		this.forging(0.1F, 1, 100, Items.DIAMOND, Items.DEEPSLATE_DIAMOND_ORE);
 		this.forging(0.1F, 1, 100, Items.DIAMOND, Items.DIAMOND_ORE);
 		this.forging(0.1F, 1, 100, Items.EMERALD, Items.DEEPSLATE_EMERALD_ORE);
@@ -1293,6 +1304,16 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.helmet(1, IcariaItems.VANADIUMSTEEL_HELMET.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 	}
 
+	public void hutch() {
+		this.hutch(4, IcariaItems.CYPRESS_HUTCH.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.hutch(4, IcariaItems.DROUGHTROOT_HUTCH.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.hutch(4, IcariaItems.FIR_HUTCH.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.hutch(4, IcariaItems.LAUREL_HUTCH.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.hutch(4, IcariaItems.OLIVE_HUTCH.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.hutch(4, IcariaItems.PLANE_HUTCH.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.hutch(4, IcariaItems.POPULUS_HUTCH.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
 	public void kitchenTable() {
 		this.kitchenTable(1, IcariaItems.CYPRESS_KITCHEN_TABLE.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.kitchenTable(1, IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
@@ -1365,13 +1386,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void shelf() {
-		this.shelf(4, IcariaItems.CYPRESS_SHELF.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
-		this.shelf(4, IcariaItems.DROUGHTROOT_SHELF.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		this.shelf(4, IcariaItems.FIR_SHELF.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
-		this.shelf(4, IcariaItems.LAUREL_SHELF.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
-		this.shelf(4, IcariaItems.OLIVE_SHELF.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
-		this.shelf(4, IcariaItems.PLANE_SHELF.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
-		this.shelf(4, IcariaItems.POPULUS_SHELF.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.shelf(6, IcariaItems.CYPRESS_SHELF.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
+		this.shelf(6, IcariaItems.DROUGHTROOT_SHELF.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+		this.shelf(6, IcariaItems.FIR_SHELF.get(), IcariaItems.STRIPPED_FIR_LOG.get());
+		this.shelf(6, IcariaItems.LAUREL_SHELF.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
+		this.shelf(6, IcariaItems.OLIVE_SHELF.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
+		this.shelf(6, IcariaItems.PLANE_SHELF.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
+		this.shelf(6, IcariaItems.POPULUS_SHELF.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 	}
 
 	public void shovel() {
@@ -2072,6 +2093,18 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
+	public void hutch(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pPlanks)
+			.pattern("ABA")
+			.pattern("A A")
+			.pattern("ABA")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
+			.save(this.output, this.key(pResult));
+	}
+
 	public void kitchenTable(int pAmount, Item pResult, Item pLog, Item pPlanks) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', pLog)
@@ -2162,15 +2195,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
-	public void shelf(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+	public void shelf(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', pLog)
-			.define('B', pPlanks)
-			.pattern("ABA")
-			.pattern("A A")
-			.pattern("ABA")
-			.unlockedBy(this.name(pLog), this.has(pLog))
-			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
+			.define('A', pResource)
+			.pattern("AAA")
+			.pattern("   ")
+			.pattern("AAA")
+			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
 

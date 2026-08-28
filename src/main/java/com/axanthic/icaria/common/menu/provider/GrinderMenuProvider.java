@@ -25,7 +25,7 @@ public class GrinderMenuProvider implements MenuProvider {
 
 	@Override
 	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-		return new GrinderMenu(pContainerId, pInventory, this.blockEntity.getData(), this.blockEntity.fuelHandler, this.blockEntity.gearHandler, this.blockEntity.inputHandler, this.blockEntity.outputHandler, this.blockEntity, pPlayer);
+		return new GrinderMenu(pContainerId, this.blockEntity, pPlayer, this.blockEntity.data, pInventory, this.blockEntity.handler);
 	}
 
 	@Override

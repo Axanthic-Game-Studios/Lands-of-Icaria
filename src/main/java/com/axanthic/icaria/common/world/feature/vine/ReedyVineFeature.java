@@ -12,7 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConf
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ReedyVineFeature extends IcariaVineFeature {
+public class ReedyVineFeature extends VineFeature {
 	public ReedyVineFeature(Codec<NoneFeatureConfiguration> pCodec) {
 		super(pCodec, IcariaBlocks.REEDY_VINE.get());
 	}
