@@ -38,7 +38,7 @@ public class SurfaceLigniteBlock extends FloorDecorationBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
 		if (!pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) && !pBlockState.getValue(BlockStateProperties.WATERLOGGED)) {
 			IcariaCommonHelper.hurt(pLevel.damageSources().inFire(), pEntity, 1.5F);
 		}

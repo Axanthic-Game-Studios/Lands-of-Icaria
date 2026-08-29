@@ -64,21 +64,21 @@ public class IcariaClientEvents {
 
 	@SubscribeEvent
 	public static void onCreateSkullModels(EntityRenderersEvent.CreateSkullModels pEvent) {
-		pEvent.registerSkullModel(SkullBlockTypes.AETERNAE, IcariaModelLayerLocations.AETERNAE_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.ARGAN_HOUND, IcariaModelLayerLocations.ARGAN_HOUND_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.CAPELLA, IcariaModelLayerLocations.CAPELLA_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.CATOBLEPAS, IcariaModelLayerLocations.CATOBLEPAS_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.CERVER, IcariaModelLayerLocations.CERVER_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.CROCOTTA, IcariaModelLayerLocations.CROCOTTA_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaModelLayerLocations.CYPRESS_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.FIR_FOREST_HAG, IcariaModelLayerLocations.FIR_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaModelLayerLocations.LAUREL_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaModelLayerLocations.OLIVE_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.PLANE_FOREST_HAG, IcariaModelLayerLocations.PLANE_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL);
-		pEvent.registerSkullModel(SkullBlockTypes.THOG, IcariaModelLayerLocations.THOG_SKULL);
+		pEvent.registerSkullModel(SkullBlockTypes.AETERNAE, IcariaModelLayerLocations.AETERNAE_SKULL, IcariaResourceLocations.AETERNAE);
+		pEvent.registerSkullModel(SkullBlockTypes.ARGAN_HOUND, IcariaModelLayerLocations.ARGAN_HOUND_SKULL, IcariaResourceLocations.ARGAN_HOUND);
+		pEvent.registerSkullModel(SkullBlockTypes.CAPELLA, IcariaModelLayerLocations.CAPELLA_SKULL, IcariaResourceLocations.CAPELLA);
+		pEvent.registerSkullModel(SkullBlockTypes.CATOBLEPAS, IcariaModelLayerLocations.CATOBLEPAS_SKULL, IcariaResourceLocations.CATOBLEPAS);
+		pEvent.registerSkullModel(SkullBlockTypes.CERVER, IcariaModelLayerLocations.CERVER_SKULL, IcariaResourceLocations.CERVER);
+		pEvent.registerSkullModel(SkullBlockTypes.CROCOTTA, IcariaModelLayerLocations.CROCOTTA_SKULL, IcariaResourceLocations.CROCOTTA);
+		pEvent.registerSkullModel(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaModelLayerLocations.CYPRESS_FOREST_HAG_SKULL, IcariaResourceLocations.CYPRESS_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.FIR_FOREST_HAG, IcariaModelLayerLocations.FIR_FOREST_HAG_SKULL, IcariaResourceLocations.FIR_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaModelLayerLocations.LAUREL_FOREST_HAG_SKULL, IcariaResourceLocations.LAUREL_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaModelLayerLocations.OLIVE_FOREST_HAG_SKULL, IcariaResourceLocations.OLIVE_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.PLANE_FOREST_HAG, IcariaModelLayerLocations.PLANE_FOREST_HAG_SKULL, IcariaResourceLocations.PLANE_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL, IcariaResourceLocations.POPULUS_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL, IcariaResourceLocations.CAPTAIN_REVENANT);
+		pEvent.registerSkullModel(SkullBlockTypes.THOG, IcariaModelLayerLocations.THOG_SKULL, IcariaResourceLocations.THOG);
 	}
 
 	@SubscribeEvent

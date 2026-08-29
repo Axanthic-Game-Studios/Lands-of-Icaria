@@ -118,7 +118,7 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
 		if (pEntity instanceof ItemEntity itemEntity) {
 			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
 				if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {

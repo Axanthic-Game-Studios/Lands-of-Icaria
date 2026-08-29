@@ -50,9 +50,9 @@ public class IcariaChestBlock extends ChestBlock implements MediterraneanWaterlo
 	}
 
 	@Override
-	public boolean onDestroyedByPlayer(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, boolean pWillHarvest, FluidState pFluidState) {
+	public boolean onDestroyedByPlayer(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, ItemStack pItemStack, boolean pWillHarvest, FluidState pFluidState) {
 		this.dropLabels(pBlockPos, pBlockState, pLevel);
-		return super.onDestroyedByPlayer(pBlockState, pLevel, pBlockPos, pPlayer, pWillHarvest, pFluidState);
+		return super.onDestroyedByPlayer(pBlockState, pLevel, pBlockPos, pPlayer, pItemStack, pWillHarvest, pFluidState);
 	}
 
 	@Override

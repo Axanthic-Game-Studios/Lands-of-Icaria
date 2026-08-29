@@ -24,7 +24,7 @@ public class DamagingBushBlock extends IcariaBushBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
 		IcariaCommonHelper.hurt(pLevel.damageSources().cactus(), pEntity, 1.0F);
 	}
 

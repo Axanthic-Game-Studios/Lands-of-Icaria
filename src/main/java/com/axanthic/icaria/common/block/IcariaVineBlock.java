@@ -124,7 +124,7 @@ public class IcariaVineBlock extends Block {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
 		if (pBlockState.is(IcariaBlocks.THORNY_VINE.get())) {
 			IcariaCommonHelper.hurt(pLevel.damageSources().cactus(), pEntity, 1.0F);
 		}

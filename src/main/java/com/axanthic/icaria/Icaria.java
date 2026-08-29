@@ -3,13 +3,11 @@ package com.axanthic.icaria;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.common.types.SkullBlockTypes;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.Sheets;
-import net.minecraft.client.renderer.blockentity.SkullBlockRenderer;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -41,7 +39,6 @@ public class Icaria {
 
 	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
 		Icaria.registerExtensionPoint(pEvent);
-		Icaria.registerSkullTypes(pEvent);
 		Icaria.registerWoodTypes(pEvent);
 	}
 
@@ -86,24 +83,6 @@ public class Icaria {
 
 	public static void registerExtensionPoint(FMLClientSetupEvent pEvent) {
 		ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-	}
-
-	public static void registerSkullTypes(FMLClientSetupEvent pEvent) {
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.AETERNAE, IcariaResourceLocations.AETERNAE));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.ARGAN_HOUND, IcariaResourceLocations.ARGAN_HOUND));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CAPELLA, IcariaResourceLocations.CAPELLA));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CATOBLEPAS, IcariaResourceLocations.CATOBLEPAS));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CERVER, IcariaResourceLocations.CERVER));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CROCOTTA, IcariaResourceLocations.CROCOTTA));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaResourceLocations.CYPRESS_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.FIR_FOREST_HAG, IcariaResourceLocations.FIR_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaResourceLocations.LAUREL_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaResourceLocations.OLIVE_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.PLANE_FOREST_HAG, IcariaResourceLocations.PLANE_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaResourceLocations.POPULUS_FOREST_HAG));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.REVENANT, IcariaResourceLocations.CAPTAIN_REVENANT));
-		pEvent.enqueueWork(() -> SkullBlockRenderer.SKIN_BY_TYPE.put(SkullBlockTypes.THOG, IcariaResourceLocations.THOG));
 	}
 
 	public static void registerWoodTypes(FMLClientSetupEvent pEvent) {

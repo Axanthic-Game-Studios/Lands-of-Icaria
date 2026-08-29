@@ -16,6 +16,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -36,9 +37,9 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	public boolean onDestroyedByPlayer(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, boolean pWillHarvest, FluidState pFluidState) {
+	public boolean onDestroyedByPlayer(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, ItemStack pItemStack, boolean pWillHarvest, FluidState pFluidState) {
 		this.handleAction(pBlockPos, pBlockState, pLevel, pPlayer);
-		return super.onDestroyedByPlayer(pBlockState, pLevel, pBlockPos, pPlayer, pWillHarvest, pFluidState);
+		return super.onDestroyedByPlayer(pBlockState, pLevel, pBlockPos, pPlayer, pItemStack, pWillHarvest, pFluidState);
 	}
 
 	@Override
