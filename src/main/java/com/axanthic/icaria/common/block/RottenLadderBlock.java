@@ -4,9 +4,10 @@ import com.axanthic.icaria.common.properties.Ladder;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -78,7 +79,7 @@ public class RottenLadderBlock extends IcariaLadderBlock {
 		if (!pServerLevel.getEntitiesOfClass(Player.class, new AABB(pBlockPos)).isEmpty()) {
 			this.updateLadder(pBlockPos, pBlockState, pServerLevel);
 		} else {
-			pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER_TICK, 0), 2);
+			pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER_TICK, 0));
 		}
 	}
 
@@ -92,10 +93,10 @@ public class RottenLadderBlock extends IcariaLadderBlock {
 
 	public void updateLadder(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, Ladder pLadder) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.LADDER_TICK) < 40) {
-			pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER_TICK, pBlockState.getValue(IcariaBlockStateProperties.LADDER_TICK) + 1), 2);
+			pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER_TICK, pBlockState.getValue(IcariaBlockStateProperties.LADDER_TICK) + 1));
 		} else {
 			pServerLevel.playSound(null, pBlockPos, IcariaSoundEvents.ROTTEN_BONE_LADDER_BREAK, SoundSource.BLOCKS, 1.0F, 1.0F);
-			pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER, pLadder).setValue(IcariaBlockStateProperties.LADDER_TICK, 0), 2);
+			pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.LADDER, pLadder).setValue(IcariaBlockStateProperties.LADDER_TICK, 0));
 		}
 	}
 }

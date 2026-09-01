@@ -1,16 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
 import com.axanthic.icaria.common.properties.Carpet;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.Map;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.equipment.EquipmentAsset;
 
 @MethodsReturnNonnullByDefault
@@ -27,6 +28,6 @@ public class IcariaEquipmentAssets {
 	public static final Map<Carpet, ResourceKey<EquipmentAsset>> CARPET = Util.makeEnumMap(Carpet.class, carpet -> IcariaEquipmentAssets.createKey(carpet.getSerializedName()));
 
 	public static ResourceKey<EquipmentAsset> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.EQUIPMENT_ASSET, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(IcariaRegistries.EQUIPMENT_ASSET, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

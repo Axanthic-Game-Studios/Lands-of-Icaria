@@ -20,9 +20,10 @@ import com.axanthic.icaria.common.world.feature.tree.fallen.*;
 import com.axanthic.icaria.common.world.feature.tree.small.*;
 import com.axanthic.icaria.common.world.feature.vine.*;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -34,7 +35,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaFeatures {
-	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaIdents.ID);
+	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, IcariaKeys.ID);
 
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> MARL_CHERT = IcariaFeatures.FEATURES.register("marl_chert", () -> new HiddenMarlChertFeature(NoneFeatureConfiguration.CODEC));
 	public static final DeferredHolder<Feature<?>, Feature<NoneFeatureConfiguration>> MARL_BONES = IcariaFeatures.FEATURES.register("marl_bones", () -> new HiddenMarlBonesFeature(NoneFeatureConfiguration.CODEC));

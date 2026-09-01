@@ -7,9 +7,10 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaBiomes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntitySpawnReason;

@@ -5,10 +5,11 @@ import com.axanthic.icaria.common.variant.FyshVariant;
 import com.axanthic.icaria.data.registry.IcariaFyshVariants;
 import com.axanthic.icaria.data.registry.IcariaRegistries;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.SynchedEntityData;

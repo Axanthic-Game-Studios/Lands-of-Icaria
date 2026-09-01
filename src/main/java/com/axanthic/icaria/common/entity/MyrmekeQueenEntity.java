@@ -5,9 +5,10 @@ import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;

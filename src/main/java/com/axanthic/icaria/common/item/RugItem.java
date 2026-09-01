@@ -3,14 +3,15 @@ package com.axanthic.icaria.common.item;
 import com.axanthic.icaria.common.entity.RugEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HangingEntityItem;
 import net.minecraft.world.item.ItemStack;

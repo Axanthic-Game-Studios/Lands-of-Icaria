@@ -1,17 +1,18 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -568,6 +569,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.REVENANT_SKULL.get())
 			.add(IcariaItems.THOG_SKULL.get());
 
+		this.tag(ItemTags.SPEARS); // TODO
+
 		this.tag(ItemTags.STONE_CRAFTING_MATERIALS)
 			.add(IcariaItems.GRAINITE.get())
 			.add(IcariaItems.COBBLED_YELLOWSTONE.get())
@@ -587,22 +590,6 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.COBBLED_BAETYL.get())
 			.add(IcariaItems.RELICSTONE.get())
 			.add(IcariaItems.PLATOSHALE.get());
-
-		this.tag(ItemTags.SWORD_ENCHANTABLE)
-			.add(IcariaItems.CHERT_DAGGER.get())
-			.add(IcariaItems.CHERT_SCYTHE.get())
-			.add(IcariaItems.CHALKOS_DAGGER.get())
-			.add(IcariaItems.CHALKOS_SCYTHE.get())
-			.add(IcariaItems.KASSITEROS_DAGGER.get())
-			.add(IcariaItems.KASSITEROS_SCYTHE.get())
-			.add(IcariaItems.ORICHALCUM_DAGGER.get())
-			.add(IcariaItems.ORICHALCUM_SCYTHE.get())
-			.add(IcariaItems.VANADIUMSTEEL_DAGGER.get())
-			.add(IcariaItems.VANADIUMSTEEL_SCYTHE.get())
-			.add(IcariaItems.SIDEROS_DAGGER.get())
-			.add(IcariaItems.SIDEROS_SCYTHE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get());
 
 		this.tag(ItemTags.SWORDS)
 			.add(IcariaItems.CHERT_SWORD.get())
@@ -2115,14 +2102,14 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 	}
 
 	public static TagKey<Item> cKey(String pName) {
-		return IcariaItemTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaItemTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<Item> icariaKey(String pName) {
-		return IcariaItemTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaItemTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<Item> createKey(String pName) {
-		return TagKey.create(Registries.ITEM, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.ITEM, Identifier.parse(pName));
 	}
 }

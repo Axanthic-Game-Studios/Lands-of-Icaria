@@ -1,11 +1,12 @@
 package com.axanthic.icaria.common.payload;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.runnable.TotemRunnable;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -24,7 +25,7 @@ public class TotemPayload implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, TotemPayload> STREAM_CODEC = CustomPacketPayload.codec(TotemPayload::write, TotemPayload::new);
 
-	public static final Type<TotemPayload> TYPE = new Type<>(IcariaResourceLocations.TOTEM_PAYLOAD_TYPE);
+	public static final Type<TotemPayload> TYPE = new Type<>(IcariaIdentifiers.TOTEM_PAYLOAD_TYPE);
 
 	public TotemPayload(int pId, ItemStack pItemStack) {
 		this.id = pId;

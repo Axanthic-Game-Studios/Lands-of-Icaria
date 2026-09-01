@@ -2,9 +2,10 @@ package com.axanthic.icaria.client.particle.provider;
 
 import com.axanthic.icaria.client.particle.IcariaSteamParticle;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.Particle;
 import net.minecraft.client.particle.ParticleProvider;

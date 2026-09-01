@@ -1,20 +1,20 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 
 import com.mojang.datafixers.util.Pair;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.biome.MultiNoiseBiomeSource;
@@ -118,6 +118,6 @@ public class IcariaLevelStems {
 	}
 
 	public static ResourceKey<LevelStem> createKey(String pName) {
-		return ResourceKey.create(Registries.LEVEL_STEM, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.LEVEL_STEM, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

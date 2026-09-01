@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
@@ -47,7 +48,7 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pRandomSource.nextInt(100) == 0) {
 			if (!pBlockState.getValue(IcariaBlockStateProperties.RIPE_BUSH)) {
-				pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, true), 2);
+				pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, true));
 			}
 		}
 	}
@@ -64,7 +65,7 @@ public class StrawberryBushBlock extends IcariaBushBlock {
 	public InteractionResult dropFromLootTable(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
 		Block.dropFromLootTable(pServerLevel, pResourceKey, builder -> builder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK_INTERACT), (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
 		pServerLevel.playSound(null, pBlockPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS);
-		pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, false), 2);
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.RIPE_BUSH, false));
 		return InteractionResult.SUCCESS;
 	}
 }

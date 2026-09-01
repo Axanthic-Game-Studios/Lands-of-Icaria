@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
@@ -16,7 +17,6 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -36,6 +36,7 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
 import net.minecraft.world.item.crafting.SingleRecipeInput;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -235,7 +236,7 @@ public class KilnBlockEntity extends BlockEntity {
 
 	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, DoubleBlockHalf half) {
 		pServerLevel.blockEntityChanged(pBlockPos);
-		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, 3);
+		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, Block.UPDATE_ALL);
 		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, half).setValue(BlockStateProperties.LIT, pLit));
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
 	}

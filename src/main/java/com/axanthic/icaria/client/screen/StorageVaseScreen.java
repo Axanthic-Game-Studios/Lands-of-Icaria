@@ -2,11 +2,12 @@ package com.axanthic.icaria.client.screen;
 
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -33,7 +34,7 @@ public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> 
 	public void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
 		var x = (this.width - this.imageWidth) / 2;
 		var y = (this.height - this.imageHeight) / 2;
-		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 	}
 
 	@Override

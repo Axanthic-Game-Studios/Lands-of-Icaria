@@ -3,11 +3,12 @@ package com.axanthic.icaria.client.helper;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.registry.IcariaValues;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import java.awt.*;
@@ -16,7 +17,6 @@ import java.io.IOException;
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.imageio.ImageIO;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.animation.AnimationDefinition;
 import net.minecraft.client.gui.Font;
@@ -29,7 +29,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.AnimationState;
@@ -44,13 +44,13 @@ import org.joml.Matrix4f;
 
 public class IcariaClientHelper {
 
-	public static float getAngleBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
-		if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DUSK_EXIT) {
-			return (pLivingEntity.level().getSunAngle(pPartialTick) - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
-		} else if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DUSK_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DAWN_INIT) {
+	public static float getAngleBasedAlpha(LivingEntity pLivingEntity) {
+		if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DUSK_EXIT) {
+			return (pLivingEntity.level().getDayTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
+		} else if (pLivingEntity.level().getDayTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_INIT) {
 			return 1.0F;
-		} else if (pLivingEntity.level().getSunAngle(pPartialTick) >= IcariaValues.DAWN_INIT && pLivingEntity.level().getSunAngle(pPartialTick) < IcariaValues.DAWN_EXIT) {
-			return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getSunAngle(pPartialTick)) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
+		} else if (pLivingEntity.level().getDayTime() >= IcariaValues.DAWN_INIT && pLivingEntity.level().getDayTime() < IcariaValues.DAWN_EXIT) {
+			return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getDayTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
 		} else {
 			return 0.0F;
 		}
@@ -64,8 +64,8 @@ public class IcariaClientHelper {
 		return (15.0F - pLivingEntity.level().getMaxLocalRawBrightness(pLivingEntity.blockPosition(), 0)) / 15.0F;
 	}
 
-	public static float getLightBasedAlpha(LivingEntity pLivingEntity, float pPartialTick) {
-		return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity, pPartialTick) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
+	public static float getLightBasedAlpha(LivingEntity pLivingEntity) {
+		return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
 	}
 
 	public static float getRed(BlockEntity pBlockEntity) {
@@ -100,12 +100,12 @@ public class IcariaClientHelper {
 		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : pCondition ? 1.0F : 0.0F, 1.0F, 1.0F, 1.0F);
 	}
 
-	public static int getColorAndAlpha(LivingEntity pLivingEntity, float pPartialTick) {
-		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick), 1.0F, 1.0F, 1.0F);
+	public static int getLightBasedColorAndAlpha(LivingEntity pLivingEntity) {
+		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity), 1.0F, 1.0F, 1.0F);
 	}
 
-	public static int getColorAndAlpha(LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
-		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick), pRed, pGreen, pBlue);
+	public static int getLightBasedColorAndAlpha(LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
+		return ARGB.colorFromFloat(pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity), pRed, pGreen, pBlue);
 	}
 
 	public static void anim(AnimationDefinition pAnimationDefinition, AnimationState pAnimationState, float pAgeInTicks, ModelPart pModelPart) {
@@ -184,8 +184,8 @@ public class IcariaClientHelper {
 		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
 	}
 
-	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LivingEntity pLivingEntity, float pPartialTick, float pRed, float pGreen, float pBlue) {
-		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity, pPartialTick));
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
+		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity));
 		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
 	}
 
@@ -275,17 +275,17 @@ public class IcariaClientHelper {
 	}
 
 	public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-		var resourceLocation = ResourceLocation.parse(IcariaIdents.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
-		return IcariaClientHelper.getColor(resourceLocation);
+		var identifier = Identifier.parse(IcariaKeys.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+		return IcariaClientHelper.getColor(identifier);
 	}
 
 	public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-		var resourceLocation = ResourceLocation.parse(IcariaIdents.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
-		return IcariaClientHelper.getColor(resourceLocation);
+		var identifier = Identifier.parse(IcariaKeys.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+		return IcariaClientHelper.getColor(identifier);
 	}
 
-	public static Color getColor(ResourceLocation pResourceLocation) {
-		var optional = Minecraft.getInstance().getResourceManager().getResource(pResourceLocation);
+	public static Color getColor(Identifier pIdentifier) {
+		var optional = Minecraft.getInstance().getResourceManager().getResource(pIdentifier);
 		if (optional.isPresent()) {
 			try {
 				return new Color(ImageIO.read(optional.get().open()).getRGB(0, 0));

@@ -1,18 +1,19 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.data.registry.IcariaInstruments;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.InstrumentTagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Instrument;
 
@@ -40,14 +41,14 @@ public class IcariaInstrumentTagsProvider extends InstrumentTagsProvider {
 	}
 
 	public static TagKey<Instrument> cKey(String pName) {
-		return IcariaInstrumentTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaInstrumentTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<Instrument> icariaKey(String pName) {
-		return IcariaInstrumentTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaInstrumentTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<Instrument> createKey(String pName) {
-		return TagKey.create(Registries.INSTRUMENT, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.INSTRUMENT, Identifier.parse(pName));
 	}
 }

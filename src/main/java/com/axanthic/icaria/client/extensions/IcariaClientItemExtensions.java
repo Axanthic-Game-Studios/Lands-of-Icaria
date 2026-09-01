@@ -3,9 +3,10 @@ package com.axanthic.icaria.client.extensions;
 import com.axanthic.icaria.client.model.OrichalcumHelmetModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.Model;

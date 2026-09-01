@@ -2,11 +2,11 @@ package com.axanthic.icaria.common.world.feature.tree.fallen;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;

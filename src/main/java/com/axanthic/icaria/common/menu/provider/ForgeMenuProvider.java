@@ -2,11 +2,12 @@ package com.axanthic.icaria.common.menu.provider;
 
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.menu.ForgeMenu;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
@@ -30,6 +31,6 @@ public class ForgeMenuProvider implements MenuProvider {
 
 	@Override
 	public Component getDisplayName() {
-		return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "forge");
+		return Component.translatable("menu" + "." + IcariaKeys.ID + "." + "forge");
 	}
 }

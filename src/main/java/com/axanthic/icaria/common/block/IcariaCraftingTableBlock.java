@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.menu.CraftingTableMenu;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;

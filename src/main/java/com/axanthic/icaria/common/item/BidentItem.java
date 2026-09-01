@@ -3,11 +3,12 @@ package com.axanthic.icaria.common.item;
 import com.axanthic.icaria.common.entity.BidentEntity;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Position;
 import net.minecraft.core.component.DataComponents;
@@ -22,8 +23,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.component.Tool;

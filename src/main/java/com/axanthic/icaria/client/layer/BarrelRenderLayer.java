@@ -3,12 +3,12 @@ package com.axanthic.icaria.client.layer;
 import com.axanthic.icaria.common.registry.IcariaContextKeys;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.client.model.PlayerModel;
+import net.minecraft.client.model.player.PlayerModel;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;

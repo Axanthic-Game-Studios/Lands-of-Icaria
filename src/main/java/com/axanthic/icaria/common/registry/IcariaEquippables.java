@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.data.registry.IcariaEquipmentAssets;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;

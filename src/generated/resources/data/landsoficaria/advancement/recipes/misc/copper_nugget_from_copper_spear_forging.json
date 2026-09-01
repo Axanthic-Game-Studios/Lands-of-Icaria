@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:copper_spear": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_spear"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:copper_nugget_from_copper_spear_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:copper_spear"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:copper_nugget_from_copper_spear_forging"
+    ]
+  }
+}

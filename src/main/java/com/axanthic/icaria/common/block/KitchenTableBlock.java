@@ -4,10 +4,11 @@ import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.KitchenTableVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -59,14 +60,14 @@ public class KitchenTableBlock extends Block {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.relative(pDirection.getOpposite()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.relative(pDirection.getOpposite()), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.PART, Part.FOOT), 3);
-		pLevel.setBlock(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.PART, Part.HEAD), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.PART, Part.HEAD));
 	}
 
 	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {

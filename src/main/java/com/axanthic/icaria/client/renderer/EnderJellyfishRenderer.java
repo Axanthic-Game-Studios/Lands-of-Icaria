@@ -5,17 +5,17 @@ import com.axanthic.icaria.client.model.EnderJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.EnderJellyfishRenderState;
 import com.axanthic.icaria.common.entity.EnderJellyfishEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 @MethodsReturnNonnullByDefault
@@ -58,12 +58,12 @@ public class EnderJellyfishRenderer extends MobRenderer<EnderJellyfishEntity, En
 	}
 
 	@Override
-	public EnderJellyfishRenderState createRenderState() {
-		return new EnderJellyfishRenderState();
+	public Identifier getTextureLocation(EnderJellyfishRenderState pRenderState) {
+		return IcariaIdentifiers.ENDER_JELLYFISH;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(EnderJellyfishRenderState pRenderState) {
-		return IcariaResourceLocations.ENDER_JELLYFISH;
+	public EnderJellyfishRenderState createRenderState() {
+		return new EnderJellyfishRenderState();
 	}
 }

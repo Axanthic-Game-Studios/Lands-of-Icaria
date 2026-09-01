@@ -1,15 +1,18 @@
 package com.axanthic.icaria.client.extensions;
 
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;
-import net.minecraft.resources.ResourceLocation;
+
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.material.FluidState;
 
@@ -32,22 +35,22 @@ public class IcariaClientFluidTypeExtensions implements IClientFluidTypeExtensio
 	}
 
 	@Override
-	public ResourceLocation getFlowingTexture() {
-		return IcariaResourceLocations.FLOWING_MEDITERRANEAN_WATER;
+	public Identifier getFlowingTexture() {
+		return IcariaIdentifiers.FLOWING_MEDITERRANEAN_WATER;
 	}
 
 	@Override
-	public ResourceLocation getOverlayTexture() {
-		return IcariaResourceLocations.MEDITERRANEAN_WATER_OVERLAY;
+	public Identifier getOverlayTexture() {
+		return IcariaIdentifiers.MEDITERRANEAN_WATER_OVERLAY;
 	}
 
 	@Override
-	public ResourceLocation getRenderOverlayTexture(Minecraft pMinecraft) {
-		return IcariaResourceLocations.MEDITERRANEAN_WATER_UNDERWATER;
+	public Identifier getRenderOverlayTexture(Minecraft pMinecraft) {
+		return IcariaIdentifiers.MEDITERRANEAN_WATER_UNDERWATER;
 	}
 
 	@Override
-	public ResourceLocation getStillTexture() {
-		return IcariaResourceLocations.MEDITERRANEAN_WATER;
+	public Identifier getStillTexture() {
+		return IcariaIdentifiers.MEDITERRANEAN_WATER;
 	}
 }

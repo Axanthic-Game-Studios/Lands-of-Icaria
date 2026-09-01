@@ -4,14 +4,15 @@ import com.axanthic.icaria.client.model.CrocottaModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrocottaRenderState;
 import com.axanthic.icaria.common.entity.CrocottaEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -28,12 +29,12 @@ public class CrocottaRenderer extends MobRenderer<CrocottaEntity, CrocottaRender
 	}
 
 	@Override
-	public CrocottaRenderState createRenderState() {
-		return new CrocottaRenderState();
+	public Identifier getTextureLocation(CrocottaRenderState pRenderState) {
+		return IcariaIdentifiers.CROCOTTA;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CrocottaRenderState pRenderState) {
-		return IcariaResourceLocations.CROCOTTA;
+	public CrocottaRenderState createRenderState() {
+		return new CrocottaRenderState();
 	}
 }

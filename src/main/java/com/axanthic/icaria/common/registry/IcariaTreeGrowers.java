@@ -2,11 +2,12 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.data.registry.IcariaConfiguredFeatures;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.grower.TreeGrower;
 
 @MethodsReturnNonnullByDefault

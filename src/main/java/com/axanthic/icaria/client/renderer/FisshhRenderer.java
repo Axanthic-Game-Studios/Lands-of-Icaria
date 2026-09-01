@@ -6,13 +6,13 @@ import com.axanthic.icaria.client.state.FisshhRenderState;
 import com.axanthic.icaria.common.entity.FisshhEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -42,12 +42,12 @@ public class FisshhRenderer extends MobRenderer<FisshhEntity, FisshhRenderState,
 	}
 
 	@Override
-	public FisshhRenderState createRenderState() {
-		return new FisshhRenderState();
+	public Identifier getTextureLocation(FisshhRenderState pRenderState) {
+		return pRenderState.fisshhVariant.value().clientAsset().texturePath();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FisshhRenderState pRenderState) {
-		return pRenderState.fisshhVariant.value().clientAsset().texturePath();
+	public FisshhRenderState createRenderState() {
+		return new FisshhRenderState();
 	}
 }

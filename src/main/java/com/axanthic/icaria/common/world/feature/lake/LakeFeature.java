@@ -1,10 +1,10 @@
 package com.axanthic.icaria.common.world.feature.lake;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
@@ -92,7 +92,7 @@ public class LakeFeature extends Feature<NoneFeatureConfiguration> {
 						if (booleans[(i * 16 + j) * 8 + k]) {
 							var flag = k >= 4;
 							if (this.isChangeable(level, blockPos)) {
-								level.setBlock(blockPos, flag ? Blocks.AIR.defaultBlockState() : fluid, 2);
+								level.setBlock(blockPos, flag ? Blocks.AIR.defaultBlockState() : fluid, Block.UPDATE_ALL);
 								if (flag) {
 									level.scheduleTick(blockPos, Blocks.AIR.defaultBlockState().getBlock(), 0);
 									this.markAboveForPostProcessing(level, blockPos);
@@ -110,7 +110,7 @@ public class LakeFeature extends Feature<NoneFeatureConfiguration> {
 						if (flag && (l3 < 4 || random.nextInt(2) != 0)) {
 							var blockPos = origin.offset(j2, l3, j3);
 							if (level.getBlockState(origin.offset(j2, l3, j3)).isSolidRender() && this.isChangeable(level, origin.offset(j2, l3, j3))) {
-								level.setBlock(blockPos, block, 2);
+								level.setBlock(blockPos, block, Block.UPDATE_ALL);
 								this.markAboveForPostProcessing(level, blockPos);
 							}
 						}

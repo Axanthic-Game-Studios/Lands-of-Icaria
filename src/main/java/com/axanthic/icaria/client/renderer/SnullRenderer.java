@@ -5,17 +5,17 @@ import com.axanthic.icaria.client.model.SnullModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SnullRenderState;
 import com.axanthic.icaria.common.entity.SnullEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -61,12 +61,12 @@ public class SnullRenderer extends MobRenderer<SnullEntity, SnullRenderState, Sn
 	}
 
 	@Override
-	public SnullRenderState createRenderState() {
-		return new SnullRenderState();
+	public Identifier getTextureLocation(SnullRenderState pRenderState) {
+		return IcariaIdentifiers.SNULL;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(SnullRenderState pRenderState) {
-		return IcariaResourceLocations.SNULL;
+	public SnullRenderState createRenderState() {
+		return new SnullRenderState();
 	}
 }

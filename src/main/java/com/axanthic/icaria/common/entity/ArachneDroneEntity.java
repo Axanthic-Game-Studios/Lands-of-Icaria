@@ -1,12 +1,14 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.IcariaArachnidTargetGoal;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -134,8 +136,8 @@ public class ArachneDroneEntity extends ArachneEntity {
 	}
 
 	public void setSize(int pSize) {
-		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(pSize);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+		IcariaCommonHelper.setAttribute(Attributes.ATTACK_DAMAGE, this, pSize);
+		IcariaCommonHelper.setAttribute(Attributes.MAX_HEALTH, this, pSize * pSize);
 		this.getEntityData().set(ArachneDroneEntity.SIZE, pSize);
 		this.xpReward = pSize;
 	}

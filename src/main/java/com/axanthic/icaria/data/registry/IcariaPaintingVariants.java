@@ -1,18 +1,19 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -93,10 +94,10 @@ public class IcariaPaintingVariants {
 	}
 
 	public static void register(BootstrapContext<PaintingVariant> pBootstrapContext, ResourceKey<PaintingVariant> pVariant, int pHeight, int pWidth) {
-		pBootstrapContext.register(pVariant, new PaintingVariant(pWidth, pHeight, pVariant.location(), Optional.of(Component.translatable(pVariant.location().toLanguageKey("painting", "title"))), Optional.of(Component.translatable(pVariant.location().toLanguageKey("painting", "author")))));
+		pBootstrapContext.register(pVariant, new PaintingVariant(pWidth, pHeight, pVariant.identifier(), Optional.of(Component.translatable(pVariant.identifier().toLanguageKey("painting", "title"))), Optional.of(Component.translatable(pVariant.identifier().toLanguageKey("painting", "author")))));
 	}
 
 	public static ResourceKey<PaintingVariant> createKey(String pName) {
-		return ResourceKey.create(Registries.PAINTING_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.PAINTING_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

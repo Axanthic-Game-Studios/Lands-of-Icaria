@@ -2,16 +2,17 @@ package com.axanthic.icaria.data.provider.model;
 
 import com.axanthic.icaria.client.renderer.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.color.item.Constant;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.renderer.item.BlockModelWrapper;
@@ -22,7 +23,7 @@ import net.minecraft.client.renderer.item.properties.conditional.IsUsingItem;
 import net.minecraft.client.renderer.item.properties.select.DisplayContext;
 import net.minecraft.client.renderer.special.ChestSpecialRenderer;
 import net.minecraft.client.renderer.special.SkullSpecialRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.SkullBlock;
@@ -1211,7 +1212,7 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIdents.MC, "chest"), new ChestSpecialRenderer.Unbaked(ResourceLocation.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "chest"), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
@@ -1223,11 +1224,11 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void scroll(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(ResourceLocation.fromNamespaceAndPath(IcariaIdents.MC, "builtin" + "/" + "generated"), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of()))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(Identifier.fromNamespaceAndPath(IcariaKeys.MC, "builtin" + "/" + "generated"), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of()))));
 	}
 
 	public static void skull(Item pItem, SkullBlock.Type pType, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIdents.MC, "template_skull"), new SkullSpecialRenderer.Unbaked(pType)));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_skull"), new SkullSpecialRenderer.Unbaked(pType)));
 	}
 
 	public static void tint(Item pItem, int pColor, ItemModelGenerators pItemModelGenerators) {

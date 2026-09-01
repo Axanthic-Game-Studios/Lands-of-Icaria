@@ -3,13 +3,14 @@ package com.axanthic.icaria.common.registry;
 import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaEquipmentAssets;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.EnumMap;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
 

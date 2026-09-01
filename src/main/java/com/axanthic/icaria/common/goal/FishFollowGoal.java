@@ -2,11 +2,12 @@ package com.axanthic.icaria.common.goal;
 
 import com.axanthic.icaria.common.entity.FishEntity;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.stream.Collectors;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.ai.goal.Goal;
 
 @MethodsReturnNonnullByDefault

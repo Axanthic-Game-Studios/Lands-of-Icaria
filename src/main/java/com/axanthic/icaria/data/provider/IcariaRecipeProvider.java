@@ -2,21 +2,24 @@ package com.axanthic.icaria.data.provider;
 
 import com.axanthic.icaria.common.recipe.builder.*;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.registry.IcariaPotions;
 import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
+import java.util.Optional;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -490,8 +493,10 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_HOE);
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_HORSE_ARMOR);
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_LEGGINGS);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_NAUTILUS_ARMOR);
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_PICKAXE);
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_SHOVEL);
+		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_SPEAR);
 		this.forging(0.1F, 1, 100, Items.COPPER_NUGGET, Items.COPPER_SWORD);
 		this.forging(0.1F, 1, 100, Items.DIAMOND, Items.DEEPSLATE_DIAMOND_ORE);
 		this.forging(0.1F, 1, 100, Items.DIAMOND, Items.DIAMOND_ORE);
@@ -508,8 +513,10 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_HOE);
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_HORSE_ARMOR);
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_LEGGINGS);
+		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_NAUTILUS_ARMOR);
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_PICKAXE);
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_SHOVEL);
+		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_SPEAR);
 		this.forging(0.1F, 1, 100, Items.GOLD_NUGGET, Items.GOLDEN_SWORD);
 		this.forging(0.1F, 1, 100, Items.IRON_INGOT, Items.DEEPSLATE_IRON_ORE);
 		this.forging(0.1F, 1, 100, Items.IRON_INGOT, Items.IRON_ORE);
@@ -525,8 +532,10 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_HOE);
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_HORSE_ARMOR);
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_LEGGINGS);
+		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_NAUTILUS_ARMOR);
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_PICKAXE);
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_SHOVEL);
+		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_SPEAR);
 		this.forging(0.1F, 1, 100, Items.IRON_NUGGET, Items.IRON_SWORD);
 		this.forging(0.1F, 1, 100, Items.LAPIS_LAZULI, Items.DEEPSLATE_LAPIS_ORE);
 		this.forging(0.1F, 1, 100, Items.LAPIS_LAZULI, Items.LAPIS_ORE);
@@ -2705,83 +2714,83 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public ResourceKey<Recipe<?>> key(Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath()));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath()));
 	}
 
 	public ResourceKey<Recipe<?>> key(Item pResult, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath()));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath()));
 	}
 
 	public ResourceKey<Recipe<?>> key(Item pResult, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath()));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath()));
 	}
 
 	public ResourceKey<Recipe<?>> key(Item pResult) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath()));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath()));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, EntityType<?> pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, EntityType<?> pResult, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, EntityType<?> pResult, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, EntityType<?> pResult) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ENTITY_TYPE.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, String pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, String pResult, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, String pResult, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pResult + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, String pResult) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pResult + "_" + "from" + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pResult + "_" + "from" + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Item pResult, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Item pResult, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Item pResult) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.POTION.getKey(pPotion.value()).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.POTION.getKey(pPotion.value()).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.POTION.getKey(pPotion.value()).getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion) {
-		return ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.POTION.getKey(pPotion.value()).getPath() + "_" + "from" + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + pFrom));
 	}
 
 	public String name(Item pItem) {

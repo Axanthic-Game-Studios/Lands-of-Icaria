@@ -1,12 +1,14 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.CaptainRevenantSummonGoal;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -215,9 +217,9 @@ public class CaptainRevenantEntity extends RevenantEntity {
 
 	public void setMoveSpeeds() {
 		if (this.onRallying() || this.onReequips() || this.onUnequips()) {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+			IcariaCommonHelper.setAttribute(Attributes.MOVEMENT_SPEED, this, 0.0D);
 		} else {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2D);
+			IcariaCommonHelper.setAttribute(Attributes.MOVEMENT_SPEED, this, 0.2D);
 		}
 	}
 

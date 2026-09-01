@@ -1,16 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.variant.FisshhVariant;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -35,10 +36,10 @@ public class IcariaFisshhVariants {
 	}
 
 	public static void register(BootstrapContext<FisshhVariant> pBootstrapContext, ResourceKey<FisshhVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fisshh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "fisshh" + "/" + pVariant.identifier().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FisshhVariant> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.FISSHH_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(IcariaRegistries.FISSHH_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

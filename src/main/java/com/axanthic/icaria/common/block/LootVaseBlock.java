@@ -6,11 +6,12 @@ import com.axanthic.icaria.common.payload.LootVasePayload;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -102,7 +103,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "loot_vase"), true);
+			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "loot_vase"), true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new LootVasePayload(true, pPlayer.getId(), pBlockState));

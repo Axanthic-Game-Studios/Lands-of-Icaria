@@ -10,6 +10,8 @@ import com.axanthic.icaria.data.registry.IcariaLootTables;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -17,8 +19,6 @@ import java.util.stream.Collectors;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
@@ -26,18 +26,23 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.Util;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
@@ -132,7 +137,7 @@ public class IcariaVineBlock extends Block {
 
 	@Override
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DO_VINES_SPREAD) && pServerLevel.isAreaLoaded(pBlockPos, 1) && pBlockPos.getY() > pServerLevel.getMinY() + 1) {
+		if (pServerLevel.getGameRules().get(GameRules.SPREAD_VINES) && pServerLevel.isAreaLoaded(pBlockPos, 1) && pBlockPos.getY() > pServerLevel.getMinY() + 1) {
 			this.growOrRipeVine(pBlockPos, pBlockState, pRandomSource, pServerLevel);
 		}
 	}

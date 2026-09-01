@@ -2,14 +2,15 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.entity.IcariaTrappedChestBlockEntity;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.function.Supplier;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.stats.Stat;
 import net.minecraft.stats.Stats;
@@ -49,7 +50,7 @@ public class IcariaTrappedChestBlock extends IcariaChestBlock {
 	}
 
 	@Override
-	public Stat<ResourceLocation> getOpenChestStat() {
+	public Stat<Identifier> getOpenChestStat() {
 		return Stats.CUSTOM.get(Stats.TRIGGER_TRAPPED_CHEST);
 	}
 }

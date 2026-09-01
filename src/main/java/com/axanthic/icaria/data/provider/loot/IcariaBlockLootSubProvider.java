@@ -3,14 +3,15 @@ package com.axanthic.icaria.data.provider.loot;
 import com.axanthic.icaria.common.properties.*;
 import com.axanthic.icaria.common.registry.*;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.advancements.critereon.*;
+import net.minecraft.advancements.criterion.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
@@ -1193,7 +1194,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	@Override
 	public Iterable<Block> getKnownBlocks() {
-		return BuiltInRegistries.BLOCK.stream().filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(IcariaIdents.ID)).collect(Collectors.toList());
+		return BuiltInRegistries.BLOCK.stream().filter(block -> BuiltInRegistries.BLOCK.getKey(block).getNamespace().equals(IcariaKeys.ID)).collect(Collectors.toList());
 	}
 
 	public LootItemCondition.Builder noShears() {

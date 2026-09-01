@@ -5,17 +5,17 @@ import com.axanthic.icaria.client.model.FireJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.FireJellyfishRenderState;
 import com.axanthic.icaria.common.entity.FireJellyfishEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 @MethodsReturnNonnullByDefault
@@ -58,12 +58,12 @@ public class FireJellyfishRenderer extends MobRenderer<FireJellyfishEntity, Fire
 	}
 
 	@Override
-	public FireJellyfishRenderState createRenderState() {
-		return new FireJellyfishRenderState();
+	public Identifier getTextureLocation(FireJellyfishRenderState pRenderState) {
+		return IcariaIdentifiers.FIRE_JELLYFISH;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FireJellyfishRenderState pRenderState) {
-		return IcariaResourceLocations.FIRE_JELLYFISH;
+	public FireJellyfishRenderState createRenderState() {
+		return new FireJellyfishRenderState();
 	}
 }

@@ -6,13 +6,13 @@ import com.axanthic.icaria.client.state.FyshRenderState;
 import com.axanthic.icaria.common.entity.FyshEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -42,12 +42,12 @@ public class FyshRenderer extends MobRenderer<FyshEntity, FyshRenderState, FyshM
 	}
 
 	@Override
-	public FyshRenderState createRenderState() {
-		return new FyshRenderState();
+	public Identifier getTextureLocation(FyshRenderState pRenderState) {
+		return pRenderState.fyshVariant.value().clientAsset().texturePath();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FyshRenderState pRenderState) {
-		return pRenderState.fyshVariant.value().clientAsset().texturePath();
+	public FyshRenderState createRenderState() {
+		return new FyshRenderState();
 	}
 }

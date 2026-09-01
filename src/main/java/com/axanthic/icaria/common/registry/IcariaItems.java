@@ -6,17 +6,18 @@ import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaInstruments;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.function.Function;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
@@ -32,7 +33,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaItems {
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaIdents.ID);
+	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Registries.ITEM, IcariaKeys.ID);
 
 	public static final DeferredHolder<Item, Item> GRASSY_MARL = IcariaItems.register("grassy_marl", properties -> new BlockItem(IcariaBlocks.GRASSY_MARL.get(), properties), IcariaItems.propertiesBlock());
 	public static final DeferredHolder<Item, Item> MARL = IcariaItems.register("marl", properties -> new BlockItem(IcariaBlocks.MARL.get(), properties), IcariaItems.propertiesBlock());
@@ -1283,6 +1284,6 @@ public class IcariaItems {
 	}
 
 	public static <T extends Item> DeferredHolder<Item, T> register(String pName, Function<Item.Properties, T> pFunction, Item.Properties pProperties) {
-		return IcariaItems.ITEMS.register(pName, () -> pFunction.apply(pProperties.setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName)))));
+		return IcariaItems.ITEMS.register(pName, () -> pFunction.apply(pProperties.setId(ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName)))));
 	}
 }

@@ -3,11 +3,12 @@ package com.axanthic.icaria.data.provider.model;
 import com.axanthic.icaria.common.properties.*;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.blockstates.MultiPartGenerator;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
@@ -3921,7 +3922,7 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void skull(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(IcariaIdents.MC, "skull")))));
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(IcariaKeys.MC, "skull")))));
 	}
 
 	public static void slab(Block pSlab, Block pBlock, BlockModelGenerators pBlockModelGenerators) {

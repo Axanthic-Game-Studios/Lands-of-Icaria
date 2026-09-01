@@ -1,13 +1,13 @@
 {
+  "attributes": {
+    "minecraft:gameplay/snow_golem_melts": true,
+    "minecraft:visual/water_fog_color": "#61a653"
+  },
   "carvers": [],
   "downfall": 0.0,
   "effects": {
-    "fog_color": 14470514,
-    "grass_color": 15127155,
-    "music_volume": 1.0,
-    "sky_color": 8301300,
-    "water_color": 6399571,
-    "water_fog_color": 6399571
+    "grass_color": "#e6d273",
+    "water_color": "#61a653"
   },
   "features": [
     [],

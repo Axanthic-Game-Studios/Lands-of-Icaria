@@ -4,16 +4,16 @@ import com.axanthic.icaria.client.model.CatoblepasModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CatoblepasRenderState;
 import com.axanthic.icaria.common.entity.CatoblepasEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -44,12 +44,12 @@ public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, Catoblepas
 	}
 
 	@Override
-	public CatoblepasRenderState createRenderState() {
-		return new CatoblepasRenderState();
+	public Identifier getTextureLocation(CatoblepasRenderState pRenderState) {
+		return IcariaIdentifiers.CATOBLEPAS;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CatoblepasRenderState pRenderState) {
-		return IcariaResourceLocations.CATOBLEPAS;
+	public CatoblepasRenderState createRenderState() {
+		return new CatoblepasRenderState();
 	}
 }

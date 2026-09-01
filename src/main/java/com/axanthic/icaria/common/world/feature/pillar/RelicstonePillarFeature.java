@@ -4,14 +4,15 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -108,10 +109,10 @@ public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
 
 	public void placeSuspicious(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRAINEL.get())) {
-			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_GRAINEL.get().defaultBlockState(), 3);
+			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_GRAINEL.get().defaultBlockState(), Block.UPDATE_ALL);
 			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityType.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTables.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
 		} else if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.SILKSAND.get())) {
-			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_SILKSAND.get().defaultBlockState(), 3);
+			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_SILKSAND.get().defaultBlockState(), Block.UPDATE_ALL);
 			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityType.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTables.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
 		}
 	}

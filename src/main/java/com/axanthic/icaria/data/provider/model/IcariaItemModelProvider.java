@@ -1,15 +1,16 @@
 package com.axanthic.icaria.data.provider.model;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 
@@ -1176,10 +1177,10 @@ public class IcariaItemModelProvider {
 	}
 
 	public static void bident(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "handheld"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld"))
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, 90.0F, -25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, -90.0F, 25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, 90.0F, -55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
@@ -1189,29 +1190,29 @@ public class IcariaItemModelProvider {
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "template_chest")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_chest")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
 	}
 
 	public static void generated(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 	}
 
 	public static void handheld(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "handheld")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 90.0F, -25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -90.0F, 25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 180.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIdents.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 115.0F, 5.0F).translation(0.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -55.0F, -5.0F).translation(-1.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 55.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
@@ -1221,12 +1222,12 @@ public class IcariaItemModelProvider {
 	}
 
 	public static void parent(Item pItem, String pSuffix, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(ResourceLocation.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + pSuffix)).build()
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + pSuffix)).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
 	}
 
 	public static void parent(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(ResourceLocation.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem))).build()
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem))).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
 	}
 }

@@ -1,16 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.variant.FicheVariant;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -35,10 +36,10 @@ public class IcariaFicheVariants {
 	}
 
 	public static void register(BootstrapContext<FicheVariant> pBootstrapContext, ResourceKey<FicheVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FicheVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fiche" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FicheVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "fiche" + "/" + pVariant.identifier().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FicheVariant> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.FICHE_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(IcariaRegistries.FICHE_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

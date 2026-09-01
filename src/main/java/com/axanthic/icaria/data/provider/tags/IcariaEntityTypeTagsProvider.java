@@ -1,18 +1,19 @@
 package com.axanthic.icaria.data.provider.tags;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
@@ -81,14 +82,14 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 	}
 
 	public static TagKey<EntityType<?>> cKey(String pName) {
-		return IcariaEntityTypeTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaEntityTypeTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<EntityType<?>> icariaKey(String pName) {
-		return IcariaEntityTypeTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaEntityTypeTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<EntityType<?>> createKey(String pName) {
-		return TagKey.create(Registries.ENTITY_TYPE, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.ENTITY_TYPE, Identifier.parse(pName));
 	}
 }

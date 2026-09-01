@@ -24,10 +24,10 @@ import com.axanthic.icaria.data.provider.tags.*;
 import com.axanthic.icaria.data.registry.IcariaRegistries;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
@@ -35,6 +35,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.permissions.Permissions;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.Mth;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -84,7 +85,7 @@ import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaIdents.ID)
+@EventBusSubscriber(modid = IcariaKeys.ID)
 public class IcariaCommonEvents {
 
 	@SubscribeEvent
@@ -280,29 +281,29 @@ public class IcariaCommonEvents {
 
 		var packOutput = generator.getPackOutput();
 
-		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaIdents.ID);
+		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaKeys.ID);
 
 		var registryProvider = builtinEntries.getRegistryProvider();
 
 		pEvent.addProvider(new IcariaAdvancementProvider(packOutput, lookupProvider));
-		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaIdents.ID, "en_us"));
-		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaIdents.ID, "de_de"));
+		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaKeys.ID, "en_us"));
+		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaKeys.ID, "de_de"));
 		pEvent.addProvider(new IcariaLootTableProvider(packOutput, lookupProvider));
-		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
 		pEvent.addProvider(new IcariaDataMapProvider(packOutput, lookupProvider));
 		pEvent.addProvider(builtinEntries);
 		pEvent.addProvider(new IcariaEquipmentAssetProvider(packOutput));
 		pEvent.addProvider(new IcariaParticleDescriptionProvider(packOutput));
-		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIdents.ID));
-		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaIdents.ID));
+		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaKeys.ID));
 		pEvent.addProvider(new IcariaRecipeRunner(packOutput, lookupProvider));
 	}
 
@@ -369,7 +370,7 @@ public class IcariaCommonEvents {
 
 	@SubscribeEvent
 	public static void onRegisterCommands(RegisterCommandsEvent pEvent) {
-		pEvent.getDispatcher().register(Commands.literal("heal").requires(commandSourceStack -> commandSourceStack.hasPermission(2)).executes(commandContext -> IcariaCommonEvents.heal(commandContext.getSource(), Integer.MAX_VALUE)).then(Commands.argument("amount", IntegerArgumentType.integer(0)).executes(commandContext -> IcariaCommonEvents.heal(commandContext.getSource(), IntegerArgumentType.getInteger(commandContext, "amount")))));
+		pEvent.getDispatcher().register(Commands.literal("heal").requires(commandSourceStack -> commandSourceStack.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER)).executes(commandContext -> IcariaCommonEvents.heal(commandContext.getSource(), Integer.MAX_VALUE)).then(Commands.argument("amount", IntegerArgumentType.integer(0)).executes(commandContext -> IcariaCommonEvents.heal(commandContext.getSource(), IntegerArgumentType.getInteger(commandContext, "amount")))));
 	}
 
 	@SubscribeEvent
@@ -1908,7 +1909,7 @@ public class IcariaCommonEvents {
 	public static int heal(CommandSourceStack pCommandSourceStack, int pAmount) {
 		if (pCommandSourceStack.getPlayer() != null) {
 			pCommandSourceStack.getPlayer().heal(pAmount);
-			pCommandSourceStack.sendSuccess(() -> Component.translatable("command" + "." + IcariaIdents.ID + "." + "heal" + "." + "success"), true);
+			pCommandSourceStack.sendSuccess(() -> Component.translatable("command" + "." + IcariaKeys.ID + "." + "heal" + "." + "success"), true);
 			return 1;
 		} else {
 			return 0;

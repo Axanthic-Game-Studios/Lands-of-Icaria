@@ -4,16 +4,16 @@ import com.axanthic.icaria.client.state.RugRenderState;
 import com.axanthic.icaria.common.entity.RugEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -119,7 +119,7 @@ public class RugRenderer extends EntityRenderer<RugEntity, RugRenderState> {
 	}
 
 	public void submitVertex(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, TextureAtlasSprite pTextureAtlasSprite, float pX, float pY, float pZ, float pU, float pV, float pNormalX, float pNormalY, float pNormalZ, float pRed, float pGreen, float pBlue, float pAlpha, int pPackedLight, int pPackedOverlay) {
-		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderType.entitySolidZOffsetForward(pTextureAtlasSprite.atlasLocation()), (pose, vertexConsumer) -> vertexConsumer.addVertex(pose, pX, pY, pZ).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(pose, pNormalX, pNormalY, pNormalZ).setOverlay(pPackedOverlay).setUv(pU, pV));
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.entitySolidZOffsetForward(pTextureAtlasSprite.atlasLocation()), (pose, vertexConsumer) -> vertexConsumer.addVertex(pose, pX, pY, pZ).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pPackedLight).setNormal(pose, pNormalX, pNormalY, pNormalZ).setOverlay(pPackedOverlay).setUv(pU, pV));
 	}
 
 	@Override

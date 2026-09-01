@@ -1,11 +1,12 @@
 package com.axanthic.icaria.common.payload;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.runnable.ChestLabelRunnable;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -24,7 +25,7 @@ public class ChestLabelPayload implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, ChestLabelPayload> STREAM_CODEC = CustomPacketPayload.codec(ChestLabelPayload::write, ChestLabelPayload::new);
 
-	public static final Type<ChestLabelPayload> TYPE = new Type<>(IcariaResourceLocations.CHEST_LABEL_PAYLOAD_TYPE);
+	public static final Type<ChestLabelPayload> TYPE = new Type<>(IcariaIdentifiers.CHEST_LABEL_PAYLOAD_TYPE);
 
 	public ChestLabelPayload(ItemStack pItemStack, String pString) {
 		this.itemStack = pItemStack;

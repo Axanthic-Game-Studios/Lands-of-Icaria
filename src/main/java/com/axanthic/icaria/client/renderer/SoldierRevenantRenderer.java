@@ -6,17 +6,17 @@ import com.axanthic.icaria.client.model.SoldierRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SoldierRevenantRenderState;
 import com.axanthic.icaria.common.entity.SoldierRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -45,12 +45,12 @@ public class SoldierRevenantRenderer extends MobRenderer<SoldierRevenantEntity, 
 	}
 
 	@Override
-	public SoldierRevenantRenderState createRenderState() {
-		return new SoldierRevenantRenderState();
+	public Identifier getTextureLocation(SoldierRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.SOLDIER_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(SoldierRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.SOLDIER_REVENANT;
+	public SoldierRevenantRenderState createRenderState() {
+		return new SoldierRevenantRenderState();
 	}
 }

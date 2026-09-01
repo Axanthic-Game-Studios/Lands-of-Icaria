@@ -7,12 +7,12 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.GrinderVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -124,14 +124,14 @@ public class GrinderBlock extends BaseEntityBlock {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT), 3);
-		pLevel.setBlock(pBlockPos.offset(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.SIDE, Side.RIGHT));
 	}
 
 	@Override

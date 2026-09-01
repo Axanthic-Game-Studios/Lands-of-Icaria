@@ -14,14 +14,15 @@
         0
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "shade": false,
       "to": [
@@ -42,14 +43,15 @@
         0
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "shade": false,
       "to": [
@@ -70,14 +72,15 @@
         8
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "shade": false,
       "to": [
@@ -98,14 +101,15 @@
         8
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "shade": false,
       "to": [

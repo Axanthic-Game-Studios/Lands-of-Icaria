@@ -1,16 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.variant.FeeshVariant;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -35,10 +36,10 @@ public class IcariaFeeshVariants {
 	}
 
 	public static void register(BootstrapContext<FeeshVariant> pBootstrapContext, ResourceKey<FeeshVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "feesh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "feesh" + "/" + pVariant.identifier().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FeeshVariant> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.FEESH_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(IcariaRegistries.FEESH_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

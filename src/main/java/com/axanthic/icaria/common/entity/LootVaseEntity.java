@@ -4,9 +4,10 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;

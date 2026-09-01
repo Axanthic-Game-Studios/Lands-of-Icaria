@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.EntityType;
 
 @MethodsReturnNonnullByDefault

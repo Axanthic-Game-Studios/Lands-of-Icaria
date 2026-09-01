@@ -6,15 +6,15 @@ import com.axanthic.icaria.common.entity.BathtubBlockEntity;
 import com.axanthic.icaria.common.properties.Fill;
 import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
@@ -92,11 +92,11 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 	public TextureAtlasSprite getSprite(Fill pFill, TextureAtlas pTextureAtlas) {
 		if (pFill == Fill.POWDER_SNOW) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.POWDER_SNOW);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.POWDER_SNOW);
 		} else if (pFill == Fill.WATER) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.WATER);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.WATER);
 		} else {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.MEDITERRANEAN_WATER);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.MEDITERRANEAN_WATER);
 		}
 	}
 

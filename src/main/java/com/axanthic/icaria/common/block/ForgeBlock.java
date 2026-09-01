@@ -7,12 +7,12 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.ForgeVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -161,27 +161,27 @@ public class ForgeBlock extends BaseEntityBlock {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above(), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT), 3);
-		pLevel.setBlock(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT), 3);
-		pLevel.setBlock(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT), 3);
-		pLevel.setBlock(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT), 3);
-		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT), 3);
-		pLevel.setBlock(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT), 3);
-		pLevel.setBlock(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT), 3);
-		pLevel.setBlock(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT));
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {

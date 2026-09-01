@@ -1,12 +1,13 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplate;
@@ -18,9 +19,9 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class FirewoodModel {
 
 	public static ExtendedModelTemplate template() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIdents.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 12.0000F, 0.0000F).to(2.0000F, 16.0000F, 14.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(14.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 16.0000F, 4.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 12.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -28,7 +29,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 2.0000F, 14.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 2.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 12.0000F, 3.0000F).to(6.0000F, 16.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 12.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 0.0000F, 13.0000F, 4.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0000F, 6.0000F, 14.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -36,7 +37,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0000F, 3.0000F, 6.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(2.0000F, 1.0000F, 6.0000F, 13.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(6.0000F, 10.0000F, 0.0000F).to(10.0000F, 14.0000F, 13.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 6.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(3.0000F, 2.0000F, 16.0000F, 6.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(6.0000F, 12.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -44,7 +45,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0000F, 0.0000F, 10.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0000F, 3.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(10.0000F, 12.0000F, 2.0000F).to(12.0000F, 16.0000F, 16.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 12.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 14.0000F, 4.0000F).texture(IcariaTextureSlots.SMOOTH_LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(14.0000F, 6.0000F, 16.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -52,7 +53,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0000F, 2.0000F, 12.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0000F, 0.0000F, 12.0000F, 14.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 12.0000F, 1.0000F).to(16.0000F, 14.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(4.0000F, 4.0000F, 8.0000F, 6.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 2.0000F, 15.0000F, 4.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(4.0000F, 10.0000F, 8.0000F, 12.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -60,7 +61,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(12.0000F, 1.0000F, 16.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(12.0000F, 1.0000F, 16.0000F, 15.0000F).texture(IcariaTextureSlots.SMOOTH_LOG)))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 8.0000F, 2.0000F).to(4.0000F, 12.0000F, 16.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0000F, 12.0000F, 14.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 4.0000F, 14.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(2.0000F, 6.0000F, 6.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -68,7 +69,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 2.0000F, 4.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 4.0000F, 14.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 8.0000F, 1.0000F).to(6.0000F, 12.0000F, 14.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 2.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 4.0000F, 15.0000F, 8.0000F).texture(IcariaTextureSlots.SMOOTH_LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 12.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -76,7 +77,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0000F, 1.0000F, 6.0000F, 14.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0000F, 2.0000F, 6.0000F, 15.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(6.0000F, 6.0000F, 2.0000F).to(10.0000F, 10.0000F, 16.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 6.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 14.0000F, 10.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0000F, 6.0000F, 14.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -84,7 +85,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0000F, 2.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0000F, 0.0000F, 10.0000F, 14.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(10.0000F, 8.0000F, 3.0000F).to(12.0000F, 12.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(14.0000F, 6.0000F, 16.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 4.0000F, 13.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(14.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -92,7 +93,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0000F, 3.0000F, 12.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0000F, 1.0000F, 12.0000F, 13.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 8.0000F, 0.0000F).to(16.0000F, 12.0000F, 16.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0000F, 12.0000F, 14.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 4.0000F, 16.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 6.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -100,7 +101,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(12.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(12.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 4.0000F, 0.0000F).to(2.0000F, 8.0000F, 13.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(10.0000F, 12.0000F, 12.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(3.0000F, 8.0000F, 16.0000F, 12.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 12.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -108,7 +109,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 2.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 3.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 4.0000F, 3.0000F).to(6.0000F, 8.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 6.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 8.0000F, 13.0000F, 12.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0000F, 12.0000F, 14.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -116,7 +117,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0000F, 3.0000F, 6.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(2.0000F, 1.0000F, 6.0000F, 13.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(6.0000F, 4.0000F, 0.0000F).to(10.0000F, 6.0000F, 13.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 4.0000F, 12.0000F, 6.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(3.0000F, 10.0000F, 16.0000F, 12.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(8.0000F, 4.0000F, 12.0000F, 6.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -124,7 +125,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(6.0000F, 0.0000F, 10.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(6.0000F, 3.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(10.0000F, 4.0000F, 1.0000F).to(14.0000F, 8.0000F, 14.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 12.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 8.0000F, 15.0000F, 12.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(6.0000F, 6.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -132,7 +133,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(10.0000F, 1.0000F, 14.0000F, 14.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(10.0000F, 2.0000F, 14.0000F, 15.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(14.0000F, 4.0000F, 2.0000F).to(16.0000F, 8.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 2.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 8.0000F, 14.0000F, 12.0000F).texture(IcariaTextureSlots.SMOOTH_LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(14.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -140,7 +141,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(14.0000F, 2.0000F, 16.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(14.0000F, 1.0000F, 16.0000F, 14.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 1.0000F).to(2.0000F, 4.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 12.0000F, 8.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 12.0000F, 15.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 2.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -148,7 +149,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 1.0000F, 2.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 1.0000F, 2.0000F, 15.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 0.0000F, 0.0000F).to(4.0000F, 4.0000F, 13.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 2.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(3.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.SMOOTH_LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(14.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -156,7 +157,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 4.0000F, 13.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(2.0000F, 3.0000F, 4.0000F, 16.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 0.0000F, 1.0000F).to(8.0000F, 4.0000F, 16.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 12.0000F, 10.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 12.0000F, 15.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(10.0000F, 12.0000F, 14.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -164,7 +165,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(4.0000F, 1.0000F, 8.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(4.0000F, 0.0000F, 8.0000F, 15.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 2.0000F).to(12.0000F, 4.0000F, 15.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 6.0000F, 6.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 12.0000F, 14.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(2.0000F, 6.0000F, 6.0000F, 10.0000F).texture(IcariaTextureSlots.FIREWOOD))
@@ -172,7 +173,7 @@ public class FirewoodModel {
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0000F, 2.0000F, 12.0000F, 15.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0000F, 1.0000F, 12.0000F, 14.0000F).texture(IcariaTextureSlots.LOG)))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 0.0000F, 0.0000F).to(16.0000F, 4.0000F, 14.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.angle(0.0000F).axis(Direction.Axis.Y).origin(0.0000F, 0.0000F, 0.0000F))
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 6.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.LOG))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(2.0000F, 12.0000F, 6.0000F, 16.0000F).texture(IcariaTextureSlots.FIREWOOD))

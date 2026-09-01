@@ -4,16 +4,16 @@ import com.axanthic.icaria.client.model.ThogModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ThogRenderState;
 import com.axanthic.icaria.common.entity.ThogEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -44,12 +44,12 @@ public class ThogRenderer extends MobRenderer<ThogEntity, ThogRenderState, ThogM
 	}
 
 	@Override
-	public ThogRenderState createRenderState() {
-		return new ThogRenderState();
+	public Identifier getTextureLocation(ThogRenderState pRenderState) {
+		return IcariaIdentifiers.THOG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(ThogRenderState pRenderState) {
-		return IcariaResourceLocations.THOG;
+	public ThogRenderState createRenderState() {
+		return new ThogRenderState();
 	}
 }

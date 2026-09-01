@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.ArachneModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ArachneRenderState;
 import com.axanthic.icaria.common.entity.ArachneEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,12 +32,12 @@ public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneRenderSta
 	}
 
 	@Override
-	public ArachneRenderState createRenderState() {
-		return new ArachneRenderState();
+	public Identifier getTextureLocation(ArachneRenderState pRenderState) {
+		return IcariaIdentifiers.ARACHNE;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(ArachneRenderState pRenderState) {
-		return IcariaResourceLocations.ARACHNE;
+	public ArachneRenderState createRenderState() {
+		return new ArachneRenderState();
 	}
 }

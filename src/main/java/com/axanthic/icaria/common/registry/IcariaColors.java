@@ -1,8 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault

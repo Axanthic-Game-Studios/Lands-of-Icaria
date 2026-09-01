@@ -2,17 +2,18 @@ package com.axanthic.icaria.common.recipe.builder;
 
 import com.axanthic.icaria.common.recipe.ExplosionConcoctingRecipe;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.advancements.AdvancementRequirements;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
@@ -49,7 +50,7 @@ public class ExplosionConcoctingRecipeBuilder implements RecipeBuilder {
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
 		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
 		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new ExplosionConcoctingRecipe(this.radius, this.colour, this.time, this.ingredient), builder.build(pResourceKey.location().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
+		pRecipeOutput.accept(pResourceKey, new ExplosionConcoctingRecipe(this.radius, this.colour, this.time, this.ingredient), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
 	}
 
 	@Override

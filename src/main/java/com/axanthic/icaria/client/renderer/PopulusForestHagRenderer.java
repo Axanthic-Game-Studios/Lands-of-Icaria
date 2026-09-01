@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.PopulusForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PopulusForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,12 +33,12 @@ public class PopulusForestHagRenderer extends MobRenderer<ForestHagEntity, Popul
 	}
 
 	@Override
-	public PopulusForestHagRenderState createRenderState() {
-		return new PopulusForestHagRenderState();
+	public Identifier getTextureLocation(PopulusForestHagRenderState pRenderState) {
+		return IcariaIdentifiers.POPULUS_FOREST_HAG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(PopulusForestHagRenderState pRenderState) {
-		return IcariaResourceLocations.POPULUS_FOREST_HAG;
+	public PopulusForestHagRenderState createRenderState() {
+		return new PopulusForestHagRenderState();
 	}
 }

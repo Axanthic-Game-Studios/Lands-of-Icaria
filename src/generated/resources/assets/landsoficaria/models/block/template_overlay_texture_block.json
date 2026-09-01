@@ -28,13 +28,14 @@
         0
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         16,
@@ -46,43 +47,37 @@
       "faces": {
         "down": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         },
         "east": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         },
         "north": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         },
         "south": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         },
         "up": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         },
         "west": {
           "neoforge_data": {
-            "block_light": 15,
-            "sky_light": 15
+            "light_emission": 15
           },
           "texture": "#overlay"
         }
@@ -93,13 +88,14 @@
         0
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         16,

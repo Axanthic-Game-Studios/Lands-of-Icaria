@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.block.StoolBlock;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -33,17 +34,17 @@ public class StoolEntity extends Entity {
 
 	@Override
 	public void addAdditionalSaveData(ValueOutput pValueOutput) {
-
+		return;
 	}
 
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
-
+		return;
 	}
 
 	@Override
 	public void readAdditionalSaveData(ValueInput pValueInput) {
-
+		return;
 	}
 
 	@Override

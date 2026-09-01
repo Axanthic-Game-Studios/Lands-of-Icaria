@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.LaurelForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.LaurelForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,12 +33,12 @@ public class LaurelForestHagRenderer extends MobRenderer<ForestHagEntity, Laurel
 	}
 
 	@Override
-	public LaurelForestHagRenderState createRenderState() {
-		return new LaurelForestHagRenderState();
+	public Identifier getTextureLocation(LaurelForestHagRenderState pRenderState) {
+		return IcariaIdentifiers.LAUREL_FOREST_HAG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(LaurelForestHagRenderState pRenderState) {
-		return IcariaResourceLocations.LAUREL_FOREST_HAG;
+	public LaurelForestHagRenderState createRenderState() {
+		return new LaurelForestHagRenderState();
 	}
 }

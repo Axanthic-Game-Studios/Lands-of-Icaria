@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.MyrmekeDroneModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.MyrmekeDroneRenderState;
 import com.axanthic.icaria.common.entity.MyrmekeDroneEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,12 +32,12 @@ public class MyrmekeDroneRenderer extends MobRenderer<MyrmekeDroneEntity, Myrmek
 	}
 
 	@Override
-	public MyrmekeDroneRenderState createRenderState() {
-		return new MyrmekeDroneRenderState();
+	public Identifier getTextureLocation(MyrmekeDroneRenderState pRenderState) {
+		return IcariaIdentifiers.MYRMEKE_DRONE;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(MyrmekeDroneRenderState pRenderState) {
-		return IcariaResourceLocations.MYRMEKE_DRONE;
+	public MyrmekeDroneRenderState createRenderState() {
+		return new MyrmekeDroneRenderState();
 	}
 }

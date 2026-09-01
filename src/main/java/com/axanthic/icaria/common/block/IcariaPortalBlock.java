@@ -8,20 +8,21 @@ import com.axanthic.icaria.common.shapes.PortalVoxelShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaDimensions;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.Comparator;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.BlockUtil;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Vec3i;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.BlockUtil;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -30,7 +31,10 @@ import net.minecraft.world.entity.InsideBlockEffectApplier;
 import net.minecraft.world.entity.Relative;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.ai.village.poi.PoiRecord;
-import net.minecraft.world.level.*;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Portal;
@@ -140,11 +144,11 @@ public class IcariaPortalBlock extends Block implements Portal {
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		var blockPos = pBlockPos.below();
 		var entityType = IcariaEntityTypes.CIVILIAN_REVENANT.get();
-		if (pServerLevel.dimension() != IcariaDimensions.ICARIA) {
-			if (pServerLevel.dimensionType().natural()) {
-				if (pServerLevel.getBlockState(blockPos).isValidSpawn(pServerLevel, blockPos, entityType)) {
-					if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
-						if (pRandomSource.nextInt(2000) == 0) {
+		if (pRandomSource.nextInt(2000) == 0) {
+			if (pServerLevel.anyPlayerCloseEnoughForSpawning(pBlockPos)) {
+				if (pServerLevel.dimension() != IcariaDimensions.ICARIA) {
+					if (pServerLevel.getBlockState(blockPos).isValidSpawn(pServerLevel, blockPos, entityType)) {
+						if (pServerLevel.isSpawningMonsters()) {
 							var entity = entityType.spawn(pServerLevel, pBlockPos, EntitySpawnReason.STRUCTURE);
 							if (entity != null) {
 								entity.setPortalCooldown();
@@ -163,7 +167,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	public void setBlock(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, int pMinH, int pMaxH, int pMinW, int pMaxW) {
 		for (var i = pMinH; i < pMaxH; ++i) {
 			for (var j = pMinW; j < pMaxW; ++j) {
-				pServerLevel.setBlock(pBlockPos.offset(pDirection.getStepX() * j, i, pDirection.getStepZ() * j), pBlockState, 3);
+				pServerLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getStepX() * j, i, pDirection.getStepZ() * j), pBlockState);
 			}
 		}
 	}

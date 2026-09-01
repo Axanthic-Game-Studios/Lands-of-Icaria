@@ -5,12 +5,12 @@ import com.axanthic.icaria.common.menu.provider.KilnMenuProvider;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.shapes.KilnVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -106,14 +106,14 @@ public class KilnBlock extends BaseEntityBlock {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above(), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlock(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER), 3);
-		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {

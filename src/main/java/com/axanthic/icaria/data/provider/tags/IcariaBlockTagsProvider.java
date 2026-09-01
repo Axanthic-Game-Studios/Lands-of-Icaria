@@ -1,17 +1,18 @@
 package com.axanthic.icaria.data.provider.tags;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
@@ -191,6 +192,15 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.ORANGE_BROMELIA.get())
 			.add(IcariaBlocks.PINK_BROMELIA.get())
 			.add(IcariaBlocks.PURPLE_BROMELIA.get());
+
+		this.tag(BlockTags.CAN_GLIDE_THROUGH)
+			.add(IcariaBlocks.BLOOMY_VINE.get())
+			.add(IcariaBlocks.BRANCHY_VINE.get())
+			.add(IcariaBlocks.BRUSHY_VINE.get())
+			.add(IcariaBlocks.DRY_VINE.get())
+			.add(IcariaBlocks.REEDY_VINE.get())
+			.add(IcariaBlocks.SWIRLY_VINE.get())
+			.add(IcariaBlocks.THORNY_VINE.get());
 
 		this.tag(BlockTags.CEILING_HANGING_SIGNS)
 			.add(IcariaBlocks.CYPRESS_HANGING_SIGN.get())
@@ -2431,14 +2441,14 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 	}
 
 	public static TagKey<Block> cKey(String pName) {
-		return IcariaBlockTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaBlockTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<Block> icariaKey(String pName) {
-		return IcariaBlockTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaBlockTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<Block> createKey(String pName) {
-		return TagKey.create(Registries.BLOCK, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.BLOCK, Identifier.parse(pName));
 	}
 }

@@ -7,11 +7,12 @@ import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
 import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

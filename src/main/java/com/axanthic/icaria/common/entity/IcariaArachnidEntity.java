@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;

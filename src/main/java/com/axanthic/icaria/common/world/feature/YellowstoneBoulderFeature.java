@@ -2,13 +2,14 @@ package com.axanthic.icaria.common.world.feature;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
@@ -38,7 +39,7 @@ public class YellowstoneBoulderFeature extends Feature<NoneFeatureConfiguration>
 
 			for (var blockPos : BlockPos.betweenClosed(origin.offset(-x, -y, -z), origin.offset(x, y, z))) {
 				if (blockPos.distSqr(origin) <= f * f) {
-					level.setBlock(blockPos, IcariaBlocks.YELLOWSTONE.get().defaultBlockState(), 3);
+					level.setBlock(blockPos, IcariaBlocks.YELLOWSTONE.get().defaultBlockState(), Block.UPDATE_ALL);
 				}
 			}
 

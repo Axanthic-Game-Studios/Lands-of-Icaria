@@ -5,12 +5,13 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.TripleBarrelRackVoxelShapes;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -67,18 +68,19 @@ public class TripleBarrelRackBlock extends Block {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above(), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlock(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_RIGHT), 3);
-		pLevel.setBlock(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_LEFT), 3);
-		pLevel.setBlock(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_RIGHT), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_RIGHT));
 	}
 
 	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {

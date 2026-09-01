@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.CypressForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CypressForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,12 +33,12 @@ public class CypressForestHagRenderer extends MobRenderer<ForestHagEntity, Cypre
 	}
 
 	@Override
-	public CypressForestHagRenderState createRenderState() {
-		return new CypressForestHagRenderState();
+	public Identifier getTextureLocation(CypressForestHagRenderState pRenderState) {
+		return IcariaIdentifiers.CYPRESS_FOREST_HAG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CypressForestHagRenderState pRenderState) {
-		return IcariaResourceLocations.CYPRESS_FOREST_HAG;
+	public CypressForestHagRenderState createRenderState() {
+		return new CypressForestHagRenderState();
 	}
 }

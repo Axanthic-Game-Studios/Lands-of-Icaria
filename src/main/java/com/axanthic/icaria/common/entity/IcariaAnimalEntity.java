@@ -4,12 +4,14 @@ import com.axanthic.icaria.common.goal.IcariaAnimalHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.IcariaBreedGoal;
 import com.axanthic.icaria.common.goal.IcariaEatGoal;
 import com.axanthic.icaria.common.goal.IcariaFollowParentGoal;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Trough;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -30,10 +32,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -225,9 +227,9 @@ public abstract class IcariaAnimalEntity extends IcariaPathfinderMobEntity {
 	@Override
 	public void setSize(int pSize) {
 		super.setSize(pSize);
-		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(pSize);
-		this.getAttribute(Attributes.ATTACK_KNOCKBACK).setBaseValue(pSize);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+		IcariaCommonHelper.setAttribute(Attributes.ATTACK_DAMAGE, this, pSize);
+		IcariaCommonHelper.setAttribute(Attributes.ATTACK_KNOCKBACK, this, pSize);
+		IcariaCommonHelper.setAttribute(Attributes.MAX_HEALTH, this, pSize * pSize);
 	}
 
 	public void setTick(int pTick) {
@@ -245,7 +247,7 @@ public abstract class IcariaAnimalEntity extends IcariaPathfinderMobEntity {
 			this.setDuration(this.minDuration);
 			pServerLevel.addFreshEntityWithPassengers(entity);
 			pServerLevel.broadcastEntityEvent(this, (byte) 18);
-			if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+			if (pServerLevel.getGameRules().get(GameRules.MOB_DROPS)) {
 				var experienceOrb = new ExperienceOrb(pServerLevel, this.getX(), this.getY(), this.getZ(), this.getRandom().nextInt(7) + 1);
 				pServerLevel.addFreshEntity(experienceOrb);
 			}

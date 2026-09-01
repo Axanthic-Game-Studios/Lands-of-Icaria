@@ -5,17 +5,17 @@ import com.axanthic.icaria.client.model.VoidJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.VoidJellyfishRenderState;
 import com.axanthic.icaria.common.entity.VoidJellyfishEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 @MethodsReturnNonnullByDefault
@@ -58,12 +58,12 @@ public class VoidJellyfishRenderer extends MobRenderer<VoidJellyfishEntity, Void
 	}
 
 	@Override
-	public VoidJellyfishRenderState createRenderState() {
-		return new VoidJellyfishRenderState();
+	public Identifier getTextureLocation(VoidJellyfishRenderState pRenderState) {
+		return IcariaIdentifiers.VOID_JELLYFISH;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(VoidJellyfishRenderState pRenderState) {
-		return IcariaResourceLocations.VOID_JELLYFISH;
+	public VoidJellyfishRenderState createRenderState() {
+		return new VoidJellyfishRenderState();
 	}
 }

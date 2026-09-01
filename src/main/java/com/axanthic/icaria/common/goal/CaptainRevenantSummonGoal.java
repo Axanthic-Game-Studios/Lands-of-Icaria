@@ -6,9 +6,10 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.ai.goal.Goal;

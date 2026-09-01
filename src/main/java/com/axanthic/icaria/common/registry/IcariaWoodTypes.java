@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
 
@@ -29,6 +30,6 @@ public class IcariaWoodTypes {
 	}
 
 	public static WoodType register(String pName, BlockSetType pBlockSetType) {
-		return new WoodType(IcariaIdents.ID + ":" + pName, pBlockSetType);
+		return new WoodType(IcariaKeys.ID + ":" + pName, pBlockSetType);
 	}
 }

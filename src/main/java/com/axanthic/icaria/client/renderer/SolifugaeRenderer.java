@@ -5,16 +5,16 @@ import com.axanthic.icaria.client.model.SolifugaeModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.SolifugaeRenderState;
 import com.axanthic.icaria.common.entity.SolifugaeEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -37,12 +37,12 @@ public class SolifugaeRenderer extends MobRenderer<SolifugaeEntity, SolifugaeRen
 	}
 
 	@Override
-	public SolifugaeRenderState createRenderState() {
-		return new SolifugaeRenderState();
+	public Identifier getTextureLocation(SolifugaeRenderState pRenderState) {
+		return IcariaIdentifiers.SOLIFUGAE;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(SolifugaeRenderState pRenderState) {
-		return IcariaResourceLocations.SOLIFUGAE;
+	public SolifugaeRenderState createRenderState() {
+		return new SolifugaeRenderState();
 	}
 }

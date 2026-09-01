@@ -5,10 +5,10 @@ import com.axanthic.icaria.client.model.CrystalSlugModel;
 import com.axanthic.icaria.client.state.CrystalSlugRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
@@ -32,7 +32,7 @@ public class CrystalSlugRaysRenderLayer extends RenderLayer<CrystalSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToCenter(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, -0.060F, -0.055F, -0.310F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.partialTick, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
 		pPoseStack.popPose();
 	}
 
@@ -40,7 +40,7 @@ public class CrystalSlugRaysRenderLayer extends RenderLayer<CrystalSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToNeck(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, 0.125F, -0.060F, -0.095F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.partialTick, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
 		pPoseStack.popPose();
 	}
 
@@ -48,7 +48,7 @@ public class CrystalSlugRaysRenderLayer extends RenderLayer<CrystalSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToRear(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, 0.090F, -0.060F, 0.165F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.partialTick, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
 		pPoseStack.popPose();
 	}
 }

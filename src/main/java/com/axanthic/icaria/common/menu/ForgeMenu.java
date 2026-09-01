@@ -4,10 +4,11 @@ import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 import com.axanthic.icaria.common.slot.ForgeSlot;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;

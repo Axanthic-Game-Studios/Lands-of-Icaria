@@ -1,17 +1,18 @@
 package com.axanthic.icaria.data.registry;
 
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Climate;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.levelgen.*;
@@ -70,6 +71,6 @@ public class IcariaNoiseSettings {
 	}
 
 	public static ResourceKey<NoiseGeneratorSettings> createKey(String pName) {
-		return ResourceKey.create(Registries.NOISE_SETTINGS, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.NOISE_SETTINGS, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

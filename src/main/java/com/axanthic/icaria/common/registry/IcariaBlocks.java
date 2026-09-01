@@ -4,16 +4,17 @@ import com.axanthic.icaria.common.block.*;
 import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.function.Function;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -34,7 +35,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlocks {
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, IcariaIdents.ID);
+	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(Registries.BLOCK, IcariaKeys.ID);
 
 	public static final DeferredHolder<Block, Block> GRASSY_MARL = IcariaBlocks.register("grassy_marl", GrassyMarlBlock::new, IcariaBlocks.propertiesGrassyMarl(MapColor.COLOR_GREEN, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> MARL = IcariaBlocks.register("marl", Block::new, IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
@@ -1376,6 +1377,6 @@ public class IcariaBlocks {
 	}
 
 	public static <T extends Block> DeferredHolder<Block, T> register(String pName, Function<BlockBehaviour.Properties, T> pFunction, BlockBehaviour.Properties pProperties) {
-		return IcariaBlocks.BLOCKS.register(pName, () -> pFunction.apply(pProperties.setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName)))));
+		return IcariaBlocks.BLOCKS.register(pName, () -> pFunction.apply(pProperties.setId(ResourceKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName)))));
 	}
 }

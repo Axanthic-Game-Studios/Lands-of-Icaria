@@ -6,14 +6,15 @@ import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -35,12 +36,12 @@ public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, Myrmek
 	}
 
 	@Override
-	public MyrmekeQueenRenderState createRenderState() {
-		return new MyrmekeQueenRenderState();
+	public Identifier getTextureLocation(MyrmekeQueenRenderState pRenderState) {
+		return IcariaIdentifiers.MYRMEKE_QUEEN;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(MyrmekeQueenRenderState pRenderState) {
-		return IcariaResourceLocations.MYRMEKE_QUEEN;
+	public MyrmekeQueenRenderState createRenderState() {
+		return new MyrmekeQueenRenderState();
 	}
 }

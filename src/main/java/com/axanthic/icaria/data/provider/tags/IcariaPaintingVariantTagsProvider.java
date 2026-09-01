@@ -1,20 +1,21 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.data.registry.IcariaPaintingVariants;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.PaintingVariantTagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 
 @SuppressWarnings("unused")
 
@@ -80,14 +81,14 @@ public class IcariaPaintingVariantTagsProvider extends PaintingVariantTagsProvid
 	}
 
 	public static TagKey<PaintingVariant> cKey(String pName) {
-		return IcariaPaintingVariantTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaPaintingVariantTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<PaintingVariant> icariaKey(String pName) {
-		return IcariaPaintingVariantTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaPaintingVariantTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<PaintingVariant> createKey(String pName) {
-		return TagKey.create(Registries.PAINTING_VARIANT, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.PAINTING_VARIANT, Identifier.parse(pName));
 	}
 }

@@ -5,10 +5,11 @@ import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -214,16 +215,16 @@ public class SlugEntity extends IcariaPathfinderMobEntity {
 
 	public void setMovement() {
 		if (this.onHide() || this.onCooldown() || this.onShow()) {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+			IcariaCommonHelper.setAttribute(Attributes.MOVEMENT_SPEED, this, 0.0D);
 		} else {
-			this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1D);
+			IcariaCommonHelper.setAttribute(Attributes.MOVEMENT_SPEED, this, 0.1D);
 		}
 	}
 
 	@Override
 	public void setSize(int pSize) {
 		super.setSize(pSize);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+		IcariaCommonHelper.setAttribute(Attributes.MAX_HEALTH, this, pSize * pSize);
 	}
 
 	@Override

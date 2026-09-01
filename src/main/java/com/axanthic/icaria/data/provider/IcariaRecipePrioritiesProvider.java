@@ -1,12 +1,13 @@
 package com.axanthic.icaria.data.provider;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 
@@ -22,14 +23,14 @@ public class IcariaRecipePrioritiesProvider extends RecipePrioritiesProvider {
 
 	@Override
 	public void start() {
-		this.add(IcariaResourceLocations.CHEST_RECIPE, 1);
-		this.add(IcariaResourceLocations.CYPRESS_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.DROUGHTROOT_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.FIR_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.LAUREL_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.OLIVE_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.PLANE_CRAFTING_TABLE_RECIPE, 1);
-		this.add(IcariaResourceLocations.POPULUS_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.CHEST_RECIPE, 1);
+		this.add(IcariaIdentifiers.CYPRESS_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.DROUGHTROOT_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.FIR_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.LAUREL_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.OLIVE_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.PLANE_CRAFTING_TABLE_RECIPE, 1);
+		this.add(IcariaIdentifiers.POPULUS_CRAFTING_TABLE_RECIPE, 1);
 	}
 
 	@Override

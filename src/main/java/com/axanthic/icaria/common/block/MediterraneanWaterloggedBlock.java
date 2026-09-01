@@ -4,18 +4,20 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
@@ -42,14 +44,14 @@ public interface MediterraneanWaterloggedBlock extends SimpleWaterloggedBlock {
 	}
 
 	default void breakFluid(BlockPos pBlockPos, BlockState pBlockState, LevelAccessor pLevelAccessor) {
-		pLevelAccessor.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false), 3);
+		pLevelAccessor.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false), Block.UPDATE_ALL);
 		if (!pBlockState.canSurvive(pLevelAccessor, pBlockPos)) {
 			pLevelAccessor.destroyBlock(pBlockPos, true);
 		}
 	}
 
 	default void placeFluid(BlockPos pBlockPos, BlockState pBlockState, Fluid pFluid, LevelAccessor pLevelAccessor) {
-		pLevelAccessor.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, true), 3);
+		pLevelAccessor.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, true), Block.UPDATE_ALL);
 		if (!pLevelAccessor.isClientSide()) {
 			pLevelAccessor.scheduleTick(pBlockPos, pFluid, pFluid.getTickDelay(pLevelAccessor));
 		}

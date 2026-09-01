@@ -5,9 +5,10 @@ import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -102,12 +103,12 @@ public class FarmlandBlock extends Block {
 		var i = pBlockState.getValue(BlockStateProperties.MOISTURE);
 		if (!this.isHydrated(pBlockPos, pServerLevel) && !pServerLevel.isRainingAt(pBlockPos.above())) {
 			if (i > 0) {
-				pServerLevel.setBlock(pBlockPos, pBlockState.setValue(BlockStateProperties.MOISTURE, i - 1), 2);
+				pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.MOISTURE, i - 1));
 			} else if (!this.shouldMaintainFarmland(pServerLevel, pBlockPos)) {
 				this.turnToMarl(pBlockPos, pBlockState, pServerLevel);
 			}
 		} else if (i < 7) {
-			pServerLevel.setBlock(pBlockPos, pBlockState.setValue(BlockStateProperties.MOISTURE, 7), 2);
+			pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.MOISTURE, 7));
 		}
 	}
 
@@ -137,7 +138,7 @@ public class FarmlandBlock extends Block {
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (pItemStack.is(IcariaItems.CALCITE_DUST.get()) && pBlockState.getValue(BlockStateProperties.MOISTURE) == 7) {
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.CALCITE_FERTILIZE, SoundSource.BLOCKS);
-			pLevel.setBlock(pBlockPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState(), 2);
+			pLevel.setBlockAndUpdate(pBlockPos, IcariaBlocks.FERTILIZED_FARMLAND.get().defaultBlockState());
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.CALCITE_DUST.get()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;

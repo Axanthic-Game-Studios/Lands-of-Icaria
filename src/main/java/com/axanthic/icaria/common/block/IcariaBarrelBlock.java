@@ -7,12 +7,13 @@ import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.List;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -147,7 +148,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaIdents.ID + "." + "barrel"), true);
+			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"), true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), pBlockState));

@@ -4,16 +4,16 @@ import com.axanthic.icaria.client.model.CapellaModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CapellaRenderState;
 import com.axanthic.icaria.common.entity.CapellaEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -44,12 +44,12 @@ public class CapellaRenderer extends MobRenderer<CapellaEntity, CapellaRenderSta
 	}
 
 	@Override
-	public CapellaRenderState createRenderState() {
-		return new CapellaRenderState();
+	public Identifier getTextureLocation(CapellaRenderState pRenderState) {
+		return IcariaIdentifiers.CAPELLA;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CapellaRenderState pRenderState) {
-		return IcariaResourceLocations.CAPELLA;
+	public CapellaRenderState createRenderState() {
+		return new CapellaRenderState();
 	}
 }

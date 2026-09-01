@@ -1,8 +1,10 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.world.structure.IcariaJigsawStructure;
 import com.axanthic.icaria.data.provider.tags.IcariaBiomeTagsProvider;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 import java.util.Map;
@@ -10,12 +12,11 @@ import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.heightproviders.ConstantHeight;
@@ -81,6 +82,6 @@ public class IcariaStructures {
 	}
 
 	public static ResourceKey<Structure> createKey(String pName) {
-		return ResourceKey.create(Registries.STRUCTURE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.STRUCTURE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

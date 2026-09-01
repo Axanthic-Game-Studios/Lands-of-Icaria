@@ -6,14 +6,14 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
@@ -118,9 +118,9 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 
 	public TextureAtlasSprite getSprite(Kettle pKettle, TextureAtlas pTextureAtlas) {
 		if (pKettle == Kettle.BREWING) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.CONCOCTION_FAST);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.CONCOCTION_FAST);
 		} else {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.CONCOCTION_SLOW);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.CONCOCTION_SLOW);
 		}
 	}
 

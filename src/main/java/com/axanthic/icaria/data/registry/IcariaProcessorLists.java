@@ -3,18 +3,19 @@ package com.axanthic.icaria.data.registry;
 import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 
 import com.google.common.collect.ImmutableList;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.*;
@@ -799,6 +800,6 @@ public class IcariaProcessorLists {
 	}
 
 	public static ResourceKey<StructureProcessorList> createKey(String pName) {
-		return ResourceKey.create(Registries.PROCESSOR_LIST, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.PROCESSOR_LIST, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

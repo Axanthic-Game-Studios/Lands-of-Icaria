@@ -2,33 +2,33 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.recipe.ItemConcoctingRecipe;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
-import java.util.Set;
+import java.util.function.Consumer;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeMap;
 
 import org.joml.Matrix4f;
-import org.joml.Vector3f;
+import org.joml.Vector3fc;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -38,7 +38,7 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 	public static RecipeMap recipeMap = RecipeMap.EMPTY;
 
 	@Override
-	public void getExtents(Set<Vector3f> pSet) {
+	public void getExtents(Consumer<Vector3fc> pConsumer) {
 		return;
 	}
 
@@ -56,7 +56,7 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 		var window = minecraft.getWindow();
 
 		if (clientLevel != null && localPlayer != null && pItemStack != null) {
-			var recipeHolder = ScrollItemSpecialModelRenderer.getRecipeMap().byKey(ResourceKey.create(Registries.RECIPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, BuiltInRegistries.ITEM.getKey(pItemStack.getItem()).getPath().replace("scroll", "spell" + "_" + "from" + "_" + "item_concocting"))));
+			var recipeHolder = ScrollItemSpecialModelRenderer.getRecipeMap().byKey(ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pItemStack.getItem()).getPath().replace("scroll", "spell" + "_" + "from" + "_" + "item_concocting"))));
 			if (recipeHolder != null && recipeHolder.value() instanceof ItemConcoctingRecipe recipe) {
 				var ingredient = recipe.ingredient();
 				var result = recipe.result();
@@ -83,7 +83,7 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
 		pPoseStack.scale(pScale, pScale, pScale);
 		pPoseStack.translate(pX, pY, pZ);
-		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderType.text(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pPath)), (pose, vertexConsumer) -> this.submit(pose.pose(), vertexConsumer, pPackedLight, pPackedOverlay));
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.text(Identifier.fromNamespaceAndPath(IcariaKeys.ID, pPath)), (pose, vertexConsumer) -> this.submit(pose.pose(), vertexConsumer, pPackedLight, pPackedOverlay));
 		pPoseStack.popPose();
 	}
 

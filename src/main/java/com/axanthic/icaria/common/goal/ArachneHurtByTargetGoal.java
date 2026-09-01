@@ -5,9 +5,10 @@ import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;

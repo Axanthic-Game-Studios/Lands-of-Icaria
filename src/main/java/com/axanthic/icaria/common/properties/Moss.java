@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.properties;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.util.StringRepresentable;
 
 @MethodsReturnNonnullByDefault

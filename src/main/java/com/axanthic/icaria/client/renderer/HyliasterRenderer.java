@@ -5,16 +5,16 @@ import com.axanthic.icaria.client.model.HyliasterModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.HyliasterRenderState;
 import com.axanthic.icaria.common.entity.HyliasterEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -46,12 +46,12 @@ public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterRen
 	}
 
 	@Override
-	public HyliasterRenderState createRenderState() {
-		return new HyliasterRenderState();
+	public Identifier getTextureLocation(HyliasterRenderState pRenderState) {
+		return IcariaIdentifiers.HYLIASTER;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(HyliasterRenderState pRenderState) {
-		return IcariaResourceLocations.HYLIASTER;
+	public HyliasterRenderState createRenderState() {
+		return new HyliasterRenderState();
 	}
 }

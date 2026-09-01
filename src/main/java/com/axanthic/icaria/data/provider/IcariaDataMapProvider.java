@@ -8,11 +8,12 @@ import com.axanthic.icaria.data.map.Freezable;
 import com.axanthic.icaria.data.map.GrinderFuel;
 import com.axanthic.icaria.data.map.Pottable;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;

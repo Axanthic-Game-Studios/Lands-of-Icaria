@@ -1,13 +1,14 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 @MethodsReturnNonnullByDefault
@@ -31,6 +32,6 @@ public class IcariaLootTables {
 	public static final ResourceKey<LootTable> BRUSHY_VINE = IcariaLootTables.createKey("vines/brushy_vine");
 
 	public static ResourceKey<LootTable> createKey(String pName) {
-		return ResourceKey.create(Registries.LOOT_TABLE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.LOOT_TABLE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

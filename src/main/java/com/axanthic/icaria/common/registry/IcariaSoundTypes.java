@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.SoundType;
 

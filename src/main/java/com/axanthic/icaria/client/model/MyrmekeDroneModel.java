@@ -5,9 +5,10 @@ import com.axanthic.icaria.client.registry.IcariaAnimationDefinitions;
 import com.axanthic.icaria.client.state.MyrmekeDroneRenderState;
 import com.axanthic.icaria.common.math.IcariaMath;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;

@@ -2,11 +2,12 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.menu.StorageVaseMenu;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.chat.Component;
@@ -64,7 +65,7 @@ public class StorageVaseBlockEntity extends RandomizableContainerBlockEntity {
 
 	@Override
 	public Component getDefaultName() {
-		return Component.translatable("menu" + "." + IcariaIdents.ID + "." + "storage_vase");
+		return Component.translatable("menu" + "." + IcariaKeys.ID + "." + "storage_vase");
 	}
 
 	@Override

@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "minecraft:iron_nautilus_armor",
+  "result": {
+    "count": 1,
+    "id": "minecraft:iron_nugget"
+  },
+  "time": 100
+}

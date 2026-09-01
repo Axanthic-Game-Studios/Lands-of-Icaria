@@ -2,14 +2,14 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -20,16 +20,17 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.Util;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.decoration.HangingEntity;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.variant.VariantUtils;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
@@ -89,7 +90,7 @@ public class RugEntity extends HangingEntity {
 	@Override
 	public void dropItem(ServerLevel pServerLevel, @Nullable Entity pEntity) {
 		var flag = pEntity instanceof Player player && player.hasInfiniteMaterials();
-		if (pServerLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+		if (pServerLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
 			this.playSound(SoundEvents.WOOL_BREAK, 1.0F, 1.0F);
 			if (!flag) {
 				this.spawnAtLocation(pServerLevel, this.getItemStack());

@@ -1,16 +1,18 @@
 package com.axanthic.icaria.data.registry;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
@@ -134,7 +136,7 @@ public class IcariaBiomes {
 	}
 
 	public static void forestBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
+		pBuilder.grassColorOverride(8427853).waterColor(4227157);
 	}
 
 	public static void forestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -159,7 +161,7 @@ public class IcariaBiomes {
 		IcariaBiomes.forestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.forestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -221,7 +223,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lushForestBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
+		pBuilder.grassColorOverride(8427853).waterColor(4227157);
 	}
 
 	public static void lushForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -242,7 +244,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -309,7 +311,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lostForestBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
+		pBuilder.grassColorOverride(8427853).waterColor(4227157);
 	}
 
 	public static void lostForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -329,7 +331,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -385,7 +387,7 @@ public class IcariaBiomes {
 	}
 
 	public static void deepForestBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(8427853).skyColor(8301300).waterColor(4227157).waterFogColor(4227157);
+		pBuilder.grassColorOverride(8427853).waterColor(4227157);
 	}
 
 	public static void deepForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -406,7 +408,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void scrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -463,7 +465,7 @@ public class IcariaBiomes {
 	}
 
 	public static void scrublandBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
+		pBuilder.grassColorOverride(10793817).waterColor(4623442);
 	}
 
 	public static void scrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -488,7 +490,7 @@ public class IcariaBiomes {
 		IcariaBiomes.scrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.scrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -544,7 +546,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lushScrublandBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
+		pBuilder.grassColorOverride(10793817).waterColor(4623442);
 	}
 
 	public static void lushScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -565,7 +567,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -626,7 +628,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lostScrublandBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
+		pBuilder.grassColorOverride(10793817).waterColor(4623442);
 	}
 
 	public static void lostScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -646,7 +648,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -696,7 +698,7 @@ public class IcariaBiomes {
 	}
 
 	public static void deepScrublandBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(10793817).skyColor(8301300).waterColor(4623442).waterFogColor(4623442);
+		pBuilder.grassColorOverride(10793817).waterColor(4623442);
 	}
 
 	public static void deepScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -717,7 +719,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void steppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -774,7 +776,7 @@ public class IcariaBiomes {
 	}
 
 	public static void steppeBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
+		pBuilder.grassColorOverride(13421670).waterColor(5085517);
 	}
 
 	public static void steppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -799,7 +801,7 @@ public class IcariaBiomes {
 		IcariaBiomes.steppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.steppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -855,7 +857,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lushSteppeBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
+		pBuilder.grassColorOverride(13421670).waterColor(5085517);
 	}
 
 	public static void lushSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -876,7 +878,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -937,7 +939,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lostSteppeBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
+		pBuilder.grassColorOverride(13421670).waterColor(5085517);
 	}
 
 	public static void lostSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -957,7 +959,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1007,7 +1009,7 @@ public class IcariaBiomes {
 	}
 
 	public static void deepSteppeBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(13421670).skyColor(8301300).waterColor(5085517).waterFogColor(5085517);
+		pBuilder.grassColorOverride(13421670).waterColor(5085517);
 	}
 
 	public static void deepSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1028,7 +1030,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void desertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1062,7 +1064,7 @@ public class IcariaBiomes {
 	}
 
 	public static void desertBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
+		pBuilder.grassColorOverride(15127155).waterColor(6399571);
 	}
 
 	public static void desertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1081,7 +1083,7 @@ public class IcariaBiomes {
 		IcariaBiomes.desertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.desertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1114,7 +1116,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lushDesertBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
+		pBuilder.grassColorOverride(15127155).waterColor(6399571);
 	}
 
 	public static void lushDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1131,7 +1133,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1169,7 +1171,7 @@ public class IcariaBiomes {
 	}
 
 	public static void lostDesertBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
+		pBuilder.grassColorOverride(15127155).waterColor(6399571);
 	}
 
 	public static void lostDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1188,7 +1190,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1218,7 +1220,7 @@ public class IcariaBiomes {
 	}
 
 	public static void deepDesertBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(15127155).skyColor(8301300).waterColor(6399571).waterFogColor(6399571);
+		pBuilder.grassColorOverride(15127155).waterColor(6399571);
 	}
 
 	public static void deepDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1236,7 +1238,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void voidBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1244,7 +1246,7 @@ public class IcariaBiomes {
 	}
 
 	public static void voidBiomeSpecialEffects(BiomeSpecialEffects.Builder pBuilder) {
-		pBuilder.fogColor(14470514).grassColorOverride(11909984).skyColor(8301300).waterColor(5083986).waterFogColor(5083986);
+		pBuilder.grassColorOverride(11909984).waterColor(5083986);
 	}
 
 	public static void voidMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
@@ -1268,10 +1270,10 @@ public class IcariaBiomes {
 		IcariaBiomes.voidBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5083986).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static ResourceKey<Biome> createKey(String pName) {
-		return ResourceKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.BIOME, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

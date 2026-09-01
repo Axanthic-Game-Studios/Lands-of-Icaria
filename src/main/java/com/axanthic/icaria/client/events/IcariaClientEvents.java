@@ -1,6 +1,5 @@
 package com.axanthic.icaria.client.events;
 
-import com.axanthic.icaria.client.effects.IcariaDimensionSpecialEffects;
 import com.axanthic.icaria.client.extensions.IcariaClientBlockExtensions;
 import com.axanthic.icaria.client.extensions.IcariaClientFluidTypeExtensions;
 import com.axanthic.icaria.client.extensions.IcariaClientItemExtensions;
@@ -19,9 +18,10 @@ import com.axanthic.icaria.common.types.SkullBlockTypes;
 
 import com.google.common.reflect.TypeToken;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColor;
 import net.minecraft.client.renderer.BiomeColors;
@@ -49,7 +49,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaIdents.ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = IcariaKeys.ID, value = Dist.CLIENT)
 public class IcariaClientEvents {
 
 	@SubscribeEvent
@@ -64,21 +64,21 @@ public class IcariaClientEvents {
 
 	@SubscribeEvent
 	public static void onCreateSkullModels(EntityRenderersEvent.CreateSkullModels pEvent) {
-		pEvent.registerSkullModel(SkullBlockTypes.AETERNAE, IcariaModelLayerLocations.AETERNAE_SKULL, IcariaResourceLocations.AETERNAE);
-		pEvent.registerSkullModel(SkullBlockTypes.ARGAN_HOUND, IcariaModelLayerLocations.ARGAN_HOUND_SKULL, IcariaResourceLocations.ARGAN_HOUND);
-		pEvent.registerSkullModel(SkullBlockTypes.CAPELLA, IcariaModelLayerLocations.CAPELLA_SKULL, IcariaResourceLocations.CAPELLA);
-		pEvent.registerSkullModel(SkullBlockTypes.CATOBLEPAS, IcariaModelLayerLocations.CATOBLEPAS_SKULL, IcariaResourceLocations.CATOBLEPAS);
-		pEvent.registerSkullModel(SkullBlockTypes.CERVER, IcariaModelLayerLocations.CERVER_SKULL, IcariaResourceLocations.CERVER);
-		pEvent.registerSkullModel(SkullBlockTypes.CROCOTTA, IcariaModelLayerLocations.CROCOTTA_SKULL, IcariaResourceLocations.CROCOTTA);
-		pEvent.registerSkullModel(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaModelLayerLocations.CYPRESS_FOREST_HAG_SKULL, IcariaResourceLocations.CYPRESS_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL, IcariaResourceLocations.DROUGHTROOT_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.FIR_FOREST_HAG, IcariaModelLayerLocations.FIR_FOREST_HAG_SKULL, IcariaResourceLocations.FIR_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaModelLayerLocations.LAUREL_FOREST_HAG_SKULL, IcariaResourceLocations.LAUREL_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaModelLayerLocations.OLIVE_FOREST_HAG_SKULL, IcariaResourceLocations.OLIVE_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.PLANE_FOREST_HAG, IcariaModelLayerLocations.PLANE_FOREST_HAG_SKULL, IcariaResourceLocations.PLANE_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL, IcariaResourceLocations.POPULUS_FOREST_HAG);
-		pEvent.registerSkullModel(SkullBlockTypes.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL, IcariaResourceLocations.CAPTAIN_REVENANT);
-		pEvent.registerSkullModel(SkullBlockTypes.THOG, IcariaModelLayerLocations.THOG_SKULL, IcariaResourceLocations.THOG);
+		pEvent.registerSkullModel(SkullBlockTypes.AETERNAE, IcariaModelLayerLocations.AETERNAE_SKULL, IcariaIdentifiers.AETERNAE);
+		pEvent.registerSkullModel(SkullBlockTypes.ARGAN_HOUND, IcariaModelLayerLocations.ARGAN_HOUND_SKULL, IcariaIdentifiers.ARGAN_HOUND);
+		pEvent.registerSkullModel(SkullBlockTypes.CAPELLA, IcariaModelLayerLocations.CAPELLA_SKULL, IcariaIdentifiers.CAPELLA);
+		pEvent.registerSkullModel(SkullBlockTypes.CATOBLEPAS, IcariaModelLayerLocations.CATOBLEPAS_SKULL, IcariaIdentifiers.CATOBLEPAS);
+		pEvent.registerSkullModel(SkullBlockTypes.CERVER, IcariaModelLayerLocations.CERVER_SKULL, IcariaIdentifiers.CERVER);
+		pEvent.registerSkullModel(SkullBlockTypes.CROCOTTA, IcariaModelLayerLocations.CROCOTTA_SKULL, IcariaIdentifiers.CROCOTTA);
+		pEvent.registerSkullModel(SkullBlockTypes.CYPRESS_FOREST_HAG, IcariaModelLayerLocations.CYPRESS_FOREST_HAG_SKULL, IcariaIdentifiers.CYPRESS_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.DROUGHTROOT_FOREST_HAG, IcariaModelLayerLocations.DROUGHTROOT_FOREST_HAG_SKULL, IcariaIdentifiers.DROUGHTROOT_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.FIR_FOREST_HAG, IcariaModelLayerLocations.FIR_FOREST_HAG_SKULL, IcariaIdentifiers.FIR_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.LAUREL_FOREST_HAG, IcariaModelLayerLocations.LAUREL_FOREST_HAG_SKULL, IcariaIdentifiers.LAUREL_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.OLIVE_FOREST_HAG, IcariaModelLayerLocations.OLIVE_FOREST_HAG_SKULL, IcariaIdentifiers.OLIVE_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.PLANE_FOREST_HAG, IcariaModelLayerLocations.PLANE_FOREST_HAG_SKULL, IcariaIdentifiers.PLANE_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL, IcariaIdentifiers.POPULUS_FOREST_HAG);
+		pEvent.registerSkullModel(SkullBlockTypes.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL, IcariaIdentifiers.CAPTAIN_REVENANT);
+		pEvent.registerSkullModel(SkullBlockTypes.THOG, IcariaModelLayerLocations.THOG_SKULL, IcariaIdentifiers.THOG);
 	}
 
 	@SubscribeEvent
@@ -107,8 +107,8 @@ public class IcariaClientEvents {
 	}
 
 	@SubscribeEvent
-	public static void onRegisterDimensionSpecialEffects(RegisterDimensionSpecialEffectsEvent pEvent) {
-		pEvent.register(IcariaResourceLocations.ICARIA, new IcariaDimensionSpecialEffects());
+	public static void onRegisterCustomEnvironmentEffectRenderer(RegisterCustomEnvironmentEffectRendererEvent pEvent) {
+		pEvent.registerSkyboxRenderer(IcariaIdentifiers.ICARIA, new SkyboxRenderer());
 	}
 
 	@SubscribeEvent
@@ -214,7 +214,7 @@ public class IcariaClientEvents {
 
 	@SubscribeEvent
 	public static void onRegisterSpecialModelRenderer(RegisterSpecialModelRendererEvent pEvent) {
-		pEvent.register(IcariaResourceLocations.SCROLL_RENDERER, UnbakedScrollItemSpecialModelRenderer.MAP_CODEC);
+		pEvent.register(IcariaIdentifiers.SCROLL_RENDERER, UnbakedScrollItemSpecialModelRenderer.MAP_CODEC);
 	}
 
 	@SubscribeEvent

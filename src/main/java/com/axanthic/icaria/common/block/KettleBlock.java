@@ -7,12 +7,12 @@ import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.KettleVoxelShapes;
 import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -155,8 +155,8 @@ public class KettleBlock extends BaseEntityBlock {
 	}
 
 	public void removeMultiBlock(BlockPos pBlockPos, Level pLevel) {
-		pLevel.setBlock(pBlockPos, Blocks.AIR.defaultBlockState(), 3);
-		pLevel.setBlock(pBlockPos.above(), Blocks.AIR.defaultBlockState(), 3);
+		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.above(), Blocks.AIR.defaultBlockState());
 	}
 
 	@Override

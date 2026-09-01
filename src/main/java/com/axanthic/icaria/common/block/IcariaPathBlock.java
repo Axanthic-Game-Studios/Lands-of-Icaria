@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;

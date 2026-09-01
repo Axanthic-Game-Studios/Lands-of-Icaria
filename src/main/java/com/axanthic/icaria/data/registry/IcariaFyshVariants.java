@@ -1,16 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
 import com.axanthic.icaria.common.registry.IcariaItems;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.variant.FyshVariant;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.ClientAsset;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -35,10 +36,10 @@ public class IcariaFyshVariants {
 	}
 
 	public static void register(BootstrapContext<FyshVariant> pBootstrapContext, ResourceKey<FyshVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FyshVariant(new ClientAsset.ResourceTexture(ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, "entity" + "/" + "fysh" + "/" + pVariant.location().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FyshVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "fysh" + "/" + pVariant.identifier().getPath())), new ItemStack(pItem, pCount)));
 	}
 
 	public static ResourceKey<FyshVariant> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.FYSH_VARIANT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(IcariaRegistries.FYSH_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

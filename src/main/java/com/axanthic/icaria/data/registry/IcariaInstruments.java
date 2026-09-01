@@ -1,19 +1,20 @@
 package com.axanthic.icaria.data.registry;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
+import net.minecraft.util.Util;
 import net.minecraft.world.item.Instrument;
 
 @MethodsReturnNonnullByDefault
@@ -27,10 +28,10 @@ public class IcariaInstruments {
 	}
 
 	public static void register(BootstrapContext<Instrument> pBootstrapContext, ResourceKey<Instrument> pInstrument, SoundEvent pSoundEvent, float pDuration, float pRange) {
-		pBootstrapContext.register(pInstrument, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, Component.translatable(Util.makeDescriptionId("instrument", pInstrument.location()))));
+		pBootstrapContext.register(pInstrument, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, Component.translatable(Util.makeDescriptionId("instrument", pInstrument.identifier()))));
 	}
 
 	public static ResourceKey<Instrument> createKey(String pName) {
-		return ResourceKey.create(Registries.INSTRUMENT, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(Registries.INSTRUMENT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

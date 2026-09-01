@@ -29,13 +29,14 @@
         5
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         6,
@@ -71,13 +72,14 @@
         5
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         11,
@@ -107,13 +109,14 @@
         5
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         10,
@@ -143,13 +146,14 @@
         10
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         10,
@@ -179,13 +183,14 @@
         6
       ],
       "rotation": {
-        "angle": 0.0,
-        "axis": "y",
         "origin": [
           0,
           0,
           0
-        ]
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
       },
       "to": [
         10,
@@ -220,14 +225,15 @@
         8
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "to": [
         13.4,
@@ -262,14 +268,15 @@
         2.6
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "to": [
         8,
@@ -306,14 +313,15 @@
         8
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "to": [
         13.4,
@@ -350,14 +358,15 @@
         2.6
       ],
       "rotation": {
-        "angle": 45.0,
-        "axis": "y",
         "origin": [
           8,
           8,
           8
         ],
-        "rescale": true
+        "rescale": true,
+        "x": 0.0,
+        "y": 45.0,
+        "z": 0.0
       },
       "to": [
         8,

@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.entity.*;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
@@ -15,7 +16,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockEntityTypes {
-	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaIdents.ID);
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaKeys.ID);
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BathtubBlockEntity>> BATHTUB = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("bathtub", () -> new BlockEntityType<>(BathtubBlockEntity::new, IcariaBlocks.CYPRESS_BATHTUB.get(), IcariaBlocks.DROUGHTROOT_BATHTUB.get(), IcariaBlocks.FIR_BATHTUB.get(), IcariaBlocks.LAUREL_BATHTUB.get(), IcariaBlocks.OLIVE_BATHTUB.get(), IcariaBlocks.PLANE_BATHTUB.get(), IcariaBlocks.POPULUS_BATHTUB.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IcariaChestBlockEntity>> CHEST = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("chest", () -> new BlockEntityType<>(IcariaChestBlockEntity::new, IcariaBlocks.CHEST.get()));

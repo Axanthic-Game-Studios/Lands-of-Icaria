@@ -3,9 +3,9 @@ package com.axanthic.icaria.common.runnable;
 import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.registry.IcariaAttachmentTypes;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 

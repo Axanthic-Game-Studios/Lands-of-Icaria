@@ -1,19 +1,19 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.data.registry.IcariaBiomes;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.BiomeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BiomeTags;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -42,12 +42,6 @@ public class IcariaBiomeTagsProvider extends BiomeTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-		this.tag(BiomeTags.SNOW_GOLEM_MELTS)
-			.add(IcariaBiomes.DESERT)
-			.add(IcariaBiomes.LUSH_DESERT)
-			.add(IcariaBiomes.LOST_DESERT)
-			.add(IcariaBiomes.DEEP_DESERT);
-
 		this.tag(IcariaBiomeTagsProvider.HAS_PORTAL)
 			.add(Biomes.CRIMSON_FOREST)
 			.add(Biomes.NETHER_WASTES)
@@ -109,14 +103,14 @@ public class IcariaBiomeTagsProvider extends BiomeTagsProvider {
 	}
 
 	public static TagKey<Biome> cKey(String pName) {
-		return IcariaBiomeTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaBiomeTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<Biome> icariaKey(String pName) {
-		return IcariaBiomeTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaBiomeTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<Biome> createKey(String pName) {
-		return TagKey.create(Registries.BIOME, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.BIOME, Identifier.parse(pName));
 	}
 }

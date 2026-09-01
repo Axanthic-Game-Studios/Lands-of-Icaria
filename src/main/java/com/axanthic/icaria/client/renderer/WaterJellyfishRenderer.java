@@ -5,17 +5,17 @@ import com.axanthic.icaria.client.model.WaterJellyfishModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.WaterJellyfishRenderState;
 import com.axanthic.icaria.common.entity.WaterJellyfishEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 @MethodsReturnNonnullByDefault
@@ -58,12 +58,12 @@ public class WaterJellyfishRenderer extends MobRenderer<WaterJellyfishEntity, Wa
 	}
 
 	@Override
-	public WaterJellyfishRenderState createRenderState() {
-		return new WaterJellyfishRenderState();
+	public Identifier getTextureLocation(WaterJellyfishRenderState pRenderState) {
+		return IcariaIdentifiers.WATER_JELLYFISH;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(WaterJellyfishRenderState pRenderState) {
-		return IcariaResourceLocations.WATER_JELLYFISH;
+	public WaterJellyfishRenderState createRenderState() {
+		return new WaterJellyfishRenderState();
 	}
 }

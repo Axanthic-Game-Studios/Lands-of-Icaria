@@ -4,9 +4,10 @@ import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.DoorBlock;

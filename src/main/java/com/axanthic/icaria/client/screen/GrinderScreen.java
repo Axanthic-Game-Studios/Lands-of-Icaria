@@ -2,11 +2,12 @@ package com.axanthic.icaria.client.screen;
 
 import com.axanthic.icaria.common.menu.GrinderMenu;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
@@ -33,7 +34,7 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 	public void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
 		var x = (this.width - this.imageWidth) / 2;
 		var y = (this.height - this.imageHeight) / 2;
-		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.GRINDER, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.GRINDER, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 		this.renderFuel(pGuiGraphics, x, y);
 		this.renderProgress(pGuiGraphics, x, y);
 	}
@@ -50,7 +51,7 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 		var maxFuel = this.menu.getMaxFuel();
 		if (maxFuel != 0) {
 			var height = fuel * fuelHeight / maxFuel;
-			pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.GRINDER, 82 + pX, 24 + pY + height, this.imageWidth, 16 + height, 4, fuelHeight, 256, 256);
+			pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.GRINDER, 82 + pX, 24 + pY + height, this.imageWidth, 16 + height, 4, fuelHeight, 256, 256);
 		}
 	}
 
@@ -60,7 +61,7 @@ public class GrinderScreen extends AbstractContainerScreen<GrinderMenu> {
 		var maxProgress = this.menu.getMaxProgress();
 		if (maxProgress != 0) {
 			var width = progress * progressWidth / maxProgress;
-			pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaResourceLocations.GRINDER, 95 + pX, 22 + pY, this.imageWidth, 0, width, 16, 256, 256);
+			pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.GRINDER, 95 + pX, 22 + pY, this.imageWidth, 0, width, 16, 256, 256);
 		}
 	}
 }

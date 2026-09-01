@@ -6,17 +6,17 @@ import com.axanthic.icaria.client.model.CivilianRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CivilianRevenantRenderState;
 import com.axanthic.icaria.common.entity.CivilianRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -45,12 +45,12 @@ public class CivilianRevenantRenderer extends MobRenderer<CivilianRevenantEntity
 	}
 
 	@Override
-	public CivilianRevenantRenderState createRenderState() {
-		return new CivilianRevenantRenderState();
+	public Identifier getTextureLocation(CivilianRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.CIVILIAN_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CivilianRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.CIVILIAN_REVENANT;
+	public CivilianRevenantRenderState createRenderState() {
+		return new CivilianRevenantRenderState();
 	}
 }

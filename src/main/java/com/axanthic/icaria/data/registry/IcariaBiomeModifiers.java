@@ -1,17 +1,18 @@
 package com.axanthic.icaria.data.registry;
 
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.random.Weighted;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
@@ -69,6 +70,6 @@ public class IcariaBiomeModifiers {
 	}
 
 	public static ResourceKey<BiomeModifier> createKey(String pName) {
-		return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName));
+		return ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
 	}
 }

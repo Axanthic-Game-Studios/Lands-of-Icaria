@@ -2,12 +2,14 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.goal.FishFollowGoal;
 import com.axanthic.icaria.common.goal.FishSwimGoal;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.util.RandomSource;
@@ -65,7 +67,7 @@ public class FishEntity extends IcariaPathfinderMobEntity {
 	@Override
 	public void setSize(int pSize) {
 		super.setSize(pSize);
-		this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(pSize * pSize);
+		IcariaCommonHelper.setAttribute(Attributes.MAX_HEALTH, this, pSize * pSize);
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {

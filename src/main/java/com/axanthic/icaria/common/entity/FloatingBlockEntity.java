@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -15,10 +16,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
@@ -119,7 +120,7 @@ public class FloatingBlockEntity extends Entity {
 				if (this.level().getBlockState(this.blockPosition()).canBeReplaced() && this.getBlockState().canSurvive(this.level(), this.blockPosition())) {
 					this.level().setBlockAndUpdate(this.blockPosition(), this.getBlockState());
 					this.discard();
-				} else if (this.level() instanceof ServerLevel serverLevel && serverLevel.getGameRules().getBoolean(GameRules.RULE_DOENTITYDROPS)) {
+				} else if (this.level() instanceof ServerLevel serverLevel && serverLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
 					this.spawnAtLocation(serverLevel, this.getBlockState().getBlock());
 					this.discard();
 				}

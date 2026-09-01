@@ -8,11 +8,12 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.EnumSet;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.ai.goal.Goal;

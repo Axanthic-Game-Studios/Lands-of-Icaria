@@ -5,10 +5,10 @@ import com.axanthic.icaria.client.model.MyrmekeQueenModel;
 import com.axanthic.icaria.client.state.MyrmekeQueenRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
@@ -27,7 +27,7 @@ public class MyrmekeQueenRaysRenderLayer extends RenderLayer<MyrmekeQueenRenderS
 		this.getParentModel().translateToHead(pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().head);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, -0.010F, -1.265F, 0.185F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.partialTick, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
 		pPoseStack.popPose();
 	}
 }

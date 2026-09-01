@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;

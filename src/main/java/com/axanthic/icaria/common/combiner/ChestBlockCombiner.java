@@ -2,11 +2,12 @@ package com.axanthic.icaria.common.combiner;
 
 import com.axanthic.icaria.common.menu.provider.ChestMenuProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.CompoundContainer;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.level.block.DoubleBlockCombiner;

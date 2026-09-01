@@ -1,11 +1,12 @@
 package com.axanthic.icaria.common.payload;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.runnable.GrinderRunnable;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -24,7 +25,7 @@ public class GrinderPayload implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, GrinderPayload> STREAM_CODEC = CustomPacketPayload.codec(GrinderPayload::write, GrinderPayload::new);
 
-	public static final Type<GrinderPayload> TYPE = new Type<>(IcariaResourceLocations.GRINDER_PAYLOAD_TYPE);
+	public static final Type<GrinderPayload> TYPE = new Type<>(IcariaIdentifiers.GRINDER_PAYLOAD_TYPE);
 
 	public GrinderPayload(boolean pTickClient, BlockPos pBlockPos) {
 		this.tickClient = pTickClient;

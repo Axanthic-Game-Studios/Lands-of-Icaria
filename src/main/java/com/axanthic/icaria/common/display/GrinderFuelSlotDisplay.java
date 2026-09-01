@@ -3,13 +3,13 @@ package com.axanthic.icaria.common.display;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaSlotDisplayTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import java.util.stream.Stream;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;

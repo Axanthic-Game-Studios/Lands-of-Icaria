@@ -5,9 +5,10 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.data.registry.IcariaLootTables;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceKey;
@@ -51,9 +52,9 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 		if (pRandomSource.nextInt(100) == 0) {
 			if (!pBlockState.getValue(BlockStateProperties.PERSISTENT)) {
 				if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.NONE) {
-					pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN), 2);
+					pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.GREEN));
 				} else if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-					pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK), 2);
+					pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.BLACK));
 				}
 			}
 		}
@@ -73,7 +74,7 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 	public InteractionResult dropFromLootTable(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
 		Block.dropFromLootTable(pServerLevel, pResourceKey, builder -> builder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK_INTERACT), (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
 		pServerLevel.playSound(null, pBlockPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
-		pServerLevel.setBlock(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE), 2);
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
 		return InteractionResult.SUCCESS;
 	}
 }

@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;

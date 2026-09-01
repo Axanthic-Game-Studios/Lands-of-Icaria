@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:copper_nautilus_armor": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:copper_nautilus_armor"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:copper_nugget_from_copper_nautilus_armor_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:copper_nautilus_armor"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:copper_nugget_from_copper_nautilus_armor_forging"
+    ]
+  }
+}

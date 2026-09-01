@@ -6,17 +6,17 @@ import com.axanthic.icaria.client.model.CaptainRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CaptainRevenantRenderState;
 import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -53,12 +53,12 @@ public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, 
 	}
 
 	@Override
-	public CaptainRevenantRenderState createRenderState() {
-		return new CaptainRevenantRenderState();
+	public Identifier getTextureLocation(CaptainRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.CAPTAIN_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CaptainRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.CAPTAIN_REVENANT;
+	public CaptainRevenantRenderState createRenderState() {
+		return new CaptainRevenantRenderState();
 	}
 }

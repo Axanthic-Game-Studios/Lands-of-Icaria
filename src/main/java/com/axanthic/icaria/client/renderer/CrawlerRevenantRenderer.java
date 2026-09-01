@@ -6,19 +6,19 @@ import com.axanthic.icaria.client.model.CrawlerRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrawlerRevenantRenderState;
 import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.state.CameraRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -56,12 +56,12 @@ public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, 
 	}
 
 	@Override
-	public CrawlerRevenantRenderState createRenderState() {
-		return new CrawlerRevenantRenderState();
+	public Identifier getTextureLocation(CrawlerRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.CRAWLER_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CrawlerRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.CRAWLER_REVENANT;
+	public CrawlerRevenantRenderState createRenderState() {
+		return new CrawlerRevenantRenderState();
 	}
 }

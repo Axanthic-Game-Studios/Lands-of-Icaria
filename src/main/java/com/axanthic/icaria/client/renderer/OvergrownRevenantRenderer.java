@@ -7,17 +7,17 @@ import com.axanthic.icaria.client.model.OvergrownRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.OvergrownRevenantRenderState;
 import com.axanthic.icaria.common.entity.OvergrownRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -50,12 +50,12 @@ public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEnti
 	}
 
 	@Override
-	public OvergrownRevenantRenderState createRenderState() {
-		return new OvergrownRevenantRenderState();
+	public Identifier getTextureLocation(OvergrownRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.OVERGROWN_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(OvergrownRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.OVERGROWN_REVENANT;
+	public OvergrownRevenantRenderState createRenderState() {
+		return new OvergrownRevenantRenderState();
 	}
 }

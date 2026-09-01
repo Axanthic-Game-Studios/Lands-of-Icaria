@@ -5,14 +5,14 @@ import com.axanthic.icaria.client.state.ThroughBlockRenderState;
 import com.axanthic.icaria.common.entity.TroughBlockEntity;
 import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.Sheets;
@@ -77,17 +77,17 @@ public record TroughBlockRenderer(BlockEntityRendererProvider.Context context) i
 
 	public TextureAtlasSprite getSprite(Trough pTrough, TextureAtlas pTextureAtlas) {
 		if (pTrough == Trough.POWDER_SNOW) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.POWDER_SNOW);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.POWDER_SNOW);
 		} else if (pTrough == Trough.WATER) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.WATER);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.WATER);
 		} else if (pTrough == Trough.MEDITERRANEAN_WATER) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.MEDITERRANEAN_WATER);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.MEDITERRANEAN_WATER);
 		} else if (pTrough == Trough.ONION) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.ONION);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.ONION);
 		} else if (pTrough == Trough.SPELT) {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.SPELT);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.SPELT);
 		} else {
-			return pTextureAtlas.getSprite(IcariaResourceLocations.VINEBERRIES);
+			return pTextureAtlas.getSprite(IcariaIdentifiers.VINEBERRIES);
 		}
 	}
 

@@ -4,9 +4,10 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.Sheets;
 
 import net.neoforged.bus.api.IEventBus;
@@ -23,7 +24,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@Mod(IcariaIdents.ID)
+@Mod(IcariaKeys.ID)
 public class Icaria {
 	public Icaria(IEventBus pBus) {
 		Icaria.addListeners(pBus);
@@ -102,10 +103,10 @@ public class Icaria {
 	}
 
 	public static void registerPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		pEvent.registrar(IcariaIdents.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
-		pEvent.registrar(IcariaIdents.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
-		pEvent.registrar(IcariaIdents.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);
-		pEvent.registrar(IcariaIdents.ID).playToClient(LootVasePayload.TYPE, LootVasePayload.STREAM_CODEC, LootVasePayload::handle);
-		pEvent.registrar(IcariaIdents.ID).playToClient(TotemPayload.TYPE, TotemPayload.STREAM_CODEC, TotemPayload::handle);
+		pEvent.registrar(IcariaKeys.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
+		pEvent.registrar(IcariaKeys.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
+		pEvent.registrar(IcariaKeys.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);
+		pEvent.registrar(IcariaKeys.ID).playToClient(LootVasePayload.TYPE, LootVasePayload.STREAM_CODEC, LootVasePayload::handle);
+		pEvent.registrar(IcariaKeys.ID).playToClient(TotemPayload.TYPE, TotemPayload.STREAM_CODEC, TotemPayload::handle);
 	}
 }

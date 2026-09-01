@@ -10,7 +10,9 @@ Additions
 - Cutting Board Blocks for each Wood Type
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
-- Forge Recipes for Copper Nuggets from Copper Armor Pieces and Tools
+- Forge Recipes for Copper Nuggets from Copper Armor Pieces and Copper Tools
+- Forge Recipes for Iron Nuggets from Iron Nautilus Armor and Iron Spear
+- Forge Recipes for Golden Nuggets from Golden Nautilus Armor and Golden Spear
 - Bathtub Blocks for each Wood Type
 - Cupboard Blocks, Broken Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
 - Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop for each Wood Type

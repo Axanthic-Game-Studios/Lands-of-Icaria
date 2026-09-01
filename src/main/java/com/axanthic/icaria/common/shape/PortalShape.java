@@ -3,11 +3,12 @@ package com.axanthic.icaria.common.shape;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.stream.IntStream;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -87,7 +88,7 @@ public class PortalShape {
 	public void createPortal() {
 		for (var h = 0; h < this.getHeight(); h++) {
 			for (var w = 0; w < this.getWidth(); w++) {
-				this.level.setBlock(this.getCorner().above(h).relative(this.getRight(), w), IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis), 18);
+				this.level.setBlockAndUpdate(this.getCorner().above(h).relative(this.getRight(), w), IcariaBlocks.ICARIA_PORTAL.get().defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_AXIS, this.axis));
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.world.structure;
 
 import com.axanthic.icaria.common.registry.IcariaStructureTypes;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
@@ -12,11 +13,10 @@ import java.util.Optional;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.EmptyBlockGetter;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.WorldGenerationContext;
@@ -54,13 +54,13 @@ public class IcariaJigsawStructure extends Structure {
 	public List<PoolAliasBinding> poolAliases;
 
 	public Optional<Heightmap.Types> projectStartToHeightmap;
-	public Optional<ResourceLocation> startJigsawName;
+	public Optional<Identifier> startJigsawName;
 
 	public static final MapCodec<IcariaJigsawStructure> CODEC = RecordCodecBuilder.<IcariaJigsawStructure>mapCodec(
 		instance -> instance.group(
 			Structure.settingsCodec(instance),
 			StructureTemplatePool.CODEC.fieldOf("start_pool").forGetter(icariaJigsawStructure -> icariaJigsawStructure.startPool),
-			ResourceLocation.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(icariaJigsawStructure -> icariaJigsawStructure.startJigsawName),
+			Identifier.CODEC.optionalFieldOf("start_jigsaw_name").forGetter(icariaJigsawStructure -> icariaJigsawStructure.startJigsawName),
 			Codec.intRange(0, 64).fieldOf("size").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxDepth),
 			HeightProvider.CODEC.fieldOf("min_height").forGetter(icariaJigsawStructure -> icariaJigsawStructure.minHeight),
 			HeightProvider.CODEC.fieldOf("max_height").forGetter(icariaJigsawStructure -> icariaJigsawStructure.maxHeight),
@@ -73,7 +73,7 @@ public class IcariaJigsawStructure extends Structure {
 		).apply(instance, IcariaJigsawStructure::new)
 	).validate(IcariaJigsawStructure::verifyRange);
 
-	public IcariaJigsawStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<ResourceLocation> pStartJigsawName, int pMaxDepth, HeightProvider pMinHeight, HeightProvider pMaxHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, JigsawStructure.MaxDistance pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
+	public IcariaJigsawStructure(Structure.StructureSettings pStructureSettings, Holder<StructureTemplatePool> pStartPool, Optional<Identifier> pStartJigsawName, int pMaxDepth, HeightProvider pMinHeight, HeightProvider pMaxHeight, boolean pUseExpansionHack, Optional<Heightmap.Types> pProjectStartToHeightmap, JigsawStructure.MaxDistance pMaxDistanceFromCenter, List<PoolAliasBinding> pPoolAliases, DimensionPadding pDimensionPadding, LiquidSettings pLiquidSettings) {
 		super(pStructureSettings);
 		this.startPool = pStartPool;
 		this.startJigsawName = pStartJigsawName;

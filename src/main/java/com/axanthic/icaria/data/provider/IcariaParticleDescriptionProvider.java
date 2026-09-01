@@ -1,11 +1,12 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.registry.IcariaParticleTypes;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.data.PackOutput;
 
 import net.neoforged.neoforge.client.data.ParticleDescriptionProvider;
@@ -20,8 +21,8 @@ public class IcariaParticleDescriptionProvider extends ParticleDescriptionProvid
 
 	@Override
 	public void addDescriptions() {
-		this.spriteSet(IcariaParticleTypes.BUBBLE.get(), IcariaResourceLocations.BUBBLE_PARTICLE, 6, false);
-		this.spriteSet(IcariaParticleTypes.PORTAL.get(), IcariaResourceLocations.GENERIC_PARTICLE, 8, false);
-		this.spriteSet(IcariaParticleTypes.STEAM.get(), IcariaResourceLocations.STEAM_PARTICLE, 12, false);
+		this.spriteSet(IcariaParticleTypes.BUBBLE.get(), IcariaIdentifiers.BUBBLE_PARTICLE, 6, false);
+		this.spriteSet(IcariaParticleTypes.PORTAL.get(), IcariaIdentifiers.GENERIC_PARTICLE, 8, false);
+		this.spriteSet(IcariaParticleTypes.STEAM.get(), IcariaIdentifiers.STEAM_PARTICLE, 12, false);
 	}
 }

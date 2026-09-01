@@ -1,8 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 
 @MethodsReturnNonnullByDefault
@@ -18,6 +19,6 @@ public class IcariaBlockSetTypes {
 	public static final BlockSetType POPULUS = BlockSetType.register(IcariaBlockSetTypes.register("populus"));
 
 	public static BlockSetType register(String pName) {
-		return new BlockSetType(IcariaIdents.ID + ":" + pName);
+		return new BlockSetType(IcariaKeys.ID + ":" + pName);
 	}
 }

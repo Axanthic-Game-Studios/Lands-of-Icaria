@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.PlaneForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PlaneForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,12 +33,12 @@ public class PlaneForestHagRenderer extends MobRenderer<ForestHagEntity, PlaneFo
 	}
 
 	@Override
-	public PlaneForestHagRenderState createRenderState() {
-		return new PlaneForestHagRenderState();
+	public Identifier getTextureLocation(PlaneForestHagRenderState pRenderState) {
+		return IcariaIdentifiers.PLANE_FOREST_HAG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(PlaneForestHagRenderState pRenderState) {
-		return IcariaResourceLocations.PLANE_FOREST_HAG;
+	public PlaneForestHagRenderState createRenderState() {
+		return new PlaneForestHagRenderState();
 	}
 }

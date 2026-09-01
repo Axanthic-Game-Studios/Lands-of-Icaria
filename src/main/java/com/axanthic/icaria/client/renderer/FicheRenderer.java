@@ -6,13 +6,13 @@ import com.axanthic.icaria.client.state.FicheRenderState;
 import com.axanthic.icaria.common.entity.FicheEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -42,12 +42,12 @@ public class FicheRenderer extends MobRenderer<FicheEntity, FicheRenderState, Fi
 	}
 
 	@Override
-	public FicheRenderState createRenderState() {
-		return new FicheRenderState();
+	public Identifier getTextureLocation(FicheRenderState pRenderState) {
+		return pRenderState.ficheVariant.value().clientAsset().texturePath();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FicheRenderState pRenderState) {
-		return pRenderState.ficheVariant.value().clientAsset().texturePath();
+	public FicheRenderState createRenderState() {
+		return new FicheRenderState();
 	}
 }

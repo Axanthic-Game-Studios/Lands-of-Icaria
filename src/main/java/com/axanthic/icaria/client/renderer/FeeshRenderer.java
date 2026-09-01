@@ -6,13 +6,13 @@ import com.axanthic.icaria.client.state.FeeshRenderState;
 import com.axanthic.icaria.common.entity.FeeshEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -42,12 +42,12 @@ public class FeeshRenderer extends MobRenderer<FeeshEntity, FeeshRenderState, Fe
 	}
 
 	@Override
-	public FeeshRenderState createRenderState() {
-		return new FeeshRenderState();
+	public Identifier getTextureLocation(FeeshRenderState pRenderState) {
+		return pRenderState.feeshVariant.value().clientAsset().texturePath();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FeeshRenderState pRenderState) {
-		return pRenderState.feeshVariant.value().clientAsset().texturePath();
+	public FeeshRenderState createRenderState() {
+		return new FeeshRenderState();
 	}
 }

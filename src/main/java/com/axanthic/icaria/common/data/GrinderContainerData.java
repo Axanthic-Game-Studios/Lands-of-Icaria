@@ -2,9 +2,10 @@ package com.axanthic.icaria.common.data;
 
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.inventory.ContainerData;
 
 @MethodsReturnNonnullByDefault

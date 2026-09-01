@@ -1,12 +1,13 @@
 package com.axanthic.icaria.common.payload;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.registry.IcariaStreamCodecs;
 import com.axanthic.icaria.common.runnable.BarrelRunnable;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -27,7 +28,7 @@ public class BarrelPayload implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, BarrelPayload> STREAM_CODEC = CustomPacketPayload.codec(BarrelPayload::write, BarrelPayload::new);
 
-	public static final Type<BarrelPayload> TYPE = new Type<>(IcariaResourceLocations.BARREL_PAYLOAD_TYPE);
+	public static final Type<BarrelPayload> TYPE = new Type<>(IcariaIdentifiers.BARREL_PAYLOAD_TYPE);
 
 	public BarrelPayload(boolean pBarrel, int pId, BlockState pBlockState) {
 		this.barrel = pBarrel;

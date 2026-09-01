@@ -2,12 +2,13 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.common.entity.*;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -19,7 +20,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaEntityTypes {
-	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, IcariaIdents.ID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(Registries.ENTITY_TYPE, IcariaKeys.ID);
 
 	public static final DeferredHolder<EntityType<?>, EntityType<AeternaeEntity>> AETERNAE = IcariaEntityTypes.register("aeternae", EntityType.Builder.of(AeternaeEntity::new, MobCategory.CREATURE).sized(0.99F, 1.49F).eyeHeight(1.49F));
 	public static final DeferredHolder<EntityType<?>, EntityType<ArachneEntity>> ARACHNE = IcariaEntityTypes.register("arachne", EntityType.Builder.of(ArachneEntity::new, MobCategory.MONSTER).sized(1.49F, 1.99F).eyeHeight(1.99F));
@@ -80,6 +81,6 @@ public class IcariaEntityTypes {
 	public static final DeferredHolder<EntityType<?>, EntityType<VinegaroonEntity>> VINEGAROON = IcariaEntityTypes.register("vinegaroon", EntityType.Builder.of(VinegaroonEntity::new, MobCategory.MONSTER).sized(1.49F, 0.749F).eyeHeight(0.749F));
 
 	public static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String pName, EntityType.Builder<T> pBuilder) {
-		return IcariaEntityTypes.ENTITY_TYPES.register(pName, () -> pBuilder.build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(IcariaIdents.ID, pName))));
+		return IcariaEntityTypes.ENTITY_TYPES.register(pName, () -> pBuilder.build(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName))));
 	}
 }

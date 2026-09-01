@@ -6,19 +6,19 @@ import com.axanthic.icaria.client.model.CrystalSlugModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.CrystalSlugRenderState;
 import com.axanthic.icaria.common.entity.SlugEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.state.CameraRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -74,12 +74,12 @@ public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRend
 	}
 
 	@Override
-	public CrystalSlugRenderState createRenderState() {
-		return new CrystalSlugRenderState();
+	public Identifier getTextureLocation(CrystalSlugRenderState pRenderState) {
+		return IcariaIdentifiers.CRYSTAL_SLUG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(CrystalSlugRenderState pRenderState) {
-		return IcariaResourceLocations.CRYSTAL_SLUG;
+	public CrystalSlugRenderState createRenderState() {
+		return new CrystalSlugRenderState();
 	}
 }

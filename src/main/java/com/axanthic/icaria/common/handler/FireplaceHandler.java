@@ -3,9 +3,10 @@ package com.axanthic.icaria.common.handler;
 import com.axanthic.icaria.common.entity.FireplaceBlockEntity;
 import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.transfer.item.ItemResource;

@@ -1,18 +1,19 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaIdents;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.data.registry.IcariaStructures;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.concurrent.CompletableFuture;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.StructureTagsProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
@@ -98,14 +99,14 @@ public class IcariaStructureTagsProvider extends StructureTagsProvider {
 	}
 
 	public static TagKey<Structure> cKey(String pName) {
-		return IcariaStructureTagsProvider.createKey(IcariaIdents.C + ":" + pName);
+		return IcariaStructureTagsProvider.createKey(IcariaKeys.C + ":" + pName);
 	}
 
 	public static TagKey<Structure> icariaKey(String pName) {
-		return IcariaStructureTagsProvider.createKey(IcariaIdents.ID + ":" + pName);
+		return IcariaStructureTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
 	}
 
 	public static TagKey<Structure> createKey(String pName) {
-		return TagKey.create(Registries.STRUCTURE, ResourceLocation.parse(pName));
+		return TagKey.create(Registries.STRUCTURE, Identifier.parse(pName));
 	}
 }

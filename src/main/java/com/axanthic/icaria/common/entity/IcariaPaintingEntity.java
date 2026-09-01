@@ -4,14 +4,14 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
-import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -20,9 +20,10 @@ import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Util;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.decoration.Painting;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.Painting;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.variant.VariantUtils;
 import net.minecraft.world.item.ItemStack;

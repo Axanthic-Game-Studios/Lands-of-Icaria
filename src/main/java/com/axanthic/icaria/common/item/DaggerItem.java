@@ -1,12 +1,13 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -26,7 +27,7 @@ public class DaggerItem extends Item {
 	}
 
 	public static ItemAttributeModifiers createAttributes(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackRange, float pAttackSpeed) {
-		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, pToolMaterial.attackDamageBonus() + pAttackDamage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(IcariaResourceLocations.BASE_ATTACK_RANGE_ID, pAttackRange, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
+		return ItemAttributeModifiers.builder().add(Attributes.ATTACK_DAMAGE, new AttributeModifier(Item.BASE_ATTACK_DAMAGE_ID, pToolMaterial.attackDamageBonus() + pAttackDamage, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ATTACK_SPEED, new AttributeModifier(Item.BASE_ATTACK_SPEED_ID, pAttackSpeed, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).add(Attributes.ENTITY_INTERACTION_RANGE, new AttributeModifier(IcariaIdentifiers.BASE_ATTACK_RANGE_ID, pAttackRange, AttributeModifier.Operation.ADD_VALUE), EquipmentSlotGroup.MAINHAND).build();
 	}
 
 	public static Tool createToolProperties() {

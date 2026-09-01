@@ -6,17 +6,17 @@ import com.axanthic.icaria.client.model.PyromancerRevenantModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.PyromancerRevenantRenderState;
 import com.axanthic.icaria.common.entity.PyromancerRevenantEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
 @MethodsReturnNonnullByDefault
@@ -47,12 +47,12 @@ public class PyromancerRevenantRenderer extends MobRenderer<PyromancerRevenantEn
 	}
 
 	@Override
-	public PyromancerRevenantRenderState createRenderState() {
-		return new PyromancerRevenantRenderState();
+	public Identifier getTextureLocation(PyromancerRevenantRenderState pRenderState) {
+		return IcariaIdentifiers.PYROMANCER_REVENANT;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(PyromancerRevenantRenderState pRenderState) {
-		return IcariaResourceLocations.PYROMANCER_REVENANT;
+	public PyromancerRevenantRenderState createRenderState() {
+		return new PyromancerRevenantRenderState();
 	}
 }

@@ -1,12 +1,13 @@
 package com.axanthic.icaria.common.payload;
 
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.registry.IcariaStreamCodecs;
 import com.axanthic.icaria.common.runnable.LootVaseRunnable;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
@@ -27,7 +28,7 @@ public class LootVasePayload implements CustomPacketPayload {
 
 	public static final StreamCodec<RegistryFriendlyByteBuf, LootVasePayload> STREAM_CODEC = CustomPacketPayload.codec(LootVasePayload::write, LootVasePayload::new);
 
-	public static final Type<LootVasePayload> TYPE = new Type<>(IcariaResourceLocations.LOOT_VASE_PAYLOAD_TYPE);
+	public static final Type<LootVasePayload> TYPE = new Type<>(IcariaIdentifiers.LOOT_VASE_PAYLOAD_TYPE);
 
 	public LootVasePayload(boolean pLootVase, int pId, BlockState pBlockState) {
 		this.lootVase = pLootVase;

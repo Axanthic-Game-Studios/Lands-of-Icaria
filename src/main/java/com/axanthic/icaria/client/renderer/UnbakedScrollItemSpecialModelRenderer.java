@@ -1,10 +1,10 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.special.SpecialModelRenderer;
 
 @MethodsReturnNonnullByDefault

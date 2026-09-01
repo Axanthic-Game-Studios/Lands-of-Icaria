@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.ArganHoundModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.ArganHoundRenderState;
 import com.axanthic.icaria.common.entity.ArganHoundEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,12 +32,12 @@ public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHound
 	}
 
 	@Override
-	public ArganHoundRenderState createRenderState() {
-		return new ArganHoundRenderState();
+	public Identifier getTextureLocation(ArganHoundRenderState pRenderState) {
+		return IcariaIdentifiers.ARGAN_HOUND;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(ArganHoundRenderState pRenderState) {
-		return IcariaResourceLocations.ARGAN_HOUND;
+	public ArganHoundRenderState createRenderState() {
+		return new ArganHoundRenderState();
 	}
 }

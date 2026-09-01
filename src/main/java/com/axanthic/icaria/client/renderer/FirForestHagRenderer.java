@@ -5,14 +5,15 @@ import com.axanthic.icaria.client.model.FirForestHagModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.FirForestHagRenderState;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
-import com.axanthic.icaria.common.registry.IcariaResourceLocations;
+import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+
+import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -32,12 +33,12 @@ public class FirForestHagRenderer extends MobRenderer<ForestHagEntity, FirForest
 	}
 
 	@Override
-	public FirForestHagRenderState createRenderState() {
-		return new FirForestHagRenderState();
+	public Identifier getTextureLocation(FirForestHagRenderState pRenderState) {
+		return IcariaIdentifiers.FIR_FOREST_HAG;
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(FirForestHagRenderState pRenderState) {
-		return IcariaResourceLocations.FIR_FOREST_HAG;
+	public FirForestHagRenderState createRenderState() {
+		return new FirForestHagRenderState();
 	}
 }
