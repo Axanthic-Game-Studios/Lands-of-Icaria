@@ -24,7 +24,7 @@ public class HyliasterTranslucentRenderLayer extends RenderLayer<HyliasterRender
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, HyliasterRenderState pRenderState, float pYRot, float pXRot) {
-		pSubmitNodeCollector.submitModel(this.getParentModel(), pRenderState, pPoseStack, IcariaRenderTypes.HYLIASTER_TRANSLUCENT, pPackedLight, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor, null);
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, HyliasterRenderState pRenderState, float pYRot, float pXRot) {
+		pSubmitNodeCollector.submitModel(this.getParentModel(), pRenderState, pPoseStack, IcariaRenderTypes.HYLIASTER_TRANSLUCENT, pLightCoords, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor, null);
 	}
 }

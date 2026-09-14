@@ -918,9 +918,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.SWIRLY_VINE.get(), "Swirly Vine");
 		this.add(IcariaBlocks.THORNY_VINE.get(), "Thorny Vine");
 
-		this.add(IcariaBlocks.FERN.get(), "Fern");
-		this.add(IcariaBlocks.POTTED_FERN.get(), "Potted Fern");
-
 		this.add(IcariaBlocks.SMALL_GRASS.get(), "Small Grass");
 		this.add(IcariaBlocks.MEDIUM_GRASS.get(), "Medium Grass");
 		this.add(IcariaBlocks.LARGE_GRASS.get(), "Large Grass");
@@ -1689,8 +1686,10 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTagsProvider.SOILS, "Soils");
 
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_CRYSTAL, "Crystal Support Blocks");
-		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE, "Relicstone Rubble Support Blocks");
+		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Grainite Rubble Support Blocks");
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE, "Rubble Support Blocks");
+
+		this.add(IcariaBlockTagsProvider.BARS_VANADIUMSTEEL, "Vanadiumsteel Bars");
 
 		this.add(IcariaBlockTagsProvider.LOGS_CYPRESS, "Cypress Logs");
 		this.add(IcariaBlockTagsProvider.LOGS_DROUGHTROOT, "Droughtroot Logs");
@@ -1835,6 +1834,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL, "Vanadiumsteel Tool Materials");
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS, "Sideros Tool Materials");
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL, "Molybdenumsteel Tool Materials");
+
+		this.add(IcariaItemTagsProvider.BARS_VANADIUMSTEEL, "Vanadiumsteel Bars");
 
 		this.add(IcariaItemTagsProvider.LOGS_CYPRESS, "Cypress Logs");
 		this.add(IcariaItemTagsProvider.LOGS_DROUGHTROOT, "Droughtroot Logs");

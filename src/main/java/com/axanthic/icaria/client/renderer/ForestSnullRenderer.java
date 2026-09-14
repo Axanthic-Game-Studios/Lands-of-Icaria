@@ -32,8 +32,8 @@ public class ForestSnullRenderer extends MobRenderer<SnullEntity, ForestSnullRen
 	}
 
 	@Override
-	public void extractRenderState(SnullEntity pEntity, ForestSnullRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(SnullEntity pEntity, ForestSnullRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.climbing = pEntity.getClimbing();
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
@@ -51,8 +51,8 @@ public class ForestSnullRenderer extends MobRenderer<SnullEntity, ForestSnullRen
 	}
 
 	@Override
-	public void setupRotations(ForestSnullRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pScale) {
-		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pScale);
+	public void setupRotations(ForestSnullRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pEntityScale) {
+		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		if (pRenderState.climbing) {
 			pPoseStack.translate(0.0F, pRenderState.renderScale * 0.25F, 0.0F);
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));

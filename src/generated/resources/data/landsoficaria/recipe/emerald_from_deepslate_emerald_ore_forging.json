@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "minecraft:deepslate_emerald_ore",
   "result": {
-    "count": 1,
     "id": "minecraft:emerald"
   },
   "time": 100

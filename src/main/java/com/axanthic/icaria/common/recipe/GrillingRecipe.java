@@ -5,11 +5,17 @@ import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
@@ -21,9 +27,24 @@ public class GrillingRecipe implements Recipe<RecipeInput> {
 
 	public Ingredient ingredient;
 
-	public ItemStack result;
+	public ItemStackTemplate result;
 
-	public GrillingRecipe(int pTime, Ingredient pIngredient, ItemStack pResult) {
+	public static final MapCodec<GrillingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
+		instance.group(
+			Codec.INT.fieldOf("time").forGetter(GrillingRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(GrillingRecipe::ingredient),
+			ItemStackTemplate.CODEC.fieldOf("result").forGetter(GrillingRecipe::result)
+		).apply(instance, GrillingRecipe::new)
+	);
+
+	public static final StreamCodec<RegistryFriendlyByteBuf, GrillingRecipe> STREAM_CODEC = StreamCodec.composite(
+		ByteBufCodecs.INT, GrillingRecipe::time,
+		Ingredient.CONTENTS_STREAM_CODEC, GrillingRecipe::ingredient,
+		ItemStackTemplate.STREAM_CODEC, GrillingRecipe::result,
+		GrillingRecipe::new
+	);
+
+	public GrillingRecipe(int pTime, Ingredient pIngredient, ItemStackTemplate pResult) {
 		this.time = pTime;
 		this.ingredient = pIngredient;
 		this.result = pResult;
@@ -32,6 +53,11 @@ public class GrillingRecipe implements Recipe<RecipeInput> {
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
 		return this.ingredient().test(pRecipeInput.getItem(0));
+	}
+
+	@Override
+	public boolean showNotification() {
+		return false;
 	}
 
 	public int time() {
@@ -43,11 +69,11 @@ public class GrillingRecipe implements Recipe<RecipeInput> {
 	}
 
 	@Override
-	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
-		return this.result().copy();
+	public ItemStack assemble(RecipeInput pRecipeInput) {
+		return this.result.create();
 	}
 
-	public ItemStack result() {
+	public ItemStackTemplate result() {
 		return this.result;
 	}
 
@@ -69,5 +95,10 @@ public class GrillingRecipe implements Recipe<RecipeInput> {
 	@Override
 	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.GRILLING.get();
+	}
+
+	@Override
+	public String group() {
+		return "";
 	}
 }

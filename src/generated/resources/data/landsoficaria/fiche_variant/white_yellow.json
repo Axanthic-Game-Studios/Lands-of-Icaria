@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fiche/white_yellow",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_white_yellow_fiche"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fiche/white_yellow"
 }

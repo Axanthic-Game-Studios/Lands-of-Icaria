@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "minecraft:cod",
+  "result": {
+    "id": "minecraft:cooked_cod"
+  },
+  "time": 600
+}

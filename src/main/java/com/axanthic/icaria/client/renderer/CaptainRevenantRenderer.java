@@ -30,10 +30,10 @@ public class CaptainRevenantRenderer extends MobRenderer<CaptainRevenantEntity, 
 	}
 
 	@Override
-	public void extractRenderState(CaptainRevenantEntity pEntity, CaptainRevenantRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(CaptainRevenantEntity pEntity, CaptainRevenantRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.onRallying = pEntity.onRallying();
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
 		pRenderState.id = pEntity.getId();
 		pRenderState.maxReequips = pEntity.maxReequips;
 		pRenderState.maxUnequips = pEntity.maxUnequips;

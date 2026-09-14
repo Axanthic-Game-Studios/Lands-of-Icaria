@@ -16,7 +16,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.Vec3;
@@ -32,8 +32,8 @@ public record KilnBlockRenderer(BlockEntityRendererProvider.Context context) imp
 	}
 
 	@Override
-	public void extractRenderState(KilnBlockEntity pBlockEntity, KilnBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
+	public void extractRenderState(KilnBlockEntity pBlockEntity, KilnBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
 		pRenderState.blockState = pBlockEntity.getBlockState();
 		pRenderState.fuel = new ItemStackRenderState();
 		pRenderState.intake = new ItemStackRenderState();

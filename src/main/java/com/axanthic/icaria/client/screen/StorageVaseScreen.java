@@ -8,7 +8,7 @@ import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
@@ -19,27 +19,20 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class StorageVaseScreen extends AbstractContainerScreen<StorageVaseMenu> {
 	public StorageVaseScreen(StorageVaseMenu pMenu, Inventory pInventory, Component pComponent) {
-		super(pMenu, pInventory, pComponent);
-		this.imageHeight = 230;
-		this.imageWidth = 176;
+		super(pMenu, pInventory, pComponent, 176, 230);
 	}
 
 	@Override
-	public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-		this.renderTooltip(pGuiGraphics, pMouseX, pMouseY);
-	}
-
-	@Override
-	public void renderBg(GuiGraphics pGuiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
+	public void extractBackground(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTicks) {
+		super.extractBackground(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTicks);
 		var x = (this.width - this.imageWidth) / 2;
 		var y = (this.height - this.imageHeight) / 2;
-		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+		pGuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.STORAGE_VASE, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
 	}
 
 	@Override
-	public void renderLabels(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY) {
-		pGuiGraphics.drawString(this.font, this.title, (this.getXSize() / 2) - (this.font.width(this.title) / 2), 8, IcariaColors.TEXT, false);
-		pGuiGraphics.drawString(this.font, this.playerInventoryTitle, 7, 134, IcariaColors.TEXT, false);
+	public void extractLabels(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY) {
+		pGuiGraphicsExtractor.text(this.font, this.title, (this.getImageWidth() / 2) - (this.getFont().width(this.title) / 2), 8, IcariaColors.TEXT, false);
+		pGuiGraphicsExtractor.text(this.font, this.playerInventoryTitle, 7, 134, IcariaColors.TEXT, false);
 	}
 }

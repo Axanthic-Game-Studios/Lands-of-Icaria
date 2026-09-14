@@ -1,4 +1,20 @@
 {
-  "type": "landsoficaria:mediterranean_water_lake",
-  "config": {}
+  "type": "minecraft:lake",
+  "config": {
+    "barrier": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "landsoficaria:marl"
+      }
+    },
+    "fluid": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "landsoficaria:mediterranean_water",
+        "Properties": {
+          "level": "0"
+        }
+      }
+    }
+  }
 }

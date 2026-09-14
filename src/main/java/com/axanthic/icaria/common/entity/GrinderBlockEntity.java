@@ -105,7 +105,7 @@ public class GrinderBlockEntity extends BlockEntity {
 	}
 
 	public int getFuelTime() {
-		var data = this.handler.getResource(0).getHolder().getData(IcariaDataMapTypes.GRINDER_FUELS);
+		var data = this.handler.getResource(0).typeHolder().getData(IcariaDataMapTypes.GRINDER_FUELS);
 		return data != null ? data.burnTime() : 0;
 	}
 
@@ -357,7 +357,7 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public ItemStack getResult(ServerLevel pServerLevel) {
 		if (this.getRecipe(pServerLevel).isPresent()) {
-			return this.getRecipe(pServerLevel).get().value().result();
+			return this.getRecipe(pServerLevel).get().value().result().create();
 		} else {
 			return ItemStack.EMPTY;
 		}

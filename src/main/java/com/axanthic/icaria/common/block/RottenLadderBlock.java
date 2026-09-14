@@ -47,7 +47,7 @@ public class RottenLadderBlock extends IcariaLadderBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		this.particle(pBlockPos, pBlockState, pLevel);
 		pLevel.scheduleTick(pBlockPos, this, 0);
 	}

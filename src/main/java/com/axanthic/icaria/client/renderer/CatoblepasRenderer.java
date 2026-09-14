@@ -29,8 +29,8 @@ public class CatoblepasRenderer extends MobRenderer<CatoblepasEntity, Catoblepas
 	}
 
 	@Override
-	public void extractRenderState(CatoblepasEntity pEntity, CatoblepasRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(CatoblepasEntity pEntity, CatoblepasRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.size = pEntity.getSize();

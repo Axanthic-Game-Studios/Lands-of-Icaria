@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "minecraft:clay_ball",
   "result": {
-    "count": 1,
     "id": "minecraft:brick"
   },
   "time": 100

@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/iron_bars_side",
-  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/template_bars_side",
   "textures": {
     "bars": "landsoficaria:block/vanadiumsteel_bars",
     "edge": "landsoficaria:block/vanadiumsteel_bars",

@@ -13,16 +13,16 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record FicheVariant(ClientAsset.ResourceTexture clientAsset, ItemStack itemStack) {
+public record FicheVariant(ClientAsset.ResourceTexture resourceTexture, ItemStackTemplate itemStackTemplate) {
 	public static final Codec<FicheVariant> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
-			ClientAsset.ResourceTexture.CODEC.fieldOf("asset").forGetter(FicheVariant::clientAsset),
-			ItemStack.CODEC.fieldOf("stack").forGetter(FicheVariant::itemStack)
+			ClientAsset.ResourceTexture.CODEC.fieldOf("resourceTexture").forGetter(FicheVariant::resourceTexture),
+			ItemStackTemplate.CODEC.fieldOf("itemStackTemplate").forGetter(FicheVariant::itemStackTemplate)
 		).apply(instance, FicheVariant::new)
 	);
 

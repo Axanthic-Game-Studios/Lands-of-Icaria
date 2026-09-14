@@ -31,8 +31,8 @@ public class HyliasterRenderer extends MobRenderer<HyliasterEntity, HyliasterRen
 	}
 
 	@Override
-	public void extractRenderState(HyliasterEntity pEntity, HyliasterRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(HyliasterEntity pEntity, HyliasterRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.size = pEntity.getSize();

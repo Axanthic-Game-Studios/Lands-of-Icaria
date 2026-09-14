@@ -25,8 +25,8 @@ public class MyrmekeDroneRenderer extends MobRenderer<MyrmekeDroneEntity, Myrmek
 	}
 
 	@Override
-	public void extractRenderState(MyrmekeDroneEntity pEntity, MyrmekeDroneRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(MyrmekeDroneEntity pEntity, MyrmekeDroneRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 		pRenderState.livingEntity = pEntity;
 	}

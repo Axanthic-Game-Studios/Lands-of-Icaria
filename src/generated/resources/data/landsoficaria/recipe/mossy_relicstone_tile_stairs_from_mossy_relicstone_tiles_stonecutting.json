@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "landsoficaria:mossy_relicstone_tiles",
   "result": {
-    "count": 1,
     "id": "landsoficaria:mossy_relicstone_tile_stairs"
   }
 }

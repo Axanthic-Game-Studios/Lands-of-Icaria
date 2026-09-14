@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fisshh/purple_yellow",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_purple_yellow_fisshh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fisshh/purple_yellow"
 }

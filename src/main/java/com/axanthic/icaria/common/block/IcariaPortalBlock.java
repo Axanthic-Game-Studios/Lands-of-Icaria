@@ -123,7 +123,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		if (pEntity.canUsePortal(false)) {
 			pEntity.setAsInsidePortal(this, pBlockPos);
 		}

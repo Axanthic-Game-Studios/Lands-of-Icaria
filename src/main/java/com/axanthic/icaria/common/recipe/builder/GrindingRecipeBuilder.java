@@ -4,25 +4,19 @@ import com.axanthic.icaria.common.recipe.GrindingRecipe;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.level.ItemLike;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -30,21 +24,19 @@ import net.minecraft.world.level.ItemLike;
 public class GrindingRecipeBuilder implements RecipeBuilder {
 	public float experience;
 
-	public int amount;
 	public int time;
 
 	public Ingredient gear;
 	public Ingredient ingredient;
 
-	public ItemLike result;
-
-	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	public ItemStackTemplate result;
 
 	public RecipeCategory recipeCategory;
 
-	public GrindingRecipeBuilder(float pExperience, int pAmount, int pTime, Ingredient pGear, Ingredient pIngredient, ItemLike pResult, RecipeCategory pRecipeCategory) {
+	public RecipeUnlockAdvancementBuilder recipeUnlockAdvancementBuilder = new RecipeUnlockAdvancementBuilder();
+
+	public GrindingRecipeBuilder(float pExperience, int pTime, Ingredient pGear, Ingredient pIngredient, ItemStackTemplate pResult, RecipeCategory pRecipeCategory) {
 		this.experience = pExperience;
-		this.amount = pAmount;
 		this.time = pTime;
 		this.gear = pGear;
 		this.ingredient = pIngredient;
@@ -54,14 +46,7 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
-		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new GrindingRecipe(this.experience, this.time, this.gear, this.ingredient, new ItemStack(this.result, this.amount)), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
-	}
-
-	@Override
-	public Item getResult() {
-		return this.result.asItem();
+		pRecipeOutput.accept(pResourceKey, new GrindingRecipe(this.experience, this.time, this.gear, this.ingredient, this.result), this.recipeUnlockAdvancementBuilder.build(pRecipeOutput, pResourceKey, this.recipeCategory));
 	}
 
 	@Override
@@ -71,11 +56,16 @@ public class GrindingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public GrindingRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-		this.criteria.put(pName, pCriterion);
+		this.recipeUnlockAdvancementBuilder.unlockedBy(pName, pCriterion);
 		return this;
 	}
 
-	public static GrindingRecipeBuilder grinding(RecipeCategory pRecipeCategory, ItemLike pResult, Ingredient pGear, Ingredient pIngredient, float pExperience, int pAmount, int pTime) {
-		return new GrindingRecipeBuilder(pExperience, pAmount, pTime, pGear, pIngredient, pResult, pRecipeCategory);
+	@Override
+	public ResourceKey<Recipe<?>> defaultId() {
+		return ResourceKey.create(Registries.RECIPE, this.result.typeHolder().unwrapKey().orElseThrow().identifier());
+	}
+
+	public static GrindingRecipeBuilder grinding(RecipeCategory pRecipeCategory, ItemStackTemplate pResult, Ingredient pGear, Ingredient pIngredient, float pExperience, int pTime) {
+		return new GrindingRecipeBuilder(pExperience, pTime, pGear, pIngredient, pResult, pRecipeCategory);
 	}
 }

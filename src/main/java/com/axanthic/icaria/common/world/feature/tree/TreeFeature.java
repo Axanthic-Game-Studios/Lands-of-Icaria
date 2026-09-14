@@ -71,7 +71,7 @@ public class TreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeFallen(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pHeight) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.fallen.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
 		}
 	}
@@ -149,7 +149,7 @@ public class TreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.twigs.defaultBlockState());
 		}
 	}

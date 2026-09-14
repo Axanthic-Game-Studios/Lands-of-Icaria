@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 6316160,
+  "ingredient": [
+    "landsoficaria:moth_agaric",
+    "landsoficaria:wilted_elm",
+    "landsoficaria:mondanos"
+  ],
+  "result": {
+    "id": "landsoficaria:fortifying_spell"
+  },
+  "time": 200
+}

@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_flasks_cupboard",
-  "render_type": "minecraft:translucent",
   "textures": {
     "cupboard": "landsoficaria:block/laurel_cupboard",
     "kettle": "landsoficaria:block/kettle",

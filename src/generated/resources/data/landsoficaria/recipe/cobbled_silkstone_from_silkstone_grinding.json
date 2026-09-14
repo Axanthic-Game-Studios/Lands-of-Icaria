@@ -4,7 +4,6 @@
   "gear": "landsoficaria:vanadium_gear",
   "ingredient": "landsoficaria:silkstone",
   "result": {
-    "count": 1,
     "id": "landsoficaria:cobbled_silkstone"
   },
   "time": 200

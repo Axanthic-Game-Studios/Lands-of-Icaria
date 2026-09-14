@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "landsoficaria:molybdenum_ore",
   "result": {
-    "count": 1,
     "id": "landsoficaria:molybdenum_ingot"
   },
   "time": 100

@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_red_fiche",
+  "result": {
+    "id": "landsoficaria:cooked_red_fiche"
+  },
+  "time": 600
+}

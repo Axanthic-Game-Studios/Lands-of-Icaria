@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
@@ -36,8 +36,8 @@ public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRend
 	}
 
 	@Override
-	public void extractRenderState(SlugEntity pEntity, CrystalSlugRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(SlugEntity pEntity, CrystalSlugRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.climbing = pEntity.getClimbing();
 		pRenderState.blue = pEntity.blue;
 		pRenderState.green = pEntity.green;
@@ -58,8 +58,8 @@ public class CrystalSlugRenderer extends MobRenderer<SlugEntity, CrystalSlugRend
 	}
 
 	@Override
-	public void setupRotations(CrystalSlugRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pScale) {
-		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pScale);
+	public void setupRotations(CrystalSlugRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pEntityScale) {
+		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		if (pRenderState.climbing) {
 			pPoseStack.translate(0.0F, pRenderState.renderScale * 0.25F, 0.0F);
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));

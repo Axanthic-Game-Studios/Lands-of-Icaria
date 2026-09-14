@@ -31,7 +31,7 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
 		var aabb = new AABB(origin.getX(), origin.getY(), origin.getZ(), origin.getX(), origin.getY() + 16, origin.getZ());
 
@@ -39,7 +39,7 @@ public class BolbosFeature extends Feature<NoneFeatureConfiguration> {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
 					if (level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.GRAINITE.get()))) {
-						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 					}
 				}
 			}

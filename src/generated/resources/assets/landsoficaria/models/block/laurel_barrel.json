@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_barrel",
-  "render_type": "minecraft:cutout",
   "textures": {
     "anvil": "minecraft:block/anvil",
     "barrel_back": "landsoficaria:block/laurel_barrel_back",

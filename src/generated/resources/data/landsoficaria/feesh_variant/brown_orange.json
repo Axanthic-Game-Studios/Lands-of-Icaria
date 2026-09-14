@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/feesh/brown_orange",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_brown_orange_feesh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/feesh/brown_orange"
 }

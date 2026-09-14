@@ -148,7 +148,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"), true);
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"));
 			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), pBlockState));

@@ -4,7 +4,6 @@
   "gear": "landsoficaria:voidshale_gear",
   "ingredient": "minecraft:white_concrete",
   "result": {
-    "count": 1,
     "id": "minecraft:white_concrete_powder"
   },
   "time": 200

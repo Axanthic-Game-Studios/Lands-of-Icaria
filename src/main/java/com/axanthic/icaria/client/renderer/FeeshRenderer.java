@@ -28,8 +28,8 @@ public class FeeshRenderer extends MobRenderer<FeeshEntity, FeeshRenderState, Fe
 	}
 
 	@Override
-	public void extractRenderState(FeeshEntity pEntity, FeeshRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(FeeshEntity pEntity, FeeshRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.id = pEntity.getId();
@@ -43,7 +43,7 @@ public class FeeshRenderer extends MobRenderer<FeeshEntity, FeeshRenderState, Fe
 
 	@Override
 	public Identifier getTextureLocation(FeeshRenderState pRenderState) {
-		return pRenderState.feeshVariant.value().clientAsset().texturePath();
+		return pRenderState.feeshVariant.value().resourceTexture().texturePath();
 	}
 
 	@Override

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:sunstone",
+  "result": {
+    "id": "landsoficaria:cobbled_sunstone_wall"
+  }
+}

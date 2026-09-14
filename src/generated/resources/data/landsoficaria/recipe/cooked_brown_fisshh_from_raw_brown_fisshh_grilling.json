@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_brown_fisshh",
+  "result": {
+    "id": "landsoficaria:cooked_brown_fisshh"
+  },
+  "time": 600
+}

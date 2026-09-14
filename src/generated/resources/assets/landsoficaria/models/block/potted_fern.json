@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/tinted_flower_pot_cross",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "particle": "minecraft:block/flower_pot",
-    "plant": "landsoficaria:block/fern"
-  }
-}

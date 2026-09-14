@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_gray_fysh",
+  "result": {
+    "id": "landsoficaria:cooked_gray_fysh"
+  },
+  "time": 600
+}

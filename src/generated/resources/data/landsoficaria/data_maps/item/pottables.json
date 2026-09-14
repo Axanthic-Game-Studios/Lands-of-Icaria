@@ -30,9 +30,6 @@
     "landsoficaria:droughtroot_sapling": {
       "block": "landsoficaria:potted_droughtroot_sapling"
     },
-    "landsoficaria:fern": {
-      "block": "landsoficaria:potted_fern"
-    },
     "landsoficaria:fir_sapling": {
       "block": "landsoficaria:potted_fir_sapling"
     },
@@ -158,6 +155,9 @@
     },
     "minecraft:flowering_azalea": {
       "block": "minecraft:potted_flowering_azalea_bush"
+    },
+    "minecraft:golden_dandelion": {
+      "block": "minecraft:potted_golden_dandelion"
     },
     "minecraft:jungle_sapling": {
       "block": "minecraft:potted_jungle_sapling"

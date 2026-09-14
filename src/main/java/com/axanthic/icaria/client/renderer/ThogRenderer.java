@@ -29,8 +29,8 @@ public class ThogRenderer extends MobRenderer<ThogEntity, ThogRenderState, ThogM
 	}
 
 	@Override
-	public void extractRenderState(ThogEntity pEntity, ThogRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ThogEntity pEntity, ThogRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.size = pEntity.getSize();

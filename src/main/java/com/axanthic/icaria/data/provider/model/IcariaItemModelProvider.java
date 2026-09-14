@@ -10,6 +10,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -99,7 +100,6 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.REEDY_VINE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SWIRLY_VINE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.THORNY_VINE.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.FERN.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SMALL_GRASS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.MEDIUM_GRASS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.LARGE_GRASS.get(), pItemModelGenerators);
@@ -1179,14 +1179,14 @@ public class IcariaItemModelProvider {
 	public static void bident(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld"))
 			.build()
-			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, 90.0F, -25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, -90.0F, 25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, 90.0F, -55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
 			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, -90.0F, 55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
 			.build()
-			.create(IcariaModelProvider.itemFile("throwing", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile("throwing", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
@@ -1196,12 +1196,12 @@ public class IcariaItemModelProvider {
 
 	public static void generated(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated")).build()
-			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void handheld(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld")).build()
-			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
@@ -1211,14 +1211,14 @@ public class IcariaItemModelProvider {
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 180.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.build()
-			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 115.0F, 5.0F).translation(0.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -55.0F, -5.0F).translation(-1.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 55.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
 			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -125.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
 			.build()
-			.create(IcariaModelProvider.itemFile("tooting", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, IcariaModelProvider.itemFile(pItem)), pItemModelGenerators.modelOutput);
+			.create(IcariaModelProvider.itemFile("tooting", pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void parent(Item pItem, String pSuffix, ItemModelGenerators pItemModelGenerators) {

@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 14277081,
+  "ingredient": [
+    "landsoficaria:rowan",
+    "landsoficaria:rowan",
+    "landsoficaria:bone_remains"
+  ],
+  "result": {
+    "id": "landsoficaria:freezing_spell"
+  },
+  "time": 200
+}

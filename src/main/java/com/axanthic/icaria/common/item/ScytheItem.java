@@ -9,6 +9,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.level.block.state.BlockState;
@@ -26,7 +27,7 @@ public class ScytheItem extends HoeItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack pItemStack, ItemAbility pItemAbility) {
+	public boolean canPerformAction(ItemInstance pItemInstance, ItemAbility pItemAbility) {
 		return pItemAbility == ItemAbilities.HOE_TILL || pItemAbility == ItemAbilities.SWORD_SWEEP;
 	}
 

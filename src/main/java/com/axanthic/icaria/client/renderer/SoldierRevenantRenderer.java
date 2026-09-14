@@ -30,9 +30,9 @@ public class SoldierRevenantRenderer extends MobRenderer<SoldierRevenantEntity, 
 	}
 
 	@Override
-	public void extractRenderState(SoldierRevenantEntity pEntity, SoldierRevenantRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+	public void extractRenderState(SoldierRevenantEntity pEntity, SoldierRevenantRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
 		pRenderState.id = pEntity.getId();
 		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;

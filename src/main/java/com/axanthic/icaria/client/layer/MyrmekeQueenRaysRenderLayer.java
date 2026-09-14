@@ -22,7 +22,7 @@ public class MyrmekeQueenRaysRenderLayer extends RenderLayer<MyrmekeQueenRenderS
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, MyrmekeQueenRenderState pRenderState, float pYRot, float pXRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, MyrmekeQueenRenderState pRenderState, float pYRot, float pXRot) {
 		pPoseStack.pushPose();
 		this.getParentModel().translateToHead(pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().head);

@@ -1,9 +1,0 @@
-{
-  "type": "landsoficaria:grilling",
-  "ingredient": "minecraft:potato",
-  "result": {
-    "count": 1,
-    "id": "minecraft:baked_potato"
-  },
-  "time": 600
-}

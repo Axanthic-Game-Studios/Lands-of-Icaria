@@ -1,9 +1,0 @@
-{
-  "type": "landsoficaria:grilling",
-  "ingredient": "landsoficaria:raw_catoblepas_meat",
-  "result": {
-    "count": 1,
-    "id": "landsoficaria:cooked_catoblepas_meat"
-  },
-  "time": 600
-}

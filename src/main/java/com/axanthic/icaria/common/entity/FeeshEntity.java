@@ -48,9 +48,9 @@ public class FeeshEntity extends FishEntity {
 	}
 
 	@Override
-	public void dropFromLootTable(ServerLevel pServerLevel, DamageSource pDamageSource, boolean pPlayerKill) {
-		super.dropFromLootTable(pServerLevel, pDamageSource, pPlayerKill);
-		this.spawnAtLocation(pServerLevel, this.getVariant().value().itemStack());
+	public void dropFromLootTable(ServerLevel pServerLevel, DamageSource pDamageSource, boolean pPlayerKilled) {
+		super.dropFromLootTable(pServerLevel, pDamageSource, pPlayerKilled);
+		this.spawnAtLocation(pServerLevel, this.getVariant().value().itemStackTemplate().create());
 	}
 
 	@Override

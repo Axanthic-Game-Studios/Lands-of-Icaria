@@ -29,8 +29,8 @@ public class AeternaeRenderer extends MobRenderer<AeternaeEntity, AeternaeRender
 	}
 
 	@Override
-	public void extractRenderState(AeternaeEntity pEntity, AeternaeRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(AeternaeEntity pEntity, AeternaeRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.size = pEntity.getSize();

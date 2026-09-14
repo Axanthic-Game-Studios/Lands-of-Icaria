@@ -35,15 +35,15 @@ public class VoidlilyFeature extends Feature<NoneFeatureConfiguration> {
 
 		var relative = origin.relative(direction);
 
-		var size = 2;
+		var size = 4;
 
-		var aabb = new AABB(relative.getX(), relative.getY(), relative.getZ(), relative.getX(), relative.getY() - 4, relative.getZ());
+		var aabb = new AABB(relative.getX(), relative.getY(), relative.getZ(), relative.getX(), relative.getY() - 16, relative.getZ());
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
 					if (level.getBlockStates(aabb).allMatch(blockState -> blockState.is(Blocks.AIR))) {
-						this.placeFlower(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+						this.placeFlower(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 					}
 				}
 			}
@@ -59,7 +59,7 @@ public class VoidlilyFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeFlower(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.VOIDLILY.get().defaultBlockState());
 		}
 	}

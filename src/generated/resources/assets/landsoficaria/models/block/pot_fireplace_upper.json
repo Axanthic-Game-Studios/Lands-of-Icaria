@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_pot_fireplace_upper",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/smooth_loam_bricks",
     "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",

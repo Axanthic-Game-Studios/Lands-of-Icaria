@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fysh/gray",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_gray_fysh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fysh/gray"
 }

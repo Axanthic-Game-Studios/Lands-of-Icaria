@@ -5,6 +5,11 @@
         "texture": "landsoficaria:vanadiumsteel"
       }
     ],
+    "humanoid_baby": [
+      {
+        "texture": "landsoficaria:vanadiumsteel"
+      }
+    ],
     "humanoid_leggings": [
       {
         "texture": "landsoficaria:vanadiumsteel"

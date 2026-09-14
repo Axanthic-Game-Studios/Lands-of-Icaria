@@ -89,7 +89,6 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.compostables(IcariaItems.REEDY_VINE.get(), 0.5F);
 		this.compostables(IcariaItems.SWIRLY_VINE.get(), 0.5F);
 		this.compostables(IcariaItems.THORNY_VINE.get(), 0.5F);
-		this.compostables(IcariaItems.FERN.get(), 0.65F);
 		this.compostables(IcariaItems.SMALL_GRASS.get(), 0.3F);
 		this.compostables(IcariaItems.MEDIUM_GRASS.get(), 0.3F);
 		this.compostables(IcariaItems.LARGE_GRASS.get(), 0.3F);
@@ -324,6 +323,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.pottables(Items.MANGROVE_PROPAGULE, Blocks.POTTED_MANGROVE_PROPAGULE);
 		this.pottables(Items.FERN, Blocks.POTTED_FERN);
 		this.pottables(Items.DANDELION, Blocks.POTTED_DANDELION);
+		this.pottables(Items.GOLDEN_DANDELION, Blocks.POTTED_GOLDEN_DANDELION);
 		this.pottables(Items.POPPY, Blocks.POTTED_POPPY);
 		this.pottables(Items.BLUE_ORCHID, Blocks.POTTED_BLUE_ORCHID);
 		this.pottables(Items.ALLIUM, Blocks.POTTED_ALLIUM);
@@ -356,7 +356,6 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.pottables(IcariaItems.OLIVE_SAPLING.get(), IcariaBlocks.POTTED_OLIVE_SAPLING.get());
 		this.pottables(IcariaItems.PLANE_SAPLING.get(), IcariaBlocks.POTTED_PLANE_SAPLING.get());
 		this.pottables(IcariaItems.POPULUS_SAPLING.get(), IcariaBlocks.POTTED_POPULUS_SAPLING.get());
-		this.pottables(IcariaItems.FERN.get(), IcariaBlocks.POTTED_FERN.get());
 		this.pottables(IcariaItems.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED.get());
 		this.pottables(IcariaItems.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE.get());
 		this.pottables(IcariaItems.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER.get());

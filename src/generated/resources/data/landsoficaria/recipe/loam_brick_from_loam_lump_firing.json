@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "landsoficaria:loam_lump",
   "result": {
-    "count": 1,
     "id": "landsoficaria:loam_brick"
   },
   "time": 100

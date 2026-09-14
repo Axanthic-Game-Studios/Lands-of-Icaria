@@ -69,10 +69,10 @@ public class ForgeMenu extends AbstractContainerMenu {
 		return this.getContainerData().get(3);
 	}
 
-	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
+	public void addSlots(Container pContainer, int pIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
 		for (var x = 0; x < pCountX; x++) {
 			for (var y = 0; y < pCountY; y++) {
-				this.addSlot(new Slot(pContainer, pStartIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
+				this.addSlot(new Slot(pContainer, pIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
 			}
 		}
 	}

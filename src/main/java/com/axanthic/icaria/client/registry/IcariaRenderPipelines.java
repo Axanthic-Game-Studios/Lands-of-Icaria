@@ -16,8 +16,8 @@ import net.minecraft.client.renderer.RenderPipelines;
 
 public class IcariaRenderPipelines {
 	public static final RenderPipeline ADDITIVE = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
-		.withDepthWrite(false)
-		.withBlend(IcariaBlendFunctions.ADDITIVE)
+		.withColorTargetState(IcariaColorTargetStates.ADDITIVE)
+		.withDepthStencilState(IcariaDepthStencilStates.ADDITIVE)
 		.withFragmentShader(IcariaIdentifiers.ADDITIVE_SHADER)
 		.withVertexShader(IcariaIdentifiers.ADDITIVE_SHADER)
 		.withLocation(IcariaIdentifiers.ADDITIVE_RENDER_PIPELINE)
@@ -25,9 +25,9 @@ public class IcariaRenderPipelines {
 		.build();
 
 	public static final RenderPipeline ADDITIVE_TEXTURED = RenderPipeline.builder(RenderPipelines.MATRICES_FOG_SNIPPET)
-		.withDepthWrite(false)
 		.withSampler("Texture")
-		.withBlend(IcariaBlendFunctions.ADDITIVE)
+		.withColorTargetState(IcariaColorTargetStates.ADDITIVE)
+		.withDepthStencilState(IcariaDepthStencilStates.ADDITIVE)
 		.withFragmentShader(IcariaIdentifiers.ADDITIVE_TEXTURED_SHADER)
 		.withVertexShader(IcariaIdentifiers.ADDITIVE_TEXTURED_SHADER)
 		.withLocation(IcariaIdentifiers.ADDITIVE_TEXTURED_RENDER_PIPELINE)

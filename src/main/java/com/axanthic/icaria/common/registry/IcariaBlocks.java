@@ -47,7 +47,7 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> SURFACE_LIGNITE = IcariaBlocks.register("surface_lignite", SurfaceLigniteBlock::new, IcariaBlocks.propertiesSurfaceLignite(MapColor.NONE, SoundType.STONE));
 	public static final DeferredHolder<Block, Block> COARSE_MARL = IcariaBlocks.register("coarse_marl", Block::new, IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> DRY_LAKE_BED = IcariaBlocks.register("dry_lake_bed", Block::new, IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
-	public static final DeferredHolder<Block, Block> FARMLAND = IcariaBlocks.register("farmland", FarmlandBlock::new, IcariaBlocks.propertiesFarmland(MapColor.COLOR_BROWN, SoundType.GRAVEL));
+	public static final DeferredHolder<Block, Block> FARMLAND = IcariaBlocks.register("farmland", IcariaFarmlandBlock::new, IcariaBlocks.propertiesFarmland(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> FERTILIZED_FARMLAND = IcariaBlocks.register("fertilized_farmland", FertilizedFarmlandBlock::new, IcariaBlocks.propertiesFarmland(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 	public static final DeferredHolder<Block, Block> MARL_PATH = IcariaBlocks.register("marl_path", properties -> new IcariaPathBlock(IcariaBlocks.MARL.get(), properties), IcariaBlocks.propertiesMarl(MapColor.COLOR_BROWN, SoundType.GRAVEL));
 
@@ -905,9 +905,6 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> SWIRLY_VINE = IcariaBlocks.register("swirly_vine", IcariaVineBlock::new, IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE));
 	public static final DeferredHolder<Block, Block> THORNY_VINE = IcariaBlocks.register("thorny_vine", IcariaVineBlock::new, IcariaBlocks.propertiesVine(MapColor.NONE, SoundType.VINE));
 
-	public static final DeferredHolder<Block, Block> FERN = IcariaBlocks.register("fern", IcariaBushBlock::new, IcariaBlocks.propertiesGrass(MapColor.NONE, SoundType.GRASS));
-	public static final DeferredHolder<Block, Block> POTTED_FERN = IcariaBlocks.register("potted_fern", properties -> new FlowerPotBlock(() -> (FlowerPotBlock) Blocks.FLOWER_POT, IcariaBlocks.FERN, properties), IcariaBlocks.propertiesFlowerPot(MapColor.NONE, SoundType.STONE));
-
 	public static final DeferredHolder<Block, Block> SMALL_GRASS = IcariaBlocks.register("small_grass", IcariaBushBlock::new, IcariaBlocks.propertiesGrass(MapColor.NONE, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> MEDIUM_GRASS = IcariaBlocks.register("medium_grass", IcariaBushBlock::new, IcariaBlocks.propertiesGrass(MapColor.NONE, SoundType.GRASS));
 	public static final DeferredHolder<Block, Block> LARGE_GRASS = IcariaBlocks.register("large_grass", IcariaBushBlock::new, IcariaBlocks.propertiesGrass(MapColor.NONE, SoundType.GRASS));
@@ -1030,6 +1027,10 @@ public class IcariaBlocks {
 
 	public static boolean never(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, EntityType<?> pEntityType) {
 		return false;
+	}
+
+	public static BlockPos postProcessSelf(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
+		return pBlockPos;
 	}
 
 	public static BlockBehaviour.Properties propertiesGrassyMarl(MapColor pMapColor, SoundType pSoundType) {
@@ -1341,7 +1342,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundShroom(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).hasPostProcess(IcariaBlocks::always).instabreak().noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).postProcess(IcariaBlocks::postProcessSelf).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesTreeShroom(MapColor pMapColor, SoundType pSoundType) {

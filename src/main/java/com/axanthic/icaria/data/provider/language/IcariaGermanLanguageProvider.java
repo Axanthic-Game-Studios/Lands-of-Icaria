@@ -918,9 +918,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.SWIRLY_VINE.get(), "Gewundene Ranken");
 		this.add(IcariaBlocks.THORNY_VINE.get(), "Dornige Ranken");
 
-		this.add(IcariaBlocks.FERN.get(), "Farn");
-		this.add(IcariaBlocks.POTTED_FERN.get(), "Eingetopfter Farn");
-
 		this.add(IcariaBlocks.SMALL_GRASS.get(), "Kleines Gras");
 		this.add(IcariaBlocks.MEDIUM_GRASS.get(), "Mittleres Gras");
 		this.add(IcariaBlocks.LARGE_GRASS.get(), "Großes Gras");
@@ -1689,8 +1686,10 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTagsProvider.SOILS, "Böden");
 
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_CRYSTAL, "Kristallunterstützungsblöcke");
-		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE, "Reliktensteingeröllunterstützungsblöcke");
+		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Schluffsteingeröllunterstützungsblöcke");
 		this.add(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE, "Geröllunterstützungsblöcke");
+
+		this.add(IcariaBlockTagsProvider.BARS_VANADIUMSTEEL, "Vanadinstahlgitter");
 
 		this.add(IcariaBlockTagsProvider.LOGS_CYPRESS, "Zypressenholzstämme");
 		this.add(IcariaBlockTagsProvider.LOGS_DROUGHTROOT, "Dürrwurzelholzstämme");
@@ -1835,6 +1834,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL, "Vanadinstahlwerkzeugmaterialien");
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS, "Schirbelwerkzeugmaterialien");
 		this.add(IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL, "Molybdänstahlwerkzeugmaterialien");
+
+		this.add(IcariaItemTagsProvider.BARS_VANADIUMSTEEL, "Vanadinstahlgitter");
 
 		this.add(IcariaItemTagsProvider.LOGS_CYPRESS, "Zypressenholzstämme");
 		this.add(IcariaItemTagsProvider.LOGS_DROUGHTROOT, "Dürrwurzelholzstämme");

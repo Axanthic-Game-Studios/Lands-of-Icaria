@@ -398,8 +398,6 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.block(IcariaBlocks.POPULUS_WALL_SIGN.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.POPULUS_HANGING_SIGN.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.FERN.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.POTTED_FERN.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.SMALL_GRASS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.MEDIUM_GRASS.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.LARGE_GRASS.get(), pBlockModelGenerators);

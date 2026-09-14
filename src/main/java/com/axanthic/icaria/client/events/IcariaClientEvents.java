@@ -1,11 +1,12 @@
 package com.axanthic.icaria.client.events;
 
-import com.axanthic.icaria.client.extensions.IcariaClientBlockExtensions;
 import com.axanthic.icaria.client.extensions.IcariaClientFluidTypeExtensions;
 import com.axanthic.icaria.client.extensions.IcariaClientItemExtensions;
 import com.axanthic.icaria.client.layer.BarrelRenderLayer;
 import com.axanthic.icaria.client.layer.LootVaseRenderLayer;
 import com.axanthic.icaria.client.model.*;
+import com.axanthic.icaria.client.modifier.BarrelAvatarRenderStateModifier;
+import com.axanthic.icaria.client.modifier.LootVaseAvatarRenderStateModifier;
 import com.axanthic.icaria.client.particle.provider.IcariaBubbleParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaPortalParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
@@ -13,25 +14,26 @@ import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.registry.IcariaRenderPipelines;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.*;
+import com.axanthic.icaria.client.tint.IcariaGrassBlockTintSource;
+import com.axanthic.icaria.client.tint.IcariaWaterBlockTintSource;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
 
-import com.google.common.reflect.TypeToken;
-
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+
+import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.color.block.BlockColor;
-import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.color.block.BlockTintSource;
+import net.minecraft.client.renderer.block.FluidModel;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.PaintingRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.entity.player.AvatarRenderer;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 
@@ -44,7 +46,7 @@ import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsE
 import net.neoforged.neoforge.client.renderstate.RegisterRenderStateModifiersEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 
-@SuppressWarnings("unused")
+@SuppressWarnings("deprecation, unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -60,6 +62,12 @@ public class IcariaClientEvents {
 				avatarRenderer.addLayer(new LootVaseRenderLayer(avatarRenderer));
 			}
 		}
+	}
+
+	@SubscribeEvent
+	public static void onBlockTintSources(RegisterColorHandlersEvent.BlockTintSources pEvent) {
+		IcariaClientEvents.grass(pEvent);
+		IcariaClientEvents.water(pEvent);
 	}
 
 	@SubscribeEvent
@@ -85,7 +93,6 @@ public class IcariaClientEvents {
 	public static void onFMLLoadComplete(FMLLoadCompleteEvent pEvent) {
 		IcariaClientEvents.blockEntityRenderers();
 		IcariaClientEvents.entityRenderers();
-		IcariaClientEvents.itemBlockRenderTypes();
 	}
 
 	@SubscribeEvent
@@ -95,20 +102,18 @@ public class IcariaClientEvents {
 
 	@SubscribeEvent
 	public static void onRegisterClientExtensions(RegisterClientExtensionsEvent pEvent) {
-		IcariaClientEvents.registerBlock(pEvent);
 		IcariaClientEvents.registerFluidType(pEvent);
 		IcariaClientEvents.registerItem(pEvent);
 	}
 
 	@SubscribeEvent
-	public static void onRegisterColorHandlers(RegisterColorHandlersEvent.Block pEvent) {
-		IcariaClientEvents.grassColor(pEvent);
-		IcariaClientEvents.waterColor(pEvent);
+	public static void onRegisterCustomEnvironmentEffectRenderer(RegisterCustomEnvironmentEffectRendererEvent pEvent) {
+		pEvent.registerSkyboxRenderer(IcariaIdentifiers.ICARIA, new SkyboxRenderer());
 	}
 
 	@SubscribeEvent
-	public static void onRegisterCustomEnvironmentEffectRenderer(RegisterCustomEnvironmentEffectRendererEvent pEvent) {
-		pEvent.registerSkyboxRenderer(IcariaIdentifiers.ICARIA, new SkyboxRenderer());
+	public static void onRegisterFluidModels(RegisterFluidModelsEvent pEvent) {
+		pEvent.register(new FluidModel.Unbaked(new Material(IcariaIdentifiers.MEDITERRANEAN_WATER), new Material(IcariaIdentifiers.FLOWING_MEDITERRANEAN_WATER), new Material(IcariaIdentifiers.MEDITERRANEAN_WATER_OVERLAY), IcariaClientEvents.water(true)), IcariaFluids.MEDITERRANEAN_WATER, IcariaFluids.FLOWING_MEDITERRANEAN_WATER);
 	}
 
 	@SubscribeEvent
@@ -206,10 +211,8 @@ public class IcariaClientEvents {
 
 	@SubscribeEvent
 	public static void onRegisterRenderStateModifiers(RegisterRenderStateModifiersEvent pEvent) {
-		pEvent.registerEntityModifier(new TypeToken<AvatarRenderer<?>>() {}, (avatar, avatarRenderState) -> avatarRenderState.setRenderData(IcariaContextKeys.BARREL, avatar.getData(IcariaAttachmentTypes.BARREL)));
-		pEvent.registerEntityModifier(new TypeToken<AvatarRenderer<?>>() {}, (avatar, avatarRenderState) -> avatarRenderState.setRenderData(IcariaContextKeys.BARREL_BLOCK_STATE, avatar.getData(IcariaAttachmentTypes.BARREL_BLOCK_STATE)));
-		pEvent.registerEntityModifier(new TypeToken<AvatarRenderer<?>>() {}, (avatar, avatarRenderState) -> avatarRenderState.setRenderData(IcariaContextKeys.LOOT_VASE, avatar.getData(IcariaAttachmentTypes.LOOT_VASE)));
-		pEvent.registerEntityModifier(new TypeToken<AvatarRenderer<?>>() {}, (avatar, avatarRenderState) -> avatarRenderState.setRenderData(IcariaContextKeys.LOOT_VASE_BLOCK_STATE, avatar.getData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE)));
+		pEvent.registerAvatarEntityModifier(new BarrelAvatarRenderStateModifier());
+		pEvent.registerAvatarEntityModifier(new LootVaseAvatarRenderStateModifier());
 	}
 
 	@SubscribeEvent
@@ -232,6 +235,94 @@ public class IcariaClientEvents {
 			pEvent.getEntity().awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
 			Minecraft.getInstance().setScreen(new ChestLabelScreen(itemStack));
 		}
+	}
+
+	public static void grass(RegisterColorHandlersEvent.BlockTintSources pEvent) {
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.GRASSY_MARL.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.CYPRESS_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.FIR_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.LAUREL_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.OLIVE_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PLANE_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POPULUS_HERB_HOLDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BLOOMY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BRANCHY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BRUSHY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.DRY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.REEDY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.SWIRLY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.THORNY_VINE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.SMALL_GRASS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.MEDIUM_GRASS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(true)), IcariaBlocks.LARGE_GRASS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.SMALL_MIXED_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.LARGE_BROWN_GRAIN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BLINDWEED.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_BLINDWEED.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.CHAMEOMILE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_CHAMEOMILE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.CHARMONDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_CHARMONDER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.CLOVER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_CLOVER.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.FIREHILT.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_FIREHILT.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BLUE_HYDRACINTH.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PURPLE_HYDRACINTH.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.LIONFANGS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_LIONFANGS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.SPEARDROPS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_SPEARDROPS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PURPLE_STAGHORN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.YELLOW_STAGHORN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BLUE_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PINK_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PURPLE_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.SUNKETTLE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_SUNKETTLE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.SUNSPONGE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_SUNSPONGE.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.VOIDLILY.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_VOIDLILY.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.BLUE_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.CYAN_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PINK_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.RED_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.WHITE_GROUND_FLOWERS.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PALM_FERN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PALM_FERN.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.WHITE_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_WHITE_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.ORANGE_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PINK_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PINK_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.PURPLE_BROMELIA.get());
+		pEvent.register(List.of(IcariaClientEvents.grass(false)), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+	}
+
+	public static void water(RegisterColorHandlersEvent.BlockTintSources pEvent) {
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.SMALL_BOWLS.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.CYPRESS_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.DROUGHTROOT_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.FIR_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.LAUREL_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.OLIVE_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.PLANE_POT_COUNTERTOP.get());
+		pEvent.register(List.of(IcariaClientEvents.water(false)), IcariaBlocks.POPULUS_POT_COUNTERTOP.get());
 	}
 
 	public static void blockEntityRenderers() {
@@ -311,63 +402,6 @@ public class IcariaClientEvents {
 		EntityRenderers.register(IcariaEntityTypes.VINEGAROON.get(), VinegaroonRenderer::new);
 	}
 
-	public static void itemBlockRenderTypes() {
-		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.MEDITERRANEAN_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
-		ItemBlockRenderTypes.setRenderLayer(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get(), ChunkSectionLayer.TRANSLUCENT);
-	}
-
-	public static void registerBlock(RegisterClientExtensionsEvent pEvent) {
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.GRASSY_MARL.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.SMALL_BOWLS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.CYPRESS_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.CYPRESS_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.DROUGHTROOT_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.FIR_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.FIR_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.LAUREL_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.LAUREL_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.OLIVE_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.OLIVE_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.PLANE_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.PLANE_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POPULUS_HERB_HOLDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POPULUS_POT_COUNTERTOP.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.BLOOMY_VINE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.BRANCHY_VINE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.BRUSHY_VINE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.REEDY_VINE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_FERN.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_BLINDWEED.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_CHAMEOMILE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_CHARMONDER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_CLOVER.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_FIREHILT.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_LIONFANGS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_SPEARDROPS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_SUNKETTLE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_SUNSPONGE.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_VOIDLILY.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.BLUE_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.CYAN_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.PINK_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.RED_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.WHITE_GROUND_FLOWERS.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PALM_FERN.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_WHITE_BROMELIA.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PINK_BROMELIA.get());
-		pEvent.registerBlock(new IcariaClientBlockExtensions(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
-	}
-
 	public static void registerFluidType(RegisterClientExtensionsEvent pEvent) {
 		pEvent.registerFluidType(new IcariaClientFluidTypeExtensions(), IcariaFluidTypes.MEDITERRANEAN_WATER.get());
 	}
@@ -376,101 +410,11 @@ public class IcariaClientEvents {
 		pEvent.registerItem(new IcariaClientItemExtensions(), IcariaItems.ORICHALCUM_HELMET.get());
 	}
 
-	public static void grassColor(RegisterColorHandlersEvent.Block pEvent) {
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.GRASSY_MARL.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.CYPRESS_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.DROUGHTROOT_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.FIR_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.LAUREL_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.OLIVE_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PLANE_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POPULUS_HERB_HOLDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BLOOMY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BRANCHY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BRUSHY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.DRY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.REEDY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SWIRLY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.THORNY_VINE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.FERN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_FERN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SMALL_GRASS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.MEDIUM_GRASS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.LARGE_GRASS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SMALL_MIXED_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.MEDIUM_MIXED_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.MEDIUM_BROWN_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.MEDIUM_WHITE_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.MEDIUM_YELLOW_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.LARGE_BROWN_GRAIN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BLINDWEED.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_BLINDWEED.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.CHAMEOMILE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_CHAMEOMILE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.CHARMONDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_CHARMONDER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.CLOVER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_CLOVER.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.FIREHILT.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_FIREHILT.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BLUE_HYDRACINTH.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_BLUE_HYDRACINTH.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PURPLE_HYDRACINTH.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PURPLE_HYDRACINTH.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.LIONFANGS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_LIONFANGS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SPEARDROPS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_SPEARDROPS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PURPLE_STAGHORN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PURPLE_STAGHORN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.YELLOW_STAGHORN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_YELLOW_STAGHORN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BLUE_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_BLUE_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PINK_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PINK_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PURPLE_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PURPLE_STORMCOTTON.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SUNKETTLE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_SUNKETTLE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.SUNSPONGE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_SUNSPONGE.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.VOIDLILY.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_VOIDLILY.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.BLUE_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.CYAN_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PINK_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PURPLE_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.RED_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.WHITE_GROUND_FLOWERS.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PALM_FERN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PALM_FERN.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.WHITE_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_WHITE_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.ORANGE_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_ORANGE_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PINK_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PINK_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.PURPLE_BROMELIA.get());
-		pEvent.register(IcariaClientEvents.grassColor(), IcariaBlocks.POTTED_PURPLE_BROMELIA.get());
+	public static BlockTintSource grass(boolean pParticle) {
+		return new IcariaGrassBlockTintSource(pParticle);
 	}
 
-	public static void waterColor(RegisterColorHandlersEvent.Block pEvent) {
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.SMALL_BOWLS.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.CYPRESS_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.DROUGHTROOT_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.FIR_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.LAUREL_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.OLIVE_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.PLANE_POT_COUNTERTOP.get());
-		pEvent.register(IcariaClientEvents.waterColor(), IcariaBlocks.POPULUS_POT_COUNTERTOP.get());
-	}
-
-	public static BlockColor grassColor() {
-		return (blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageGrassColor(blockAndTintGetter, blockPos) : IcariaColors.TINT_GRASS;
-	}
-
-	public static BlockColor waterColor() {
-		return (blockState, blockAndTintGetter, blockPos, i) -> blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageWaterColor(blockAndTintGetter, blockPos) : IcariaColors.TINT_WATER;
+	public static BlockTintSource water(boolean pParticle) {
+		return new IcariaWaterBlockTintSource(pParticle);
 	}
 }

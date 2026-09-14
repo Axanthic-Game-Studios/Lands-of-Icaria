@@ -26,8 +26,8 @@ public class SolifugaeRenderer extends MobRenderer<SolifugaeEntity, SolifugaeRen
 	}
 
 	@Override
-	public void extractRenderState(SolifugaeEntity pEntity, SolifugaeRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(SolifugaeEntity pEntity, SolifugaeRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.livingEntity = pEntity;
 	}
 

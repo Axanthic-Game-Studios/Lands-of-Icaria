@@ -235,20 +235,20 @@ public class BathtubBlock extends Block implements EntityBlock {
 		}
 	}
 
-	public InteractionResult powderSnow(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
-		if (pItemStack.is(Items.POWDER_SNOW_BUCKET) && pFill == 6) {
+	public InteractionResult powderSnow(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
+		if (pItemStack.is(Items.POWDER_SNOW_BUCKET) && i == 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY_POWDER_SNOW, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POWDER_SNOW_BUCKET));
 			this.update(Fill.POWDER_SNOW, pBlockPos, pBlockState, pLevel, 12);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill == 12) {
+		} else if (pItemStack.is(Items.BUCKET) && i == 12) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.POWDER_SNOW_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL_POWDER_SNOW, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
 			this.update(Fill.POWDER_SNOW, pBlockPos, pBlockState, pLevel, 6);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill == 6) {
+		} else if (pItemStack.is(Items.BUCKET) && i == 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.POWDER_SNOW_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL_POWDER_SNOW, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
@@ -259,38 +259,38 @@ public class BathtubBlock extends Block implements EntityBlock {
 		}
 	}
 
-	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
-		if (pItemStack.is(Items.WATER_BUCKET) && pFill <= 6) {
+	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
+		if (pItemStack.is(Items.WATER_BUCKET) && i <= 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.WATER_BUCKET));
-			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, pFill + 6);
+			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, i + 6);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill >= 9) {
+		} else if (pItemStack.is(Items.BUCKET) && i >= 9) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.WATER_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
-			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, pFill - 6);
+			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, i - 6);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill == 6) {
+		} else if (pItemStack.is(Items.BUCKET) && i == 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.WATER_BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
 			this.update(Fill.NONE, pBlockPos, pBlockState, pLevel, 0);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && pFill <= 10) {
+		} else if (pItemStack.is(Items.POTION) && pItemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER) && i <= 10) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.GLASS_BOTTLE), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_EMPTY, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.POTION));
-			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, pFill + 2);
+			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, i + 2);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill >= 4) {
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && i >= 4) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLASS_BOTTLE));
-			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, pFill - 2);
+			this.update(Fill.WATER, pBlockPos, pBlockState, pLevel, i - 2);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.GLASS_BOTTLE) && pFill == 2) {
+		} else if (pItemStack.is(Items.GLASS_BOTTLE) && i == 2) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, PotionContents.createItemStack(Items.POTION, Potions.WATER), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.GLASS_BOTTLE));
@@ -301,20 +301,20 @@ public class BathtubBlock extends Block implements EntityBlock {
 		}
 	}
 
-	public InteractionResult mediterraneanWater(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int pFill) {
-		if (pItemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()) && pFill == 6) {
+	public InteractionResult mediterraneanWater(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, ItemStack pItemStack, Level pLevel, Player pPlayer, int i) {
+		if (pItemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()) && i == 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
 			this.update(Fill.MEDITERRANEAN_WATER, pBlockPos, pBlockState, pLevel, 12);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill == 12) {
+		} else if (pItemStack.is(Items.BUCKET) && i == 12) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));
 			this.update(Fill.MEDITERRANEAN_WATER, pBlockPos, pBlockState, pLevel, 6);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.is(Items.BUCKET) && pFill == 6) {
+		} else if (pItemStack.is(Items.BUCKET) && i == 6) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_FILL, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(Items.BUCKET));

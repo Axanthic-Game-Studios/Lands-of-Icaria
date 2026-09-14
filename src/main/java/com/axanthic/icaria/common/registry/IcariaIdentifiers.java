@@ -32,10 +32,10 @@ public class IcariaIdentifiers {
 
 	// CONTEXT KEY
 
-	public static final Identifier BARREL_CONTEXT_KEY = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "barrel");
-	public static final Identifier BARREL_BLOCK_STATE_CONTEXT_KEY = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "barrel_block_state");
-	public static final Identifier LOOT_VASE_CONTEXT_KEY = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "loot_vase");
-	public static final Identifier LOOT_VASE_BLOCK_STATE_CONTEXT_KEY = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "loot_vase_block_state");
+	public static final Identifier BARREL = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "barrel");
+	public static final Identifier BARREL_BLOCK_MODEL_RENDER_STATE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "barrel_block_model_render_state");
+	public static final Identifier LOOT_VASE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "loot_vase");
+	public static final Identifier LOOT_VASE_BLOCK_MODEL_RENDER_STATE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "loot_vase_block_model_render_state");
 
 	// EFFECT
 
@@ -223,6 +223,10 @@ public class IcariaIdentifiers {
 
 	// RECIPE
 
+	public static final Identifier AETERNAE_HIDE_BOOTS_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "aeternae_hide_boots");
+	public static final Identifier AETERNAE_HIDE_CHESTPLATE_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "aeternae_hide_chestplate");
+	public static final Identifier AETERNAE_HIDE_HELMET_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "aeternae_hide_helmet");
+	public static final Identifier AETERNAE_HIDE_LEGGINGS_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "aeternae_hide_leggings");
 	public static final Identifier CHEST_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "chest");
 	public static final Identifier CYPRESS_CRAFTING_TABLE_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "cypress_crafting_table_from_cypress_planks");
 	public static final Identifier DROUGHTROOT_CRAFTING_TABLE_RECIPE = Identifier.fromNamespaceAndPath(IcariaKeys.ID, "droughtroot_crafting_table_from_droughtroot_planks");

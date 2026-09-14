@@ -14,9 +14,10 @@ import java.util.Optional;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.color.item.Constant;
+import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.renderer.item.BlockModelWrapper;
 import net.minecraft.client.renderer.item.ConditionalItemModel;
+import net.minecraft.client.renderer.item.CuboidItemModelWrapper;
 import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.SpecialModelWrapper;
 import net.minecraft.client.renderer.item.properties.conditional.IsUsingItem;
@@ -809,7 +810,6 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.REEDY_VINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SWIRLY_VINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.THORNY_VINE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.FERN.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SMALL_GRASS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MEDIUM_GRASS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LARGE_GRASS.get(), pItemModelGenerators);
@@ -1208,30 +1208,30 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void bident(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new ConditionalItemModel.Unbaked(new IsUsingItem(), new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile("throwing", pItem), List.of()), new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of())));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new ConditionalItemModel.Unbaked(Optional.empty(), new IsUsingItem(), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile("throwing", pItem), Optional.empty(), List.of()), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of())));
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "chest"), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "chest"), Optional.empty(), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new ConditionalItemModel.Unbaked(new IsUsingItem(), new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile("tooting", pItem), List.of()), new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of())));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new ConditionalItemModel.Unbaked(Optional.empty(), new IsUsingItem(), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile("tooting", pItem), Optional.empty(), List.of()), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of())));
 	}
 
 	public static void parent(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of()));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of()));
 	}
 
 	public static void scroll(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(Identifier.fromNamespaceAndPath(IcariaKeys.MC, "builtin" + "/" + "generated"), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of()))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(Optional.empty(), new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(Identifier.fromNamespaceAndPath(IcariaKeys.MC, "builtin" + "/" + "generated"), Optional.empty(), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of()))));
 	}
 
 	public static void skull(Item pItem, SkullBlock.Type pType, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_skull"), new SkullSpecialRenderer.Unbaked(pType)));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_skull"), Optional.of(BlockModelGenerators.SKULL_TRANSFORM), new SkullSpecialRenderer.Unbaked(pType)));
 	}
 
 	public static void tint(Item pItem, int pColor, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new BlockModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), List.of(new Constant(pColor))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of(new Constant(pColor))));
 	}
 }

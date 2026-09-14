@@ -7,6 +7,8 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
+import java.util.UUID;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
@@ -57,7 +59,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	public static final EntityDataAccessor<Integer> REEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 	public static final EntityDataAccessor<Integer> UNEQUIPS = SynchedEntityData.defineId(CaptainRevenantEntity.class, EntityDataSerializers.INT);
 
-	public ServerBossEvent serverBossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
+	public ServerBossEvent serverBossEvent = new ServerBossEvent(UUID.randomUUID(), this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
 
 	public TargetingConditions targetingConditions = TargetingConditions.forCombat().range(16.0D);
 
@@ -66,9 +68,9 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		this.summon(pServerLevel);
-		return super.hurtServer(pServerLevel, pDamageSource, pAmount);
+		return super.hurtServer(pServerLevel, pDamageSource, pDamage);
 	}
 
 	@Override
@@ -89,7 +91,7 @@ public class CaptainRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+	public boolean removeWhenFarAway(double pDistSqr) {
 		return false;
 	}
 

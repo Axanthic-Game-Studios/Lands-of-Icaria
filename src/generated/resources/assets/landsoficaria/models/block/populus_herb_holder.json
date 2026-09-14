@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_herb_holder",
-  "render_type": "minecraft:cutout",
   "textures": {
     "herb_holder": "landsoficaria:block/herb_holder",
     "herb_holder_overlay": "landsoficaria:block/herb_holder_overlay",

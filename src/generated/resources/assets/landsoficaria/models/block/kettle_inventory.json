@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_kettle_inventory",
-  "render_type": "minecraft:translucent",
   "textures": {
     "droughtroot_log": "landsoficaria:block/droughtroot_log",
     "kettle": "landsoficaria:block/kettle",

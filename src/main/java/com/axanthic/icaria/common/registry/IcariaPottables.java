@@ -24,7 +24,6 @@ public class IcariaPottables {
 		IcariaPottables.set(IcariaBlocks.OLIVE_SAPLING.get(), IcariaBlocks.POTTED_OLIVE_SAPLING);
 		IcariaPottables.set(IcariaBlocks.PLANE_SAPLING.get(), IcariaBlocks.POTTED_PLANE_SAPLING);
 		IcariaPottables.set(IcariaBlocks.POPULUS_SAPLING.get(), IcariaBlocks.POTTED_POPULUS_SAPLING);
-		IcariaPottables.set(IcariaBlocks.FERN.get(), IcariaBlocks.POTTED_FERN);
 		IcariaPottables.set(IcariaBlocks.BLINDWEED.get(), IcariaBlocks.POTTED_BLINDWEED);
 		IcariaPottables.set(IcariaBlocks.CHAMEOMILE.get(), IcariaBlocks.POTTED_CHAMEOMILE);
 		IcariaPottables.set(IcariaBlocks.CHARMONDER.get(), IcariaBlocks.POTTED_CHARMONDER);

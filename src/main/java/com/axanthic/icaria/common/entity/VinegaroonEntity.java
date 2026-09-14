@@ -103,7 +103,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 	}
 
 	@Override
-	public void performRangedAttack(LivingEntity pLivingEntity, float pVelocity) {
+	public void performRangedAttack(LivingEntity pLivingEntity, float pPower) {
 		var x = pLivingEntity.getX() - this.getX();
 		var y = pLivingEntity.getY() - this.getY();
 		var z = pLivingEntity.getZ() - this.getZ();
@@ -227,7 +227,7 @@ public class VinegaroonEntity extends IcariaArachnidEntity implements RangedAtta
 	}
 
 	@Override
-	public Vec3 getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pEntityDimensions, float pPartialTick) {
+	public Vec3 getPassengerAttachmentPoint(Entity pEntity, EntityDimensions pEntityDimensions, float pScale) {
 		return new Vec3(0.0D, pEntityDimensions.height(), 0.875D).yRot(IcariaValues.DEG_2_RAD * -this.getYHeadRot());
 	}
 }

@@ -32,9 +32,9 @@ public class MothAgaricFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
-		var aabb = new AABB(origin.getX() - 4, origin.getY(), origin.getZ() - 4, origin.getX() + 4, origin.getY(), origin.getZ() + 4);
+		var aabb = new AABB(origin.getX() - 2, origin.getY(), origin.getZ() - 2, origin.getX() + 2, origin.getY(), origin.getZ() + 2);
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
@@ -56,7 +56,7 @@ public class MothAgaricFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeHerb(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.MOTH_AGARIC.get().defaultBlockState());
 		}
 	}

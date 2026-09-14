@@ -303,7 +303,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropPotted(IcariaBlocks.POTTED_OLIVE_SAPLING.get(), IcariaItems.OLIVE_SAPLING.get());
 		this.dropPotted(IcariaBlocks.POTTED_PLANE_SAPLING.get(), IcariaItems.PLANE_SAPLING.get());
 		this.dropPotted(IcariaBlocks.POTTED_POPULUS_SAPLING.get(), IcariaItems.POPULUS_SAPLING.get());
-		this.dropPotted(IcariaBlocks.POTTED_FERN.get(), IcariaItems.FERN.get());
 		this.dropPotted(IcariaBlocks.POTTED_BLINDWEED.get(), IcariaItems.BLINDWEED.get());
 		this.dropPotted(IcariaBlocks.POTTED_CHAMEOMILE.get(), IcariaItems.CHAMEOMILE.get());
 		this.dropPotted(IcariaBlocks.POTTED_CHARMONDER.get(), IcariaItems.CHARMONDER.get());
@@ -342,7 +341,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropSeed() {
-		this.dropSeed(IcariaBlocks.FERN.get());
 		this.dropSeed(IcariaBlocks.SMALL_GRASS.get());
 		this.dropSeed(IcariaBlocks.MEDIUM_GRASS.get());
 		this.dropSeed(IcariaBlocks.LARGE_GRASS.get());

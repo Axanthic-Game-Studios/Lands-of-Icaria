@@ -28,8 +28,8 @@ public class FisshhRenderer extends MobRenderer<FisshhEntity, FisshhRenderState,
 	}
 
 	@Override
-	public void extractRenderState(FisshhEntity pEntity, FisshhRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(FisshhEntity pEntity, FisshhRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.id = pEntity.getId();
@@ -43,7 +43,7 @@ public class FisshhRenderer extends MobRenderer<FisshhEntity, FisshhRenderState,
 
 	@Override
 	public Identifier getTextureLocation(FisshhRenderState pRenderState) {
-		return pRenderState.fisshhVariant.value().clientAsset().texturePath();
+		return pRenderState.fisshhVariant.value().resourceTexture().texturePath();
 	}
 
 	@Override

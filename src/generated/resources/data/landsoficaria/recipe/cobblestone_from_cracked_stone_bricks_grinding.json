@@ -4,7 +4,6 @@
   "gear": "landsoficaria:yellowstone_gear",
   "ingredient": "minecraft:cracked_stone_bricks",
   "result": {
-    "count": 1,
     "id": "minecraft:cobblestone"
   },
   "time": 200

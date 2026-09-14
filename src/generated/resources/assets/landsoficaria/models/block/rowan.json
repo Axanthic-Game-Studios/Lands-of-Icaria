@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_rowan",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/rowan",
     "texture": "landsoficaria:block/rowan"

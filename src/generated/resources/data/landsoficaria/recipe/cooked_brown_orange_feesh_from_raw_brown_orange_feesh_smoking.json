@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_brown_orange_feesh",
+  "result": {
+    "id": "landsoficaria:cooked_brown_orange_feesh"
+  }
+}

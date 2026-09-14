@@ -34,7 +34,7 @@ public class GroundShroomsFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
@@ -54,7 +54,7 @@ public class GroundShroomsFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeShrooms(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) && pWorldGenLevel.getBrightness(LightLayer.BLOCK, pBlockPos) <= 12) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD) && pWorldGenLevel.getBrightness(LightLayer.BLOCK, pBlockPos) <= 12) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.shrooms.defaultBlockState());
 		}
 	}

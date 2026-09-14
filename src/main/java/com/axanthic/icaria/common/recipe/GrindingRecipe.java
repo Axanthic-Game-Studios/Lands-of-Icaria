@@ -8,14 +8,20 @@ import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
@@ -32,9 +38,28 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 	public Ingredient gear;
 	public Ingredient ingredient;
 
-	public ItemStack result;
+	public ItemStackTemplate result;
 
-	public GrindingRecipe(float pExperience, int pTime, Ingredient pGear, Ingredient pIngredient, ItemStack pResult) {
+	public static final MapCodec<GrindingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
+		instance.group(
+			Codec.FLOAT.fieldOf("experience").forGetter(GrindingRecipe::experience),
+			Codec.INT.fieldOf("time").forGetter(GrindingRecipe::time),
+			Ingredient.CODEC.fieldOf("gear").forGetter(GrindingRecipe::gear),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(GrindingRecipe::ingredient),
+			ItemStackTemplate.CODEC.fieldOf("result").forGetter(GrindingRecipe::result)
+		).apply(instance, GrindingRecipe::new)
+	);
+
+	public static final StreamCodec<RegistryFriendlyByteBuf, GrindingRecipe> STREAM_CODEC = StreamCodec.composite(
+		ByteBufCodecs.FLOAT, GrindingRecipe::experience,
+		ByteBufCodecs.INT, GrindingRecipe::time,
+		Ingredient.CONTENTS_STREAM_CODEC, GrindingRecipe::gear,
+		Ingredient.CONTENTS_STREAM_CODEC, GrindingRecipe::ingredient,
+		ItemStackTemplate.STREAM_CODEC, GrindingRecipe::result,
+		GrindingRecipe::new
+	);
+
+	public GrindingRecipe(float pExperience, int pTime, Ingredient pGear, Ingredient pIngredient, ItemStackTemplate pResult) {
 		this.experience = pExperience;
 		this.time = pTime;
 		this.gear = pGear;
@@ -45,6 +70,11 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
 		return this.gear().test(pRecipeInput.getItem(0)) && this.ingredient().test(pRecipeInput.getItem(1));
+	}
+
+	@Override
+	public boolean showNotification() {
+		return false;
 	}
 
 	public float experience() {
@@ -68,11 +98,11 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 	}
 
 	@Override
-	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
-		return this.result().copy();
+	public ItemStack assemble(RecipeInput pRecipeInput) {
+		return this.result.create();
 	}
 
-	public ItemStack result() {
+	public ItemStackTemplate result() {
 		return this.result;
 	}
 
@@ -99,5 +129,10 @@ public class GrindingRecipe implements Recipe<RecipeInput> {
 	@Override
 	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.GRINDING.get();
+	}
+
+	@Override
+	public String group() {
+		return "";
 	}
 }

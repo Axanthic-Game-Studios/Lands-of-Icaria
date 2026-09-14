@@ -120,7 +120,7 @@ public class FallenTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.twigs.defaultBlockState());
 		}
 	}

@@ -13,16 +13,16 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record FeeshVariant(ClientAsset.ResourceTexture clientAsset, ItemStack itemStack) {
+public record FeeshVariant(ClientAsset.ResourceTexture resourceTexture, ItemStackTemplate itemStackTemplate) {
 	public static final Codec<FeeshVariant> CODEC = RecordCodecBuilder.create(
 		instance -> instance.group(
-			ClientAsset.ResourceTexture.CODEC.fieldOf("asset").forGetter(FeeshVariant::clientAsset),
-			ItemStack.CODEC.fieldOf("stack").forGetter(FeeshVariant::itemStack)
+			ClientAsset.ResourceTexture.CODEC.fieldOf("resourceTexture").forGetter(FeeshVariant::resourceTexture),
+			ItemStackTemplate.CODEC.fieldOf("itemStackTemplate").forGetter(FeeshVariant::itemStackTemplate)
 		).apply(instance, FeeshVariant::new)
 	);
 

@@ -62,14 +62,14 @@ public class FlowerPotCountertopBlock extends CountertopBlock implements EntityB
 	}
 
 	public InteractionResult useItemOn(FlowerPotCountertopBlockEntity blockEntity, ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer) {
-		if (blockEntity.getItem() == null && pItemStack.getItemHolder().getData(IcariaDataMapTypes.POTTABLES) != null) {
-			blockEntity.setItem(pItemStack.getItem());
+		if (blockEntity.getItemStack() == null && pItemStack.typeHolder().getData(IcariaDataMapTypes.POTTABLES) != null) {
+			blockEntity.setItemStack(pItemStack);
 			pItemStack.consume(1, pPlayer);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, true));
 			return InteractionResult.SUCCESS;
-		} else if (blockEntity.getItem() != null && pItemStack.getItemHolder().getData(IcariaDataMapTypes.POTTABLES) == null) {
-			Block.popResource(pLevel, pBlockPos, new ItemStack(blockEntity.getItem()));
-			blockEntity.setItem(null);
+		} else if (blockEntity.getItemStack() != null && pItemStack.typeHolder().getData(IcariaDataMapTypes.POTTABLES) == null) {
+			Block.popResource(pLevel, pBlockPos, blockEntity.getItemStack());
+			blockEntity.setItemStack(null);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FLOWER_POTTED, false));
 			return InteractionResult.SUCCESS;
 		} else {

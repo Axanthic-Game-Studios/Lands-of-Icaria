@@ -4,44 +4,36 @@ import com.axanthic.icaria.common.recipe.ItemConcoctingRecipe;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.level.ItemLike;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
 public class ItemConcoctingRecipeBuilder implements RecipeBuilder {
-	public int amount;
 	public int colour;
 	public int time;
 
 	public Ingredient ingredient;
 
-	public ItemLike result;
-
-	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
+	public ItemStackTemplate result;
 
 	public RecipeCategory recipeCategory;
 
-	public ItemConcoctingRecipeBuilder(int pAmount, int pColour, int pTime, Ingredient pIngredient, ItemLike pResult, RecipeCategory pRecipeCategory) {
-		this.amount = pAmount;
+	public RecipeUnlockAdvancementBuilder recipeUnlockAdvancementBuilder = new RecipeUnlockAdvancementBuilder();
+
+	public ItemConcoctingRecipeBuilder(int pColour, int pTime, Ingredient pIngredient, ItemStackTemplate pResult, RecipeCategory pRecipeCategory) {
 		this.colour = pColour;
 		this.time = pTime;
 		this.ingredient = pIngredient;
@@ -51,14 +43,7 @@ public class ItemConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
-		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new ItemConcoctingRecipe(this.colour, this.time, this.ingredient, new ItemStack(this.result, this.amount)), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
-	}
-
-	@Override
-	public Item getResult() {
-		return this.result.asItem();
+		pRecipeOutput.accept(pResourceKey, new ItemConcoctingRecipe(this.colour, this.time, this.ingredient, this.result), this.recipeUnlockAdvancementBuilder.build(pRecipeOutput, pResourceKey, this.recipeCategory));
 	}
 
 	@Override
@@ -68,11 +53,16 @@ public class ItemConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public ItemConcoctingRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-		this.criteria.put(pName, pCriterion);
+		this.recipeUnlockAdvancementBuilder.unlockedBy(pName, pCriterion);
 		return this;
 	}
 
-	public static ItemConcoctingRecipeBuilder itemConcocting(RecipeCategory pRecipeCategory, ItemLike pResult, Ingredient pIngredient, int pAmount, int pColour, int pTime) {
-		return new ItemConcoctingRecipeBuilder(pAmount, pColour, pTime, pIngredient, pResult, pRecipeCategory);
+	@Override
+	public ResourceKey<Recipe<?>> defaultId() {
+		return ResourceKey.create(Registries.RECIPE, this.result.typeHolder().unwrapKey().orElseThrow().identifier());
+	}
+
+	public static ItemConcoctingRecipeBuilder itemConcocting(RecipeCategory pRecipeCategory, ItemStackTemplate pResult, Ingredient pIngredient, int pColour, int pTime) {
+		return new ItemConcoctingRecipeBuilder(pColour, pTime, pIngredient, pResult, pRecipeCategory);
 	}
 }

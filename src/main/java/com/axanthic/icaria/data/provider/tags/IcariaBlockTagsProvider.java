@@ -77,10 +77,12 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 	public static final TagKey<Block> SOILS = IcariaBlockTagsProvider.icariaKey("soils");
 
 	public static final TagKey<Block> SUPPORT_BLOCKS_CRYSTAL = IcariaBlockTagsProvider.icariaKey("support_blocks/crystal");
-	public static final TagKey<Block> SUPPORT_BLOCKS_RELICSTONE_RUBBLE = IcariaBlockTagsProvider.icariaKey("support_blocks/relicstone_rubble");
+	public static final TagKey<Block> SUPPORT_BLOCKS_GRAINITE_RUBBLE = IcariaBlockTagsProvider.icariaKey("support_blocks/grainite_rubble");
 	public static final TagKey<Block> SUPPORT_BLOCKS_RUBBLE = IcariaBlockTagsProvider.icariaKey("support_blocks/rubble");
 
 	// ITEMBLOCKS
+
+	public static final TagKey<Block> BARS_VANADIUMSTEEL = IcariaBlockTagsProvider.cKey("bars/vanadiumsteel");
 
 	public static final TagKey<Block> LOGS_CYPRESS = IcariaBlockTagsProvider.cKey("logs/cypress");
 	public static final TagKey<Block> LOGS_DROUGHTROOT = IcariaBlockTagsProvider.cKey("logs/droughtroot");
@@ -162,7 +164,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 		// BLOCKS
 
 		this.tag(BlockTags.BARS)
-			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get());
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
 		this.tag(BlockTags.BEE_ATTRACTIVE)
 			.add(IcariaBlocks.BLINDWEED.get())
@@ -293,7 +296,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POPULUS_RACK.get())
 			.add(IcariaBlocks.POPULUS_PRESSURE_PLATE.get())
 			.add(IcariaBlocks.POPULUS_BUTTON.get())
-			.add(IcariaBlocks.FERN.get())
 			.add(IcariaBlocks.SMALL_GRASS.get())
 			.add(IcariaBlocks.MEDIUM_GRASS.get())
 			.add(IcariaBlocks.LARGE_GRASS.get())
@@ -354,10 +356,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PHYSALIS_CROP.get())
 			.add(IcariaBlocks.ONION_CROP.get());
 
-		this.tag(BlockTags.DRY_VEGETATION_MAY_PLACE_ON)
-			.add(IcariaBlocks.FARMLAND.get())
-			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
-
 		this.tag(BlockTags.ENDERMAN_HOLDABLE)
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get())
@@ -403,6 +401,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.POTTED_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_LARGE_BROWN_GROUND_SHROOMS.get())
 			.add(IcariaBlocks.POTTED_CARDON_CACTUS.get());
+
+		this.tag(BlockTags.GROWS_CROPS)
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
 
 		this.tag(BlockTags.HAPPY_GHAST_AVOIDS)
 			.add(IcariaBlocks.SURFACE_LIGNITE.get())
@@ -1072,7 +1074,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.REEDY_VINE.get())
 			.add(IcariaBlocks.SWIRLY_VINE.get())
 			.add(IcariaBlocks.THORNY_VINE.get())
-			.add(IcariaBlocks.FERN.get())
 			.add(IcariaBlocks.SMALL_GRASS.get())
 			.add(IcariaBlocks.MEDIUM_GRASS.get())
 			.add(IcariaBlocks.LARGE_GRASS.get())
@@ -1098,6 +1099,27 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.OLIVE_SIGN.get())
 			.add(IcariaBlocks.PLANE_SIGN.get())
 			.add(IcariaBlocks.POPULUS_SIGN.get());
+
+		this.tag(BlockTags.SUPPORTS_BIG_DRIPLEAF)
+			.add(IcariaBlocks.GRASSY_MARL.get())
+			.add(IcariaBlocks.MARL.get())
+			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
+			.add(IcariaBlocks.LOAM.get())
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
+
+		this.tag(BlockTags.SUPPORTS_CROPS)
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
+
+		this.tag(BlockTags.SUPPORTS_VEGETATION)
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
+
+		this.tag(BlockTags.SUPPORT_OVERRIDE_CACTUS_FLOWER)
+			.add(IcariaBlocks.FARMLAND.get())
+			.add(IcariaBlocks.FERTILIZED_FARMLAND.get());
 
 		this.tag(BlockTags.SWORD_EFFICIENT)
 			.add(IcariaBlocks.FALLEN_CYPRESS_LEAVES.get())
@@ -1691,8 +1713,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.SILKSAND.get());
 
 		this.tag(IcariaBlockTagsProvider.SUPPORT_BLOCKS_CRYSTAL)
+			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
+			.add(IcariaBlocks.DRY_LAKE_BED.get())
 			.add(IcariaBlocks.LOAM.get())
 			.add(IcariaBlocks.GRAINEL.get())
 			.add(IcariaBlocks.SILKSAND.get())
@@ -1702,15 +1726,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.VOIDSHALE.get())
 			.add(IcariaBlocks.BAETYL.get());
 
-		this.tag(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE)
-			.add(IcariaBlocks.GRASSY_MARL.get())
-			.add(IcariaBlocks.MARL.get())
-			.add(IcariaBlocks.COARSE_MARL.get())
-			.add(IcariaBlocks.DRY_LAKE_BED.get())
-			.add(IcariaBlocks.LOAM.get())
+		this.tag(IcariaBlockTagsProvider.SUPPORT_BLOCKS_GRAINITE_RUBBLE)
 			.add(IcariaBlocks.GRAINEL.get())
-			.add(IcariaBlocks.SILKSAND.get())
-			.add(IcariaBlocks.RELICSTONE.get());
+			.add(IcariaBlocks.GRAINITE.get());
 
 		this.tag(IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE)
 			.add(IcariaBlocks.GRASSY_MARL.get())
@@ -1723,6 +1741,10 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.YELLOWSTONE.get());
 
 		// ITEMBLOCKS
+
+		this.tag(IcariaBlockTagsProvider.BARS_VANADIUMSTEEL)
+			.add(IcariaBlocks.VANADIUMSTEEL_BARS.get())
+			.add(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
 		this.tag(BlockTags.DAMPENS_VIBRATIONS)
 			.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get())
@@ -1761,7 +1783,6 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get());
 
 		this.tag(BlockTags.DIRT)
-			.add(IcariaBlocks.GRASSY_MARL.get())
 			.add(IcariaBlocks.MARL.get())
 			.add(IcariaBlocks.COARSE_MARL.get())
 			.add(IcariaBlocks.DRY_LAKE_BED.get())
@@ -1778,6 +1799,9 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlocks.ORANGE_BROMELIA.get())
 			.add(IcariaBlocks.PINK_BROMELIA.get())
 			.add(IcariaBlocks.PURPLE_BROMELIA.get());
+
+		this.tag(BlockTags.GRASS_BLOCKS)
+			.add(IcariaBlocks.GRASSY_MARL.get());
 
 		this.tag(BlockTags.LEAVES)
 			.add(IcariaBlocks.CYPRESS_LEAVES.get())

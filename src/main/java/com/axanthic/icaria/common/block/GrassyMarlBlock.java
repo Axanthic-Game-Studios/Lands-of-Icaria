@@ -40,7 +40,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 		} else if (blockState.getFluidState().getAmount() == 8) {
 			return false;
 		} else {
-			return LightEngine.getLightBlockInto(pBlockState, blockState, Direction.UP, blockState.getLightBlock()) < 15;
+			return LightEngine.getLightBlockInto(pBlockState, blockState, Direction.UP, blockState.getLightDampening()) < 15;
 		}
 	}
 

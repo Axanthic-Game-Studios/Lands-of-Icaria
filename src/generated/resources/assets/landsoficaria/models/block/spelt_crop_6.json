@@ -1,6 +1,5 @@
 {
   "parent": "minecraft:block/crop",
-  "render_type": "minecraft:cutout",
   "textures": {
     "crop": "landsoficaria:block/spelt_crop_6",
     "particle": "landsoficaria:block/spelt_crop_6"

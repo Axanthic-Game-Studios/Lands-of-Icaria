@@ -16,7 +16,7 @@ public class LifestealMobEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+	public boolean shouldApplyEffectTickThisTick(int pTickCount, int pAmplification) {
 		return true;
 	}
 }

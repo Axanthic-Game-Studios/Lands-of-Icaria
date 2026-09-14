@@ -61,7 +61,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+	public boolean removeWhenFarAway(double pDistSqr) {
 		return false;
 	}
 
@@ -123,7 +123,7 @@ public class PyromancerRevenantEntity extends RevenantEntity implements RangedAt
 	}
 
 	@Override
-	public void performRangedAttack(LivingEntity pLivingEntity, float pVelocity) {
+	public void performRangedAttack(LivingEntity pLivingEntity, float pPower) {
 		if (!this.onAiming()) {
 			var x = pLivingEntity.getX() - this.getX();
 			var y = pLivingEntity.getY() - this.getY();

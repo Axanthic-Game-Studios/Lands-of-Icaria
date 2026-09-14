@@ -11,12 +11,13 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockModelRenderState;
+import net.minecraft.client.renderer.block.model.BlockDisplayContext;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
@@ -25,26 +26,22 @@ import net.minecraft.world.phys.Vec3;
 public record FlowerPotCountertopBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<FlowerPotCountertopBlockEntity, FlowerPotCountertopBlockRenderState> {
 
 	@Override
-	public void extractRenderState(FlowerPotCountertopBlockEntity pBlockEntity, FlowerPotCountertopBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
-		pRenderState.item = pBlockEntity.getItem();
-		pRenderState.level = pBlockEntity.getLevel();
+	public void extractRenderState(FlowerPotCountertopBlockEntity pBlockEntity, FlowerPotCountertopBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
+		pRenderState.blockModelRenderState = new BlockModelRenderState();
+		pRenderState.itemStack = pBlockEntity.getItemStack();
+		var itemStack = pRenderState.itemStack;
+		if (itemStack != null) {
+			var data = itemStack.typeHolder().getData(IcariaDataMapTypes.POTTABLES);
+			if (data != null) {
+				this.context().blockModelResolver().update(pRenderState.blockModelRenderState, data.block().defaultBlockState(), BlockDisplayContext.create());
+			}
+		}
 	}
 
 	@Override
 	public void submit(FlowerPotCountertopBlockRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
-		var item = pRenderState.item;
-		var level = pRenderState.level;
-		if (item != null) {
-			var itemStack = new ItemStack(item);
-			var data = itemStack.getItemHolder().getData(IcariaDataMapTypes.POTTABLES);
-			if (data != null) {
-				var blockState = data.block().defaultBlockState();
-				if (level != null) {
-					pSubmitNodeCollector.submitBlock(pPoseStack, blockState, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, 0);
-				}
-			}
-		}
+		pRenderState.blockModelRenderState.submit(pPoseStack, pSubmitNodeCollector, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, 0);
 	}
 
 	@Override

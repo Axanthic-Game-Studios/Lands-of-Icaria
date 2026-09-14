@@ -15,7 +15,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
 
 @MethodsReturnNonnullByDefault
@@ -28,8 +28,8 @@ public class MyrmekeSoldierRenderer extends MobRenderer<MyrmekeSoldierEntity, My
 	}
 
 	@Override
-	public void extractRenderState(MyrmekeSoldierEntity pEntity, MyrmekeSoldierRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(MyrmekeSoldierEntity pEntity, MyrmekeSoldierRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.shadowStrength = pEntity.getShadowStrength();
 		pRenderState.maxTick = pEntity.maxTick;
 		pRenderState.tick = pEntity.getTick();

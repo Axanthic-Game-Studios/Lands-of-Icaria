@@ -32,9 +32,9 @@ public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEnti
 	}
 
 	@Override
-	public void extractRenderState(OvergrownRevenantEntity pEntity, OvergrownRevenantRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+	public void extractRenderState(OvergrownRevenantEntity pEntity, OvergrownRevenantRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
 		pRenderState.blue = pEntity.blue;
 		pRenderState.green = pEntity.green;
 		pRenderState.red = pEntity.red;

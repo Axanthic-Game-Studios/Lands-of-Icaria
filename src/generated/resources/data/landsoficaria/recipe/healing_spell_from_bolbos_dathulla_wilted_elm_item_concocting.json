@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 16711680,
+  "ingredient": [
+    "landsoficaria:bolbos",
+    "landsoficaria:dathulla",
+    "landsoficaria:wilted_elm"
+  ],
+  "result": {
+    "id": "landsoficaria:healing_spell"
+  },
+  "time": 200
+}

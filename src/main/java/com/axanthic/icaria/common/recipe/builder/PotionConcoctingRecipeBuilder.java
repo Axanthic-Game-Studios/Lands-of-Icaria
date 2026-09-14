@@ -4,22 +4,16 @@ import com.axanthic.icaria.common.recipe.PotionConcoctingRecipe;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
@@ -36,11 +30,11 @@ public class PotionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	public Ingredient ingredient;
 
-	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-
 	public PotionContents potionContents;
 
 	public RecipeCategory recipeCategory;
+
+	public RecipeUnlockAdvancementBuilder recipeUnlockAdvancementBuilder = new RecipeUnlockAdvancementBuilder();
 
 	public PotionConcoctingRecipeBuilder(float pRadius, int pColour, int pDuration, int pTime, Ingredient pIngredient, PotionContents pPotionContents, RecipeCategory pRecipeCategory) {
 		this.radius = pRadius;
@@ -54,14 +48,7 @@ public class PotionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
-		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new PotionConcoctingRecipe(this.radius, this.colour, this.duration, this.time, this.ingredient, this.potionContents), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
-	}
-
-	@Override
-	public Item getResult() {
-		return Items.AIR;
+		pRecipeOutput.accept(pResourceKey, new PotionConcoctingRecipe(this.radius, this.colour, this.duration, this.time, this.ingredient, this.potionContents), this.recipeUnlockAdvancementBuilder.build(pRecipeOutput, pResourceKey, this.recipeCategory));
 	}
 
 	@Override
@@ -71,8 +58,13 @@ public class PotionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public PotionConcoctingRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-		this.criteria.put(pName, pCriterion);
+		this.recipeUnlockAdvancementBuilder.unlockedBy(pName, pCriterion);
 		return this;
+	}
+
+	@Override
+	public ResourceKey<Recipe<?>> defaultId() {
+		return ResourceKey.create(Registries.RECIPE, this.potionContents.potion().orElseThrow().unwrapKey().orElseThrow().identifier());
 	}
 
 	public static PotionConcoctingRecipeBuilder potionConcocting(RecipeCategory pRecipeCategory, PotionContents pPotionContents, Ingredient pIngredient, float pRadius, int pColour, int pDuration, int pTime) {

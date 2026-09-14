@@ -67,7 +67,7 @@ public class GreekFireBlock extends Block implements MediterraneanWaterloggedBlo
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		this.igniteEntity(pEntity);
 		IcariaCommonHelper.hurt(pLevel.damageSources().inFire(), pEntity, 1.5F);
 	}

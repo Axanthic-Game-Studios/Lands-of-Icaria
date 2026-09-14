@@ -4,12 +4,12 @@ import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.client.renderer.state.LevelRenderState;
-import net.minecraft.client.renderer.state.SkyRenderState;
+import net.minecraft.client.renderer.state.level.LevelRenderState;
+import net.minecraft.client.renderer.state.level.SkyRenderState;
 
 import net.neoforged.neoforge.client.CustomSkyboxRenderer;
 
-import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -17,7 +17,7 @@ import org.joml.Matrix4f;
 public class SkyboxRenderer implements CustomSkyboxRenderer {
 
 	@Override
-	public boolean renderSky(LevelRenderState pLevelRenderState, SkyRenderState pSkyRenderState, Matrix4f pMatrix4f, Runnable pRunnable) {
+	public boolean renderSky(LevelRenderState pLevelRenderState, SkyRenderState pSkyRenderState, Matrix4fc pMatrix4fc, Runnable pRunnable) {
 		return true;
 	}
 }

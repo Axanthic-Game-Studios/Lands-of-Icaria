@@ -7,26 +7,27 @@ import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import java.util.List;
-
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.*;
+import net.minecraft.world.level.levelgen.feature.LakeFeature;
+import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.SimpleBlockConfiguration;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
-import net.minecraft.world.level.levelgen.feature.stateproviders.NoiseProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import net.minecraft.world.level.levelgen.synth.NormalNoise;
+
+@SuppressWarnings("deprecation")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -41,6 +42,7 @@ public class IcariaConfiguredFeatures {
 
 	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_BOULDER = IcariaConfiguredFeatures.createKey("yellowstone_boulder");
 
+	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_RUBBLE = IcariaConfiguredFeatures.createKey("grainite_rubble");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("yellowstone_rubble");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SILKSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("silkstone_rubble");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("sunstone_rubble");
@@ -107,7 +109,6 @@ public class IcariaConfiguredFeatures {
 	public static final ResourceKey<ConfiguredFeature<?, ?>> SWIRLY_VINE = IcariaConfiguredFeatures.createKey("swirly_vine");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> THORNY_VINE = IcariaConfiguredFeatures.createKey("thorny_vine");
 
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FERN = IcariaConfiguredFeatures.createKey("fern");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS = IcariaConfiguredFeatures.createKey("grass");
 	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAIN = IcariaConfiguredFeatures.createKey("grain");
 
@@ -178,12 +179,13 @@ public class IcariaConfiguredFeatures {
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOWSTONE_BOULDER, new ConfiguredFeature<>(IcariaFeatures.YELLOWSTONE_BOULDER.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOWSTONE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOWSTONE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SILKSTONE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SILKSTONE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSTONE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSTONE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VOIDSHALE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.VOIDSHALE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BAETYL_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BAETYL_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_RUBBLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.RELICSTONE_RUBBLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), IcariaBlockTagsProvider.SUPPORT_BLOCKS_RELICSTONE_RUBBLE), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.GRAINITE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.GRAINITE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOWSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOWSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SILKSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SILKSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.VOIDSHALE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.VOIDSHALE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.BAETYL_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BAETYL_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.RELICSTONE_RUBBLE.get()))));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.FALLEN_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
@@ -199,10 +201,10 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.MOLYBDENUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_BAETYL), IcariaBlocks.MOLYBDENUM_ORE.get().defaultBlockState(), 9)));
 		pBootstrapContext.register(IcariaConfiguredFeatures.HYLIASTRUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_BAETYL), IcariaBlocks.HYLIASTRUM_ORE.get().defaultBlockState(), 9)));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CALCITE_CRYSTAL.get().defaultBlockState()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.HALITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.HALITE_CRYSTAL.get().defaultBlockState()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.JASPER_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.JASPER_CRYSTAL.get().defaultBlockState()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ZIRCON_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ZIRCON_CRYSTAL.get().defaultBlockState()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CALCITE_CRYSTAL.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.HALITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.HALITE_CRYSTAL.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.JASPER_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.JASPER_CRYSTAL.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.ZIRCON_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ZIRCON_CRYSTAL.get()))));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
@@ -244,28 +246,27 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.SWIRLY_VINE, new ConfiguredFeature<>(IcariaFeatures.SWIRLY_VINE.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.THORNY_VINE, new ConfiguredFeature<>(IcariaFeatures.THORNY_VINE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.FERN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.FERN.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRASS, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new NoiseProvider(2345L, new NormalNoise.NoiseParameters(0, 1.0D), 0.5F, List.of(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), IcariaBlocks.LARGE_GRASS.get().defaultBlockState()))), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRAIN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new NoiseProvider(2345L, new NormalNoise.NoiseParameters(0, 1.0D), 0.5F, List.of(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState()))), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.GRASS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1)))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.GRAIN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_DUST, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new NoiseProvider(2345L, new NormalNoise.NoiseParameters(0, 1.0D), 0.5F, List.of(IcariaBlocks.FERN.get().defaultBlockState(), IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState()))), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_DUST, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLINDWEED, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLINDWEED.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CHAMEOMILE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHAMEOMILE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CHARMONDER, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHARMONDER.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CLOVER, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CLOVER.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FIREHILT, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.FIREHILT.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_HYDRACINTH, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_HYDRACINTH.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_HYDRACINTH, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_HYDRACINTH.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.LIONFANGS, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.LIONFANGS.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SPEARDROPS, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SPEARDROPS.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STAGHORN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STAGHORN.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOW_STAGHORN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOW_STAGHORN.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_STORMCOTTON, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_STORMCOTTON.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_STORMCOTTON, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_STORMCOTTON.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STORMCOTTON, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STORMCOTTON.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNKETTLE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNKETTLE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSPONGE, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(16, 4, 4, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSPONGE.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.BLINDWEED, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLINDWEED.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.CHAMEOMILE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHAMEOMILE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.CHARMONDER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHARMONDER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.CLOVER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CLOVER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.FIREHILT, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.FIREHILT.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_HYDRACINTH.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_HYDRACINTH.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.LIONFANGS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.LIONFANGS.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SPEARDROPS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SPEARDROPS.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STAGHORN.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOW_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOW_STAGHORN.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SUNKETTLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNKETTLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSPONGE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSPONGE.get()))));
 		pBootstrapContext.register(IcariaConfiguredFeatures.VOIDLILY, new ConfiguredFeature<>(IcariaFeatures.VOIDLILY.get(), NoneFeatureConfiguration.NONE));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.BOLBOS, new ConfiguredFeature<>(IcariaFeatures.BOLBOS.get(), NoneFeatureConfiguration.NONE));
@@ -284,12 +285,12 @@ public class IcariaConfiguredFeatures {
 		pBootstrapContext.register(IcariaConfiguredFeatures.RED_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.RED_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.WHITE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.WHITE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.PALM_FERN, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PALM_FERN.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PALM_FERN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PALM_FERN.get()))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.WHITE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.WHITE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ORANGE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ORANGE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_BROMELIA, new ConfiguredFeature<>(Feature.RANDOM_PATCH, new RandomPatchConfiguration(64, 8, 8, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_BROMELIA.get())), BlockPredicate.allOf(BlockPredicate.matchesTag(Direction.DOWN.getUnitVec3i(), BlockTags.DIRT), BlockPredicate.matchesBlocks(Blocks.AIR))))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.WHITE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.WHITE_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.ORANGE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ORANGE_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_BROMELIA.get()))));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.GREEN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.GREEN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
@@ -299,8 +300,8 @@ public class IcariaConfiguredFeatures {
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.STRAWBERRY_BUSH, new ConfiguredFeature<>(IcariaFeatures.STRAWBERRY_BUSH.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(IcariaFeatures.DRY_LAKE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(IcariaFeatures.MEDITERRANEAN_WATER_LAKE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatures.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get()), BlockStateProvider.simple(IcariaBlocks.MARL.get()))));
 
 		pBootstrapContext.register(IcariaConfiguredFeatures.RUIN, new ConfiguredFeature<>(IcariaFeatures.RUIN.get(), NoneFeatureConfiguration.NONE));
 		pBootstrapContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));

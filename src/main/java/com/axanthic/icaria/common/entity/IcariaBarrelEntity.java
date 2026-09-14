@@ -48,7 +48,7 @@ public class IcariaBarrelEntity extends Entity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		return false;
 	}
 

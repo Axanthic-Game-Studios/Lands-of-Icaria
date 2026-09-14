@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fysh/blue",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_blue_fysh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fysh/blue"
 }

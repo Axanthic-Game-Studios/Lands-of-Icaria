@@ -19,8 +19,8 @@ public class GrinderContainerData implements ContainerData {
 	}
 
 	@Override
-	public int get(int pIndex) {
-		return switch (pIndex) {
+	public int get(int pDataId) {
+		return switch (pDataId) {
 			case 0 -> this.blockEntity.fuel;
 			case 1 -> this.blockEntity.maxFuel;
 			case 2 -> this.blockEntity.progress;
@@ -35,8 +35,8 @@ public class GrinderContainerData implements ContainerData {
 	}
 
 	@Override
-	public void set(int pIndex, int pValue) {
-		switch (pIndex) {
+	public void set(int pDataId, int pValue) {
+		switch (pDataId) {
 			case 0 -> this.blockEntity.fuel = pValue;
 			case 1 -> this.blockEntity.maxFuel = pValue;
 			case 2 -> this.blockEntity.progress = pValue;

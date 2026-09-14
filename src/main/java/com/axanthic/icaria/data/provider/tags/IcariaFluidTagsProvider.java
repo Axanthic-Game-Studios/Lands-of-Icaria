@@ -30,6 +30,12 @@ public class IcariaFluidTagsProvider extends FluidTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
+		this.tag(FluidTags.SUPPORTS_FROGSPAWN)
+			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+
+		this.tag(FluidTags.SUPPORTS_LILY_PAD)
+			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+
 		this.tag(FluidTags.WATER)
 			.add(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get())
 			.add(IcariaFluids.MEDITERRANEAN_WATER.get());

@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_cerver_meat",
+  "result": {
+    "id": "landsoficaria:cooked_cerver_meat"
+  },
+  "time": 600
+}

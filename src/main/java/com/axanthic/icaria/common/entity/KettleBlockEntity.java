@@ -320,7 +320,7 @@ public class KettleBlockEntity extends BlockEntity {
 		} else if (this.getExplosionConcoctingRecipe(pServerLevel).isPresent()) {
 			return this.getExplosionConcoctingRecipe(pServerLevel).get().value().result();
 		} else if (this.getItemConcoctingRecipe(pServerLevel).isPresent()) {
-			return this.getItemConcoctingRecipe(pServerLevel).get().value().result();
+			return this.getItemConcoctingRecipe(pServerLevel).get().value().result().create();
 		} else if (this.getPotionConcoctingRecipe(pServerLevel).isPresent()) {
 			return this.getPotionConcoctingRecipe(pServerLevel).get().value().result();
 		} else {

@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_green_magenta_fisshh",
+  "result": {
+    "id": "landsoficaria:cooked_green_magenta_fisshh"
+  },
+  "time": 600
+}

@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fisshh/green_magenta",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_green_magenta_fisshh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fisshh/green_magenta"
 }

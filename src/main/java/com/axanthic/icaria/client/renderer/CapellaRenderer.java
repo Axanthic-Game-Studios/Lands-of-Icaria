@@ -29,8 +29,8 @@ public class CapellaRenderer extends MobRenderer<CapellaEntity, CapellaRenderSta
 	}
 
 	@Override
-	public void extractRenderState(CapellaEntity pEntity, CapellaRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(CapellaEntity pEntity, CapellaRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.size = pEntity.getSize();

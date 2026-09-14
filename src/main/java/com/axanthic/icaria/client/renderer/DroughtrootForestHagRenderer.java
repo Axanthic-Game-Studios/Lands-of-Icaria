@@ -25,10 +25,10 @@ public class DroughtrootForestHagRenderer extends MobRenderer<ForestHagEntity, D
 	}
 
 	@Override
-	public void extractRenderState(ForestHagEntity pEntity, DroughtrootForestHagRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ForestHagEntity pEntity, DroughtrootForestHagRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.aggressive = pEntity.isAggressive();
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
 		pRenderState.livingEntity = pEntity;
 	}
 

@@ -121,6 +121,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 	// ITEMBLOCKS
 
+	public static final TagKey<Item> BARS_VANADIUMSTEEL = IcariaItemTagsProvider.cKey("bars/vanadiumsteel");
+
 	public static final TagKey<Item> LOGS_CYPRESS = IcariaItemTagsProvider.cKey("logs/cypress");
 	public static final TagKey<Item> LOGS_DROUGHTROOT = IcariaItemTagsProvider.cKey("logs/droughtroot");
 	public static final TagKey<Item> LOGS_FIR = IcariaItemTagsProvider.cKey("logs/fir");
@@ -210,7 +212,8 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.MOLYBDENUMSTEEL_AXE.get());
 
 		this.tag(ItemTags.BARS)
-			.add(IcariaItems.VANADIUMSTEEL_BARS.get());
+			.add(IcariaItems.VANADIUMSTEEL_BARS.get())
+			.add(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 
 		this.tag(ItemTags.BEE_FOOD)
 			.add(IcariaItems.BLINDWEED.get())
@@ -463,6 +466,17 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
 			.add(IcariaItems.RAW_THOG_MEAT.get())
 			.add(IcariaItems.COOKED_THOG_MEAT.get());
+
+		this.tag(ItemTags.METAL_NUGGETS)
+			.add(IcariaItems.CHALKOS_NUGGET.get())
+			.add(IcariaItems.KASSITEROS_NUGGET.get())
+			.add(IcariaItems.ORICHALCUM_NUGGET.get())
+			.add(IcariaItems.VANADIUM_NUGGET.get())
+			.add(IcariaItems.VANADIUMSTEEL_NUGGET.get())
+			.add(IcariaItems.SIDEROS_NUGGET.get())
+			.add(IcariaItems.MOLYBDENUM_NUGGET.get())
+			.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get())
+			.add(IcariaItems.BLURIDIUM_NUGGET.get());
 
 		this.tag(ItemTags.OCELOT_FOOD)
 			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
@@ -1060,7 +1074,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 		this.tag(Tags.Items.STRINGS)
 			.add(IcariaItems.ARACHNE_STRING.get());
 
-		this.tag(Tags.Items.TOOLS_SPEAR)
+		this.tag(Tags.Items.TOOLS_TRIDENT)
 			.add(IcariaItems.CHERT_BIDENT.get())
 			.add(IcariaItems.CHALKOS_BIDENT.get())
 			.add(IcariaItems.KASSITEROS_BIDENT.get())
@@ -1385,6 +1399,10 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 
 		// ITEMBLOCKS
 
+		this.tag(IcariaItemTagsProvider.BARS_VANADIUMSTEEL)
+			.add(IcariaItems.VANADIUMSTEEL_BARS.get())
+			.add(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
+
 		this.tag(ItemTags.DAMPENS_VIBRATIONS)
 			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
 			.add(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get())
@@ -1422,7 +1440,6 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
 
 		this.tag(ItemTags.DIRT)
-			.add(IcariaItems.GRASSY_MARL.get())
 			.add(IcariaItems.MARL.get())
 			.add(IcariaItems.COARSE_MARL.get())
 			.add(IcariaItems.DRY_LAKE_BED.get())
@@ -1439,6 +1456,9 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaItems.ORANGE_BROMELIA.get())
 			.add(IcariaItems.PINK_BROMELIA.get())
 			.add(IcariaItems.PURPLE_BROMELIA.get());
+
+		this.tag(ItemTags.GRASS_BLOCKS)
+			.add(IcariaItems.GRASSY_MARL.get());
 
 		this.tag(ItemTags.LEAVES)
 			.add(IcariaItems.CYPRESS_LEAVES.get())

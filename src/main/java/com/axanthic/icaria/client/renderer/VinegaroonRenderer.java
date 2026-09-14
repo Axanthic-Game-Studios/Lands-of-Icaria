@@ -25,8 +25,8 @@ public class VinegaroonRenderer extends MobRenderer<VinegaroonEntity, Vinegaroon
 	}
 
 	@Override
-	public void extractRenderState(VinegaroonEntity pEntity, VinegaroonRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(VinegaroonEntity pEntity, VinegaroonRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.isRidden = pEntity.hasExactlyOnePlayerPassenger();
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 		pRenderState.livingEntity = pEntity;

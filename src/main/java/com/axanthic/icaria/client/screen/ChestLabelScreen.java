@@ -10,7 +10,7 @@ import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
@@ -42,13 +42,23 @@ public class ChestLabelScreen extends Screen {
 		this.itemStack = pItemStack;
 	}
 
-	public void cancel() {
-		this.minecraft.setScreen(null);
+	@Override
+	public boolean isInGameUi() {
+		return true;
 	}
 
-	public void done() {
-		this.minecraft.setScreen(null);
-		ClientPacketDistributor.sendToServer(new ChestLabelPayload(this.itemStack, this.editBox.getValue()));
+	@Override
+	public void extractBackground(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTicks) {
+		super.extractBackground(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTicks);
+		var x = (this.width - this.imageWidth) / 2;
+		var y = (this.height - this.imageHeight) / 2;
+		pGuiGraphicsExtractor.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.CHEST_LABEL, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
+	}
+
+	@Override
+	public void extractRenderState(GuiGraphicsExtractor pGuiGraphicsExtractor, int pMouseX, int pMouseY, float pPartialTicks) {
+		super.extractRenderState(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTicks);
+		this.editBox.extractRenderState(pGuiGraphicsExtractor, pMouseX, pMouseY, pPartialTicks);
 	}
 
 	@Override
@@ -65,21 +75,16 @@ public class ChestLabelScreen extends Screen {
 	}
 
 	@Override
-	public void render(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-		this.editBox.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
-	}
-
-	@Override
-	public void renderBackground(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
-		var x = (this.width - this.imageWidth) / 2;
-		var y = (this.height - this.imageHeight) / 2;
-		this.renderTransparentBackground(pGuiGraphics);
-		pGuiGraphics.blit(RenderPipelines.GUI_TEXTURED, IcariaIdentifiers.CHEST_LABEL, x, y, 0, 0, this.imageWidth, this.imageHeight, 256, 256);
-	}
-
-	@Override
 	public void setInitialFocus() {
 		this.setInitialFocus(this.editBox);
+	}
+
+	public void cancel() {
+		this.minecraft.setScreen(null);
+	}
+
+	public void done() {
+		this.minecraft.setScreen(null);
+		ClientPacketDistributor.sendToServer(new ChestLabelPayload(this.itemStack, this.editBox.getValue()));
 	}
 }

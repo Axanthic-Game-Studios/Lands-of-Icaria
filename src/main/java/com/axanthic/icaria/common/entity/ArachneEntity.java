@@ -8,6 +8,8 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
+import java.util.UUID;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
@@ -39,7 +41,7 @@ import net.minecraft.world.level.block.state.BlockState;
 public class ArachneEntity extends IcariaArachnidEntity {
 	public AnimationState attackAnimationState = new AnimationState();
 
-	public ServerBossEvent serverBossEvent = new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
+	public ServerBossEvent serverBossEvent = new ServerBossEvent(UUID.randomUUID(), this.getDisplayName(), BossEvent.BossBarColor.YELLOW, BossEvent.BossBarOverlay.NOTCHED_20);
 
 	public ArachneEntity(EntityType<? extends ArachneEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
@@ -52,7 +54,7 @@ public class ArachneEntity extends IcariaArachnidEntity {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+	public boolean removeWhenFarAway(double pDistSqr) {
 		return false;
 	}
 

@@ -23,8 +23,8 @@ public class CrocottaRenderer extends MobRenderer<CrocottaEntity, CrocottaRender
 	}
 
 	@Override
-	public void extractRenderState(CrocottaEntity pEntity, CrocottaRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(CrocottaEntity pEntity, CrocottaRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 	}
 

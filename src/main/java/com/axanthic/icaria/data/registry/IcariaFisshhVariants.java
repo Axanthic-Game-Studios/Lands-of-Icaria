@@ -13,7 +13,7 @@ import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -36,7 +36,7 @@ public class IcariaFisshhVariants {
 	}
 
 	public static void register(BootstrapContext<FisshhVariant> pBootstrapContext, ResourceKey<FisshhVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "fisshh" + "/" + pVariant.identifier().getPath())), new ItemStack(pItem, pCount)));
+		pBootstrapContext.register(pVariant, new FisshhVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "fisshh" + "/" + pVariant.identifier().getPath())), new ItemStackTemplate(pItem, pCount)));
 	}
 
 	public static ResourceKey<FisshhVariant> createKey(String pName) {

@@ -46,13 +46,13 @@ public class BidentItem extends Item implements ProjectileItem {
 	}
 
 	@Override
-	public boolean canPerformAction(ItemStack pItemStack, ItemAbility pItemAbility) {
+	public boolean canPerformAction(ItemInstance pItemInstance, ItemAbility pItemAbility) {
 		return pItemAbility == ItemAbilities.TRIDENT_THROW;
 	}
 
 	@Override
-	public boolean releaseUsing(ItemStack pItemStack, Level pLevel, LivingEntity pLivingEntity, int pTimeLeft) {
-		if (this.getUseDuration(pItemStack, pLivingEntity) - pTimeLeft >= 10 && pLevel instanceof ServerLevel serverLevel && pLivingEntity instanceof Player player && !pItemStack.nextDamageWillBreak()) {
+	public boolean releaseUsing(ItemStack pItemStack, Level pLevel, LivingEntity pLivingEntity, int pRemainingTime) {
+		if (this.getUseDuration(pItemStack, pLivingEntity) - pRemainingTime >= 10 && pLevel instanceof ServerLevel serverLevel && pLivingEntity instanceof Player player && !pItemStack.nextDamageWillBreak()) {
 			player.awardStat(Stats.ITEM_USED.get(this));
 			pLevel.playSound(null, player.blockPosition(), IcariaSoundEvents.BIDENT_THROW, SoundSource.PLAYERS);
 			pItemStack.hurtWithoutBreaking(1, player);
@@ -101,7 +101,7 @@ public class BidentItem extends Item implements ProjectileItem {
 
 	@Override
 	public ItemUseAnimation getUseAnimation(ItemStack pItemStack) {
-		return ItemUseAnimation.SPEAR;
+		return ItemUseAnimation.TRIDENT;
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.world.level.block.Block;
 
 import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemplateBuilder;
@@ -163,7 +164,6 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.tappedBarrel(pBlockModelGenerators);
 		IcariaBlockModelProvider.tinderFungusTreeShrooms(pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(pBlockModelGenerators);
-		IcariaBlockModelProvider.tintedFlowerPotCross(pBlockModelGenerators);
 		IcariaBlockModelProvider.towelHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.trapdoor(pBlockModelGenerators);
 		IcariaBlockModelProvider.tripleBarrelRack(pBlockModelGenerators);
@@ -227,6 +227,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.grinderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderShaftModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.grinderStoneModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.groundFlowersModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteCrystalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.herbHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalBarsModel(pBlockModelGenerators);
@@ -1480,14 +1481,9 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void tintedCross(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockModelProvider.tintedCross(IcariaBlocks.FERN.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(IcariaBlocks.SMALL_GRASS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(IcariaBlocks.MEDIUM_GRASS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.tintedCross(IcariaBlocks.LARGE_GRASS.get(), pBlockModelGenerators);
-	}
-
-	public static void tintedFlowerPotCross(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockModelProvider.tintedFlowerPotCross(IcariaBlocks.POTTED_FERN.get(), IcariaBlocks.FERN.get(), pBlockModelGenerators);
 	}
 
 	public static void towelHolder(BlockModelGenerators pBlockModelGenerators) {
@@ -1650,4293 +1646,4286 @@ public class IcariaBlockModelProvider {
 	public static void amphora(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_amphora_single")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "single"), new TextureMapping()
-				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase"))
-				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase")))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_amphora_double")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "double"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_storage_vase"))
-				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase"))
-				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_storage_vase")))
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase")))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_amphora_triple")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "triple"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BLACK_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_storage_vase"))
-				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase"))
-				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_storage_vase_lite"))
-				.putForced(IcariaTextureSlots.RED_STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_storage_vase"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BLACK_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.BROWN_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_storage_vase")))
+				.putForced(IcariaTextureSlots.GRAY_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_storage_vase")))
+				.putForced(IcariaTextureSlots.LIGHT_GRAY_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.ORANGE_STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_storage_vase_lite")))
+				.putForced(IcariaTextureSlots.RED_STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_storage_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_storage_vase_lite"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void anthraciteTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_anthracite_torch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))
-				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal"))
-				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TORCH_BONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")))
+				.putForced(IcariaTextureSlots.TORCH_COAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal")))
+				.putForced(IcariaTextureSlots.TORCH_METAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void anthraciteWallTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_anthracite_wall_torch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))
-				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal"))
-				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TORCH_BONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")))
+				.putForced(IcariaTextureSlots.TORCH_COAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal")))
+				.putForced(IcariaTextureSlots.TORCH_METAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void axis(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_column")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.END, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_column_horizontal")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "horizontal"), new TextureMapping()
-				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.END, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void barrel(Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel")).build()
 			.create(IcariaModelProvider.blockFile(pBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_barrel")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_barrel")).build()
 			.create(IcariaModelProvider.blockFile("standing", pBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bars(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bars_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_cap")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_cap")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "cap"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_cap_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BARS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_cap_alt")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "cap_alt"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_post")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BARS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_post")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "post"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_post_ends")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BARS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_post_ends")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "post_ends"), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_side")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_side")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "iron_bars_side_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BARS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_bars_side_alt")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_alt"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BARS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BARS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void basinsCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_basins_countertop")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_basins_countertop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.LEAVES, IcariaModelProvider.blockFile(pBlock, "basins_countertop", "leaves"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "basins_countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "basins_countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "basins_countertop", "log"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "basins_countertop", "trapdoor"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "basins_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LEAVES, new Material(IcariaModelProvider.blockFile(pBlock, "basins_countertop", "leaves")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "basins_countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "basins_countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "basins_countertop", "log")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "basins_countertop", "trapdoor")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "basins_countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bathtub(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
-				.putForced(IcariaTextureSlots.SKULL, IcariaModelProvider.blockFile(IcariaKeys.ID, "skull"))
-				.putForced(IcariaTextureSlots.SURFACE_BONES, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_bones"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")))
+				.putForced(IcariaTextureSlots.SKULL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "skull")))
+				.putForced(IcariaTextureSlots.SURFACE_BONES, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_bones")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_head")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_head_remains")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_head_remains")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "head_remains"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
-				.putForced(IcariaTextureSlots.SKULL, IcariaModelProvider.blockFile(IcariaKeys.ID, "skull"))
-				.putForced(IcariaTextureSlots.SURFACE_BONES, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_bones"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")))
+				.putForced(IcariaTextureSlots.SKULL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "skull")))
+				.putForced(IcariaTextureSlots.SURFACE_BONES, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_bones")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bathtub_foot")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "bathtub", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bathtub", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void block(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void blockCutout(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void blockTranslucent(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bloomyVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("blooming", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("blooming", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("blooming", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("blooming", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("blooming", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).build()
 			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("dead", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("dead", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile("growing", pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("growing", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("growing", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("ripe", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("ripe", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("ripe", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("ripe", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("ripe", pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bolbos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bolbos")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brokenCupboard(Block pBrokenCupboard, Block pCupboard, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_cupboard_0")).build()
 			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pCupboard)))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_cupboard_1")).build()
 			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pCupboard)))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_cupboard_2")).build()
 			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pCupboard))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pCupboard)))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brokenHolder(Block pHolder, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_holder_0")).build()
 			.create(IcariaModelProvider.blockFile(pHolder, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_holder_1")).build()
 			.create(IcariaModelProvider.blockFile(pHolder, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_broken_holder_2")).build()
 			.create(IcariaModelProvider.blockFile(pHolder, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void bromelia(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bromelia")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_bromelia")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brownGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_brown_ground_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_brown_ground_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_brown_ground_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brushyVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).build()
 			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("dead", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("dead", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile("growing", pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("growing", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("growing", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("ripe", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("ripe", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("ripe", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("ripe", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("ripe", pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void button(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "button")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "button_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "button_pressed")).build()
 			.create(IcariaModelProvider.blockFile(pName, "pressed"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cake(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_cake")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_cake_lit")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cake_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.CAKE_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cake_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
-				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, new Material(IcariaModelProvider.blockFile(pBlock, "inside")))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.CAKE_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cake_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
-				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, new Material(IcariaModelProvider.blockFile(pBlock, "inside")))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.CAKE_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cake_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CAKE_BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom"))
-				.putForced(IcariaTextureSlots.CAKE_INSIDE, IcariaModelProvider.blockFile(pBlock, "inside"))
-				.putForced(IcariaTextureSlots.CAKE_SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.CAKE_TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CAKE_BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cake_bottom")))
+				.putForced(IcariaTextureSlots.CAKE_INSIDE, new Material(IcariaModelProvider.blockFile(pBlock, "inside")))
+				.putForced(IcariaTextureSlots.CAKE_SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.CAKE_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void calciteCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_calcite_crystal")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cardonCactus(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cardon_cactus_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cardon_cactus_cube")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "cube"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cardon_cactus_stem")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "stem"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "side"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void carpet(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "carpet")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.WOOL, IcariaModelProvider.blockFile(pBlock, "carpet", "block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "carpet", "block")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WOOL, new Material(IcariaModelProvider.blockFile(pBlock, "carpet", "block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "carpet", "block"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chain(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "chain")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_chain")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void checkers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_checkers_played")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHESSBOARD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_checkers_set")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHESSBOARD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chess(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chess_played")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "played"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHESSBOARD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chess_set")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "set"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHESSBOARD, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHESSBOARD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chessboard_particle"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chimney(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chimneyBrickCrown(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney_brick_crown")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHIMNEY, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHIMNEY, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chimneyGrateCrown(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney_grate_crown")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney_grate_crown")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block"))
-				.putForced(IcariaTextureSlots.CHIMNEY, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block")))
+				.putForced(IcariaTextureSlots.CHIMNEY, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void chimneySlab(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney_slab_bottom")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_chimney_slab_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chimney"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cobweb(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "up"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "up"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "down"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(IcariaKeys.ID, "none"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "none"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "none")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "none")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_south"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_up_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_up_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_1"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up_east_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_1")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down_west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_down"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "up_down_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down_up_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_up_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "down_up_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_up_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "up_down_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down_up_1"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_up_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "down_up_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_up_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_1")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_up_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_1"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_1")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_1"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_down"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_1")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_south_up"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_south_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_up_down_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down_west_up_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up_east_down_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_down_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west_up_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_up_down_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "down_west_up_1"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "up_east_down_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_down_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west_up_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_1")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_west"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_west")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_up"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up_down_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_down_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west_up_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_up_down_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "up_east_down_1"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "down_west_up_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "up_east_down_1")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "down_west_up_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_south_up_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_up"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "west_up_east_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "west_up_east_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock, "east_down_west_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock, "east_down_west_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_west_up_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cobweb_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "north_east_south_west_up_down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("white_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("light_gray_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("gray_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "gray_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("black_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "black_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("brown_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "brown_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("red_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "red_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("orange_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "orange_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("yellow_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "yellow_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("lime_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lime_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("green_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "green_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("cyan_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "cyan_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("light_blue_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "light_blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("blue_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "blue_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("purple_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "purple_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("magenta_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "magenta_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_2")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_3")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit_3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_countertop_4")).build()
 			.create(IcariaModelProvider.blockFile("pink_candle", pBlock, "lit_4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CANDLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "pink_candle_lit")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void craftingTable(Block pBlock, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.NORTH, IcariaModelProvider.blockFile(pBlock, "front"))
-				.putForced(IcariaTextureSlots.EAST, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.SOUTH, IcariaModelProvider.blockFile(pBlock, "side"))
-				.putForced(IcariaTextureSlots.WEST, IcariaModelProvider.blockFile(pBlock, "front"))
-				.putForced(IcariaTextureSlots.UP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.DOWN, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "front")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.NORTH, new Material(IcariaModelProvider.blockFile(pBlock, "front")))
+				.putForced(IcariaTextureSlots.EAST, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.SOUTH, new Material(IcariaModelProvider.blockFile(pBlock, "side")))
+				.putForced(IcariaTextureSlots.WEST, new Material(IcariaModelProvider.blockFile(pBlock, "front")))
+				.putForced(IcariaTextureSlots.UP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.DOWN, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "front"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void crop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "2"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "3"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "4"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "4")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "4")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "4"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "5"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "5")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "5")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "5"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "6"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "6")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "6")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "6"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "crop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROP, IcariaModelProvider.blockFile(pBlock, "7"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "7")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CROP, new Material(IcariaModelProvider.blockFile(pBlock, "7")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "7"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROSS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CROSS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cuttingBoard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_cutting_board")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "cutting_board", "trapdoor"))
-				.putForced(IcariaTextureSlots.TWIGS, IcariaModelProvider.blockFile(pBlock, "cutting_board", "twigs"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "cutting_board", "trapdoor")))
+				.putForced(IcariaTextureSlots.TWIGS, new Material(IcariaModelProvider.blockFile(pBlock, "cutting_board", "twigs")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "cutting_board", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void dathulla(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dathulla")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void deadDroughtrootLog(Block pName, Block pLog, Block pStrippedLog, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_horizontal_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void deadLog(Block pName, Block pLog, Block pStrippedLog, Block pMoss, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_horizontal_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_ground_shrooms"))
-				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_ground_shrooms")))
+				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.MARL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_horizontal_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_ground_shrooms"))
-				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BROWN_GROUND_SHROOMS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_ground_shrooms")))
+				.putForced(IcariaTextureSlots.STEM_GROUND_SHROOMS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.MARL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.MOSS, IcariaModelProvider.blockFile(pMoss))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.MARL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.MOSS, new Material(IcariaModelProvider.blockFile(pMoss)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_log_horizontal_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pLog, "top"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.MARL, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.MOSS, IcariaModelProvider.blockFile(pMoss))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pLog, "top")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.MARL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.MOSS, new Material(IcariaModelProvider.blockFile(pMoss)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void dishesCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dishes_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "cupboard"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "dishes_cupboard", "log"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "dishes_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "dishes_cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "cupboard")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "dishes_cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "dishes_cupboard", "log")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "dishes_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "dishes_cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void dolomitePillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_dolomite"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_dolomite")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head_inverted"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_dolomite"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head_inverted")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_dolomite")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "dolomite_pillar_head_inverted"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void door(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_left")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_left_open")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_left_open")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_left_open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_right")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_right_open")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_bottom_right_open")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_right_open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_left")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_left_open")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_left_open")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_left_open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_right")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_right_open")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "door_top_right_open")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_right_open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pBlock, "bottom"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pBlock, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "bottom")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBlock, "bottom")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pBlock, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "bottom"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void fallenLeaves(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_1")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_2")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_3")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_3")).build()
 			.create(IcariaModelProvider.blockFile(pName, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_4")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_4")).build()
 			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_5")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_5")).build()
 			.create(IcariaModelProvider.blockFile(pName, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_6")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_6")).build()
 			.create(IcariaModelProvider.blockFile(pName, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_7")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_7")).build()
 			.create(IcariaModelProvider.blockFile(pName, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_8")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_8")).build()
 			.create(IcariaModelProvider.blockFile(pName, "8"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void farmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "farmland")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "dry"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "farmland_dry"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "farmland_dry")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "farmland")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "wet"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "farmland_wet"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "farmland_wet")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void fence(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "fence_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "fence_post")).build()
 			.create(IcariaModelProvider.blockFile(pName, "post"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "fence_side")).build()
 			.create(IcariaModelProvider.blockFile(pName, "side"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void fenceGate(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fence_gate")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fence_gate_open")).build()
 			.create(IcariaModelProvider.blockFile(pName, "open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fence_gate_wall")).build()
 			.create(IcariaModelProvider.blockFile(pName, "wall"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fence_gate_wall_open")).build()
 			.create(IcariaModelProvider.blockFile(pName, "wall_open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void fertilizedFarmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "farmland")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "fertilized_farmland"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "fertilized_farmland")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void fire(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_floor")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_floor")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "floor_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_floor")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_floor")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "floor_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side_alt")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_alt_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_fire_side_alt")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_alt_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIRE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FIRE, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void firewood(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_firewood")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood", "log"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "firewood", "log")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "firewood", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "firewood", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void firewoodWedge(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_firewood_wedge_jagged")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "jagged"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_firewood_wedge_smooth")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "smooth"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "firewood")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "firewood_wedge", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "firewood_wedge", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void flasksCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_flasks_cupboard")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_flasks_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "cupboard"))
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "flasks_cupboard", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "flasks_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "flasks_cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "cupboard")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "flasks_cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "flasks_cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "flasks_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "flasks_cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void flowerPotCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_flower_pot_countertop_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHERT_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chert_block"))
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "planks"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "trapdoor"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHERT_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chert_block")))
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "planks")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "trapdoor")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_flower_pot_countertop_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHERT_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chert_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "trapdoor"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHERT_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chert_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "flower_pot_countertop", "trapdoor")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "flower_pot_countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void flowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot_cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot_cross")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANT, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANT, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void forge(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "stripped_cypress_log"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stripped_cypress_log")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_bottom_back_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_back_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_bottom_back_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_back_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_bottom_front_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_bottom_front_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_bottom_front_right_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom_front_right_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LAVA_FLOW, IcariaModelProvider.blockFile(IcariaKeys.MC, "lava_flow"))
-				.putForced(IcariaTextureSlots.LAVA_STILL, IcariaModelProvider.blockFile(IcariaKeys.MC, "lava_still"))
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LAVA_FLOW, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lava_flow")))
+				.putForced(IcariaTextureSlots.LAVA_STILL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "lava_still")))
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_top_back_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_back_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_top_back_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_back_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_top_front_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_front_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_forge_top_front_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_front_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FORGE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forge"))
-				.putForced(IcariaTextureSlots.GRAINITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))
-				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks"))
-				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "stripped_cypress_log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FORGE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forge")))
+				.putForced(IcariaTextureSlots.GRAINITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite")))
+				.putForced(IcariaTextureSlots.GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite_bricks")))
+				.putForced(IcariaTextureSlots.STRIPPED_CYPRESS_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stripped_cypress_log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grainite"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void grassyMarl(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "grass_block")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "grass_block")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(IcariaKeys.ID, "grassy_marl_side"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "grassy_marl_top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grassy_marl_side")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grassy_marl_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(IcariaKeys.ID, "forest_moss_marl"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "forest_moss_marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "forest_moss"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forest_moss_marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "forest_moss")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(IcariaKeys.ID, "scrubland_moss_marl"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "scrubland_moss_marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "scrubland_moss"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "scrubland_moss_marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "scrubland_moss")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(IcariaKeys.ID, "steppe_moss_marl"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "steppe_moss_marl"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "steppe_moss"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "steppe_moss_marl")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "steppe_moss")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "marl"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void grateFireplace(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_inventory")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block"))
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block")))
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_lower")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_upper")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grate_fireplace_upper")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CHALKOS_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_mesh_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void greenGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_green_ground_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_green_ground_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_green_ground_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void grinder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block"))
-				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder"))
-				.putForced(IcariaTextureSlots.GRINDER_ENGINE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_engine"))
-				.putForced(IcariaTextureSlots.GRINDER_FEEDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_feeder"))
-				.putForced(IcariaTextureSlots.GRINDER_STONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_stone"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.STATIC_LEFT_GRINDER_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "static_left_grinder_chain"))
-				.putForced(IcariaTextureSlots.STATIC_RIGHT_GRINDER_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "static_right_grinder_chain"))
-				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block")))
+				.putForced(IcariaTextureSlots.GRINDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder")))
+				.putForced(IcariaTextureSlots.GRINDER_ENGINE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_engine")))
+				.putForced(IcariaTextureSlots.GRINDER_FEEDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_feeder")))
+				.putForced(IcariaTextureSlots.GRINDER_STONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_stone")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.STATIC_LEFT_GRINDER_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "static_left_grinder_chain")))
+				.putForced(IcariaTextureSlots.STATIC_RIGHT_GRINDER_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "static_right_grinder_chain")))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block"))
-				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder"))
-				.putForced(IcariaTextureSlots.GRINDER_FEEDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_feeder"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block")))
+				.putForced(IcariaTextureSlots.GRINDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder")))
+				.putForced(IcariaTextureSlots.GRINDER_FEEDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_feeder")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block"))
-				.putForced(IcariaTextureSlots.GRINDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder"))
-				.putForced(IcariaTextureSlots.GRINDER_ENGINE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_engine"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANTHRACITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "anthracite_block")))
+				.putForced(IcariaTextureSlots.GRINDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder")))
+				.putForced(IcariaTextureSlots.GRINDER_ENGINE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_engine")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.SUNSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "sunstone_bricks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void grinderShaft(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_shaft")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void grinderStone(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_stone")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.GRINDER_STONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_stone"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.GRINDER_STONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "grinder_stone")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void groundFlowers(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flowerbed_1")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flowerbed_2")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FLOWERS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flowerbed_3")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FLOWERS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "flowerbed_4")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FLOWERS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_4")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FLOWERBED, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.FLOWERS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "ground_flowers_stem")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void haliteCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_halite_crystal")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void herbHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_herb_holder")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_herb_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.HERB_HOLDER, IcariaModelProvider.blockFile(IcariaKeys.ID, "herb_holder"))
-				.putForced(IcariaTextureSlots.HERB_HOLDER_OVERLAY, IcariaModelProvider.blockFile(IcariaKeys.ID, "herb_holder_overlay"))
-				.putForced(IcariaTextureSlots.LEAVES, IcariaModelProvider.blockFile(pBlock, "herb_holder", "leaves"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "herb_holder", "planks"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "herb_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.HERB_HOLDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "herb_holder")))
+				.putForced(IcariaTextureSlots.HERB_HOLDER_OVERLAY, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "herb_holder_overlay")))
+				.putForced(IcariaTextureSlots.LEAVES, new Material(IcariaModelProvider.blockFile(pBlock, "herb_holder", "leaves")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "herb_holder", "planks")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "herb_holder", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void horizontalBars(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_horizontal_bars")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_horizontal_bars")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void horizontalPane(Block pName, Block pEdge, Block pPane, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_horizontal_pane")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_horizontal_pane")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pEdge)))
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void hutch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_hutch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "hutch", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "hutch", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "hutch", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "hutch", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "hutch", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "hutch", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "hutch", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "hutch", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void jasperCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_jasper_crystal")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kettle(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_inventory")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_lower")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood"))
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_upper")).renderType("translucent").build()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kettle_upper")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LAUREL_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kiln(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kiln_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.KILN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kiln_lower")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln"))
-				.putForced(IcariaTextureSlots.LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.KILN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln")))
+				.putForced(IcariaTextureSlots.LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "loam_bricks")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kiln_upper")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
-				.putForced(IcariaTextureSlots.KILN, IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln"))
-				.putForced(IcariaTextureSlots.LAUREL_PLANKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks"))
-				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.KILN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kiln")))
+				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "laurel_planks")))
+				.putForced(IcariaTextureSlots.YELLOWSTONE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellowstone_bricks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kitchenTable(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kitchen_table_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kitchen_table_head")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kitchen_table_foot")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kitchen_table", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kitchen_table", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kitchen_table", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void kline(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_inventory")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("white", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("white", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("light_gray", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("light_gray", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("gray", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("gray", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("black", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("black", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("brown", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("brown", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("red", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("red", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("orange", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("orange", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("yellow", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("yellow", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("lime", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("lime", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("green", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("green", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("cyan", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("cyan", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("light_blue", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("light_blue", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("blue", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("blue", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("purple", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("purple", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("magenta", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("magenta", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_head")).build()
 			.create(IcariaModelProvider.blockFile("pink", pBlock, "head"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_kline_foot")).build()
 			.create(IcariaModelProvider.blockFile("pink", pBlock, "foot"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block"))
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_mesh_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "kline", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block")))
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_MESH_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_mesh_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "kline", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "kline", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "kline", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void ladder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void largeBowls(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_large_bowls")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void largeBrownGroundShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_large_brown_ground_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_large_brown_ground_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_large_brown_ground_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void ligniteTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_lignite_torch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))
-				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TORCH_BONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")))
+				.putForced(IcariaTextureSlots.TORCH_COAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void ligniteWallTorch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_lignite_wall_torch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TORCH_BONE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))
-				.putForced(IcariaTextureSlots.TORCH_COAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal"))
-				.putForced(IcariaTextureSlots.TORCH_METAL, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TORCH_BONE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone")))
+				.putForced(IcariaTextureSlots.TORCH_COAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_coal")))
+				.putForced(IcariaTextureSlots.TORCH_METAL, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_metal")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "torch_bone"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void loadedBarrel(Block pLoadedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel")).build()
 			.create(IcariaModelProvider.blockFile(pLoadedBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_barrel")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pLoadedBarrel, "front")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_barrel")).build()
 			.create(IcariaModelProvider.blockFile("standing", pLoadedBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pLoadedBarrel, "front")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void lootVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_4")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_5")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_6")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_7")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_8")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "8"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_loot_vase_9")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "9"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "particle"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void mondanos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_mondanos")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void mortarCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_mortar_countertop")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_mortar_countertop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_block"))
-				.putForced(IcariaTextureSlots.LEAVES, IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "leaves"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "mortar_countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "mortar_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "chalkos_block")))
+				.putForced(IcariaTextureSlots.LEAVES, new Material(IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "leaves")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "mortar_countertop", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "mortar_countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "mortar_countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void moss(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_4")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_5")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_6")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_7")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_layer_8")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "8"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void mothAgaric(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_moth_agaric")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void namdrake(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_namdrake")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void oliveLeaves(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile("black", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile("black", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("black", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile("black", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("black", pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile("green", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile("green", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("green", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile("green", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("green", pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void overlayTextureBlock(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_block")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_block")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void overlayTextureCross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void overlayTextureFlowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_flower_pot_cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_flower_pot_cross")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pFile, "overlay")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void overlayTextureVine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_dead_vine")).build()
 			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("dead", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("dead", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("dead", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_overlay_texture_vine")).build()
 			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile("growing", pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile("growing", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile("growing", pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile("growing", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("growing", pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void palmFern(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_palm_fern")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_palm_fern")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pBlock, "overlay"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "overlay")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pBlock, "overlay")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void panHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pan_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "pan_holder", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "pan_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "pan_holder", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "pan_holder", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pane(Block pEdge, Block pPane, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pane_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_noside")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pEdge)))
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_noside")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "noside"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_noside_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_noside_alt")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "noside_alt"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_post")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_post")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "post"), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_side")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pEdge)))
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_side")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "side"), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_side_alt")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pEdge)))
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_glass_pane_side_alt")).build()
 			.create(IcariaModelProvider.blockFile(pEdge, "side_alt"), new TextureMapping()
-				.putForced(IcariaTextureSlots.EDGE, IcariaModelProvider.blockFile(pEdge))
-				.putForced(IcariaTextureSlots.PANE, IcariaModelProvider.blockFile(pPane))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPane)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.EDGE, new Material(IcariaModelProvider.blockFile(pEdge)))
+				.putForced(IcariaTextureSlots.PANE, new Material(IcariaModelProvider.blockFile(pPane)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void path(Block pPath, Block pBase, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "farmland")).build()
 			.create(IcariaModelProvider.blockFile(pPath), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(pBase))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pPath))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBase)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(pBase)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pPath)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBase))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void particle(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void physalisCrop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_0")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_1")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_1")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_2")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_2")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "2"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_3")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "2"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_3")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "3"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_4")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "3"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_physalis_crop_4")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "4"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "4")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "4")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "4"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void plates(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_plates")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void portal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_portal_x")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_portal_x")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "x"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_portal_z")).renderType("translucent").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_portal_z")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "z"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pot(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUM_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenum_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUM_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenum_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_countertop")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_countertop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.KETTLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, IcariaModelProvider.blockFile(IcariaKeys.ID, "mediterranean_water"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "pot_countertop", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "kettle")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "mediterranean_water")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "pot_countertop", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "pot_countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potFireplace(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_inventory")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_lower")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DROUGHTROOT_LOG, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "droughtroot_log")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_lower_lit")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "lower_lit"), new TextureMapping()
-				.putForced(IcariaTextureSlots.FIREWOOD, IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood"))
-				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SURFACE_CHERT, IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_upper")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "firewood")))
+				.putForced(IcariaTextureSlots.SMOOTH_CHALKOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_chalkos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_GRAINITE_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_grainite_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM_BRICKS, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SURFACE_CHERT, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "surface_chert")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_fireplace_upper")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "upper"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.VOIDSHALE, IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_SIDEROS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_sideros_block")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.VOIDSHALE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "voidshale")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam_bricks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pot_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "pot_holder", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "pot_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "pot_holder", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "pot_holder", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void potsCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_pots_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CUPBOARD, IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "cupboard"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "pots_cupboard", "log"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "pots_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "pots_cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CUPBOARD, new Material(IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "cupboard")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "pots_cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "pots_cupboard", "log")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "pots_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "pots_cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedBromelia(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_bromelia")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_bromelia")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pFile, "overlay")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedBrownGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_brown_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedCardonCactus(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_cardon_cactus")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.CACTUS, IcariaModelProvider.blockFile(pFile, "side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.CACTUS, new Material(IcariaModelProvider.blockFile(pFile, "side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedGreenGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_green_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedLargeBrownGroundShrooms(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_large_brown_ground_shrooms")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_ground_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pottedPalmFern(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_palm_fern")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_potted_palm_fern")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt"))
-				.putForced(IcariaTextureSlots.OVERLAY, IcariaModelProvider.blockFile(pFile, "overlay"))
-				.putForced(IcariaTextureSlots.FLOWER_POT, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "dirt")))
+				.putForced(IcariaTextureSlots.OVERLAY, new Material(IcariaModelProvider.blockFile(pFile, "overlay")))
+				.putForced(IcariaTextureSlots.FLOWER_POT, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")))
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pressurePlate(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "pressure_plate_up")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "pressure_plate_down")).build()
 			.create(IcariaModelProvider.blockFile(pName, "down"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void psilocybos(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_psilocybos")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_psilocybos")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void quartzPillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.MC, "chiseled_quartz_block_top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "chiseled_quartz_block_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head_inverted"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.MC, "chiseled_quartz_block_top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head_inverted")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "chiseled_quartz_block_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "quartz_pillar_head_inverted"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void quartzWall(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "wall_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_post")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "post"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_side")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_side_tall")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "side_tall"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "quartz_block_side"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void rack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName, "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile("loaded", pName, "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tapped_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pLoadedBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tapped_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile("tapped", pName, "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void raisedBasinsCountertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_raised_basins_countertop")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_raised_basins_countertop")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "log"))
-				.putForced(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "planks"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "raised_basins_countertop", "log"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "trapdoor"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "raised_basins_countertop", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "log")))
+				.putForced(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "planks")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "raised_basins_countertop", "log")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "raised_basins_countertop", "trapdoor")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "raised_basins_countertop", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void relicstonePillarHead(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_bottom_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inverted"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_top"))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_inverted"))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_inverted")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_top")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_inverted")))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "relicstone_pillar_head_inverted"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void rottenBoneLadder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "cracked"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "cracked"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "cracked")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "cracked")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "cracked"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "ladder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "damaged"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock, "damaged"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "damaged")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock, "damaged")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "damaged"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void rowan(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rowan")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rowan")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void rubble(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rubble_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rubble_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rubble_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rubble_3")).build()
 			.create(IcariaModelProvider.blockFile(pName, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_rubble_4")).build()
 			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void scrollshelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_column")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.NORTH, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.EAST, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
-				.putForced(IcariaTextureSlots.SOUTH, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.WEST, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
-				.putForced(IcariaTextureSlots.UP, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
-				.putForced(IcariaTextureSlots.DOWN, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.NORTH, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.EAST, new Material(IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")))
+				.putForced(IcariaTextureSlots.SOUTH, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.WEST, new Material(IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")))
+				.putForced(IcariaTextureSlots.UP, new Material(IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")))
+				.putForced(IcariaTextureSlots.DOWN, new Material(IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "scrollshelf", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void shelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_body")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_center")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "center"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_unconnected")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "unconnected"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_shelf_unpowered")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "unpowered"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "shelf", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void simpleRack(Block pName, Block pBarrel, Block pLoadedBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pLog)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pLog))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName, "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName, "simple", "simple_loaded", "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pLoadedBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_tapped_barrel_rack")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pLoadedBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_simple_tapped_barrel_rack")).build()
 			.create(IcariaModelProvider.blockFile(pName, "simple", "simple_tapped", "rack", "barrel_rack"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void slab(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "slab")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "slab_top")).build()
 			.create(IcariaModelProvider.blockFile(pName, "top"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void smallBowls(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_small_bowls")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_small_bowls")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, IcariaModelProvider.blockFile(IcariaKeys.ID, "mediterranean_water"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOAM, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block"))
-				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.MEDITERRANEAN_WATER, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "mediterranean_water")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOAM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molibos_block")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "smooth_loam"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void spoonHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_spoon_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "spoon_holder", "planks"))
-				.putForced(IcariaTextureSlots.TRAPDOOR, IcariaModelProvider.blockFile(pBlock, "spoon_holder", "trapdoor"))
-				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "spoon_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "spoon_holder", "planks")))
+				.putForced(IcariaTextureSlots.TRAPDOOR, new Material(IcariaModelProvider.blockFile(pBlock, "spoon_holder", "trapdoor")))
+				.putForced(IcariaTextureSlots.VANADIUMSTEEL_CHAIN, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "vanadiumsteel_chain")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "spoon_holder", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void stairs(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "stairs")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "inner_stairs")).build()
 			.create(IcariaModelProvider.blockFile(pName, "inner"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "outer_stairs")).build()
 			.create(IcariaModelProvider.blockFile(pName, "outer"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BOTTOM, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.TOP, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void stool(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("white", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("light_gray", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("gray", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("black", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("brown", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("red", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("orange", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("yellow", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("lime", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("green", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("cyan", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("light_blue", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("blue", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("purple", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("magenta", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stool")).build()
 			.create(IcariaModelProvider.blockFile("pink", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "stool", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void storageVase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_storage_vase")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.DARK, IcariaModelProvider.blockFile(pBlock, "dark"))
-				.putForced(IcariaTextureSlots.LITE, IcariaModelProvider.blockFile(pBlock, "lite"))
-				.putForced(IcariaTextureSlots.NECK, IcariaModelProvider.blockFile(pBlock, "neck"))
-				.putForced(IcariaTextureSlots.VASE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "dark")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.DARK, new Material(IcariaModelProvider.blockFile(pBlock, "dark")))
+				.putForced(IcariaTextureSlots.LITE, new Material(IcariaModelProvider.blockFile(pBlock, "lite")))
+				.putForced(IcariaTextureSlots.NECK, new Material(IcariaModelProvider.blockFile(pBlock, "neck")))
+				.putForced(IcariaTextureSlots.VASE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "dark"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void strawberryBush(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void strawberryCrop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_0")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_0"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_1")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_1"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_2")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_2"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_2")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_2"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_3")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_3"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_3")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_3"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_strawberry_bush")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
-				.putForced(IcariaTextureSlots.BUSH, IcariaModelProvider.blockFile(pBlock, "4"))
-				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, IcariaModelProvider.blockFile(pBlock, "horizontal_4"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "horizontal_4")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.BUSH, new Material(IcariaModelProvider.blockFile(pBlock, "4")))
+				.putForced(IcariaTextureSlots.BUSH_HORIZONTAL, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_4")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "horizontal_4"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void strippedDeadLog(Block pName, Block pStrippedLog, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_horizontal_0")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_horizontal_1")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_stripped_dead_log_horizontal_2")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal_2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pStrippedLog))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pStrippedLog, "top"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pStrippedLog)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pStrippedLog)))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pStrippedLog, "top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pStrippedLog))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void surfaceBones(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_surface_bones")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void surfaceChert(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_surface_chert")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void suspiciousSand(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "0"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "0")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock, "0")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "0"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "1"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "1")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock, "1")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "1"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "2"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "2")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock, "2")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "2"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_all")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ALL, IcariaModelProvider.blockFile(pBlock, "3"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "3")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(pBlock, "3")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "3"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void suspiciousSubstance(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_suspicious_substance_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite"))
-				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CALCITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite")))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_suspicious_substance_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite"))
-				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CALCITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite")))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_suspicious_substance_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite"))
-				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CALCITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite")))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_suspicious_substance_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.CALCITE, IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite"))
-				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CALCITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "calcite")))
+				.putForced(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.WHITE_CONCRETE_POWDER, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "white_concrete_powder"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tappedBarrel(Block pTappedBarrel, Block pBarrel, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tapped_barrel")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tapped_barrel")).build()
 			.create(IcariaModelProvider.blockFile(pTappedBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_tapped_barrel")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_standing_tapped_barrel")).build()
 			.create(IcariaModelProvider.blockFile("standing", pTappedBarrel), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tinderFungusTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tinder_fungus_tree_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tinder_fungus_tree_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_tinder_fungus_tree_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tintedCross(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "tinted_cross")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "tinted_cross")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.CROSS, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-	}
-
-	public static void tintedFlowerPotCross(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "tinted_flower_pot_cross")).renderType("cutout").build()
-			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.PLANT, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.MC, "flower_pot")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.CROSS, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void towelHolder(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("white", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "white_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("light_gray", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("gray", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "gray_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("black", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "black_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("brown", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "brown_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("red", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "red_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("orange", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "orange_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("yellow", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "yellow_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("lime", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "lime_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("green", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "green_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("cyan", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("light_blue", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "light_blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("blue", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "blue_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("purple", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "purple_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("magenta", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "magenta_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_towel_holder")).build()
 			.create(IcariaModelProvider.blockFile("pink", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ARACHNE_STRING_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "pink_arachne_string_block")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "towel_holder", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void trapdoor(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_bottom")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_bottom")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "bottom"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_open")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_open")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "open"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_top")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_orientable_trapdoor_top")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void tripleBarrelRack(Block pBlock, Block pBarrel, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_triple_barrel_rack_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_triple_barrel_rack_top_left")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_triple_barrel_rack_top_left")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_left"), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.BARREL_BACK, IcariaModelProvider.blockFile(pBarrel, "back"))
-				.putForced(IcariaTextureSlots.BARREL_FRONT, IcariaModelProvider.blockFile(pBarrel, "front"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_triple_barrel_rack_top_right")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.BARREL_BACK, new Material(IcariaModelProvider.blockFile(pBarrel, "back")))
+				.putForced(IcariaTextureSlots.BARREL_FRONT, new Material(IcariaModelProvider.blockFile(pBarrel, "front")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_triple_barrel_rack_top_right")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "top_right"), new TextureMapping()
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void trough(Block pName, Block pLog, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_trough")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.ANVIL, IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil"))
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pLog))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pPlanks))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pPlanks)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.ANVIL, new Material(IcariaModelProvider.blockFile(IcariaKeys.MC, "anvil")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pLog)))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pPlanks)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPlanks))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void turkeyTailTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_turkey_tail_tree_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_turkey_tail_tree_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_turkey_tail_tree_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void twigs(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_twigs_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_twigs_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_twigs_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_twigs_3")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_twigs_4")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void unnamedTreeShrooms(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_unnamed_tree_shrooms_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_unnamed_tree_shrooms_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_unnamed_tree_shrooms_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.SHROOM, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.STEM, IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.SHROOM, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.STEM, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "stem_tree_shrooms")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void vase(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_0")).renderType("translucent").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
-				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block"))
-				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_1")).renderType("translucent").build()
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block")))
+				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
-				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block"))
-				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_2")).renderType("translucent").build()
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block")))
+				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
-				.putForced(IcariaTextureSlots.HALITE_BLOCK, IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block"))
-				.putForced(IcariaTextureSlots.LOOT_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.HALITE_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "halite_block")))
+				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void vaseCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_vase_cupboard")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "vase_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "vase_cupboard", "planks"))
-				.putForced(IcariaTextureSlots.SMOOTH_LOG, IcariaModelProvider.blockFile("smooth", pBlock, "vase_cupboard", "log"))
-				.putForced(IcariaTextureSlots.STORAGE_VASE, IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase"))
-				.putForced(IcariaTextureSlots.STORAGE_VASE_DARK, IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_dark"))
-				.putForced(IcariaTextureSlots.STORAGE_VASE_LITE, IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_lite"))
-				.putForced(IcariaTextureSlots.STORAGE_VASE_NECK, IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_neck"))
-				.putForced(IcariaTextureSlots.STRIPPED_LOG, IcariaModelProvider.blockFile("stripped", pBlock, "vase_cupboard", "log"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("smooth", pBlock, "vase_cupboard", "log")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "vase_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "vase_cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "vase_cupboard", "log")))
+				.putForced(IcariaTextureSlots.STORAGE_VASE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase")))
+				.putForced(IcariaTextureSlots.STORAGE_VASE_DARK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_dark")))
+				.putForced(IcariaTextureSlots.STORAGE_VASE_LITE, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_lite")))
+				.putForced(IcariaTextureSlots.STORAGE_VASE_NECK, new Material(IcariaModelProvider.blockFile(IcariaKeys.ID, "storage_vase_neck")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "vase_cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pBlock, "vase_cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void vine(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).renderType("cutout").build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.VINE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).build()
 			.create(IcariaModelProvider.blockFile("dead", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile("dead", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("dead", pBlock)), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).renderType("cutout").build()
+				.putForced(IcariaTextureSlots.VINE, new Material(IcariaModelProvider.blockFile("dead", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("dead", pBlock))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "vine")).build()
 			.create(IcariaModelProvider.blockFile("growing", pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.VINE, IcariaModelProvider.blockFile("growing", pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile("growing", pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.VINE, new Material(IcariaModelProvider.blockFile("growing", pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("growing", pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void wall(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "wall_inventory")).build()
 			.create(IcariaModelProvider.blockFile(pName, "inventory"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_post")).build()
 			.create(IcariaModelProvider.blockFile(pName, "post"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_side")).build()
 			.create(IcariaModelProvider.blockFile(pName, "side"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "template_wall_side_tall")).build()
 			.create(IcariaModelProvider.blockFile(pName, "side_tall"), new TextureMapping()
-				.putForced(IcariaTextureSlots.WALL, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.WALL, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void wallHutch(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_wall_hutch")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_wall_hutch_multi")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "multi"), new TextureMapping()
-				.putForced(IcariaTextureSlots.LOG, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log"))
-				.putForced(IcariaTextureSlots.LOG_TOP, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log_top"))
-				.putForced(IcariaTextureSlots.PLANKS, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks"))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks")), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "log_top")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock, "wall_hutch", "planks"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void water(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void wiltedElm(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_wilted_elm")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void wood(Block pName, Block pFile, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_column")).build()
 			.create(IcariaModelProvider.blockFile(pName), new TextureMapping()
-				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.END, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "cube_column_horizontal")).build()
 			.create(IcariaModelProvider.blockFile(pName, "horizontal"), new TextureMapping()
-				.putForced(IcariaTextureSlots.END, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.SIDE, IcariaModelProvider.blockFile(pFile))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pFile)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.END, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pFile)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void zirconCrystal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_zircon_crystal")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.TEXTURE, IcariaModelProvider.blockFile(pBlock))
-				.putForced(IcariaTextureSlots.PARTICLE, IcariaModelProvider.blockFile(pBlock)), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pBlock)))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void amphoraModel(BlockModelGenerators pBlockModelGenerators) {
@@ -6156,6 +6145,13 @@ public class IcariaBlockModelProvider {
 
 	public static void grinderStoneModel(BlockModelGenerators pBlockModelGenerators) {
 		GrinderStoneModel.template().create(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_grinder_stone"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void groundFlowersModel(BlockModelGenerators pBlockModelGenerators) {
+		GroundFlowersModel.template1().create(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GroundFlowersModel.template2().create(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GroundFlowersModel.template3().create(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		GroundFlowersModel.template4().create(IcariaModelProvider.blockFile(IcariaKeys.ID, "template_ground_flowers_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void haliteCrystalModel(BlockModelGenerators pBlockModelGenerators) {

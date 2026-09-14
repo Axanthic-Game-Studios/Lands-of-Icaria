@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_physalis_crop_2",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/physalis_crop_2",
     "texture": "landsoficaria:block/physalis_crop_2"

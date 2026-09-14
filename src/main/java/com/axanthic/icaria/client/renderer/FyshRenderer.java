@@ -28,8 +28,8 @@ public class FyshRenderer extends MobRenderer<FyshEntity, FyshRenderState, FyshM
 	}
 
 	@Override
-	public void extractRenderState(FyshEntity pEntity, FyshRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(FyshEntity pEntity, FyshRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.id = pEntity.getId();
@@ -43,7 +43,7 @@ public class FyshRenderer extends MobRenderer<FyshEntity, FyshRenderState, FyshM
 
 	@Override
 	public Identifier getTextureLocation(FyshRenderState pRenderState) {
-		return pRenderState.fyshVariant.value().clientAsset().texturePath();
+		return pRenderState.fyshVariant.value().resourceTexture().texturePath();
 	}
 
 	@Override

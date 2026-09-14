@@ -25,7 +25,7 @@ public class CivilianRevenantEntity extends RevenantEntity {
 	}
 
 	@Override
-	public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+	public boolean removeWhenFarAway(double pDistSqr) {
 		return false;
 	}
 

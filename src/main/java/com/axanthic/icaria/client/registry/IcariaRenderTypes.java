@@ -14,6 +14,8 @@ import net.minecraft.client.renderer.rendertype.RenderTypes;
 @ParametersAreNonnullByDefault
 
 public class IcariaRenderTypes {
+	public static final RenderType ADDITIVE = RenderType.create("additive", RenderSetup.builder(IcariaRenderPipelines.ADDITIVE).createRenderSetup());
+	public static final RenderType ADDITIVE_TEXTURED = RenderType.create("additive_textured", RenderSetup.builder(IcariaRenderPipelines.ADDITIVE_TEXTURED).withTexture("Texture", IcariaIdentifiers.SPELL).createRenderSetup());
 	public static final RenderType ARACHNE_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.ARACHNE_EMISSIVE);
 	public static final RenderType ARACHNE_DRONE_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.ARACHNE_DRONE_EMISSIVE);
 	public static final RenderType ARGAN_HOUND_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.ARGAN_HOUND_EMISSIVE);
@@ -48,7 +50,4 @@ public class IcariaRenderTypes {
 	public static final RenderType SNULL_SANS = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SNULL_SANS);
 	public static final RenderType SOLIFUGAE_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SOLIFUGAE_EMISSIVE);
 	public static final RenderType VINEGAROON_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.VINEGAROON_EMISSIVE);
-
-	public static final RenderType ADDITIVE = RenderType.create("additive", RenderSetup.builder(IcariaRenderPipelines.ADDITIVE).createRenderSetup());
-	public static final RenderType ADDITIVE_TEXTURED = RenderType.create("additive_textured", RenderSetup.builder(IcariaRenderPipelines.ADDITIVE_TEXTURED).withTexture("Texture", IcariaIdentifiers.SPELL).createRenderSetup());
 }

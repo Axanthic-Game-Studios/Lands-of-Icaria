@@ -25,8 +25,8 @@ public class ScorpionRenderer extends MobRenderer<ScorpionEntity, ScorpionRender
 	}
 
 	@Override
-	public void extractRenderState(ScorpionEntity pEntity, ScorpionRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ScorpionEntity pEntity, ScorpionRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 		pRenderState.livingEntity = pEntity;
 	}

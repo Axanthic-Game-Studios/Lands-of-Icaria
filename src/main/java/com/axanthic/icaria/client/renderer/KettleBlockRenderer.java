@@ -16,13 +16,14 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.data.AtlasIds;
@@ -43,8 +44,8 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 	}
 
 	@Override
-	public void extractRenderState(KettleBlockEntity pBlockEntity, KettleBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
+	public void extractRenderState(KettleBlockEntity pBlockEntity, KettleBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
 		pRenderState.color = pBlockEntity.color;
 		pRenderState.maxProgress = pBlockEntity.maxProgress;
 		pRenderState.progress = pBlockEntity.progress;
@@ -71,7 +72,7 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 
 		var textureAtlas = Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS);
 
-		if (level != null && doubleBlockHalf == DoubleBlockHalf.LOWER && kettle != Kettle.EMPTY) {
+		if (level instanceof BlockAndTintGetter blockAndTintGetter && doubleBlockHalf == DoubleBlockHalf.LOWER && kettle != Kettle.EMPTY) {
 			var time = level.getGameTime();
 
 			var angle = 25.0F;
@@ -82,7 +83,7 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 			var yLevel = 0.5625F;
 			var yRange = 0.04375F;
 
-			var colour = BiomeColors.getAverageWaterColor(level, blockPos);
+			var colour = BiomeColors.getAverageWaterColor(blockAndTintGetter, blockPos);
 
 			var r = this.getColour(kettle, pRenderState, colour, 16);
 			var g = this.getColour(kettle, pRenderState, colour, 8);
@@ -92,7 +93,7 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 
 			var sprite = this.getSprite(kettle, textureAtlas);
 
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, Sheets.translucentItemSheet(), (pose, vertexConsumer) -> IcariaClientHelper.submitSprite(vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, 0, 0.25F, 0.75F, 0.25F, 0.75F, 0.25F, 0.75F, 0.125F, 0.625F, y, r, g, b, 1.0F));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.translucentMovingBlock(), (pose, vertexConsumer) -> IcariaClientHelper.submitSprite(vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, 0, 0.25F, 0.75F, 0.25F, 0.75F, 0.25F, 0.75F, 0.125F, 0.625F, y, r, g, b, 1.0F));
 
 			IcariaClientHelper.submitItem(pSubmitNodeCollector, pPoseStack, pRenderState.intakeA, direction, pRenderState.lightCoords, 0.5F + Mth.cos(time * speed) * range, 0.5F - Mth.cos(time * speed) * range, yLevel + Mth.sin(time * speed) * yRange, 0.34375F - Mth.sin(time * speed) * range, 0.65625F + Mth.sin(time * speed) * range, Mth.sin(time * speed) * angle, time, Mth.cos(time * speed) * angle, scale, scale, scale);
 			IcariaClientHelper.submitItem(pSubmitNodeCollector, pPoseStack, pRenderState.intakeB, direction, pRenderState.lightCoords, 0.5F + Mth.cos(time * speed + 7.5F) * range, 0.5F - Mth.cos(time * speed + 7.5F) * range, yLevel + Mth.sin(time * speed + 7.5F) * yRange, 0.34375F - Mth.sin(time * speed + 7.5F) * range, 0.65625F + Mth.sin(time * speed + 7.5F) * range, Mth.sin(time * speed + 45.0F) * angle, time + 45.0F, Mth.cos(time * speed + 45.0F) * angle, scale, scale, scale);

@@ -1,9 +1,8 @@
 {
   "parent": "landsoficaria:block/template_palm_fern",
-  "render_type": "minecraft:cutout",
   "textures": {
     "overlay": "landsoficaria:block/palm_fern_overlay",
-    "particle": "landsoficaria:block/palm_fern_overlay",
+    "particle": "landsoficaria:block/palm_fern",
     "texture": "landsoficaria:block/palm_fern"
   }
 }

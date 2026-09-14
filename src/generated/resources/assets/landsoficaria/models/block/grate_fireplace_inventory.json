@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_grate_fireplace_inventory",
-  "render_type": "minecraft:cutout",
   "textures": {
     "chalkos_mesh_block": "landsoficaria:block/chalkos_mesh_block",
     "droughtroot_log": "landsoficaria:block/droughtroot_log",

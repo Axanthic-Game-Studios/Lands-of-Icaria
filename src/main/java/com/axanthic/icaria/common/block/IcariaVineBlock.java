@@ -129,7 +129,7 @@ public class IcariaVineBlock extends Block {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		if (pBlockState.is(IcariaBlocks.THORNY_VINE.get())) {
 			IcariaCommonHelper.hurt(pLevel.damageSources().cactus(), pEntity, 1.0F);
 		}
@@ -298,7 +298,7 @@ public class IcariaVineBlock extends Block {
 	@Nullable
 	@Override
 	public PathType getBlockPathType(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, @Nullable Mob pMob) {
-		return pBlockState.is(IcariaBlocks.THORNY_VINE.get()) ? PathType.DAMAGE_OTHER : super.getBlockPathType(pBlockState, pBlockGetter, pBlockPos, pMob);
+		return pBlockState.is(IcariaBlocks.THORNY_VINE.get()) ? PathType.DAMAGING : super.getBlockPathType(pBlockState, pBlockGetter, pBlockPos, pMob);
 	}
 
 	public static VoxelShape calculateShape(BlockState pBlockState) {

@@ -1,0 +1,12 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 12366506,
+  "ingredient": [
+    "landsoficaria:namdrake",
+    "landsoficaria:dathulla"
+  ],
+  "result": {
+    "id": "landsoficaria:bone_remains"
+  },
+  "time": 200
+}

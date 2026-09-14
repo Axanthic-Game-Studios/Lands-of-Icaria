@@ -1,0 +1,13 @@
+{
+  "type": "landsoficaria:item_concocting",
+  "colour": 33023,
+  "ingredient": [
+    "landsoficaria:mondanos",
+    "landsoficaria:bolbos",
+    "landsoficaria:psilocybos"
+  ],
+  "result": {
+    "id": "landsoficaria:bubble_spell"
+  },
+  "time": 200
+}

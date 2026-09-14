@@ -224,7 +224,7 @@ public class FireplaceBlockEntity extends BlockEntity {
 
 	public ItemStack getResult(ServerLevel pServerLevel) {
 		if (this.getRecipe(pServerLevel).isPresent()) {
-			return this.getRecipe(pServerLevel).get().value().result();
+			return this.getRecipe(pServerLevel).get().value().result().create();
 		} else {
 			return ItemStack.EMPTY;
 		}

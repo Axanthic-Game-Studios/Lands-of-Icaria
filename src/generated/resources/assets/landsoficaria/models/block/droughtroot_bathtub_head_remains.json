@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_bathtub_head_remains",
-  "render_type": "minecraft:cutout",
   "textures": {
     "log": "landsoficaria:block/droughtroot_log",
     "particle": "landsoficaria:block/droughtroot_planks",

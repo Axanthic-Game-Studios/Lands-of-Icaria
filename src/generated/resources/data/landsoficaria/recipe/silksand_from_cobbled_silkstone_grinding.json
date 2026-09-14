@@ -4,7 +4,6 @@
   "gear": "landsoficaria:yellowstone_gear",
   "ingredient": "landsoficaria:cobbled_silkstone",
   "result": {
-    "count": 1,
     "id": "landsoficaria:silksand"
   },
   "time": 200

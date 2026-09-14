@@ -17,7 +17,7 @@ import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemDisplayContext;
 
@@ -32,9 +32,9 @@ public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, 
 	}
 
 	@Override
-	public void extractRenderState(CrawlerRevenantEntity pEntity, CrawlerRevenantRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTick);
+	public void extractRenderState(CrawlerRevenantEntity pEntity, CrawlerRevenantRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
+		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
 		pRenderState.shadowStrength = pEntity.getShadowStrength();
 		pRenderState.id = pEntity.getId();
 		pRenderState.maxTick = pEntity.maxTick;

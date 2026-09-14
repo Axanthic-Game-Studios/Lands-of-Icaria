@@ -3,7 +3,6 @@
   "experience": 0.2,
   "ingredient": "minecraft:sand",
   "result": {
-    "count": 1,
     "id": "minecraft:glass"
   },
   "time": 200

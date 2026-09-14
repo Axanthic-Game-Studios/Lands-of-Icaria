@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.util.RandomSource;
 
 import org.joml.Matrix4f;
@@ -28,8 +28,8 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity, Bubbl
 	}
 
 	@Override
-	public void extractRenderState(BubbleSpellEntity pEntity, BubbleSpellRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(BubbleSpellEntity pEntity, BubbleSpellRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.id = pEntity.getId();
 	}
 

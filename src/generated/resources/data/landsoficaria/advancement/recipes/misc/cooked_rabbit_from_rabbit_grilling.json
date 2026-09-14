@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_minecraft:rabbit": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:rabbit"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:cooked_rabbit_from_rabbit_grilling"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_minecraft:rabbit"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:cooked_rabbit_from_rabbit_grilling"
+    ]
+  }
+}

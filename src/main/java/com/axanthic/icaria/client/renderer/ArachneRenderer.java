@@ -25,8 +25,8 @@ public class ArachneRenderer extends MobRenderer<ArachneEntity, ArachneRenderSta
 	}
 
 	@Override
-	public void extractRenderState(ArachneEntity pEntity, ArachneRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ArachneEntity pEntity, ArachneRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 		pRenderState.livingEntity = pEntity;
 	}

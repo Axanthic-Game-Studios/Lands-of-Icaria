@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:baetyl",
+  "result": {
+    "id": "landsoficaria:cobbled_baetyl_wall"
+  }
+}

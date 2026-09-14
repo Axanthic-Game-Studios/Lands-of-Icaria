@@ -32,7 +32,7 @@ public class GroundShroomBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pPpBlockPoss) {
 		var blockState = pLevelReader.getBlockState(pPpBlockPoss.below());
-		return blockState.is(BlockTags.MUSHROOM_GROW_BLOCK) || blockState.isSolidRender() && pLevelReader.getRawBrightness(pPpBlockPoss, 0) <= 12;
+		return blockState.is(BlockTags.OVERRIDES_MUSHROOM_LIGHT_REQUIREMENT) || blockState.isSolidRender() && pLevelReader.getRawBrightness(pPpBlockPoss, 0) <= 12;
 	}
 
 	@Override

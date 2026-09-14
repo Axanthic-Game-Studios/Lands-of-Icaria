@@ -258,8 +258,8 @@ public class IcariaChestBlockEntity extends ChestBlockEntity {
 	}
 
 	@Override
-	public AbstractContainerMenu createMenu(int pId, Inventory pInventory) {
-		return new ChestMenu(MenuType.GENERIC_9x2, pId, pInventory, this, 2);
+	public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory) {
+		return new ChestMenu(MenuType.GENERIC_9x2, pContainerId, pInventory, this, 2);
 	}
 
 	@Override

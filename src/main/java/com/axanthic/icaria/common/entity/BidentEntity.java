@@ -57,7 +57,7 @@ public class BidentEntity extends AbstractArrow {
 	}
 
 	@Override
-	public boolean shouldRender(double pX, double pY, double pZ) {
+	public boolean shouldRender(double pCamX, double pCamY, double pCamZ) {
 		return true;
 	}
 

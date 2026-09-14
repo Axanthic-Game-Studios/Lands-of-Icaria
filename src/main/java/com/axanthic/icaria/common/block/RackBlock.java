@@ -209,7 +209,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
-			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"), true);
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"));
 			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, this.getRenderState(pBlockState));
 			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), this.getRenderState(pBlockState)));

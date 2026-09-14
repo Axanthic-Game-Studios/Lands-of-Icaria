@@ -7,14 +7,20 @@ import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.core.HolderLookup;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.item.crafting.display.RecipeDisplay;
 import net.minecraft.world.item.crafting.display.SlotDisplay;
@@ -30,9 +36,26 @@ public class FiringRecipe implements Recipe<RecipeInput> {
 
 	public Ingredient ingredient;
 
-	public ItemStack result;
+	public ItemStackTemplate result;
 
-	public FiringRecipe(float pExperience, int pTime, Ingredient pIngredient, ItemStack pResult) {
+	public static final MapCodec<FiringRecipe> CODEC = RecordCodecBuilder.mapCodec(instance ->
+		instance.group(
+			Codec.FLOAT.fieldOf("experience").forGetter(FiringRecipe::experience),
+			Codec.INT.fieldOf("time").forGetter(FiringRecipe::time),
+			Ingredient.CODEC.fieldOf("ingredient").forGetter(FiringRecipe::ingredient),
+			ItemStackTemplate.CODEC.fieldOf("result").forGetter(FiringRecipe::result)
+		).apply(instance, FiringRecipe::new)
+	);
+
+	public static final StreamCodec<RegistryFriendlyByteBuf, FiringRecipe> STREAM_CODEC = StreamCodec.composite(
+		ByteBufCodecs.FLOAT, FiringRecipe::experience,
+		ByteBufCodecs.INT, FiringRecipe::time,
+		Ingredient.CONTENTS_STREAM_CODEC, FiringRecipe::ingredient,
+		ItemStackTemplate.STREAM_CODEC, FiringRecipe::result,
+		FiringRecipe::new
+	);
+
+	public FiringRecipe(float pExperience, int pTime, Ingredient pIngredient, ItemStackTemplate pResult) {
 		this.experience = pExperience;
 		this.time = pTime;
 		this.ingredient = pIngredient;
@@ -42,6 +65,11 @@ public class FiringRecipe implements Recipe<RecipeInput> {
 	@Override
 	public boolean matches(RecipeInput pRecipeInput, Level pLevel) {
 		return this.ingredient().test(pRecipeInput.getItem(0));
+	}
+
+	@Override
+	public boolean showNotification() {
+		return false;
 	}
 
 	public float experience() {
@@ -61,11 +89,11 @@ public class FiringRecipe implements Recipe<RecipeInput> {
 	}
 
 	@Override
-	public ItemStack assemble(RecipeInput pRecipeInput, HolderLookup.Provider pProvider) {
-		return this.result().copy();
+	public ItemStack assemble(RecipeInput pRecipeInput) {
+		return this.result.create();
 	}
 
-	public ItemStack result() {
+	public ItemStackTemplate result() {
 		return this.result;
 	}
 
@@ -92,5 +120,10 @@ public class FiringRecipe implements Recipe<RecipeInput> {
 	@Override
 	public RecipeType<? extends Recipe<RecipeInput>> getType() {
 		return IcariaRecipeTypes.FIRING.get();
+	}
+
+	@Override
+	public String group() {
+		return "";
 	}
 }

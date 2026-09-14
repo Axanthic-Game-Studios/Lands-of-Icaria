@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fysh/rainbow",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_rainbow_fysh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fysh/rainbow"
 }

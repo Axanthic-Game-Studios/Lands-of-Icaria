@@ -1,6 +1,5 @@
 {
-  "parent": "minecraft:block/chain",
-  "render_type": "minecraft:cutout",
+  "parent": "minecraft:block/template_chain",
   "textures": {
     "all": "landsoficaria:block/vanadiumsteel_chain",
     "particle": "landsoficaria:block/vanadiumsteel_chain"

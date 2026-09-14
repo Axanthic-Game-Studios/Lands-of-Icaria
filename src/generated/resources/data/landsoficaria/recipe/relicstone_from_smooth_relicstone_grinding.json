@@ -4,7 +4,6 @@
   "gear": "landsoficaria:vanadium_gear",
   "ingredient": "landsoficaria:smooth_relicstone",
   "result": {
-    "count": 1,
     "id": "landsoficaria:relicstone"
   },
   "time": 200

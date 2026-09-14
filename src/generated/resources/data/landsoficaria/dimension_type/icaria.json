@@ -6,6 +6,7 @@
       "can_sleep": "never",
       "explodes": true
     },
+    "minecraft:visual/ambient_light_color": "#0a0a0a",
     "minecraft:visual/cloud_color": "#ccffffff",
     "minecraft:visual/cloud_height": 224.0,
     "minecraft:visual/fog_color": "#dccd72",
@@ -13,7 +14,9 @@
     "neoforge:custom_skybox": "landsoficaria:icaria"
   },
   "coordinate_scale": 1.0,
+  "default_clock": "minecraft:overworld",
   "has_ceiling": false,
+  "has_ender_dragon_fight": false,
   "has_skylight": true,
   "height": 384,
   "infiniburn": "#minecraft:infiniburn_overworld",

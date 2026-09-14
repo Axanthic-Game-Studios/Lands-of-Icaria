@@ -25,12 +25,12 @@ public class DamagingBushBlock extends IcariaBushBlock {
 	}
 
 	@Override
-	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIntersects) {
+	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		IcariaCommonHelper.hurt(pLevel.damageSources().cactus(), pEntity, 1.0F);
 	}
 
 	@Override
 	public PathType getBlockPathType(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, @Nullable Mob pMob) {
-		return PathType.DAMAGE_OTHER;
+		return PathType.DAMAGING;
 	}
 }

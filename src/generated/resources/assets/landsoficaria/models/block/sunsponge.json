@@ -1,9 +1,8 @@
 {
   "parent": "landsoficaria:block/template_overlay_texture_cross",
-  "render_type": "minecraft:cutout",
   "textures": {
     "overlay": "landsoficaria:block/sunsponge_overlay",
-    "particle": "landsoficaria:block/sunsponge_overlay",
+    "particle": "landsoficaria:block/sunsponge",
     "texture": "landsoficaria:block/sunsponge"
   }
 }

@@ -38,7 +38,7 @@ public class KilnSlot extends ResourceHandlerSlot {
 	}
 
 	@Override
-	public void onQuickCraft(ItemStack pItemStack, int pAmount) {
+	public void onQuickCraft(ItemStack pItemStack, int pCount) {
 		this.checkTakeAchievements(pItemStack);
 		this.setChanged();
 	}

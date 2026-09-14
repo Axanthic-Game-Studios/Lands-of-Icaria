@@ -33,13 +33,13 @@ public class FireJellyfishRenderer extends MobRenderer<FireJellyfishEntity, Fire
 	}
 
 	@Override
-	public void extractRenderState(FireJellyfishEntity pEntity, FireJellyfishRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(FireJellyfishEntity pEntity, FireJellyfishRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
-		pRenderState.tentacleAngle = Mth.lerp(pPartialTick, pEntity.tentacleAngleOld, pEntity.tentacleAngle);
-		pRenderState.xBodyRot = Mth.lerp(pPartialTick, pEntity.xBodyRotOld, pEntity.xBodyRot);
-		pRenderState.zBodyRot = Mth.lerp(pPartialTick, pEntity.zBodyRotOld, pEntity.zBodyRot);
+		pRenderState.tentacleAngle = Mth.lerp(pPartialTicks, pEntity.tentacleAngleOld, pEntity.tentacleAngle);
+		pRenderState.xBodyRot = Mth.lerp(pPartialTicks, pEntity.xBodyRotOld, pEntity.xBodyRot);
+		pRenderState.zBodyRot = Mth.lerp(pPartialTicks, pEntity.zBodyRotOld, pEntity.zBodyRot);
 		pRenderState.livingEntity = pEntity;
 	}
 
@@ -49,8 +49,8 @@ public class FireJellyfishRenderer extends MobRenderer<FireJellyfishEntity, Fire
 	}
 
 	@Override
-	public void setupRotations(FireJellyfishRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pScale) {
-		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pScale);
+	public void setupRotations(FireJellyfishRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pEntityScale) {
+		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		pPoseStack.translate(0.0F, pRenderState.renderScale * 0.5F, 0.0F);
 		pPoseStack.mulPose(Axis.XP.rotationDegrees(pRenderState.xBodyRot));
 		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.zBodyRot));

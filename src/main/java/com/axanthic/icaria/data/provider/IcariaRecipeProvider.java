@@ -24,10 +24,12 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 
@@ -80,7 +82,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.fenceGate();
 		this.gear();
 		this.hangingSign();
-		this.harness();
 		this.helmet();
 		this.hutch();
 		this.kitchenTable();
@@ -100,7 +101,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.torch();
 		this.trough();
 		this.arrow();
-		this.bundle();
 		this.coarseMarl();
 		this.comparator();
 		this.crafter();
@@ -111,7 +111,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.kettle();
 		this.painting();
 		this.repeater();
-		this.saddle();
 		this.stickyPiston();
 		this.stonecutter();
 		this.target();
@@ -122,7 +121,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.mossy();
 		this.planks();
 		this.stew();
-		this.book();
 		this.fireCharge();
 		this.fruitSalad();
 		this.magmaCream();
@@ -279,9 +277,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stonecutting(1, IcariaItems.YELLOWSTONE_ADOBE_STAIRS.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
 		this.stonecutting(2, IcariaItems.YELLOWSTONE_ADOBE_SLAB.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
 		this.stonecutting(1, IcariaItems.YELLOWSTONE_ADOBE_WALL.get(), IcariaItems.YELLOWSTONE_ADOBE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_YELLOWSTONE.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_YELLOWSTONE_STAIRS.get(), IcariaItems.COBBLED_YELLOWSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_YELLOWSTONE_STAIRS.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(2, IcariaItems.COBBLED_YELLOWSTONE_SLAB.get(), IcariaItems.COBBLED_YELLOWSTONE.get());
+		this.stonecutting(2, IcariaItems.COBBLED_YELLOWSTONE_SLAB.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_YELLOWSTONE_WALL.get(), IcariaItems.COBBLED_YELLOWSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_YELLOWSTONE_WALL.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(1, IcariaItems.YELLOWSTONE_STAIRS.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(2, IcariaItems.YELLOWSTONE_SLAB.get(), IcariaItems.YELLOWSTONE.get());
 		this.stonecutting(1, IcariaItems.YELLOWSTONE_WALL.get(), IcariaItems.YELLOWSTONE.get());
@@ -297,9 +299,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stonecutting(1, IcariaItems.SILKSTONE_ADOBE_STAIRS.get(), IcariaItems.SILKSTONE_ADOBE.get());
 		this.stonecutting(2, IcariaItems.SILKSTONE_ADOBE_SLAB.get(), IcariaItems.SILKSTONE_ADOBE.get());
 		this.stonecutting(1, IcariaItems.SILKSTONE_ADOBE_WALL.get(), IcariaItems.SILKSTONE_ADOBE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SILKSTONE.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_SILKSTONE_STAIRS.get(), IcariaItems.COBBLED_SILKSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SILKSTONE_STAIRS.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(2, IcariaItems.COBBLED_SILKSTONE_SLAB.get(), IcariaItems.COBBLED_SILKSTONE.get());
+		this.stonecutting(2, IcariaItems.COBBLED_SILKSTONE_SLAB.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_SILKSTONE_WALL.get(), IcariaItems.COBBLED_SILKSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SILKSTONE_WALL.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(1, IcariaItems.SILKSTONE_STAIRS.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(2, IcariaItems.SILKSTONE_SLAB.get(), IcariaItems.SILKSTONE.get());
 		this.stonecutting(1, IcariaItems.SILKSTONE_WALL.get(), IcariaItems.SILKSTONE.get());
@@ -315,9 +321,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stonecutting(1, IcariaItems.SUNSTONE_ADOBE_STAIRS.get(), IcariaItems.SUNSTONE_ADOBE.get());
 		this.stonecutting(2, IcariaItems.SUNSTONE_ADOBE_SLAB.get(), IcariaItems.SUNSTONE_ADOBE.get());
 		this.stonecutting(1, IcariaItems.SUNSTONE_ADOBE_WALL.get(), IcariaItems.SUNSTONE_ADOBE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SUNSTONE.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_SUNSTONE_STAIRS.get(), IcariaItems.COBBLED_SUNSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SUNSTONE_STAIRS.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(2, IcariaItems.COBBLED_SUNSTONE_SLAB.get(), IcariaItems.COBBLED_SUNSTONE.get());
+		this.stonecutting(2, IcariaItems.COBBLED_SUNSTONE_SLAB.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_SUNSTONE_WALL.get(), IcariaItems.COBBLED_SUNSTONE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_SUNSTONE_WALL.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(1, IcariaItems.SUNSTONE_STAIRS.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(2, IcariaItems.SUNSTONE_SLAB.get(), IcariaItems.SUNSTONE.get());
 		this.stonecutting(1, IcariaItems.SUNSTONE_WALL.get(), IcariaItems.SUNSTONE.get());
@@ -333,9 +343,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stonecutting(1, IcariaItems.VOIDSHALE_ADOBE_STAIRS.get(), IcariaItems.VOIDSHALE_ADOBE.get());
 		this.stonecutting(2, IcariaItems.VOIDSHALE_ADOBE_SLAB.get(), IcariaItems.VOIDSHALE_ADOBE.get());
 		this.stonecutting(1, IcariaItems.VOIDSHALE_ADOBE_WALL.get(), IcariaItems.VOIDSHALE_ADOBE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_VOIDSHALE.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_VOIDSHALE_STAIRS.get(), IcariaItems.COBBLED_VOIDSHALE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_VOIDSHALE_STAIRS.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(2, IcariaItems.COBBLED_VOIDSHALE_SLAB.get(), IcariaItems.COBBLED_VOIDSHALE.get());
+		this.stonecutting(2, IcariaItems.COBBLED_VOIDSHALE_SLAB.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(1, IcariaItems.COBBLED_VOIDSHALE_WALL.get(), IcariaItems.COBBLED_VOIDSHALE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_VOIDSHALE_WALL.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(1, IcariaItems.VOIDSHALE_STAIRS.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(2, IcariaItems.VOIDSHALE_SLAB.get(), IcariaItems.VOIDSHALE.get());
 		this.stonecutting(1, IcariaItems.VOIDSHALE_WALL.get(), IcariaItems.VOIDSHALE.get());
@@ -351,9 +365,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stonecutting(1, IcariaItems.BAETYL_ADOBE_STAIRS.get(), IcariaItems.BAETYL_ADOBE.get());
 		this.stonecutting(2, IcariaItems.BAETYL_ADOBE_SLAB.get(), IcariaItems.BAETYL_ADOBE.get());
 		this.stonecutting(1, IcariaItems.BAETYL_ADOBE_WALL.get(), IcariaItems.BAETYL_ADOBE.get());
+		this.stonecutting(1, IcariaItems.COBBLED_BAETYL.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(1, IcariaItems.COBBLED_BAETYL_STAIRS.get(), IcariaItems.COBBLED_BAETYL.get());
+		this.stonecutting(1, IcariaItems.COBBLED_BAETYL_STAIRS.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(2, IcariaItems.COBBLED_BAETYL_SLAB.get(), IcariaItems.COBBLED_BAETYL.get());
+		this.stonecutting(2, IcariaItems.COBBLED_BAETYL_SLAB.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(1, IcariaItems.COBBLED_BAETYL_WALL.get(), IcariaItems.COBBLED_BAETYL.get());
+		this.stonecutting(1, IcariaItems.COBBLED_BAETYL_WALL.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(1, IcariaItems.BAETYL_STAIRS.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(2, IcariaItems.BAETYL_SLAB.get(), IcariaItems.BAETYL.get());
 		this.stonecutting(1, IcariaItems.BAETYL_WALL.get(), IcariaItems.BAETYL.get());
@@ -825,6 +843,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.grinding(0.1F, 2, 200, Items.WHITE_DYE, IcariaItems.WHITE_BROMELIA.get(), IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 1, 200, Items.YELLOW_CONCRETE_POWDER, Items.YELLOW_CONCRETE, IcariaItems.VOIDSHALE_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, Items.DANDELION, IcariaItems.LOAM_GEAR.get());
+		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, Items.GOLDEN_DANDELION, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 4, 200, Items.YELLOW_DYE, Items.SUNFLOWER, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, Items.WILDFLOWERS, IcariaItems.LOAM_GEAR.get());
 		this.grinding(0.1F, 2, 200, Items.YELLOW_DYE, IcariaItems.YELLOW_STAGHORN.get(), IcariaItems.LOAM_GEAR.get());
@@ -1221,7 +1240,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void centerFilled() {
-		this.centerFilled(1, Items.ITEM_FRAME, Items.STICK, IcariaItems.AETERNAE_HIDE.get());
 		this.centerFilled(1, IcariaItems.GRINDER.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.ORICHALCUM_INGOT.get());
 	}
 
@@ -1284,25 +1302,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign(6, IcariaItems.OLIVE_HANGING_SIGN.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
 		this.hangingSign(6, IcariaItems.PLANE_HANGING_SIGN.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
 		this.hangingSign(6, IcariaItems.POPULUS_HANGING_SIGN.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
-	}
-
-	public void harness() {
-		this.harness(1, Items.WHITE_HARNESS, Items.WHITE_WOOL);
-		this.harness(1, Items.LIGHT_GRAY_HARNESS, Items.LIGHT_GRAY_WOOL);
-		this.harness(1, Items.GRAY_HARNESS, Items.GRAY_WOOL);
-		this.harness(1, Items.BLACK_HARNESS, Items.BLACK_WOOL);
-		this.harness(1, Items.BROWN_HARNESS, Items.BROWN_WOOL);
-		this.harness(1, Items.RED_HARNESS, Items.RED_WOOL);
-		this.harness(1, Items.ORANGE_HARNESS, Items.ORANGE_WOOL);
-		this.harness(1, Items.YELLOW_HARNESS, Items.YELLOW_WOOL);
-		this.harness(1, Items.LIME_HARNESS, Items.LIME_WOOL);
-		this.harness(1, Items.GREEN_HARNESS, Items.GREEN_WOOL);
-		this.harness(1, Items.CYAN_HARNESS, Items.CYAN_WOOL);
-		this.harness(1, Items.LIGHT_BLUE_HARNESS, Items.LIGHT_BLUE_WOOL);
-		this.harness(1, Items.BLUE_HARNESS, Items.BLUE_WOOL);
-		this.harness(1, Items.PURPLE_HARNESS, Items.PURPLE_WOOL);
-		this.harness(1, Items.MAGENTA_HARNESS, Items.MAGENTA_WOOL);
-		this.harness(1, Items.PINK_HARNESS, Items.PINK_WOOL);
 	}
 
 	public void helmet() {
@@ -1673,19 +1672,19 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	public void campfireCooking(float pExperience, int pTime, Item pResult, Item pResource) {
 		SimpleCookingRecipeBuilder.campfireCooking((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, pExperience, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("campfire_cooking", pResult));
+			.save(this.output, this.key("campfire_cooking", pResult, pResource));
 	}
 
 	public void smelting(float pExperience, int pTime, Item pResult, Item pResource) {
-		SimpleCookingRecipeBuilder.smelting((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, pExperience, pTime)
+		SimpleCookingRecipeBuilder.smelting((Ingredient.of(pResource)), RecipeCategory.MISC, CookingBookCategory.MISC, pResult, pExperience, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("smelting", pResult));
+			.save(this.output, this.key("smelting", pResult, pResource));
 	}
 
 	public void smoking(float pExperience, int pTime, Item pResult, Item pResource) {
 		SimpleCookingRecipeBuilder.smoking((Ingredient.of(pResource)), RecipeCategory.MISC, pResult, pExperience, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("smoking", pResult));
+			.save(this.output, this.key("smoking", pResult, pResource));
 	}
 
 	public void stonecutting(int pAmount, Item pResult, Item pResource) {
@@ -1695,24 +1694,24 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void entityConcocting(int pColour, int pTime, EntityType<?> pEntity, Item pResourceA, Item pResourceB, Item pResourceC) {
-		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResourceA, pResourceB, pResourceC), pColour, pTime)
+		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, pEntity, Ingredient.of(pResourceA, pResourceB, pResourceC), pColour, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
 			.unlockedBy(this.name(pResourceC), this.has(pResourceC))
-			.save(this.output, this.key("entity_concocting", pEntity));
+			.save(this.output, this.key("entity_concocting", pEntity, pResourceA, pResourceB, pResourceC));
 	}
 
 	public void entityConcocting(int pColour, int pTime, EntityType<?> pEntity, Item pResourceA, Item pResourceB) {
-		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResourceA, pResourceB), pColour, pTime)
+		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, pEntity, Ingredient.of(pResourceA, pResourceB), pColour, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
-			.save(this.output, this.key("entity_concocting", pEntity));
+			.save(this.output, this.key("entity_concocting", pEntity, pResourceA, pResourceB));
 	}
 
 	public void entityConcocting(int pColour, int pTime, EntityType<?> pEntity, Item pResource) {
-		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, BuiltInRegistries.ENTITY_TYPE.getKey(pEntity).toString(), Ingredient.of(pResource), pColour, pTime)
+		EntityConcoctingRecipeBuilder.entityConcocting(RecipeCategory.MISC, pEntity, Ingredient.of(pResource), pColour, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("entity_concocting", pEntity));
+			.save(this.output, this.key("entity_concocting", pEntity, pResource));
 	}
 
 	public void explosionConcocting(float pRadius, int pColour, int pTime, Item pResourceA, Item pResourceB, Item pResourceC) {
@@ -1737,13 +1736,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void firing(float pExperience, int pAmount, int pTime, Item pResult, Item pResource) {
-		FiringRecipeBuilder.firing(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pExperience, pAmount, pTime)
+		FiringRecipeBuilder.firing(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResource), pExperience, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key("firing", pResult, pResource));
 	}
 
 	public void forging(float pExperience, int pAmount, int pTime, Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA, pResourceB, pResourceC), pExperience, pAmount, pTime)
+		ForgingRecipeBuilder.forging(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResourceA, pResourceB, pResourceC), pExperience, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
 			.unlockedBy(this.name(pResourceC), this.has(pResourceC))
@@ -1751,50 +1750,50 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void forging(float pExperience, int pAmount, int pTime, Item pResult, Item pResourceA, Item pResourceB) {
-		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA, pResourceB), pExperience, pAmount, pTime)
+		ForgingRecipeBuilder.forging(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResourceA, pResourceB), pExperience, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
 			.save(this.output, this.key("forging", pResult, pResourceA, pResourceB));
 	}
 
 	public void forging(float pExperience, int pAmount, int pTime, Item pResult, Item pResource) {
-		ForgingRecipeBuilder.forging(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pExperience, pAmount, pTime)
+		ForgingRecipeBuilder.forging(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResource), pExperience, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key("forging", pResult, pResource));
 	}
 
 	public void grilling(int pAmount, int pTime, Item pResult, Item pResource) {
-		GrillingRecipeBuilder.grilling(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pAmount, pTime)
+		GrillingRecipeBuilder.grilling(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResource), pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("grilling", pResult));
+			.save(this.output, this.key("grilling", pResult, pResource));
 	}
 
 	public void grinding(float pExperience, int pAmount, int pTime, Item pResult, Item pResource, Item pGear) {
-		GrindingRecipeBuilder.grinding(RecipeCategory.MISC, pResult, Ingredient.of(pGear), Ingredient.of(pResource), pExperience, pAmount, pTime)
+		GrindingRecipeBuilder.grinding(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pGear), Ingredient.of(pResource), pExperience, pTime)
 			.unlockedBy(this.name(pGear), this.has(pGear))
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key("grinding", pResult, pResource));
 	}
 
 	public void itemConcocting(int pAmount, int pColour, int pTime, Item pResult, Item pResourceA, Item pResourceB, Item pResourceC) {
-		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA, pResourceB, pResourceC), pAmount, pColour, pTime)
+		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResourceA, pResourceB, pResourceC), pColour, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
 			.unlockedBy(this.name(pResourceC), this.has(pResourceC))
-			.save(this.output, this.key("item_concocting", pResult));
+			.save(this.output, this.key("item_concocting", pResult, pResourceA, pResourceB, pResourceC));
 	}
 
 	public void itemConcocting(int pAmount, int pColour, int pTime, Item pResult, Item pResourceA, Item pResourceB) {
-		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, pResult, Ingredient.of(pResourceA, pResourceB), pAmount, pColour, pTime)
+		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResourceA, pResourceB), pColour, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
-			.save(this.output, this.key("item_concocting", pResult));
+			.save(this.output, this.key("item_concocting", pResult, pResourceA, pResourceB));
 	}
 
 	public void itemConcocting(int pAmount, int pColour, int pTime, Item pResult, Item pResource) {
-		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, pResult, Ingredient.of(pResource), pAmount, pColour, pTime)
+		ItemConcoctingRecipeBuilder.itemConcocting(RecipeCategory.MISC, new ItemStackTemplate(pResult, pAmount), Ingredient.of(pResource), pColour, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("item_concocting", pResult));
+			.save(this.output, this.key("item_concocting", pResult, pResource));
 	}
 
 	public void potionConcocting(float pRadius, int pDuration, int pColour, int pTime, Holder<Potion> pPotion, Item pResourceA, Item pResourceB, Item pResourceC) {
@@ -1802,20 +1801,20 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
 			.unlockedBy(this.name(pResourceC), this.has(pResourceC))
-			.save(this.output, this.key("potion_concocting", pPotion));
+			.save(this.output, this.key("potion_concocting", pPotion, pResourceA, pResourceB, pResourceC));
 	}
 
 	public void potionConcocting(float pRadius, int pDuration, int pColour, int pTime, Holder<Potion> pPotion, Item pResourceA, Item pResourceB) {
 		PotionConcoctingRecipeBuilder.potionConcocting(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResourceA, pResourceB), pRadius, pColour, pDuration, pTime)
 			.unlockedBy(this.name(pResourceA), this.has(pResourceA))
 			.unlockedBy(this.name(pResourceB), this.has(pResourceB))
-			.save(this.output, this.key("potion_concocting", pPotion));
+			.save(this.output, this.key("potion_concocting", pPotion, pResourceA, pResourceB));
 	}
 
 	public void potionConcocting(float pRadius, int pDuration, int pColour, int pTime, Holder<Potion> pPotion, Item pResource) {
 		PotionConcoctingRecipeBuilder.potionConcocting(RecipeCategory.MISC, new PotionContents(pPotion), Ingredient.of(pResource), pRadius, pColour, pDuration, pTime)
 			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key("potion_concocting", pPotion));
+			.save(this.output, this.key("potion_concocting", pPotion, pResource));
 	}
 
 	public void shaped3x3(int pAmount, Item pResult, Item pResource) {
@@ -2080,19 +2079,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
-	public void harness(int pAmount, Item pResult, Item pResource) {
-		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', IcariaItems.AETERNAE_HIDE.get())
-			.define('B', Items.GLASS)
-			.define('C', pResource)
-			.pattern("AAA")
-			.pattern("BCB")
-			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
-			.unlockedBy(this.name(Items.GLASS), this.has(Items.GLASS))
-			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key(pResult));
-	}
-
 	public void helmet(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', pResource)
@@ -2310,17 +2296,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(Items.ARROW));
 	}
 
-	public void bundle() {
-		this.shaped(RecipeCategory.MISC, Items.BUNDLE, 1)
-			.define('A', Tags.Items.STRINGS)
-			.define('B', IcariaItems.AETERNAE_HIDE.get())
-			.pattern("A")
-			.pattern("B")
-			.unlockedBy(this.name(Tags.Items.STRINGS), this.has(Tags.Items.STRINGS))
-			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
-			.save(this.output, this.key(Items.BUNDLE));
-	}
-
 	public void coarseMarl() {
 		this.shaped(RecipeCategory.MISC, IcariaItems.COARSE_MARL.get(), 4)
 			.define('A', IcariaItems.MARL.get())
@@ -2454,17 +2429,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(Items.REDSTONE_TORCH), this.has(Items.REDSTONE_TORCH))
 			.unlockedBy(this.name(IcariaItems.SMOOTH_RELICSTONE.get()), this.has(IcariaItems.SMOOTH_RELICSTONE.get()))
 			.save(this.output, this.key(Items.REPEATER));
-	}
-
-	public void saddle() {
-		this.shaped(RecipeCategory.MISC, Items.SADDLE, 1)
-			.define('A', IcariaItems.AETERNAE_HIDE.get())
-			.define('B', Items.IRON_INGOT)
-			.pattern(" A ")
-			.pattern("ABA")
-			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
-			.unlockedBy(this.name(Items.IRON_INGOT), this.has(Items.IRON_INGOT))
-			.save(this.output, this.key(Items.SADDLE));
 	}
 
 	public void stickyPiston() {
@@ -2606,15 +2570,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.unlockedBy(this.name(IcariaItems.HALITE_DUST.get()), this.has(IcariaItems.HALITE_DUST.get()))
 			.unlockedBy(this.name(IcariaItems.LOAM_BOWL.get()), this.has(IcariaItems.LOAM_BOWL.get()))
 			.save(this.output, this.key(pResult));
-	}
-
-	public void book() {
-		this.shapeless(RecipeCategory.MISC, Items.BOOK, 1)
-			.requires(Items.PAPER, 3)
-			.requires(IcariaItems.AETERNAE_HIDE.get())
-			.unlockedBy(this.name(Items.PAPER), this.has(Items.PAPER))
-			.unlockedBy(this.name(IcariaItems.AETERNAE_HIDE.get()), this.has(IcariaItems.AETERNAE_HIDE.get()))
-			.save(this.output, this.key(Items.BOOK));
 	}
 
 	public void fireCharge() {

@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_purple_yellow_fisshh",
+  "result": {
+    "id": "landsoficaria:cooked_purple_yellow_fisshh"
+  },
+  "time": 600
+}

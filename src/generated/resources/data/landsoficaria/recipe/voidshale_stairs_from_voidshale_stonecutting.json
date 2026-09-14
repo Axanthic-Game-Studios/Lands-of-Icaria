@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "landsoficaria:voidshale",
   "result": {
-    "count": 1,
     "id": "landsoficaria:voidshale_stairs"
   }
 }

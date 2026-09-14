@@ -24,12 +24,12 @@ public class LootVaseRenderLayer extends RenderLayer<AvatarRenderState, PlayerMo
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, AvatarRenderState pRenderState, float pYRot, float pXRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, AvatarRenderState pRenderState, float pYRot, float pXRot) {
 		if (pRenderState.getRenderDataOrThrow(IcariaContextKeys.LOOT_VASE)) {
 			pPoseStack.pushPose();
 			pPoseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
 			pPoseStack.translate(-0.5D, 0.5D, -0.5D);
-			pSubmitNodeCollector.submitBlock(pPoseStack, pRenderState.getRenderDataOrThrow(IcariaContextKeys.LOOT_VASE_BLOCK_STATE), pPackedLight, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
+			pRenderState.getRenderDataOrThrow(IcariaContextKeys.LOOT_VASE_BLOCK_MODEL_RENDER_STATE).submit(pPoseStack, pSubmitNodeCollector, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 			pPoseStack.popPose();
 		}
 	}

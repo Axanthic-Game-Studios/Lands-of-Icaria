@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_layer_7",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/cypress_leaves",
     "texture": "landsoficaria:block/cypress_leaves"

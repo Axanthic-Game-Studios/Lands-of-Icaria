@@ -110,7 +110,7 @@ public class DeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeDead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
@@ -122,7 +122,7 @@ public class DeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeLog(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
@@ -157,7 +157,7 @@ public class DeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeMoss(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, int pHeight) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT) && this.moss.defaultBlockState().hasProperty(BlockStateProperties.LAYERS)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD) && this.moss.defaultBlockState().hasProperty(BlockStateProperties.LAYERS)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.moss.defaultBlockState().setValue(BlockStateProperties.LAYERS, pHeight));
 			if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {
 				this.setBlock(pWorldGenLevel, pBlockPos.below(), IcariaBlocks.GRASSY_MARL.get().defaultBlockState().setValue(IcariaBlockStateProperties.MOSS, this.property));
@@ -207,7 +207,7 @@ public class DeadTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeTwigs(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.twigs.defaultBlockState());
 		}
 	}

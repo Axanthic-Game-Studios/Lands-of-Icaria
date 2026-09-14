@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "landsoficaria:kassiteros_ore",
   "result": {
-    "count": 1,
     "id": "landsoficaria:kassiteros_ingot"
   },
   "time": 100

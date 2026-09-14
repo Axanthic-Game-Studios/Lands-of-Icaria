@@ -27,8 +27,8 @@ public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, Myrmek
 	}
 
 	@Override
-	public void extractRenderState(MyrmekeQueenEntity pEntity, MyrmekeQueenRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(MyrmekeQueenEntity pEntity, MyrmekeQueenRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.blue = pEntity.blue;
 		pRenderState.green = pEntity.green;
 		pRenderState.red = pEntity.red;

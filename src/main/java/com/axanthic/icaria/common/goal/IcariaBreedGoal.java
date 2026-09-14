@@ -39,12 +39,12 @@ public class IcariaBreedGoal extends Goal {
 
 	@Override
 	public boolean canContinueToUse() {
-		return this.partner.isAlive() && this.partner.onDuration() && this.loveTime < 60;
+		return this.partner.isAlive() && this.partner.onLoveDuration() && this.loveTime < 60;
 	}
 
 	@Override
 	public boolean canUse() {
-		if (this.entity.onDuration()) {
+		if (this.entity.onLoveDuration()) {
 			this.partner = this.getPartner();
 			return this.partner != null;
 		} else {

@@ -17,7 +17,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.AABB;
@@ -34,8 +34,8 @@ public record FireplaceBlockRenderer(BlockEntityRendererProvider.Context context
 	}
 
 	@Override
-	public void extractRenderState(FireplaceBlockEntity pBlockEntity, FireplaceBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
+	public void extractRenderState(FireplaceBlockEntity pBlockEntity, FireplaceBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
 		pRenderState.blockState = pBlockEntity.getBlockState();
 		pRenderState.intake = new ItemStackRenderState();
 		this.context().itemModelResolver().updateForTopItem(pRenderState.intake, pBlockEntity.getIntake(), ItemDisplayContext.FIXED, pBlockEntity.getLevel(), null, 0);

@@ -119,7 +119,7 @@ public class NetherPyromancerRevenantEntity extends RevenantEntity implements Ra
 	}
 
 	@Override
-	public void performRangedAttack(LivingEntity pLivingEntity, float pVelocity) {
+	public void performRangedAttack(LivingEntity pLivingEntity, float pPower) {
 		if (!this.onAiming()) {
 			var x = pLivingEntity.getX() - this.getX();
 			var y = pLivingEntity.getY() - this.getY();

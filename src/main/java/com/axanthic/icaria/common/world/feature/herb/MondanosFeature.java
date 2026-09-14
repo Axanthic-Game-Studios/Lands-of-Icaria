@@ -32,7 +32,7 @@ public class MondanosFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
 		var aabb = new AABB(origin.getX() - 2, origin.getY() - 1, origin.getZ() - 2, origin.getX() + 2, origin.getY() - 1, origin.getZ() + 2);
 

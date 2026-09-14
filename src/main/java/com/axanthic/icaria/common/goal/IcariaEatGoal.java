@@ -50,7 +50,7 @@ public class IcariaEatGoal extends Goal {
 		var trough = level.getBlockState(blockPos.relative(direction)).getBlock() instanceof TroughBlock && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0;
 		var blocks = level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get()) || level.getBlockState(blockPos).is(IcariaBlockTagsProvider.GRASS_BLOCKS);
 		var check = blocks || trough;
-		return this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) == 0 && check;
+		return !this.entity.getLock() && this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) == 0 && check;
 	}
 
 	@Override

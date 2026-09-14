@@ -19,9 +19,9 @@ public class IcariaTrappedChestBlockEntity extends IcariaChestBlockEntity {
 	}
 
 	@Override
-	public void signalOpenCount(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, int pEventId, int pEventParam) {
-		super.signalOpenCount(pLevel, pBlockPos, pBlockState, pEventId, pEventParam);
-		if (pEventId != pEventParam) {
+	public void signalOpenCount(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, int pPrevious, int pCurrent) {
+		super.signalOpenCount(pLevel, pBlockPos, pBlockState, pPrevious, pCurrent);
+		if (pPrevious != pCurrent) {
 			var block = pBlockState.getBlock();
 			pLevel.updateNeighborsAt(pBlockPos, block);
 			pLevel.updateNeighborsAt(pBlockPos.below(), block);

@@ -19,14 +19,14 @@ public class BlindnessImmunityMobEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean applyEffectTick(ServerLevel pServerLevel, LivingEntity pLivingEntity, int pAmplifier) {
+	public boolean applyEffectTick(ServerLevel pServerLevel, LivingEntity pLivingEntity, int pAmplification) {
 		pLivingEntity.removeEffect(MobEffects.BLINDNESS);
 		pLivingEntity.removeEffect(MobEffects.DARKNESS);
 		return true;
 	}
 
 	@Override
-	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+	public boolean shouldApplyEffectTickThisTick(int pTickCount, int pAmplification) {
 		return true;
 	}
 }

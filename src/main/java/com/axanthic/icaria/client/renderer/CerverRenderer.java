@@ -23,8 +23,8 @@ public class CerverRenderer extends MobRenderer<CerverEntity, CerverRenderState,
 	}
 
 	@Override
-	public void extractRenderState(CerverEntity pEntity, CerverRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(CerverEntity pEntity, CerverRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 	}
 

@@ -186,7 +186,6 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.REEDY_VINE.get(), 15, 100);
 		IcariaFlammables.set(IcariaBlocks.SWIRLY_VINE.get(), 15, 100);
 		IcariaFlammables.set(IcariaBlocks.THORNY_VINE.get(), 15, 100);
-		IcariaFlammables.set(IcariaBlocks.FERN.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.SMALL_GRASS.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.MEDIUM_GRASS.get(), 60, 100);
 		IcariaFlammables.set(IcariaBlocks.LARGE_GRASS.get(), 60, 100);

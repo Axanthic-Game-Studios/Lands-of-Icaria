@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_basins_countertop",
-  "render_type": "minecraft:cutout",
   "textures": {
     "leaves": "landsoficaria:block/olive_leaves",
     "log": "landsoficaria:block/olive_log",

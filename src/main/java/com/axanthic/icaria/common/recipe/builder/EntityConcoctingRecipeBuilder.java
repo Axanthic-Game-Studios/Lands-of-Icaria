@@ -4,22 +4,17 @@ import com.axanthic.icaria.common.recipe.EntityConcoctingRecipe;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 
@@ -30,32 +25,25 @@ public class EntityConcoctingRecipeBuilder implements RecipeBuilder {
 	public int colour;
 	public int time;
 
+	public EntityType<?> entityType;
+
 	public Ingredient ingredient;
-
-	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-
-	public String entity;
 
 	public RecipeCategory recipeCategory;
 
-	public EntityConcoctingRecipeBuilder(int pColour, int pTime, Ingredient pIngredient, String pEntity, RecipeCategory pRecipeCategory) {
+	public RecipeUnlockAdvancementBuilder recipeUnlockAdvancementBuilder = new RecipeUnlockAdvancementBuilder();
+
+	public EntityConcoctingRecipeBuilder(int pColour, int pTime, EntityType<?> pEntityType, Ingredient pIngredient, RecipeCategory pRecipeCategory) {
 		this.colour = pColour;
 		this.time = pTime;
+		this.entityType = pEntityType;
 		this.ingredient = pIngredient;
-		this.entity = pEntity;
 		this.recipeCategory = pRecipeCategory;
 	}
 
 	@Override
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
-		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new EntityConcoctingRecipe(this.colour, this.time, this.ingredient, this.entity), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
-	}
-
-	@Override
-	public Item getResult() {
-		return Items.AIR;
+		pRecipeOutput.accept(pResourceKey, new EntityConcoctingRecipe(this.colour, this.time, this.entityType, this.ingredient), this.recipeUnlockAdvancementBuilder.build(pRecipeOutput, pResourceKey, this.recipeCategory));
 	}
 
 	@Override
@@ -65,11 +53,16 @@ public class EntityConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public EntityConcoctingRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-		this.criteria.put(pName, pCriterion);
+		this.recipeUnlockAdvancementBuilder.unlockedBy(pName, pCriterion);
 		return this;
 	}
 
-	public static EntityConcoctingRecipeBuilder entityConcocting(RecipeCategory pRecipeCategory, String pEntity, Ingredient pIngredient, int pColour, int pTime) {
-		return new EntityConcoctingRecipeBuilder(pColour, pTime, pIngredient, pEntity, pRecipeCategory);
+	@Override
+	public ResourceKey<Recipe<?>> defaultId() {
+		return ResourceKey.create(Registries.RECIPE, EntityType.getKey(this.entityType));
+	}
+
+	public static EntityConcoctingRecipeBuilder entityConcocting(RecipeCategory pRecipeCategory, EntityType<?> pEntity, Ingredient pIngredient, int pColour, int pTime) {
+		return new EntityConcoctingRecipeBuilder(pColour, pTime, pEntity, pIngredient, pRecipeCategory);
 	}
 }

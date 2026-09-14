@@ -31,8 +31,8 @@ public class ArachneDroneRenderer extends MobRenderer<ArachneDroneEntity, Arachn
 	}
 
 	@Override
-	public void extractRenderState(ArachneDroneEntity pEntity, ArachneDroneRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ArachneDroneEntity pEntity, ArachneDroneRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;

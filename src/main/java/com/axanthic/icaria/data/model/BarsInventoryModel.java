@@ -22,7 +22,7 @@ public class BarsInventoryModel {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(1.0000F, 0.0000F, 0.0000F))
-				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(16.0000F, 0.0000F, 0.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE)))
 			.element(elementBuilder -> elementBuilder.from(7.0000F, 0.0000F, 0.0000F).to(9.0000F, 0.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(7.0000F, 0.0000F, 0.0000F))
@@ -39,7 +39,7 @@ public class BarsInventoryModel {
 			.element(elementBuilder -> elementBuilder.from(7.0000F, 0.0000F, 16.0000F).to(9.0000F, 16.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(7.0000F, 0.0000F, 16.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(9.0000F, 0.0000F, 7.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(7.0000F, -1.0000F, 9.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE)))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(7.0000F, 0.0000F, 9.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE)))
 			.build();
 	}
 }

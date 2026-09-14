@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_pot_fireplace_inventory",
-  "render_type": "minecraft:cutout",
   "textures": {
     "droughtroot_log": "landsoficaria:block/droughtroot_log",
     "particle": "landsoficaria:block/smooth_loam_bricks",

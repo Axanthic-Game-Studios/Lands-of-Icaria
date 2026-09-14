@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_triple_barrel_rack_top_left",
-  "render_type": "minecraft:cutout",
   "textures": {
     "anvil": "minecraft:block/anvil",
     "barrel_back": "landsoficaria:block/droughtroot_barrel_back",

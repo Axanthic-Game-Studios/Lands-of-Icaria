@@ -234,10 +234,10 @@ public class KilnBlockEntity extends BlockEntity {
 		}
 	}
 
-	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, DoubleBlockHalf half) {
+	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, DoubleBlockHalf pDoubleBlockHalf) {
 		pServerLevel.blockEntityChanged(pBlockPos);
 		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, Block.UPDATE_ALL);
-		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, half).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, pDoubleBlockHalf).setValue(BlockStateProperties.LIT, pLit));
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
 	}
 
@@ -295,7 +295,7 @@ public class KilnBlockEntity extends BlockEntity {
 
 	public ItemStack getResult(ServerLevel pServerLevel) {
 		if (this.getRecipe(pServerLevel).isPresent()) {
-			return this.getRecipe(pServerLevel).get().value().result();
+			return this.getRecipe(pServerLevel).get().value().result().create();
 		} else {
 			return ItemStack.EMPTY;
 		}

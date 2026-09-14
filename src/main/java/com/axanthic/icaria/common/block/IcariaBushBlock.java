@@ -40,7 +40,7 @@ public class IcariaBushBlock extends BushBlock {
 		} else if (this == IcariaBlocks.BOLBOS.get()) {
 			return blockState.is(BlockTags.SAND);
 		} else {
-			return blockState.is(BlockTags.DIRT);
+			return blockState.is(BlockTags.SUBSTRATE_OVERWORLD);
 		}
 	}
 

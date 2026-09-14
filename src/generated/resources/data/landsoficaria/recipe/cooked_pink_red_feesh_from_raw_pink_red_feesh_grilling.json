@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_pink_red_feesh",
+  "result": {
+    "id": "landsoficaria:cooked_pink_red_feesh"
+  },
+  "time": 600
+}

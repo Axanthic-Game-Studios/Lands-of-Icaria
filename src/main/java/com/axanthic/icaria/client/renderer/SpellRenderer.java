@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.Mth;
 
@@ -37,8 +37,8 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 	}
 
 	@Override
-	public void extractRenderState(SpellEntity pEntity, SpellRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(SpellEntity pEntity, SpellRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.xRot = pEntity.getXRot();
 		pRenderState.xRotOld = pEntity.xRotO;
 		pRenderState.yRot = pEntity.getYRot();

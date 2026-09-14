@@ -23,6 +23,10 @@ public class IcariaRecipePrioritiesProvider extends RecipePrioritiesProvider {
 
 	@Override
 	public void start() {
+		this.add(IcariaIdentifiers.AETERNAE_HIDE_BOOTS_RECIPE, 1);
+		this.add(IcariaIdentifiers.AETERNAE_HIDE_CHESTPLATE_RECIPE, 1);
+		this.add(IcariaIdentifiers.AETERNAE_HIDE_HELMET_RECIPE, 1);
+		this.add(IcariaIdentifiers.AETERNAE_HIDE_LEGGINGS_RECIPE, 1);
 		this.add(IcariaIdentifiers.CHEST_RECIPE, 1);
 		this.add(IcariaIdentifiers.CYPRESS_CRAFTING_TABLE_RECIPE, 1);
 		this.add(IcariaIdentifiers.DROUGHTROOT_CRAFTING_TABLE_RECIPE, 1);

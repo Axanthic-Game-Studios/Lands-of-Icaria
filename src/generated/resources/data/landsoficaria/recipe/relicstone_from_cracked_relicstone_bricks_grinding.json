@@ -4,7 +4,6 @@
   "gear": "landsoficaria:yellowstone_gear",
   "ingredient": "landsoficaria:cracked_relicstone_bricks",
   "result": {
-    "count": 1,
     "id": "landsoficaria:relicstone"
   },
   "time": 200

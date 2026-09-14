@@ -22,7 +22,7 @@ public class CrystalSlugRaysRenderLayer extends RenderLayer<CrystalSlugRenderSta
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, CrystalSlugRenderState pRenderState, float pYRot, float pXRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, CrystalSlugRenderState pRenderState, float pYRot, float pXRot) {
 		this.center(pPoseStack, pRenderState, pSubmitNodeCollector);
 		this.neck(pPoseStack, pRenderState, pSubmitNodeCollector);
 		this.rear(pPoseStack, pRenderState, pSubmitNodeCollector);

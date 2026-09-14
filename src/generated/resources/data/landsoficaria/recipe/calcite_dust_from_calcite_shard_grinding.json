@@ -4,7 +4,6 @@
   "gear": "landsoficaria:vanadium_gear",
   "ingredient": "landsoficaria:calcite_shard",
   "result": {
-    "count": 1,
     "id": "landsoficaria:calcite_dust"
   },
   "time": 200

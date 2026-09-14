@@ -1,25 +1,21 @@
 package com.axanthic.icaria.common.recipe.builder;
 
 import com.axanthic.icaria.common.recipe.ExplosionConcoctingRecipe;
+import com.axanthic.icaria.common.registry.IcariaKeys;
 
 import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.AdvancementRequirements;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.criterion.RecipeUnlockedTrigger;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.RecipeUnlockAdvancementBuilder;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 
@@ -34,9 +30,9 @@ public class ExplosionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	public Ingredient ingredient;
 
-	public Map<String, Criterion<?>> criteria = new LinkedHashMap<>();
-
 	public RecipeCategory recipeCategory;
+
+	public RecipeUnlockAdvancementBuilder recipeUnlockAdvancementBuilder = new RecipeUnlockAdvancementBuilder();
 
 	public ExplosionConcoctingRecipeBuilder(float pRadius, int pColour, int pTime, Ingredient pIngredient, RecipeCategory pRecipeCategory) {
 		this.radius = pRadius;
@@ -48,14 +44,7 @@ public class ExplosionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public void save(RecipeOutput pRecipeOutput, ResourceKey<Recipe<?>> pResourceKey) {
-		var builder = pRecipeOutput.advancement().addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pResourceKey)).requirements(AdvancementRequirements.Strategy.OR).rewards(AdvancementRewards.Builder.recipe(pResourceKey));
-		this.criteria.forEach(builder::addCriterion);
-		pRecipeOutput.accept(pResourceKey, new ExplosionConcoctingRecipe(this.radius, this.colour, this.time, this.ingredient), builder.build(pResourceKey.identifier().withPrefix("recipes" + "/" + this.recipeCategory.getFolderName() + "/")));
-	}
-
-	@Override
-	public Item getResult() {
-		return Items.AIR;
+		pRecipeOutput.accept(pResourceKey, new ExplosionConcoctingRecipe(this.radius, this.colour, this.time, this.ingredient), this.recipeUnlockAdvancementBuilder.build(pRecipeOutput, pResourceKey, this.recipeCategory));
 	}
 
 	@Override
@@ -65,8 +54,13 @@ public class ExplosionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public ExplosionConcoctingRecipeBuilder unlockedBy(String pName, Criterion<?> pCriterion) {
-		this.criteria.put(pName, pCriterion);
+		this.recipeUnlockAdvancementBuilder.unlockedBy(pName, pCriterion);
 		return this;
+	}
+
+	@Override
+	public ResourceKey<Recipe<?>> defaultId() {
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, "explosion"));
 	}
 
 	public static ExplosionConcoctingRecipeBuilder explosionConcocting(RecipeCategory pRecipeCategory, Ingredient pIngredient, float pRadius, int pColour, int pTime) {

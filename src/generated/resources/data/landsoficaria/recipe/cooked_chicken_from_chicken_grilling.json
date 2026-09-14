@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "minecraft:chicken",
+  "result": {
+    "id": "minecraft:cooked_chicken"
+  },
+  "time": 600
+}

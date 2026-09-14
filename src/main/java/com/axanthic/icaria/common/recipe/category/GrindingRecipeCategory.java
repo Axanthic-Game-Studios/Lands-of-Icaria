@@ -22,7 +22,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.category.AbstractRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeHolderType;
 
-import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
@@ -51,9 +51,9 @@ public class GrindingRecipeCategory extends AbstractRecipeCategory<RecipeHolder<
 	}
 
 	@Override
-	public void draw(RecipeHolder<GrindingRecipe> pRecipeHolder, IRecipeSlotsView pRecipeSlotsView, GuiGraphics pGuiGraphics, double pX, double pY) {
-		this.background.draw(pGuiGraphics, 0, 0);
-		this.flameAnimated.draw(pGuiGraphics, 71, 3);
+	public void draw(RecipeHolder<GrindingRecipe> pRecipeHolder, IRecipeSlotsView pRecipeSlotsView, GuiGraphicsExtractor pGuiGraphicsExtractor, double pMouseX, double pMouseY) {
+		this.background.draw(pGuiGraphicsExtractor, 0, 0);
+		this.flameAnimated.draw(pGuiGraphicsExtractor, 71, 3);
 	}
 
 	@Override

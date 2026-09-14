@@ -17,12 +17,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
@@ -39,8 +40,8 @@ import org.joml.Matrix4f;
 public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<BathtubBlockEntity, BathtubBlockRenderState> {
 
 	@Override
-	public void extractRenderState(BathtubBlockEntity pBlockEntity, BathtubBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
+	public void extractRenderState(BathtubBlockEntity pBlockEntity, BathtubBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
 		pRenderState.blockPos = pBlockEntity.getBlockPos();
 		pRenderState.blockState = pBlockEntity.getBlockState();
 		pRenderState.level = pBlockEntity.getLevel();
@@ -59,8 +60,8 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 		var textureAtlas = Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS);
 
-		if (level != null && fill != Fill.NONE) {
-			var color = BiomeColors.getAverageWaterColor(level, blockPos);
+		if (level instanceof BlockAndTintGetter blockAndTintGetter && fill != Fill.NONE) {
+			var color = BiomeColors.getAverageWaterColor(blockAndTintGetter, blockPos);
 
 			var sprite = this.getSprite(fill, textureAtlas);
 
@@ -70,15 +71,15 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 			var y = bathtubFill * 0.0625F + 0.0625F + 0.0005F;
 
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, Sheets.translucentItemSheet(), (pose, vertexConsumer) -> this.submit(part, vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, y, r, g, b));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.translucentMovingBlock(), (pose, vertexConsumer) -> this.submit(part, vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, y, r, g, b));
 		}
 	}
 
-	public void submit(Part pPart, VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pPackedLight, int pPackedOverlay, float pY, float pRed, float pGreen, float pBlue) {
+	public void submit(Part pPart, VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pLightCoords, int pOverlayCoords, float pY, float pRed, float pGreen, float pBlue) {
 		if (pPart == Part.HEAD) {
-			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pPackedLight, pPackedOverlay, 0.125F, 0.875F, 0.0F, 0.875F, 0.125F, 0.875F, 0.0F, 0.875F, pY, pRed, pGreen, pBlue, 1.0F);
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pLightCoords, pOverlayCoords, 0.125F, 0.875F, 0.0F, 0.875F, 0.125F, 0.875F, 0.0F, 0.875F, pY, pRed, pGreen, pBlue, 1.0F);
 		} else {
-			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pPackedLight, pPackedOverlay, 0.125F, 0.875F, 0.125F, 1.0F, 0.125F, 0.875F, 0.125F, 1.0F, pY, pRed, pGreen, pBlue, 1.0F);
+			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pLightCoords, pOverlayCoords, 0.125F, 0.875F, 0.125F, 1.0F, 0.125F, 0.875F, 0.125F, 1.0F, pY, pRed, pGreen, pBlue, 1.0F);
 		}
 	}
 

@@ -21,8 +21,8 @@ import net.minecraft.world.item.ItemStack;
 public class StorageVaseMenu extends AbstractContainerMenu {
 	public Container container;
 
-	public StorageVaseMenu(MenuType<?> pMenuType, int pId, Inventory pInventory, Container pContainer) {
-		super(pMenuType, pId);
+	public StorageVaseMenu(MenuType<?> pMenuType, int pContainerId, Inventory pInventory, Container pContainer) {
+		super(pMenuType, pContainerId);
 		this.container = pContainer;
 		this.addSlots(pContainer, 0, 5, 1, 44, 22);
 		this.addSlots(pContainer, 5, 7, 1, 26, 40);
@@ -34,8 +34,8 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		this.addSlots(pInventory, 0, 9, 1, 8, 206);
 	}
 
-	public StorageVaseMenu(MenuType<?> pMenuType, int pId, Inventory pInventory) {
-		this(pMenuType, pId, pInventory, new SimpleContainer(32));
+	public StorageVaseMenu(MenuType<?> pMenuType, int pContainerId, Inventory pInventory) {
+		this(pMenuType, pContainerId, pInventory, new SimpleContainer(32));
 	}
 
 	@Override
@@ -43,10 +43,10 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		return this.container.stillValid(pPlayer);
 	}
 
-	public void addSlots(Container pContainer, int pStartIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
+	public void addSlots(Container pContainer, int pIndex, int pCountX, int pCountY, int pStartX, int pStartY) {
 		for (var x = 0; x < pCountX; x++) {
 			for (var y = 0; y < pCountY; y++) {
-				this.addSlot(new Slot(pContainer, pStartIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
+				this.addSlot(new Slot(pContainer, pIndex + x + y * pCountX, pStartX + x * 18, pStartY + y * 18));
 			}
 		}
 	}
@@ -81,11 +81,11 @@ public class StorageVaseMenu extends AbstractContainerMenu {
 		return ItemStack.EMPTY;
 	}
 
-	public static StorageVaseMenu menu(int pId, Inventory pInventory, Container pContainer) {
-		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory, pContainer);
+	public static StorageVaseMenu menu(int pContainerId, Inventory pInventory, Container pContainer) {
+		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pContainerId, pInventory, pContainer);
 	}
 
-	public static StorageVaseMenu menu(int pId, Inventory pInventory) {
-		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pId, pInventory);
+	public static StorageVaseMenu menu(int pContainerId, Inventory pInventory) {
+		return new StorageVaseMenu(IcariaMenus.STORAGE_VASE.get(), pContainerId, pInventory);
 	}
 }

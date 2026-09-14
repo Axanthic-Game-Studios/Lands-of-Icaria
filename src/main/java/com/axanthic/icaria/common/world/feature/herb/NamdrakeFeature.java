@@ -30,12 +30,12 @@ public class NamdrakeFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 4);
+					this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 				}
 			}
 		}

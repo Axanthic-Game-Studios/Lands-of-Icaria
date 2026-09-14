@@ -72,9 +72,9 @@ public class SlugEntity extends IcariaPathfinderMobEntity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		this.hide();
-		return super.hurtServer(pServerLevel, pDamageSource, pAmount);
+		return super.hurtServer(pServerLevel, pDamageSource, pDamage);
 	}
 
 	public boolean isMovement() {
@@ -177,7 +177,7 @@ public class SlugEntity extends IcariaPathfinderMobEntity {
 	}
 
 	public void hide() {
-		if (!this.onClimbable() && !this.onCooldown() && !this.onHide() && !this.onShow() && this.getBlockStateOn().is(BlockTags.DIRT)) {
+		if (!this.onClimbable() && !this.onCooldown() && !this.onHide() && !this.onShow() && this.getBlockStateOn().is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setHide(this.maxHide);
 		}
 	}

@@ -34,12 +34,12 @@ public class GroundFlowersFeature extends Feature<NoneFeatureConfiguration> {
 
 		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
 
-		var size = 2;
+		var size = 4;
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					this.placeFlowers(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), direction, 4);
+					this.placeFlowers(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), direction, 16);
 				}
 			}
 		}
@@ -54,7 +54,7 @@ public class GroundFlowersFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeFlowers(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.DIRT)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.flowers.defaultBlockState().setValue(BlockStateProperties.FLOWER_AMOUNT, pWorldGenLevel.getRandom().nextIntBetweenInclusive(1, 4)).setValue(BlockStateProperties.HORIZONTAL_FACING, pDirection));
 		}
 	}

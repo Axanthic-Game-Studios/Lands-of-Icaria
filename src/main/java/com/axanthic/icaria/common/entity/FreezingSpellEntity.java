@@ -32,9 +32,9 @@ public class FreezingSpellEntity extends SpellEntity {
 	public boolean canSurvive(BlockPos pBlockPos, LevelReader pLevelReader) {
 		var blockPos = pBlockPos.below();
 		var blockState = pLevelReader.getBlockState(blockPos);
-		if (blockState.is(BlockTags.SNOW_LAYER_CANNOT_SURVIVE_ON)) {
+		if (blockState.is(BlockTags.CANNOT_SUPPORT_SNOW_LAYER)) {
 			return false;
-		} else if (blockState.is(BlockTags.SNOW_LAYER_CAN_SURVIVE_ON)) {
+		} else if (blockState.is(BlockTags.SUPPORT_OVERRIDE_SNOW_LAYER)) {
 			return true;
 		} else {
 			return Block.isFaceFull(blockState.getCollisionShape(pLevelReader, blockPos), Direction.UP) || blockState.is(Blocks.SNOW) && blockState.getValue(SnowLayerBlock.LAYERS) == 8;
@@ -71,7 +71,7 @@ public class FreezingSpellEntity extends SpellEntity {
 		var level = this.level();
 		var blockPos = this.blockPosition();
 		var blockState = level.getBlockState(blockPos);
-		var data = blockState.getFluidState().holder().getData(IcariaDataMapTypes.FREEZABLES);
+		var data = blockState.getFluidState().typeHolder().getData(IcariaDataMapTypes.FREEZABLES);
 		if (blockState.canBeReplaced() && data != null) {
 			level.setBlockAndUpdate(blockPos, data.block().defaultBlockState());
 			this.discard();

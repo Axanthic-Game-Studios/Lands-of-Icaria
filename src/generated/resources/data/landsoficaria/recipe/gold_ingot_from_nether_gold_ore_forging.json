@@ -3,7 +3,6 @@
   "experience": 0.1,
   "ingredient": "minecraft:nether_gold_ore",
   "result": {
-    "count": 1,
     "id": "minecraft:gold_ingot"
   },
   "time": 100

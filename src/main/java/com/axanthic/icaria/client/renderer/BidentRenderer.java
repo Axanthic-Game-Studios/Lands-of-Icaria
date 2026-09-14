@@ -14,7 +14,7 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.item.ItemDisplayContext;
 
@@ -30,10 +30,10 @@ public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderSta
 	}
 
 	@Override
-	public void extractRenderState(BidentEntity pEntity, BidentRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
-		pRenderState.xRot = pEntity.getXRot(pPartialTick);
-		pRenderState.yRot = pEntity.getYRot(pPartialTick);
+	public void extractRenderState(BidentEntity pEntity, BidentRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
+		pRenderState.xRot = pEntity.getXRot(pPartialTicks);
+		pRenderState.yRot = pEntity.getYRot(pPartialTicks);
 		pRenderState.itemStack = pEntity.getStack();
 		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		this.itemModelResolver.updateForNonLiving(pRenderState.itemStackRenderState, pRenderState.itemStack, ItemDisplayContext.NONE, pEntity);

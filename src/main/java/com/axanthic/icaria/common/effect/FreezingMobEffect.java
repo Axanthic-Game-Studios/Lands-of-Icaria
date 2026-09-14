@@ -18,13 +18,13 @@ public class FreezingMobEffect extends MobEffect {
 	}
 
 	@Override
-	public boolean applyEffectTick(ServerLevel pServerLevel, LivingEntity pLivingEntity, int pAmplifier) {
+	public boolean applyEffectTick(ServerLevel pServerLevel, LivingEntity pLivingEntity, int pAmplification) {
 		pLivingEntity.setTicksFrozen(100);
 		return true;
 	}
 
 	@Override
-	public boolean shouldApplyEffectTickThisTick(int pDuration, int pAmplifier) {
+	public boolean shouldApplyEffectTickThisTick(int pTickCount, int pAmplification) {
 		return true;
 	}
 }

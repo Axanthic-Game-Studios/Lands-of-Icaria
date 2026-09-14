@@ -5,6 +5,11 @@
         "texture": "landsoficaria:aeternae_hide"
       }
     ],
+    "humanoid_baby": [
+      {
+        "texture": "landsoficaria:aeternae_hide"
+      }
+    ],
     "humanoid_leggings": [
       {
         "texture": "landsoficaria:aeternae_hide"

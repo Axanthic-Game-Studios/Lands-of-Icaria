@@ -28,8 +28,8 @@ public class FicheRenderer extends MobRenderer<FicheEntity, FicheRenderState, Fi
 	}
 
 	@Override
-	public void extractRenderState(FicheEntity pEntity, FicheRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(FicheEntity pEntity, FicheRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.id = pEntity.getId();
@@ -43,7 +43,7 @@ public class FicheRenderer extends MobRenderer<FicheEntity, FicheRenderState, Fi
 
 	@Override
 	public Identifier getTextureLocation(FicheRenderState pRenderState) {
-		return pRenderState.ficheVariant.value().clientAsset().texturePath();
+		return pRenderState.ficheVariant.value().resourceTexture().texturePath();
 	}
 
 	@Override

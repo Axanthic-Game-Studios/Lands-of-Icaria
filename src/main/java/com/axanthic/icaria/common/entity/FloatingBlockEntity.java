@@ -45,7 +45,7 @@ public class FloatingBlockEntity extends Entity {
 	}
 
 	@Override
-	public boolean causeFallDamage(double pFallDistance, float pDamageMultiplier, DamageSource pDamageSource) {
+	public boolean causeFallDamage(double pFallDistance, float pDamageModifier, DamageSource pDamageSource) {
 		var amount = Math.min(this.fallDistance, 40.0D);
 		var boundingBox = this.getBoundingBox();
 		var damageSource = this.damageSources().fallingBlock(this);
@@ -60,7 +60,7 @@ public class FloatingBlockEntity extends Entity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		return false;
 	}
 

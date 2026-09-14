@@ -22,7 +22,7 @@ public class OvergrownRevenantRaysRenderLayer extends RenderLayer<OvergrownReven
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, OvergrownRevenantRenderState pRenderState, float pYRot, float pXRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, OvergrownRevenantRenderState pRenderState, float pYRot, float pXRot) {
 		this.biceps(pPoseStack, pRenderState, pSubmitNodeCollector);
 		this.foot(pPoseStack, pRenderState, pSubmitNodeCollector);
 		this.head(pPoseStack, pRenderState, pSubmitNodeCollector);

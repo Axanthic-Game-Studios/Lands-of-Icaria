@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_kettle_upper",
-  "render_type": "minecraft:translucent",
   "textures": {
     "kettle": "landsoficaria:block/kettle",
     "laurel_log": "landsoficaria:block/laurel_log",

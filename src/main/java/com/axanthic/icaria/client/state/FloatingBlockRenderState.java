@@ -4,6 +4,7 @@ import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.minecraft.client.renderer.block.BlockModelRenderState;
 import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.world.level.block.state.BlockState;
 
@@ -11,5 +12,6 @@ import net.minecraft.world.level.block.state.BlockState;
 @ParametersAreNonnullByDefault
 
 public class FloatingBlockRenderState extends EntityRenderState {
+	public BlockModelRenderState blockModelRenderState;
 	public BlockState blockState;
 }

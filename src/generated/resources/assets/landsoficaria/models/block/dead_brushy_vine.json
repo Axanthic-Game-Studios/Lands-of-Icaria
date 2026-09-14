@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_dead_vine",
-  "render_type": "minecraft:cutout",
   "textures": {
     "particle": "landsoficaria:block/dead_brushy_vine",
     "texture": "landsoficaria:block/dead_brushy_vine"

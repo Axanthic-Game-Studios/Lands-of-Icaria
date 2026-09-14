@@ -24,12 +24,12 @@ public class SoldierRevenantItemRenderLayer extends RenderLayer<SoldierRevenantR
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, SoldierRevenantRenderState pRenderState, float yRot, float xRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, SoldierRevenantRenderState pRenderState, float yRot, float xRot) {
 		pPoseStack.pushPose();
 		this.getParentModel().translateToHand(pRenderState, HumanoidArm.RIGHT, pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().armRightLower);
 		IcariaClientHelper.setPositionAndRotation(pPoseStack, 0.100F, -0.050F, 0.075F, 260.0F, 180.0F, 0.0F);
-		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pPackedLight, OverlayTexture.NO_OVERLAY, 0);
+		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pLightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 		pPoseStack.popPose();
 	}
 }

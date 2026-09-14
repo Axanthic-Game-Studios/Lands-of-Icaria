@@ -2,7 +2,6 @@
   "type": "minecraft:stonecutting",
   "ingredient": "landsoficaria:sunstone",
   "result": {
-    "count": 1,
     "id": "landsoficaria:sunstone_brick_stairs"
   }
 }

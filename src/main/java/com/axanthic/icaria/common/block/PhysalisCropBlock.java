@@ -25,7 +25,7 @@ public class PhysalisCropBlock extends CropBlock {
 	}
 
 	@Override
-	public ItemStack getCloneItemStack(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState, boolean pInfiniteMaterial) {
+	public ItemStack getCloneItemStack(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState, boolean pIncludeData) {
 		return new ItemStack(IcariaItems.PHYSALIS_SEEDS.get());
 	}
 

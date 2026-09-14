@@ -25,8 +25,8 @@ public class ArganHoundRenderer extends MobRenderer<ArganHoundEntity, ArganHound
 	}
 
 	@Override
-	public void extractRenderState(ArganHoundEntity pEntity, ArganHoundRenderState pRenderState, float pPartialTick) {
-		super.extractRenderState(pEntity, pRenderState, pPartialTick);
+	public void extractRenderState(ArganHoundEntity pEntity, ArganHoundRenderState pRenderState, float pPartialTicks) {
+		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.attackAnimationState = pEntity.attackAnimationState;
 		pRenderState.livingEntity = pEntity;
 	}

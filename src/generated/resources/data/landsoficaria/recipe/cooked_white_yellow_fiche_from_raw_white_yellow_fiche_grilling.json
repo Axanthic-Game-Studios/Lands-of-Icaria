@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:grilling",
+  "ingredient": "landsoficaria:raw_white_yellow_fiche",
+  "result": {
+    "id": "landsoficaria:cooked_white_yellow_fiche"
+  },
+  "time": 600
+}

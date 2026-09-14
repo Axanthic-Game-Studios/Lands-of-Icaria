@@ -4,7 +4,6 @@
   "gear": "landsoficaria:voidshale_gear",
   "ingredient": "minecraft:yellow_concrete",
   "result": {
-    "count": 1,
     "id": "minecraft:yellow_concrete_powder"
   },
   "time": 200

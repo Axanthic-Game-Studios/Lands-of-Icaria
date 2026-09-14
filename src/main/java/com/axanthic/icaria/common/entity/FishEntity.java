@@ -59,9 +59,9 @@ public class FishEntity extends IcariaPathfinderMobEntity {
 		this.goalSelector.addGoal(2, new FishFollowGoal(this, 1.0D, 64, 15));
 	}
 
-	public void setLeader(@Nullable FishEntity leader) {
-		this.leader = leader;
-		this.isLeader = leader == null;
+	public void setLeader(@Nullable FishEntity pLeader) {
+		this.leader = pLeader;
+		this.isLeader = pLeader == null;
 	}
 
 	@Override

@@ -103,7 +103,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.displayClientMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "loot_vase"), true);
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "loot_vase"));
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new LootVasePayload(true, pPlayer.getId(), pBlockState));

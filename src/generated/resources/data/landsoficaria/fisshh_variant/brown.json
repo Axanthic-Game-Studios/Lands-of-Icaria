@@ -1,7 +1,6 @@
 {
-  "asset": "landsoficaria:entity/fisshh/brown",
-  "stack": {
-    "count": 1,
+  "itemStackTemplate": {
     "id": "landsoficaria:raw_brown_fisshh"
-  }
+  },
+  "resourceTexture": "landsoficaria:entity/fisshh/brown"
 }

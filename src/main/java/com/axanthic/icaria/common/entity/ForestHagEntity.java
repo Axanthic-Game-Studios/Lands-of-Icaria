@@ -43,18 +43,18 @@ public class ForestHagEntity extends Monster {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
-		var damage = this.damage(pDamageSource, pAmount);
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
+		var damage = this.damage(pDamageSource, pDamage);
 		return super.hurtServer(pServerLevel, pDamageSource, damage);
 	}
 
-	public float damage(DamageSource pDamageSource, float pAmount) {
+	public float damage(DamageSource pDamageSource, float pDamage) {
 		if (pDamageSource.getEntity() instanceof LivingEntity livingEntity && livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
-			return pAmount * 2;
+			return pDamage * 2;
 		} else if (pDamageSource.is(DamageTypes.ON_FIRE)) {
-			return pAmount * 2;
+			return pDamage * 2;
 		} else {
-			return pAmount;
+			return pDamage;
 		}
 	}
 

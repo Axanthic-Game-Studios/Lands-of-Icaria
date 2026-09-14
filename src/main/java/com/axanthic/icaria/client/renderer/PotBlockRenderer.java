@@ -15,12 +15,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BiomeColors;
-import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.block.BlockAndTintGetter;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.rendertype.RenderTypes;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.data.AtlasIds;
@@ -33,8 +34,8 @@ import net.minecraft.world.phys.Vec3;
 public record PotBlockRenderer(BlockEntityRendererProvider.Context context) implements BlockEntityRenderer<PotBlockEntity, PotBlockRenderState> {
 
 	@Override
-	public void extractRenderState(PotBlockEntity pBlockEntity, PotBlockRenderState pRenderState, float pPartialTick, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
-		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTick, pVec3, pCrumblingOverlay);
+	public void extractRenderState(PotBlockEntity pBlockEntity, PotBlockRenderState pRenderState, float pPartialTicks, Vec3 pVec3, @Nullable ModelFeatureRenderer.CrumblingOverlay pCrumblingOverlay) {
+		BlockEntityRenderer.super.extractRenderState(pBlockEntity, pRenderState, pPartialTicks, pVec3, pCrumblingOverlay);
 		pRenderState.blockPos = pBlockEntity.getBlockPos();
 		pRenderState.blockState = pBlockEntity.getBlockState();
 		pRenderState.level = pBlockEntity.getLevel();
@@ -52,8 +53,8 @@ public record PotBlockRenderer(BlockEntityRendererProvider.Context context) impl
 
 		var textureAtlas = Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS);
 
-		if (level != null && fill != Fill.NONE) {
-			var color = BiomeColors.getAverageWaterColor(level, blockPos);
+		if (level instanceof BlockAndTintGetter blockAndTintGetter && fill != Fill.NONE) {
+			var color = BiomeColors.getAverageWaterColor(blockAndTintGetter, blockPos);
 
 			var sprite = this.getSprite(fill, textureAtlas);
 
@@ -63,7 +64,7 @@ public record PotBlockRenderer(BlockEntityRendererProvider.Context context) impl
 
 			var y = potFill * 0.0625F + 0.0625F;
 
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, Sheets.translucentItemSheet(), (pose, vertexConsumer) -> IcariaClientHelper.submitSprite(vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, 0, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, y, r, g, b, 1.0F));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.translucentMovingBlock(), (pose, vertexConsumer) -> IcariaClientHelper.submitSprite(vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, 0, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, 0.3125F, 0.6875F, y, r, g, b, 1.0F));
 		}
 	}
 

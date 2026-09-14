@@ -24,12 +24,12 @@ public class CrawlerRevenantItemRenderLayer extends RenderLayer<CrawlerRevenantR
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, CrawlerRevenantRenderState pRenderState, float yRot, float xRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, CrawlerRevenantRenderState pRenderState, float yRot, float xRot) {
 		pPoseStack.pushPose();
 		this.getParentModel().translateToHand(pRenderState, HumanoidArm.RIGHT, pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().armRightLower);
 		IcariaClientHelper.setPositionAndRotation(pPoseStack, -0.090F, 0.045F, -0.040F, 260.0F, 180.0F, 0.0F);
-		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pPackedLight, OverlayTexture.NO_OVERLAY, 0);
+		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pLightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 		pPoseStack.popPose();
 	}
 }

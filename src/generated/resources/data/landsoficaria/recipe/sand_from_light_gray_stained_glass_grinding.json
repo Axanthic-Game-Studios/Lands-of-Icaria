@@ -4,7 +4,6 @@
   "gear": "landsoficaria:yellowstone_gear",
   "ingredient": "minecraft:light_gray_stained_glass",
   "result": {
-    "count": 1,
     "id": "minecraft:sand"
   },
   "time": 100

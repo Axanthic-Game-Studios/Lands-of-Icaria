@@ -63,9 +63,9 @@ public class SnullEntity extends IcariaPathfinderMobEntity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		this.hide();
-		return super.hurtServer(pServerLevel, pDamageSource, pAmount);
+		return super.hurtServer(pServerLevel, pDamageSource, pDamage);
 	}
 
 	public boolean isMovement() {

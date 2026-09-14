@@ -28,18 +28,18 @@ public class EnderJellyfishEntity extends JellyfishEntity {
 	}
 
 	@Override
-	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pAmount) {
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
 		if (pDamageSource.is(DamageTypeTags.IS_PROJECTILE)) {
 			this.teleport();
-			return pDamageSource.getDirectEntity() instanceof AbstractThrownPotion abstractThrownPotion && this.hurtWithCleanWater(pDamageSource, pServerLevel, abstractThrownPotion, pAmount);
+			return pDamageSource.getDirectEntity() instanceof AbstractThrownPotion abstractThrownPotion && this.hurtWithCleanWater(pDamageSource, pServerLevel, abstractThrownPotion, pDamage);
 		} else {
 			this.teleport(10);
-			return super.hurtServer(pServerLevel, pDamageSource, pAmount);
+			return super.hurtServer(pServerLevel, pDamageSource, pDamage);
 		}
 	}
 
-	public boolean hurtWithCleanWater(DamageSource pDamageSource, ServerLevel pServerLevel, AbstractThrownPotion pAbstractThrownPotion, float pAmount) {
-		return super.hurtServer(pServerLevel, pDamageSource, pAmount) && pAbstractThrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
+	public boolean hurtWithCleanWater(DamageSource pDamageSource, ServerLevel pServerLevel, AbstractThrownPotion pAbstractThrownPotion, float pDamage) {
+		return super.hurtServer(pServerLevel, pDamageSource, pDamage) && pAbstractThrownPotion.getItem().getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY).is(Potions.WATER);
 	}
 
 	@Override

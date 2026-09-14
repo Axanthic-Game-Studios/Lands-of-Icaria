@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.35,
+  "ingredient": "landsoficaria:raw_purple_feesh",
+  "result": {
+    "id": "landsoficaria:cooked_purple_feesh"
+  }
+}

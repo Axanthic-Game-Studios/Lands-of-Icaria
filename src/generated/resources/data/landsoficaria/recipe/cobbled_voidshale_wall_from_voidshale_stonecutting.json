@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "landsoficaria:voidshale",
+  "result": {
+    "id": "landsoficaria:cobbled_voidshale_wall"
+  }
+}

@@ -1,6 +1,5 @@
 {
   "parent": "landsoficaria:block/template_grate_fireplace_upper",
-  "render_type": "minecraft:cutout",
   "textures": {
     "chalkos_mesh_block": "landsoficaria:block/chalkos_mesh_block",
     "particle": "landsoficaria:block/smooth_loam_bricks",

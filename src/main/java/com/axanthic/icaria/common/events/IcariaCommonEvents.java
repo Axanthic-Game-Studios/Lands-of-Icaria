@@ -75,6 +75,7 @@ import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.event.level.BlockEvent;
+import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import net.neoforged.neoforge.registries.DataPackRegistryEvent;
@@ -200,7 +201,7 @@ public class IcariaCommonEvents {
 	}
 
 	@SubscribeEvent
-	public static void onBreak(BlockEvent.BreakEvent pEvent) {
+	public static void onBreakBlock(BreakBlockEvent pEvent) {
 		var pos = pEvent.getPos();
 		var player = pEvent.getPlayer();
 		var levelAccessor = pEvent.getLevel();
@@ -297,6 +298,7 @@ public class IcariaCommonEvents {
 		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
 		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
 		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaPotionTagsProvider(packOutput, registryProvider));
 		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
 		pEvent.addProvider(new IcariaDataMapProvider(packOutput, lookupProvider));
 		pEvent.addProvider(builtinEntries);
@@ -1254,8 +1256,6 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.REEDY_VINE.get());
 			pEvent.accept(IcariaItems.SWIRLY_VINE.get());
 			pEvent.accept(IcariaItems.THORNY_VINE.get());
-
-			pEvent.accept(IcariaItems.FERN.get());
 
 			pEvent.accept(IcariaItems.SMALL_GRASS.get());
 			pEvent.accept(IcariaItems.MEDIUM_GRASS.get());

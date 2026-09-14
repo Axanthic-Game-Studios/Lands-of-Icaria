@@ -24,12 +24,12 @@ public class OvergrownRevenantItemRenderLayer extends RenderLayer<OvergrownReven
 	}
 
 	@Override
-	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pPackedLight, OvergrownRevenantRenderState pRenderState, float yRot, float xRot) {
+	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, OvergrownRevenantRenderState pRenderState, float yRot, float xRot) {
 		pPoseStack.pushPose();
 		this.getParentModel().translateToHand(pRenderState, HumanoidArm.RIGHT, pPoseStack);
 		IcariaClientHelper.setPart(pPoseStack, this.getParentModel().armRightLower);
 		IcariaClientHelper.setPositionAndRotation(pPoseStack, 0.0F, 0.075F, 0.040F, 260.0F, 180.0F, 0.0F);
-		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pPackedLight, OverlayTexture.NO_OVERLAY, 0);
+		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pLightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 		pPoseStack.popPose();
 	}
 }
