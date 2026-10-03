@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:kassiteros_ingot",
+    "B": "minecraft:bone"
+  },
+  "pattern": [
+    "  A",
+    " B ",
+    "B  "
+  ],
+  "result": {
+    "id": "landsoficaria:kassiteros_spear"
+  }
+}

@@ -509,9 +509,7 @@
           "type": "minecraft:condition",
           "if_true": {
             "type": "minecraft:biome",
-            "biome_is": [
-              "landsoficaria:void"
-            ]
+            "biome_is": "landsoficaria:void"
           },
           "then_run": {
             "type": "minecraft:block",

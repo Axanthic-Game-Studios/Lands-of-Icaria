@@ -1,15 +1,13 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.layer.VinegaroonEmissiveRenderLayer;
 import com.axanthic.icaria.client.model.VinegaroonModel;
 import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.state.VinegaroonRenderState;
 import com.axanthic.icaria.common.entity.VinegaroonEntity;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

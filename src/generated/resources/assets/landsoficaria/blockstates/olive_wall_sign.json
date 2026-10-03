@@ -1,7 +1,57 @@
 {
   "variants": {
-    "": {
+    "face=ceiling,facing=east": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 270,
+      "y": 90
+    },
+    "face=ceiling,facing=north": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 270
+    },
+    "face=ceiling,facing=south": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 270,
+      "y": 180
+    },
+    "face=ceiling,facing=west": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 270,
+      "y": 270
+    },
+    "face=floor,facing=east": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 90,
+      "y": 90
+    },
+    "face=floor,facing=north": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 90
+    },
+    "face=floor,facing=south": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 90,
+      "y": 180
+    },
+    "face=floor,facing=west": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "x": 90,
+      "y": 270
+    },
+    "face=wall,facing=east": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "y": 270
+    },
+    "face=wall,facing=north": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "y": 180
+    },
+    "face=wall,facing=south": {
       "model": "landsoficaria:block/olive_wall_sign"
+    },
+    "face=wall,facing=west": {
+      "model": "landsoficaria:block/olive_wall_sign",
+      "y": 90
     }
   }
 }

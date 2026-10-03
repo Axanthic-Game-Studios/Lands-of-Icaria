@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.JellyfishEntity;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.phys.Vec3;

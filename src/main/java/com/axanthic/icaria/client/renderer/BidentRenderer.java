@@ -1,13 +1,12 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.state.BidentRenderState;
 import com.axanthic.icaria.common.entity.BidentEntity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;

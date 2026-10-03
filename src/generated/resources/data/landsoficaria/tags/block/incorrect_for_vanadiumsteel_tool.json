@@ -1,6 +1,7 @@
 {
   "values": [
-    "#landsoficaria:needs_sideros_tool",
-    "#landsoficaria:needs_molybdenumsteel_tool"
+    "#neoforge:needs_netherite_tool",
+    "#landsoficaria:needs_molybdenumsteel_tool",
+    "#landsoficaria:needs_sideros_tool"
   ]
 }

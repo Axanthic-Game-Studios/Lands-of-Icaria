@@ -2,7 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -20,7 +19,36 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:match_tool",
+                "predicate": {
+                  "items": "minecraft:shears"
+                }
+              }
+            },
+            {
+              "chances": [
+                0.05,
+                0.06666667,
+                0.083333336,
+                0.1
+              ],
+              "condition": "minecraft:table_bonus",
+              "enchantment": "minecraft:fortune"
+            }
+          ],
+          "name": "landsoficaria:physalis_seeds"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
       "entries": [
         {
           "type": "minecraft:item",
@@ -51,7 +79,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -77,37 +104,6 @@
             }
           ],
           "name": "landsoficaria:strawberry_seeds"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:match_tool",
-                "predicate": {
-                  "items": "minecraft:shears"
-                }
-              }
-            },
-            {
-              "chances": [
-                0.05,
-                0.06666667,
-                0.083333336,
-                0.1
-              ],
-              "condition": "minecraft:table_bonus",
-              "enchantment": "minecraft:fortune"
-            }
-          ],
-          "name": "landsoficaria:physalis_seeds"
         }
       ],
       "rolls": 1.0

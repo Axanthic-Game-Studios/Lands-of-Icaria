@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class ForgeModel {
 
 	public static ExtendedModelTemplate bottomBackLeft() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 14.0000F, 0.0000F).to(4.0000F, 16.0000F, 2.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 2.0000F, 2.0000F).texture(IcariaTextureSlots.GRAINITE_BRICKS)))
@@ -54,7 +53,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate bottomBackRight() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 14.0000F, 4.0000F).to(16.0000F, 16.0000F, 14.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(12.0000F, 0.0000F, 16.0000F, 2.0000F).texture(IcariaTextureSlots.GRAINITE)))
@@ -89,7 +88,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate bottomFrontLeft() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 9.0000F, 3.0000F).to(13.0000F, 12.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(3.0000F, 3.0000F, 16.0000F, 16.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOAM_BRICKS)))
@@ -158,7 +157,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate bottomFrontRight() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 15.0000F, 11.0000F).to(16.0000F, 16.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 11.0000F, 9.0000F).texture(IcariaTextureSlots.FORGE))
@@ -267,7 +266,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate bottomFrontRightLit() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 15.0000F, 11.0000F).to(16.0000F, 16.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 11.0000F, 9.0000F).texture(IcariaTextureSlots.FORGE))
@@ -385,7 +384,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate topBackLeft() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 2.0000F).to(4.0000F, 15.0000F, 4.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(12.0000F, 1.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.GRAINITE_BRICKS))
@@ -441,7 +440,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate topBackRight() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 0.0000F, 4.0000F).to(16.0000F, 6.0000F, 14.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(12.0000F, 10.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.GRAINITE))
@@ -516,7 +515,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate topFrontLeft() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 11.0000F).to(3.0000F, 5.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(-8.0000F, -16.0000F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 11.0000F, 13.0000F).texture(IcariaTextureSlots.FORGE))
@@ -593,7 +592,7 @@ public class ForgeModel {
 	}
 
 	public static ExtendedModelTemplate topFrontRight() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 0.0000F, 11.0000F).to(16.0000F, 5.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 11.0000F, 13.0000F).texture(IcariaTextureSlots.FORGE))

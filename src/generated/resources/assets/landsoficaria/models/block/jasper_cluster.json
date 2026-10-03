@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_jasper_cluster",
+  "textures": {
+    "particle": "landsoficaria:block/jasper_cluster",
+    "texture": "landsoficaria:block/jasper_cluster"
+  }
+}

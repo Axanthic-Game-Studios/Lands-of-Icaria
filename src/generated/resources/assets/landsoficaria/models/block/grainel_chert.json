@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "landsoficaria:block/grainel_chert",
-    "particle": "landsoficaria:block/grainel_chert"
-  }
-}

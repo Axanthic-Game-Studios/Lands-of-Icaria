@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/template_wall_sign",
   "textures": {
+    "all": "landsoficaria:block/laurel_sign",
     "particle": "landsoficaria:block/laurel_planks"
   }
 }

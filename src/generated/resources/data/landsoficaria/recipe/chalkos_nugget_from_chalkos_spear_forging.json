@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:chalkos_spear",
+  "result": {
+    "id": "landsoficaria:chalkos_nugget"
+  },
+  "time": 100
+}

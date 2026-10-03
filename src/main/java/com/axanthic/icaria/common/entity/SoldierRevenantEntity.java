@@ -1,11 +1,9 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -48,9 +46,9 @@ public class SoldierRevenantEntity extends RevenantEntity {
 		if (this.getRandom().nextInt(10) == 0) {
 			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_BIDENT.get()));
 		} else if (this.getRandom().nextInt(10) == 1) {
-			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_AXE.get()));
-		} else if (this.getRandom().nextInt(10) == 2) {
 			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_DAGGER.get()));
+		} else if (this.getRandom().nextInt(10) == 2) {
+			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_SPEAR.get()));
 		} else {
 			this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IcariaItems.KASSITEROS_SWORD.get()));
 		}

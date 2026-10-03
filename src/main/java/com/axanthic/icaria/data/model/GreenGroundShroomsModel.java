@@ -1,12 +1,10 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -19,7 +17,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class GreenGroundShroomsModel {
 
 	public static ExtendedModelTemplate template0() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 0.0000F, 5.0000F).to(5.0000F, 5.0000F, 6.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(4.5000F, 8.0000F, 5.5000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 4.0000F, 1.0000F, 9.0000F).texture(IcariaTextureSlots.STEM))
@@ -88,7 +86,7 @@ public class GreenGroundShroomsModel {
 	}
 
 	public static ExtendedModelTemplate template1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(6.0000F, 0.0000F, 5.0000F).to(7.0000F, 7.0000F, 6.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, -22.5000F, 0.0000F).origin(6.5000F, 8.0000F, 5.5000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 4.0000F, 1.0000F, 11.0000F).texture(IcariaTextureSlots.STEM))
@@ -157,7 +155,7 @@ public class GreenGroundShroomsModel {
 	}
 
 	public static ExtendedModelTemplate template2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(6.0000F, 0.0000F, 7.0000F).to(7.0000F, 3.0000F, 8.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(6.5000F, 8.0000F, 5.5000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 4.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.STEM))

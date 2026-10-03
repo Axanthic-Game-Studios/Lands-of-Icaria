@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.StoolEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Carpet;
@@ -9,17 +11,12 @@ import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.StoolVoxelShapes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -59,14 +56,6 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 		return pBlockState.getValue(IcariaBlockStateProperties.STOOL_TAKEN) ? 15 : 0;
 	}
 
-	public void bounceUp(Entity pEntity) {
-		var vec3 = pEntity.getDeltaMovement();
-		if (vec3.y < 0.0D) {
-			var d = pEntity instanceof LivingEntity ? 1.0D : 0.8D;
-			pEntity.setDeltaMovement(vec3.x, -vec3.y * d, vec3.z);
-		}
-	}
-
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(IcariaBlockStateProperties.CARPET, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.STOOL_TAKEN, BlockStateProperties.WATERLOGGED);
@@ -82,15 +71,6 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 	@Override
 	public void fallOn(Level pLevel, BlockState pBlockState, BlockPos pBlockPos, Entity pEntity, double pFallDistance) {
 		pEntity.causeFallDamage(pFallDistance, 0.5F, pLevel.damageSources().fall());
-	}
-
-	@Override
-	public void updateEntityMovementAfterFallOn(BlockGetter pBlockGetter, Entity pEntity) {
-		if (pEntity.isSuppressingBounce()) {
-			super.updateEntityMovementAfterFallOn(pBlockGetter, pEntity);
-		} else {
-			this.bounceUp(pEntity);
-		}
 	}
 
 	@Override

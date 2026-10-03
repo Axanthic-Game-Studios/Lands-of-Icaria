@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class BarrelModel {
 
 	public static ExtendedModelTemplate barrel() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(-1.0000F, 0.0000F, 0.0039F).to(5.0000F, 1.0000F, 1.0039F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, -45.0000F).origin(5.0000F, 0.0000F, 15.3750F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 5.0000F, 6.0000F, 6.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.ANVIL))
@@ -231,7 +230,7 @@ public class BarrelModel {
 	}
 
 	public static ExtendedModelTemplate standingBarrel() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(-1.0000F, 14.9922F, 0.7500F).to(5.0000F, 15.9922F, 1.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(5.0000F, 0.6172F, 0.7500F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 5.0000F, 6.0000F, 6.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.ANVIL))

@@ -1,16 +1,15 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.provider.tags.IcariaPaintingVariantTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaPaintingTags;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -113,7 +112,7 @@ public class IcariaPaintingEntity extends Painting {
 	public static Optional<Painting> create(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
 		var arrayList = new ArrayList<Holder<PaintingVariant>>();
 		var paintingEntity = new IcariaPaintingEntity(pLevel, pBlockPos);
-		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingVariantTagsProvider.PAINTINGS).forEach(arrayList::add);
+		pLevel.registryAccess().lookupOrThrow(Registries.PAINTING_VARIANT).getTagOrEmpty(IcariaPaintingTags.PAINTINGS).forEach(arrayList::add);
 		if (arrayList.isEmpty()) {
 			return Optional.empty();
 		} else {

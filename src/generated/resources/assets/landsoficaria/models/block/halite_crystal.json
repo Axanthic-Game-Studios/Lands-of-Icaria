@@ -1,7 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_halite_crystal",
-  "textures": {
-    "particle": "landsoficaria:block/halite_crystal",
-    "texture": "landsoficaria:block/halite_crystal"
-  }
-}

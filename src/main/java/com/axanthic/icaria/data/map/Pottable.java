@@ -1,10 +1,10 @@
 package com.axanthic.icaria.data.map;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Block;

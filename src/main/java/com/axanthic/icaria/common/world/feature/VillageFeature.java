@@ -1,18 +1,17 @@
 package com.axanthic.icaria.common.world.feature;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.entity.StorageVaseBlockEntity;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import java.util.ArrayList;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -81,28 +80,28 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void replace(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CYAN_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.LIME_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.BLUE_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.PINK_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RELICSTONE.get()) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.SMOOTH_RELICSTONE.get())) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.cyan()) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.lime()) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.blue()) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.pink()) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RELICSTONE.get()) || pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.SMOOTH_RELICSTONE.get())) {
 			this.place(pWorldGenLevel, pBlockPos, pBlockState);
-		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTagsProvider.REPLACE_BLOCKS_ERODED_VILLAGE)) {
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTags.REPLACE_BLOCKS_ERODED_VILLAGE)) {
 			this.place(pWorldGenLevel, pBlockPos, Blocks.AIR.defaultBlockState());
 		}
 	}
 
 	public void replaceBlocks(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, BlockState pBlockState) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CYAN_CONCRETE)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.cyan())) {
 			this.place(pWorldGenLevel, pBlockPos, pBlockState);
-		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.LIME_CONCRETE)) {
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.lime())) {
 			this.placeGrainel(pWorldGenLevel, pBlockPos, pBlockState);
-		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.BLUE_CONCRETE)) {
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.blue())) {
 			this.placeRelicstone(pWorldGenLevel, pBlockPos, pBlockState);
-		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.PINK_CONCRETE) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.GRAY_CONCRETE)) {
-			this.place(pWorldGenLevel, pBlockPos, IcariaBlocks.MARL_LIGNITE.get().defaultBlockState());
+		} else if (pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.pink()) || pWorldGenLevel.getBlockState(pBlockPos).is(Blocks.CONCRETE.gray())) {
+			this.place(pWorldGenLevel, pBlockPos, IcariaBlocks.MARL_LIGNITE_ORE.get().defaultBlockState());
 		}
 	}
 
 	public void replaceRuined(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos.below()).isAir() || pWorldGenLevel.getBlockState(pBlockPos.below()).is(Blocks.COBWEB)) { // TODO replace with Icaria Cobweb
-			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTagsProvider.REPLACE_BLOCKS_RUINED_VILLAGE)) {
+			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlockTags.REPLACE_BLOCKS_RUINED_VILLAGE)) {
 				this.place(pWorldGenLevel, pBlockPos, Blocks.AIR.defaultBlockState());
 			}
 		}
@@ -137,7 +136,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 							var blockPos = new BlockPos(pBlockPos.getX() + x, y, pBlockPos.getZ() + z);
 							if (pWorldGenLevel.getBlockState(blockPos).is(IcariaBlocks.RELICSTONE.get())) {
 								var relative = blockPos.offset(0, h, 0).relative(direction);
-								if (pWorldGenLevel.getBlockState(relative).is(Blocks.CYAN_CONCRETE)) {
+								if (pWorldGenLevel.getBlockState(relative).is(Blocks.CONCRETE.cyan())) {
 									this.place(pWorldGenLevel, relative, IcariaBlocks.RELICSTONE.get().defaultBlockState());
 								}
 							}
@@ -150,22 +149,22 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
 	public void setLootForChests(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof IcariaChestBlockEntity blockEntity) {
-			blockEntity.setLootTable(IcariaLootTables.CHEST, pRandomSource.nextLong());
+			blockEntity.setLootTable(IcariaLootTableIds.CHEST, pRandomSource.nextLong());
 		}
 	}
 
 	public void setLootForDecoratedPots(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof DecoratedPotBlockEntity blockEntity) {
-			blockEntity.setLootTable(IcariaLootTables.DECORATED_POT, pRandomSource.nextLong());
+			blockEntity.setLootTable(IcariaLootTableIds.DECORATED_POT, pRandomSource.nextLong());
 		}
 	}
 
 	public void setLootForStorageVases(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		if (pWorldGenLevel.getBlockEntity(pBlockPos) instanceof StorageVaseBlockEntity blockEntity) {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTableIds.RED_STORAGE_VASE, pRandomSource.nextLong());
 			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTableIds.CYAN_LOOT_VASE, pRandomSource.nextLong());
 			}
 		}
 	}

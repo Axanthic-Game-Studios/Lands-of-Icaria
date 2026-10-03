@@ -1,12 +1,12 @@
 package com.axanthic.icaria.client.events;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.extensions.IcariaClientFluidTypeExtensions;
 import com.axanthic.icaria.client.extensions.IcariaClientItemExtensions;
 import com.axanthic.icaria.client.layer.BarrelRenderLayer;
 import com.axanthic.icaria.client.layer.LootVaseRenderLayer;
 import com.axanthic.icaria.client.model.*;
-import com.axanthic.icaria.client.modifier.BarrelAvatarRenderStateModifier;
-import com.axanthic.icaria.client.modifier.LootVaseAvatarRenderStateModifier;
 import com.axanthic.icaria.client.particle.provider.IcariaBubbleParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaPortalParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
@@ -14,16 +14,14 @@ import com.axanthic.icaria.client.registry.IcariaModelLayerLocations;
 import com.axanthic.icaria.client.registry.IcariaRenderPipelines;
 import com.axanthic.icaria.client.renderer.*;
 import com.axanthic.icaria.client.screen.*;
+import com.axanthic.icaria.client.state.modifier.BarrelAvatarRenderStateModifier;
+import com.axanthic.icaria.client.state.modifier.LootVaseAvatarRenderStateModifier;
 import com.axanthic.icaria.client.tint.IcariaGrassBlockTintSource;
 import com.axanthic.icaria.client.tint.IcariaWaterBlockTintSource;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockTintSource;
@@ -51,7 +49,7 @@ import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaKeys.ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = IcariaIds.ID, value = Dist.CLIENT)
 public class IcariaClientEvents {
 
 	@SubscribeEvent
@@ -178,8 +176,8 @@ public class IcariaClientEvents {
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SOLDIER_REVENANT_ITEM, SoldierRevenantModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.REVENANT_SKULL, RevenantSkullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SCORPION, ScorpionModel::createLayer);
-		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CRYSTAL_SLUG_BODY, CrystalSlugModel::createLayer);
-		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CRYSTAL_SLUG_RAYS, CrystalSlugModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CLUSTER_SLUG_BODY, ClusterSlugModel::createLayer);
+		pEvent.registerLayerDefinition(IcariaModelLayerLocations.CLUSTER_SLUG_RAYS, ClusterSlugModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.FOREST_SNULL, ForestSnullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SNULL, SnullModel::createLayer);
 		pEvent.registerLayerDefinition(IcariaModelLayerLocations.SOLIFUGAE, SolifugaeModel::createLayer);
@@ -233,7 +231,7 @@ public class IcariaClientEvents {
 		var itemStack = pEvent.getItemStack();
 		if (pEvent.getHand() == InteractionHand.MAIN_HAND && itemStack.is(IcariaItems.CHEST_LABEL.get())) {
 			pEvent.getEntity().awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-			Minecraft.getInstance().setScreen(new ChestLabelScreen(itemStack));
+			Minecraft.getInstance().gui.setScreen(new ChestLabelScreen(itemStack));
 		}
 	}
 
@@ -328,7 +326,7 @@ public class IcariaClientEvents {
 	public static void blockEntityRenderers() {
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.BATHTUB.get(), BathtubBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.CHEST.get(), ChestBlockRenderer::new);
-		BlockEntityRenderers.register(IcariaBlockEntityTypes.CRYSTAL.get(), CrystalBlockRenderer::new);
+		BlockEntityRenderers.register(IcariaBlockEntityTypes.CLUSTER.get(), ClusterBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FIREPLACE.get(), FireplaceBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FLOWER_POT_COUNTERTOP.get(), FlowerPotCountertopBlockRenderer::new);
 		BlockEntityRenderers.register(IcariaBlockEntityTypes.FORGE.get(), ForgeBlockRenderer::new);
@@ -386,7 +384,7 @@ public class IcariaClientEvents {
 		EntityRenderers.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.RUG.get(), RugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SCORPION.get(), ScorpionRenderer::new);
-		EntityRenderers.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), CrystalSlugRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.CLUSTER_SLUG.get(), ClusterSlugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);

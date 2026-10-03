@@ -1,13 +1,13 @@
 {
   "values": [
-    "#c:gems/chert",
+    "#c:gems/anthracite",
     "#c:gems/calcite",
+    "#c:gems/chert",
+    "#c:gems/dolomite",
     "#c:gems/halite",
     "#c:gems/jasper",
-    "#c:gems/zircon",
     "#c:gems/lignite",
-    "#c:gems/dolomite",
     "#c:gems/sliver",
-    "#c:gems/anthracite"
+    "#c:gems/zircon"
   ]
 }

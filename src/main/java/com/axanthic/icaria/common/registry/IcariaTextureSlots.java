@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.data.models.model.TextureSlot;
 
@@ -19,6 +18,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot BARREL_FRONT = TextureSlot.create("barrel_front");
 	public static final TextureSlot BARS = TextureSlot.create("bars");
 	public static final TextureSlot BLACK_STORAGE_VASE_LITE = TextureSlot.create("black_storage_vase_lite");
+	public static final TextureSlot BONES = TextureSlot.create("bones");
 	public static final TextureSlot BOTTOM = TextureSlot.create("bottom");
 	public static final TextureSlot BROWN_GROUND_SHROOMS = TextureSlot.create("brown_ground_shrooms");
 	public static final TextureSlot BROWN_STORAGE_VASE = TextureSlot.create("brown_storage_vase");
@@ -34,6 +34,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");
 	public static final TextureSlot CHERT_BLOCK = TextureSlot.create("chert_block");
+	public static final TextureSlot CHERT_RUBBLE = TextureSlot.create("chert_rubble");
 	public static final TextureSlot CHESSBOARD = TextureSlot.create("chessboard");
 	public static final TextureSlot CHIMNEY = TextureSlot.create("chimney");
 	public static final TextureSlot COBWEB_NEGATIVE = TextureSlot.create("cobweb_negative");
@@ -117,8 +118,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
-	public static final TextureSlot SURFACE_BONES = TextureSlot.create("surface_bones");
-	public static final TextureSlot SURFACE_CHERT = TextureSlot.create("surface_chert");
 	public static final TextureSlot TEXTURE = TextureSlot.create("texture");
 	public static final TextureSlot TOP = TextureSlot.create("top");
 	public static final TextureSlot TORCH_BONE = TextureSlot.create("torch_bone");

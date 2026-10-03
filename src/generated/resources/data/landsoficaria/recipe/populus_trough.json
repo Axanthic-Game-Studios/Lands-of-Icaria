@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:populus_log",
     "B": "landsoficaria:populus_planks"

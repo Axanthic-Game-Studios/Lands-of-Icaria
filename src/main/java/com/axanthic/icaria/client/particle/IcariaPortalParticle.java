@@ -1,8 +1,7 @@
 package com.axanthic.icaria.client.particle;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.PortalParticle;

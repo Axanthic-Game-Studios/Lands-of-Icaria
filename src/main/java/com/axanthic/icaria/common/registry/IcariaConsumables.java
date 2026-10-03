@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
@@ -18,55 +17,55 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 @ParametersAreNonnullByDefault
 
 public class IcariaConsumables {
-	public static final Consumable ANTI_GRAVITY_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.LEVITATION, 1.0F, 600);
-	public static final Consumable FORTIFYING_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.RESISTANCE, 1.0F, 600);
-	public static final Consumable HEALING_FLASK = IcariaConsumables.consumable(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.REGENERATION, 1.0F, 600);
-	public static final Consumable VINE_SPROUT = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable RAW_AETERNAE_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_CAPELLA_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_CATOBLEPAS_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_CERVER_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_CROCOTTA_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_THOG_MEAT = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_GRAY_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BROWN_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BROWN_ORANGE_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_PINK_RED_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_PURPLE_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_RED_FEESH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_RED_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BROWN_CYAN_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_GRAY_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_GREEN_MAGENTA_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_RED_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_WHITE_YELLOW_FICHE = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_BROWN_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_RED_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_YELLOW_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BROWN_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_GREEN_MAGENTA_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_PURPLE_YELLOW_FISSHH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_BLUE_PURPLE_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_GRAY_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_RAINBOW_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_RED_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable RAW_RED_YELLOW_FYSH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
-	public static final Consumable FERMENTED_FISH = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
-	public static final Consumable SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 1.0F, 200);
-	public static final Consumable FERMENTED_SNULL_CREAM = IcariaConsumables.consumable(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
-	public static final Consumable FRUIT_SALAD = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.REGENERATION, 1.0F, 200);
-	public static final Consumable ONION_SOUP = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable AETERNAE_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable CATOBLEPAS_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable CERVER_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
-	public static final Consumable THOG_STEW = IcariaConsumables.consumable(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable ANTI_GRAVITY_FLASK = IcariaConsumables.create(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.LEVITATION, 1.0F, 600);
+	public static final Consumable FORTIFYING_FLASK = IcariaConsumables.create(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.RESISTANCE, 1.0F, 600);
+	public static final Consumable HEALING_FLASK = IcariaConsumables.create(false, 1.6F, ItemUseAnimation.DRINK, SoundEvents.GENERIC_DRINK, MobEffects.REGENERATION, 1.0F, 600);
+	public static final Consumable VINE_SPROUT = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable RAW_AETERNAE_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_CAPELLA_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_CATOBLEPAS_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_CERVER_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_CROCOTTA_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_THOG_MEAT = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_GRAY_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BROWN_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BROWN_ORANGE_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_PINK_RED_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_PURPLE_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_RED_FEESH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_RED_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BROWN_CYAN_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_GRAY_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_GREEN_MAGENTA_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_RED_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_WHITE_YELLOW_FICHE = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_BROWN_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_RED_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_YELLOW_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BROWN_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_GREEN_MAGENTA_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_PURPLE_YELLOW_FISSHH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_BLUE_PURPLE_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_GRAY_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_RAINBOW_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_RED_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable RAW_RED_YELLOW_FYSH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.HUNGER, 0.5F, 200);
+	public static final Consumable FERMENTED_FISH = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
+	public static final Consumable SNULL_CREAM = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 1.0F, 200);
+	public static final Consumable FERMENTED_SNULL_CREAM = IcariaConsumables.create(true, 1.6F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.NAUSEA, 0.5F, 200);
+	public static final Consumable FRUIT_SALAD = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT, MobEffects.REGENERATION, 1.0F, 200);
+	public static final Consumable ONION_SOUP = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable AETERNAE_STEW = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable CATOBLEPAS_STEW = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable CERVER_STEW = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
+	public static final Consumable THOG_STEW = IcariaConsumables.create(true, 0.4F, ItemUseAnimation.EAT, SoundEvents.GENERIC_EAT);
 
-	public static Consumable consumable(boolean pHasConsumeParticles, float pConsumeSeconds, ItemUseAnimation pItemUseAnimation, Holder<SoundEvent> pSoundEvent, Holder<MobEffect> pMobEffect, float pProbability, int pDuration) {
+	public static Consumable create(boolean pHasConsumeParticles, float pConsumeSeconds, ItemUseAnimation pItemUseAnimation, Holder<SoundEvent> pSoundEvent, Holder<MobEffect> pMobEffect, float pProbability, int pDuration) {
 		return Consumable.builder().hasConsumeParticles(pHasConsumeParticles).consumeSeconds(pConsumeSeconds).animation(pItemUseAnimation).sound(pSoundEvent).onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(pMobEffect, pDuration), pProbability)).build();
 	}
 
-	public static Consumable consumable(boolean pHasConsumeParticles, float pConsumeSeconds, ItemUseAnimation pItemUseAnimation, Holder<SoundEvent> pSoundEvent) {
+	public static Consumable create(boolean pHasConsumeParticles, float pConsumeSeconds, ItemUseAnimation pItemUseAnimation, Holder<SoundEvent> pSoundEvent) {
 		return Consumable.builder().hasConsumeParticles(pHasConsumeParticles).consumeSeconds(pConsumeSeconds).animation(pItemUseAnimation).sound(pSoundEvent).build();
 	}
 }

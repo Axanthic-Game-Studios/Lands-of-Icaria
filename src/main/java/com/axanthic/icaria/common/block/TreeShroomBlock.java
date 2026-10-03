@@ -1,15 +1,14 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -37,7 +36,7 @@ public class TreeShroomBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		return direction.getAxis().isHorizontal() && pLevelReader.getBlockState(pBlockPos.relative(direction.getOpposite())).is(BlockTags.LOGS);
+		return direction.getAxis().isHorizontal() && pLevelReader.getBlockState(pBlockPos.relative(direction.getOpposite())).is(BlockItemTags.LOGS.block());
 	}
 
 	@Override

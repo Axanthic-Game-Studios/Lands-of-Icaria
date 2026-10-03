@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/template_wall_sign",
   "textures": {
+    "all": "landsoficaria:block/droughtroot_sign",
     "particle": "landsoficaria:block/droughtroot_planks"
   }
 }

@@ -1,16 +1,16 @@
 {
   "values": [
-    "#c:ores/chert",
-    "#c:ores/bones",
-    "#c:ores/lignite",
-    "#c:ores/chalkos",
-    "#c:ores/kassiteros",
-    "#c:ores/dolomite",
-    "#c:ores/vanadium",
-    "#c:ores/sliver",
-    "#c:ores/sideros",
     "#c:ores/anthracite",
+    "#c:ores/bone",
+    "#c:ores/chalkos",
+    "#c:ores/chert",
+    "#c:ores/dolomite",
+    "#c:ores/hyliastrum",
+    "#c:ores/kassiteros",
+    "#c:ores/lignite",
     "#c:ores/molybdenum",
-    "#c:ores/hyliastrum"
+    "#c:ores/sideros",
+    "#c:ores/sliver",
+    "#c:ores/vanadium"
   ]
 }

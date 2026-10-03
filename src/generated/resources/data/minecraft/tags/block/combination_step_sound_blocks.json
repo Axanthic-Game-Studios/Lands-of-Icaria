@@ -1,8 +1,8 @@
 {
   "values": [
-    "landsoficaria:surface_chert",
-    "landsoficaria:surface_bones",
-    "landsoficaria:surface_lignite",
+    "landsoficaria:bones",
+    "landsoficaria:chert_rubble",
+    "landsoficaria:lignite_rubble",
     "landsoficaria:grainite_rubble",
     "landsoficaria:yellowstone_rubble",
     "landsoficaria:silkstone_rubble",
@@ -105,9 +105,9 @@
     "landsoficaria:brown_ground_shrooms",
     "landsoficaria:large_brown_ground_shrooms",
     "landsoficaria:strawberry_bush",
-    "landsoficaria:spelt_crop",
-    "landsoficaria:strawberry_crop",
-    "landsoficaria:physalis_crop",
-    "landsoficaria:onion_crop"
+    "landsoficaria:onion",
+    "landsoficaria:physalis_seeds",
+    "landsoficaria:spelt_seeds",
+    "landsoficaria:strawberry_seeds"
   ]
 }

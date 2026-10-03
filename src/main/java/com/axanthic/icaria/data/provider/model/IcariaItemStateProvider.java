@@ -1,17 +1,15 @@
 package com.axanthic.icaria.data.provider.model;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.renderer.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.IcariaColors;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
 import java.util.Optional;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.color.item.Constant;
 import net.minecraft.client.data.models.BlockModelGenerators;
@@ -41,6 +39,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(pItemModelGenerators);
 		IcariaItemStateProvider.scroll(pItemModelGenerators);
 		IcariaItemStateProvider.skull(pItemModelGenerators);
+		IcariaItemStateProvider.spear(pItemModelGenerators);
 		IcariaItemStateProvider.tint(pItemModelGenerators);
 	}
 
@@ -65,12 +64,12 @@ public class IcariaItemStateProvider {
 
 	public static void parent(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.parent(IcariaItems.MARL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.MARL_CHERT.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SURFACE_CHERT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MARL_BONES.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SURFACE_BONES.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.MARL_LIGNITE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SURFACE_LIGNITE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BONES.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.MARL_CHERT_ORE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CHERT_RUBBLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.MARL_LIGNITE_ORE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LIGNITE_RUBBLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.COARSE_MARL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DRY_LAKE_BED.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FARMLAND.get(), pItemModelGenerators);
@@ -100,7 +99,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.DOLOMITE_PILLAR_HEAD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINEL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_GRAINEL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.GRAINEL_CHERT.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CHERT_ORE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINEL_PATH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINGLASS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRAINGLASS_PANE.get(), pItemModelGenerators);
@@ -278,18 +277,18 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.ANTHRACITE_ORE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MOLYBDENUM_ORE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.HYLIASTRUM_ORE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CALCITE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CALCITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BUDDING_CALCITE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.HALITE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.HALITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BUDDING_HALITE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.JASPER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.JASPER_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BUDDING_JASPER.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.ZIRCON.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ZIRCON_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BUDDING_ZIRCON.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CALCITE_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.HALITE_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.JASPER_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.ZIRCON_CRYSTAL.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CALCITE_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.HALITE_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.JASPER_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ZIRCON_CLUSTER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ARISTONE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PACKED_ARISTONE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get(), pItemModelGenerators);
@@ -331,7 +330,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SPELT_BALE_BLOCK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SPELT_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_REED_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ROTTEN_BONES_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_CHALKOS_BLOCK.get(), pItemModelGenerators);
@@ -339,10 +338,10 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.RAW_VANADIUM_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_SIDEROS_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_MOLYBDENUM_BLOCK.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CALCITE_BLOCK.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.HALITE_BLOCK.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.JASPER_BLOCK.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.ZIRCON_BLOCK.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CALCITE_GLASS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.HALITE_GLASS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.JASPER_GLASS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ZIRCON_GLASS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHERT_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LIGNITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHALKOS_BLOCK.get(), pItemModelGenerators);
@@ -861,6 +860,10 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.UNNAMED_TREE_SHROOMS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CARDON_CACTUS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.STRAWBERRY_BUSH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ONION.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRINDER_SHAFT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GRINDER_STONE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PAINTING.get(), pItemModelGenerators);
@@ -1035,7 +1038,6 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.BLACK_OLIVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GREEN_OLIVES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.GARLIC.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.ONION.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_AETERNAE_MEAT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.COOKED_AETERNAE_MEAT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.RAW_CAPELLA_MEAT.get(), pItemModelGenerators);
@@ -1110,9 +1112,6 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CATOBLEPAS_STEW.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CERVER_STEW.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.THOG_STEW.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.AETERNAE_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), pItemModelGenerators);
@@ -1149,7 +1148,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SCORPION_SPAWN_EGG.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CLUSTER_SLUG_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), pItemModelGenerators);
@@ -1189,6 +1188,16 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.skull(IcariaItems.THOG_SKULL.get(), SkullBlockTypes.THOG, pItemModelGenerators);
 	}
 
+	public static void spear(ItemModelGenerators pItemModelGenerators) {
+		IcariaItemStateProvider.spear(IcariaItems.CHERT_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.CHALKOS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.KASSITEROS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.ORICHALCUM_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.VANADIUMSTEEL_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.SIDEROS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.spear(IcariaItems.MOLYBDENUMSTEEL_SPEAR.get(), pItemModelGenerators);
+	}
+
 	public static void tint(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.tint(IcariaItems.GRASSY_MARL.get(), IcariaColors.TINT_GRASS, pItemModelGenerators);
 		IcariaItemStateProvider.tint(IcariaItems.POT.get(), IcariaColors.TINT_WATER, pItemModelGenerators);
@@ -1212,7 +1221,7 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "chest"), Optional.empty(), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIds.MC, "chest"), Optional.empty(), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
@@ -1224,11 +1233,15 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void scroll(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(Optional.empty(), new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(Identifier.fromNamespaceAndPath(IcariaKeys.MC, "builtin" + "/" + "generated"), Optional.empty(), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of()))));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(Optional.empty(), new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, ItemDisplayContext.FIRST_PERSON_RIGHT_HAND), new SpecialModelWrapper.Unbaked(Identifier.fromNamespaceAndPath(IcariaIds.MC, "builtin" + "/" + "generated"), Optional.empty(), new UnbakedScrollItemSpecialModelRenderer())))), Optional.of(new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of()))));
 	}
 
 	public static void skull(Item pItem, SkullBlock.Type pType, ItemModelGenerators pItemModelGenerators) {
-		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_skull"), Optional.of(BlockModelGenerators.SKULL_TRANSFORM), new SkullSpecialRenderer.Unbaked(pType)));
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIds.MC, "template_skull"), Optional.of(BlockModelGenerators.SKULL_TRANSFORM), new SkullSpecialRenderer.Unbaked(pType)));
+	}
+
+	public static void spear(Item pItem, ItemModelGenerators pItemModelGenerators) {
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(Optional.empty(), new SelectItemModel.UnbakedSwitch<>(new DisplayContext(), List.of(new SelectItemModel.SwitchCase<>(List.of(ItemDisplayContext.GUI, ItemDisplayContext.GROUND, ItemDisplayContext.FIXED, ItemDisplayContext.ON_SHELF), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem), Optional.empty(), List.of())))), Optional.of(new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "in_hand"), Optional.empty(), List.of()))));
 	}
 
 	public static void tint(Item pItem, int pColor, ItemModelGenerators pItemModelGenerators) {

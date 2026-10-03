@@ -1,5 +1,7 @@
 package com.axanthic.icaria.compat;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
@@ -7,17 +9,13 @@ import com.axanthic.icaria.common.recipe.category.FiringRecipeCategory;
 import com.axanthic.icaria.common.recipe.category.ForgingRecipeCategory;
 import com.axanthic.icaria.common.recipe.category.GrindingRecipeCategory;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
 import java.util.List;
 import java.util.function.Supplier;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -50,9 +48,9 @@ public class JeiCompat implements IModPlugin {
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration pRegistration) {
 		var guiHelper = pRegistration.getJeiHelpers().getGuiHelper();
-		pRegistration.addRecipeCategories(new FiringRecipeCategory(Component.translatable("category" + "." + IcariaKeys.ID + "." + "firing"), guiHelper.createDrawableItemLike(IcariaItems.KILN.get()), guiHelper, JeiCompat.FIRING.get()));
-		pRegistration.addRecipeCategories(new ForgingRecipeCategory(Component.translatable("category" + "." + IcariaKeys.ID + "." + "forging"), guiHelper.createDrawableItemLike(IcariaItems.FORGE.get()), guiHelper, JeiCompat.FORGING.get()));
-		pRegistration.addRecipeCategories(new GrindingRecipeCategory(Component.translatable("category" + "." + IcariaKeys.ID + "." + "grinding"), guiHelper.createDrawableItemLike(IcariaItems.GRINDER.get()), guiHelper, JeiCompat.GRINDING.get()));
+		pRegistration.addRecipeCategories(new FiringRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "firing"), guiHelper.createDrawableItemLike(IcariaItems.KILN.get()), guiHelper, JeiCompat.FIRING.get()));
+		pRegistration.addRecipeCategories(new ForgingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "forging"), guiHelper.createDrawableItemLike(IcariaItems.FORGE.get()), guiHelper, JeiCompat.FORGING.get()));
+		pRegistration.addRecipeCategories(new GrindingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "grinding"), guiHelper.createDrawableItemLike(IcariaItems.GRINDER.get()), guiHelper, JeiCompat.GRINDING.get()));
 	}
 
 	@Override
@@ -93,6 +91,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.CHERT_AXE.get());
 		this.combining(pRegistration, IcariaItems.CHERT_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.CHERT_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.CHERT_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.CHALKOS_SWORD.get());
 		this.combining(pRegistration, IcariaItems.CHALKOS_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.CHALKOS_SHOVEL.get());
@@ -100,6 +99,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.CHALKOS_AXE.get());
 		this.combining(pRegistration, IcariaItems.CHALKOS_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.CHALKOS_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.CHALKOS_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.KASSITEROS_SWORD.get());
 		this.combining(pRegistration, IcariaItems.KASSITEROS_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.KASSITEROS_SHOVEL.get());
@@ -107,6 +107,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.KASSITEROS_AXE.get());
 		this.combining(pRegistration, IcariaItems.KASSITEROS_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.KASSITEROS_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.KASSITEROS_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_SWORD.get());
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_SHOVEL.get());
@@ -114,6 +115,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_AXE.get());
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.ORICHALCUM_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.ORICHALCUM_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_SWORD.get());
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_SHOVEL.get());
@@ -121,6 +123,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_AXE.get());
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.VANADIUMSTEEL_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.SIDEROS_SWORD.get());
 		this.combining(pRegistration, IcariaItems.SIDEROS_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.SIDEROS_SHOVEL.get());
@@ -128,6 +131,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.SIDEROS_AXE.get());
 		this.combining(pRegistration, IcariaItems.SIDEROS_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.SIDEROS_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.SIDEROS_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SWORD.get());
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_DAGGER.get());
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SHOVEL.get());
@@ -135,6 +139,7 @@ public class JeiCompat implements IModPlugin {
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_AXE.get());
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get());
 		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+		this.combining(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SPEAR.get());
 		this.combining(pRegistration, IcariaItems.AETERNAE_HIDE_HELMET.get());
 		this.combining(pRegistration, IcariaItems.AETERNAE_HIDE_CHESTPLATE.get());
 		this.combining(pRegistration, IcariaItems.AETERNAE_HIDE_LEGGINGS.get());
@@ -170,87 +175,94 @@ public class JeiCompat implements IModPlugin {
 	}
 
 	public void repairing(IRecipeRegistration pRegistration) {
-		this.repairing(pRegistration, IcariaItems.CHERT_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHERT_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHERT);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.SIDEROS_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SWORD.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_DAGGER.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SHOVEL.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_PICKAXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_AXE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_BIDENT.get(), IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL);
-		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_HELMET.get(), IcariaItemTagsProvider.REPAIRS_AETERNAE_HIDE_ARMOR);
-		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_CHESTPLATE.get(), IcariaItemTagsProvider.REPAIRS_AETERNAE_HIDE_ARMOR);
-		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_LEGGINGS.get(), IcariaItemTagsProvider.REPAIRS_AETERNAE_HIDE_ARMOR);
-		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_BOOTS.get(), IcariaItemTagsProvider.REPAIRS_AETERNAE_HIDE_ARMOR);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_HELMET.get(), IcariaItemTagsProvider.REPAIRS_CHALKOS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_CHESTPLATE.get(), IcariaItemTagsProvider.REPAIRS_CHALKOS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_LEGGINGS.get(), IcariaItemTagsProvider.REPAIRS_CHALKOS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.CHALKOS_BOOTS.get(), IcariaItemTagsProvider.REPAIRS_CHALKOS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_HELMET.get(), IcariaItemTagsProvider.REPAIRS_KASSITEROS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_CHESTPLATE.get(), IcariaItemTagsProvider.REPAIRS_KASSITEROS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_LEGGINGS.get(), IcariaItemTagsProvider.REPAIRS_KASSITEROS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.KASSITEROS_BOOTS.get(), IcariaItemTagsProvider.REPAIRS_KASSITEROS_ARMOR);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItemTagsProvider.REPAIRS_ORICHALCUM_ARMOR);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItemTagsProvider.REPAIRS_ORICHALCUM_ARMOR);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItemTagsProvider.REPAIRS_ORICHALCUM_ARMOR);
-		this.repairing(pRegistration, IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItemTagsProvider.REPAIRS_ORICHALCUM_ARMOR);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_HELMET.get(), IcariaItemTagsProvider.REPAIRS_VANADIUMSTEEL_ARMOR);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_CHESTPLATE.get(), IcariaItemTagsProvider.REPAIRS_VANADIUMSTEEL_ARMOR);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_LEGGINGS.get(), IcariaItemTagsProvider.REPAIRS_VANADIUMSTEEL_ARMOR);
-		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_BOOTS.get(), IcariaItemTagsProvider.REPAIRS_VANADIUMSTEEL_ARMOR);
-		this.repairing(pRegistration, IcariaItems.LAUREL_WREATH.get(), IcariaItemTagsProvider.REPAIRS_LAUREL_WREATH);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_STUFFING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNBLINDING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNDROWNING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNDYING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNSHATTERING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNSINKING.get(), IcariaItemTagsProvider.REPAIRS_TOTEM);
-		this.repairing(pRegistration, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItemTagsProvider.REPAIRS_YELLOWSTONE_GEAR);
-		this.repairing(pRegistration, IcariaItems.LOAM_GEAR.get(), IcariaItemTagsProvider.REPAIRS_LOAM_GEAR);
-		this.repairing(pRegistration, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItemTagsProvider.REPAIRS_VOIDSHALE_GEAR);
-		this.repairing(pRegistration, IcariaItems.VANADIUM_GEAR.get(), IcariaItemTagsProvider.REPAIRS_VANADIUM_GEAR);
-		this.repairing(pRegistration, IcariaItems.VINE_SPROUT.get(), IcariaItemTagsProvider.REPAIRS_VINE_SPROUT);
+		this.repairing(pRegistration, IcariaItems.CHERT_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_AXE.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHERT_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_CHERT);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_AXE.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_CHALKOS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_AXE.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_KASSITEROS);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_AXE.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_ORICHALCUM);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_AXE.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_AXE.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.SIDEROS_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_SIDEROS);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SWORD.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_DAGGER.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SHOVEL.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_PICKAXE.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_AXE.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_BIDENT.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.MOLYBDENUMSTEEL_SPEAR.get(), IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL);
+		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_HELMET.get(), IcariaItemTags.REPAIRS_AETERNAE_HIDE_ARMOR);
+		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_CHESTPLATE.get(), IcariaItemTags.REPAIRS_AETERNAE_HIDE_ARMOR);
+		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_LEGGINGS.get(), IcariaItemTags.REPAIRS_AETERNAE_HIDE_ARMOR);
+		this.repairing(pRegistration, IcariaItems.AETERNAE_HIDE_BOOTS.get(), IcariaItemTags.REPAIRS_AETERNAE_HIDE_ARMOR);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_HELMET.get(), IcariaItemTags.REPAIRS_CHALKOS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_CHESTPLATE.get(), IcariaItemTags.REPAIRS_CHALKOS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_LEGGINGS.get(), IcariaItemTags.REPAIRS_CHALKOS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.CHALKOS_BOOTS.get(), IcariaItemTags.REPAIRS_CHALKOS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_HELMET.get(), IcariaItemTags.REPAIRS_KASSITEROS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_CHESTPLATE.get(), IcariaItemTags.REPAIRS_KASSITEROS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_LEGGINGS.get(), IcariaItemTags.REPAIRS_KASSITEROS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.KASSITEROS_BOOTS.get(), IcariaItemTags.REPAIRS_KASSITEROS_ARMOR);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_HELMET.get(), IcariaItemTags.REPAIRS_ORICHALCUM_ARMOR);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_CHESTPLATE.get(), IcariaItemTags.REPAIRS_ORICHALCUM_ARMOR);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_LEGGINGS.get(), IcariaItemTags.REPAIRS_ORICHALCUM_ARMOR);
+		this.repairing(pRegistration, IcariaItems.ORICHALCUM_BOOTS.get(), IcariaItemTags.REPAIRS_ORICHALCUM_ARMOR);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_HELMET.get(), IcariaItemTags.REPAIRS_VANADIUMSTEEL_ARMOR);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_CHESTPLATE.get(), IcariaItemTags.REPAIRS_VANADIUMSTEEL_ARMOR);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_LEGGINGS.get(), IcariaItemTags.REPAIRS_VANADIUMSTEEL_ARMOR);
+		this.repairing(pRegistration, IcariaItems.VANADIUMSTEEL_BOOTS.get(), IcariaItemTags.REPAIRS_VANADIUMSTEEL_ARMOR);
+		this.repairing(pRegistration, IcariaItems.LAUREL_WREATH.get(), IcariaItemTags.REPAIRS_LAUREL_WREATH);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_STUFFING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNBLINDING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNDROWNING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNDYING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNSHATTERING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.TOTEM_OF_UNSINKING.get(), IcariaItemTags.REPAIRS_TOTEM);
+		this.repairing(pRegistration, IcariaItems.YELLOWSTONE_GEAR.get(), IcariaItemTags.REPAIRS_YELLOWSTONE_GEAR);
+		this.repairing(pRegistration, IcariaItems.LOAM_GEAR.get(), IcariaItemTags.REPAIRS_LOAM_GEAR);
+		this.repairing(pRegistration, IcariaItems.VOIDSHALE_GEAR.get(), IcariaItemTags.REPAIRS_VOIDSHALE_GEAR);
+		this.repairing(pRegistration, IcariaItems.VANADIUM_GEAR.get(), IcariaItemTags.REPAIRS_VANADIUM_GEAR);
+		this.repairing(pRegistration, IcariaItems.VINE_SPROUT.get(), IcariaItemTags.REPAIRS_VINE_SPROUT);
 	}
 
 	public void combining(IRecipeRegistration pRegistration, Item pItem) {
@@ -290,6 +302,6 @@ public class JeiCompat implements IModPlugin {
 	}
 
 	public Identifier name(String pFrom, Item pResult) {
-		return Identifier.fromNamespaceAndPath(IcariaKeys.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom);
+		return Identifier.fromNamespaceAndPath(IcariaIds.ID, BuiltInRegistries.ITEM.getKey(pResult).getPath() + "_" + "from" + "_" + pFrom);
 	}
 }

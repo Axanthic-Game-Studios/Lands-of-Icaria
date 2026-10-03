@@ -1,16 +1,14 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.LootVaseEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.LootVasePayload;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.List;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -103,7 +101,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "loot_vase"));
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaIds.ID + "." + "loot_vase"));
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE, true);
 			pPlayer.setData(IcariaAttachmentTypes.LOOT_VASE_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new LootVasePayload(true, pPlayer.getId(), pBlockState));
@@ -114,7 +112,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	@Override
 	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
 		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
-		var lootTable = pBlockState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTables.RED_LOOT_VASE : pBlockState.is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTables.LOST_LOOT_VASE : IcariaLootTables.CYAN_LOOT_VASE;
+		var lootTable = pBlockState.is(IcariaBlocks.RED_LOOT_VASE.get()) ? IcariaLootTableIds.RED_LOOT_VASE : pBlockState.is(IcariaBlocks.LOST_LOOT_VASE.get()) ? IcariaLootTableIds.LOST_LOOT_VASE : IcariaLootTableIds.CYAN_LOOT_VASE;
 		return lootParams.getLevel().getServer().reloadableRegistries().getLootTable(lootTable).getRandomItems(lootParams);
 	}
 

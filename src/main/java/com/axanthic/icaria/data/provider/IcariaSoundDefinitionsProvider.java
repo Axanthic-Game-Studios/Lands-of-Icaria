@@ -1,11 +1,11 @@
 package com.axanthic.icaria.data.provider;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.stream.IntStream;
 
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
@@ -159,19 +159,15 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 
 	public void register(SoundEvent pSoundEvent, String pCategory, String pObject, String pAction, int pSounds) {
 		var soundDefinition = SoundDefinition.definition();
-
-		for (var i = 0; i < pSounds; i++) {
-			soundDefinition.with(SoundDefinition.Sound.sound(Identifier.fromNamespaceAndPath(IcariaKeys.ID, pCategory + "/" + pObject + "/" + pAction + "_" + (i < 10 ? "0" : "") + i), SoundDefinition.SoundType.SOUND));
-		}
-
-		this.add(pSoundEvent, soundDefinition.subtitle("subtitle" + "." + IcariaKeys.ID + "." + pObject + "." + pAction));
+		IntStream.range(0, pSounds).mapToObj(i -> SoundDefinition.Sound.sound(Identifier.fromNamespaceAndPath(IcariaIds.ID, pCategory + "/" + pObject + "/" + pAction + "_" + (i < 10 ? "0" : "") + i), SoundDefinition.SoundType.SOUND)).forEach(soundDefinition::with);
+		this.add(pSoundEvent, soundDefinition.subtitle("subtitle" + "." + IcariaIds.ID + "." + pObject + "." + pAction));
 	}
 
 	public void register(SoundEvent pSoundEventNew, SoundEvent pSoundEventOld, String pObject, String pAction) {
-		this.add(pSoundEventNew, SoundDefinition.definition().with(SoundDefinition.Sound.sound(pSoundEventOld.location(), SoundDefinition.SoundType.EVENT)).subtitle("subtitle" + "." + IcariaKeys.ID + "." + pObject + "." + pAction));
+		this.add(pSoundEventNew, SoundDefinition.definition().with(SoundDefinition.Sound.sound(pSoundEventOld.location(), SoundDefinition.SoundType.EVENT)).subtitle("subtitle" + "." + IcariaIds.ID + "." + pObject + "." + pAction));
 	}
 
 	public void register(SoundEvent pSoundEventNew, Holder<SoundEvent> pSoundEventOld, String pObject, String pAction) {
-		this.add(pSoundEventNew, SoundDefinition.definition().with(SoundDefinition.Sound.sound(pSoundEventOld.value().location(), SoundDefinition.SoundType.EVENT)).subtitle("subtitle" + "." + IcariaKeys.ID + "." + pObject + "." + pAction));
+		this.add(pSoundEventNew, SoundDefinition.definition().with(SoundDefinition.Sound.sound(pSoundEventOld.value().location(), SoundDefinition.SoundType.EVENT)).subtitle("subtitle" + "." + IcariaIds.ID + "." + pObject + "." + pAction));
 	}
 }

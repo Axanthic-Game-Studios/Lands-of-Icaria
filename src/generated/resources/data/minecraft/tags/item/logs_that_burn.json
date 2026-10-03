@@ -1,11 +1,11 @@
 {
   "values": [
-    "#c:logs/cypress",
-    "#c:logs/droughtroot",
-    "#c:logs/fir",
-    "#c:logs/laurel",
-    "#c:logs/olive",
-    "#c:logs/plane",
-    "#c:logs/populus"
+    "#landsoficaria:logs/cypress",
+    "#landsoficaria:logs/droughtroot",
+    "#landsoficaria:logs/fir",
+    "#landsoficaria:logs/laurel",
+    "#landsoficaria:logs/olive",
+    "#landsoficaria:logs/plane",
+    "#landsoficaria:logs/populus"
   ]
 }

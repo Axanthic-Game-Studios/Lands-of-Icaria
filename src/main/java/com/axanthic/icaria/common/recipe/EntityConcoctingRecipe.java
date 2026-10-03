@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.recipe;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.registry.IcariaRecipeBookCategories;
@@ -7,12 +9,9 @@ import com.axanthic.icaria.common.registry.IcariaRecipeSerializers;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;

@@ -1,12 +1,11 @@
 package com.axanthic.icaria.common.variant;
 
-import com.axanthic.icaria.data.registry.IcariaRegistries;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaRegistryIds;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.ClientAsset;
 import net.minecraft.core.Holder;
@@ -26,5 +25,5 @@ public record FeeshVariant(ClientAsset.ResourceTexture resourceTexture, ItemStac
 		).apply(instance, FeeshVariant::new)
 	);
 
-	public static final StreamCodec<RegistryFriendlyByteBuf, Holder<FeeshVariant>> STREAM_CODEC = ByteBufCodecs.holderRegistry(IcariaRegistries.FEESH_VARIANT);
+	public static final StreamCodec<RegistryFriendlyByteBuf, Holder<FeeshVariant>> STREAM_CODEC = ByteBufCodecs.holderRegistry(IcariaRegistryIds.FEESH_VARIANT);
 }

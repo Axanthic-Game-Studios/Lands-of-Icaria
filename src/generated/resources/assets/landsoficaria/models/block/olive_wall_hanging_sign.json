@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/template_wall_hanging_sign",
   "textures": {
+    "all": "landsoficaria:block/olive_hanging_sign",
     "particle": "landsoficaria:block/stripped_olive_log"
   }
 }

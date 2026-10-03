@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;

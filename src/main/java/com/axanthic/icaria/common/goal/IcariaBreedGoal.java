@@ -1,13 +1,12 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.EnumSet;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.ai.goal.Goal;

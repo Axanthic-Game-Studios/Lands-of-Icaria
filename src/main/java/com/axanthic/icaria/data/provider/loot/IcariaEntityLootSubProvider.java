@@ -1,14 +1,12 @@
 package com.axanthic.icaria.data.provider.loot;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.stream.Stream;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -66,7 +64,7 @@ public class IcariaEntityLootSubProvider extends EntityLootSubProvider {
 	public void dropItemPlusScnd() {
 		this.dropItemPlusScnd(IcariaEntityTypes.ENDER_JELLYFISH.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), Items.ENDER_PEARL);
 		this.dropItemPlusScnd(IcariaEntityTypes.OVERGROWN_REVENANT.get(), IcariaItems.REVENANT_SKULL.get(), Items.BONE, IcariaItems.CALCITE_SHARD.get());
-		this.dropItemPlusScnd(IcariaEntityTypes.CRYSTAL_SLUG.get(), IcariaItems.SLUG_SCALES.get(), IcariaItems.JASPER_SHARD.get());
+		this.dropItemPlusScnd(IcariaEntityTypes.CLUSTER_SLUG.get(), IcariaItems.SLUG_SCALES.get(), IcariaItems.JASPER_SHARD.get());
 		this.dropItemPlusScnd(IcariaEntityTypes.FOREST_SNULL.get(), IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), IcariaItems.SNULL_CREAM.get(), IcariaItems.MOTH_AGARIC.get());
 	}
 
@@ -176,6 +174,6 @@ public class IcariaEntityLootSubProvider extends EntityLootSubProvider {
 
 	@Override
 	public Stream<EntityType<?>> getKnownEntityTypes() {
-		return BuiltInRegistries.ENTITY_TYPE.stream().filter(entityType -> BuiltInRegistries.ENTITY_TYPE.getKey(entityType).getNamespace().equals(IcariaKeys.ID));
+		return BuiltInRegistries.ENTITY_TYPE.stream().filter(entityType -> BuiltInRegistries.ENTITY_TYPE.getKey(entityType).getNamespace().equals(IcariaIds.ID));
 	}
 }

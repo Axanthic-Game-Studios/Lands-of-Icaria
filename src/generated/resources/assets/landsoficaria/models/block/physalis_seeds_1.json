@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_physalis_seeds_1",
+  "textures": {
+    "particle": "landsoficaria:block/physalis_seeds_1",
+    "texture": "landsoficaria:block/physalis_seeds_1"
+  }
+}

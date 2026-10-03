@@ -1,13 +1,11 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;

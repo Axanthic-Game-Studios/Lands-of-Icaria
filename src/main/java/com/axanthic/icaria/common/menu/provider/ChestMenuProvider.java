@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.menu.provider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.Container;

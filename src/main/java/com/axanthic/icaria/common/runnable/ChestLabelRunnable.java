@@ -1,11 +1,9 @@
 package com.axanthic.icaria.common.runnable;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.payload.ChestLabelPayload;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 

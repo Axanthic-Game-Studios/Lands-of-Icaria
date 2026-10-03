@@ -1,24 +1,17 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaFluids;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaFluidIds;
 
 import java.util.concurrent.CompletableFuture;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
-import net.minecraft.resources.Identifier;
 import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.material.Fluid;
 
-@SuppressWarnings("unused")
+import net.neoforged.neoforge.common.Tags;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,30 +24,22 @@ public class IcariaFluidTagsProvider extends FluidTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(FluidTags.SUPPORTS_FROGSPAWN)
-			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
 
 		this.tag(FluidTags.SUPPORTS_LILY_PAD)
-			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
 
 		this.tag(FluidTags.WATER)
-			.add(IcariaFluids.FLOWING_MEDITERRANEAN_WATER.get())
-			.add(IcariaFluids.MEDITERRANEAN_WATER.get());
+			.add(IcariaFluidIds.FLOWING_MEDITERRANEAN_WATER)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
+
+		this.tag(Tags.Fluids.WATER)
+			.add(IcariaFluidIds.FLOWING_MEDITERRANEAN_WATER)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
 	}
 
 	@Override
 	public String getName() {
 		return "Fluid Tags";
-	}
-
-	public static TagKey<Fluid> cKey(String pName) {
-		return IcariaFluidTagsProvider.createKey(IcariaKeys.C + ":" + pName);
-	}
-
-	public static TagKey<Fluid> icariaKey(String pName) {
-		return IcariaFluidTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
-	}
-
-	public static TagKey<Fluid> createKey(String pName) {
-		return TagKey.create(Registries.FLUID, Identifier.parse(pName));
 	}
 }

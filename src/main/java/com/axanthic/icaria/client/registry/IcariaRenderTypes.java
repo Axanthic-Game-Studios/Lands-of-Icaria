@@ -1,10 +1,8 @@
 package com.axanthic.icaria.client.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.rendertype.RenderSetup;
 import net.minecraft.client.renderer.rendertype.RenderType;
@@ -43,7 +41,7 @@ public class IcariaRenderTypes {
 	public static final RenderType NETHER_PYROMANCER_REVENANT_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.NETHER_PYROMANCER_REVENANT_EMISSIVE);
 	public static final RenderType SOLDIER_REVENANT_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SOLDIER_REVENANT_EMISSIVE);
 	public static final RenderType SCORPION_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SCORPION_EMISSIVE);
-	public static final RenderType CRYSTAL_SLUG_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.CRYSTAL_SLUG_EMISSIVE);
+	public static final RenderType CLUSTER_SLUG_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.CLUSTER_SLUG_EMISSIVE);
 	public static final RenderType FOREST_SNULL_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.FOREST_SNULL_EMISSIVE);
 	public static final RenderType SNULL_EMISSIVE = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SNULL_EMISSIVE);
 	public static final RenderType SNULL_EYES = RenderTypes.entityTranslucentEmissive(IcariaIdentifiers.SNULL_EYES);

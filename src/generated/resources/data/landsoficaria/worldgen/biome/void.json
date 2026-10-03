@@ -9,7 +9,20 @@
     "grass_color": "#b5bb60",
     "water_color": "#4d9352"
   },
-  "features": [],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [
+      "landsoficaria:village"
+    ],
+    [],
+    [],
+    [
+      "landsoficaria:ruin"
+    ]
+  ],
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {

@@ -1,17 +1,17 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.InsideBlockEffectApplier;
@@ -46,13 +46,13 @@ public class CardonCactusBlock extends PipeBlock {
 			var blockPos = pBlockPos.relative(direction);
 			if (pLevelReader.getBlockState(blockPos).is(this)) {
 				var blockStateBelow = pLevelReader.getBlockState(blockPos.below());
-				if (blockStateBelow.is(BlockTags.SAND) || blockStateBelow.is(this)) {
+				if (blockStateBelow.is(BlockItemTags.SAND.block()) || blockStateBelow.is(this)) {
 					return true;
 				}
 			}
 		}
 
-		return blockState.is(BlockTags.SAND) || blockState.is(this);
+		return blockState.is(BlockItemTags.SAND.block()) || blockState.is(this);
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public class CardonCactusBlock extends PipeBlock {
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockState = pBlockPlaceContext.getLevel().getBlockState(pBlockPlaceContext.getClickedPos().below());
-		return this.defaultBlockState().setValue(BlockStateProperties.DOWN, blockState.is(BlockTags.SAND) || blockState.is(this));
+		return this.defaultBlockState().setValue(BlockStateProperties.DOWN, blockState.is(BlockItemTags.SAND.block()) || blockState.is(this));
 	}
 
 	@Override
@@ -111,15 +111,15 @@ public class CardonCactusBlock extends PipeBlock {
 		pScheduledTickAccess.scheduleTick(pBlockPos, this, 0);
 
 		var above = pLevelReader.getBlockState(pBlockPos.above()).is(this);
-		var below = pLevelReader.getBlockState(pBlockPos.below()).is(BlockTags.SAND) || pLevelReader.getBlockState(pBlockPos.below()).is(this);
-		var north = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.north()).is(this);
-		var belowNorth = !pLevelReader.getBlockState(pBlockPos.below().north()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below().north()).is(this) && pLevelReader.getBlockState(pBlockPos.north()).is(this);
-		var east = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.east()).is(this);
-		var belowEast = !pLevelReader.getBlockState(pBlockPos.below().east()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below().east()).is(this) && pLevelReader.getBlockState(pBlockPos.east()).is(this);
-		var south = !pLevelReader.getBlockState(pBlockPos.below().south()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below().south()).is(this) && pLevelReader.getBlockState(pBlockPos.south()).is(this);
-		var belowSouth = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.south()).is(this);
-		var west = !pLevelReader.getBlockState(pBlockPos.below().west()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below().west()).is(this) && pLevelReader.getBlockState(pBlockPos.west()).is(this);
-		var belowWest = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockTags.SAND) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.west()).is(this);
+		var below = pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) || pLevelReader.getBlockState(pBlockPos.below()).is(this);
+		var north = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.north()).is(this);
+		var belowNorth = !pLevelReader.getBlockState(pBlockPos.below().north()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below().north()).is(this) && pLevelReader.getBlockState(pBlockPos.north()).is(this);
+		var east = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.east()).is(this);
+		var belowEast = !pLevelReader.getBlockState(pBlockPos.below().east()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below().east()).is(this) && pLevelReader.getBlockState(pBlockPos.east()).is(this);
+		var south = !pLevelReader.getBlockState(pBlockPos.below().south()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below().south()).is(this) && pLevelReader.getBlockState(pBlockPos.south()).is(this);
+		var belowSouth = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.south()).is(this);
+		var west = !pLevelReader.getBlockState(pBlockPos.below().west()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below().west()).is(this) && pLevelReader.getBlockState(pBlockPos.west()).is(this);
+		var belowWest = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.west()).is(this);
 
 		return this.defaultBlockState().setValue(BlockStateProperties.UP, above).setValue(BlockStateProperties.DOWN, below).setValue(BlockStateProperties.NORTH, north || belowNorth).setValue(BlockStateProperties.EAST, east || belowEast).setValue(BlockStateProperties.SOUTH, south || belowSouth).setValue(BlockStateProperties.WEST, west || belowWest);
 	}

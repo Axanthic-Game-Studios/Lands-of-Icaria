@@ -1,11 +1,9 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.properties.Candle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -164,37 +162,37 @@ public class CandleCountertopBlock extends CountertopBlock {
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (pItemStack.is(Items.CANDLE)) {
 			return this.candle(pBlockPos, pBlockState, Candle.CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.WHITE_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.white())) {
 			return this.candle(pBlockPos, pBlockState, Candle.WHITE_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.LIGHT_GRAY_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.lightGray())) {
 			return this.candle(pBlockPos, pBlockState, Candle.LIGHT_GRAY_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.GRAY_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.gray())) {
 			return this.candle(pBlockPos, pBlockState, Candle.GRAY_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.BLACK_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.black())) {
 			return this.candle(pBlockPos, pBlockState, Candle.BLACK_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.BROWN_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.brown())) {
 			return this.candle(pBlockPos, pBlockState, Candle.BROWN_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.RED_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.red())) {
 			return this.candle(pBlockPos, pBlockState, Candle.RED_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.ORANGE_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.orange())) {
 			return this.candle(pBlockPos, pBlockState, Candle.ORANGE_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.YELLOW_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.yellow())) {
 			return this.candle(pBlockPos, pBlockState, Candle.YELLOW_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.LIME_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.lime())) {
 			return this.candle(pBlockPos, pBlockState, Candle.LIME_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.GREEN_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.green())) {
 			return this.candle(pBlockPos, pBlockState, Candle.GREEN_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.CYAN_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.cyan())) {
 			return this.candle(pBlockPos, pBlockState, Candle.CYAN_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.LIGHT_BLUE_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.lightBlue())) {
 			return this.candle(pBlockPos, pBlockState, Candle.LIGHT_BLUE_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.BLUE_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.blue())) {
 			return this.candle(pBlockPos, pBlockState, Candle.BLUE_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.PURPLE_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.purple())) {
 			return this.candle(pBlockPos, pBlockState, Candle.PURPLE_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.MAGENTA_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.magenta())) {
 			return this.candle(pBlockPos, pBlockState, Candle.MAGENTA_CANDLE, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(Items.PINK_CANDLE)) {
+		} else if (pItemStack.is(Items.DYED_CANDLE.pink())) {
 			return this.candle(pBlockPos, pBlockState, Candle.PINK_CANDLE, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FIRE_CHARGE)) {
 			return this.fireCharge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);

@@ -1,7 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_physalis_crop_2",
-  "textures": {
-    "particle": "landsoficaria:block/physalis_crop_2",
-    "texture": "landsoficaria:block/physalis_crop_2"
-  }
-}

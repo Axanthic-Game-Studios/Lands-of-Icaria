@@ -1,13 +1,12 @@
 package com.axanthic.icaria.common.menu;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaMenus;
 import com.axanthic.icaria.common.slot.ForgeSlot;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;

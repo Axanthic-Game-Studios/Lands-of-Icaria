@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "minecraft:pink_dye",
-    "#c:storage_vases"
+    "#landsoficaria:unfired_storage_vases"
   ],
   "result": {
     "id": "landsoficaria:pink_unfired_storage_vase"

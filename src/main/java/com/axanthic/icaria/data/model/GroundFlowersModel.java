@@ -1,12 +1,10 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -19,7 +17,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class GroundFlowersModel {
 
 	public static ExtendedModelTemplate template1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 2.9900F, 0.0000F).to(8.0000F, 2.9900F, 8.0000F)
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 8.0000F, 8.0000F).texture(IcariaTextureSlots.FLOWERS))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 8.0000F, 8.0000F, 0.0000F).texture(IcariaTextureSlots.FLOWERS)))
@@ -51,7 +49,7 @@ public class GroundFlowersModel {
 	}
 
 	public static ExtendedModelTemplate template2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 1.0000F, 8.0000F).to(8.0000F, 1.0000F, 16.0000F)
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 8.0000F, 8.0000F, 16.0000F).texture(IcariaTextureSlots.FLOWERS))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 16.0000F, 8.0000F, 8.0000F).texture(IcariaTextureSlots.FLOWERS)))
@@ -70,7 +68,7 @@ public class GroundFlowersModel {
 	}
 
 	public static ExtendedModelTemplate template3() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(8.0000F, 2.0000F, 8.0000F).to(16.0000F, 2.0000F, 16.0000F)
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.FLOWERS))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0000F, 16.0000F, 16.0000F, 8.0000F).texture(IcariaTextureSlots.FLOWERS)))
@@ -102,7 +100,7 @@ public class GroundFlowersModel {
 	}
 
 	public static ExtendedModelTemplate template4() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(8.0000F, 2.0000F, 0.0000F).to(16.0000F, 2.0000F, 8.0000F)
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0000F, 0.0000F, 16.0000F, 8.0000F).texture(IcariaTextureSlots.FLOWERS))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 16.0000F, 0.0000F).texture(IcariaTextureSlots.FLOWERS)))

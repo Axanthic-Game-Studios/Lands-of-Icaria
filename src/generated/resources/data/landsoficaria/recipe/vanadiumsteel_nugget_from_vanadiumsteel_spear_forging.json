@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:vanadiumsteel_spear",
+  "result": {
+    "id": "landsoficaria:vanadiumsteel_nugget"
+  },
+  "time": 100
+}

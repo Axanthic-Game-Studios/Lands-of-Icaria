@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.recipe.*;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -16,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaRecipeSerializers {
-	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, IcariaKeys.ID);
+	public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, IcariaIds.ID);
 
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<EntityConcoctingRecipe>> ENTITY_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("entity_concocting", () -> new RecipeSerializer<>(EntityConcoctingRecipe.CODEC, EntityConcoctingRecipe.STREAM_CODEC));
 	public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ExplosionConcoctingRecipe>> EXPLOSION_CONCOCTING = IcariaRecipeSerializers.RECIPE_SERIALIZERS.register("explosion_concocting", () -> new RecipeSerializer<>(ExplosionConcoctingRecipe.CODEC, ExplosionConcoctingRecipe.STREAM_CODEC));

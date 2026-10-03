@@ -1,14 +1,12 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -71,7 +69,7 @@ public class IcariaBarrelEntity extends Entity {
 		if (this.level().getServer() != null) {
 			if (this.level() instanceof ServerLevel serverLevel) {
 				var lootContext = new LootParams.Builder(serverLevel).withOptionalParameter(LootContextParams.DIRECT_ATTACKING_ENTITY, pDamageSource.getDirectEntity()).withOptionalParameter(LootContextParams.ATTACKING_ENTITY, pDamageSource.getEntity()).withParameter(LootContextParams.DAMAGE_SOURCE, pDamageSource).withParameter(LootContextParams.ORIGIN, this.position()).withParameter(LootContextParams.THIS_ENTITY, this).create(LootContextParamSets.ENTITY);
-				lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL).getRandomItems(lootContext).forEach(itemStack -> this.spawnAtLocation(serverLevel, itemStack));
+				lootContext.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTableIds.BARREL).getRandomItems(lootContext).forEach(itemStack -> this.spawnAtLocation(serverLevel, itemStack));
 			}
 		}
 	}
@@ -91,9 +89,9 @@ public class IcariaBarrelEntity extends Entity {
 			this.discard();
 			this.playSound(IcariaSoundEvents.BARREL_BREAK);
 			if (!this.level().isClientSide()) {
-				if (this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL) || this.getBlockState().is(IcariaBlockTagsProvider.BARRELS_LOADED)) {
+				if (this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL) || this.getBlockState().is(IcariaBlockTags.BARRELS_LOADED)) {
 					IcariaCommonHelper.loaded(this.blockPosition(), this, Level.ExplosionInteraction.BLOCK, this.level(), 2, 10);
-				} else if (this.getBlockState().hasProperty(IcariaBlockStateProperties.TAPPED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL) || this.getBlockState().is(IcariaBlockTagsProvider.BARRELS_TAPPED)) {
+				} else if (this.getBlockState().hasProperty(IcariaBlockStateProperties.TAPPED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL) || this.getBlockState().is(IcariaBlockTags.BARRELS_TAPPED)) {
 					IcariaCommonHelper.tapped(this.blockPosition(), this.level());
 				} else {
 					this.dropFromLootTable(this.damageSources().fall());

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:arachne_string",
     "B": "landsoficaria:red_arachne_string_carpet"

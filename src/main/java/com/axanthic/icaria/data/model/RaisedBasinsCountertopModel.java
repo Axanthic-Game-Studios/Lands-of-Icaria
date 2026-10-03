@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class RaisedBasinsCountertopModel {
 
 	public static ExtendedModelTemplate template() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(10.2500F, 0.6250F, 6.2500F).to(13.7500F, 4.1250F, 9.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, -45.0000F).origin(12.0000F, 2.3750F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 6.0000F, 10.0000F, 10.0000F).texture(IcariaTextureSlots.HALITE_BLOCK))
@@ -37,12 +36,12 @@ public class RaisedBasinsCountertopModel {
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R180)))
 			.element(elementBuilder -> elementBuilder.from(6.8750F, 3.5000F, 4.0000F).to(7.1250F, 6.5000F, 10.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(22.5000F, 0.0000F, 0.0000F).origin(7.0000F, 3.5000F, 10.0000F))
-				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 1.1000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 1.1000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.1000F, 7.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.1000F, 7.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK)))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 2.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(7.0000F, 1.0000F, 1.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 2.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK).rotation(Quadrant.R270))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.0000F, 3.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK).rotation(Quadrant.R90)))
 			.element(elementBuilder -> elementBuilder.from(14.0000F, 3.0000F, 5.0000F).to(15.0000F, 4.0000F, 11.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 2.0000F, 2.0000F).texture(IcariaTextureSlots.STRIPPED_LOG))

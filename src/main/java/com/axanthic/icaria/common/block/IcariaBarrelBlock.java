@@ -1,18 +1,17 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.registry.*;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import java.util.List;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -75,7 +74,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 
 	@Override
 	public void onProjectileHit(Level pLevel, BlockState pBlockState, BlockHitResult pBlockHitResult, Projectile pProjectile) {
-		if (!pLevel.isClientSide() && pProjectile.isOnFire() && pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED)) {
+		if (!pLevel.isClientSide() && pProjectile.isOnFire() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED)) {
 			IcariaCommonHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 		}
 	}
@@ -127,12 +126,12 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED) && pItemStack.is(Items.FIRE_CHARGE)) {
+		if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED) && pItemStack.is(Items.FIRE_CHARGE)) {
 			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
-		} else if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED) && pItemStack.is(Items.FLINT_AND_STEEL)) {
+		} else if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED) && pItemStack.is(Items.FLINT_AND_STEEL)) {
 			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand.asEquipmentSlot());
@@ -148,7 +147,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.removeBlock(pBlockPos, false);
-			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"));
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaIds.ID + "." + "barrel"));
 			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, pBlockState);
 			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), pBlockState));
@@ -159,7 +158,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
 		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
-		return pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED) || pBlockState.is(IcariaBlockTagsProvider.BARRELS_TAPPED) ? List.of() : lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL).getRandomItems(lootParams);
+		return pBlockState.is(IcariaBlockTags.BARRELS_LOADED) || pBlockState.is(IcariaBlockTags.BARRELS_TAPPED) ? List.of() : lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTableIds.BARREL).getRandomItems(lootParams);
 	}
 
 	@Override
@@ -168,17 +167,17 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	}
 
 	public WoodType woodType() {
-		if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_CYPRESS)) {
+		if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_CYPRESS)) {
 			return IcariaWoodTypes.CYPRESS;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_DROUGHTROOT)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_DROUGHTROOT)) {
 			return IcariaWoodTypes.DROUGHTROOT;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_FIR)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_FIR)) {
 			return IcariaWoodTypes.FIR;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_LAUREL)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_LAUREL)) {
 			return IcariaWoodTypes.LAUREL;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_OLIVE)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_OLIVE)) {
 			return IcariaWoodTypes.OLIVE;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.BARRELS_PLANE)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.BARRELS_PLANE)) {
 			return IcariaWoodTypes.PLANE;
 		} else {
 			return IcariaWoodTypes.POPULUS;

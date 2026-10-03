@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
@@ -11,25 +10,15 @@ import net.minecraft.world.level.block.state.properties.WoodType;
 @ParametersAreNonnullByDefault
 
 public class IcariaWoodTypes {
-	public static final WoodType CYPRESS = IcariaWoodTypes.register("cypress", IcariaBlockSetTypes.CYPRESS);
-	public static final WoodType DROUGHTROOT = IcariaWoodTypes.register("droughtroot", IcariaBlockSetTypes.DROUGHTROOT);
-	public static final WoodType FIR = IcariaWoodTypes.register("fir", IcariaBlockSetTypes.FIR);
-	public static final WoodType LAUREL = IcariaWoodTypes.register("laurel", IcariaBlockSetTypes.LAUREL);
-	public static final WoodType OLIVE = IcariaWoodTypes.register("olive", IcariaBlockSetTypes.OLIVE);
-	public static final WoodType PLANE = IcariaWoodTypes.register("plane", IcariaBlockSetTypes.PLANE);
-	public static final WoodType POPULUS = IcariaWoodTypes.register("populus", IcariaBlockSetTypes.POPULUS);
+	public static final WoodType CYPRESS = IcariaWoodTypes.create("cypress", IcariaBlockSetTypes.CYPRESS);
+	public static final WoodType DROUGHTROOT = IcariaWoodTypes.create("droughtroot", IcariaBlockSetTypes.DROUGHTROOT);
+	public static final WoodType FIR = IcariaWoodTypes.create("fir", IcariaBlockSetTypes.FIR);
+	public static final WoodType LAUREL = IcariaWoodTypes.create("laurel", IcariaBlockSetTypes.LAUREL);
+	public static final WoodType OLIVE = IcariaWoodTypes.create("olive", IcariaBlockSetTypes.OLIVE);
+	public static final WoodType PLANE = IcariaWoodTypes.create("plane", IcariaBlockSetTypes.PLANE);
+	public static final WoodType POPULUS = IcariaWoodTypes.create("populus", IcariaBlockSetTypes.POPULUS);
 
-	public static void setup() {
-		WoodType.register(IcariaWoodTypes.CYPRESS);
-		WoodType.register(IcariaWoodTypes.DROUGHTROOT);
-		WoodType.register(IcariaWoodTypes.FIR);
-		WoodType.register(IcariaWoodTypes.LAUREL);
-		WoodType.register(IcariaWoodTypes.OLIVE);
-		WoodType.register(IcariaWoodTypes.PLANE);
-		WoodType.register(IcariaWoodTypes.POPULUS);
-	}
-
-	public static WoodType register(String pName, BlockSetType pBlockSetType) {
-		return new WoodType(IcariaKeys.ID + ":" + pName, pBlockSetType);
+	public static WoodType create(String pName, BlockSetType pBlockSetType) {
+		return new WoodType(IcariaIds.ID + ":" + pName, pBlockSetType);
 	}
 }

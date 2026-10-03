@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/template_wall_hanging_sign",
   "textures": {
+    "all": "landsoficaria:block/laurel_hanging_sign",
     "particle": "landsoficaria:block/stripped_laurel_log"
   }
 }

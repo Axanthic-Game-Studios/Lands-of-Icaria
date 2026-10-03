@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "minecraft:blue_dye",
-    "#c:arachne_string_blocks"
+    "#landsoficaria:arachne_string_blocks"
   ],
   "result": {
     "id": "landsoficaria:blue_arachne_string_block"

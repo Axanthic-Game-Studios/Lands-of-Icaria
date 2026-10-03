@@ -1,12 +1,10 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;

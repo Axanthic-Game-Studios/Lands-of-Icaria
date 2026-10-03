@@ -1,19 +1,18 @@
 package com.axanthic.icaria.common.world.feature.pillar;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
@@ -60,7 +59,7 @@ public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeHead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTagsProvider.SOILS) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR.get()))) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlockTags.SOILS) || pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.RELICSTONE_PILLAR.get()))) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.RELICSTONE_PILLAR_HEAD.get().defaultBlockState().setValue(BlockStateProperties.FACING, pDirection));
 		}
 	}
@@ -110,10 +109,10 @@ public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
 	public void placeSuspicious(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos) {
 		if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.GRAINEL.get())) {
 			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_GRAINEL.get().defaultBlockState(), Block.UPDATE_ALL);
-			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityType.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTables.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
+			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityTypes.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTableIds.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
 		} else if (pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.SILKSAND.get())) {
 			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_SILKSAND.get().defaultBlockState(), Block.UPDATE_ALL);
-			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityType.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTables.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
+			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityTypes.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTableIds.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
 		}
 	}
 }

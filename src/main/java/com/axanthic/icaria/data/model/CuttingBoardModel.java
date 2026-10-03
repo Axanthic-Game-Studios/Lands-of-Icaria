@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,23 +19,23 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class CuttingBoardModel {
 
 	public static ExtendedModelTemplate template() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
-			.element(elementBuilder -> elementBuilder.from(7.1250F, 2.7500F, -3.0000F).to(8.1250F, 3.7500F, 4.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(22.5000F, 0.0000F, 0.0000F).origin(7.6250F, 0.5000F, 8.0000F))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
+			.element(elementBuilder -> elementBuilder.from(7.2500F, 2.7500F, -3.0000F).to(8.2500F, 3.7500F, 4.0000F)
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(22.5000F, 0.0000F, 0.0000F).origin(7.7500F, 0.5000F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R90))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 6.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R270))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 1.0000F, 7.0000F).texture(IcariaTextureSlots.TRAPDOOR).rotation(Quadrant.R180)))
-			.element(elementBuilder -> elementBuilder.from(7.5000F, 0.5000F, 2.0000F).to(7.7500F, 3.5000F, 8.0000F)
-				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(22.5000F, 0.0000F, 0.0000F).origin(7.6250F, 0.5000F, 8.0000F))
-				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 1.1000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+			.element(elementBuilder -> elementBuilder.from(7.6250F, 0.5000F, 2.0000F).to(7.8750F, 3.5000F, 8.0000F)
+				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(22.5000F, 0.0000F, 0.0000F).origin(7.7500F, 0.5000F, 8.0000F))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(6.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 1.1000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.1000F, 7.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.1000F, 7.0000F, 1.0000F, 1.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK)))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 2.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(7.0000F, 1.0000F, 1.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 7.0000F, 2.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK).rotation(Quadrant.R270))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(7.0000F, 3.0000F, 1.0000F, 4.0000F).texture(IcariaTextureSlots.MOLYBDENUMSTEEL_BLOCK).rotation(Quadrant.R270)))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 0.5000F, 5.0000F).to(7.0000F, 1.5000F, 6.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(45.0000F, 0.0000F, 0.0000F).origin(5.5000F, 1.0000F, 5.5000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(14.5000F, 0.0000F, 16.0000F, 0.5000F).texture(IcariaTextureSlots.TWIGS))

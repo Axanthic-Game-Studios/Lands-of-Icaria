@@ -1,14 +1,14 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.FireplaceBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -205,10 +205,10 @@ public class FireplaceBlock extends BaseEntityBlock {
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (pItemStack.is(Items.FIRE_CHARGE)) {
 			return this.fireCharge(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+		} else if (pItemStack.is(IcariaItemTags.FIREPLACE_ITEMS)) {
+			return this.fireplaceItems(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(Items.FLINT_AND_STEEL)) {
 			return this.flintAndSteel(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
-		} else if (pItemStack.is(IcariaItemTagsProvider.FIREPLACE_ITEMS)) {
-			return this.items(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else if (pItemStack.is(ItemTags.SHOVELS)) {
 			return this.shovels(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else {
@@ -228,24 +228,24 @@ public class FireplaceBlock extends BaseEntityBlock {
 		}
 	}
 
-	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
-			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+	public InteractionResult fireplaceItems(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var blockPos = FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(blockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getIntake().isEmpty()) {
+			blockEntity.set(pItemStack);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
-			this.update(pBlockPos, pBlockState, pLevel, true);
+			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
 	}
 
-	public InteractionResult items(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		var blockPos = FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState);
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(blockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getIntake().isEmpty()) {
-			blockEntity.set(pItemStack);
+	public InteractionResult flintAndSteel(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (!pBlockState.getValue(BlockStateProperties.LIT)) {
+			pLevel.playSound(null, pBlockPos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
-			pItemStack.consume(1, pPlayer);
+			pItemStack.hurtAndBreak(1, pPlayer, pPlayer.getUsedItemHand().asEquipmentSlot());
+			this.update(pBlockPos, pBlockState, pLevel, true);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

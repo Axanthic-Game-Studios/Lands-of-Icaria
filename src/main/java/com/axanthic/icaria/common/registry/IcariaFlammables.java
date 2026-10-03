@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -14,7 +13,7 @@ import net.minecraft.world.level.block.FireBlock;
 public class IcariaFlammables {
 
 	public static void setup() {
-		IcariaFlammables.set(IcariaBlocks.SURFACE_LIGNITE.get(), 30, 60);
+		IcariaFlammables.set(IcariaBlocks.LIGNITE_RUBBLE.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), 30, 60);
 		IcariaFlammables.set(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), 30, 60);
@@ -49,7 +48,7 @@ public class IcariaFlammables {
 		IcariaFlammables.set(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), 60, 20);
 		IcariaFlammables.set(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), 60, 20);
 		IcariaFlammables.set(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), 60, 20);
-		IcariaFlammables.set(IcariaBlocks.SPELT_BALE_BLOCK.get(), 60, 20);
+		IcariaFlammables.set(IcariaBlocks.SPELT_BLOCK.get(), 60, 20);
 		IcariaFlammables.set(IcariaBlocks.VINE_REED_BLOCK.get(), 5, 20);
 		IcariaFlammables.set(IcariaBlocks.LIGNITE_BLOCK.get(), 5, 5);
 		IcariaFlammables.set(IcariaBlocks.ANTHRACITE_BLOCK.get(), 5, 5);
@@ -239,7 +238,7 @@ public class IcariaFlammables {
 
 	public static void set(Block pBlock, int pEncouragement, int pFlammability) {
 		if (Blocks.FIRE instanceof FireBlock fireBlock) {
-			fireBlock.setFlammable(pBlock, pEncouragement, pFlammability);
+			//fireBlock.setFlammable(pBlock, pEncouragement, pFlammability);
 		}
 	}
 }

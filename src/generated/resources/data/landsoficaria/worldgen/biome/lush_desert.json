@@ -24,14 +24,16 @@
       "landsoficaria:kassiteros_ore",
       "landsoficaria:dolomite_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:grainel_chert",
       "landsoficaria:grainite_rubble",
       "landsoficaria:yellowstone_rubble",
       "landsoficaria:silkstone_rubble",
-      "landsoficaria:halite_crystal",
+      "landsoficaria:halite_cluster",
       "landsoficaria:lush_droughtroot_tree",
       "landsoficaria:dead_droughtroot_tree",
       "landsoficaria:fallen_droughtroot_tree",

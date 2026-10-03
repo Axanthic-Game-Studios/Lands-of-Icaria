@@ -245,7 +245,7 @@
           ]
         },
         "up": {
-          "texture": "#surface_chert"
+          "texture": "#chert_rubble"
         }
       },
       "from": [
@@ -282,7 +282,7 @@
           ]
         },
         "up": {
-          "texture": "#surface_chert"
+          "texture": "#chert_rubble"
         }
       },
       "from": [

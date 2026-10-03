@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "landsoficaria:block/onion_crop_4",
-    "particle": "landsoficaria:block/onion_crop_4"
-  }
-}

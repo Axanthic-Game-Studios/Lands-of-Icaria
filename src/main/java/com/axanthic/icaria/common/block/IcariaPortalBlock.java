@@ -1,20 +1,19 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaDimensionIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaParticleTypes;
 import com.axanthic.icaria.common.registry.IcariaPoiTypes;
 import com.axanthic.icaria.common.shapes.PortalVoxelShapes;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaDimensions;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import java.util.Comparator;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -108,7 +107,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	}
 
 	public int getY(BlockPos pBlockPos, ServerLevel pServerLevel) {
-		return Mth.clamp(pServerLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pBlockPos.getX(), pBlockPos.getZ()), pServerLevel.dimension() == IcariaDimensions.ICARIA ? 84 : 64, pServerLevel.getHeight() - 5);
+		return Mth.clamp(pServerLevel.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, pBlockPos.getX(), pBlockPos.getZ()), pServerLevel.dimension() == IcariaDimensionIds.ICARIA ? 84 : 64, pServerLevel.getHeight() - 5);
 	}
 
 	@Override
@@ -146,7 +145,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 		var entityType = IcariaEntityTypes.CIVILIAN_REVENANT.get();
 		if (pRandomSource.nextInt(2000) == 0) {
 			if (pServerLevel.anyPlayerCloseEnoughForSpawning(pBlockPos)) {
-				if (pServerLevel.dimension() != IcariaDimensions.ICARIA) {
+				if (pServerLevel.dimension() != IcariaDimensionIds.ICARIA) {
 					if (pServerLevel.getBlockState(blockPos).isValidSpawn(pServerLevel, blockPos, entityType)) {
 						if (pServerLevel.isSpawningMonsters()) {
 							var entity = entityType.spawn(pServerLevel, pBlockPos, EntitySpawnReason.STRUCTURE);
@@ -216,7 +215,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
 		var axis = pDirection.getAxis();
 		var flag = axis.isHorizontal() && axis != pBlockState.getValue(BlockStateProperties.HORIZONTAL_AXIS);
-		return flag || pBlockStateFaced.is(this) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_PILLAR_HEAD) || pBlockStateFaced.is(IcariaBlockTagsProvider.PORTAL_BLOCKS_SLAB) ? pBlockState : Blocks.AIR.defaultBlockState();
+		return flag || pBlockStateFaced.is(this) || pBlockStateFaced.is(IcariaBlockTags.PORTAL_BLOCKS_PILLAR) || pBlockStateFaced.is(IcariaBlockTags.PORTAL_BLOCKS_PILLAR_HEAD) || pBlockStateFaced.is(IcariaBlockTags.PORTAL_BLOCKS_SLAB) ? pBlockState : Blocks.AIR.defaultBlockState();
 	}
 
 	public BlockUtil.FoundRectangle rectangle(Direction.Axis pAxis, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
@@ -300,7 +299,7 @@ public class IcariaPortalBlock extends Block implements Portal {
 	@Nullable
 	@Override
 	public TeleportTransition getPortalDestination(ServerLevel pServerLevel, Entity pEntity, BlockPos pBlockPos) {
-		var resourceKey = pServerLevel.dimension() != IcariaDimensions.ICARIA ? IcariaDimensions.ICARIA : Level.OVERWORLD;
+		var resourceKey = pServerLevel.dimension() != IcariaDimensionIds.ICARIA ? IcariaDimensionIds.ICARIA : Level.OVERWORLD;
 		var serverLevel = pServerLevel.getServer().getLevel(resourceKey);
 		if (serverLevel != null) {
 			var worldBorder = serverLevel.getWorldBorder();

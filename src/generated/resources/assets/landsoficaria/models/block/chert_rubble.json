@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_chert_rubble",
+  "textures": {
+    "particle": "landsoficaria:block/chert_rubble",
+    "texture": "landsoficaria:block/chert_rubble"
+  }
+}

@@ -1,9 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "minecraft:redstone",
-    "B": "landsoficaria:spelt_bale_block"
+    "B": "landsoficaria:spelt_block"
   },
   "pattern": [
     " A ",

@@ -1,14 +1,10 @@
 package com.axanthic.icaria;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import net.minecraft.client.renderer.Sheets;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
@@ -24,7 +20,7 @@ import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@Mod(IcariaKeys.ID)
+@Mod(IcariaIds.ID)
 public class Icaria {
 	public Icaria(IEventBus pBus) {
 		Icaria.addListeners(pBus);
@@ -40,7 +36,6 @@ public class Icaria {
 
 	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
 		Icaria.registerExtensionPoint(pEvent);
-		Icaria.registerWoodTypes(pEvent);
 	}
 
 	public static void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
@@ -86,27 +81,15 @@ public class Icaria {
 		ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 	}
 
-	public static void registerWoodTypes(FMLClientSetupEvent pEvent) {
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.CYPRESS));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.DROUGHTROOT));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.FIR));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.LAUREL));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.OLIVE));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.PLANE));
-		pEvent.enqueueWork(() -> Sheets.addWoodType(IcariaWoodTypes.POPULUS));
-	}
-
 	public static void registerSetups(FMLCommonSetupEvent pEvent) {
 		pEvent.enqueueWork(IcariaFlammables::setup);
-		pEvent.enqueueWork(IcariaPottables::setup);
-		pEvent.enqueueWork(IcariaWoodTypes::setup);
 	}
 
 	public static void registerPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		pEvent.registrar(IcariaKeys.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
-		pEvent.registrar(IcariaKeys.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
-		pEvent.registrar(IcariaKeys.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);
-		pEvent.registrar(IcariaKeys.ID).playToClient(LootVasePayload.TYPE, LootVasePayload.STREAM_CODEC, LootVasePayload::handle);
-		pEvent.registrar(IcariaKeys.ID).playToClient(TotemPayload.TYPE, TotemPayload.STREAM_CODEC, TotemPayload::handle);
+		pEvent.registrar(IcariaIds.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
+		pEvent.registrar(IcariaIds.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
+		pEvent.registrar(IcariaIds.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);
+		pEvent.registrar(IcariaIds.ID).playToClient(LootVasePayload.TYPE, LootVasePayload.STREAM_CODEC, LootVasePayload::handle);
+		pEvent.registrar(IcariaIds.ID).playToClient(TotemPayload.TYPE, TotemPayload.STREAM_CODEC, TotemPayload::handle);
 	}
 }

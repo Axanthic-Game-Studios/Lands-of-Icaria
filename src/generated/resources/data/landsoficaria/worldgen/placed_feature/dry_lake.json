@@ -3,7 +3,7 @@
   "placement": [
     {
       "type": "minecraft:count",
-      "count": 256
+      "count": 64
     },
     {
       "type": "minecraft:in_square"
@@ -34,7 +34,7 @@
           },
           {
             "type": "minecraft:matching_blocks",
-            "blocks": "landsoficaria:coarse_marl",
+            "blocks": "landsoficaria:grassy_marl",
             "offset": [
               0,
               -1,

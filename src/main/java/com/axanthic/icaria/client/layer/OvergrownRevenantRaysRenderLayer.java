@@ -1,13 +1,12 @@
 package com.axanthic.icaria.client.layer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.model.OvergrownRevenantModel;
 import com.axanthic.icaria.client.state.OvergrownRevenantRenderState;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.RenderLayerParent;

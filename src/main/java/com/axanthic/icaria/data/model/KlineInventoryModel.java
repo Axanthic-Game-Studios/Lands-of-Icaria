@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemDisplayContext;
@@ -21,7 +20,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class KlineInventoryModel {
 
 	public static ExtendedModelTemplate template() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0000F, 135.0000F, 0.0000F).translation(0.0000F, 0.0000F, 0.0000F).scale(0.3500F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0000F, 135.0000F, 0.0000F).translation(0.0000F, 0.0000F, 0.0000F).scale(0.3500F))
 			.transform(ItemDisplayContext.FIXED, transformVecBuilder -> transformVecBuilder.rotation(0.0000F, 0.0000F, 0.0000F).translation(0.0000F, -3.0000F, 0.0000F).scale(0.3500F))

@@ -1,13 +1,12 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
@@ -36,9 +35,9 @@ public class IcariaBushBlock extends BushBlock {
 		if (this == IcariaBlocks.NAMDRAKE.get()) {
 			return blockState.is(IcariaBlocks.DRY_LAKE_BED.get());
 		} else if (this == IcariaBlocks.MONDANOS.get()) {
-			return blockState.is(BlockTags.SAND);
+			return blockState.is(BlockItemTags.SAND.block());
 		} else if (this == IcariaBlocks.BOLBOS.get()) {
-			return blockState.is(BlockTags.SAND);
+			return blockState.is(BlockItemTags.SAND.block());
 		} else {
 			return blockState.is(BlockTags.SUBSTRATE_OVERWORLD);
 		}

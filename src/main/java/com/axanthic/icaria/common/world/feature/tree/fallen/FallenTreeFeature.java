@@ -1,12 +1,13 @@
 package com.axanthic.icaria.common.world.feature.tree.fallen;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-import com.mojang.serialization.Codec;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockItemTags;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
@@ -49,7 +50,7 @@ public class FallenTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeDead(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() || pWorldGenLevel.getBlockState(pBlockPos).is(BlockTags.LEAVES)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() || pWorldGenLevel.getBlockState(pBlockPos).is(BlockItemTags.LEAVES.block())) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.dead.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
@@ -73,7 +74,7 @@ public class FallenTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeLog(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction.Axis pAxis) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() || pWorldGenLevel.getBlockState(pBlockPos).is(BlockTags.LEAVES)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() || pWorldGenLevel.getBlockState(pBlockPos).is(BlockItemTags.LEAVES.block())) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.log.defaultBlockState().setValue(BlockStateProperties.AXIS, pAxis));
 		}
 	}
@@ -85,7 +86,7 @@ public class FallenTreeFeature extends Feature<NoneFeatureConfiguration> {
 	}
 
 	public void placeShrooms(WorldGenLevel pWorldGenLevel, BlockPos pBlockPos, Direction pDirection) {
-		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.relative(pDirection.getOpposite())).is(BlockTags.LOGS)) {
+		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.relative(pDirection.getOpposite())).is(BlockItemTags.LOGS.block())) {
 			this.setBlock(pWorldGenLevel, pBlockPos, this.shrooms.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pDirection));
 		}
 	}

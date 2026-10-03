@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_1",
+  "textures": {
+    "all": "landsoficaria:block/cypress_sign",
+    "particle": "landsoficaria:block/cypress_planks"
+  }
+}

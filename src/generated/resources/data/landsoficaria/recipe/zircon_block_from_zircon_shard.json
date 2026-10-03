@@ -1,13 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:zircon_shard"
   },
   "pattern": [
-    "AAA",
-    "AAA",
-    "AAA"
+    "AA",
+    "AA"
   ],
   "result": {
     "id": "landsoficaria:zircon_block"

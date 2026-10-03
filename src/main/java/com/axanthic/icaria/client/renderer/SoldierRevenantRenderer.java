@@ -1,5 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.layer.SoldierRevenantEmissiveRenderLayer;
 import com.axanthic.icaria.client.layer.SoldierRevenantItemRenderLayer;
 import com.axanthic.icaria.client.model.SoldierRevenantModel;
@@ -9,9 +11,6 @@ import com.axanthic.icaria.common.entity.SoldierRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

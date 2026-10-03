@@ -1,21 +1,17 @@
 package com.axanthic.icaria.data.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaConfiguredFeatureIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFeatures;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
+import com.axanthic.icaria.common.tags.IcariaBlockItemTags;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.LakeFeature;
@@ -33,281 +29,141 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 @ParametersAreNonnullByDefault
 
 public class IcariaConfiguredFeatures {
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_CHERT = IcariaConfiguredFeatures.createKey("marl_chert");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_BONES = IcariaConfiguredFeatures.createKey("marl_bones");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MARL_LIGNITE = IcariaConfiguredFeatures.createKey("marl_lignite");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINEL_CHERT = IcariaConfiguredFeatures.createKey("grainel_chert");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_SPIKE = IcariaConfiguredFeatures.createKey("grainite_spike");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_BOULDER = IcariaConfiguredFeatures.createKey("yellowstone_boulder");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAINITE_RUBBLE = IcariaConfiguredFeatures.createKey("grainite_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOWSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("yellowstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SILKSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("silkstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("sunstone_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDSHALE_RUBBLE = IcariaConfiguredFeatures.createKey("voidshale_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BAETYL_RUBBLE = IcariaConfiguredFeatures.createKey("baetyl_rubble");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_RUBBLE = IcariaConfiguredFeatures.createKey("relicstone_rubble");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("fallen_relicstone_pillar");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RELICSTONE_PILLAR = IcariaConfiguredFeatures.createKey("relicstone_pillar");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIGNITE_ORE = IcariaConfiguredFeatures.createKey("lignite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHALKOS_ORE = IcariaConfiguredFeatures.createKey("chalkos_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> KASSITEROS_ORE = IcariaConfiguredFeatures.createKey("kassiteros_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DOLOMITE_ORE = IcariaConfiguredFeatures.createKey("dolomite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VANADIUM_ORE = IcariaConfiguredFeatures.createKey("vanadium_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SLIVER_ORE = IcariaConfiguredFeatures.createKey("sliver_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SIDEROS_ORE = IcariaConfiguredFeatures.createKey("sideros_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ANTHRACITE_ORE = IcariaConfiguredFeatures.createKey("anthracite_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOLYBDENUM_ORE = IcariaConfiguredFeatures.createKey("molybdenum_ore");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HYLIASTRUM_ORE = IcariaConfiguredFeatures.createKey("hyliastrum_ore");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_CRYSTAL = IcariaConfiguredFeatures.createKey("calcite_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> HALITE_CRYSTAL = IcariaConfiguredFeatures.createKey("halite_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> JASPER_CRYSTAL = IcariaConfiguredFeatures.createKey("jasper_crystal");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ZIRCON_CRYSTAL = IcariaConfiguredFeatures.createKey("zircon_crystal");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CYPRESS_TREE = IcariaConfiguredFeatures.createKey("cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FIR_TREE = IcariaConfiguredFeatures.createKey("fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LAUREL_TREE = IcariaConfiguredFeatures.createKey("laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> OLIVE_TREE = IcariaConfiguredFeatures.createKey("olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PLANE_TREE = IcariaConfiguredFeatures.createKey("plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> POPULUS_TREE = IcariaConfiguredFeatures.createKey("populus_tree");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("dead_cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("dead_droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_FIR_TREE = IcariaConfiguredFeatures.createKey("dead_fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_LAUREL_TREE = IcariaConfiguredFeatures.createKey("dead_laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_OLIVE_TREE = IcariaConfiguredFeatures.createKey("dead_olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_PLANE_TREE = IcariaConfiguredFeatures.createKey("dead_plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DEAD_POPULUS_TREE = IcariaConfiguredFeatures.createKey("dead_populus_tree");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("fallen_cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("fallen_droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_FIR_TREE = IcariaConfiguredFeatures.createKey("fallen_fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_LAUREL_TREE = IcariaConfiguredFeatures.createKey("fallen_laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_OLIVE_TREE = IcariaConfiguredFeatures.createKey("fallen_olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_PLANE_TREE = IcariaConfiguredFeatures.createKey("fallen_plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FALLEN_POPULUS_TREE = IcariaConfiguredFeatures.createKey("fallen_populus_tree");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_CYPRESS_TREE = IcariaConfiguredFeatures.createKey("small_cypress_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_DROUGHTROOT_TREE = IcariaConfiguredFeatures.createKey("small_droughtroot_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_FIR_TREE = IcariaConfiguredFeatures.createKey("small_fir_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_LAUREL_TREE = IcariaConfiguredFeatures.createKey("small_laurel_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_OLIVE_TREE = IcariaConfiguredFeatures.createKey("small_olive_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_PLANE_TREE = IcariaConfiguredFeatures.createKey("small_plane_tree");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SMALL_POPULUS_TREE = IcariaConfiguredFeatures.createKey("small_populus_tree");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLOOMY_VINE = IcariaConfiguredFeatures.createKey("bloomy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BRANCHY_VINE = IcariaConfiguredFeatures.createKey("branchy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BRUSHY_VINE = IcariaConfiguredFeatures.createKey("brushy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_VINE = IcariaConfiguredFeatures.createKey("dry_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> REEDY_VINE = IcariaConfiguredFeatures.createKey("reedy_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SWIRLY_VINE = IcariaConfiguredFeatures.createKey("swirly_vine");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> THORNY_VINE = IcariaConfiguredFeatures.createKey("thorny_vine");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRASS = IcariaConfiguredFeatures.createKey("grass");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GRAIN = IcariaConfiguredFeatures.createKey("grain");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CALCITE_DUST = IcariaConfiguredFeatures.createKey("calcite_dust");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLINDWEED = IcariaConfiguredFeatures.createKey("blindweed");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHAMEOMILE = IcariaConfiguredFeatures.createKey("chameomile");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CHARMONDER = IcariaConfiguredFeatures.createKey("charmonder");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CLOVER = IcariaConfiguredFeatures.createKey("clover");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> FIREHILT = IcariaConfiguredFeatures.createKey("firehilt");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_HYDRACINTH = IcariaConfiguredFeatures.createKey("blue_hydracinth");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_HYDRACINTH = IcariaConfiguredFeatures.createKey("purple_hydracinth");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LIONFANGS = IcariaConfiguredFeatures.createKey("lionfangs");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SPEARDROPS = IcariaConfiguredFeatures.createKey("speardrops");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STAGHORN = IcariaConfiguredFeatures.createKey("purple_staghorn");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> YELLOW_STAGHORN = IcariaConfiguredFeatures.createKey("yellow_staghorn");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_STORMCOTTON = IcariaConfiguredFeatures.createKey("blue_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_STORMCOTTON = IcariaConfiguredFeatures.createKey("pink_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_STORMCOTTON = IcariaConfiguredFeatures.createKey("purple_stormcotton");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNKETTLE = IcariaConfiguredFeatures.createKey("sunkettle");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> SUNSPONGE = IcariaConfiguredFeatures.createKey("sunsponge");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VOIDLILY = IcariaConfiguredFeatures.createKey("voidlily");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BOLBOS = IcariaConfiguredFeatures.createKey("bolbos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DATHULLA = IcariaConfiguredFeatures.createKey("dathulla");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MONDANOS = IcariaConfiguredFeatures.createKey("mondanos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MOTH_AGARIC = IcariaConfiguredFeatures.createKey("moth_agaric");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> NAMDRAKE = IcariaConfiguredFeatures.createKey("namdrake");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PSILOCYBOS = IcariaConfiguredFeatures.createKey("psilocybos");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ROWAN = IcariaConfiguredFeatures.createKey("rowan");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WILTED_ELM = IcariaConfiguredFeatures.createKey("wilted_elm");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("blue_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CYAN_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("cyan_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("pink_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("purple_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RED_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("red_ground_flowers");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_GROUND_FLOWERS = IcariaConfiguredFeatures.createKey("white_ground_flowers");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PALM_FERN = IcariaConfiguredFeatures.createKey("palm_fern");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_BROMELIA = IcariaConfiguredFeatures.createKey("white_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> ORANGE_BROMELIA = IcariaConfiguredFeatures.createKey("orange_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PINK_BROMELIA = IcariaConfiguredFeatures.createKey("pink_bromelia");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> PURPLE_BROMELIA = IcariaConfiguredFeatures.createKey("purple_bromelia");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> GREEN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("green_ground_shrooms");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("brown_ground_shrooms");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> LARGE_BROWN_GROUND_SHROOMS = IcariaConfiguredFeatures.createKey("large_brown_ground_shrooms");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> CARDON_CACTUS = IcariaConfiguredFeatures.createKey("cardon_cactus");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> STRAWBERRY_BUSH = IcariaConfiguredFeatures.createKey("strawberry_bush");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> DRY_LAKE = IcariaConfiguredFeatures.createKey("dry_lake");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> MEDITERRANEAN_WATER_LAKE = IcariaConfiguredFeatures.createKey("mediterranean_water_lake");
-
-	public static final ResourceKey<ConfiguredFeature<?, ?>> RUIN = IcariaConfiguredFeatures.createKey("ruin");
-	public static final ResourceKey<ConfiguredFeature<?, ?>> VILLAGE = IcariaConfiguredFeatures.createKey("village");
-
 	public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> pBootstrapContext) {
-		pBootstrapContext.register(IcariaConfiguredFeatures.MARL_CHERT, new ConfiguredFeature<>(IcariaFeatures.MARL_CHERT.get(), FeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MARL_BONES, new ConfiguredFeature<>(IcariaFeatures.MARL_BONES.get(), FeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MARL_LIGNITE, new ConfiguredFeature<>(IcariaFeatures.MARL_LIGNITE.get(), FeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRAINEL_CHERT, new ConfiguredFeature<>(IcariaFeatures.GRAINEL_CHERT.get(), FeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MARL_CHERT, new ConfiguredFeature<>(IcariaFeatures.MARL_CHERT.get(), FeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MARL_BONES, new ConfiguredFeature<>(IcariaFeatures.MARL_BONES.get(), FeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MARL_LIGNITE, new ConfiguredFeature<>(IcariaFeatures.MARL_LIGNITE.get(), FeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GRAINEL_CHERT, new ConfiguredFeature<>(IcariaFeatures.GRAINEL_CHERT.get(), FeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRAINITE_SPIKE, new ConfiguredFeature<>(IcariaFeatures.GRAINITE_SPIKE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GRAINITE_SPIKE, new ConfiguredFeature<>(IcariaFeatures.GRAINITE_SPIKE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOWSTONE_BOULDER, new ConfiguredFeature<>(IcariaFeatures.YELLOWSTONE_BOULDER.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.YELLOWSTONE_BOULDER, new ConfiguredFeature<>(IcariaFeatures.YELLOWSTONE_BOULDER.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRAINITE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.GRAINITE_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOWSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOWSTONE_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SILKSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SILKSTONE_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSTONE_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VOIDSHALE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.VOIDSHALE_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BAETYL_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BAETYL_RUBBLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.RELICSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GRAINITE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.GRAINITE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.YELLOWSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOWSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SILKSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SILKSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SUNSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSTONE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.VOIDSHALE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.VOIDSHALE_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BAETYL_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BAETYL_RUBBLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.RELICSTONE_RUBBLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.RELICSTONE_RUBBLE.get()))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.FALLEN_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.FALLEN_RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.RELICSTONE_PILLAR, new ConfiguredFeature<>(IcariaFeatures.RELICSTONE_PILLAR.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.LIGNITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_YELLOWSTONE), IcariaBlocks.LIGNITE_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CHALKOS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_YELLOWSTONE), IcariaBlocks.CHALKOS_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.KASSITEROS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_SILKSTONE), IcariaBlocks.KASSITEROS_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DOLOMITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_SILKSTONE), IcariaBlocks.DOLOMITE_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VANADIUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_SUNSTONE), IcariaBlocks.VANADIUM_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SLIVER_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_SUNSTONE), IcariaBlocks.SLIVER_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SIDEROS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_VOIDSHALE), IcariaBlocks.SIDEROS_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ANTHRACITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_VOIDSHALE), IcariaBlocks.ANTHRACITE_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MOLYBDENUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_BAETYL), IcariaBlocks.MOLYBDENUM_ORE.get().defaultBlockState(), 9)));
-		pBootstrapContext.register(IcariaConfiguredFeatures.HYLIASTRUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockTagsProvider.ORE_BEARING_GROUNDS_BAETYL), IcariaBlocks.HYLIASTRUM_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.LIGNITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_YELLOWSTONE.block()), IcariaBlocks.LIGNITE_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CHALKOS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_YELLOWSTONE.block()), IcariaBlocks.CHALKOS_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.KASSITEROS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_SILKSTONE.block()), IcariaBlocks.KASSITEROS_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DOLOMITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_SILKSTONE.block()), IcariaBlocks.DOLOMITE_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.VANADIUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_SUNSTONE.block()), IcariaBlocks.VANADIUM_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SLIVER_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_SUNSTONE.block()), IcariaBlocks.SLIVER_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SIDEROS_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_VOIDSHALE.block()), IcariaBlocks.SIDEROS_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.ANTHRACITE_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_VOIDSHALE.block()), IcariaBlocks.ANTHRACITE_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MOLYBDENUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_BAETYL.block()), IcariaBlocks.MOLYBDENUM_ORE.get().defaultBlockState(), 9)));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.HYLIASTRUM_ORE, new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(IcariaBlockItemTags.ORE_BEARING_GROUND_BAETYL.block()), IcariaBlocks.HYLIASTRUM_ORE.get().defaultBlockState(), 9)));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CALCITE_CRYSTAL.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.HALITE_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.HALITE_CRYSTAL.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.JASPER_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.JASPER_CRYSTAL.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ZIRCON_CRYSTAL, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ZIRCON_CRYSTAL.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CALCITE_CLUSTER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CALCITE_CLUSTER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.HALITE_CLUSTER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.HALITE_CLUSTER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.JASPER_CLUSTER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.JASPER_CLUSTER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.ZIRCON_CLUSTER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ZIRCON_CLUSTER.get()))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.FIR_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DEAD_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DEAD_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.DEAD_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FALLEN_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FALLEN_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.FALLEN_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SMALL_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_CYPRESS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_CYPRESS_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_DROUGHTROOT_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_DROUGHTROOT_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_FIR_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_FIR_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_LAUREL_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_LAUREL_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_OLIVE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_OLIVE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_PLANE_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_PLANE_TREE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SMALL_POPULUS_TREE, new ConfiguredFeature<>(IcariaFeatures.SMALL_POPULUS_TREE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLOOMY_VINE, new ConfiguredFeature<>(IcariaFeatures.BLOOMY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BRANCHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRANCHY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BRUSHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRUSHY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DRY_VINE, new ConfiguredFeature<>(IcariaFeatures.DRY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.REEDY_VINE, new ConfiguredFeature<>(IcariaFeatures.REEDY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SWIRLY_VINE, new ConfiguredFeature<>(IcariaFeatures.SWIRLY_VINE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.THORNY_VINE, new ConfiguredFeature<>(IcariaFeatures.THORNY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BLOOMY_VINE, new ConfiguredFeature<>(IcariaFeatures.BLOOMY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BRANCHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRANCHY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BRUSHY_VINE, new ConfiguredFeature<>(IcariaFeatures.BRUSHY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DRY_VINE, new ConfiguredFeature<>(IcariaFeatures.DRY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.REEDY_VINE, new ConfiguredFeature<>(IcariaFeatures.REEDY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SWIRLY_VINE, new ConfiguredFeature<>(IcariaFeatures.SWIRLY_VINE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.THORNY_VINE, new ConfiguredFeature<>(IcariaFeatures.THORNY_VINE.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRASS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1)))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.GRAIN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GRASS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1)))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GRAIN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CALCITE_DUST, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CALCITE_DUST, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(new WeightedStateProvider(WeightedList.<BlockState>builder().add(IcariaBlocks.SMALL_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_GRASS.get().defaultBlockState(), 1).add(IcariaBlocks.SMALL_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_MIXED_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_BROWN_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_WHITE_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.MEDIUM_YELLOW_GRAIN.get().defaultBlockState(), 1).add(IcariaBlocks.LARGE_BROWN_GRAIN.get().defaultBlockState(), 1)))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLINDWEED, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLINDWEED.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CHAMEOMILE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHAMEOMILE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CHARMONDER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHARMONDER.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CLOVER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CLOVER.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.FIREHILT, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.FIREHILT.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_HYDRACINTH.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_HYDRACINTH.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.LIONFANGS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.LIONFANGS.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SPEARDROPS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SPEARDROPS.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STAGHORN.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.YELLOW_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOW_STAGHORN.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_STORMCOTTON.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_STORMCOTTON.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STORMCOTTON.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNKETTLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNKETTLE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.SUNSPONGE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSPONGE.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VOIDLILY, new ConfiguredFeature<>(IcariaFeatures.VOIDLILY.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BLINDWEED, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLINDWEED.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CHAMEOMILE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHAMEOMILE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CHARMONDER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CHARMONDER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CLOVER, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.CLOVER.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.FIREHILT, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.FIREHILT.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BLUE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_HYDRACINTH.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PURPLE_HYDRACINTH, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_HYDRACINTH.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.LIONFANGS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.LIONFANGS.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SPEARDROPS, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SPEARDROPS.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PURPLE_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STAGHORN.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.YELLOW_STAGHORN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.YELLOW_STAGHORN.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BLUE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.BLUE_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PINK_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PURPLE_STORMCOTTON, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_STORMCOTTON.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SUNKETTLE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNKETTLE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.SUNSPONGE, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.SUNSPONGE.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.VOIDLILY, new ConfiguredFeature<>(IcariaFeatures.VOIDLILY.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.BOLBOS, new ConfiguredFeature<>(IcariaFeatures.BOLBOS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.DATHULLA, new ConfiguredFeature<>(IcariaFeatures.DATHULLA.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MONDANOS, new ConfiguredFeature<>(IcariaFeatures.MONDANOS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MOTH_AGARIC, new ConfiguredFeature<>(IcariaFeatures.MOTH_AGARIC.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.NAMDRAKE, new ConfiguredFeature<>(IcariaFeatures.NAMDRAKE.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PSILOCYBOS, new ConfiguredFeature<>(IcariaFeatures.PSILOCYBOS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ROWAN, new ConfiguredFeature<>(IcariaFeatures.ROWAN.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.WILTED_ELM, new ConfiguredFeature<>(IcariaFeatures.WILTED_ELM.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BOLBOS, new ConfiguredFeature<>(IcariaFeatures.BOLBOS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DATHULLA, new ConfiguredFeature<>(IcariaFeatures.DATHULLA.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MONDANOS, new ConfiguredFeature<>(IcariaFeatures.MONDANOS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MOTH_AGARIC, new ConfiguredFeature<>(IcariaFeatures.MOTH_AGARIC.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.NAMDRAKE, new ConfiguredFeature<>(IcariaFeatures.NAMDRAKE.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PSILOCYBOS, new ConfiguredFeature<>(IcariaFeatures.PSILOCYBOS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.ROWAN, new ConfiguredFeature<>(IcariaFeatures.ROWAN.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.WILTED_ELM, new ConfiguredFeature<>(IcariaFeatures.WILTED_ELM.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.BLUE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.BLUE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.CYAN_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.CYAN_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.PINK_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.PURPLE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.RED_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.RED_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.WHITE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.WHITE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BLUE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.BLUE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CYAN_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.CYAN_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PINK_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.PINK_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PURPLE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.PURPLE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.RED_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.RED_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.WHITE_GROUND_FLOWERS, new ConfiguredFeature<>(IcariaFeatures.WHITE_GROUND_FLOWERS.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.PALM_FERN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PALM_FERN.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PALM_FERN, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PALM_FERN.get()))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.WHITE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.WHITE_BROMELIA.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.ORANGE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ORANGE_BROMELIA.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PINK_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_BROMELIA.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.PURPLE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.WHITE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.WHITE_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.ORANGE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.ORANGE_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PINK_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PINK_BROMELIA.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.PURPLE_BROMELIA, new ConfiguredFeature<>(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(IcariaBlocks.PURPLE_BROMELIA.get()))));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.GREEN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.GREEN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.LARGE_BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.LARGE_BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.GREEN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.GREEN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.LARGE_BROWN_GROUND_SHROOMS, new ConfiguredFeature<>(IcariaFeatures.LARGE_BROWN_GROUND_SHROOMS.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.CARDON_CACTUS, new ConfiguredFeature<>(IcariaFeatures.CARDON_CACTUS.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.CARDON_CACTUS, new ConfiguredFeature<>(IcariaFeatures.CARDON_CACTUS.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.STRAWBERRY_BUSH, new ConfiguredFeature<>(IcariaFeatures.STRAWBERRY_BUSH.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.STRAWBERRY_BUSH, new ConfiguredFeature<>(IcariaFeatures.STRAWBERRY_BUSH.get(), NoneFeatureConfiguration.NONE));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get()))));
-		pBootstrapContext.register(IcariaConfiguredFeatures.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get()), BlockStateProvider.simple(IcariaBlocks.MARL.get()))));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.DRY_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(Blocks.AIR), BlockStateProvider.simple(IcariaBlocks.DRY_LAKE_BED.get()), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue())));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.MEDITERRANEAN_WATER_LAKE, new ConfiguredFeature<>(Feature.LAKE, new LakeFeature.Configuration(BlockStateProvider.simple(IcariaBlocks.MEDITERRANEAN_WATER.get()), BlockStateProvider.simple(IcariaBlocks.GRASSY_MARL.get()), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue(), BlockPredicate.alwaysTrue())));
 
-		pBootstrapContext.register(IcariaConfiguredFeatures.RUIN, new ConfiguredFeature<>(IcariaFeatures.RUIN.get(), NoneFeatureConfiguration.NONE));
-		pBootstrapContext.register(IcariaConfiguredFeatures.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
-	}
-
-	public static ResourceKey<ConfiguredFeature<?, ?>> createKey(String pName) {
-		return ResourceKey.create(Registries.CONFIGURED_FEATURE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.RUIN, new ConfiguredFeature<>(IcariaFeatures.RUIN.get(), NoneFeatureConfiguration.NONE));
+		pBootstrapContext.register(IcariaConfiguredFeatureIds.VILLAGE, new ConfiguredFeature<>(IcariaFeatures.VILLAGE.get(), NoneFeatureConfiguration.NONE));
 	}
 }

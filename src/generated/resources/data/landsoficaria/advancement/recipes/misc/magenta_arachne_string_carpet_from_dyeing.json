@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_TagKey[minecraft:item / c:arachne_string_carpets]": {
+    "has_TagKey[minecraft:item / landsoficaria:arachne_string_carpets]": {
       "conditions": {
         "items": [
           {
-            "items": "#c:arachne_string_carpets"
+            "items": "#landsoficaria:arachne_string_carpets"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_minecraft:magenta_dye",
-      "has_TagKey[minecraft:item / c:arachne_string_carpets]"
+      "has_TagKey[minecraft:item / landsoficaria:arachne_string_carpets]"
     ]
   ],
   "rewards": {

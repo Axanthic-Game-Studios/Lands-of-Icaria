@@ -1,8 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_strawberry_bush",
-  "textures": {
-    "bush": "landsoficaria:block/strawberry_crop_3",
-    "bush_horizontal": "landsoficaria:block/strawberry_crop_horizontal_3",
-    "particle": "landsoficaria:block/strawberry_crop_horizontal_3"
-  }
-}

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:orichalcum_ingot",
     "B": "landsoficaria:vanadiumsteel_block"

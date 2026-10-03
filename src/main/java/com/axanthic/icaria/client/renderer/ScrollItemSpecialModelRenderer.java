@@ -1,19 +1,19 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.recipe.ItemConcoctingRecipe;
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import java.util.Objects;
 import java.util.function.Consumer;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
@@ -84,7 +84,7 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
 		pPoseStack.scale(pScale, pScale, pScale);
 		pPoseStack.translate(pX, pY, pZ);
-		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.text(Identifier.fromNamespaceAndPath(IcariaKeys.ID, pPath)), (pose, vertexConsumer) -> this.submit(pose.pose(), vertexConsumer, pLightCoords, pOverlayCoords));
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.text(Identifier.fromNamespaceAndPath(IcariaIds.ID, pPath)), (pose, vertexConsumer) -> this.submit(pose.pose(), vertexConsumer, pLightCoords, pOverlayCoords));
 		pPoseStack.popPose();
 	}
 

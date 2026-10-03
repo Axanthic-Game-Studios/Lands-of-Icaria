@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "landsoficaria:block/spelt_seeds_0",
+    "particle": "landsoficaria:block/spelt_seeds_0"
+  }
+}

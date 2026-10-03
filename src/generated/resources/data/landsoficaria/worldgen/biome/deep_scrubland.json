@@ -27,7 +27,9 @@
       "landsoficaria:molybdenum_ore",
       "landsoficaria:hyliastrum_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:marl_chert",
@@ -35,7 +37,7 @@
       "landsoficaria:marl_lignite",
       "landsoficaria:voidshale_rubble",
       "landsoficaria:baetyl_rubble",
-      "landsoficaria:zircon_crystal",
+      "landsoficaria:zircon_cluster",
       "landsoficaria:dead_laurel_tree",
       "landsoficaria:dead_plane_tree",
       "landsoficaria:reedy_vine",
@@ -67,7 +69,7 @@
     "misc": [],
     "monster": [
       {
-        "type": "landsoficaria:crystal_slug",
+        "type": "landsoficaria:cluster_slug",
         "maxCount": 3,
         "minCount": 1,
         "weight": 100

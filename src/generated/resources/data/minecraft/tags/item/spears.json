@@ -1,3 +1,11 @@
 {
-  "values": []
+  "values": [
+    "landsoficaria:chert_spear",
+    "landsoficaria:chalkos_spear",
+    "landsoficaria:kassiteros_spear",
+    "landsoficaria:orichalcum_spear",
+    "landsoficaria:vanadiumsteel_spear",
+    "landsoficaria:sideros_spear",
+    "landsoficaria:molybdenumsteel_spear"
+  ]
 }

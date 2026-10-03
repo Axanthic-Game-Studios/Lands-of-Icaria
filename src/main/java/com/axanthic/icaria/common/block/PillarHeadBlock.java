@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.block;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-import com.mojang.serialization.MapCodec;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -15,8 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
-@ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
 
 public class PillarHeadBlock extends DirectionalBlock {
 	public static final MapCodec<PillarHeadBlock> CODEC = Block.simpleCodec(PillarHeadBlock::new);

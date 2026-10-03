@@ -1,13 +1,11 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.data.IcariaRegistrySetBuilder;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;

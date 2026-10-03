@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.portal.IcariaPortal;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shape.PortalShape;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,12 +39,12 @@ public class GreekFireGrenadeEntity extends ThrowableItemProjectile {
 	@Override
 	public void onHit(HitResult pHitResult) {
 		var vec3 = pHitResult.getLocation();
-		var icariaPortalShape = this.getIcariaPortalShape(BlockPos.containing(vec3.x(), vec3.y(), vec3.z()), this.level());
+		var icariaPortal = this.getIcariaPortal(BlockPos.containing(vec3.x(), vec3.y(), vec3.z()), this.level());
 		if (!this.level().isClientSide()) {
 			this.discard();
 			this.level().explode(this, this.getX(), this.getY(), this.getZ(), 1.5F, Level.ExplosionInteraction.NONE);
-			if (icariaPortalShape != null) {
-				icariaPortalShape.createPortal();
+			if (icariaPortal != null) {
+				icariaPortal.createPortal();
 			} else {
 				IcariaCommonHelper.fire(this.blockPosition(), this.level(), 2, 10);
 			}
@@ -61,13 +60,13 @@ public class GreekFireGrenadeEntity extends ThrowableItemProjectile {
 	}
 
 	@Nullable
-	public PortalShape getIcariaPortalShape(BlockPos pBlockPos, Level pLevel) {
-		var icariaPortalShapeX = new PortalShape(Direction.Axis.X, pBlockPos, pLevel);
-		var icariaPortalShapeZ = new PortalShape(Direction.Axis.Z, pBlockPos, pLevel);
-		if (icariaPortalShapeX.canSet() && icariaPortalShapeX.isComplete()) {
-			return icariaPortalShapeX;
-		} else if (icariaPortalShapeZ.canSet() && icariaPortalShapeZ.isComplete()) {
-			return icariaPortalShapeZ;
+	public IcariaPortal getIcariaPortal(BlockPos pBlockPos, Level pLevel) {
+		var icariaPortalX = new IcariaPortal(Direction.Axis.X, pBlockPos, pLevel);
+		var icariaPortalZ = new IcariaPortal(Direction.Axis.Z, pBlockPos, pLevel);
+		if (icariaPortalX.canSet() && icariaPortalX.isComplete()) {
+			return icariaPortalX;
+		} else if (icariaPortalZ.canSet() && icariaPortalZ.isComplete()) {
+			return icariaPortalZ;
 		} else {
 			return null;
 		}

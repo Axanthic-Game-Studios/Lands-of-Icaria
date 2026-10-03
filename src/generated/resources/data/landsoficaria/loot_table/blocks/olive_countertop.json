@@ -2,7 +2,6 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -12,7 +11,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -37,7 +35,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -45,7 +42,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -70,7 +66,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -78,7 +73,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -103,7 +97,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -111,7 +104,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -136,7 +128,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -144,7 +135,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -169,7 +159,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -177,7 +166,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -202,7 +190,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -210,7 +197,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -235,7 +221,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -243,7 +228,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -268,7 +252,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -276,7 +259,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -301,7 +283,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -309,7 +290,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -334,7 +314,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -342,7 +321,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -367,7 +345,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -375,7 +352,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -400,7 +376,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -408,7 +383,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -433,7 +407,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -441,7 +414,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -466,7 +438,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -474,7 +445,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -499,7 +469,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -507,7 +476,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -532,7 +500,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -540,7 +507,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -565,7 +531,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -573,7 +538,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -598,7 +562,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -606,7 +569,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -631,7 +593,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -639,7 +600,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -664,7 +624,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -672,7 +631,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -697,7 +655,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -705,7 +662,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -730,7 +686,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -738,7 +693,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -763,7 +717,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -771,7 +724,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -796,7 +748,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -804,7 +755,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -829,7 +779,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -837,7 +786,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -862,7 +810,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -870,7 +817,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -895,7 +841,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -903,7 +848,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -928,7 +872,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -936,7 +879,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -961,7 +903,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -969,7 +910,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -994,7 +934,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1002,7 +941,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1027,7 +965,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1035,7 +972,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1060,7 +996,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1068,7 +1003,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1093,7 +1027,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1101,7 +1034,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1126,7 +1058,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1134,7 +1065,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1159,7 +1089,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1167,7 +1096,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1192,7 +1120,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1200,7 +1127,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1225,7 +1151,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1233,7 +1158,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1258,7 +1182,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1266,7 +1189,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1291,7 +1213,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1299,7 +1220,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1324,7 +1244,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1332,7 +1251,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1357,7 +1275,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1365,7 +1282,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1390,7 +1306,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1398,7 +1313,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1423,7 +1337,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1431,7 +1344,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1456,7 +1368,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1464,7 +1375,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1489,7 +1399,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1497,7 +1406,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1522,7 +1430,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1530,7 +1437,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1555,7 +1461,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1563,7 +1468,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1588,7 +1492,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1596,7 +1499,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1621,7 +1523,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1629,7 +1530,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1654,7 +1554,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1662,7 +1561,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1687,7 +1585,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1695,7 +1592,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1720,7 +1616,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1728,7 +1623,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1753,7 +1647,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1761,7 +1654,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1786,7 +1678,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1794,7 +1685,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1819,7 +1709,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1827,7 +1716,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1852,7 +1740,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1860,7 +1747,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1885,7 +1771,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -1893,7 +1778,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1918,7 +1802,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -1926,7 +1809,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1951,7 +1833,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -1959,7 +1840,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -1984,7 +1864,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -1992,7 +1871,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2017,7 +1895,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -2025,7 +1902,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2050,7 +1926,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -2058,7 +1933,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2083,7 +1957,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -2091,7 +1964,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2116,7 +1988,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }
@@ -2124,7 +1995,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2149,7 +2019,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 1.0,
           "function": "minecraft:set_count"
         }
@@ -2157,7 +2026,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2182,7 +2050,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 2.0,
           "function": "minecraft:set_count"
         }
@@ -2190,7 +2057,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2215,7 +2081,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 3.0,
           "function": "minecraft:set_count"
         }
@@ -2223,7 +2088,6 @@
       "rolls": 1.0
     },
     {
-      "bonus_rolls": 0.0,
       "conditions": [
         {
           "block": "landsoficaria:olive_countertop",
@@ -2248,7 +2112,6 @@
       ],
       "functions": [
         {
-          "add": false,
           "count": 4.0,
           "function": "minecraft:set_count"
         }

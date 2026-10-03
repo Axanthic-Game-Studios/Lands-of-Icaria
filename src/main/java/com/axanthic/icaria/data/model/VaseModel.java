@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class VaseModel {
 
 	public static ExtendedModelTemplate template0() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(7.2500F, 8.2500F, 7.2500F).to(8.7500F, 9.0000F, 8.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(8.0000F, 7.5000F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.7500F, 1.7500F, 14.2500F, 2.0000F).texture(IcariaTextureSlots.LOOT_VASE).rotation(Quadrant.R180))
@@ -283,7 +282,7 @@ public class VaseModel {
 	}
 
 	public static ExtendedModelTemplate template1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(5.7500F, 8.2500F, 5.7500F).to(7.2500F, 9.0000F, 7.2500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(6.5000F, 7.5000F, 6.5000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(13.7500F, 1.7500F, 14.2500F, 2.0000F).texture(IcariaTextureSlots.LOOT_VASE).rotation(Quadrant.R180))
@@ -546,7 +545,7 @@ public class VaseModel {
 	}
 
 	public static ExtendedModelTemplate template2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(5.0000F, 6.7500F, 5.0000F).to(11.0000F, 7.5000F, 6.5000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(9.0000F, 1.0000F, 11.0000F, 1.2500F).texture(IcariaTextureSlots.LOOT_VASE))

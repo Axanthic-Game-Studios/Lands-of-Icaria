@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_bones",
+  "textures": {
+    "particle": "landsoficaria:block/bones",
+    "texture": "landsoficaria:block/bones"
+  }
+}

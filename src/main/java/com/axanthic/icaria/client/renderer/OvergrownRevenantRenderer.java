@@ -1,5 +1,7 @@
 package com.axanthic.icaria.client.renderer;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.layer.OvergrownRevenantEmissiveRenderLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantItemRenderLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantRaysRenderLayer;
@@ -10,9 +12,6 @@ import com.axanthic.icaria.common.entity.OvergrownRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;

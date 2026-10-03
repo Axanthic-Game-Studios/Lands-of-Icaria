@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "landsoficaria:onion",
     "landsoficaria:raw_catoblepas_meat",

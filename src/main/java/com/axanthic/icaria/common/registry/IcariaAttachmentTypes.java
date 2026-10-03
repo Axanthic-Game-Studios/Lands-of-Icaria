@@ -1,9 +1,9 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-import com.mojang.serialization.Codec;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.mojang.serialization.Codec;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -17,7 +17,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 @ParametersAreNonnullByDefault
 
 public class IcariaAttachmentTypes {
-	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, IcariaKeys.ID);
+	public static final DeferredRegister<AttachmentType<?>> ATTACHMENT_TYPES = DeferredRegister.create(NeoForgeRegistries.ATTACHMENT_TYPES, IcariaIds.ID);
 
 	public static final DeferredHolder<AttachmentType<?>, AttachmentType<Boolean>> BARREL = IcariaAttachmentTypes.ATTACHMENT_TYPES.register("barrel", () -> AttachmentType.builder(() -> false).serialize(Codec.BOOL.fieldOf("barrel")).build());
 	public static final DeferredHolder<AttachmentType<?>, AttachmentType<BlockState>> BARREL_BLOCK_STATE = IcariaAttachmentTypes.ATTACHMENT_TYPES.register("barrel_block_state", () -> AttachmentType.builder(Blocks.AIR::defaultBlockState).serialize(BlockState.CODEC.fieldOf("barrel_block_state")).build());

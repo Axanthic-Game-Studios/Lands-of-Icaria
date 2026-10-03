@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_zircon_cluster",
+  "textures": {
+    "particle": "landsoficaria:block/zircon_cluster",
+    "texture": "landsoficaria:block/zircon_cluster"
+  }
+}

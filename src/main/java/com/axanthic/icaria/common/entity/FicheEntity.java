@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaFicheVariantIds;
+import com.axanthic.icaria.common.ids.IcariaRegistryIds;
 import com.axanthic.icaria.common.registry.IcariaEntityDataSerializers;
 import com.axanthic.icaria.common.variant.FicheVariant;
-import com.axanthic.icaria.data.registry.IcariaFicheVariants;
-import com.axanthic.icaria.data.registry.IcariaRegistries;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -44,7 +43,7 @@ public class FicheEntity extends FishEntity {
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(FicheEntity.FICHE_VARIANT, VariantUtils.getDefaultOrAny(this.registryAccess(), IcariaFicheVariants.BLUE_RED));
+		pBuilder.define(FicheEntity.FICHE_VARIANT, VariantUtils.getDefaultOrAny(this.registryAccess(), IcariaFicheVariantIds.BLUE_RED));
 	}
 
 	@Override
@@ -56,7 +55,7 @@ public class FicheEntity extends FishEntity {
 	@Override
 	public void readAdditionalSaveData(ValueInput pValueInput) {
 		super.readAdditionalSaveData(pValueInput);
-		VariantUtils.readVariant(pValueInput, IcariaRegistries.FICHE_VARIANT).ifPresent(this::setVariant);
+		VariantUtils.readVariant(pValueInput, IcariaRegistryIds.FICHE_VARIANT).ifPresent(this::setVariant);
 	}
 
 	public void setVariant(Holder<FicheVariant> pVariant) {
@@ -70,7 +69,7 @@ public class FicheEntity extends FishEntity {
 	@Nullable
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
-		var registry = pServerLevelAccessor.registryAccess().lookupOrThrow(IcariaRegistries.FICHE_VARIANT);
+		var registry = pServerLevelAccessor.registryAccess().lookupOrThrow(IcariaRegistryIds.FICHE_VARIANT);
 		var variants = registry.listElements().toList();
 		var bound = variants.size();
 		var index = pServerLevelAccessor.getRandom().nextInt(bound);

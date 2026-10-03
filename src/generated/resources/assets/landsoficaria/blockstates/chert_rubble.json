@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "landsoficaria:block/chert_rubble"
+      },
+      {
+        "model": "landsoficaria:block/chert_rubble",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/chert_rubble",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/chert_rubble",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -1,18 +1,17 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import java.util.List;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -185,7 +184,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof IcariaBarrelBlock barrelBlock && barrelBlock.woodType() == this.woodType() && !pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK)) {
 			var blockState = barrelBlock.defaultBlockState();
 			pLevel.playSound(null, pBlockPos, SoundEvents.WOOD_PLACE, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_LOADED)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, blockState.is(IcariaBlockTagsProvider.BARRELS_TAPPED)));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, true).setValue(IcariaBlockStateProperties.LOADED_BARREL, blockState.is(IcariaBlockTags.BARRELS_LOADED)).setValue(IcariaBlockStateProperties.TAPPED_BARREL, blockState.is(IcariaBlockTags.BARRELS_TAPPED)));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FIRE_CHARGE) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
@@ -209,7 +208,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 			return InteractionResult.FAIL;
 		} else {
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FULL_RACK, false).setValue(IcariaBlockStateProperties.LOADED_BARREL, false).setValue(IcariaBlockStateProperties.TAPPED_BARREL, false));
-			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaKeys.ID + "." + "barrel"));
+			pPlayer.sendOverlayMessage(Component.translatable("message" + "." + IcariaIds.ID + "." + "barrel"));
 			pPlayer.setData(IcariaAttachmentTypes.BARREL, true);
 			pPlayer.setData(IcariaAttachmentTypes.BARREL_BLOCK_STATE, this.getRenderState(pBlockState));
 			PacketDistributor.sendToAllPlayers(new BarrelPayload(true, pPlayer.getId(), this.getRenderState(pBlockState)));
@@ -220,7 +219,7 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	@Override
 	public List<ItemStack> getDrops(BlockState pBlockState, LootParams.Builder pBuilder) {
 		var lootParams = pBuilder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK);
-		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) && !pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL) && !pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTables.BARREL).getRandomItems(lootParams) : List.of();
+		return pBlockState.getValue(IcariaBlockStateProperties.FULL_RACK) && !pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL) && !pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL) ? lootParams.getLevel().getServer().reloadableRegistries().getLootTable(IcariaLootTableIds.BARREL).getRandomItems(lootParams) : List.of();
 	}
 
 	@Override
@@ -244,17 +243,17 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	public WoodType woodType() {
-		if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_CYPRESS)) {
+		if (this.defaultBlockState().is(IcariaBlockTags.RACKS_CYPRESS)) {
 			return IcariaWoodTypes.CYPRESS;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_DROUGHTROOT)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.RACKS_DROUGHTROOT)) {
 			return IcariaWoodTypes.DROUGHTROOT;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_FIR)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.RACKS_FIR)) {
 			return IcariaWoodTypes.FIR;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_LAUREL)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.RACKS_LAUREL)) {
 			return IcariaWoodTypes.LAUREL;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_OLIVE)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.RACKS_OLIVE)) {
 			return IcariaWoodTypes.OLIVE;
-		} else if (this.defaultBlockState().is(IcariaBlockTagsProvider.RACKS_PLANE)) {
+		} else if (this.defaultBlockState().is(IcariaBlockTags.RACKS_PLANE)) {
 			return IcariaWoodTypes.PLANE;
 		} else {
 			return IcariaWoodTypes.POPULUS;

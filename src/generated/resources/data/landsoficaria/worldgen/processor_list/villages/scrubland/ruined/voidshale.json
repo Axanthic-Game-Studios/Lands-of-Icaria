@@ -73,7 +73,7 @@
       "rules": [
         {
           "input_predicate": {
-            "block": "landsoficaria:surface_lignite",
+            "block": "landsoficaria:lignite_rubble",
             "predicate_type": "minecraft:block_match"
           },
           "location_predicate": {
@@ -188,11 +188,8 @@
             "Name": "minecraft:cobweb"
           },
           "position_predicate": {
-            "axis": "y",
             "max_chance": 1.0,
             "max_dist": 8,
-            "min_chance": 0.0,
-            "min_dist": 0,
             "predicate_type": "minecraft:axis_aligned_linear_pos"
           }
         },
@@ -211,11 +208,8 @@
             "Name": "minecraft:air"
           },
           "position_predicate": {
-            "axis": "y",
             "max_chance": 1.0,
             "max_dist": 8,
-            "min_chance": 0.0,
-            "min_dist": 0,
             "predicate_type": "minecraft:axis_aligned_linear_pos"
           }
         }
@@ -239,11 +233,8 @@
             "Name": "minecraft:cobweb"
           },
           "position_predicate": {
-            "axis": "y",
             "max_chance": 1.0,
             "max_dist": 8,
-            "min_chance": 0.0,
-            "min_dist": 0,
             "predicate_type": "minecraft:axis_aligned_linear_pos"
           }
         },
@@ -262,11 +253,8 @@
             "Name": "minecraft:air"
           },
           "position_predicate": {
-            "axis": "y",
             "max_chance": 1.0,
             "max_dist": 8,
-            "min_chance": 0.0,
-            "min_dist": 0,
             "predicate_type": "minecraft:axis_aligned_linear_pos"
           }
         }

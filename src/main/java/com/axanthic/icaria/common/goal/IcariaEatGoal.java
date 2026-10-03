@@ -1,18 +1,16 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.TroughBlock;
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
 import com.axanthic.icaria.common.properties.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import java.util.EnumSet;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -48,7 +46,7 @@ public class IcariaEatGoal extends Goal {
 		var direction = this.entity.getDirection();
 		var level = this.entity.level();
 		var trough = level.getBlockState(blockPos.relative(direction)).getBlock() instanceof TroughBlock && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH) == this.trough && level.getBlockState(blockPos.relative(direction)).getValue(IcariaBlockStateProperties.TROUGH_FILL) > 0;
-		var blocks = level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get()) || level.getBlockState(blockPos).is(IcariaBlockTagsProvider.GRASS_BLOCKS);
+		var blocks = level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get()) || level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS);
 		var check = blocks || trough;
 		return !this.entity.getLock() && this.entity.getRandom().nextInt(this.entity.isBaby() ? 50 : 1000) == 0 && check;
 	}
@@ -73,7 +71,7 @@ public class IcariaEatGoal extends Goal {
 		if (this.eatAnimationTick == 16) {
 			if (level instanceof ServerLevel serverLevel) {
 				if (EventHooks.canEntityGrief(serverLevel, this.entity)) {
-					if (level.getBlockState(blockPos).is(IcariaBlockTagsProvider.GRASS_BLOCKS)) {
+					if (level.getBlockState(blockPos).is(IcariaBlockTags.GRASS_BLOCKS)) {
 						level.destroyBlock(blockPos, false);
 						this.entity.ate();
 					} else if (level.getBlockState(blockPos.below()).is(IcariaBlocks.GRASSY_MARL.get())) {

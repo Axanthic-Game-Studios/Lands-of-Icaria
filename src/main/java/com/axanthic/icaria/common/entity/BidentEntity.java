@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.item.BidentItem;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -17,9 +16,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-
 import net.minecraft.world.entity.projectile.ProjectileDeflection;
 import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
@@ -95,7 +94,7 @@ public class BidentEntity extends AbstractArrow {
 			if (this.level() instanceof ServerLevel serverLevel) {
 				if (entity instanceof LivingEntity livingEntity) {
 					if (entity.hurtServer(serverLevel, damageSource, bidentItem.getAttackDamage())) {
-						if (livingEntity.getType() != EntityType.ENDERMAN) {
+						if (livingEntity.getType() != EntityTypes.ENDERMAN) {
 							this.deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(owner), false);
 							this.doKnockback(livingEntity, damageSource);
 							this.setDealt(true);

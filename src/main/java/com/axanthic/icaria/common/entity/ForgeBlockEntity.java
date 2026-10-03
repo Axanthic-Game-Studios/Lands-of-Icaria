@@ -1,6 +1,8 @@
 package com.axanthic.icaria.common.entity;
 
-import com.axanthic.icaria.common.data.ForgeContainerData;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.container.ForgeContainerData;
 import com.axanthic.icaria.common.handler.ForgeHandler;
 import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
@@ -9,7 +11,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.Codec;
 
 import it.unimi.dsi.fastutil.objects.Reference2IntOpenHashMap;
@@ -18,7 +19,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

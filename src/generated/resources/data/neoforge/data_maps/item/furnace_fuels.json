@@ -225,6 +225,9 @@
     "landsoficaria:lignite_block": {
       "burn_time": 7200
     },
+    "landsoficaria:lignite_rubble": {
+      "burn_time": 800
+    },
     "landsoficaria:lime_arachne_string_block": {
       "burn_time": 100
     },
@@ -377,9 +380,6 @@
     },
     "landsoficaria:red_arachne_string_carpet": {
       "burn_time": 67
-    },
-    "landsoficaria:surface_lignite": {
-      "burn_time": 800
     },
     "landsoficaria:trapped_chest": {
       "burn_time": 300

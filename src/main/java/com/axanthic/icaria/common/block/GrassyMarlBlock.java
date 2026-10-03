@@ -1,13 +1,11 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaPlacedFeatureIds;
 import com.axanthic.icaria.common.properties.Moss;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-import com.axanthic.icaria.data.registry.IcariaPlacedFeatures;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,7 +38,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 		} else if (blockState.getFluidState().getAmount() == 8) {
 			return false;
 		} else {
-			return LightEngine.getLightBlockInto(pBlockState, blockState, Direction.UP, blockState.getLightDampening()) < 15;
+			return LightEngine.getLightDampeningInto(pBlockState, blockState, Direction.UP, blockState.getLightDampening()) < 15;
 		}
 	}
 
@@ -70,7 +68,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 			if (pServerLevel.getBlockState(blockPos).is(this)) {
 				var blockPosAbove = blockPos.above();
 				if (pServerLevel.getBlockState(blockPosAbove).isAir()) {
-					pServerLevel.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(IcariaPlacedFeatures.CALCITE_DUST).ifPresent(reference -> reference.value().place(pServerLevel, pServerLevel.getChunkSource().getGenerator(), pRandomSource, blockPosAbove));
+					pServerLevel.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(IcariaPlacedFeatureIds.CALCITE_DUST).ifPresent(reference -> reference.value().place(pServerLevel, pServerLevel.getChunkSource().getGenerator(), pRandomSource, blockPosAbove));
 				}
 			}
 		}

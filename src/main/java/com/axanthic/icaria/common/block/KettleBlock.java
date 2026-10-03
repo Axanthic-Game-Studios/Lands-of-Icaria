@@ -1,17 +1,17 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.KettleVoxelShapes;
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.serialization.MapCodec;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -124,7 +124,7 @@ public class KettleBlock extends BaseEntityBlock {
 				if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
 					if (pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
 						var itemStack = itemEntity.getItem();
-						if (itemStack.is(IcariaItemTagsProvider.KETTLE_ITEMS)) {
+						if (itemStack.is(IcariaItemTags.KETTLE_ITEMS)) {
 							blockEntity.reset();
 							blockEntity.set(itemStack);
 							itemStack.shrink(1);
@@ -225,7 +225,7 @@ public class KettleBlock extends BaseEntityBlock {
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
 		if (itemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()) && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.EMPTY) {
 			return this.water(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
-		} else if (itemStack.is(IcariaItemTagsProvider.KETTLE_ITEMS) && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
+		} else if (itemStack.is(IcariaItemTags.KETTLE_ITEMS) && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
 			return this.items(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
 		} else {
 			return InteractionResult.FAIL;

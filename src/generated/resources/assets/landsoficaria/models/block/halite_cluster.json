@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_halite_cluster",
+  "textures": {
+    "particle": "landsoficaria:block/halite_cluster",
+    "texture": "landsoficaria:block/halite_cluster"
+  }
+}

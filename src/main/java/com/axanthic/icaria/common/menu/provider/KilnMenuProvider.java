@@ -1,12 +1,10 @@
 package com.axanthic.icaria.common.menu.provider;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.KilnBlockEntity;
 import com.axanthic.icaria.common.menu.KilnMenu;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
@@ -31,6 +29,6 @@ public class KilnMenuProvider implements MenuProvider {
 
 	@Override
 	public Component getDisplayName() {
-		return Component.translatable("menu" + "." + IcariaKeys.ID + "." + "kiln");
+		return Component.translatable("menu" + "." + IcariaIds.ID + "." + "kiln");
 	}
 }

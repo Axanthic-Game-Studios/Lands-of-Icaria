@@ -1,13 +1,11 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.MyrmekeQueenEntity;
 import com.axanthic.icaria.common.entity.MyrmekeSoldierEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -39,7 +37,7 @@ public class MyrmekeQueenSummonGoal extends Goal {
 		for (var i = 0; i < randomSource.nextIntBetweenInclusive(3, 4); ++i) {
 			if (entity != null) {
 				if (level.getBlockState(blockPos).canBeReplaced()) {
-					if (this.entity.getBlockStateOn().is(IcariaBlockTagsProvider.SOILS)) {
+					if (this.entity.getBlockStateOn().is(IcariaBlockTags.SOILS)) {
 						entity.snapTo(blockPos, 0.0F, 0.0F);
 						level.addFreshEntity(entity);
 					}

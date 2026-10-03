@@ -1,0 +1,18 @@
+{
+  "values": [
+    "landsoficaria:cypress_log",
+    "landsoficaria:dead_cypress_log",
+    "landsoficaria:droughtroot_log",
+    "landsoficaria:dead_droughtroot_log",
+    "landsoficaria:fir_log",
+    "landsoficaria:dead_fir_log",
+    "landsoficaria:laurel_log",
+    "landsoficaria:dead_laurel_log",
+    "landsoficaria:olive_log",
+    "landsoficaria:dead_olive_log",
+    "landsoficaria:plane_log",
+    "landsoficaria:dead_plane_log",
+    "landsoficaria:populus_log",
+    "landsoficaria:dead_populus_log"
+  ]
+}

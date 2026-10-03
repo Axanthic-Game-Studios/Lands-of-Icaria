@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_0",
+  "textures": {
+    "all": "landsoficaria:block/droughtroot_sign",
+    "particle": "landsoficaria:block/droughtroot_planks"
+  }
+}

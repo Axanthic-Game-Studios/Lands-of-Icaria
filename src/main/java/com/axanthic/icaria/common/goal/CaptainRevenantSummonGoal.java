@@ -1,14 +1,12 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.CaptainRevenantEntity;
 import com.axanthic.icaria.common.entity.CrawlerRevenantEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -44,7 +42,7 @@ public class CaptainRevenantSummonGoal extends Goal {
 		for (var i = 0; i < randomSource.nextIntBetweenInclusive(6, 8); ++i) {
 			if (entity != null) {
 				if (level.getBlockState(blockPos).canBeReplaced()) {
-					if (level.getBlockState(blockPos.below()).is(IcariaBlockTagsProvider.SOILS)) {
+					if (level.getBlockState(blockPos.below()).is(IcariaBlockTags.SOILS)) {
 						entity.snapTo(blockPos, 0.0F, 0.0F);
 						level.addFreshEntity(entity);
 					}

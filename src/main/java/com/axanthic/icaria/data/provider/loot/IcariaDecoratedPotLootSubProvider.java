@@ -1,13 +1,11 @@
 package com.axanthic.icaria.data.provider.loot;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.function.BiConsumer;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
@@ -25,8 +23,8 @@ public record IcariaDecoratedPotLootSubProvider(HolderLookup.Provider provider) 
 
 	@Override
 	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTables.DECORATED_POT, LootTable.lootTable()
-			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 3.0F))
+		pBiConsumer.accept(IcariaLootTableIds.DECORATED_POT, LootTable.lootTable()
+			.withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(IcariaItems.LOAM_LUMP.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
 			)
 		);

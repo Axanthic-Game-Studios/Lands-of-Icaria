@@ -1,24 +1,17 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaEntityTypes;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaEntityTypeIds;
 
 import java.util.concurrent.CompletableFuture;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
-import net.minecraft.resources.Identifier;
 import net.minecraft.tags.EntityTypeTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.entity.EntityType;
 
-@SuppressWarnings("unused")
+import net.neoforged.neoforge.common.Tags;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
@@ -31,65 +24,57 @@ public class IcariaEntityTypeTagsProvider extends EntityTypeTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(EntityTypeTags.ARTHROPOD)
-			.add(IcariaEntityTypes.ARACHNE.get())
-			.add(IcariaEntityTypes.ARACHNE_DRONE.get())
-			.add(IcariaEntityTypes.MYRMEKE_DRONE.get())
-			.add(IcariaEntityTypes.MYRMEKE_SOLDIER.get())
-			.add(IcariaEntityTypes.MYRMEKE_QUEEN.get())
-			.add(IcariaEntityTypes.SCORPION.get())
-			.add(IcariaEntityTypes.SOLIFUGAE.get())
-			.add(IcariaEntityTypes.VINEGAR.get());
+			.add(IcariaEntityTypeIds.ARACHNE)
+			.add(IcariaEntityTypeIds.ARACHNE_DRONE)
+			.add(IcariaEntityTypeIds.MYRMEKE_DRONE)
+			.add(IcariaEntityTypeIds.MYRMEKE_SOLDIER)
+			.add(IcariaEntityTypeIds.MYRMEKE_QUEEN)
+			.add(IcariaEntityTypeIds.SCORPION)
+			.add(IcariaEntityTypeIds.SOLIFUGAE)
+			.add(IcariaEntityTypeIds.VINEGAR);
 
 		this.tag(EntityTypeTags.FALL_DAMAGE_IMMUNE)
-			.add(IcariaEntityTypes.FEESH.get())
-			.add(IcariaEntityTypes.FICHE.get())
-			.add(IcariaEntityTypes.FISSHH.get())
-			.add(IcariaEntityTypes.FYSH.get())
-			.add(IcariaEntityTypes.ENDER_JELLYFISH.get())
-			.add(IcariaEntityTypes.FIRE_JELLYFISH.get())
-			.add(IcariaEntityTypes.NATURE_JELLYFISH.get())
-			.add(IcariaEntityTypes.VOID_JELLYFISH.get())
-			.add(IcariaEntityTypes.WATER_JELLYFISH.get());
+			.add(IcariaEntityTypeIds.FEESH)
+			.add(IcariaEntityTypeIds.FICHE)
+			.add(IcariaEntityTypeIds.FISSHH)
+			.add(IcariaEntityTypeIds.FYSH)
+			.add(IcariaEntityTypeIds.ENDER_JELLYFISH)
+			.add(IcariaEntityTypeIds.FIRE_JELLYFISH)
+			.add(IcariaEntityTypeIds.NATURE_JELLYFISH)
+			.add(IcariaEntityTypeIds.VOID_JELLYFISH)
+			.add(IcariaEntityTypeIds.WATER_JELLYFISH);
 
 		this.tag(EntityTypeTags.FOLLOWABLE_FRIENDLY_MOBS)
-			.add(IcariaEntityTypes.AETERNAE.get())
-			.add(IcariaEntityTypes.CAPELLA.get())
-			.add(IcariaEntityTypes.CATOBLEPAS.get())
-			.add(IcariaEntityTypes.CRYSTAL_SLUG.get())
-			.add(IcariaEntityTypes.FOREST_SNULL.get())
-			.add(IcariaEntityTypes.SNULL.get())
-			.add(IcariaEntityTypes.THOG.get());
+			.add(IcariaEntityTypeIds.AETERNAE)
+			.add(IcariaEntityTypeIds.CAPELLA)
+			.add(IcariaEntityTypeIds.CATOBLEPAS)
+			.add(IcariaEntityTypeIds.CLUSTER_SLUG)
+			.add(IcariaEntityTypeIds.FOREST_SNULL)
+			.add(IcariaEntityTypeIds.SNULL)
+			.add(IcariaEntityTypeIds.THOG);
 
 		this.tag(EntityTypeTags.FROG_FOOD)
-			.add(IcariaEntityTypes.HYLIASTER.get());
+			.add(IcariaEntityTypeIds.HYLIASTER);
 
 		this.tag(EntityTypeTags.IMPACT_PROJECTILES)
-			.add(IcariaEntityTypes.BIDENT.get());
+			.add(IcariaEntityTypeIds.BIDENT);
 
 		this.tag(EntityTypeTags.UNDEAD)
-			.add(IcariaEntityTypes.CAPTAIN_REVENANT.get())
-			.add(IcariaEntityTypes.CIVILIAN_REVENANT.get())
-			.add(IcariaEntityTypes.CRAWLER_REVENANT.get())
-			.add(IcariaEntityTypes.OVERGROWN_REVENANT.get())
-			.add(IcariaEntityTypes.PYROMANCER_REVENANT.get())
-			.add(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get())
-			.add(IcariaEntityTypes.SOLDIER_REVENANT.get());
+			.add(IcariaEntityTypeIds.CAPTAIN_REVENANT)
+			.add(IcariaEntityTypeIds.CIVILIAN_REVENANT)
+			.add(IcariaEntityTypeIds.CRAWLER_REVENANT)
+			.add(IcariaEntityTypeIds.OVERGROWN_REVENANT)
+			.add(IcariaEntityTypeIds.PYROMANCER_REVENANT)
+			.add(IcariaEntityTypeIds.NETHER_PYROMANCER_REVENANT)
+			.add(IcariaEntityTypeIds.SOLDIER_REVENANT);
+
+		this.tag(Tags.EntityTypes.BOSSES)
+			.add(IcariaEntityTypeIds.ARACHNE)
+			.add(IcariaEntityTypeIds.CAPTAIN_REVENANT);
 	}
 
 	@Override
 	public String getName() {
 		return "Entity Type Tags";
-	}
-
-	public static TagKey<EntityType<?>> cKey(String pName) {
-		return IcariaEntityTypeTagsProvider.createKey(IcariaKeys.C + ":" + pName);
-	}
-
-	public static TagKey<EntityType<?>> icariaKey(String pName) {
-		return IcariaEntityTypeTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
-	}
-
-	public static TagKey<EntityType<?>> createKey(String pName) {
-		return TagKey.create(Registries.ENTITY_TYPE, Identifier.parse(pName));
 	}
 }

@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.goal.FishFollowGoal;
 import com.axanthic.icaria.common.goal.FishSwimGoal;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
@@ -37,7 +36,7 @@ public class FishEntity extends IcariaPathfinderMobEntity {
 
 	public FishEntity(EntityType<? extends FishEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel, 0.3F, 0.3F, 0.1F);
-		this.moveControl = new FlyingMoveControl(this, 10, true);
+		this.moveControl = new FlyingMoveControl<>(this, 10, true);
 	}
 
 	public static boolean checkMobSpawnRules(EntityType<? extends Mob> pEntityType, LevelAccessor pLevelAccessor, EntitySpawnReason pEntitySpawnReason, BlockPos pBlockPos, RandomSource pRandomSource) {

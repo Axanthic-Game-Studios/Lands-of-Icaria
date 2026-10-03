@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:spelt_bale_block": {
+    "has_landsoficaria:spelt_block": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:spelt_bale_block"
+            "items": "landsoficaria:spelt_block"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_minecraft:redstone",
-      "has_landsoficaria:spelt_bale_block"
+      "has_landsoficaria:spelt_block"
     ]
   ],
   "rewards": {

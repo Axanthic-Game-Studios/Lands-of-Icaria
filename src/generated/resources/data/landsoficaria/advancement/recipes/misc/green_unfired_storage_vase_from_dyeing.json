@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_TagKey[minecraft:item / c:storage_vases]": {
+    "has_TagKey[minecraft:item / landsoficaria:unfired_storage_vases]": {
       "conditions": {
         "items": [
           {
-            "items": "#c:storage_vases"
+            "items": "#landsoficaria:unfired_storage_vases"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_minecraft:green_dye",
-      "has_TagKey[minecraft:item / c:storage_vases]"
+      "has_TagKey[minecraft:item / landsoficaria:unfired_storage_vases]"
     ]
   ],
   "rewards": {

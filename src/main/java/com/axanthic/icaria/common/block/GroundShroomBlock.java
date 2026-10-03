@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -42,7 +40,7 @@ public class GroundShroomBlock extends Block {
 
 	@Override
 	public void randomTick(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		var aabb = AABB.ofSize(pBlockPos.getCenter(), 9, 3, 9);
+		var aabb = new AABB(pBlockPos.getX() - 4, pBlockPos.getY() - 1, pBlockPos.getZ() - 4, pBlockPos.getX() + 4, pBlockPos.getY() + 1, pBlockPos.getZ() + 4);
 		var blockPos = pBlockPos.offset(pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1);
 		if (pServerLevel.getBlockStates(aabb).toList().stream().filter(blockState -> blockState.is(this)).count() < 5) {
 			if (pServerLevel.getBlockState(blockPos).isAir()) {

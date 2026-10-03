@@ -19,7 +19,6 @@
     [],
     [
       "landsoficaria:village",
-      "landsoficaria:yellowstone_boulder",
       "landsoficaria:fallen_relicstone_pillar",
       "landsoficaria:relicstone_pillar"
     ],
@@ -28,15 +27,18 @@
       "landsoficaria:lignite_ore",
       "landsoficaria:chalkos_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:marl_chert",
       "landsoficaria:marl_bones",
       "landsoficaria:marl_lignite",
+      "landsoficaria:yellowstone_boulder",
       "landsoficaria:yellowstone_rubble",
       "landsoficaria:relicstone_rubble",
-      "landsoficaria:calcite_crystal",
+      "landsoficaria:calcite_cluster",
       "landsoficaria:cypress_tree",
       "landsoficaria:dead_cypress_tree",
       "landsoficaria:fallen_cypress_tree",

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:simple_block",
+  "config": {
+    "to_place": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "landsoficaria:zircon_cluster",
+        "Properties": {
+          "facing": "down",
+          "mediterranean_waterlogged": "false",
+          "waterlogged": "false"
+        }
+      }
+    }
+  }
+}

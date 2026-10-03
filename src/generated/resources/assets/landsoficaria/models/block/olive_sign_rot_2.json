@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_sign_rot_2",
+  "textures": {
+    "all": "landsoficaria:block/olive_sign",
+    "particle": "landsoficaria:block/olive_planks"
+  }
+}

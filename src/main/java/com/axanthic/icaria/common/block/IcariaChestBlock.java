@@ -1,15 +1,14 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.combiner.ChestBlockCombiner;
 import com.axanthic.icaria.common.entity.IcariaChestBlockEntity;
 import com.axanthic.icaria.common.registry.*;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import java.util.function.Supplier;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

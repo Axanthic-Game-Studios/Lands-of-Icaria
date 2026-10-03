@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "landsoficaria:anti_gravity_spell",
     "landsoficaria:empty_flask"

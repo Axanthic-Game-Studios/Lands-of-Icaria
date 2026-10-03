@@ -2,10 +2,13 @@
   "values": [
     "minecraft:cobweb",
     "minecraft:chiseled_bookshelf",
+    "minecraft:decorated_pot",
     "minecraft:flower_pot",
     "minecraft:composter",
-    "minecraft:decorated_pot",
-    "landsoficaria:surface_lignite",
+    "landsoficaria:cypress_wall_sign",
+    "landsoficaria:laurel_wall_sign",
+    "landsoficaria:populus_wall_sign",
+    "landsoficaria:lignite_rubble",
     "landsoficaria:marl_adobe",
     "landsoficaria:marl_adobe_stairs",
     "landsoficaria:marl_adobe_slab",
@@ -39,7 +42,7 @@
     "landsoficaria:mossy_relicstone_tiles",
     "landsoficaria:mossy_relicstone_tile_stairs",
     "landsoficaria:arachne_string_block",
-    "landsoficaria:spelt_bale_block",
+    "landsoficaria:spelt_block",
     "landsoficaria:vine_reed_block",
     "landsoficaria:chert_block",
     "landsoficaria:lignite_block",
@@ -59,7 +62,6 @@
     "landsoficaria:loaded_cypress_barrel",
     "landsoficaria:tapped_cypress_barrel",
     "landsoficaria:triple_cypress_barrel_rack",
-    "landsoficaria:cypress_wall_sign",
     "landsoficaria:droughtroot_planks",
     "landsoficaria:droughtroot_slab",
     "landsoficaria:droughtroot_fence",
@@ -83,7 +85,6 @@
     "landsoficaria:loaded_laurel_barrel",
     "landsoficaria:tapped_laurel_barrel",
     "landsoficaria:triple_laurel_barrel_rack",
-    "landsoficaria:laurel_wall_sign",
     "landsoficaria:olive_planks",
     "landsoficaria:olive_slab",
     "landsoficaria:olive_fence",
@@ -106,7 +107,6 @@
     "landsoficaria:populus_barrel",
     "landsoficaria:loaded_populus_barrel",
     "landsoficaria:tapped_populus_barrel",
-    "landsoficaria:triple_populus_barrel_rack",
-    "landsoficaria:populus_wall_sign"
+    "landsoficaria:triple_populus_barrel_rack"
   ]
 }

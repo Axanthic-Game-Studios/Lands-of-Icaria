@@ -1,12 +1,10 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -19,7 +17,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class CobwebModel {
 
 	public static ExtendedModelTemplate cross() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F)
 				.shade(false)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F).rescale(true))
@@ -40,7 +38,7 @@ public class CobwebModel {
 	}
 
 	public static ExtendedModelTemplate plane() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block")).ambientOcclusion(false)
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 0.8000F).to(16.0000F, 16.0000F, 0.8000F)
 				.shade(false)
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(16.0000F, 0.0000F, 0.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE))

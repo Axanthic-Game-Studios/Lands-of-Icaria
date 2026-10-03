@@ -1,14 +1,12 @@
 package com.axanthic.icaria.client.screen;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.payload.ChestLabelPayload;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
@@ -65,7 +63,7 @@ public class ChestLabelScreen extends Screen {
 	public void init() {
 		this.cancel = this.addRenderableWidget(Button.builder(CommonComponents.GUI_CANCEL, button -> this.cancel()).bounds(this.width / 2 + 2, this.height / 2 + 64, 98, 20).build());
 		this.done = this.addRenderableWidget(Button.builder(CommonComponents.GUI_DONE, button -> this.done()).bounds(this.width / 2 - 100, this.height / 2 + 64, 98, 20).build());
-		this.editBox = new EditBox(this.font, this.width / 2 - 35, this.height / 2 - 3, 196, 20, Component.translatable("screen" + "." + IcariaKeys.ID + "." + "chest_label"));
+		this.editBox = new EditBox(this.font, this.width / 2 - 35, this.height / 2 - 3, 196, 20, Component.translatable("screen" + "." + IcariaIds.ID + "." + "chest_label"));
 		this.editBox.setBordered(false);
 		this.editBox.setMaxLength(12);
 		this.editBox.setTextColor(IcariaColors.TEXT);
@@ -80,11 +78,11 @@ public class ChestLabelScreen extends Screen {
 	}
 
 	public void cancel() {
-		this.minecraft.setScreen(null);
+		this.minecraft.gui.setScreen(null);
 	}
 
 	public void done() {
-		this.minecraft.setScreen(null);
+		this.minecraft.gui.setScreen(null);
 		ClientPacketDistributor.sendToServer(new ChestLabelPayload(this.itemStack, this.editBox.getValue()));
 	}
 }

@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.world.structure.IcariaJigsawStructure;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.structure.StructureType;
@@ -16,7 +14,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaStructureTypes {
-	public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, IcariaKeys.ID);
+	public static final DeferredRegister<StructureType<?>> STRUCTURE_TYPES = DeferredRegister.create(Registries.STRUCTURE_TYPE, IcariaIds.ID);
 
 	public static final DeferredHolder<StructureType<?>, StructureType<IcariaJigsawStructure>> JIGSAW = IcariaStructureTypes.STRUCTURE_TYPES.register("jigsaw", () -> () -> IcariaJigsawStructure.CODEC);
 }

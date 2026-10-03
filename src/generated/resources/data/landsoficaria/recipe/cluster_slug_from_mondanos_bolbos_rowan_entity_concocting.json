@@ -1,0 +1,11 @@
+{
+  "type": "landsoficaria:entity_concocting",
+  "color": 2364442,
+  "entityType": "landsoficaria:cluster_slug",
+  "ingredient": [
+    "landsoficaria:mondanos",
+    "landsoficaria:bolbos",
+    "landsoficaria:rowan"
+  ],
+  "time": 200
+}

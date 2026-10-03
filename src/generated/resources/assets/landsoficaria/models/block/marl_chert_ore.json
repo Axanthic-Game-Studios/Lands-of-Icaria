@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "landsoficaria:block/marl_chert_ore",
+    "particle": "landsoficaria:block/marl_chert_ore"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:calcite_shard",
+    "B": [
+      "landsoficaria:grainglass",
+      "landsoficaria:silkglass"
+    ]
+  },
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:calcite_glass"
+  }
+}

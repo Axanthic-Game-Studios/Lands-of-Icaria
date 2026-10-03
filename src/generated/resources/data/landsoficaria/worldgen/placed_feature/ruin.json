@@ -1,4 +1,8 @@
 {
   "feature": "landsoficaria:ruin",
-  "placement": []
+  "placement": [
+    {
+      "type": "minecraft:biome"
+    }
+  ]
 }

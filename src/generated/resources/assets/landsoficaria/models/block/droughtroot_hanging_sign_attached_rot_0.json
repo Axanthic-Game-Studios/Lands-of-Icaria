@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_attached_hanging_sign_rot_0",
+  "textures": {
+    "all": "landsoficaria:block/droughtroot_hanging_sign",
+    "particle": "landsoficaria:block/stripped_droughtroot_log"
+  }
+}

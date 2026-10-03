@@ -1,11 +1,12 @@
 {
   "values": [
-    "#minecraft:needs_iron_tool",
     "#minecraft:needs_diamond_tool",
+    "#minecraft:needs_iron_tool",
+    "#neoforge:needs_netherite_tool",
     "#landsoficaria:needs_kassiteros_tool",
+    "#landsoficaria:needs_molybdenumsteel_tool",
     "#landsoficaria:needs_orichalcum_tool",
-    "#landsoficaria:needs_vanadiumsteel_tool",
     "#landsoficaria:needs_sideros_tool",
-    "#landsoficaria:needs_molybdenumsteel_tool"
+    "#landsoficaria:needs_vanadiumsteel_tool"
   ]
 }

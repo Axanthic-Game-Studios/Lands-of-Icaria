@@ -1,7 +1,0 @@
-{
-  "parent": "landsoficaria:block/template_jasper_crystal",
-  "textures": {
-    "particle": "landsoficaria:block/jasper_crystal",
-    "texture": "landsoficaria:block/jasper_crystal"
-  }
-}

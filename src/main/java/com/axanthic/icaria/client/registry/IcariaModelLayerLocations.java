@@ -1,10 +1,8 @@
 package com.axanthic.icaria.client.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.model.geom.ModelLayerLocation;
 
@@ -72,8 +70,8 @@ public class IcariaModelLayerLocations {
 	public static final ModelLayerLocation SOLDIER_REVENANT_ITEM = new ModelLayerLocation(IcariaIdentifiers.SOLDIER_REVENANT_LAYER, "item");
 	public static final ModelLayerLocation REVENANT_SKULL = new ModelLayerLocation(IcariaIdentifiers.REVENANT_SKULL_LAYER, "main");
 	public static final ModelLayerLocation SCORPION = new ModelLayerLocation(IcariaIdentifiers.SCORPION_LAYER, "main");
-	public static final ModelLayerLocation CRYSTAL_SLUG_BODY = new ModelLayerLocation(IcariaIdentifiers.CRYSTAL_SLUG_LAYER, "body");
-	public static final ModelLayerLocation CRYSTAL_SLUG_RAYS = new ModelLayerLocation(IcariaIdentifiers.CRYSTAL_SLUG_LAYER, "rays");
+	public static final ModelLayerLocation CLUSTER_SLUG_BODY = new ModelLayerLocation(IcariaIdentifiers.CLUSTER_SLUG_LAYER, "body");
+	public static final ModelLayerLocation CLUSTER_SLUG_RAYS = new ModelLayerLocation(IcariaIdentifiers.CLUSTER_SLUG_LAYER, "rays");
 	public static final ModelLayerLocation FOREST_SNULL = new ModelLayerLocation(IcariaIdentifiers.FOREST_SNULL_LAYER, "main");
 	public static final ModelLayerLocation SNULL = new ModelLayerLocation(IcariaIdentifiers.SNULL_LAYER, "main");
 	public static final ModelLayerLocation SOLIFUGAE = new ModelLayerLocation(IcariaIdentifiers.SOLIFUGAE_LAYER, "main");

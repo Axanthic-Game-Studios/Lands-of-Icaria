@@ -1,23 +1,22 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.properties.Vine;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.shapes.VineVoxelShapes;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -280,9 +279,9 @@ public class IcariaVineBlock extends Block {
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
 		if (pLevel instanceof ServerLevel serverLevel && pBlockState.is(IcariaBlocks.BLOOMY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.BLOOMY_VINE);
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.BLOOMY_VINE);
 		} else if (pLevel instanceof ServerLevel serverLevel && pBlockState.is(IcariaBlocks.BRUSHY_VINE.get()) && pBlockState.getValue(IcariaBlockStateProperties.VINE) == Vine.RIPE) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.BRUSHY_VINE);
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.BRUSHY_VINE);
 		} else {
 			return InteractionResult.PASS;
 		}

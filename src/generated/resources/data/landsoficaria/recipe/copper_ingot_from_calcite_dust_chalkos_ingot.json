@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "landsoficaria:calcite_dust",
     "landsoficaria:chalkos_ingot"

@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.BathtubBlockEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Fill;
@@ -8,10 +10,7 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.BathtubVoxelShapes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -157,7 +156,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		if (pItemStack.is(IcariaItems.SURFACE_BONES.get()) || pItemStack.is(IcariaItems.REVENANT_SKULL.get())) {
+		if (pItemStack.is(IcariaItems.BONES.get()) || pItemStack.is(IcariaItems.REVENANT_SKULL.get())) {
 			return this.useItemOn(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else {
 			return this.useItemOn(pBlockPos, pBlockState, pInteractionHand, pItemStack, pLevel, pPlayer);
@@ -188,9 +187,9 @@ public class BathtubBlock extends Block implements EntityBlock {
 	}
 
 	public InteractionResult skeleton(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		if (pItemStack.is(IcariaItems.SURFACE_BONES.get())) {
+		if (pItemStack.is(IcariaItems.BONES.get())) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.BONE_BLOCK_PLACE, SoundSource.BLOCKS);
-			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.SURFACE_BONES.get()));
+			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.BONES.get()));
 			pItemStack.consume(1, pPlayer);
 			this.update(pBlockPos, pBlockState, pLevel);
 			return InteractionResult.SUCCESS;

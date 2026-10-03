@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.config;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.config.ModConfig;
@@ -14,10 +12,10 @@ import net.neoforged.neoforge.common.ModConfigSpec;
 @ParametersAreNonnullByDefault
 
 public class IcariaConfig {
-	public static ModConfigSpec.BooleanValue RENDER_CRYSTAL_RAYS;
+	public static ModConfigSpec.BooleanValue RENDER_CLUSTER_RAYS;
 	public static ModConfigSpec.BooleanValue SPAWN_ARACHNIDS;
 
-	public static ModConfigSpec.IntValue RENDER_DISTANCE_CRYSTAL_RAYS;
+	public static ModConfigSpec.IntValue RENDER_DISTANCE_CLUSTER_RAYS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_FIREPLACE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_FORGE_ITEMS;
 	public static ModConfigSpec.IntValue RENDER_DISTANCE_GRINDER_GEARS;
@@ -28,20 +26,20 @@ public class IcariaConfig {
 	public static void registerClientConfig() {
 		var builder = new ModConfigSpec.Builder();
 
-		builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_settings").comment("Render Settings").push("Render Settings");
+		builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_settings").comment("Render Settings").push("Render Settings");
 
-		IcariaConfig.RENDER_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_crystal_rays").comment("Default: true. Whether a Crystal should render Rays.").define("Render Crystal Rays", true);
+		IcariaConfig.RENDER_CLUSTER_RAYS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_cluster_rays").comment("Default: true. Whether a Cluster should render Rays.").define("Render Cluster Rays", true);
 
 		builder.pop();
-		builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_settings").comment("Render Distance Settings").push("Render Distance Settings");
+		builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_settings").comment("Render Distance Settings").push("Render Distance Settings");
 
-		IcariaConfig.RENDER_DISTANCE_CRYSTAL_RAYS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_crystal_rays").comment("Whether a Crystal should render Rays based on Distance to a Player.").defineInRange("Render Distance Crystal Rays", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_FIREPLACE_ITEMS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_fireplace_items").comment("Whether a Fireplace should render Items based on Distance to a Player.").defineInRange("Render Distance Fireplace Items", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_forge_items").comment("Whether a Forge should render Items based on Distance to a Player.").defineInRange("Render Distance Forge Items", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_grinder_gears").comment("Whether a Grinder should render Gears based on Distance to a Player.").defineInRange("Render Distance Grinder Gears", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_HUTCH_ITEMS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_hutch_items").comment("Whether a Hutch should render Items based on Distance to a Player.").defineInRange("Render Distance Hutch Items", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_kettle_items").comment("Whether a Kettle should render Items based on Distance to a Player.").defineInRange("Render Distance Kettle Items", 256, 64, 1024);
-		IcariaConfig.RENDER_DISTANCE_KILN_ITEMS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "render_distance_kiln_items").comment("Whether a Kiln should render Items based on Distance to a Player.").defineInRange("Render Distance Kiln Items", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_CLUSTER_RAYS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays").comment("Whether a Cluster should render Rays based on Distance to a Player.").defineInRange("Render Distance Cluster Rays", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_FIREPLACE_ITEMS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items").comment("Whether a Fireplace should render Items based on Distance to a Player.").defineInRange("Render Distance Fireplace Items", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_FORGE_ITEMS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items").comment("Whether a Forge should render Items based on Distance to a Player.").defineInRange("Render Distance Forge Items", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_GRINDER_GEARS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears").comment("Whether a Grinder should render Gears based on Distance to a Player.").defineInRange("Render Distance Grinder Gears", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_HUTCH_ITEMS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items").comment("Whether a Hutch should render Items based on Distance to a Player.").defineInRange("Render Distance Hutch Items", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_KETTLE_ITEMS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items").comment("Whether a Kettle should render Items based on Distance to a Player.").defineInRange("Render Distance Kettle Items", 256, 64, 1024);
+		IcariaConfig.RENDER_DISTANCE_KILN_ITEMS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items").comment("Whether a Kiln should render Items based on Distance to a Player.").defineInRange("Render Distance Kiln Items", 256, 64, 1024);
 
 		builder.pop();
 
@@ -51,9 +49,9 @@ public class IcariaConfig {
 	public static void registerCommonConfig() {
 		var builder = new ModConfigSpec.Builder();
 
-		builder.translation("configuration" + "." + IcariaKeys.ID + "." + "spawn_settings").comment("Spawn Settings").push("Spawn Settings");
+		builder.translation("configuration" + "." + IcariaIds.ID + "." + "spawn_settings").comment("Spawn Settings").push("Spawn Settings");
 
-		IcariaConfig.SPAWN_ARACHNIDS = builder.translation("configuration" + "." + IcariaKeys.ID + "." + "spawn_arachnids").comment("Default: true. Whether Arachnids should spawn.").define("Spawn Arachnids", true);
+		IcariaConfig.SPAWN_ARACHNIDS = builder.translation("configuration" + "." + IcariaIds.ID + "." + "spawn_arachnids").comment("Default: true. Whether Arachnids should spawn.").define("Spawn Arachnids", true);
 
 		builder.pop();
 

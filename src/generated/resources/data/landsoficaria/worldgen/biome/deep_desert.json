@@ -24,14 +24,16 @@
       "landsoficaria:molybdenum_ore",
       "landsoficaria:hyliastrum_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:grainel_chert",
       "landsoficaria:grainite_rubble",
       "landsoficaria:voidshale_rubble",
       "landsoficaria:baetyl_rubble",
-      "landsoficaria:zircon_crystal",
+      "landsoficaria:zircon_cluster",
       "landsoficaria:dead_droughtroot_tree",
       "landsoficaria:dry_vine",
       "landsoficaria:sunkettle",

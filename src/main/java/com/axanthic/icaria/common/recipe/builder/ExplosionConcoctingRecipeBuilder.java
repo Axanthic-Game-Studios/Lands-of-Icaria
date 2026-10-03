@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.recipe.builder;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.recipe.ExplosionConcoctingRecipe;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
-import net.minecraft.advancements.Criterion;
+import net.minecraft.advancements.triggers.Criterion;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -60,7 +59,7 @@ public class ExplosionConcoctingRecipeBuilder implements RecipeBuilder {
 
 	@Override
 	public ResourceKey<Recipe<?>> defaultId() {
-		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaKeys.ID, "explosion"));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, "explosion"));
 	}
 
 	public static ExplosionConcoctingRecipeBuilder explosionConcocting(RecipeCategory pRecipeCategory, Ingredient pIngredient, float pRadius, int pColour, int pTime) {

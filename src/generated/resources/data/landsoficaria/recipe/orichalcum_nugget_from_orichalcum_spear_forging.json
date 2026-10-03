@@ -1,0 +1,9 @@
+{
+  "type": "landsoficaria:forging",
+  "experience": 0.1,
+  "ingredient": "landsoficaria:orichalcum_spear",
+  "result": {
+    "id": "landsoficaria:orichalcum_nugget"
+  },
+  "time": 100
+}

@@ -1,22 +1,20 @@
 package com.axanthic.icaria.data.provider.tags;
 
-import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaBlockItemIds;
+import com.axanthic.icaria.common.ids.IcariaItemIds;
+import com.axanthic.icaria.common.tags.IcariaBlockItemTags;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
 import java.util.concurrent.CompletableFuture;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import net.minecraft.core.HolderLookup;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
+import net.minecraft.data.tags.BlockItemTagsProvider;
+import net.minecraft.references.BlockItemIds;
+import net.minecraft.references.ItemIds;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ItemTagsProvider;
@@ -25,2111 +23,1394 @@ import net.neoforged.neoforge.common.data.ItemTagsProvider;
 @ParametersAreNonnullByDefault
 
 public class IcariaItemTagsProvider extends ItemTagsProvider {
-
-	// ITEMS
-
-	public static final TagKey<Item> ARACHNE_STRING_BLOCKS = IcariaItemTagsProvider.cKey("arachne_string_blocks");
-
-	public static final TagKey<Item> ARACHNE_STRING_CARPETS = IcariaItemTagsProvider.cKey("arachne_string_carpets");
-
-	public static final TagKey<Item> CROPS_SPELT = IcariaItemTagsProvider.cKey("crops/spelt");
-	public static final TagKey<Item> CROPS_STRAWBERRIES = IcariaItemTagsProvider.cKey("crops/strawberries");
-	public static final TagKey<Item> CROPS_PHYSALIS = IcariaItemTagsProvider.cKey("crops/physalis");
-	public static final TagKey<Item> CROPS_ONION = IcariaItemTagsProvider.cKey("crops/onion");
-
-	public static final TagKey<Item> DUSTS_CALCITE = IcariaItemTagsProvider.cKey("dusts/calcite");
-	public static final TagKey<Item> DUSTS_HALITE = IcariaItemTagsProvider.cKey("dusts/halite");
-
-	public static final TagKey<Item> FIREPLACE_ITEMS = IcariaItemTagsProvider.icariaKey("fireplace_items");
-
-	public static final TagKey<Item> GEMS_CHERT = IcariaItemTagsProvider.cKey("gems/chert");
-	public static final TagKey<Item> GEMS_CALCITE = IcariaItemTagsProvider.cKey("gems/calcite");
-	public static final TagKey<Item> GEMS_HALITE = IcariaItemTagsProvider.cKey("gems/halite");
-	public static final TagKey<Item> GEMS_JASPER = IcariaItemTagsProvider.cKey("gems/jasper");
-	public static final TagKey<Item> GEMS_ZIRCON = IcariaItemTagsProvider.cKey("gems/zircon");
-	public static final TagKey<Item> GEMS_LIGNITE = IcariaItemTagsProvider.cKey("gems/lignite");
-	public static final TagKey<Item> GEMS_DOLOMITE = IcariaItemTagsProvider.cKey("gems/dolomite");
-	public static final TagKey<Item> GEMS_SLIVER = IcariaItemTagsProvider.cKey("gems/sliver");
-	public static final TagKey<Item> GEMS_ANTHRACITE = IcariaItemTagsProvider.cKey("gems/anthracite");
-
-	public static final TagKey<Item> GRINDER_GEARS = IcariaItemTagsProvider.icariaKey("grinder_gears");
-
-	public static final TagKey<Item> INGOTS_CHALKOS = IcariaItemTagsProvider.cKey("ingots/chalkos");
-	public static final TagKey<Item> INGOTS_KASSITEROS = IcariaItemTagsProvider.cKey("ingots/kassiteros");
-	public static final TagKey<Item> INGOTS_ORICHALCUM = IcariaItemTagsProvider.cKey("ingots/orichalcum");
-	public static final TagKey<Item> INGOTS_VANADIUM = IcariaItemTagsProvider.cKey("ingots/vanadium");
-	public static final TagKey<Item> INGOTS_VANADIUMSTEEL = IcariaItemTagsProvider.cKey("ingots/vanadiumsteel");
-	public static final TagKey<Item> INGOTS_SIDEROS = IcariaItemTagsProvider.cKey("ingots/sideros");
-	public static final TagKey<Item> INGOTS_MOLYBDENUM = IcariaItemTagsProvider.cKey("ingots/molybdenum");
-	public static final TagKey<Item> INGOTS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.cKey("ingots/molybdenumsteel");
-	public static final TagKey<Item> INGOTS_BLURIDIUM = IcariaItemTagsProvider.cKey("ingots/bluridium");
-
-	public static final TagKey<Item> KETTLE_ITEMS = IcariaItemTagsProvider.icariaKey("kettle_items");
-
-	public static final TagKey<Item> NUGGETS_CHALKOS = IcariaItemTagsProvider.cKey("nuggets/chalkos");
-	public static final TagKey<Item> NUGGETS_KASSITEROS = IcariaItemTagsProvider.cKey("nuggets/kassiteros");
-	public static final TagKey<Item> NUGGETS_ORICHALCUM = IcariaItemTagsProvider.cKey("nuggets/orichalcum");
-	public static final TagKey<Item> NUGGETS_VANADIUM = IcariaItemTagsProvider.cKey("nuggets/vanadium");
-	public static final TagKey<Item> NUGGETS_VANADIUMSTEEL = IcariaItemTagsProvider.cKey("nuggets/vanadiumsteel");
-	public static final TagKey<Item> NUGGETS_SIDEROS = IcariaItemTagsProvider.cKey("nuggets/sideros");
-	public static final TagKey<Item> NUGGETS_MOLYBDENUM = IcariaItemTagsProvider.cKey("nuggets/molybdenum");
-	public static final TagKey<Item> NUGGETS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.cKey("nuggets/molybdenumsteel");
-	public static final TagKey<Item> NUGGETS_BLURIDIUM = IcariaItemTagsProvider.cKey("nuggets/bluridium");
-
-	public static final TagKey<Item> RAW_BLOCKS_CHALKOS = IcariaItemTagsProvider.cKey("raw_blocks/chalkos");
-	public static final TagKey<Item> RAW_BLOCKS_KASSITEROS = IcariaItemTagsProvider.cKey("raw_blocks/kassiteros");
-	public static final TagKey<Item> RAW_BLOCKS_VANADIUM = IcariaItemTagsProvider.cKey("raw_blocks/vanadium");
-	public static final TagKey<Item> RAW_BLOCKS_SIDEROS = IcariaItemTagsProvider.cKey("raw_blocks/sideros");
-	public static final TagKey<Item> RAW_BLOCKS_MOLYBDENUM = IcariaItemTagsProvider.cKey("raw_blocks/molybdenum");
-
-	public static final TagKey<Item> RAW_MATERIALS_CHALKOS = IcariaItemTagsProvider.cKey("raw_materials/chalkos");
-	public static final TagKey<Item> RAW_MATERIALS_KASSITEROS = IcariaItemTagsProvider.cKey("raw_materials/kassiteros");
-	public static final TagKey<Item> RAW_MATERIALS_VANADIUM = IcariaItemTagsProvider.cKey("raw_materials/vanadium");
-	public static final TagKey<Item> RAW_MATERIALS_SIDEROS = IcariaItemTagsProvider.cKey("raw_materials/sideros");
-	public static final TagKey<Item> RAW_MATERIALS_MOLYBDENUM = IcariaItemTagsProvider.cKey("raw_materials/molybdenum");
-
-	public static final TagKey<Item> REPAIRS_AETERNAE_HIDE_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_aeternae_hide_armor");
-	public static final TagKey<Item> REPAIRS_CHALKOS_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_chalkos_armor");
-	public static final TagKey<Item> REPAIRS_KASSITEROS_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_kassiteros_armor");
-	public static final TagKey<Item> REPAIRS_ORICHALCUM_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_orichalcum_armor");
-	public static final TagKey<Item> REPAIRS_VANADIUMSTEEL_ARMOR = IcariaItemTagsProvider.icariaKey("repairs_vanadiumsteel_armor");
-	public static final TagKey<Item> REPAIRS_LAUREL_WREATH = IcariaItemTagsProvider.icariaKey("repairs_laurel_wreath");
-
-	public static final TagKey<Item> REPAIRS_TOTEM = IcariaItemTagsProvider.icariaKey("repairs_totem");
-
-	public static final TagKey<Item> REPAIRS_VINE_SPROUT = IcariaItemTagsProvider.icariaKey("repairs_vine_sprout");
-
-	public static final TagKey<Item> REPAIRS_YELLOWSTONE_GEAR = IcariaItemTagsProvider.icariaKey("repairs_yellowstone_gear");
-	public static final TagKey<Item> REPAIRS_LOAM_GEAR = IcariaItemTagsProvider.icariaKey("repairs_loam_gear");
-	public static final TagKey<Item> REPAIRS_VOIDSHALE_GEAR = IcariaItemTagsProvider.icariaKey("repairs_voidshale_gear");
-	public static final TagKey<Item> REPAIRS_VANADIUM_GEAR = IcariaItemTagsProvider.icariaKey("repairs_vanadium_gear");
-
-	public static final TagKey<Item> SEEDS_SPELT = IcariaItemTagsProvider.cKey("seeds/spelt");
-	public static final TagKey<Item> SEEDS_STRAWBERRY = IcariaItemTagsProvider.cKey("seeds/strawberry");
-	public static final TagKey<Item> SEEDS_PHYSALIS = IcariaItemTagsProvider.cKey("seeds/physalis");
-	public static final TagKey<Item> SEEDS_ONION = IcariaItemTagsProvider.cKey("seeds/onion");
-
-	public static final TagKey<Item> STORAGE_VASES = IcariaItemTagsProvider.cKey("storage_vases");
-
-	public static final TagKey<Item> TOOL_MATERIALS_CHERT = IcariaItemTagsProvider.icariaKey("tool_materials/chert");
-	public static final TagKey<Item> TOOL_MATERIALS_CHALKOS = IcariaItemTagsProvider.icariaKey("tool_materials/chalkos");
-	public static final TagKey<Item> TOOL_MATERIALS_KASSITEROS = IcariaItemTagsProvider.icariaKey("tool_materials/kassiteros");
-	public static final TagKey<Item> TOOL_MATERIALS_ORICHALCUM = IcariaItemTagsProvider.icariaKey("tool_materials/orichalcum");
-	public static final TagKey<Item> TOOL_MATERIALS_VANADIUMSTEEL = IcariaItemTagsProvider.icariaKey("tool_materials/vanadiumsteel");
-	public static final TagKey<Item> TOOL_MATERIALS_SIDEROS = IcariaItemTagsProvider.icariaKey("tool_materials/sideros");
-	public static final TagKey<Item> TOOL_MATERIALS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.icariaKey("tool_materials/molybdenumsteel");
-
-	// ITEMBLOCKS
-
-	public static final TagKey<Item> BARS_VANADIUMSTEEL = IcariaItemTagsProvider.cKey("bars/vanadiumsteel");
-
-	public static final TagKey<Item> LOGS_CYPRESS = IcariaItemTagsProvider.cKey("logs/cypress");
-	public static final TagKey<Item> LOGS_DROUGHTROOT = IcariaItemTagsProvider.cKey("logs/droughtroot");
-	public static final TagKey<Item> LOGS_FIR = IcariaItemTagsProvider.cKey("logs/fir");
-	public static final TagKey<Item> LOGS_LAUREL = IcariaItemTagsProvider.cKey("logs/laurel");
-	public static final TagKey<Item> LOGS_OLIVE = IcariaItemTagsProvider.cKey("logs/olive");
-	public static final TagKey<Item> LOGS_PLANE = IcariaItemTagsProvider.cKey("logs/plane");
-	public static final TagKey<Item> LOGS_POPULUS = IcariaItemTagsProvider.cKey("logs/populus");
-
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_MARL = IcariaItemTagsProvider.cKey("ore_bearing_grounds/marl");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_GRAINEL = IcariaItemTagsProvider.cKey("ore_bearing_grounds/grainel");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_YELLOWSTONE = IcariaItemTagsProvider.cKey("ore_bearing_grounds/yellowstone");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_SILKSTONE = IcariaItemTagsProvider.cKey("ore_bearing_grounds/silkstone");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_SUNSTONE = IcariaItemTagsProvider.cKey("ore_bearing_grounds/sunstone");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_VOIDSHALE = IcariaItemTagsProvider.cKey("ore_bearing_grounds/voidshale");
-	public static final TagKey<Item> ORE_BEARING_GROUNDS_BAETYL = IcariaItemTagsProvider.cKey("ore_bearing_grounds/baetyl");
-
-	public static final TagKey<Item> ORES_CHERT = IcariaItemTagsProvider.cKey("ores/chert");
-	public static final TagKey<Item> ORES_BONES = IcariaItemTagsProvider.cKey("ores/bones");
-	public static final TagKey<Item> ORES_LIGNITE = IcariaItemTagsProvider.cKey("ores/lignite");
-	public static final TagKey<Item> ORES_CHALKOS = IcariaItemTagsProvider.cKey("ores/chalkos");
-	public static final TagKey<Item> ORES_KASSITEROS = IcariaItemTagsProvider.cKey("ores/kassiteros");
-	public static final TagKey<Item> ORES_DOLOMITE = IcariaItemTagsProvider.cKey("ores/dolomite");
-	public static final TagKey<Item> ORES_VANADIUM = IcariaItemTagsProvider.cKey("ores/vanadium");
-	public static final TagKey<Item> ORES_SLIVER = IcariaItemTagsProvider.cKey("ores/sliver");
-	public static final TagKey<Item> ORES_SIDEROS = IcariaItemTagsProvider.cKey("ores/sideros");
-	public static final TagKey<Item> ORES_ANTHRACITE = IcariaItemTagsProvider.cKey("ores/anthracite");
-	public static final TagKey<Item> ORES_MOLYBDENUM = IcariaItemTagsProvider.cKey("ores/molybdenum");
-	public static final TagKey<Item> ORES_HYLIASTRUM = IcariaItemTagsProvider.cKey("ores/hyliastrum");
-
-	public static final TagKey<Item> ORES_IN_GROUND_MARL = IcariaItemTagsProvider.cKey("ores_in_ground/marl");
-	public static final TagKey<Item> ORES_IN_GROUND_GRAINEL = IcariaItemTagsProvider.cKey("ores_in_ground/grainel");
-	public static final TagKey<Item> ORES_IN_GROUND_YELLOWSTONE = IcariaItemTagsProvider.cKey("ores_in_ground/yellowstone");
-	public static final TagKey<Item> ORES_IN_GROUND_SILKSTONE = IcariaItemTagsProvider.cKey("ores_in_ground/silkstone");
-	public static final TagKey<Item> ORES_IN_GROUND_SUNSTONE = IcariaItemTagsProvider.cKey("ores_in_ground/sunstone");
-	public static final TagKey<Item> ORES_IN_GROUND_VOIDSHALE = IcariaItemTagsProvider.cKey("ores_in_ground/voidshale");
-	public static final TagKey<Item> ORES_IN_GROUND_BAETYL = IcariaItemTagsProvider.cKey("ores_in_ground/baetyl");
-
-	public static final TagKey<Item> STORAGE_BLOCKS_ARISTONE = IcariaItemTagsProvider.cKey("storage_blocks/aristone");
-	public static final TagKey<Item> STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY = IcariaItemTagsProvider.cKey("storage_blocks/ender_jellyfish_jelly");
-	public static final TagKey<Item> STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY = IcariaItemTagsProvider.cKey("storage_blocks/fire_jellyfish_jelly");
-	public static final TagKey<Item> STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY = IcariaItemTagsProvider.cKey("storage_blocks/nature_jellyfish_jelly");
-	public static final TagKey<Item> STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = IcariaItemTagsProvider.cKey("storage_blocks/void_jellyfish_jelly");
-	public static final TagKey<Item> STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = IcariaItemTagsProvider.cKey("storage_blocks/water_jellyfish_jelly");
-	public static final TagKey<Item> STORAGE_BLOCKS_ARACHNE_STRING = IcariaItemTagsProvider.cKey("storage_blocks/arachne_string");
-	public static final TagKey<Item> STORAGE_BLOCKS_SPELT = IcariaItemTagsProvider.cKey("storage_blocks/spelt");
-	public static final TagKey<Item> STORAGE_BLOCKS_VINE_REED = IcariaItemTagsProvider.cKey("storage_blocks/vine_reed");
-	public static final TagKey<Item> STORAGE_BLOCKS_ROTTEN_BONES = IcariaItemTagsProvider.cKey("storage_blocks/rotten_bones");
-	public static final TagKey<Item> STORAGE_BLOCKS_RAW_CHALKOS = IcariaItemTagsProvider.cKey("storage_blocks/raw_chalkos");
-	public static final TagKey<Item> STORAGE_BLOCKS_RAW_KASSITEROS = IcariaItemTagsProvider.cKey("storage_blocks/raw_kassiteros");
-	public static final TagKey<Item> STORAGE_BLOCKS_RAW_VANADIUM = IcariaItemTagsProvider.cKey("storage_blocks/raw_vanadium");
-	public static final TagKey<Item> STORAGE_BLOCKS_RAW_SIDEROS = IcariaItemTagsProvider.cKey("storage_blocks/raw_sideros");
-	public static final TagKey<Item> STORAGE_BLOCKS_RAW_MOLYBDENUM = IcariaItemTagsProvider.cKey("storage_blocks/raw_molybdenum");
-	public static final TagKey<Item> STORAGE_BLOCKS_CALCITE = IcariaItemTagsProvider.cKey("storage_blocks/calcite");
-	public static final TagKey<Item> STORAGE_BLOCKS_HALITE = IcariaItemTagsProvider.cKey("storage_blocks/halite");
-	public static final TagKey<Item> STORAGE_BLOCKS_JASPER = IcariaItemTagsProvider.cKey("storage_blocks/jasper");
-	public static final TagKey<Item> STORAGE_BLOCKS_ZIRCON = IcariaItemTagsProvider.cKey("storage_blocks/zircon");
-	public static final TagKey<Item> STORAGE_BLOCKS_CHERT = IcariaItemTagsProvider.cKey("storage_blocks/chert");
-	public static final TagKey<Item> STORAGE_BLOCKS_LIGNITE = IcariaItemTagsProvider.cKey("storage_blocks/lignite");
-	public static final TagKey<Item> STORAGE_BLOCKS_CHALKOS = IcariaItemTagsProvider.cKey("storage_blocks/chalkos");
-	public static final TagKey<Item> STORAGE_BLOCKS_KASSITEROS = IcariaItemTagsProvider.cKey("storage_blocks/kassiteros");
-	public static final TagKey<Item> STORAGE_BLOCKS_ORICHALCUM = IcariaItemTagsProvider.cKey("storage_blocks/orichalcum");
-	public static final TagKey<Item> STORAGE_BLOCKS_VANADIUM = IcariaItemTagsProvider.cKey("storage_blocks/vanadium");
-	public static final TagKey<Item> STORAGE_BLOCKS_SLIVER = IcariaItemTagsProvider.cKey("storage_blocks/sliver");
-	public static final TagKey<Item> STORAGE_BLOCKS_VANADIUMSTEEL = IcariaItemTagsProvider.cKey("storage_blocks/vanadiumsteel");
-	public static final TagKey<Item> STORAGE_BLOCKS_SIDEROS = IcariaItemTagsProvider.cKey("storage_blocks/sideros");
-	public static final TagKey<Item> STORAGE_BLOCKS_ANTHRACITE = IcariaItemTagsProvider.cKey("storage_blocks/anthracite");
-	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUM = IcariaItemTagsProvider.cKey("storage_blocks/molybdenum");
-	public static final TagKey<Item> STORAGE_BLOCKS_MOLYBDENUMSTEEL = IcariaItemTagsProvider.cKey("storage_blocks/molybdenumsteel");
-	public static final TagKey<Item> STORAGE_BLOCKS_BLURIDIUM = IcariaItemTagsProvider.cKey("storage_blocks/bluridium");
-
 	public IcariaItemTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
 		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
-
-		// ITEMS
-
 		this.tag(ItemTags.AXES)
-			.add(IcariaItems.CHERT_AXE.get())
-			.add(IcariaItems.CHALKOS_AXE.get())
-			.add(IcariaItems.KASSITEROS_AXE.get())
-			.add(IcariaItems.ORICHALCUM_AXE.get())
-			.add(IcariaItems.VANADIUMSTEEL_AXE.get())
-			.add(IcariaItems.SIDEROS_AXE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_AXE.get());
-
-		this.tag(ItemTags.BARS)
-			.add(IcariaItems.VANADIUMSTEEL_BARS.get())
-			.add(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
-
-		this.tag(ItemTags.BEE_FOOD)
-			.add(IcariaItems.BLINDWEED.get())
-			.add(IcariaItems.CHAMEOMILE.get())
-			.add(IcariaItems.CHARMONDER.get())
-			.add(IcariaItems.CLOVER.get())
-			.add(IcariaItems.FIREHILT.get())
-			.add(IcariaItems.BLUE_HYDRACINTH.get())
-			.add(IcariaItems.PURPLE_HYDRACINTH.get())
-			.add(IcariaItems.LIONFANGS.get())
-			.add(IcariaItems.SPEARDROPS.get())
-			.add(IcariaItems.PURPLE_STAGHORN.get())
-			.add(IcariaItems.YELLOW_STAGHORN.get())
-			.add(IcariaItems.BLUE_STORMCOTTON.get())
-			.add(IcariaItems.PINK_STORMCOTTON.get())
-			.add(IcariaItems.PURPLE_STORMCOTTON.get())
-			.add(IcariaItems.SUNKETTLE.get())
-			.add(IcariaItems.SUNSPONGE.get())
-			.add(IcariaItems.VOIDLILY.get())
-			.add(IcariaItems.BLUE_GROUND_FLOWERS.get())
-			.add(IcariaItems.CYAN_GROUND_FLOWERS.get())
-			.add(IcariaItems.PINK_GROUND_FLOWERS.get())
-			.add(IcariaItems.PURPLE_GROUND_FLOWERS.get())
-			.add(IcariaItems.RED_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_BROMELIA.get())
-			.add(IcariaItems.ORANGE_BROMELIA.get())
-			.add(IcariaItems.PINK_BROMELIA.get())
-			.add(IcariaItems.PURPLE_BROMELIA.get());
+			.add(IcariaItemIds.CHERT_AXE)
+			.add(IcariaItemIds.CHALKOS_AXE)
+			.add(IcariaItemIds.KASSITEROS_AXE)
+			.add(IcariaItemIds.ORICHALCUM_AXE)
+			.add(IcariaItemIds.VANADIUMSTEEL_AXE)
+			.add(IcariaItemIds.SIDEROS_AXE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_AXE);
 
 		this.tag(ItemTags.BREAKS_DECORATED_POTS)
-			.add(IcariaItems.CHERT_DAGGER.get())
-			.add(IcariaItems.CHERT_BIDENT.get())
-			.add(IcariaItems.CHALKOS_DAGGER.get())
-			.add(IcariaItems.CHALKOS_BIDENT.get())
-			.add(IcariaItems.KASSITEROS_DAGGER.get())
-			.add(IcariaItems.KASSITEROS_BIDENT.get())
-			.add(IcariaItems.ORICHALCUM_DAGGER.get())
-			.add(IcariaItems.ORICHALCUM_BIDENT.get())
-			.add(IcariaItems.VANADIUMSTEEL_DAGGER.get())
-			.add(IcariaItems.VANADIUMSTEEL_BIDENT.get())
-			.add(IcariaItems.SIDEROS_DAGGER.get())
-			.add(IcariaItems.SIDEROS_BIDENT.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+			.addTag(IcariaItemTags.TOOLS_BIDENT)
+			.addTag(IcariaItemTags.TOOLS_DAGGER);
 
 		this.tag(ItemTags.CAMEL_FOOD)
-			.add(IcariaItems.CARDON_CACTUS.get());
+			.add(IcariaBlockItemIds.CARDON_CACTUS.item());
 
 		this.tag(ItemTags.CAT_FOOD)
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
-
-		this.tag(ItemTags.CHAINS)
-			.add(IcariaItems.VANADIUMSTEEL_CHAIN.get());
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH);
 
 		this.tag(ItemTags.CHEST_ARMOR)
-			.add(IcariaItems.AETERNAE_HIDE_CHESTPLATE.get())
-			.add(IcariaItems.CHALKOS_CHESTPLATE.get())
-			.add(IcariaItems.KASSITEROS_CHESTPLATE.get())
-			.add(IcariaItems.ORICHALCUM_CHESTPLATE.get())
-			.add(IcariaItems.VANADIUMSTEEL_CHESTPLATE.get());
+			.add(IcariaItemIds.AETERNAE_HIDE_CHESTPLATE)
+			.add(IcariaItemIds.CHALKOS_CHESTPLATE)
+			.add(IcariaItemIds.KASSITEROS_CHESTPLATE)
+			.add(IcariaItemIds.ORICHALCUM_CHESTPLATE)
+			.add(IcariaItemIds.VANADIUMSTEEL_CHESTPLATE);
 
 		this.tag(ItemTags.CHICKEN_FOOD)
-			.add(IcariaItems.SPELT_SEEDS.get())
-			.add(IcariaItems.STRAWBERRY_SEEDS.get())
-			.add(IcariaItems.PHYSALIS_SEEDS.get());
+			.add(IcariaBlockItemIds.PHYSALIS_SEEDS.item())
+			.add(IcariaBlockItemIds.SPELT_SEEDS.item())
+			.add(IcariaBlockItemIds.STRAWBERRY_SEEDS.item());
 
 		this.tag(ItemTags.CLUSTER_MAX_HARVESTABLES)
-			.add(IcariaItems.CHERT_PICKAXE.get())
-			.add(IcariaItems.CHALKOS_PICKAXE.get())
-			.add(IcariaItems.KASSITEROS_PICKAXE.get())
-			.add(IcariaItems.ORICHALCUM_PICKAXE.get())
-			.add(IcariaItems.VANADIUMSTEEL_PICKAXE.get())
-			.add(IcariaItems.SIDEROS_PICKAXE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_PICKAXE.get());
+			.add(IcariaItemIds.CHERT_PICKAXE)
+			.add(IcariaItemIds.CHALKOS_PICKAXE)
+			.add(IcariaItemIds.KASSITEROS_PICKAXE)
+			.add(IcariaItemIds.ORICHALCUM_PICKAXE)
+			.add(IcariaItemIds.VANADIUMSTEEL_PICKAXE)
+			.add(IcariaItemIds.SIDEROS_PICKAXE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_PICKAXE);
 
 		this.tag(ItemTags.COALS)
-			.add(IcariaItems.LIGNITE.get())
-			.add(IcariaItems.ANTHRACITE.get());
+			.add(IcariaItemIds.LIGNITE)
+			.add(IcariaItemIds.ANTHRACITE);
 
 		this.tag(ItemTags.COW_FOOD)
-			.add(IcariaItems.SPELT.get());
+			.add(IcariaItemIds.SPELT);
 
 		this.tag(ItemTags.DURABILITY_ENCHANTABLE)
-			.add(IcariaItems.CHERT_DAGGER.get())
-			.add(IcariaItems.CHERT_BIDENT.get())
-			.add(IcariaItems.CHALKOS_DAGGER.get())
-			.add(IcariaItems.CHALKOS_BIDENT.get())
-			.add(IcariaItems.KASSITEROS_DAGGER.get())
-			.add(IcariaItems.KASSITEROS_BIDENT.get())
-			.add(IcariaItems.ORICHALCUM_DAGGER.get())
-			.add(IcariaItems.ORICHALCUM_BIDENT.get())
-			.add(IcariaItems.VANADIUMSTEEL_DAGGER.get())
-			.add(IcariaItems.VANADIUMSTEEL_BIDENT.get())
-			.add(IcariaItems.SIDEROS_DAGGER.get())
-			.add(IcariaItems.SIDEROS_BIDENT.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get())
-			.add(IcariaItems.LAUREL_WREATH.get());
+			.addTag(IcariaItemTags.TOOLS_BIDENT)
+			.addTag(IcariaItemTags.TOOLS_DAGGER)
+			.add(IcariaItemIds.LAUREL_WREATH);
 
 		this.tag(ItemTags.EQUIPPABLE_ENCHANTABLE)
-			.add(IcariaItems.LAUREL_WREATH.get());
+			.add(IcariaItemIds.LAUREL_WREATH);
 
 		this.tag(ItemTags.FISHES)
-			.add(IcariaItems.COOKED_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.COOKED_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.COOKED_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.COOKED_RED_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.COOKED_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.COOKED_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.COOKED_RED_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.COOKED_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.COOKED_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.COOKED_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.COOKED_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.COOKED_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.COOKED_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.COOKED_RED_YELLOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+			.add(IcariaItemIds.COOKED_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.COOKED_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.COOKED_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.COOKED_RED_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.COOKED_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.COOKED_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.COOKED_RED_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.COOKED_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.COOKED_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.COOKED_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.COOKED_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.COOKED_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.COOKED_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.COOKED_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.COOKED_RED_YELLOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH);
 
 		this.tag(ItemTags.FOOT_ARMOR)
-			.add(IcariaItems.AETERNAE_HIDE_BOOTS.get())
-			.add(IcariaItems.CHALKOS_BOOTS.get())
-			.add(IcariaItems.KASSITEROS_BOOTS.get())
-			.add(IcariaItems.ORICHALCUM_BOOTS.get())
-			.add(IcariaItems.VANADIUMSTEEL_BOOTS.get());
+			.add(IcariaItemIds.AETERNAE_HIDE_BOOTS)
+			.add(IcariaItemIds.CHALKOS_BOOTS)
+			.add(IcariaItemIds.KASSITEROS_BOOTS)
+			.add(IcariaItemIds.ORICHALCUM_BOOTS)
+			.add(IcariaItemIds.VANADIUMSTEEL_BOOTS);
 
 		this.tag(ItemTags.FOX_FOOD)
-			.add(IcariaItems.VINEBERRIES.get())
-			.add(IcariaItems.STRAWBERRIES.get());
+			.add(IcariaItemIds.VINEBERRIES)
+			.add(IcariaItemIds.STRAWBERRIES);
 
 		this.tag(ItemTags.FREEZE_IMMUNE_WEARABLES)
-			.add(IcariaItems.AETERNAE_HIDE_HELMET.get())
-			.add(IcariaItems.AETERNAE_HIDE_CHESTPLATE.get())
-			.add(IcariaItems.AETERNAE_HIDE_LEGGINGS.get())
-			.add(IcariaItems.AETERNAE_HIDE_BOOTS.get());
+			.add(IcariaItemIds.AETERNAE_HIDE_HELMET)
+			.add(IcariaItemIds.AETERNAE_HIDE_CHESTPLATE)
+			.add(IcariaItemIds.AETERNAE_HIDE_LEGGINGS)
+			.add(IcariaItemIds.AETERNAE_HIDE_BOOTS);
+
+		this.tag(ItemTags.FURNACE_MINECART_FUEL)
+			.add(IcariaItemIds.LIGNITE)
+			.add(IcariaItemIds.ANTHRACITE);
 
 		this.tag(ItemTags.GOAT_FOOD)
-			.add(IcariaItems.SPELT.get());
-
-		this.tag(ItemTags.HANGING_SIGNS)
-			.add(IcariaItems.CYPRESS_HANGING_SIGN.get())
-			.add(IcariaItems.DROUGHTROOT_HANGING_SIGN.get())
-			.add(IcariaItems.FIR_HANGING_SIGN.get())
-			.add(IcariaItems.LAUREL_HANGING_SIGN.get())
-			.add(IcariaItems.OLIVE_HANGING_SIGN.get())
-			.add(IcariaItems.PLANE_HANGING_SIGN.get())
-			.add(IcariaItems.POPULUS_HANGING_SIGN.get());
+			.add(IcariaItemIds.SPELT);
 
 		this.tag(ItemTags.HEAD_ARMOR)
-			.add(IcariaItems.AETERNAE_HIDE_HELMET.get())
-			.add(IcariaItems.CHALKOS_HELMET.get())
-			.add(IcariaItems.KASSITEROS_HELMET.get())
-			.add(IcariaItems.ORICHALCUM_HELMET.get())
-			.add(IcariaItems.VANADIUMSTEEL_HELMET.get());
+			.add(IcariaItemIds.AETERNAE_HIDE_HELMET)
+			.add(IcariaItemIds.CHALKOS_HELMET)
+			.add(IcariaItemIds.KASSITEROS_HELMET)
+			.add(IcariaItemIds.ORICHALCUM_HELMET)
+			.add(IcariaItemIds.VANADIUMSTEEL_HELMET);
 
 		this.tag(ItemTags.HOES)
-			.add(IcariaItems.CHERT_SCYTHE.get())
-			.add(IcariaItems.CHALKOS_SCYTHE.get())
-			.add(IcariaItems.KASSITEROS_SCYTHE.get())
-			.add(IcariaItems.ORICHALCUM_SCYTHE.get())
-			.add(IcariaItems.VANADIUMSTEEL_SCYTHE.get())
-			.add(IcariaItems.SIDEROS_SCYTHE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get());
+			.add(IcariaItemIds.CHERT_SCYTHE)
+			.add(IcariaItemIds.CHALKOS_SCYTHE)
+			.add(IcariaItemIds.KASSITEROS_SCYTHE)
+			.add(IcariaItemIds.ORICHALCUM_SCYTHE)
+			.add(IcariaItemIds.VANADIUMSTEEL_SCYTHE)
+			.add(IcariaItemIds.SIDEROS_SCYTHE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SCYTHE);
 
 		this.tag(ItemTags.HORSE_FOOD)
-			.add(IcariaItems.SPELT_BALE_BLOCK.get())
-			.add(IcariaItems.SPELT.get());
-
-		this.tag(ItemTags.LLAMA_FOOD)
-			.add(IcariaItems.SPELT_BALE_BLOCK.get())
-			.add(IcariaItems.SPELT.get());
-
-		this.tag(ItemTags.LLAMA_TEMPT_ITEMS)
-			.add(IcariaItems.SPELT_BALE_BLOCK.get());
+			.add(IcariaBlockItemIds.SPELT_BLOCK.item())
+			.add(IcariaItemIds.SPELT);
 
 		this.tag(ItemTags.LEG_ARMOR)
-			.add(IcariaItems.AETERNAE_HIDE_LEGGINGS.get())
-			.add(IcariaItems.CHALKOS_LEGGINGS.get())
-			.add(IcariaItems.KASSITEROS_LEGGINGS.get())
-			.add(IcariaItems.ORICHALCUM_LEGGINGS.get())
-			.add(IcariaItems.VANADIUMSTEEL_LEGGINGS.get());
+			.add(IcariaItemIds.AETERNAE_HIDE_LEGGINGS)
+			.add(IcariaItemIds.CHALKOS_LEGGINGS)
+			.add(IcariaItemIds.KASSITEROS_LEGGINGS)
+			.add(IcariaItemIds.ORICHALCUM_LEGGINGS)
+			.add(IcariaItemIds.VANADIUMSTEEL_LEGGINGS);
+
+		this.tag(ItemTags.LLAMA_FOOD)
+			.add(IcariaBlockItemIds.SPELT_BLOCK.item())
+			.add(IcariaItemIds.SPELT);
+
+		this.tag(ItemTags.LLAMA_TEMPT_ITEMS)
+			.add(IcariaBlockItemIds.SPELT_BLOCK.item());
 
 		this.tag(ItemTags.MEAT)
-			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
-			.add(IcariaItems.COOKED_AETERNAE_MEAT.get())
-			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
-			.add(IcariaItems.COOKED_CAPELLA_MEAT.get())
-			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.RAW_CERVER_MEAT.get())
-			.add(IcariaItems.COOKED_CERVER_MEAT.get())
-			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
-			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_THOG_MEAT.get())
-			.add(IcariaItems.COOKED_THOG_MEAT.get());
+			.add(IcariaItemIds.RAW_AETERNAE_MEAT)
+			.add(IcariaItemIds.COOKED_AETERNAE_MEAT)
+			.add(IcariaItemIds.RAW_CAPELLA_MEAT)
+			.add(IcariaItemIds.COOKED_CAPELLA_MEAT)
+			.add(IcariaItemIds.RAW_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.COOKED_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.RAW_CERVER_MEAT)
+			.add(IcariaItemIds.COOKED_CERVER_MEAT)
+			.add(IcariaItemIds.RAW_CROCOTTA_MEAT)
+			.add(IcariaItemIds.COOKED_CROCOTTA_MEAT)
+			.add(IcariaItemIds.RAW_THOG_MEAT)
+			.add(IcariaItemIds.COOKED_THOG_MEAT);
 
 		this.tag(ItemTags.METAL_NUGGETS)
-			.add(IcariaItems.CHALKOS_NUGGET.get())
-			.add(IcariaItems.KASSITEROS_NUGGET.get())
-			.add(IcariaItems.ORICHALCUM_NUGGET.get())
-			.add(IcariaItems.VANADIUM_NUGGET.get())
-			.add(IcariaItems.VANADIUMSTEEL_NUGGET.get())
-			.add(IcariaItems.SIDEROS_NUGGET.get())
-			.add(IcariaItems.MOLYBDENUM_NUGGET.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get())
-			.add(IcariaItems.BLURIDIUM_NUGGET.get());
+			.add(IcariaItemIds.CHALKOS_NUGGET)
+			.add(IcariaItemIds.KASSITEROS_NUGGET)
+			.add(IcariaItemIds.ORICHALCUM_NUGGET)
+			.add(IcariaItemIds.VANADIUM_NUGGET)
+			.add(IcariaItemIds.VANADIUMSTEEL_NUGGET)
+			.add(IcariaItemIds.SIDEROS_NUGGET)
+			.add(IcariaItemIds.MOLYBDENUM_NUGGET)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_NUGGET)
+			.add(IcariaItemIds.BLURIDIUM_NUGGET);
 
 		this.tag(ItemTags.OCELOT_FOOD)
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH);
 
 		this.tag(ItemTags.PANDA_EATS_FROM_GROUND)
-			.add(IcariaItems.LAUREL_CHERRY_CAKE.get())
-			.add(IcariaItems.STRAWBERRY_CAKE.get())
-			.add(IcariaItems.PHYSALIS_CAKE.get())
-			.add(IcariaItems.VINE_BERRY_CAKE.get())
-			.add(IcariaItems.VINE_SPROUT_CAKE.get());
+			.add(IcariaBlockItemIds.LAUREL_CHERRY_CAKE.item())
+			.add(IcariaBlockItemIds.STRAWBERRY_CAKE.item())
+			.add(IcariaBlockItemIds.PHYSALIS_CAKE.item())
+			.add(IcariaBlockItemIds.VINE_BERRY_CAKE.item())
+			.add(IcariaBlockItemIds.VINE_SPROUT_CAKE.item());
 
 		this.tag(ItemTags.PARROT_FOOD)
-			.add(IcariaItems.SPELT_SEEDS.get())
-			.add(IcariaItems.STRAWBERRY_SEEDS.get())
-			.add(IcariaItems.PHYSALIS_SEEDS.get());
+			.add(IcariaBlockItemIds.PHYSALIS_SEEDS.item())
+			.add(IcariaBlockItemIds.SPELT_SEEDS.item())
+			.add(IcariaBlockItemIds.STRAWBERRY_SEEDS.item());
 
 		this.tag(ItemTags.PICKAXES)
-			.add(IcariaItems.CHERT_PICKAXE.get())
-			.add(IcariaItems.CHALKOS_PICKAXE.get())
-			.add(IcariaItems.KASSITEROS_PICKAXE.get())
-			.add(IcariaItems.ORICHALCUM_PICKAXE.get())
-			.add(IcariaItems.VANADIUMSTEEL_PICKAXE.get())
-			.add(IcariaItems.SIDEROS_PICKAXE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_PICKAXE.get());
+			.add(IcariaItemIds.CHERT_PICKAXE)
+			.add(IcariaItemIds.CHALKOS_PICKAXE)
+			.add(IcariaItemIds.KASSITEROS_PICKAXE)
+			.add(IcariaItemIds.ORICHALCUM_PICKAXE)
+			.add(IcariaItemIds.VANADIUMSTEEL_PICKAXE)
+			.add(IcariaItemIds.SIDEROS_PICKAXE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_PICKAXE);
 
 		this.tag(ItemTags.PIG_FOOD)
-			.add(IcariaItems.GARLIC.get())
-			.add(IcariaItems.ONION.get());
+			.add(IcariaItemIds.GARLIC)
+			.add(IcariaBlockItemIds.ONION.item());
 
 		this.tag(ItemTags.SHARP_WEAPON_ENCHANTABLE)
-			.add(IcariaItems.CHERT_DAGGER.get())
-			.add(IcariaItems.CHERT_SCYTHE.get())
-			.add(IcariaItems.CHALKOS_DAGGER.get())
-			.add(IcariaItems.CHALKOS_SCYTHE.get())
-			.add(IcariaItems.KASSITEROS_DAGGER.get())
-			.add(IcariaItems.KASSITEROS_SCYTHE.get())
-			.add(IcariaItems.ORICHALCUM_DAGGER.get())
-			.add(IcariaItems.ORICHALCUM_SCYTHE.get())
-			.add(IcariaItems.VANADIUMSTEEL_DAGGER.get())
-			.add(IcariaItems.VANADIUMSTEEL_SCYTHE.get())
-			.add(IcariaItems.SIDEROS_DAGGER.get())
-			.add(IcariaItems.SIDEROS_SCYTHE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get());
+			.addTag(IcariaItemTags.TOOLS_DAGGER)
+			.addTag(IcariaItemTags.TOOLS_SCYTHE);
 
 		this.tag(ItemTags.SHEEP_FOOD)
-			.add(IcariaItems.SPELT.get());
+			.add(IcariaItemIds.SPELT);
 
 		this.tag(ItemTags.SHOVELS)
-			.add(IcariaItems.CHERT_SHOVEL.get())
-			.add(IcariaItems.CHALKOS_SHOVEL.get())
-			.add(IcariaItems.KASSITEROS_SHOVEL.get())
-			.add(IcariaItems.ORICHALCUM_SHOVEL.get())
-			.add(IcariaItems.VANADIUMSTEEL_SHOVEL.get())
-			.add(IcariaItems.SIDEROS_SHOVEL.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SHOVEL.get());
-
-		this.tag(ItemTags.SIGNS)
-			.add(IcariaItems.CYPRESS_SIGN.get())
-			.add(IcariaItems.DROUGHTROOT_SIGN.get())
-			.add(IcariaItems.FIR_SIGN.get())
-			.add(IcariaItems.LAUREL_SIGN.get())
-			.add(IcariaItems.OLIVE_SIGN.get())
-			.add(IcariaItems.PLANE_SIGN.get())
-			.add(IcariaItems.POPULUS_SIGN.get());
+			.add(IcariaItemIds.CHERT_SHOVEL)
+			.add(IcariaItemIds.CHALKOS_SHOVEL)
+			.add(IcariaItemIds.KASSITEROS_SHOVEL)
+			.add(IcariaItemIds.ORICHALCUM_SHOVEL)
+			.add(IcariaItemIds.VANADIUMSTEEL_SHOVEL)
+			.add(IcariaItemIds.SIDEROS_SHOVEL)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SHOVEL);
 
 		this.tag(ItemTags.SKULLS)
-			.add(IcariaItems.AETERNAE_SKULL.get())
-			.add(IcariaItems.ARGAN_HOUND_SKULL.get())
-			.add(IcariaItems.CAPELLA_SKULL.get())
-			.add(IcariaItems.CATOBLEPAS_SKULL.get())
-			.add(IcariaItems.CERVER_SKULL.get())
-			.add(IcariaItems.CROCOTTA_SKULL.get())
-			.add(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.FIR_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.LAUREL_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.OLIVE_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.PLANE_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.POPULUS_FOREST_HAG_SKULL.get())
-			.add(IcariaItems.REVENANT_SKULL.get())
-			.add(IcariaItems.THOG_SKULL.get());
+			.add(IcariaBlockItemIds.AETERNAE_SKULL.item())
+			.add(IcariaBlockItemIds.ARGAN_HOUND_SKULL.item())
+			.add(IcariaBlockItemIds.CAPELLA_SKULL.item())
+			.add(IcariaBlockItemIds.CATOBLEPAS_SKULL.item())
+			.add(IcariaBlockItemIds.CERVER_SKULL.item())
+			.add(IcariaBlockItemIds.CROCOTTA_SKULL.item())
+			.add(IcariaBlockItemIds.CYPRESS_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.FIR_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.LAUREL_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.OLIVE_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.PLANE_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.POPULUS_FOREST_HAG_SKULL.item())
+			.add(IcariaBlockItemIds.REVENANT_SKULL.item())
+			.add(IcariaBlockItemIds.THOG_SKULL.item());
 
-		this.tag(ItemTags.SPEARS); // TODO
+		this.tag(ItemTags.SPEARS)
+			.add(IcariaItemIds.CHERT_SPEAR)
+			.add(IcariaItemIds.CHALKOS_SPEAR)
+			.add(IcariaItemIds.KASSITEROS_SPEAR)
+			.add(IcariaItemIds.ORICHALCUM_SPEAR)
+			.add(IcariaItemIds.VANADIUMSTEEL_SPEAR)
+			.add(IcariaItemIds.SIDEROS_SPEAR)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SPEAR);
 
 		this.tag(ItemTags.STONE_CRAFTING_MATERIALS)
-			.add(IcariaItems.GRAINITE.get())
-			.add(IcariaItems.COBBLED_YELLOWSTONE.get())
-			.add(IcariaItems.COBBLED_SILKSTONE.get())
-			.add(IcariaItems.COBBLED_SUNSTONE.get())
-			.add(IcariaItems.COBBLED_VOIDSHALE.get())
-			.add(IcariaItems.COBBLED_BAETYL.get())
-			.add(IcariaItems.RELICSTONE.get())
-			.add(IcariaItems.PLATOSHALE.get());
+			.add(IcariaBlockItemIds.GRAINITE.item())
+			.add(IcariaBlockItemIds.COBBLED_YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SILKSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SUNSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_VOIDSHALE.item())
+			.add(IcariaBlockItemIds.COBBLED_BAETYL.item())
+			.add(IcariaBlockItemIds.RELICSTONE.item())
+			.add(IcariaBlockItemIds.PLATOSHALE.item());
 
 		this.tag(ItemTags.STONE_TOOL_MATERIALS)
-			.add(IcariaItems.GRAINITE.get())
-			.add(IcariaItems.COBBLED_YELLOWSTONE.get())
-			.add(IcariaItems.COBBLED_SILKSTONE.get())
-			.add(IcariaItems.COBBLED_SUNSTONE.get())
-			.add(IcariaItems.COBBLED_VOIDSHALE.get())
-			.add(IcariaItems.COBBLED_BAETYL.get())
-			.add(IcariaItems.RELICSTONE.get())
-			.add(IcariaItems.PLATOSHALE.get());
+			.add(IcariaBlockItemIds.GRAINITE.item())
+			.add(IcariaBlockItemIds.COBBLED_YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SILKSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SUNSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_VOIDSHALE.item())
+			.add(IcariaBlockItemIds.COBBLED_BAETYL.item())
+			.add(IcariaBlockItemIds.RELICSTONE.item())
+			.add(IcariaBlockItemIds.PLATOSHALE.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_FLAT)
+			.add(IcariaBlockItemIds.SPELT_BLOCK.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_FAST_SLIDING)
+			.add(IcariaBlockItemIds.PACKED_ARISTONE.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT)
+			.addTag(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR)
+			.add(IcariaBlockItemIds.GRASSY_MARL.item())
+			.add(IcariaBlockItemIds.MARL.item())
+			.add(IcariaBlockItemIds.COARSE_MARL.item())
+			.add(IcariaBlockItemIds.DRY_LAKE_BED.item())
+			.add(IcariaBlockItemIds.LOAM.item())
+			.add(IcariaBlockItemIds.ROTTEN_BONES_BLOCK.item())
+			.add(IcariaBlockItemIds.LIGNITE_BLOCK.item())
+			.add(IcariaBlockItemIds.ANTHRACITE_BLOCK.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_BOUNCY)
+			.add(IcariaBlockItemIds.LOAM_BRICKS.item())
+			.add(IcariaBlockItemIds.SMOOTH_DOLOMITE.item())
+			.add(IcariaBlockItemIds.DOLOMITE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_DOLOMITE.item())
+			.add(IcariaBlockItemIds.DOLOMITE_PILLAR.item())
+			.add(IcariaBlockItemIds.GRAINITE.item())
+			.add(IcariaBlockItemIds.GRAINITE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_GRAINITE.item())
+			.add(IcariaBlockItemIds.COBBLED_YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.YELLOWSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SILKSTONE.item())
+			.add(IcariaBlockItemIds.SILKSTONE.item())
+			.add(IcariaBlockItemIds.SILKSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_SILKSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_SUNSTONE.item())
+			.add(IcariaBlockItemIds.SUNSTONE.item())
+			.add(IcariaBlockItemIds.SUNSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_SUNSTONE.item())
+			.add(IcariaBlockItemIds.COBBLED_VOIDSHALE.item())
+			.add(IcariaBlockItemIds.VOIDSHALE.item())
+			.add(IcariaBlockItemIds.VOIDSHALE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_VOIDSHALE.item())
+			.add(IcariaBlockItemIds.COBBLED_BAETYL.item())
+			.add(IcariaBlockItemIds.BAETYL.item())
+			.add(IcariaBlockItemIds.BAETYL_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_BAETYL.item())
+			.add(IcariaBlockItemIds.RELICSTONE.item())
+			.add(IcariaBlockItemIds.SMOOTH_RELICSTONE.item())
+			.add(IcariaBlockItemIds.RELICSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.CRACKED_RELICSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.MOSSY_RELICSTONE_BRICKS.item())
+			.add(IcariaBlockItemIds.RELICSTONE_TILES.item())
+			.add(IcariaBlockItemIds.CRACKED_RELICSTONE_TILES.item())
+			.add(IcariaBlockItemIds.MOSSY_RELICSTONE_TILES.item())
+			.add(IcariaBlockItemIds.CHISELED_RELICSTONE.item())
+			.add(IcariaBlockItemIds.PLATOSHALE.item())
+			.add(IcariaBlockItemIds.BLURRED_PLATOSHALE.item())
+			.add(IcariaBlockItemIds.PLATOSHALE_BRICKS.item())
+			.add(IcariaBlockItemIds.BLURRED_PLATOSHALE_BRICKS.item())
+			.add(IcariaBlockItemIds.CHISELED_PLATOSHALE.item())
+			.add(IcariaBlockItemIds.CALCITE_BLOCK.item())
+			.add(IcariaBlockItemIds.HALITE_BLOCK.item())
+			.add(IcariaBlockItemIds.JASPER_BLOCK.item())
+			.add(IcariaBlockItemIds.ZIRCON_BLOCK.item());
+
+		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_SLOW_FLAT)
+			.add(IcariaBlockItemIds.CHALKOS_ORE.item())
+			.add(IcariaBlockItemIds.KASSITEROS_ORE.item())
+			.add(IcariaBlockItemIds.VANADIUM_ORE.item())
+			.add(IcariaBlockItemIds.SIDEROS_ORE.item())
+			.add(IcariaBlockItemIds.MOLYBDENUM_ORE.item())
+			.add(IcariaBlockItemIds.RAW_CHALKOS_BLOCK.item())
+			.add(IcariaBlockItemIds.RAW_KASSITEROS_BLOCK.item())
+			.add(IcariaBlockItemIds.RAW_VANADIUM_BLOCK.item())
+			.add(IcariaBlockItemIds.RAW_SIDEROS_BLOCK.item())
+			.add(IcariaBlockItemIds.RAW_MOLYBDENUM_BLOCK.item())
+			.add(IcariaBlockItemIds.CHALKOS_BLOCK.item())
+			.add(IcariaBlockItemIds.KASSITEROS_BLOCK.item())
+			.add(IcariaBlockItemIds.ORICHALCUM_BLOCK.item())
+			.add(IcariaBlockItemIds.VANADIUM_BLOCK.item())
+			.add(IcariaBlockItemIds.VANADIUMSTEEL_BLOCK.item())
+			.add(IcariaBlockItemIds.SIDEROS_BLOCK.item())
+			.add(IcariaBlockItemIds.MOLYBDENUM_BLOCK.item())
+			.add(IcariaBlockItemIds.MOLYBDENUMSTEEL_BLOCK.item());
 
 		this.tag(ItemTags.SWORDS)
-			.add(IcariaItems.CHERT_SWORD.get())
-			.add(IcariaItems.CHALKOS_SWORD.get())
-			.add(IcariaItems.KASSITEROS_SWORD.get())
-			.add(IcariaItems.ORICHALCUM_SWORD.get())
-			.add(IcariaItems.VANADIUMSTEEL_SWORD.get())
-			.add(IcariaItems.SIDEROS_SWORD.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SWORD.get());
+			.add(IcariaItemIds.CHERT_SWORD)
+			.add(IcariaItemIds.CHALKOS_SWORD)
+			.add(IcariaItemIds.KASSITEROS_SWORD)
+			.add(IcariaItemIds.ORICHALCUM_SWORD)
+			.add(IcariaItemIds.VANADIUMSTEEL_SWORD)
+			.add(IcariaItemIds.SIDEROS_SWORD)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SWORD);
 
 		this.tag(ItemTags.VANISHING_ENCHANTABLE)
-			.add(IcariaItems.LAUREL_WREATH.get());
+			.add(IcariaItemIds.LAUREL_WREATH);
 
 		this.tag(ItemTags.VILLAGER_PICKS_UP)
-			.add(IcariaItems.SPELT.get())
-			.add(IcariaItems.STRAWBERRIES.get())
-			.add(IcariaItems.PHYSALIS.get())
-			.add(IcariaItems.GARLIC.get());
+			.add(IcariaItemIds.SPELT)
+			.add(IcariaItemIds.STRAWBERRIES)
+			.add(IcariaItemIds.PHYSALIS)
+			.add(IcariaItemIds.GARLIC);
 
 		this.tag(ItemTags.VILLAGER_PLANTABLE_SEEDS)
-			.add(IcariaItems.ONION.get())
-			.add(IcariaItems.SPELT_SEEDS.get())
-			.add(IcariaItems.STRAWBERRY_SEEDS.get())
-			.add(IcariaItems.PHYSALIS_SEEDS.get());
+			.add(IcariaBlockItemIds.ONION.item())
+			.add(IcariaBlockItemIds.PHYSALIS_SEEDS.item())
+			.add(IcariaBlockItemIds.SPELT_SEEDS.item())
+			.add(IcariaBlockItemIds.STRAWBERRY_SEEDS.item());
 
 		this.tag(ItemTags.WOLF_FOOD)
-			.add(IcariaItems.COOKED_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.COOKED_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.COOKED_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.COOKED_RED_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.COOKED_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.COOKED_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.COOKED_RED_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.COOKED_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.COOKED_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.COOKED_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.COOKED_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.COOKED_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.COOKED_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.COOKED_RED_YELLOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get())
-			.add(IcariaItems.AETERNAE_STEW.get())
-			.add(IcariaItems.CATOBLEPAS_STEW.get())
-			.add(IcariaItems.CERVER_STEW.get())
-			.add(IcariaItems.THOG_STEW.get());
-
-		this.tag(ItemTags.WOODEN_SHELVES)
-			.add(IcariaItems.CYPRESS_SHELF.get())
-			.add(IcariaItems.DROUGHTROOT_SHELF.get())
-			.add(IcariaItems.FIR_SHELF.get())
-			.add(IcariaItems.LAUREL_SHELF.get())
-			.add(IcariaItems.OLIVE_SHELF.get())
-			.add(IcariaItems.PLANE_SHELF.get())
-			.add(IcariaItems.POPULUS_SHELF.get());
+			.add(IcariaItemIds.COOKED_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.COOKED_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.COOKED_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.COOKED_RED_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.COOKED_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.COOKED_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.COOKED_RED_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.COOKED_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.COOKED_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.COOKED_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.COOKED_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.COOKED_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.COOKED_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.COOKED_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.COOKED_RED_YELLOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH)
+			.add(IcariaItemIds.AETERNAE_STEW)
+			.add(IcariaItemIds.CATOBLEPAS_STEW)
+			.add(IcariaItemIds.CERVER_STEW)
+			.add(IcariaItemIds.THOG_STEW);
 
 		this.tag(Tags.Items.BRICKS)
-			.add(IcariaItems.LOAM_BRICK.get());
+			.addTag(IcariaItemTags.BRICKS_LOAM);
 
 		this.tag(Tags.Items.BUCKETS)
-			.add(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get());
+			.addTag(IcariaItemTags.BUCKETS_MEDITERRANEAN_WATER);
 
 		this.tag(Tags.Items.CROPS)
-			.addTag(IcariaItemTagsProvider.CROPS_SPELT)
-			.addTag(IcariaItemTagsProvider.CROPS_STRAWBERRIES)
-			.addTag(IcariaItemTagsProvider.CROPS_PHYSALIS)
-			.addTag(IcariaItemTagsProvider.CROPS_ONION);
+			.addTag(IcariaItemTags.CROPS_ONION)
+			.addTag(IcariaItemTags.CROPS_PHYSALIS)
+			.addTag(IcariaItemTags.CROPS_SPELT)
+			.addTag(IcariaItemTags.CROPS_STRAWBERRIES);
 
 		this.tag(Tags.Items.DRINKS_MAGIC)
-			.add(IcariaItems.ANTI_GRAVITY_FLASK.get())
-			.add(IcariaItems.FORTIFYING_FLASK.get())
-			.add(IcariaItems.HEALING_FLASK.get());
+			.add(IcariaItemIds.ANTI_GRAVITY_FLASK)
+			.add(IcariaItemIds.FORTIFYING_FLASK)
+			.add(IcariaItemIds.HEALING_FLASK);
 
 		this.tag(Tags.Items.DUSTS)
-			.addTag(IcariaItemTagsProvider.DUSTS_CALCITE)
-			.addTag(IcariaItemTagsProvider.DUSTS_HALITE);
-
-		this.tag(Tags.Items.DYED_WHITE)
-			.add(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.WHITE_STORAGE_VASE.get())
-			.add(IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_LIGHT_GRAY)
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_GRAY_STORAGE_VASE.get())
-			.add(IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_GRAY)
-			.add(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GRAY_STORAGE_VASE.get())
-			.add(IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_BLACK)
-			.add(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLACK_STORAGE_VASE.get())
-			.add(IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_BROWN)
-			.add(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BROWN_STORAGE_VASE.get())
-			.add(IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_RED)
-			.add(IcariaItems.RED_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.RED_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.RED_STORAGE_VASE.get())
-			.add(IcariaItems.RED_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_ORANGE)
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.ORANGE_STORAGE_VASE.get())
-			.add(IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_YELLOW)
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.YELLOW_STORAGE_VASE.get())
-			.add(IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_LIME)
-			.add(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIME_STORAGE_VASE.get())
-			.add(IcariaItems.LIME_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_GREEN)
-			.add(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GREEN_STORAGE_VASE.get())
-			.add(IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_CYAN)
-			.add(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.CYAN_STORAGE_VASE.get())
-			.add(IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_LIGHT_BLUE)
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_BLUE_STORAGE_VASE.get())
-			.add(IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_BLUE)
-			.add(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLUE_STORAGE_VASE.get())
-			.add(IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_PURPLE)
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PURPLE_STORAGE_VASE.get())
-			.add(IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_MAGENTA)
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.MAGENTA_STORAGE_VASE.get())
-			.add(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(Tags.Items.DYED_PINK)
-			.add(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PINK_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PINK_STORAGE_VASE.get())
-			.add(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
+			.addTag(IcariaItemTags.DUSTS_CALCITE)
+			.addTag(IcariaItemTags.DUSTS_HALITE);
 
 		this.tag(Tags.Items.ENCHANTING_FUELS)
-			.addTag(IcariaItemTagsProvider.GEMS_ZIRCON);
+			.addTag(IcariaItemTags.GEMS_ZIRCON);
 
 		this.tag(Tags.Items.FERTILIZERS)
-			.addTag(IcariaItemTagsProvider.DUSTS_CALCITE);
+			.addTag(IcariaItemTags.DUSTS_CALCITE);
 
 		this.tag(Tags.Items.FOODS_BERRY)
-			.add(IcariaItems.VINEBERRIES.get())
-			.add(IcariaItems.STRAWBERRIES.get());
+			.add(IcariaItemIds.VINEBERRIES)
+			.add(IcariaItemIds.STRAWBERRIES);
 
 		this.tag(Tags.Items.FOODS_BREAD)
-			.add(IcariaItems.SPELT_BREAD.get());
+			.add(IcariaItemIds.SPELT_BREAD);
 
 		this.tag(Tags.Items.FOODS_COOKED_FISH)
-			.add(IcariaItems.COOKED_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_FEESH.get())
-			.add(IcariaItems.COOKED_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.COOKED_PINK_RED_FEESH.get())
-			.add(IcariaItems.COOKED_PURPLE_FEESH.get())
-			.add(IcariaItems.COOKED_RED_FEESH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FICHE.get())
-			.add(IcariaItems.COOKED_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.COOKED_GRAY_FICHE.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.COOKED_RED_FICHE.get())
-			.add(IcariaItems.COOKED_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.COOKED_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BROWN_FISSHH.get())
-			.add(IcariaItems.COOKED_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.COOKED_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.COOKED_BLUE_FYSH.get())
-			.add(IcariaItems.COOKED_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.COOKED_GRAY_FYSH.get())
-			.add(IcariaItems.COOKED_RAINBOW_FYSH.get())
-			.add(IcariaItems.COOKED_RED_FYSH.get())
-			.add(IcariaItems.COOKED_RED_YELLOW_FYSH.get());
+			.add(IcariaItemIds.COOKED_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_FEESH)
+			.add(IcariaItemIds.COOKED_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.COOKED_PINK_RED_FEESH)
+			.add(IcariaItemIds.COOKED_PURPLE_FEESH)
+			.add(IcariaItemIds.COOKED_RED_FEESH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FICHE)
+			.add(IcariaItemIds.COOKED_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.COOKED_GRAY_FICHE)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.COOKED_RED_FICHE)
+			.add(IcariaItemIds.COOKED_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.COOKED_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BROWN_FISSHH)
+			.add(IcariaItemIds.COOKED_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.COOKED_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.COOKED_BLUE_FYSH)
+			.add(IcariaItemIds.COOKED_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.COOKED_GRAY_FYSH)
+			.add(IcariaItemIds.COOKED_RAINBOW_FYSH)
+			.add(IcariaItemIds.COOKED_RED_FYSH)
+			.add(IcariaItemIds.COOKED_RED_YELLOW_FYSH);
 
 		this.tag(Tags.Items.FOODS_COOKED_MEAT)
-			.add(IcariaItems.COOKED_AETERNAE_MEAT.get())
-			.add(IcariaItems.COOKED_CAPELLA_MEAT.get())
-			.add(IcariaItems.COOKED_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.COOKED_CERVER_MEAT.get())
-			.add(IcariaItems.COOKED_CROCOTTA_MEAT.get())
-			.add(IcariaItems.COOKED_THOG_MEAT.get());
+			.add(IcariaItemIds.COOKED_AETERNAE_MEAT)
+			.add(IcariaItemIds.COOKED_CAPELLA_MEAT)
+			.add(IcariaItemIds.COOKED_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.COOKED_CERVER_MEAT)
+			.add(IcariaItemIds.COOKED_CROCOTTA_MEAT)
+			.add(IcariaItemIds.COOKED_THOG_MEAT);
 
 		this.tag(Tags.Items.FOODS_EDIBLE_WHEN_PLACED)
-			.add(IcariaItems.LAUREL_CHERRY_CAKE.get())
-			.add(IcariaItems.STRAWBERRY_CAKE.get())
-			.add(IcariaItems.PHYSALIS_CAKE.get())
-			.add(IcariaItems.VINE_BERRY_CAKE.get())
-			.add(IcariaItems.VINE_SPROUT_CAKE.get());
+			.add(IcariaBlockItemIds.LAUREL_CHERRY_CAKE.item())
+			.add(IcariaBlockItemIds.STRAWBERRY_CAKE.item())
+			.add(IcariaBlockItemIds.PHYSALIS_CAKE.item())
+			.add(IcariaBlockItemIds.VINE_BERRY_CAKE.item())
+			.add(IcariaBlockItemIds.VINE_SPROUT_CAKE.item());
 
 		this.tag(Tags.Items.FOODS_FOOD_POISONING)
-			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
-			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
-			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.RAW_CERVER_MEAT.get())
-			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_THOG_MEAT.get())
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get())
-			.add(IcariaItems.FERMENTED_FISH.get())
-			.add(IcariaItems.SNULL_CREAM.get())
-			.add(IcariaItems.FERMENTED_SNULL_CREAM.get());
+			.add(IcariaItemIds.RAW_AETERNAE_MEAT)
+			.add(IcariaItemIds.RAW_CAPELLA_MEAT)
+			.add(IcariaItemIds.RAW_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.RAW_CERVER_MEAT)
+			.add(IcariaItemIds.RAW_CROCOTTA_MEAT)
+			.add(IcariaItemIds.RAW_THOG_MEAT)
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH)
+			.add(IcariaItemIds.FERMENTED_FISH)
+			.add(IcariaItemIds.SNULL_CREAM)
+			.add(IcariaItemIds.FERMENTED_SNULL_CREAM);
 
 		this.tag(Tags.Items.FOODS_FRUIT)
-			.add(IcariaItems.PHYSALIS.get())
-			.add(IcariaItems.LAUREL_CHERRY.get());
+			.add(IcariaItemIds.PHYSALIS)
+			.add(IcariaItemIds.LAUREL_CHERRY);
 
 		this.tag(Tags.Items.FOODS_RAW_FISH)
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH);
 
 		this.tag(Tags.Items.FOODS_RAW_MEAT)
-			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
-			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
-			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.RAW_CERVER_MEAT.get())
-			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_THOG_MEAT.get());
+			.add(IcariaItemIds.RAW_AETERNAE_MEAT)
+			.add(IcariaItemIds.RAW_CAPELLA_MEAT)
+			.add(IcariaItemIds.RAW_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.RAW_CERVER_MEAT)
+			.add(IcariaItemIds.RAW_CROCOTTA_MEAT)
+			.add(IcariaItemIds.RAW_THOG_MEAT);
 
 		this.tag(Tags.Items.FOODS_SOUP)
-			.add(IcariaItems.ONION_SOUP.get())
-			.add(IcariaItems.AETERNAE_STEW.get())
-			.add(IcariaItems.CATOBLEPAS_STEW.get())
-			.add(IcariaItems.CERVER_STEW.get())
-			.add(IcariaItems.THOG_STEW.get());
+			.add(IcariaItemIds.ONION_SOUP)
+			.add(IcariaItemIds.AETERNAE_STEW)
+			.add(IcariaItemIds.CATOBLEPAS_STEW)
+			.add(IcariaItemIds.CERVER_STEW)
+			.add(IcariaItemIds.THOG_STEW);
 
 		this.tag(Tags.Items.FOODS_VEGETABLE)
-			.add(IcariaItems.BLACK_OLIVES.get())
-			.add(IcariaItems.GREEN_OLIVES.get())
-			.add(IcariaItems.GARLIC.get())
-			.add(IcariaItems.ONION.get());
+			.add(IcariaItemIds.BLACK_OLIVES)
+			.add(IcariaItemIds.GREEN_OLIVES)
+			.add(IcariaItemIds.GARLIC)
+			.add(IcariaBlockItemIds.ONION.item());
 
 		this.tag(Tags.Items.GEMS)
-			.addTag(IcariaItemTagsProvider.GEMS_CHERT)
-			.addTag(IcariaItemTagsProvider.GEMS_CALCITE)
-			.addTag(IcariaItemTagsProvider.GEMS_HALITE)
-			.addTag(IcariaItemTagsProvider.GEMS_JASPER)
-			.addTag(IcariaItemTagsProvider.GEMS_ZIRCON)
-			.addTag(IcariaItemTagsProvider.GEMS_LIGNITE)
-			.addTag(IcariaItemTagsProvider.GEMS_DOLOMITE)
-			.addTag(IcariaItemTagsProvider.GEMS_SLIVER)
-			.addTag(IcariaItemTagsProvider.GEMS_ANTHRACITE);
-
-		this.tag(Tags.Items.GUNPOWDERS)
-			.add(IcariaItems.GREENPOWDER.get());
+			.addTag(IcariaItemTags.GEMS_ANTHRACITE)
+			.addTag(IcariaItemTags.GEMS_CALCITE)
+			.addTag(IcariaItemTags.GEMS_CHERT)
+			.addTag(IcariaItemTags.GEMS_DOLOMITE)
+			.addTag(IcariaItemTags.GEMS_HALITE)
+			.addTag(IcariaItemTags.GEMS_JASPER)
+			.addTag(IcariaItemTags.GEMS_LIGNITE)
+			.addTag(IcariaItemTags.GEMS_SLIVER)
+			.addTag(IcariaItemTags.GEMS_ZIRCON);
 
 		this.tag(Tags.Items.INGOTS)
-			.addTag(IcariaItemTagsProvider.INGOTS_CHALKOS)
-			.addTag(IcariaItemTagsProvider.INGOTS_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.INGOTS_ORICHALCUM)
-			.addTag(IcariaItemTagsProvider.INGOTS_VANADIUM)
-			.addTag(IcariaItemTagsProvider.INGOTS_VANADIUMSTEEL)
-			.addTag(IcariaItemTagsProvider.INGOTS_SIDEROS)
-			.addTag(IcariaItemTagsProvider.INGOTS_MOLYBDENUM)
-			.addTag(IcariaItemTagsProvider.INGOTS_MOLYBDENUMSTEEL)
-			.addTag(IcariaItemTagsProvider.INGOTS_BLURIDIUM);
+			.addTag(IcariaItemTags.INGOTS_BLURIDIUM)
+			.addTag(IcariaItemTags.INGOTS_CHALKOS)
+			.addTag(IcariaItemTags.INGOTS_KASSITEROS)
+			.addTag(IcariaItemTags.INGOTS_MOLYBDENUM)
+			.addTag(IcariaItemTags.INGOTS_MOLYBDENUMSTEEL)
+			.addTag(IcariaItemTags.INGOTS_ORICHALCUM)
+			.addTag(IcariaItemTags.INGOTS_SIDEROS)
+			.addTag(IcariaItemTags.INGOTS_VANADIUM)
+			.addTag(IcariaItemTags.INGOTS_VANADIUMSTEEL);
 
 		this.tag(Tags.Items.LEATHERS)
-			.add(IcariaItems.AETERNAE_HIDE.get());
+			.add(IcariaItemIds.AETERNAE_HIDE);
 
 		this.tag(Tags.Items.MELEE_WEAPON_TOOLS)
-			.add(IcariaItems.CHERT_SWORD.get())
-			.add(IcariaItems.CHERT_DAGGER.get())
-			.add(IcariaItems.CHERT_AXE.get())
-			.add(IcariaItems.CHERT_SCYTHE.get())
-			.add(IcariaItems.CHERT_BIDENT.get())
-			.add(IcariaItems.CHALKOS_SWORD.get())
-			.add(IcariaItems.CHALKOS_DAGGER.get())
-			.add(IcariaItems.CHALKOS_AXE.get())
-			.add(IcariaItems.CHALKOS_SCYTHE.get())
-			.add(IcariaItems.CHALKOS_BIDENT.get())
-			.add(IcariaItems.KASSITEROS_SWORD.get())
-			.add(IcariaItems.KASSITEROS_DAGGER.get())
-			.add(IcariaItems.KASSITEROS_AXE.get())
-			.add(IcariaItems.KASSITEROS_SCYTHE.get())
-			.add(IcariaItems.KASSITEROS_BIDENT.get())
-			.add(IcariaItems.ORICHALCUM_SWORD.get())
-			.add(IcariaItems.ORICHALCUM_DAGGER.get())
-			.add(IcariaItems.ORICHALCUM_AXE.get())
-			.add(IcariaItems.ORICHALCUM_SCYTHE.get())
-			.add(IcariaItems.ORICHALCUM_BIDENT.get())
-			.add(IcariaItems.VANADIUMSTEEL_SWORD.get())
-			.add(IcariaItems.VANADIUMSTEEL_DAGGER.get())
-			.add(IcariaItems.VANADIUMSTEEL_AXE.get())
-			.add(IcariaItems.VANADIUMSTEEL_SCYTHE.get())
-			.add(IcariaItems.VANADIUMSTEEL_BIDENT.get())
-			.add(IcariaItems.SIDEROS_SWORD.get())
-			.add(IcariaItems.SIDEROS_DAGGER.get())
-			.add(IcariaItems.SIDEROS_AXE.get())
-			.add(IcariaItems.SIDEROS_SCYTHE.get())
-			.add(IcariaItems.SIDEROS_BIDENT.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SWORD.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_AXE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+			.add(IcariaItemIds.CHERT_SWORD)
+			.add(IcariaItemIds.CHERT_DAGGER)
+			.add(IcariaItemIds.CHERT_AXE)
+			.add(IcariaItemIds.CHERT_SCYTHE)
+			.add(IcariaItemIds.CHERT_BIDENT)
+			.add(IcariaItemIds.CHERT_SPEAR)
+			.add(IcariaItemIds.CHALKOS_SWORD)
+			.add(IcariaItemIds.CHALKOS_DAGGER)
+			.add(IcariaItemIds.CHALKOS_AXE)
+			.add(IcariaItemIds.CHALKOS_SCYTHE)
+			.add(IcariaItemIds.CHALKOS_BIDENT)
+			.add(IcariaItemIds.CHALKOS_SPEAR)
+			.add(IcariaItemIds.KASSITEROS_SWORD)
+			.add(IcariaItemIds.KASSITEROS_DAGGER)
+			.add(IcariaItemIds.KASSITEROS_AXE)
+			.add(IcariaItemIds.KASSITEROS_SCYTHE)
+			.add(IcariaItemIds.KASSITEROS_BIDENT)
+			.add(IcariaItemIds.KASSITEROS_SPEAR)
+			.add(IcariaItemIds.ORICHALCUM_SWORD)
+			.add(IcariaItemIds.ORICHALCUM_DAGGER)
+			.add(IcariaItemIds.ORICHALCUM_AXE)
+			.add(IcariaItemIds.ORICHALCUM_SCYTHE)
+			.add(IcariaItemIds.ORICHALCUM_BIDENT)
+			.add(IcariaItemIds.ORICHALCUM_SPEAR)
+			.add(IcariaItemIds.VANADIUMSTEEL_SWORD)
+			.add(IcariaItemIds.VANADIUMSTEEL_DAGGER)
+			.add(IcariaItemIds.VANADIUMSTEEL_AXE)
+			.add(IcariaItemIds.VANADIUMSTEEL_SCYTHE)
+			.add(IcariaItemIds.VANADIUMSTEEL_BIDENT)
+			.add(IcariaItemIds.VANADIUMSTEEL_SPEAR)
+			.add(IcariaItemIds.SIDEROS_SWORD)
+			.add(IcariaItemIds.SIDEROS_DAGGER)
+			.add(IcariaItemIds.SIDEROS_AXE)
+			.add(IcariaItemIds.SIDEROS_SCYTHE)
+			.add(IcariaItemIds.SIDEROS_BIDENT)
+			.add(IcariaItemIds.SIDEROS_SPEAR)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SWORD)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_DAGGER)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_AXE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SCYTHE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_BIDENT)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SPEAR);
 
 		this.tag(Tags.Items.MINING_TOOL_TOOLS)
-			.add(IcariaItems.CHERT_PICKAXE.get())
-			.add(IcariaItems.CHALKOS_PICKAXE.get())
-			.add(IcariaItems.KASSITEROS_PICKAXE.get())
-			.add(IcariaItems.ORICHALCUM_PICKAXE.get())
-			.add(IcariaItems.VANADIUMSTEEL_PICKAXE.get())
-			.add(IcariaItems.SIDEROS_PICKAXE.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_PICKAXE.get());
+			.add(IcariaItemIds.CHERT_PICKAXE)
+			.add(IcariaItemIds.CHALKOS_PICKAXE)
+			.add(IcariaItemIds.KASSITEROS_PICKAXE)
+			.add(IcariaItemIds.ORICHALCUM_PICKAXE)
+			.add(IcariaItemIds.VANADIUMSTEEL_PICKAXE)
+			.add(IcariaItemIds.SIDEROS_PICKAXE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_PICKAXE);
 
 		this.tag(Tags.Items.MUSHROOMS)
-			.add(IcariaItems.GREEN_GROUND_SHROOMS.get())
-			.add(IcariaItems.BROWN_GROUND_SHROOMS.get())
-			.add(IcariaItems.LARGE_BROWN_GROUND_SHROOMS.get())
-			.add(IcariaItems.TINDER_FUNGUS_TREE_SHROOMS.get())
-			.add(IcariaItems.TURKEY_TAIL_TREE_SHROOMS.get())
-			.add(IcariaItems.UNNAMED_TREE_SHROOMS.get());
+			.add(IcariaBlockItemIds.GREEN_GROUND_SHROOMS.item())
+			.add(IcariaBlockItemIds.BROWN_GROUND_SHROOMS.item())
+			.add(IcariaBlockItemIds.LARGE_BROWN_GROUND_SHROOMS.item())
+			.add(IcariaBlockItemIds.TINDER_FUNGUS_TREE_SHROOMS.item())
+			.add(IcariaBlockItemIds.TURKEY_TAIL_TREE_SHROOMS.item())
+			.add(IcariaBlockItemIds.UNNAMED_TREE_SHROOMS.item());
 
 		this.tag(Tags.Items.NUGGETS)
-			.addTag(IcariaItemTagsProvider.NUGGETS_CHALKOS)
-			.addTag(IcariaItemTagsProvider.NUGGETS_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.NUGGETS_ORICHALCUM)
-			.addTag(IcariaItemTagsProvider.NUGGETS_VANADIUM)
-			.addTag(IcariaItemTagsProvider.NUGGETS_VANADIUMSTEEL)
-			.addTag(IcariaItemTagsProvider.NUGGETS_SIDEROS)
-			.addTag(IcariaItemTagsProvider.NUGGETS_MOLYBDENUM)
-			.addTag(IcariaItemTagsProvider.NUGGETS_MOLYBDENUMSTEEL)
-			.addTag(IcariaItemTagsProvider.NUGGETS_BLURIDIUM);
+			.addTag(IcariaItemTags.NUGGETS_BLURIDIUM)
+			.addTag(IcariaItemTags.NUGGETS_CHALKOS)
+			.addTag(IcariaItemTags.NUGGETS_KASSITEROS)
+			.addTag(IcariaItemTags.NUGGETS_MOLYBDENUM)
+			.addTag(IcariaItemTags.NUGGETS_MOLYBDENUMSTEEL)
+			.addTag(IcariaItemTags.NUGGETS_ORICHALCUM)
+			.addTag(IcariaItemTags.NUGGETS_SIDEROS)
+			.addTag(IcariaItemTags.NUGGETS_VANADIUM)
+			.addTag(IcariaItemTags.NUGGETS_VANADIUMSTEEL);
 
 		this.tag(Tags.Items.RANGED_WEAPON_TOOLS)
-			.add(IcariaItems.CHERT_BIDENT.get())
-			.add(IcariaItems.CHALKOS_BIDENT.get())
-			.add(IcariaItems.KASSITEROS_BIDENT.get())
-			.add(IcariaItems.ORICHALCUM_BIDENT.get())
-			.add(IcariaItems.VANADIUMSTEEL_BIDENT.get())
-			.add(IcariaItems.SIDEROS_BIDENT.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+			.add(IcariaItemIds.CHERT_BIDENT)
+			.add(IcariaItemIds.CHALKOS_BIDENT)
+			.add(IcariaItemIds.KASSITEROS_BIDENT)
+			.add(IcariaItemIds.ORICHALCUM_BIDENT)
+			.add(IcariaItemIds.VANADIUMSTEEL_BIDENT)
+			.add(IcariaItemIds.SIDEROS_BIDENT)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_BIDENT);
 
 		this.tag(Tags.Items.RAW_MATERIALS)
-			.addTag(IcariaItemTagsProvider.RAW_MATERIALS_CHALKOS)
-			.addTag(IcariaItemTagsProvider.RAW_MATERIALS_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.RAW_MATERIALS_VANADIUM)
-			.addTag(IcariaItemTagsProvider.RAW_MATERIALS_SIDEROS)
-			.addTag(IcariaItemTagsProvider.RAW_MATERIALS_MOLYBDENUM);
+			.addTag(IcariaItemTags.RAW_MATERIALS_CHALKOS)
+			.addTag(IcariaItemTags.RAW_MATERIALS_KASSITEROS)
+			.addTag(IcariaItemTags.RAW_MATERIALS_MOLYBDENUM)
+			.addTag(IcariaItemTags.RAW_MATERIALS_SIDEROS)
+			.addTag(IcariaItemTags.RAW_MATERIALS_VANADIUM);
 
 		this.tag(Tags.Items.SEEDS)
-			.addTag(IcariaItemTagsProvider.SEEDS_SPELT)
-			.addTag(IcariaItemTagsProvider.SEEDS_STRAWBERRY)
-			.addTag(IcariaItemTagsProvider.SEEDS_PHYSALIS)
-			.addTag(IcariaItemTagsProvider.SEEDS_ONION);
-
-		this.tag(Tags.Items.SLIME_BALLS)
-			.add(IcariaItems.ENDER_JELLYFISH_JELLY.get())
-			.add(IcariaItems.FIRE_JELLYFISH_JELLY.get())
-			.add(IcariaItems.NATURE_JELLYFISH_JELLY.get())
-			.add(IcariaItems.VOID_JELLYFISH_JELLY.get())
-			.add(IcariaItems.WATER_JELLYFISH_JELLY.get());
+			.addTag(IcariaItemTags.SEEDS_ONION)
+			.addTag(IcariaItemTags.SEEDS_PHYSALIS)
+			.addTag(IcariaItemTags.SEEDS_SPELT)
+			.addTag(IcariaItemTags.SEEDS_STRAWBERRY);
 
 		this.tag(Tags.Items.STRINGS)
-			.add(IcariaItems.ARACHNE_STRING.get());
-
-		this.tag(Tags.Items.TOOLS_TRIDENT)
-			.add(IcariaItems.CHERT_BIDENT.get())
-			.add(IcariaItems.CHALKOS_BIDENT.get())
-			.add(IcariaItems.KASSITEROS_BIDENT.get())
-			.add(IcariaItems.ORICHALCUM_BIDENT.get())
-			.add(IcariaItems.VANADIUMSTEEL_BIDENT.get())
-			.add(IcariaItems.SIDEROS_BIDENT.get())
-			.add(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
-
-		this.tag(IcariaItemTagsProvider.ARACHNE_STRING_BLOCKS)
-			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.RED_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.ARACHNE_STRING_CARPETS)
-			.add(IcariaItems.ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.RED_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
-
-		this.tag(IcariaItemTagsProvider.CROPS_SPELT)
-			.add(IcariaItems.SPELT.get());
-
-		this.tag(IcariaItemTagsProvider.CROPS_STRAWBERRIES)
-			.add(IcariaItems.STRAWBERRIES.get());
-
-		this.tag(IcariaItemTagsProvider.CROPS_PHYSALIS)
-			.add(IcariaItems.PHYSALIS.get());
-
-		this.tag(IcariaItemTagsProvider.CROPS_ONION)
-			.add(IcariaItems.ONION.get());
-
-		this.tag(IcariaItemTagsProvider.DUSTS_CALCITE)
-			.add(IcariaItems.CALCITE_DUST.get());
-
-		this.tag(IcariaItemTagsProvider.DUSTS_HALITE)
-			.add(IcariaItems.HALITE_DUST.get());
-
-		this.tag(IcariaItemTagsProvider.FIREPLACE_ITEMS)
-			.add(Items.BEEF)
-			.add(Items.CHICKEN)
-			.add(Items.COD)
-			.add(Items.KELP)
-			.add(Items.MUTTON)
-			.add(Items.PORKCHOP)
-			.add(Items.POTATO)
-			.add(Items.RABBIT)
-			.add(Items.SALMON)
-			.add(IcariaItems.RAW_AETERNAE_MEAT.get())
-			.add(IcariaItems.RAW_CAPELLA_MEAT.get())
-			.add(IcariaItems.RAW_CATOBLEPAS_MEAT.get())
-			.add(IcariaItems.RAW_CERVER_MEAT.get())
-			.add(IcariaItems.RAW_CROCOTTA_MEAT.get())
-			.add(IcariaItems.RAW_THOG_MEAT.get())
-			.add(IcariaItems.RAW_BLUE_GRAY_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_FEESH.get())
-			.add(IcariaItems.RAW_BROWN_ORANGE_FEESH.get())
-			.add(IcariaItems.RAW_PINK_RED_FEESH.get())
-			.add(IcariaItems.RAW_PURPLE_FEESH.get())
-			.add(IcariaItems.RAW_RED_FEESH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FICHE.get())
-			.add(IcariaItems.RAW_BROWN_CYAN_FICHE.get())
-			.add(IcariaItems.RAW_GRAY_FICHE.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FICHE.get())
-			.add(IcariaItems.RAW_RED_FICHE.get())
-			.add(IcariaItems.RAW_WHITE_YELLOW_FICHE.get())
-			.add(IcariaItems.RAW_BLUE_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_RED_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BROWN_FISSHH.get())
-			.add(IcariaItems.RAW_GREEN_MAGENTA_FISSHH.get())
-			.add(IcariaItems.RAW_PURPLE_YELLOW_FISSHH.get())
-			.add(IcariaItems.RAW_BLUE_FYSH.get())
-			.add(IcariaItems.RAW_BLUE_PURPLE_FYSH.get())
-			.add(IcariaItems.RAW_GRAY_FYSH.get())
-			.add(IcariaItems.RAW_RAINBOW_FYSH.get())
-			.add(IcariaItems.RAW_RED_FYSH.get())
-			.add(IcariaItems.RAW_RED_YELLOW_FYSH.get());
+			.add(IcariaItemIds.ARACHNE_STRING);
+
+		this.tag(IcariaItemTags.BRICKS_LOAM)
+			.add(IcariaItemIds.LOAM_BRICK);
+
+		this.tag(IcariaItemTags.BUCKETS_MEDITERRANEAN_WATER)
+			.add(IcariaItemIds.MEDITERRANEAN_WATER_BUCKET);
+
+		this.tag(IcariaItemTags.CROPS_ONION)
+			.add(IcariaBlockItemIds.ONION.item());
+
+		this.tag(IcariaItemTags.CROPS_PHYSALIS)
+			.add(IcariaItemIds.PHYSALIS);
+
+		this.tag(IcariaItemTags.CROPS_SPELT)
+			.add(IcariaItemIds.SPELT);
+
+		this.tag(IcariaItemTags.CROPS_STRAWBERRIES)
+			.add(IcariaItemIds.STRAWBERRIES);
+
+		this.tag(IcariaItemTags.DUSTS_CALCITE)
+			.add(IcariaItemIds.CALCITE_DUST);
+
+		this.tag(IcariaItemTags.DUSTS_HALITE)
+			.add(IcariaItemIds.HALITE_DUST);
+
+		this.tag(IcariaItemTags.FIREPLACE_ITEMS)
+			.add(BlockItemIds.KELP.item())
+			.add(BlockItemIds.POTATO_CROP.item())
+			.add(ItemIds.BEEF)
+			.add(ItemIds.CHICKEN)
+			.add(ItemIds.COD)
+			.add(ItemIds.MUTTON)
+			.add(ItemIds.PORKCHOP)
+			.add(ItemIds.RABBIT)
+			.add(ItemIds.SALMON)
+			.add(IcariaItemIds.RAW_AETERNAE_MEAT)
+			.add(IcariaItemIds.RAW_CAPELLA_MEAT)
+			.add(IcariaItemIds.RAW_CATOBLEPAS_MEAT)
+			.add(IcariaItemIds.RAW_CERVER_MEAT)
+			.add(IcariaItemIds.RAW_CROCOTTA_MEAT)
+			.add(IcariaItemIds.RAW_THOG_MEAT)
+			.add(IcariaItemIds.RAW_BLUE_GRAY_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_FEESH)
+			.add(IcariaItemIds.RAW_BROWN_ORANGE_FEESH)
+			.add(IcariaItemIds.RAW_PINK_RED_FEESH)
+			.add(IcariaItemIds.RAW_PURPLE_FEESH)
+			.add(IcariaItemIds.RAW_RED_FEESH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FICHE)
+			.add(IcariaItemIds.RAW_BROWN_CYAN_FICHE)
+			.add(IcariaItemIds.RAW_GRAY_FICHE)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FICHE)
+			.add(IcariaItemIds.RAW_RED_FICHE)
+			.add(IcariaItemIds.RAW_WHITE_YELLOW_FICHE)
+			.add(IcariaItemIds.RAW_BLUE_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_RED_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BROWN_FISSHH)
+			.add(IcariaItemIds.RAW_GREEN_MAGENTA_FISSHH)
+			.add(IcariaItemIds.RAW_PURPLE_YELLOW_FISSHH)
+			.add(IcariaItemIds.RAW_BLUE_FYSH)
+			.add(IcariaItemIds.RAW_BLUE_PURPLE_FYSH)
+			.add(IcariaItemIds.RAW_GRAY_FYSH)
+			.add(IcariaItemIds.RAW_RAINBOW_FYSH)
+			.add(IcariaItemIds.RAW_RED_FYSH)
+			.add(IcariaItemIds.RAW_RED_YELLOW_FYSH);
+
+		this.tag(IcariaItemTags.GEMS_ANTHRACITE)
+			.add(IcariaItemIds.ANTHRACITE);
+
+		this.tag(IcariaItemTags.GEMS_CALCITE)
+			.add(IcariaItemIds.CALCITE_SHARD);
+
+		this.tag(IcariaItemTags.GEMS_CHERT)
+			.add(IcariaItemIds.CHERT);
+
+		this.tag(IcariaItemTags.GEMS_DOLOMITE)
+			.add(IcariaItemIds.DOLOMITE);
+
+		this.tag(IcariaItemTags.GEMS_HALITE)
+			.add(IcariaItemIds.HALITE_SHARD);
+
+		this.tag(IcariaItemTags.GEMS_JASPER)
+			.add(IcariaItemIds.JASPER_SHARD);
+
+		this.tag(IcariaItemTags.GEMS_LIGNITE)
+			.add(IcariaItemIds.LIGNITE);
+
+		this.tag(IcariaItemTags.GEMS_SLIVER)
+			.add(IcariaItemIds.SLIVER);
+
+		this.tag(IcariaItemTags.GEMS_ZIRCON)
+			.add(IcariaItemIds.ZIRCON_SHARD);
+
+		this.tag(IcariaItemTags.GRINDER_GEARS)
+			.add(IcariaItemIds.YELLOWSTONE_GEAR)
+			.add(IcariaItemIds.LOAM_GEAR)
+			.add(IcariaItemIds.VOIDSHALE_GEAR)
+			.add(IcariaItemIds.VANADIUM_GEAR)
+			.add(IcariaItemIds.DAEDALIAN_GEAR);
 
-		this.tag(IcariaItemTagsProvider.GEMS_CHERT)
-			.add(IcariaItems.CHERT.get());
+		this.tag(IcariaItemTags.INGOTS_BLURIDIUM)
+			.add(IcariaItemIds.BLURIDIUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_CALCITE)
-			.add(IcariaItems.CALCITE_SHARD.get());
+		this.tag(IcariaItemTags.INGOTS_CHALKOS)
+			.add(IcariaItemIds.CHALKOS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_HALITE)
-			.add(IcariaItems.HALITE_SHARD.get());
+		this.tag(IcariaItemTags.INGOTS_KASSITEROS)
+			.add(IcariaItemIds.KASSITEROS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_JASPER)
-			.add(IcariaItems.JASPER_SHARD.get());
+		this.tag(IcariaItemTags.INGOTS_MOLYBDENUM)
+			.add(IcariaItemIds.MOLYBDENUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_ZIRCON)
-			.add(IcariaItems.ZIRCON_SHARD.get());
+		this.tag(IcariaItemTags.INGOTS_MOLYBDENUMSTEEL)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_LIGNITE)
-			.add(IcariaItems.LIGNITE.get());
+		this.tag(IcariaItemTags.INGOTS_ORICHALCUM)
+			.add(IcariaItemIds.ORICHALCUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_DOLOMITE)
-			.add(IcariaItems.DOLOMITE.get());
+		this.tag(IcariaItemTags.INGOTS_SIDEROS)
+			.add(IcariaItemIds.SIDEROS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_SLIVER)
-			.add(IcariaItems.SLIVER.get());
+		this.tag(IcariaItemTags.INGOTS_VANADIUM)
+			.add(IcariaItemIds.VANADIUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GEMS_ANTHRACITE)
-			.add(IcariaItems.ANTHRACITE.get());
+		this.tag(IcariaItemTags.INGOTS_VANADIUMSTEEL)
+			.add(IcariaItemIds.VANADIUMSTEEL_INGOT);
 
-		this.tag(IcariaItemTagsProvider.GRINDER_GEARS)
-			.add(IcariaItems.YELLOWSTONE_GEAR.get())
-			.add(IcariaItems.LOAM_GEAR.get())
-			.add(IcariaItems.VOIDSHALE_GEAR.get())
-			.add(IcariaItems.VANADIUM_GEAR.get())
-			.add(IcariaItems.DAEDALIAN_GEAR.get());
+		this.tag(IcariaItemTags.KETTLE_ITEMS)
+			.add(IcariaBlockItemIds.BOLBOS.item())
+			.add(IcariaBlockItemIds.DATHULLA.item())
+			.add(IcariaBlockItemIds.MONDANOS.item())
+			.add(IcariaBlockItemIds.MOTH_AGARIC.item())
+			.add(IcariaBlockItemIds.NAMDRAKE.item())
+			.add(IcariaBlockItemIds.PSILOCYBOS.item())
+			.add(IcariaBlockItemIds.ROWAN.item())
+			.add(IcariaBlockItemIds.WILTED_ELM.item())
+			.add(IcariaItemIds.BONE_REMAINS)
+			.add(IcariaItemIds.ARACHNE_VENOM_VIAL)
+			.add(IcariaItemIds.HYLIASTRUM_VIAL);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_CHALKOS)
-			.add(IcariaItems.CHALKOS_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_BLURIDIUM)
+			.add(IcariaItemIds.BLURIDIUM_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_KASSITEROS)
-			.add(IcariaItems.KASSITEROS_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_CHALKOS)
+			.add(IcariaItemIds.CHALKOS_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_ORICHALCUM)
-			.add(IcariaItems.ORICHALCUM_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_KASSITEROS)
+			.add(IcariaItemIds.KASSITEROS_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_VANADIUM)
-			.add(IcariaItems.VANADIUM_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_ORICHALCUM)
+			.add(IcariaItemIds.ORICHALCUM_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_VANADIUMSTEEL)
-			.add(IcariaItems.VANADIUMSTEEL_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_MOLYBDENUM)
+			.add(IcariaItemIds.MOLYBDENUM_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_SIDEROS)
-			.add(IcariaItems.SIDEROS_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_MOLYBDENUMSTEEL)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_MOLYBDENUM)
-			.add(IcariaItems.MOLYBDENUM_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_SIDEROS)
+			.add(IcariaItemIds.SIDEROS_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_MOLYBDENUMSTEEL)
-			.add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_VANADIUM)
+			.add(IcariaItemIds.VANADIUM_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.INGOTS_BLURIDIUM)
-			.add(IcariaItems.BLURIDIUM_INGOT.get());
+		this.tag(IcariaItemTags.NUGGETS_VANADIUMSTEEL)
+			.add(IcariaItemIds.VANADIUMSTEEL_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.KETTLE_ITEMS)
-			.add(IcariaItems.BOLBOS.get())
-			.add(IcariaItems.DATHULLA.get())
-			.add(IcariaItems.MONDANOS.get())
-			.add(IcariaItems.MOTH_AGARIC.get())
-			.add(IcariaItems.NAMDRAKE.get())
-			.add(IcariaItems.PSILOCYBOS.get())
-			.add(IcariaItems.ROWAN.get())
-			.add(IcariaItems.WILTED_ELM.get())
-			.add(IcariaItems.BONE_REMAINS.get())
-			.add(IcariaItems.ARACHNE_VENOM_VIAL.get())
-			.add(IcariaItems.HYLIASTRUM_VIAL.get());
+		this.tag(IcariaItemTags.RAW_MATERIALS_CHALKOS)
+			.add(IcariaItemIds.RAW_CHALKOS);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_CHALKOS)
-			.add(IcariaItems.CHALKOS_NUGGET.get());
+		this.tag(IcariaItemTags.RAW_MATERIALS_KASSITEROS)
+			.add(IcariaItemIds.RAW_KASSITEROS);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_KASSITEROS)
-			.add(IcariaItems.KASSITEROS_NUGGET.get());
+		this.tag(IcariaItemTags.RAW_MATERIALS_MOLYBDENUM)
+			.add(IcariaItemIds.RAW_MOLYBDENUM);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_ORICHALCUM)
-			.add(IcariaItems.ORICHALCUM_NUGGET.get());
+		this.tag(IcariaItemTags.RAW_MATERIALS_SIDEROS)
+			.add(IcariaItemIds.RAW_SIDEROS);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_VANADIUM)
-			.add(IcariaItems.VANADIUM_NUGGET.get());
+		this.tag(IcariaItemTags.RAW_MATERIALS_VANADIUM)
+			.add(IcariaItemIds.RAW_VANADIUM);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_VANADIUMSTEEL)
-			.add(IcariaItems.VANADIUMSTEEL_NUGGET.get());
+		this.tag(IcariaItemTags.REPAIRS_AETERNAE_HIDE_ARMOR)
+			.add(IcariaItemIds.AETERNAE_HIDE);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_SIDEROS)
-			.add(IcariaItems.SIDEROS_NUGGET.get());
+		this.tag(IcariaItemTags.REPAIRS_CHALKOS_ARMOR)
+			.add(IcariaItemIds.CHALKOS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_MOLYBDENUM)
-			.add(IcariaItems.MOLYBDENUM_NUGGET.get());
+		this.tag(IcariaItemTags.REPAIRS_KASSITEROS_ARMOR)
+			.add(IcariaItemIds.KASSITEROS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_MOLYBDENUMSTEEL)
-			.add(IcariaItems.MOLYBDENUMSTEEL_NUGGET.get());
+		this.tag(IcariaItemTags.REPAIRS_LAUREL_WREATH);
 
-		this.tag(IcariaItemTagsProvider.NUGGETS_BLURIDIUM)
-			.add(IcariaItems.BLURIDIUM_NUGGET.get());
+		this.tag(IcariaItemTags.REPAIRS_LOAM_GEAR)
+			.add(IcariaItemIds.LOAM_BRICK);
 
-		this.tag(IcariaItemTagsProvider.RAW_BLOCKS_CHALKOS)
-			.add(IcariaItems.RAW_CHALKOS_BLOCK.get());
+		this.tag(IcariaItemTags.REPAIRS_ORICHALCUM_ARMOR)
+			.add(IcariaItemIds.ORICHALCUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.RAW_BLOCKS_KASSITEROS)
-			.add(IcariaItems.RAW_KASSITEROS_BLOCK.get());
+		this.tag(IcariaItemTags.REPAIRS_TOTEM)
+			.add(IcariaItemIds.BLURIDIUM_NUGGET);
 
-		this.tag(IcariaItemTagsProvider.RAW_BLOCKS_VANADIUM)
-			.add(IcariaItems.RAW_VANADIUM_BLOCK.get());
+		this.tag(IcariaItemTags.REPAIRS_VANADIUM_GEAR)
+			.add(IcariaItemIds.VANADIUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.RAW_BLOCKS_SIDEROS)
-			.add(IcariaItems.RAW_SIDEROS_BLOCK.get());
+		this.tag(IcariaItemTags.REPAIRS_VANADIUMSTEEL_ARMOR)
+			.add(IcariaItemIds.VANADIUMSTEEL_INGOT);
 
-		this.tag(IcariaItemTagsProvider.RAW_BLOCKS_MOLYBDENUM)
-			.add(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
+		this.tag(IcariaItemTags.REPAIRS_VINE_SPROUT);
 
-		this.tag(IcariaItemTagsProvider.RAW_MATERIALS_CHALKOS)
-			.add(IcariaItems.RAW_CHALKOS.get());
+		this.tag(IcariaItemTags.REPAIRS_VOIDSHALE_GEAR)
+			.add(IcariaBlockItemIds.VOIDSHALE.item());
 
-		this.tag(IcariaItemTagsProvider.RAW_MATERIALS_KASSITEROS)
-			.add(IcariaItems.RAW_KASSITEROS.get());
+		this.tag(IcariaItemTags.REPAIRS_YELLOWSTONE_GEAR)
+			.add(IcariaBlockItemIds.YELLOWSTONE.item());
 
-		this.tag(IcariaItemTagsProvider.RAW_MATERIALS_VANADIUM)
-			.add(IcariaItems.RAW_VANADIUM.get());
+		this.tag(IcariaItemTags.SEEDS_ONION)
+			.add(IcariaBlockItemIds.ONION.item());
 
-		this.tag(IcariaItemTagsProvider.RAW_MATERIALS_SIDEROS)
-			.add(IcariaItems.RAW_SIDEROS.get());
+		this.tag(IcariaItemTags.SEEDS_PHYSALIS)
+			.add(IcariaBlockItemIds.PHYSALIS_SEEDS.item());
 
-		this.tag(IcariaItemTagsProvider.RAW_MATERIALS_MOLYBDENUM)
-			.add(IcariaItems.RAW_MOLYBDENUM.get());
+		this.tag(IcariaItemTags.SEEDS_SPELT)
+			.add(IcariaBlockItemIds.SPELT_SEEDS.item());
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_AETERNAE_HIDE_ARMOR)
-			.add(IcariaItems.AETERNAE_HIDE.get());
+		this.tag(IcariaItemTags.SEEDS_STRAWBERRY)
+			.add(IcariaBlockItemIds.STRAWBERRY_SEEDS.item());
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_CHALKOS_ARMOR)
-			.add(IcariaItems.CHALKOS_INGOT.get());
+		this.tag(IcariaItemTags.TOOL_MATERIALS_CHALKOS)
+			.add(IcariaItemIds.CHALKOS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_KASSITEROS_ARMOR)
-			.add(IcariaItems.KASSITEROS_INGOT.get());
+		this.tag(IcariaItemTags.TOOL_MATERIALS_CHERT)
+			.add(IcariaItemIds.CHERT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_ORICHALCUM_ARMOR)
-			.add(IcariaItems.ORICHALCUM_INGOT.get());
+		this.tag(IcariaItemTags.TOOL_MATERIALS_KASSITEROS)
+			.add(IcariaItemIds.KASSITEROS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_VANADIUMSTEEL_ARMOR)
-			.add(IcariaItems.VANADIUMSTEEL_INGOT.get());
+		this.tag(IcariaItemTags.TOOL_MATERIALS_MOLYBDENUMSTEEL)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_LAUREL_WREATH);
+		this.tag(IcariaItemTags.TOOL_MATERIALS_ORICHALCUM)
+			.add(IcariaItemIds.ORICHALCUM_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_TOTEM)
-			.add(IcariaItems.BLURIDIUM_NUGGET.get());
+		this.tag(IcariaItemTags.TOOL_MATERIALS_SIDEROS)
+			.add(IcariaItemIds.SIDEROS_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_VINE_SPROUT);
+		this.tag(IcariaItemTags.TOOL_MATERIALS_VANADIUMSTEEL)
+			.add(IcariaItemIds.VANADIUMSTEEL_INGOT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_YELLOWSTONE_GEAR)
-			.add(IcariaItems.YELLOWSTONE.get());
+		this.tag(IcariaItemTags.TOOLS_BIDENT)
+			.add(IcariaItemIds.CHERT_BIDENT)
+			.add(IcariaItemIds.CHALKOS_BIDENT)
+			.add(IcariaItemIds.KASSITEROS_BIDENT)
+			.add(IcariaItemIds.ORICHALCUM_BIDENT)
+			.add(IcariaItemIds.VANADIUMSTEEL_BIDENT)
+			.add(IcariaItemIds.SIDEROS_BIDENT)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_BIDENT);
 
-		this.tag(IcariaItemTagsProvider.REPAIRS_LOAM_GEAR)
-			.add(IcariaItems.LOAM_BRICK.get());
-
-		this.tag(IcariaItemTagsProvider.REPAIRS_VOIDSHALE_GEAR)
-			.add(IcariaItems.VOIDSHALE.get());
-
-		this.tag(IcariaItemTagsProvider.REPAIRS_VANADIUM_GEAR)
-			.add(IcariaItems.VANADIUM_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.SEEDS_SPELT)
-			.add(IcariaItems.SPELT_SEEDS.get());
-
-		this.tag(IcariaItemTagsProvider.SEEDS_STRAWBERRY)
-			.add(IcariaItems.STRAWBERRY_SEEDS.get());
-
-		this.tag(IcariaItemTagsProvider.SEEDS_PHYSALIS)
-			.add(IcariaItems.PHYSALIS_SEEDS.get());
-
-		this.tag(IcariaItemTagsProvider.SEEDS_ONION)
-			.add(IcariaItems.ONION.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_VASES)
-			.add(IcariaItems.UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.BLACK_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.BROWN_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.RED_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.ORANGE_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.YELLOW_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.LIME_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.GREEN_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.CYAN_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.LIGHT_BLUE_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.BLUE_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.PURPLE_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.MAGENTA_UNFIRED_STORAGE_VASE.get())
-			.add(IcariaItems.PINK_UNFIRED_STORAGE_VASE.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_CHERT)
-			.add(IcariaItems.CHERT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_CHALKOS)
-			.add(IcariaItems.CHALKOS_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_KASSITEROS)
-			.add(IcariaItems.KASSITEROS_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_ORICHALCUM)
-			.add(IcariaItems.ORICHALCUM_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_VANADIUMSTEEL)
-			.add(IcariaItems.VANADIUMSTEEL_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_SIDEROS)
-			.add(IcariaItems.SIDEROS_INGOT.get());
-
-		this.tag(IcariaItemTagsProvider.TOOL_MATERIALS_MOLYBDENUMSTEEL)
-			.add(IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
-
-		// ITEMBLOCKS
-
-		this.tag(IcariaItemTagsProvider.BARS_VANADIUMSTEEL)
-			.add(IcariaItems.VANADIUMSTEEL_BARS.get())
-			.add(IcariaItems.HORIZONTAL_VANADIUMSTEEL_BARS.get());
-
-		this.tag(ItemTags.DAMPENS_VIBRATIONS)
-			.add(IcariaItems.ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.RED_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIME_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.PINK_ARACHNE_STRING_BLOCK.get())
-			.add(IcariaItems.ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.WHITE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GRAY_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLACK_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BROWN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.RED_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIME_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.GREEN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.CYAN_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.BLUE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get())
-			.add(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
-
-		this.tag(ItemTags.DIRT)
-			.add(IcariaItems.MARL.get())
-			.add(IcariaItems.COARSE_MARL.get())
-			.add(IcariaItems.DRY_LAKE_BED.get())
-			.add(IcariaItems.LOAM.get());
-
-		this.tag(ItemTags.FLOWERS)
-			.add(IcariaItems.BLUE_GROUND_FLOWERS.get())
-			.add(IcariaItems.CYAN_GROUND_FLOWERS.get())
-			.add(IcariaItems.PINK_GROUND_FLOWERS.get())
-			.add(IcariaItems.PURPLE_GROUND_FLOWERS.get())
-			.add(IcariaItems.RED_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_GROUND_FLOWERS.get())
-			.add(IcariaItems.WHITE_BROMELIA.get())
-			.add(IcariaItems.ORANGE_BROMELIA.get())
-			.add(IcariaItems.PINK_BROMELIA.get())
-			.add(IcariaItems.PURPLE_BROMELIA.get());
-
-		this.tag(ItemTags.GRASS_BLOCKS)
-			.add(IcariaItems.GRASSY_MARL.get());
-
-		this.tag(ItemTags.LEAVES)
-			.add(IcariaItems.CYPRESS_LEAVES.get())
-			.add(IcariaItems.DROUGHTROOT_LEAVES.get())
-			.add(IcariaItems.FIR_LEAVES.get())
-			.add(IcariaItems.LAUREL_LEAVES.get())
-			.add(IcariaItems.OLIVE_LEAVES.get())
-			.add(IcariaItems.PLANE_LEAVES.get())
-			.add(IcariaItems.POPULUS_LEAVES.get());
-
-		this.tag(ItemTags.LOGS_THAT_BURN)
-			.addTag(IcariaItemTagsProvider.LOGS_CYPRESS)
-			.addTag(IcariaItemTagsProvider.LOGS_DROUGHTROOT)
-			.addTag(IcariaItemTagsProvider.LOGS_FIR)
-			.addTag(IcariaItemTagsProvider.LOGS_LAUREL)
-			.addTag(IcariaItemTagsProvider.LOGS_OLIVE)
-			.addTag(IcariaItemTagsProvider.LOGS_PLANE)
-			.addTag(IcariaItemTagsProvider.LOGS_POPULUS);
-
-		this.tag(ItemTags.PLANKS)
-			.add(IcariaItems.CYPRESS_PLANKS.get())
-			.add(IcariaItems.DROUGHTROOT_PLANKS.get())
-			.add(IcariaItems.FIR_PLANKS.get())
-			.add(IcariaItems.LAUREL_PLANKS.get())
-			.add(IcariaItems.OLIVE_PLANKS.get())
-			.add(IcariaItems.PLANE_PLANKS.get())
-			.add(IcariaItems.POPULUS_PLANKS.get());
-
-		this.tag(ItemTags.SAND)
-			.add(IcariaItems.LOAM.get())
-			.add(IcariaItems.GRAINEL.get())
-			.add(IcariaItems.SUSPICIOUS_GRAINEL.get())
-			.add(IcariaItems.SILKSAND.get())
-			.add(IcariaItems.SUSPICIOUS_SILKSAND.get());
-
-		this.tag(ItemTags.SAPLINGS)
-			.add(IcariaItems.CYPRESS_SAPLING.get())
-			.add(IcariaItems.DROUGHTROOT_SAPLING.get())
-			.add(IcariaItems.FIR_SAPLING.get())
-			.add(IcariaItems.LAUREL_SAPLING.get())
-			.add(IcariaItems.OLIVE_SAPLING.get())
-			.add(IcariaItems.PLANE_SAPLING.get())
-			.add(IcariaItems.POPULUS_SAPLING.get());
-
-		this.tag(ItemTags.SLABS)
-			.add(IcariaItems.MARL_ADOBE_SLAB.get())
-			.add(IcariaItems.LOAM_BRICK_SLAB.get())
-			.add(IcariaItems.DOLOMITE_ADOBE_SLAB.get())
-			.add(IcariaItems.SMOOTH_DOLOMITE_SLAB.get())
-			.add(IcariaItems.GRAINITE_ADOBE_SLAB.get())
-			.add(IcariaItems.GRAINITE_SLAB.get())
-			.add(IcariaItems.GRAINITE_BRICK_SLAB.get())
-			.add(IcariaItems.YELLOWSTONE_ADOBE_SLAB.get())
-			.add(IcariaItems.COBBLED_YELLOWSTONE_SLAB.get())
-			.add(IcariaItems.YELLOWSTONE_SLAB.get())
-			.add(IcariaItems.YELLOWSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.SILKSTONE_ADOBE_SLAB.get())
-			.add(IcariaItems.COBBLED_SILKSTONE_SLAB.get())
-			.add(IcariaItems.SILKSTONE_SLAB.get())
-			.add(IcariaItems.SILKSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.SUNSTONE_ADOBE_SLAB.get())
-			.add(IcariaItems.COBBLED_SUNSTONE_SLAB.get())
-			.add(IcariaItems.SUNSTONE_SLAB.get())
-			.add(IcariaItems.SUNSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.VOIDSHALE_ADOBE_SLAB.get())
-			.add(IcariaItems.COBBLED_VOIDSHALE_SLAB.get())
-			.add(IcariaItems.VOIDSHALE_SLAB.get())
-			.add(IcariaItems.VOIDSHALE_BRICK_SLAB.get())
-			.add(IcariaItems.BAETYL_ADOBE_SLAB.get())
-			.add(IcariaItems.COBBLED_BAETYL_SLAB.get())
-			.add(IcariaItems.BAETYL_SLAB.get())
-			.add(IcariaItems.BAETYL_BRICK_SLAB.get())
-			.add(IcariaItems.RELICSTONE_SLAB.get())
-			.add(IcariaItems.SMOOTH_RELICSTONE_SLAB.get())
-			.add(IcariaItems.RELICSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_BRICK_SLAB.get())
-			.add(IcariaItems.RELICSTONE_TILE_SLAB.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_TILE_SLAB.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_TILE_SLAB.get())
-			.add(IcariaItems.PLATOSHALE_SLAB.get())
-			.add(IcariaItems.PLATOSHALE_BRICK_SLAB.get())
-			.add(IcariaItems.CHIMNEY_SLAB.get());
-
-		this.tag(ItemTags.SMALL_FLOWERS)
-			.add(IcariaItems.BLINDWEED.get())
-			.add(IcariaItems.CHAMEOMILE.get())
-			.add(IcariaItems.CHARMONDER.get())
-			.add(IcariaItems.CLOVER.get())
-			.add(IcariaItems.FIREHILT.get())
-			.add(IcariaItems.BLUE_HYDRACINTH.get())
-			.add(IcariaItems.PURPLE_HYDRACINTH.get())
-			.add(IcariaItems.LIONFANGS.get())
-			.add(IcariaItems.SPEARDROPS.get())
-			.add(IcariaItems.PURPLE_STAGHORN.get())
-			.add(IcariaItems.YELLOW_STAGHORN.get())
-			.add(IcariaItems.BLUE_STORMCOTTON.get())
-			.add(IcariaItems.PINK_STORMCOTTON.get())
-			.add(IcariaItems.PURPLE_STORMCOTTON.get())
-			.add(IcariaItems.SUNKETTLE.get())
-			.add(IcariaItems.SUNSPONGE.get())
-			.add(IcariaItems.VOIDLILY.get());
-
-		this.tag(ItemTags.STAIRS)
-			.add(IcariaItems.MARL_ADOBE_STAIRS.get())
-			.add(IcariaItems.LOAM_BRICK_STAIRS.get())
-			.add(IcariaItems.DOLOMITE_ADOBE_STAIRS.get())
-			.add(IcariaItems.SMOOTH_DOLOMITE_STAIRS.get())
-			.add(IcariaItems.GRAINITE_ADOBE_STAIRS.get())
-			.add(IcariaItems.GRAINITE_STAIRS.get())
-			.add(IcariaItems.GRAINITE_BRICK_STAIRS.get())
-			.add(IcariaItems.YELLOWSTONE_ADOBE_STAIRS.get())
-			.add(IcariaItems.COBBLED_YELLOWSTONE_STAIRS.get())
-			.add(IcariaItems.YELLOWSTONE_STAIRS.get())
-			.add(IcariaItems.YELLOWSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.SILKSTONE_ADOBE_STAIRS.get())
-			.add(IcariaItems.COBBLED_SILKSTONE_STAIRS.get())
-			.add(IcariaItems.SILKSTONE_STAIRS.get())
-			.add(IcariaItems.SILKSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.SUNSTONE_ADOBE_STAIRS.get())
-			.add(IcariaItems.COBBLED_SUNSTONE_STAIRS.get())
-			.add(IcariaItems.SUNSTONE_STAIRS.get())
-			.add(IcariaItems.SUNSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.VOIDSHALE_ADOBE_STAIRS.get())
-			.add(IcariaItems.COBBLED_VOIDSHALE_STAIRS.get())
-			.add(IcariaItems.VOIDSHALE_STAIRS.get())
-			.add(IcariaItems.VOIDSHALE_BRICK_STAIRS.get())
-			.add(IcariaItems.BAETYL_ADOBE_STAIRS.get())
-			.add(IcariaItems.COBBLED_BAETYL_STAIRS.get())
-			.add(IcariaItems.BAETYL_STAIRS.get())
-			.add(IcariaItems.BAETYL_BRICK_STAIRS.get())
-			.add(IcariaItems.RELICSTONE_STAIRS.get())
-			.add(IcariaItems.SMOOTH_RELICSTONE_STAIRS.get())
-			.add(IcariaItems.RELICSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_BRICK_STAIRS.get())
-			.add(IcariaItems.RELICSTONE_TILE_STAIRS.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_TILE_STAIRS.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_TILE_STAIRS.get())
-			.add(IcariaItems.PLATOSHALE_STAIRS.get())
-			.add(IcariaItems.PLATOSHALE_BRICK_STAIRS.get());
-
-		this.tag(ItemTags.WALLS)
-			.add(IcariaItems.MARL_ADOBE_WALL.get())
-			.add(IcariaItems.LOAM_BRICK_WALL.get())
-			.add(IcariaItems.DOLOMITE_ADOBE_WALL.get())
-			.add(IcariaItems.SMOOTH_DOLOMITE_WALL.get())
-			.add(IcariaItems.GRAINITE_ADOBE_WALL.get())
-			.add(IcariaItems.GRAINITE_WALL.get())
-			.add(IcariaItems.GRAINITE_BRICK_WALL.get())
-			.add(IcariaItems.YELLOWSTONE_ADOBE_WALL.get())
-			.add(IcariaItems.COBBLED_YELLOWSTONE_WALL.get())
-			.add(IcariaItems.YELLOWSTONE_WALL.get())
-			.add(IcariaItems.YELLOWSTONE_BRICK_WALL.get())
-			.add(IcariaItems.SILKSTONE_ADOBE_WALL.get())
-			.add(IcariaItems.COBBLED_SILKSTONE_WALL.get())
-			.add(IcariaItems.SILKSTONE_WALL.get())
-			.add(IcariaItems.SILKSTONE_BRICK_WALL.get())
-			.add(IcariaItems.SUNSTONE_ADOBE_WALL.get())
-			.add(IcariaItems.COBBLED_SUNSTONE_WALL.get())
-			.add(IcariaItems.SUNSTONE_WALL.get())
-			.add(IcariaItems.SUNSTONE_BRICK_WALL.get())
-			.add(IcariaItems.VOIDSHALE_ADOBE_WALL.get())
-			.add(IcariaItems.COBBLED_VOIDSHALE_WALL.get())
-			.add(IcariaItems.VOIDSHALE_WALL.get())
-			.add(IcariaItems.VOIDSHALE_BRICK_WALL.get())
-			.add(IcariaItems.BAETYL_ADOBE_WALL.get())
-			.add(IcariaItems.COBBLED_BAETYL_WALL.get())
-			.add(IcariaItems.BAETYL_WALL.get())
-			.add(IcariaItems.BAETYL_BRICK_WALL.get())
-			.add(IcariaItems.RELICSTONE_WALL.get())
-			.add(IcariaItems.SMOOTH_RELICSTONE_WALL.get())
-			.add(IcariaItems.RELICSTONE_BRICK_WALL.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_BRICK_WALL.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_BRICK_WALL.get())
-			.add(IcariaItems.RELICSTONE_TILE_WALL.get())
-			.add(IcariaItems.CRACKED_RELICSTONE_TILE_WALL.get())
-			.add(IcariaItems.MOSSY_RELICSTONE_TILE_WALL.get())
-			.add(IcariaItems.PLATOSHALE_WALL.get())
-			.add(IcariaItems.PLATOSHALE_BRICK_WALL.get())
-			.add(IcariaItems.QUARTZ_WALL.get());
-
-		this.tag(ItemTags.WOODEN_BUTTONS)
-			.add(IcariaItems.CYPRESS_BUTTON.get())
-			.add(IcariaItems.DROUGHTROOT_BUTTON.get())
-			.add(IcariaItems.FIR_BUTTON.get())
-			.add(IcariaItems.LAUREL_BUTTON.get())
-			.add(IcariaItems.OLIVE_BUTTON.get())
-			.add(IcariaItems.PLANE_BUTTON.get())
-			.add(IcariaItems.POPULUS_BUTTON.get());
-
-		this.tag(ItemTags.WOODEN_DOORS)
-			.add(IcariaItems.CYPRESS_DOOR.get())
-			.add(IcariaItems.DROUGHTROOT_DOOR.get())
-			.add(IcariaItems.FIR_DOOR.get())
-			.add(IcariaItems.LAUREL_DOOR.get())
-			.add(IcariaItems.OLIVE_DOOR.get())
-			.add(IcariaItems.PLANE_DOOR.get())
-			.add(IcariaItems.POPULUS_DOOR.get());
-
-		this.tag(ItemTags.WOODEN_FENCES)
-			.add(IcariaItems.CYPRESS_FENCE.get())
-			.add(IcariaItems.DROUGHTROOT_FENCE.get())
-			.add(IcariaItems.FIR_FENCE.get())
-			.add(IcariaItems.LAUREL_FENCE.get())
-			.add(IcariaItems.OLIVE_FENCE.get())
-			.add(IcariaItems.PLANE_FENCE.get())
-			.add(IcariaItems.POPULUS_FENCE.get());
-
-		this.tag(ItemTags.FENCE_GATES)
-			.add(IcariaItems.CYPRESS_FENCE_GATE.get())
-			.add(IcariaItems.DROUGHTROOT_FENCE_GATE.get())
-			.add(IcariaItems.FIR_FENCE_GATE.get())
-			.add(IcariaItems.LAUREL_FENCE_GATE.get())
-			.add(IcariaItems.OLIVE_FENCE_GATE.get())
-			.add(IcariaItems.PLANE_FENCE_GATE.get())
-			.add(IcariaItems.POPULUS_FENCE_GATE.get());
-
-		this.tag(ItemTags.WOODEN_PRESSURE_PLATES)
-			.add(IcariaItems.CYPRESS_PRESSURE_PLATE.get())
-			.add(IcariaItems.DROUGHTROOT_PRESSURE_PLATE.get())
-			.add(IcariaItems.FIR_PRESSURE_PLATE.get())
-			.add(IcariaItems.LAUREL_PRESSURE_PLATE.get())
-			.add(IcariaItems.OLIVE_PRESSURE_PLATE.get())
-			.add(IcariaItems.PLANE_PRESSURE_PLATE.get())
-			.add(IcariaItems.POPULUS_PRESSURE_PLATE.get());
-
-		this.tag(ItemTags.WOODEN_SLABS)
-			.add(IcariaItems.CYPRESS_SLAB.get())
-			.add(IcariaItems.DROUGHTROOT_SLAB.get())
-			.add(IcariaItems.FIR_SLAB.get())
-			.add(IcariaItems.LAUREL_SLAB.get())
-			.add(IcariaItems.OLIVE_SLAB.get())
-			.add(IcariaItems.PLANE_SLAB.get())
-			.add(IcariaItems.POPULUS_SLAB.get());
-
-		this.tag(ItemTags.WOODEN_STAIRS)
-			.add(IcariaItems.CYPRESS_STAIRS.get())
-			.add(IcariaItems.DROUGHTROOT_STAIRS.get())
-			.add(IcariaItems.FIR_STAIRS.get())
-			.add(IcariaItems.LAUREL_STAIRS.get())
-			.add(IcariaItems.OLIVE_STAIRS.get())
-			.add(IcariaItems.PLANE_STAIRS.get())
-			.add(IcariaItems.POPULUS_STAIRS.get());
-
-		this.tag(ItemTags.WOODEN_TRAPDOORS)
-			.add(IcariaItems.CYPRESS_TRAPDOOR.get())
-			.add(IcariaItems.DROUGHTROOT_TRAPDOOR.get())
-			.add(IcariaItems.FIR_TRAPDOOR.get())
-			.add(IcariaItems.LAUREL_TRAPDOOR.get())
-			.add(IcariaItems.OLIVE_TRAPDOOR.get())
-			.add(IcariaItems.PLANE_TRAPDOOR.get())
-			.add(IcariaItems.POPULUS_TRAPDOOR.get());
+		this.tag(IcariaItemTags.TOOLS_DAGGER)
+			.add(IcariaItemIds.CHERT_DAGGER)
+			.add(IcariaItemIds.CHALKOS_DAGGER)
+			.add(IcariaItemIds.KASSITEROS_DAGGER)
+			.add(IcariaItemIds.ORICHALCUM_DAGGER)
+			.add(IcariaItemIds.VANADIUMSTEEL_DAGGER)
+			.add(IcariaItemIds.SIDEROS_DAGGER)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_DAGGER);
+
+		this.tag(IcariaItemTags.TOOLS_SCYTHE)
+			.add(IcariaItemIds.CHERT_SCYTHE)
+			.add(IcariaItemIds.CHALKOS_SCYTHE)
+			.add(IcariaItemIds.KASSITEROS_SCYTHE)
+			.add(IcariaItemIds.ORICHALCUM_SCYTHE)
+			.add(IcariaItemIds.VANADIUMSTEEL_SCYTHE)
+			.add(IcariaItemIds.SIDEROS_SCYTHE)
+			.add(IcariaItemIds.MOLYBDENUMSTEEL_SCYTHE);
+
+		this.tag(IcariaItemTags.UNFIRED_STORAGE_VASES)
+			.add(IcariaItemIds.UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.WHITE_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.LIGHT_GRAY_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.GRAY_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.BLACK_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.BROWN_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.RED_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.ORANGE_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.YELLOW_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.LIME_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.GREEN_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.CYAN_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.LIGHT_BLUE_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.BLUE_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.PURPLE_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.MAGENTA_UNFIRED_STORAGE_VASE)
+			.add(IcariaItemIds.PINK_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.BARS)
+			.addTag(IcariaBlockItemTags.BARS_VANADIUMSTEEL.item());
 
 		this.tag(Tags.Items.BUDDING_BLOCKS)
-			.add(IcariaItems.BUDDING_CALCITE.get())
-			.add(IcariaItems.BUDDING_HALITE.get())
-			.add(IcariaItems.BUDDING_JASPER.get())
-			.add(IcariaItems.BUDDING_ZIRCON.get());
+			.add(IcariaBlockItemIds.BUDDING_CALCITE.item())
+			.add(IcariaBlockItemIds.BUDDING_HALITE.item())
+			.add(IcariaBlockItemIds.BUDDING_JASPER.item())
+			.add(IcariaBlockItemIds.BUDDING_ZIRCON.item());
 
 		this.tag(Tags.Items.CHAINS)
-			.add(IcariaItems.VANADIUMSTEEL_CHAIN.get());
+			.add(IcariaBlockItemIds.VANADIUMSTEEL_CHAIN.item());
 
 		this.tag(Tags.Items.CHESTS_TRAPPED)
-			.add(IcariaItems.TRAPPED_CHEST.get());
+			.add(IcariaBlockItemIds.TRAPPED_CHEST.item());
 
 		this.tag(Tags.Items.CHESTS_WOODEN)
-			.add(IcariaItems.CHEST.get())
-			.add(IcariaItems.TRAPPED_CHEST.get());
+			.add(IcariaBlockItemIds.CHEST.item())
+			.add(IcariaBlockItemIds.TRAPPED_CHEST.item());
+
+		this.tag(Tags.Items.CLUSTERS)
+			.add(IcariaBlockItemIds.CALCITE_CLUSTER.item())
+			.add(IcariaBlockItemIds.HALITE_CLUSTER.item())
+			.add(IcariaBlockItemIds.JASPER_CLUSTER.item())
+			.add(IcariaBlockItemIds.ZIRCON_CLUSTER.item());
+
+		this.tag(Tags.Items.COBBLESTONES)
+			.addTag(IcariaBlockItemTags.COBBLESTONES_BAETYL.item())
+			.addTag(IcariaBlockItemTags.COBBLESTONES_SILKSTONE.item())
+			.addTag(IcariaBlockItemTags.COBBLESTONES_SUNSTONE.item())
+			.addTag(IcariaBlockItemTags.COBBLESTONES_VOIDSHALE.item())
+			.addTag(IcariaBlockItemTags.COBBLESTONES_YELLOWSTONE.item());
+
+		this.tag(Tags.Items.DYED_BLACK)
+			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BLACK_STORAGE_VASE.item())
+			.add(IcariaItemIds.BLACK_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_BLUE)
+			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BLUE_STORAGE_VASE.item())
+			.add(IcariaItemIds.BLUE_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_BROWN)
+			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BROWN_STORAGE_VASE.item())
+			.add(IcariaItemIds.BROWN_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_CYAN)
+			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.CYAN_STORAGE_VASE.item())
+			.add(IcariaItemIds.CYAN_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_GRAY)
+			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.GRAY_STORAGE_VASE.item())
+			.add(IcariaItemIds.GRAY_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_GREEN)
+			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.GREEN_STORAGE_VASE.item())
+			.add(IcariaItemIds.GREEN_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_LIGHT_BLUE)
+			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIGHT_BLUE_STORAGE_VASE.item())
+			.add(IcariaItemIds.LIGHT_BLUE_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_LIGHT_GRAY)
+			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIGHT_GRAY_STORAGE_VASE.item())
+			.add(IcariaItemIds.LIGHT_GRAY_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_LIME)
+			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIME_STORAGE_VASE.item())
+			.add(IcariaItemIds.LIME_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_MAGENTA)
+			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.MAGENTA_STORAGE_VASE.item())
+			.add(IcariaItemIds.MAGENTA_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_ORANGE)
+			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.ORANGE_STORAGE_VASE.item())
+			.add(IcariaItemIds.ORANGE_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_PINK)
+			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.PINK_STORAGE_VASE.item())
+			.add(IcariaItemIds.PINK_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_PURPLE)
+			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.PURPLE_STORAGE_VASE.item())
+			.add(IcariaItemIds.PURPLE_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_RED)
+			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.RED_STORAGE_VASE.item())
+			.add(IcariaItemIds.RED_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_WHITE)
+			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.WHITE_STORAGE_VASE.item())
+			.add(IcariaItemIds.WHITE_UNFIRED_STORAGE_VASE);
+
+		this.tag(Tags.Items.DYED_YELLOW)
+			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_BLOCK.item())
+			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.YELLOW_STORAGE_VASE.item())
+			.add(IcariaItemIds.YELLOW_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.FENCE_GATES_WOODEN)
-			.add(IcariaItems.CYPRESS_FENCE_GATE.get())
-			.add(IcariaItems.DROUGHTROOT_FENCE_GATE.get())
-			.add(IcariaItems.FIR_FENCE_GATE.get())
-			.add(IcariaItems.LAUREL_FENCE_GATE.get())
-			.add(IcariaItems.OLIVE_FENCE_GATE.get())
-			.add(IcariaItems.PLANE_FENCE_GATE.get())
-			.add(IcariaItems.POPULUS_FENCE_GATE.get());
+			.add(IcariaBlockItemIds.CYPRESS_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.FIR_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.LAUREL_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.OLIVE_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.PLANE_FENCE_GATE.item())
+			.add(IcariaBlockItemIds.POPULUS_FENCE_GATE.item());
 
-		this.tag(Tags.Items.GLASS_BLOCKS_CHEAP)
-			.add(IcariaItems.GRAINGLASS.get())
-			.add(IcariaItems.SILKGLASS.get());
-
-		this.tag(Tags.Items.GLASS_BLOCKS_COLORLESS)
-			.add(IcariaItems.GRAINGLASS.get())
-			.add(IcariaItems.SILKGLASS.get());
-
-		this.tag(Tags.Items.GLASS_PANES_COLORLESS)
-			.add(IcariaItems.GRAINGLASS_PANE.get())
-			.add(IcariaItems.HORIZONTAL_GRAINGLASS_PANE.get())
-			.add(IcariaItems.SILKGLASS_PANE.get())
-			.add(IcariaItems.HORIZONTAL_SILKGLASS_PANE.get());
-
-		this.tag(Tags.Items.ORE_RATES_SINGULAR)
-			.add(IcariaItems.MARL_CHERT.get())
-			.add(IcariaItems.MARL_BONES.get())
-			.add(IcariaItems.MARL_LIGNITE.get())
-			.add(IcariaItems.GRAINEL_CHERT.get())
-			.add(IcariaItems.LIGNITE_ORE.get())
-			.add(IcariaItems.CHALKOS_ORE.get())
-			.add(IcariaItems.KASSITEROS_ORE.get())
-			.add(IcariaItems.DOLOMITE_ORE.get())
-			.add(IcariaItems.VANADIUM_ORE.get())
-			.add(IcariaItems.SLIVER_ORE.get())
-			.add(IcariaItems.SIDEROS_ORE.get())
-			.add(IcariaItems.ANTHRACITE_ORE.get())
-			.add(IcariaItems.MOLYBDENUM_ORE.get());
-
-		this.tag(Tags.Items.ORES)
-			.addTag(IcariaItemTagsProvider.ORES_CHERT)
-			.addTag(IcariaItemTagsProvider.ORES_BONES)
-			.addTag(IcariaItemTagsProvider.ORES_LIGNITE)
-			.addTag(IcariaItemTagsProvider.ORES_CHALKOS)
-			.addTag(IcariaItemTagsProvider.ORES_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.ORES_DOLOMITE)
-			.addTag(IcariaItemTagsProvider.ORES_VANADIUM)
-			.addTag(IcariaItemTagsProvider.ORES_SLIVER)
-			.addTag(IcariaItemTagsProvider.ORES_SIDEROS)
-			.addTag(IcariaItemTagsProvider.ORES_ANTHRACITE)
-			.addTag(IcariaItemTagsProvider.ORES_MOLYBDENUM)
-			.addTag(IcariaItemTagsProvider.ORES_HYLIASTRUM);
-
-		this.tag(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
-			.add(IcariaItems.CYPRESS_CRAFTING_TABLE.get())
-			.add(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get())
-			.add(IcariaItems.FIR_CRAFTING_TABLE.get())
-			.add(IcariaItems.LAUREL_CRAFTING_TABLE.get())
-			.add(IcariaItems.OLIVE_CRAFTING_TABLE.get())
-			.add(IcariaItems.PLANE_CRAFTING_TABLE.get())
-			.add(IcariaItems.POPULUS_CRAFTING_TABLE.get());
+		this.tag(Tags.Items.FENCES_WOODEN)
+			.add(IcariaBlockItemIds.CYPRESS_FENCE.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_FENCE.item())
+			.add(IcariaBlockItemIds.FIR_FENCE.item())
+			.add(IcariaBlockItemIds.LAUREL_FENCE.item())
+			.add(IcariaBlockItemIds.OLIVE_FENCE.item())
+			.add(IcariaBlockItemIds.PLANE_FENCE.item())
+			.add(IcariaBlockItemIds.POPULUS_FENCE.item());
 
 		this.tag(Tags.Items.FLOWERS_SMALL)
-			.add(IcariaItems.BLINDWEED.get())
-			.add(IcariaItems.CHAMEOMILE.get())
-			.add(IcariaItems.CHARMONDER.get())
-			.add(IcariaItems.CLOVER.get())
-			.add(IcariaItems.FIREHILT.get())
-			.add(IcariaItems.BLUE_HYDRACINTH.get())
-			.add(IcariaItems.PURPLE_HYDRACINTH.get())
-			.add(IcariaItems.LIONFANGS.get())
-			.add(IcariaItems.SPEARDROPS.get())
-			.add(IcariaItems.PURPLE_STAGHORN.get())
-			.add(IcariaItems.YELLOW_STAGHORN.get())
-			.add(IcariaItems.BLUE_STORMCOTTON.get())
-			.add(IcariaItems.PINK_STORMCOTTON.get())
-			.add(IcariaItems.PURPLE_STORMCOTTON.get())
-			.add(IcariaItems.SUNKETTLE.get())
-			.add(IcariaItems.SUNSPONGE.get())
-			.add(IcariaItems.VOIDLILY.get());
+			.add(IcariaBlockItemIds.BLINDWEED.item())
+			.add(IcariaBlockItemIds.CHAMEOMILE.item())
+			.add(IcariaBlockItemIds.CHARMONDER.item())
+			.add(IcariaBlockItemIds.CLOVER.item())
+			.add(IcariaBlockItemIds.FIREHILT.item())
+			.add(IcariaBlockItemIds.BLUE_HYDRACINTH.item())
+			.add(IcariaBlockItemIds.PURPLE_HYDRACINTH.item())
+			.add(IcariaBlockItemIds.LIONFANGS.item())
+			.add(IcariaBlockItemIds.SPEARDROPS.item())
+			.add(IcariaBlockItemIds.PURPLE_STAGHORN.item())
+			.add(IcariaBlockItemIds.YELLOW_STAGHORN.item())
+			.add(IcariaBlockItemIds.BLUE_STORMCOTTON.item())
+			.add(IcariaBlockItemIds.PINK_STORMCOTTON.item())
+			.add(IcariaBlockItemIds.PURPLE_STORMCOTTON.item())
+			.add(IcariaBlockItemIds.SUNKETTLE.item())
+			.add(IcariaBlockItemIds.SUNSPONGE.item())
+			.add(IcariaBlockItemIds.VOIDLILY.item());
+
+		this.tag(Tags.Items.GLASS_BLOCKS)
+			.add(IcariaBlockItemIds.CALCITE_GLASS.item())
+			.add(IcariaBlockItemIds.HALITE_GLASS.item())
+			.add(IcariaBlockItemIds.JASPER_GLASS.item())
+			.add(IcariaBlockItemIds.ZIRCON_GLASS.item());
+
+		this.tag(Tags.Items.GLASS_BLOCKS_CHEAP)
+			.add(IcariaBlockItemIds.GRAINGLASS.item())
+			.add(IcariaBlockItemIds.SILKGLASS.item());
+
+		this.tag(Tags.Items.GLASS_PANES)
+			.add(IcariaBlockItemIds.GRAINGLASS_PANE.item())
+			.add(IcariaBlockItemIds.HORIZONTAL_GRAINGLASS_PANE.item())
+			.add(IcariaBlockItemIds.SILKGLASS_PANE.item())
+			.add(IcariaBlockItemIds.HORIZONTAL_SILKGLASS_PANE.item());
+
+		this.tag(Tags.Items.NATURAL_LOGS)
+			.add(IcariaBlockItemIds.CYPRESS_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_CYPRESS_LOG.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_DROUGHTROOT_LOG.item())
+			.add(IcariaBlockItemIds.FIR_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_FIR_LOG.item())
+			.add(IcariaBlockItemIds.LAUREL_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_LAUREL_LOG.item())
+			.add(IcariaBlockItemIds.OLIVE_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_OLIVE_LOG.item())
+			.add(IcariaBlockItemIds.PLANE_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_PLANE_LOG.item())
+			.add(IcariaBlockItemIds.POPULUS_LOG.item())
+			.add(IcariaBlockItemIds.DEAD_POPULUS_LOG.item());
+
+		this.tag(Tags.Items.NATURAL_WOODS)
+			.add(IcariaBlockItemIds.CYPRESS_WOOD.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_WOOD.item())
+			.add(IcariaBlockItemIds.FIR_WOOD.item())
+			.add(IcariaBlockItemIds.LAUREL_WOOD.item())
+			.add(IcariaBlockItemIds.OLIVE_WOOD.item())
+			.add(IcariaBlockItemIds.PLANE_WOOD.item())
+			.add(IcariaBlockItemIds.POPULUS_WOOD.item());
+
+		this.tag(Tags.Items.ORE_RATES_SINGULAR)
+			.add(IcariaBlockItemIds.MARL_BONES.item())
+			.add(IcariaBlockItemIds.MARL_CHERT_ORE.item())
+			.add(IcariaBlockItemIds.MARL_LIGNITE_ORE.item())
+			.add(IcariaBlockItemIds.CHERT_ORE.item())
+			.add(IcariaBlockItemIds.LIGNITE_ORE.item())
+			.add(IcariaBlockItemIds.CHALKOS_ORE.item())
+			.add(IcariaBlockItemIds.KASSITEROS_ORE.item())
+			.add(IcariaBlockItemIds.DOLOMITE_ORE.item())
+			.add(IcariaBlockItemIds.VANADIUM_ORE.item())
+			.add(IcariaBlockItemIds.SLIVER_ORE.item())
+			.add(IcariaBlockItemIds.SIDEROS_ORE.item())
+			.add(IcariaBlockItemIds.ANTHRACITE_ORE.item())
+			.add(IcariaBlockItemIds.MOLYBDENUM_ORE.item());
+
+		this.tag(Tags.Items.ORES)
+			.addTag(IcariaBlockItemTags.ORES_ANTHRACITE.item())
+			.addTag(IcariaBlockItemTags.ORES_BONE.item())
+			.addTag(IcariaBlockItemTags.ORES_CHALKOS.item())
+			.addTag(IcariaBlockItemTags.ORES_CHERT.item())
+			.addTag(IcariaBlockItemTags.ORES_DOLOMITE.item())
+			.addTag(IcariaBlockItemTags.ORES_HYLIASTRUM.item())
+			.addTag(IcariaBlockItemTags.ORES_KASSITEROS.item())
+			.addTag(IcariaBlockItemTags.ORES_LIGNITE.item())
+			.addTag(IcariaBlockItemTags.ORES_MOLYBDENUM.item())
+			.addTag(IcariaBlockItemTags.ORES_SIDEROS.item())
+			.addTag(IcariaBlockItemTags.ORES_SLIVER.item())
+			.addTag(IcariaBlockItemTags.ORES_VANADIUM.item());
+
+		this.tag(Tags.Items.PLAYER_WORKSTATIONS_CRAFTING_TABLES)
+			.add(IcariaBlockItemIds.CYPRESS_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.DROUGHTROOT_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.FIR_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.LAUREL_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.OLIVE_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.PLANE_CRAFTING_TABLE.item())
+			.add(IcariaBlockItemIds.POPULUS_CRAFTING_TABLE.item());
+
+		this.tag(Tags.Items.SANDS)
+			.add(IcariaBlockItemIds.GRAINEL.item())
+			.add(IcariaBlockItemIds.SILKSAND.item());
 
 		this.tag(Tags.Items.STONES)
-			.add(IcariaItems.YELLOWSTONE.get())
-			.add(IcariaItems.SILKSTONE.get())
-			.add(IcariaItems.SUNSTONE.get())
-			.add(IcariaItems.VOIDSHALE.get())
-			.add(IcariaItems.BAETYL.get())
-			.add(IcariaItems.SMOOTH_RELICSTONE.get());
+			.add(IcariaBlockItemIds.GRAINITE.item())
+			.add(IcariaBlockItemIds.YELLOWSTONE.item())
+			.add(IcariaBlockItemIds.SILKSTONE.item())
+			.add(IcariaBlockItemIds.SUNSTONE.item())
+			.add(IcariaBlockItemIds.VOIDSHALE.item())
+			.add(IcariaBlockItemIds.BAETYL.item());
 
 		this.tag(Tags.Items.STORAGE_BLOCKS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ARISTONE)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ARACHNE_STRING)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_SPELT)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_VINE_REED)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ROTTEN_BONES)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_CHALKOS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_VANADIUM)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_SIDEROS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_MOLYBDENUM)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_CALCITE)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_HALITE)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_JASPER)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ZIRCON)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_CHERT)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_LIGNITE)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_CHALKOS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_KASSITEROS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ORICHALCUM)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_VANADIUM)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_SLIVER)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_VANADIUMSTEEL)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_SIDEROS)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_ANTHRACITE)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUM)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL)
-			.addTag(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM);
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ARISTONE.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_BLURIDIUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_CHALKOS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_CHERT.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_KASSITEROS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_LIGNITE.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_MOLYBDENUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_MOLYBDENUMSTEEL.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ORICHALCUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_RAW_CHALKOS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_RAW_KASSITEROS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_RAW_MOLYBDENUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_RAW_SIDEROS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_RAW_VANADIUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_ROTTEN_BONES.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_SIDEROS.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_SLIVER.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_SPELT.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_VANADIUM.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_VANADIUMSTEEL.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_VINE_REED.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY.item())
+			.addTag(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY.item());
 
 		this.tag(Tags.Items.STRIPPED_LOGS)
-			.add(IcariaItems.STRIPPED_CYPRESS_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_CYPRESS_LOG.get())
-			.add(IcariaItems.STRIPPED_DROUGHTROOT_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_DROUGHTROOT_LOG.get())
-			.add(IcariaItems.STRIPPED_FIR_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_FIR_LOG.get())
-			.add(IcariaItems.STRIPPED_LAUREL_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_LAUREL_LOG.get())
-			.add(IcariaItems.STRIPPED_OLIVE_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_OLIVE_LOG.get())
-			.add(IcariaItems.STRIPPED_PLANE_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_PLANE_LOG.get())
-			.add(IcariaItems.STRIPPED_POPULUS_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get());
+			.add(IcariaBlockItemIds.STRIPPED_CYPRESS_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_CYPRESS_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DROUGHTROOT_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_DROUGHTROOT_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_FIR_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_FIR_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_LAUREL_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_LAUREL_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_OLIVE_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_OLIVE_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_PLANE_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_PLANE_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_POPULUS_LOG.item())
+			.add(IcariaBlockItemIds.STRIPPED_DEAD_POPULUS_LOG.item());
 
 		this.tag(Tags.Items.STRIPPED_WOODS)
-			.add(IcariaItems.STRIPPED_CYPRESS_WOOD.get())
-			.add(IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get())
-			.add(IcariaItems.STRIPPED_FIR_WOOD.get())
-			.add(IcariaItems.STRIPPED_LAUREL_WOOD.get())
-			.add(IcariaItems.STRIPPED_OLIVE_WOOD.get())
-			.add(IcariaItems.STRIPPED_PLANE_WOOD.get())
-			.add(IcariaItems.STRIPPED_POPULUS_WOOD.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_CYPRESS)
-			.add(IcariaItems.CYPRESS_WOOD.get())
-			.add(IcariaItems.STRIPPED_CYPRESS_WOOD.get())
-			.add(IcariaItems.CYPRESS_LOG.get())
-			.add(IcariaItems.STRIPPED_CYPRESS_LOG.get())
-			.add(IcariaItems.DEAD_CYPRESS_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_CYPRESS_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_DROUGHTROOT)
-			.add(IcariaItems.DROUGHTROOT_WOOD.get())
-			.add(IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get())
-			.add(IcariaItems.DROUGHTROOT_LOG.get())
-			.add(IcariaItems.STRIPPED_DROUGHTROOT_LOG.get())
-			.add(IcariaItems.DEAD_DROUGHTROOT_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_DROUGHTROOT_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_FIR)
-			.add(IcariaItems.FIR_WOOD.get())
-			.add(IcariaItems.STRIPPED_FIR_WOOD.get())
-			.add(IcariaItems.FIR_LOG.get())
-			.add(IcariaItems.STRIPPED_FIR_LOG.get())
-			.add(IcariaItems.DEAD_FIR_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_FIR_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_LAUREL)
-			.add(IcariaItems.LAUREL_WOOD.get())
-			.add(IcariaItems.STRIPPED_LAUREL_WOOD.get())
-			.add(IcariaItems.LAUREL_LOG.get())
-			.add(IcariaItems.STRIPPED_LAUREL_LOG.get())
-			.add(IcariaItems.DEAD_LAUREL_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_LAUREL_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_OLIVE)
-			.add(IcariaItems.OLIVE_WOOD.get())
-			.add(IcariaItems.STRIPPED_OLIVE_WOOD.get())
-			.add(IcariaItems.OLIVE_LOG.get())
-			.add(IcariaItems.STRIPPED_OLIVE_LOG.get())
-			.add(IcariaItems.DEAD_OLIVE_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_OLIVE_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_PLANE)
-			.add(IcariaItems.PLANE_WOOD.get())
-			.add(IcariaItems.STRIPPED_PLANE_WOOD.get())
-			.add(IcariaItems.PLANE_LOG.get())
-			.add(IcariaItems.STRIPPED_PLANE_LOG.get())
-			.add(IcariaItems.DEAD_PLANE_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_PLANE_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.LOGS_POPULUS)
-			.add(IcariaItems.POPULUS_WOOD.get())
-			.add(IcariaItems.STRIPPED_POPULUS_WOOD.get())
-			.add(IcariaItems.POPULUS_LOG.get())
-			.add(IcariaItems.STRIPPED_POPULUS_LOG.get())
-			.add(IcariaItems.DEAD_POPULUS_LOG.get())
-			.add(IcariaItems.STRIPPED_DEAD_POPULUS_LOG.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_MARL)
-			.add(IcariaItems.MARL.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_GRAINEL)
-			.add(IcariaItems.GRAINEL.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_YELLOWSTONE)
-			.add(IcariaItems.YELLOWSTONE.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_SILKSTONE)
-			.add(IcariaItems.SILKSTONE.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_SUNSTONE)
-			.add(IcariaItems.SUNSTONE.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_VOIDSHALE)
-			.add(IcariaItems.VOIDSHALE.get());
-
-		this.tag(IcariaItemTagsProvider.ORE_BEARING_GROUNDS_BAETYL)
-			.add(IcariaItems.BAETYL.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_CHERT)
-			.add(IcariaItems.MARL_CHERT.get())
-			.add(IcariaItems.GRAINEL_CHERT.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_BONES)
-			.add(IcariaItems.MARL_BONES.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_LIGNITE)
-			.add(IcariaItems.MARL_LIGNITE.get())
-			.add(IcariaItems.LIGNITE_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_CHALKOS)
-			.add(IcariaItems.CHALKOS_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_KASSITEROS)
-			.add(IcariaItems.KASSITEROS_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_DOLOMITE)
-			.add(IcariaItems.DOLOMITE_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_VANADIUM)
-			.add(IcariaItems.VANADIUM_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_SLIVER)
-			.add(IcariaItems.SLIVER_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_SIDEROS)
-			.add(IcariaItems.SIDEROS_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_ANTHRACITE)
-			.add(IcariaItems.ANTHRACITE_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_MOLYBDENUM)
-			.add(IcariaItems.MOLYBDENUM_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_HYLIASTRUM)
-			.add(IcariaItems.HYLIASTRUM_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_MARL)
-			.add(IcariaItems.MARL_CHERT.get())
-			.add(IcariaItems.MARL_BONES.get())
-			.add(IcariaItems.MARL_LIGNITE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_GRAINEL)
-			.add(IcariaItems.GRAINEL_CHERT.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_YELLOWSTONE)
-			.add(IcariaItems.LIGNITE_ORE.get())
-			.add(IcariaItems.CHALKOS_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_SILKSTONE)
-			.add(IcariaItems.KASSITEROS_ORE.get())
-			.add(IcariaItems.DOLOMITE_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_SUNSTONE)
-			.add(IcariaItems.VANADIUM_ORE.get())
-			.add(IcariaItems.SLIVER_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_VOIDSHALE)
-			.add(IcariaItems.SIDEROS_ORE.get())
-			.add(IcariaItems.ANTHRACITE_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.ORES_IN_GROUND_BAETYL)
-			.add(IcariaItems.MOLYBDENUM_ORE.get())
-			.add(IcariaItems.HYLIASTRUM_ORE.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ARISTONE)
-			.add(IcariaItems.PACKED_ARISTONE.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ENDER_JELLYFISH_JELLY)
-			.add(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_FIRE_JELLYFISH_JELLY)
-			.add(IcariaItems.FIRE_JELLYFISH_JELLY_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_NATURE_JELLYFISH_JELLY)
-			.add(IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY)
-			.add(IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY)
-			.add(IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ARACHNE_STRING)
-			.add(IcariaItems.ARACHNE_STRING_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_SPELT)
-			.add(IcariaItems.SPELT_BALE_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_VINE_REED)
-			.add(IcariaItems.VINE_REED_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ROTTEN_BONES)
-			.add(IcariaItems.ROTTEN_BONES_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_CHALKOS)
-			.add(IcariaItems.RAW_CHALKOS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_KASSITEROS)
-			.add(IcariaItems.RAW_KASSITEROS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_VANADIUM)
-			.add(IcariaItems.RAW_VANADIUM_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_SIDEROS)
-			.add(IcariaItems.RAW_SIDEROS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_RAW_MOLYBDENUM)
-			.add(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_CALCITE)
-			.add(IcariaItems.CALCITE_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_HALITE)
-			.add(IcariaItems.HALITE_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_JASPER)
-			.add(IcariaItems.JASPER_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ZIRCON)
-			.add(IcariaItems.ZIRCON_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_CHERT)
-			.add(IcariaItems.CHERT_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_LIGNITE)
-			.add(IcariaItems.LIGNITE_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_CHALKOS)
-			.add(IcariaItems.CHALKOS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_KASSITEROS)
-			.add(IcariaItems.KASSITEROS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ORICHALCUM)
-			.add(IcariaItems.ORICHALCUM_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_VANADIUM)
-			.add(IcariaItems.VANADIUM_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_SLIVER)
-			.add(IcariaItems.SLIVER_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_VANADIUMSTEEL)
-			.add(IcariaItems.VANADIUMSTEEL_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_SIDEROS)
-			.add(IcariaItems.SIDEROS_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_ANTHRACITE)
-			.add(IcariaItems.ANTHRACITE_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUM)
-			.add(IcariaItems.MOLYBDENUM_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_MOLYBDENUMSTEEL)
-			.add(IcariaItems.MOLYBDENUMSTEEL_BLOCK.get());
-
-		this.tag(IcariaItemTagsProvider.STORAGE_BLOCKS_BLURIDIUM)
-			.add(IcariaItems.BLURIDIUM_BLOCK.get());
+			.add(IcariaBlockItemIds.STRIPPED_CYPRESS_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_DROUGHTROOT_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_FIR_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_LAUREL_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_OLIVE_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_PLANE_WOOD.item())
+			.add(IcariaBlockItemIds.STRIPPED_POPULUS_WOOD.item());
+
+		new IcariaBlockItemTagsProvider(blockItemTagId -> BlockItemTagsProvider.wrapForItems(this.tag(blockItemTagId.item()))).run();
 	}
 
 	@Override
 	public String getName() {
 		return "Item Tags";
-	}
-
-	public static TagKey<Item> cKey(String pName) {
-		return IcariaItemTagsProvider.createKey(IcariaKeys.C + ":" + pName);
-	}
-
-	public static TagKey<Item> icariaKey(String pName) {
-		return IcariaItemTagsProvider.createKey(IcariaKeys.ID + ":" + pName);
-	}
-
-	public static TagKey<Item> createKey(String pName) {
-		return TagKey.create(Registries.ITEM, Identifier.parse(pName));
 	}
 }

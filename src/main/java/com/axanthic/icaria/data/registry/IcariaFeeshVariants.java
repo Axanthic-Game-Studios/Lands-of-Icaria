@@ -1,12 +1,11 @@
 package com.axanthic.icaria.data.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaFeeshVariantIds;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
 import com.axanthic.icaria.common.variant.FeeshVariant;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.ClientAsset;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -19,27 +18,16 @@ import net.minecraft.world.item.ItemStackTemplate;
 @ParametersAreNonnullByDefault
 
 public class IcariaFeeshVariants {
-	public static final ResourceKey<FeeshVariant> BLUE_GRAY = IcariaFeeshVariants.createKey("blue_gray");
-	public static final ResourceKey<FeeshVariant> BROWN = IcariaFeeshVariants.createKey("brown");
-	public static final ResourceKey<FeeshVariant> BROWN_ORANGE = IcariaFeeshVariants.createKey("brown_orange");
-	public static final ResourceKey<FeeshVariant> PINK_RED = IcariaFeeshVariants.createKey("pink_red");
-	public static final ResourceKey<FeeshVariant> PURPLE = IcariaFeeshVariants.createKey("purple");
-	public static final ResourceKey<FeeshVariant> RED = IcariaFeeshVariants.createKey("red");
-
 	public static void bootstrap(BootstrapContext<FeeshVariant> pBootstrapContext) {
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.BLUE_GRAY, IcariaItems.RAW_BLUE_GRAY_FEESH.get(), 1);
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.BROWN, IcariaItems.RAW_BROWN_FEESH.get(), 1);
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.BROWN_ORANGE, IcariaItems.RAW_BROWN_ORANGE_FEESH.get(), 1);
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.PINK_RED, IcariaItems.RAW_PINK_RED_FEESH.get(), 1);
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.PURPLE, IcariaItems.RAW_PURPLE_FEESH.get(), 1);
-		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariants.RED, IcariaItems.RAW_RED_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.BLUE_GRAY, IcariaItems.RAW_BLUE_GRAY_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.BROWN, IcariaItems.RAW_BROWN_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.BROWN_ORANGE, IcariaItems.RAW_BROWN_ORANGE_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.PINK_RED, IcariaItems.RAW_PINK_RED_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.PURPLE, IcariaItems.RAW_PURPLE_FEESH.get(), 1);
+		IcariaFeeshVariants.register(pBootstrapContext, IcariaFeeshVariantIds.RED, IcariaItems.RAW_RED_FEESH.get(), 1);
 	}
 
 	public static void register(BootstrapContext<FeeshVariant> pBootstrapContext, ResourceKey<FeeshVariant> pVariant, Item pItem, int pCount) {
-		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaKeys.ID, "entity" + "/" + "feesh" + "/" + pVariant.identifier().getPath())), new ItemStackTemplate(pItem, pCount)));
-	}
-
-	public static ResourceKey<FeeshVariant> createKey(String pName) {
-		return ResourceKey.create(IcariaRegistries.FEESH_VARIANT, Identifier.fromNamespaceAndPath(IcariaKeys.ID, pName));
+		pBootstrapContext.register(pVariant, new FeeshVariant(new ClientAsset.ResourceTexture(Identifier.fromNamespaceAndPath(IcariaIds.ID, "entity" + "/" + "feesh" + "/" + pVariant.identifier().getPath())), new ItemStackTemplate(pItem, pCount)));
 	}
 }

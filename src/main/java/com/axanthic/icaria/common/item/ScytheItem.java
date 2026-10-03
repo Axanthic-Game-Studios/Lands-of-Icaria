@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.item;
 
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
@@ -33,7 +31,7 @@ public class ScytheItem extends HoeItem {
 
 	@Override
 	public boolean isCorrectToolForDrops(ItemStack pItemStack, BlockState pBlockState) {
-		return pBlockState.is(IcariaBlockTagsProvider.MINEABLE_WITH_SCYTHE);
+		return pBlockState.is(IcariaBlockTags.MINEABLE_WITH_SCYTHE);
 	}
 
 	@Override

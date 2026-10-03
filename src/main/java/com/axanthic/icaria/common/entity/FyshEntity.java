@@ -1,14 +1,13 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaFyshVariantIds;
+import com.axanthic.icaria.common.ids.IcariaRegistryIds;
 import com.axanthic.icaria.common.registry.IcariaEntityDataSerializers;
 import com.axanthic.icaria.common.variant.FyshVariant;
-import com.axanthic.icaria.data.registry.IcariaFyshVariants;
-import com.axanthic.icaria.data.registry.IcariaRegistries;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -44,7 +43,7 @@ public class FyshEntity extends FishEntity {
 	@Override
 	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
 		super.defineSynchedData(pBuilder);
-		pBuilder.define(FyshEntity.FYSH_VARIANT, VariantUtils.getDefaultOrAny(this.registryAccess(), IcariaFyshVariants.BLUE));
+		pBuilder.define(FyshEntity.FYSH_VARIANT, VariantUtils.getDefaultOrAny(this.registryAccess(), IcariaFyshVariantIds.BLUE));
 	}
 
 	@Override
@@ -56,7 +55,7 @@ public class FyshEntity extends FishEntity {
 	@Override
 	public void readAdditionalSaveData(ValueInput pValueInput) {
 		super.readAdditionalSaveData(pValueInput);
-		VariantUtils.readVariant(pValueInput, IcariaRegistries.FYSH_VARIANT).ifPresent(this::setVariant);
+		VariantUtils.readVariant(pValueInput, IcariaRegistryIds.FYSH_VARIANT).ifPresent(this::setVariant);
 	}
 
 	public void setVariant(Holder<FyshVariant> pVariant) {
@@ -70,7 +69,7 @@ public class FyshEntity extends FishEntity {
 	@Nullable
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pServerLevelAccessor, DifficultyInstance pDifficultyInstance, EntitySpawnReason pEntitySpawnReason, @Nullable SpawnGroupData pSpawnGroupData) {
-		var registry = pServerLevelAccessor.registryAccess().lookupOrThrow(IcariaRegistries.FYSH_VARIANT);
+		var registry = pServerLevelAccessor.registryAccess().lookupOrThrow(IcariaRegistryIds.FYSH_VARIANT);
 		var variants = registry.listElements().toList();
 		var bound = variants.size();
 		var index = pServerLevelAccessor.getRandom().nextInt(bound);

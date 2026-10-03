@@ -1,11 +1,9 @@
 package com.axanthic.icaria.common.handler;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
 import net.minecraft.world.item.ItemStack;
 
@@ -26,7 +24,7 @@ public class KettleHandler extends ItemStacksResourceHandler {
 	@Override
 	public boolean isValid(int pIndex, ItemResource pItemResource) {
 		return switch (pIndex) {
-			case 0, 1, 2 -> pItemResource.is(IcariaItemTagsProvider.KETTLE_ITEMS);
+			case 0, 1, 2 -> pItemResource.is(IcariaItemTags.KETTLE_ITEMS);
 			default -> false;
 		};
 	}

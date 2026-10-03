@@ -1,9 +1,12 @@
 package com.axanthic.icaria.common.events;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.DeadLogBlock;
 import com.axanthic.icaria.common.block.IcariaLogBlock;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.ids.IcariaRegistryIds;
 import com.axanthic.icaria.common.item.ScytheItem;
 import com.axanthic.icaria.common.payload.BarrelPayload;
 import com.axanthic.icaria.common.payload.LootVasePayload;
@@ -21,12 +24,8 @@ import com.axanthic.icaria.data.provider.language.IcariaGermanLanguageProvider;
 import com.axanthic.icaria.data.provider.loot.IcariaLootTableProvider;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 import com.axanthic.icaria.data.provider.tags.*;
-import com.axanthic.icaria.data.registry.IcariaRegistries;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -48,7 +47,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 
@@ -86,7 +85,7 @@ import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-@EventBusSubscriber(modid = IcariaKeys.ID)
+@EventBusSubscriber(modid = IcariaIds.ID)
 public class IcariaCommonEvents {
 
 	@SubscribeEvent
@@ -106,61 +105,61 @@ public class IcariaCommonEvents {
 
 	@SubscribeEvent
 	public static void onBlockEntityTypeAddBlocks(BlockEntityTypeAddBlocksEvent pEvent) {
-		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_GRAINEL.get());
-		pEvent.modify(BlockEntityType.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_SILKSAND.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.FIR_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.FIR_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.LAUREL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.OLIVE_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.PLANE_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.PLANE_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.POPULUS_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.HANGING_SIGN, IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
-		pEvent.modify(BlockEntityType.MOB_SPAWNER, IcariaBlocks.ARACHNE_SPAWNER.get());
-		pEvent.modify(BlockEntityType.MOB_SPAWNER, IcariaBlocks.REVENANT_SPAWNER.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.CYPRESS_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.DROUGHTROOT_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.FIR_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.LAUREL_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.OLIVE_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.PLANE_SHELF.get());
-		pEvent.modify(BlockEntityType.SHELF, IcariaBlocks.POPULUS_SHELF.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.AETERNAE_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.ARGAN_HOUND_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CAPELLA_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CAPELLA_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CATOBLEPAS_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CATOBLEPAS_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CERVER_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CERVER_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CROCOTTA_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CROCOTTA_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.FIR_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.PLANE_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.REVENANT_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.REVENANT_WALL_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.THOG_SKULL.get());
-		pEvent.modify(BlockEntityType.SKULL, IcariaBlocks.THOG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_GRAINEL.get());
+		pEvent.modify(BlockEntityTypes.BRUSHABLE_BLOCK, IcariaBlocks.SUSPICIOUS_SILKSAND.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.CYPRESS_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.DROUGHTROOT_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.FIR_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.FIR_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.LAUREL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.LAUREL_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.OLIVE_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.OLIVE_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.PLANE_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.PLANE_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.POPULUS_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.HANGING_SIGN, IcariaBlocks.POPULUS_WALL_HANGING_SIGN.get());
+		pEvent.modify(BlockEntityTypes.MOB_SPAWNER, IcariaBlocks.ARACHNE_SPAWNER.get());
+		pEvent.modify(BlockEntityTypes.MOB_SPAWNER, IcariaBlocks.REVENANT_SPAWNER.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.CYPRESS_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.DROUGHTROOT_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.FIR_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.LAUREL_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.OLIVE_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.PLANE_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SHELF, IcariaBlocks.POPULUS_SHELF.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.AETERNAE_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.AETERNAE_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.ARGAN_HOUND_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.ARGAN_HOUND_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CAPELLA_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CAPELLA_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CATOBLEPAS_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CATOBLEPAS_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CERVER_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CERVER_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CROCOTTA_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CROCOTTA_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.CYPRESS_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.DROUGHTROOT_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.FIR_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.FIR_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.LAUREL_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.OLIVE_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.PLANE_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.PLANE_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.POPULUS_FOREST_HAG_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.REVENANT_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.REVENANT_WALL_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.THOG_SKULL.get());
+		pEvent.modify(BlockEntityTypes.SKULL, IcariaBlocks.THOG_WALL_SKULL.get());
 	}
 
 	@SubscribeEvent
@@ -262,7 +261,7 @@ public class IcariaCommonEvents {
 		pEvent.put(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), NetherPyromancerRevenantEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOLDIER_REVENANT.get(), SoldierRevenantEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SCORPION.get(), ScorpionEntity.registerAttributes().build());
-		pEvent.put(IcariaEntityTypes.CRYSTAL_SLUG.get(), SlugEntity.registerAttributes().build());
+		pEvent.put(IcariaEntityTypes.CLUSTER_SLUG.get(), SlugEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.FOREST_SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SNULL.get(), SnullEntity.registerAttributes().build());
 		pEvent.put(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeEntity.registerAttributes().build());
@@ -282,30 +281,30 @@ public class IcariaCommonEvents {
 
 		var packOutput = generator.getPackOutput();
 
-		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaKeys.ID);
+		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaIds.ID);
 
 		var registryProvider = builtinEntries.getRegistryProvider();
 
 		pEvent.addProvider(new IcariaAdvancementProvider(packOutput, lookupProvider));
-		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaKeys.ID, "en_us"));
-		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaKeys.ID, "de_de"));
+		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaIds.ID, "en_us"));
+		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaIds.ID, "de_de"));
 		pEvent.addProvider(new IcariaLootTableProvider(packOutput, lookupProvider));
-		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaIds.ID));
+		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIds.ID));
 		pEvent.addProvider(new IcariaPotionTagsProvider(packOutput, registryProvider));
-		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIds.ID));
 		pEvent.addProvider(new IcariaDataMapProvider(packOutput, lookupProvider));
 		pEvent.addProvider(builtinEntries);
 		pEvent.addProvider(new IcariaEquipmentAssetProvider(packOutput));
 		pEvent.addProvider(new IcariaParticleDescriptionProvider(packOutput));
-		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaKeys.ID));
-		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaKeys.ID));
+		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaIds.ID));
 		pEvent.addProvider(new IcariaRecipeRunner(packOutput, lookupProvider));
 	}
 
@@ -325,10 +324,10 @@ public class IcariaCommonEvents {
 
 	@SubscribeEvent
 	public static void onNewRegistry(DataPackRegistryEvent.NewRegistry pEvent) {
-		pEvent.dataPackRegistry(IcariaRegistries.FEESH_VARIANT, FeeshVariant.CODEC, FeeshVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistries.FICHE_VARIANT, FicheVariant.CODEC, FicheVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistries.FISSHH_VARIANT, FisshhVariant.CODEC, FisshhVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistries.FYSH_VARIANT, FyshVariant.CODEC, FyshVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistryIds.FEESH_VARIANT, FeeshVariant.CODEC, FeeshVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistryIds.FICHE_VARIANT, FicheVariant.CODEC, FicheVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistryIds.FISSHH_VARIANT, FisshhVariant.CODEC, FisshhVariant.CODEC);
+		pEvent.dataPackRegistry(IcariaRegistryIds.FYSH_VARIANT, FyshVariant.CODEC, FyshVariant.CODEC);
 	}
 
 	@SubscribeEvent
@@ -420,7 +419,7 @@ public class IcariaCommonEvents {
 		pEvent.register(IcariaEntityTypes.NETHER_PYROMANCER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, NetherPyromancerRevenantEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SOLDIER_REVENANT.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SoldierRevenantEntity::checkAnyLightMonsterSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SCORPION.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ScorpionEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
-		pEvent.register(IcariaEntityTypes.CRYSTAL_SLUG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SlugEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+		pEvent.register(IcariaEntityTypes.CLUSTER_SLUG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SlugEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.FOREST_SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SNULL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnullEntity::checkMobSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
@@ -432,12 +431,12 @@ public class IcariaCommonEvents {
 		if (pEvent.getTab() == IcariaCreativeModeTabs.BLOCKS.get()) {
 			pEvent.accept(IcariaItems.GRASSY_MARL.get());
 			pEvent.accept(IcariaItems.MARL.get());
-			pEvent.accept(IcariaItems.MARL_CHERT.get());
-			pEvent.accept(IcariaItems.SURFACE_CHERT.get());
 			pEvent.accept(IcariaItems.MARL_BONES.get());
-			pEvent.accept(IcariaItems.SURFACE_BONES.get());
-			pEvent.accept(IcariaItems.MARL_LIGNITE.get());
-			pEvent.accept(IcariaItems.SURFACE_LIGNITE.get());
+			pEvent.accept(IcariaItems.BONES.get());
+			pEvent.accept(IcariaItems.MARL_CHERT_ORE.get());
+			pEvent.accept(IcariaItems.CHERT_RUBBLE.get());
+			pEvent.accept(IcariaItems.MARL_LIGNITE_ORE.get());
+			pEvent.accept(IcariaItems.LIGNITE_RUBBLE.get());
 			pEvent.accept(IcariaItems.COARSE_MARL.get());
 			pEvent.accept(IcariaItems.DRY_LAKE_BED.get());
 			pEvent.accept(IcariaItems.FARMLAND.get());
@@ -471,7 +470,7 @@ public class IcariaCommonEvents {
 
 			pEvent.accept(IcariaItems.GRAINEL.get());
 			pEvent.accept(IcariaItems.SUSPICIOUS_GRAINEL.get());
-			pEvent.accept(IcariaItems.GRAINEL_CHERT.get());
+			pEvent.accept(IcariaItems.CHERT_ORE.get());
 			pEvent.accept(IcariaItems.GRAINEL_PATH.get());
 			pEvent.accept(IcariaItems.GRAINGLASS.get());
 			pEvent.accept(IcariaItems.GRAINGLASS_PANE.get());
@@ -660,19 +659,19 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.MOLYBDENUM_ORE.get());
 			pEvent.accept(IcariaItems.HYLIASTRUM_ORE.get());
 
-			pEvent.accept(IcariaItems.CALCITE.get());
+			pEvent.accept(IcariaItems.CALCITE_BLOCK.get());
 			pEvent.accept(IcariaItems.BUDDING_CALCITE.get());
-			pEvent.accept(IcariaItems.HALITE.get());
+			pEvent.accept(IcariaItems.HALITE_BLOCK.get());
 			pEvent.accept(IcariaItems.BUDDING_HALITE.get());
-			pEvent.accept(IcariaItems.JASPER.get());
+			pEvent.accept(IcariaItems.JASPER_BLOCK.get());
 			pEvent.accept(IcariaItems.BUDDING_JASPER.get());
-			pEvent.accept(IcariaItems.ZIRCON.get());
+			pEvent.accept(IcariaItems.ZIRCON_BLOCK.get());
 			pEvent.accept(IcariaItems.BUDDING_ZIRCON.get());
 
-			pEvent.accept(IcariaItems.CALCITE_CRYSTAL.get());
-			pEvent.accept(IcariaItems.HALITE_CRYSTAL.get());
-			pEvent.accept(IcariaItems.JASPER_CRYSTAL.get());
-			pEvent.accept(IcariaItems.ZIRCON_CRYSTAL.get());
+			pEvent.accept(IcariaItems.CALCITE_CLUSTER.get());
+			pEvent.accept(IcariaItems.HALITE_CLUSTER.get());
+			pEvent.accept(IcariaItems.JASPER_CLUSTER.get());
+			pEvent.accept(IcariaItems.ZIRCON_CLUSTER.get());
 
 			pEvent.accept(IcariaItems.ARISTONE.get());
 			pEvent.accept(IcariaItems.PACKED_ARISTONE.get());
@@ -719,7 +718,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get());
 			pEvent.accept(IcariaItems.PINK_ARACHNE_STRING_CARPET.get());
 
-			pEvent.accept(IcariaItems.SPELT_BALE_BLOCK.get());
+			pEvent.accept(IcariaItems.SPELT_BLOCK.get());
 			pEvent.accept(IcariaItems.VINE_REED_BLOCK.get());
 			pEvent.accept(IcariaItems.ROTTEN_BONES_BLOCK.get());
 
@@ -729,10 +728,10 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.RAW_SIDEROS_BLOCK.get());
 			pEvent.accept(IcariaItems.RAW_MOLYBDENUM_BLOCK.get());
 
-			pEvent.accept(IcariaItems.CALCITE_BLOCK.get());
-			pEvent.accept(IcariaItems.HALITE_BLOCK.get());
-			pEvent.accept(IcariaItems.JASPER_BLOCK.get());
-			pEvent.accept(IcariaItems.ZIRCON_BLOCK.get());
+			pEvent.accept(IcariaItems.CALCITE_GLASS.get());
+			pEvent.accept(IcariaItems.HALITE_GLASS.get());
+			pEvent.accept(IcariaItems.JASPER_GLASS.get());
+			pEvent.accept(IcariaItems.ZIRCON_GLASS.get());
 			pEvent.accept(IcariaItems.CHERT_BLOCK.get());
 			pEvent.accept(IcariaItems.LIGNITE_BLOCK.get());
 			pEvent.accept(IcariaItems.CHALKOS_BLOCK.get());
@@ -1324,6 +1323,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.CARDON_CACTUS.get());
 
 			pEvent.accept(IcariaItems.STRAWBERRY_BUSH.get());
+
+			pEvent.accept(IcariaItems.ONION.get());
+			pEvent.accept(IcariaItems.PHYSALIS_SEEDS.get());
+			pEvent.accept(IcariaItems.SPELT_SEEDS.get());
+			pEvent.accept(IcariaItems.STRAWBERRY_SEEDS.get());
 		}
 	}
 
@@ -1392,6 +1396,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.CHERT_AXE.get());
 			pEvent.accept(IcariaItems.CHERT_SCYTHE.get());
 			pEvent.accept(IcariaItems.CHERT_BIDENT.get());
+			pEvent.accept(IcariaItems.CHERT_SPEAR.get());
 			pEvent.accept(IcariaItems.CHALKOS_SWORD.get());
 			pEvent.accept(IcariaItems.CHALKOS_DAGGER.get());
 			pEvent.accept(IcariaItems.CHALKOS_SHOVEL.get());
@@ -1399,6 +1404,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.CHALKOS_AXE.get());
 			pEvent.accept(IcariaItems.CHALKOS_SCYTHE.get());
 			pEvent.accept(IcariaItems.CHALKOS_BIDENT.get());
+			pEvent.accept(IcariaItems.CHALKOS_SPEAR.get());
 			pEvent.accept(IcariaItems.KASSITEROS_SWORD.get());
 			pEvent.accept(IcariaItems.KASSITEROS_DAGGER.get());
 			pEvent.accept(IcariaItems.KASSITEROS_SHOVEL.get());
@@ -1406,6 +1412,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.KASSITEROS_AXE.get());
 			pEvent.accept(IcariaItems.KASSITEROS_SCYTHE.get());
 			pEvent.accept(IcariaItems.KASSITEROS_BIDENT.get());
+			pEvent.accept(IcariaItems.KASSITEROS_SPEAR.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_SWORD.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_DAGGER.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_SHOVEL.get());
@@ -1413,6 +1420,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.ORICHALCUM_AXE.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_SCYTHE.get());
 			pEvent.accept(IcariaItems.ORICHALCUM_BIDENT.get());
+			pEvent.accept(IcariaItems.ORICHALCUM_SPEAR.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_SWORD.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_DAGGER.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_SHOVEL.get());
@@ -1420,6 +1428,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_AXE.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_SCYTHE.get());
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_BIDENT.get());
+			pEvent.accept(IcariaItems.VANADIUMSTEEL_SPEAR.get());
 			pEvent.accept(IcariaItems.SIDEROS_SWORD.get());
 			pEvent.accept(IcariaItems.SIDEROS_DAGGER.get());
 			pEvent.accept(IcariaItems.SIDEROS_SHOVEL.get());
@@ -1427,6 +1436,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.SIDEROS_AXE.get());
 			pEvent.accept(IcariaItems.SIDEROS_SCYTHE.get());
 			pEvent.accept(IcariaItems.SIDEROS_BIDENT.get());
+			pEvent.accept(IcariaItems.SIDEROS_SPEAR.get());
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_SWORD.get());
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_DAGGER.get());
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_SHOVEL.get());
@@ -1434,6 +1444,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_AXE.get());
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_SCYTHE.get());
 			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_BIDENT.get());
+			pEvent.accept(IcariaItems.MOLYBDENUMSTEEL_SPEAR.get());
 
 			pEvent.accept(IcariaItems.AETERNAE_HIDE_HELMET.get());
 			pEvent.accept(IcariaItems.AETERNAE_HIDE_CHESTPLATE.get());
@@ -1530,7 +1541,6 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.BLACK_OLIVES.get());
 			pEvent.accept(IcariaItems.GREEN_OLIVES.get());
 			pEvent.accept(IcariaItems.GARLIC.get());
-			pEvent.accept(IcariaItems.ONION.get());
 			pEvent.accept(IcariaItems.RAW_AETERNAE_MEAT.get());
 			pEvent.accept(IcariaItems.COOKED_AETERNAE_MEAT.get());
 			pEvent.accept(IcariaItems.RAW_CAPELLA_MEAT.get());
@@ -1607,10 +1617,6 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.CERVER_STEW.get());
 			pEvent.accept(IcariaItems.THOG_STEW.get());
 
-			pEvent.accept(IcariaItems.SPELT_SEEDS.get());
-			pEvent.accept(IcariaItems.STRAWBERRY_SEEDS.get());
-			pEvent.accept(IcariaItems.PHYSALIS_SEEDS.get());
-
 			pEvent.accept(IcariaItems.AETERNAE_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.ARACHNE_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get());
@@ -1647,7 +1653,7 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SCORPION_SPAWN_EGG.get());
-			pEvent.accept(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get());
+			pEvent.accept(IcariaItems.CLUSTER_SLUG_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.FOREST_SNULL_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SNULL_SPAWN_EGG.get());
 			pEvent.accept(IcariaItems.SOLIFUGAE_SPAWN_EGG.get());
@@ -1909,7 +1915,7 @@ public class IcariaCommonEvents {
 	public static int heal(CommandSourceStack pCommandSourceStack, int pAmount) {
 		if (pCommandSourceStack.getPlayer() != null) {
 			pCommandSourceStack.getPlayer().heal(pAmount);
-			pCommandSourceStack.sendSuccess(() -> Component.translatable("command" + "." + IcariaKeys.ID + "." + "heal" + "." + "success"), true);
+			pCommandSourceStack.sendSuccess(() -> Component.translatable("command" + "." + IcariaIds.ID + "." + "heal" + "." + "success"), true);
 			return 1;
 		} else {
 			return 0;

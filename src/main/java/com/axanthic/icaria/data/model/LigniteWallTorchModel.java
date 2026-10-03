@@ -1,12 +1,10 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -19,7 +17,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class LigniteWallTorchModel {
 
 	public static ExtendedModelTemplate template() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(7.0000F, 0.0000F, 11.5000F).to(9.0000F, 1.0000F, 14.5000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(-22.5000F, 0.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(4.0000F, 15.0000F, 2.0000F, 16.0000F).texture(IcariaTextureSlots.TORCH_BONE))

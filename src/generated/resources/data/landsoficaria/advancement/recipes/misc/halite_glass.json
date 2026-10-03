@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:grainglass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:grainglass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:halite_shard": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:halite_shard"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_landsoficaria:silkglass": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:silkglass"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:halite_glass"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:halite_shard",
+      "has_landsoficaria:grainglass",
+      "has_landsoficaria:silkglass"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:halite_glass"
+    ]
+  }
+}

@@ -1,13 +1,11 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.properties.Olives;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
-import com.axanthic.icaria.data.registry.IcariaLootTables;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -63,9 +61,9 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
 		if (pLevel instanceof ServerLevel serverLevel && pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.OLIVE_LEAVES);
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.OLIVE_LEAVES);
 		} else if (pLevel instanceof ServerLevel serverLevel && pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTables.OLIVE_LEAVES);
+			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.OLIVE_LEAVES);
 		} else {
 			return InteractionResult.PASS;
 		}

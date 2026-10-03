@@ -27,6 +27,7 @@ Additions
 - Scrollshelf Blocks for each Wood Type
 - Shelf Blocks for each Wood Type
 - Small Bowls Block
+- Spears
 - Stonecutter Recipes for Cobbled Yellowstone, Sunstone, Silkstone, Voidshale and Baetyl Blocks, Slabs, Stairs and Walls
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block
@@ -37,6 +38,7 @@ Additions
 Updates
 
 - Aeternae, Capella, Catoblepas and Thog now support Golden Dandelion Interactions
+- Anthracite and Lignite can be used to fuel Furnace Minecarts now
 - Arachne Queens place Icaria Cobwebs instead of vanilla Cobwebs now
 - Arachne Queens place Cobwebs only in empty Blocks when attacking the Player instead of replacing any Block the Player is standing in
 - Arachne Queens play a Placement Sound when placing Cobwebs now
@@ -55,6 +57,7 @@ Updates
 - Mediterranean Water now support Frogspawn and Lily Pad similar to vanilla
 - Revenants can open, close and walk through Doors now
 - Skulls now hide the Player from the Locator Bar when worn
+- Soldier Revenants have a Chance to spawn with a Kassiteros Spear now
 - Spelt Bale Blocks no longer ignite from Lava to be in line with vanilla Hay Bale Blocks
 - Strawberry Bushes can be composted now
 - Surface Lignite can be set on Fire now

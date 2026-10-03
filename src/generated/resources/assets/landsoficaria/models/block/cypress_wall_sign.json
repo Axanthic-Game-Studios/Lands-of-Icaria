@@ -1,5 +1,7 @@
 {
+  "parent": "minecraft:block/template_wall_sign",
   "textures": {
+    "all": "landsoficaria:block/cypress_sign",
     "particle": "landsoficaria:block/cypress_planks"
   }
 }

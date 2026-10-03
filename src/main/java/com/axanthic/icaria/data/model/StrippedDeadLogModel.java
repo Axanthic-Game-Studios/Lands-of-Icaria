@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class StrippedDeadLogModel {
 
 	public static ExtendedModelTemplate log0() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 8.0000F, 15.0000F).to(8.0000F, 14.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 2.0000F, 12.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
@@ -213,7 +212,7 @@ public class StrippedDeadLogModel {
 	}
 
 	public static ExtendedModelTemplate logHorizontal0() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 0.0000F, 0.0000F).to(14.0000F, 2.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 14.0000F, 2.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOG_TOP))
@@ -294,7 +293,7 @@ public class StrippedDeadLogModel {
 	}
 
 	public static ExtendedModelTemplate log1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 8.0000F, 15.0000F).to(8.0000F, 14.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 2.0000F, 12.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
@@ -487,7 +486,7 @@ public class StrippedDeadLogModel {
 	}
 
 	public static ExtendedModelTemplate logHorizontal1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 0.0000F, 0.0000F).to(5.0000F, 2.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 5.0000F, 2.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOG_TOP))
@@ -644,7 +643,7 @@ public class StrippedDeadLogModel {
 	}
 
 	public static ExtendedModelTemplate log2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 8.0000F, 15.0000F).to(8.0000F, 14.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(8.0000F, 2.0000F, 12.0000F, 8.0000F).texture(IcariaTextureSlots.LOG))
@@ -825,7 +824,7 @@ public class StrippedDeadLogModel {
 	}
 
 	public static ExtendedModelTemplate logHorizontal2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 0.0000F, 0.0000F).to(14.0000F, 2.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(2.0000F, 0.0000F, 14.0000F, 2.0000F).rotation(Quadrant.R180).texture(IcariaTextureSlots.LOG_TOP))

@@ -1,8 +1,8 @@
 {
   "values": [
-    "#c:crops/spelt",
-    "#c:crops/strawberries",
+    "#c:crops/onion",
     "#c:crops/physalis",
-    "#c:crops/onion"
+    "#c:crops/spelt",
+    "#c:crops/strawberries"
   ]
 }

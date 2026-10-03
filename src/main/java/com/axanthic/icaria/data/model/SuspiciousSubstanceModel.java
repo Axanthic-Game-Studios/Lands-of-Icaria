@@ -1,13 +1,12 @@
 package com.axanthic.icaria.data.model;
 
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaTextureSlots;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Quadrant;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.Direction;
 
@@ -20,7 +19,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 public class SuspiciousSubstanceModel {
 
 	public static ExtendedModelTemplate template0() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.1250F, 0.7750F, 1.2500F).to(2.8750F, 0.7750F, 5.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(2.5000F, 0.0250F, 3.5000F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 0.7500F, 6.0000F).texture(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK))
@@ -57,7 +56,7 @@ public class SuspiciousSubstanceModel {
 	}
 
 	public static ExtendedModelTemplate template1() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.1250F, 0.7750F, 1.2500F).to(2.8750F, 0.7750F, 5.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(2.5000F, 0.0250F, 3.5000F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 0.7500F, 6.0000F).texture(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK))
@@ -102,7 +101,7 @@ public class SuspiciousSubstanceModel {
 	}
 
 	public static ExtendedModelTemplate template2() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.1250F, 0.7750F, 1.2500F).to(2.8750F, 0.7750F, 5.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(2.5000F, 0.0250F, 3.5000F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 0.7500F, 6.0000F).texture(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK))
@@ -155,7 +154,7 @@ public class SuspiciousSubstanceModel {
 	}
 
 	public static ExtendedModelTemplate template3() {
-		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaKeys.MC, "block"))
+		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.1250F, 0.7750F, 1.2500F).to(2.8750F, 0.7750F, 5.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(2.5000F, 0.0250F, 3.5000F))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 0.7500F, 6.0000F).texture(IcariaTextureSlots.RED_ARACHNE_STRING_BLOCK))

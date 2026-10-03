@@ -1,15 +1,13 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.ForestHagEntity;
+import com.axanthic.icaria.common.ids.IcariaBiomeIds;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-import com.axanthic.icaria.data.registry.IcariaBiomes;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockItemTags;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -66,7 +64,7 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 			var entity = this.entityType(pBlockState).create(pLevel, EntitySpawnReason.TRIGGERED);
 			var spawnPos = new BlockPos(blockPos.relative(direction.getOpposite(), 12).getX(), blockPos.getY(), blockPos.relative(direction.getOpposite(), 12).getZ());
 			if (entity != null) {
-				if (!pLevel.getBiome(spawnPos).is(IcariaBiomes.VOID)) {
+				if (!pLevel.getBiome(spawnPos).is(IcariaBiomeIds.VOID)) {
 					if (pLevel.getBlockState(spawnPos).isAir()) {
 						entity.snapTo(spawnPos, 0.0F, 0.0F);
 						entity.setTarget(pPlayer);
@@ -90,17 +88,17 @@ public class IcariaLogBlock extends RotatedPillarBlock {
 	}
 
 	public EntityType<ForestHagEntity> entityType(BlockState pBlockState) {
-		if (pBlockState.is(IcariaBlockTagsProvider.LOGS_CYPRESS)) {
+		if (pBlockState.is(IcariaBlockItemTags.LOGS_CYPRESS.block())) {
 			return IcariaEntityTypes.CYPRESS_FOREST_HAG.get();
-		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_DROUGHTROOT)) {
+		} else if (pBlockState.is(IcariaBlockItemTags.LOGS_DROUGHTROOT.block())) {
 			return IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get();
-		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_FIR)) {
+		} else if (pBlockState.is(IcariaBlockItemTags.LOGS_FIR.block())) {
 			return IcariaEntityTypes.FIR_FOREST_HAG.get();
-		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_LAUREL)) {
+		} else if (pBlockState.is(IcariaBlockItemTags.LOGS_LAUREL.block())) {
 			return IcariaEntityTypes.LAUREL_FOREST_HAG.get();
-		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_OLIVE)) {
+		} else if (pBlockState.is(IcariaBlockItemTags.LOGS_OLIVE.block())) {
 			return IcariaEntityTypes.OLIVE_FOREST_HAG.get();
-		} else if (pBlockState.is(IcariaBlockTagsProvider.LOGS_PLANE)) {
+		} else if (pBlockState.is(IcariaBlockItemTags.LOGS_PLANE.block())) {
 			return IcariaEntityTypes.PLANE_FOREST_HAG.get();
 		} else {
 			return IcariaEntityTypes.POPULUS_FOREST_HAG.get();

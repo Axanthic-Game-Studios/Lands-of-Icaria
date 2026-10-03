@@ -1,10 +1,8 @@
 package com.axanthic.icaria.common.registry;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.*;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,11 +14,11 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockEntityTypes {
-	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaKeys.ID);
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, IcariaIds.ID);
 
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<BathtubBlockEntity>> BATHTUB = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("bathtub", () -> new BlockEntityType<>(BathtubBlockEntity::new, IcariaBlocks.CYPRESS_BATHTUB.get(), IcariaBlocks.DROUGHTROOT_BATHTUB.get(), IcariaBlocks.FIR_BATHTUB.get(), IcariaBlocks.LAUREL_BATHTUB.get(), IcariaBlocks.OLIVE_BATHTUB.get(), IcariaBlocks.PLANE_BATHTUB.get(), IcariaBlocks.POPULUS_BATHTUB.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<IcariaChestBlockEntity>> CHEST = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("chest", () -> new BlockEntityType<>(IcariaChestBlockEntity::new, IcariaBlocks.CHEST.get()));
-	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<CrystalBlockEntity>> CRYSTAL = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("crystal", () -> new BlockEntityType<>(CrystalBlockEntity::new, IcariaBlocks.CALCITE_CRYSTAL.get(), IcariaBlocks.HALITE_CRYSTAL.get(), IcariaBlocks.JASPER_CRYSTAL.get(), IcariaBlocks.ZIRCON_CRYSTAL.get()));
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ClusterBlockEntity>> CLUSTER = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("cluster", () -> new BlockEntityType<>(ClusterBlockEntity::new, IcariaBlocks.CALCITE_CLUSTER.get(), IcariaBlocks.HALITE_CLUSTER.get(), IcariaBlocks.JASPER_CLUSTER.get(), IcariaBlocks.ZIRCON_CLUSTER.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FireplaceBlockEntity>> FIREPLACE = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("fireplace", () -> new BlockEntityType<>(FireplaceBlockEntity::new, IcariaBlocks.GRATE_FIREPLACE.get(), IcariaBlocks.POT_FIREPLACE.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<FlowerPotCountertopBlockEntity>> FLOWER_POT_COUNTERTOP = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("flower_pot_countertop", () -> new BlockEntityType<>(FlowerPotCountertopBlockEntity::new, IcariaBlocks.CYPRESS_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.DROUGHTROOT_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.FIR_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.LAUREL_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.OLIVE_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.PLANE_FLOWER_POT_COUNTERTOP.get(), IcariaBlocks.POPULUS_FLOWER_POT_COUNTERTOP.get()));
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<ForgeBlockEntity>> FORGE = IcariaBlockEntityTypes.BLOCK_ENTITY_TYPES.register("forge", () -> new BlockEntityType<>(ForgeBlockEntity::new, IcariaBlocks.FORGE.get()));

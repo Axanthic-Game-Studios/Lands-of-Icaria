@@ -1,9 +1,9 @@
 {
   "values": [
-    "minecraft:flower_pot",
     "minecraft:decorated_pot",
+    "minecraft:flower_pot",
     "landsoficaria:arachne_string_block",
-    "landsoficaria:spelt_bale_block",
+    "landsoficaria:spelt_block",
     "landsoficaria:vine_reed_block",
     "landsoficaria:chert_block",
     "landsoficaria:lignite_block",

@@ -1,13 +1,13 @@
 {
   "values": [
+    "#c:nuggets/bluridium",
     "#c:nuggets/chalkos",
     "#c:nuggets/kassiteros",
-    "#c:nuggets/orichalcum",
-    "#c:nuggets/vanadium",
-    "#c:nuggets/vanadiumsteel",
-    "#c:nuggets/sideros",
     "#c:nuggets/molybdenum",
     "#c:nuggets/molybdenumsteel",
-    "#c:nuggets/bluridium"
+    "#c:nuggets/orichalcum",
+    "#c:nuggets/sideros",
+    "#c:nuggets/vanadium",
+    "#c:nuggets/vanadiumsteel"
   ]
 }

@@ -145,12 +145,13 @@
     {
       "faces": {
         "down": {
+          "rotation": 90,
           "texture": "#molybdenumsteel_block",
           "uv": [
-            1.1,
-            7.0,
             1.0,
-            1.0
+            3.0,
+            7.0,
+            4.0
           ]
         },
         "east": {
@@ -165,9 +166,9 @@
         "north": {
           "texture": "#molybdenumsteel_block",
           "uv": [
+            6.0,
             1.0,
-            1.0,
-            1.1,
+            7.0,
             4.0
           ]
         },
@@ -176,25 +177,26 @@
           "uv": [
             1.0,
             1.0,
-            1.1,
+            2.0,
             4.0
           ]
         },
         "up": {
+          "rotation": 270,
           "texture": "#molybdenumsteel_block",
           "uv": [
-            1.1,
-            7.0,
             1.0,
-            1.0
+            1.0,
+            7.0,
+            2.0
           ]
         },
         "west": {
           "texture": "#molybdenumsteel_block",
           "uv": [
-            1.0,
-            1.0,
             7.0,
+            1.0,
+            1.0,
             4.0
           ]
         }

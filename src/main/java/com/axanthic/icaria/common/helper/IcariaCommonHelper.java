@@ -1,16 +1,15 @@
 package com.axanthic.icaria.common.helper;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.data.provider.tags.IcariaBlockTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -87,9 +86,9 @@ public class IcariaCommonHelper {
 
 	public static void loadedOrTappedBarrel(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
 		if (!pLevel.isClientSide()) {
-			if (pBlockState.is(IcariaBlockTagsProvider.BARRELS_LOADED)) {
+			if (pBlockState.is(IcariaBlockTags.BARRELS_LOADED)) {
 				IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
-			} else if (pBlockState.is(IcariaBlockTagsProvider.BARRELS_TAPPED)) {
+			} else if (pBlockState.is(IcariaBlockTags.BARRELS_TAPPED)) {
 				IcariaCommonHelper.tapped(pBlockPos, pLevel);
 			}
 		}

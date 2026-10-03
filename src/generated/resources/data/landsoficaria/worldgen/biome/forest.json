@@ -27,7 +27,9 @@
       "landsoficaria:lignite_ore",
       "landsoficaria:chalkos_ore"
     ],
-    [],
+    [
+      "landsoficaria:ruin"
+    ],
     [],
     [
       "landsoficaria:marl_chert",
@@ -35,7 +37,7 @@
       "landsoficaria:marl_lignite",
       "landsoficaria:yellowstone_rubble",
       "landsoficaria:relicstone_rubble",
-      "landsoficaria:calcite_crystal",
+      "landsoficaria:calcite_cluster",
       "landsoficaria:fir_tree",
       "landsoficaria:dead_fir_tree",
       "landsoficaria:fallen_fir_tree",

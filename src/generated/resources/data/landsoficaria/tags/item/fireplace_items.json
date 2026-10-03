@@ -1,12 +1,12 @@
 {
   "values": [
+    "minecraft:kelp",
+    "minecraft:potato",
     "minecraft:beef",
     "minecraft:chicken",
     "minecraft:cod",
-    "minecraft:kelp",
     "minecraft:mutton",
     "minecraft:porkchop",
-    "minecraft:potato",
     "minecraft:rabbit",
     "minecraft:salmon",
     "landsoficaria:raw_aeternae_meat",

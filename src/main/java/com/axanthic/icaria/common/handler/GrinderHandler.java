@@ -1,12 +1,10 @@
 package com.axanthic.icaria.common.handler;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
-import com.axanthic.icaria.data.provider.tags.IcariaItemTagsProvider;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.tags.IcariaItemTags;
 
 import net.minecraft.world.item.ItemStack;
 
@@ -29,7 +27,7 @@ public class GrinderHandler extends ItemStacksResourceHandler {
 		var grinderFuel = pItemResource.typeHolder().getData(IcariaDataMapTypes.GRINDER_FUELS);
 		return switch (pIndex) {
 			case 0 -> grinderFuel != null && grinderFuel.burnTime() > 0;
-			case 1 -> pItemResource.is(IcariaItemTagsProvider.GRINDER_GEARS);
+			case 1 -> pItemResource.is(IcariaItemTags.GRINDER_GEARS);
 			case 2 -> true;
 			default -> false;
 		};

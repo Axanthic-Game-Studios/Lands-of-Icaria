@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -17,9 +16,9 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 @ParametersAreNonnullByDefault
 
 public class IcariaCreativeModeTabs {
-	public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, IcariaKeys.ID);
+	public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, IcariaIds.ID);
 
-	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BLOCKS = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("blocks", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.GRASSY_MARL.get())).title(Component.translatable("itemgroup" + "." + IcariaKeys.ID + "." + "blocks")).withTabsBefore(CreativeModeTabs.SPAWN_EGGS).build());
-	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FLORA = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("flora", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).title(Component.translatable("itemgroup" + "." + IcariaKeys.ID + "." + "flora")).withTabsBefore(IcariaCreativeModeTabs.BLOCKS.getKey()).build());
-	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ITEMS = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("items", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.ORICHALCUM_PICKAXE.get())).title(Component.translatable("itemgroup" + "." + IcariaKeys.ID + "." + "items")).withTabsBefore(IcariaCreativeModeTabs.FLORA.getKey()).build());
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> BLOCKS = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("blocks", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.GRASSY_MARL.get())).title(Component.translatable("itemgroup" + "." + IcariaIds.ID + "." + "blocks")).withTabsBefore(CreativeModeTabs.SPAWN_EGGS).build());
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> FLORA = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("flora", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.OLIVE_LEAVES.get())).title(Component.translatable("itemgroup" + "." + IcariaIds.ID + "." + "flora")).withTabsBefore(IcariaCreativeModeTabs.BLOCKS.getKey()).build());
+	public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ITEMS = IcariaCreativeModeTabs.CREATIVE_MODE_TABS.register("items", () -> CreativeModeTab.builder().icon(() -> new ItemStack(IcariaItems.ORICHALCUM_PICKAXE.get())).title(Component.translatable("itemgroup" + "." + IcariaIds.ID + "." + "items")).withTabsBefore(IcariaCreativeModeTabs.FLORA.getKey()).build());
 }

@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.block;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.properties.Carpet;
 import com.axanthic.icaria.common.properties.Part;
@@ -7,10 +9,7 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.KlineVoxelShapes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -51,14 +50,6 @@ public class KlineBlock extends Block {
 	@Override
 	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
 		return false;
-	}
-
-	public void bounceUp(Entity pEntity) {
-		var vec3 = pEntity.getDeltaMovement();
-		if (vec3.y < 0.0D) {
-			var d = pEntity instanceof LivingEntity ? 1.0D : 0.8D;
-			pEntity.setDeltaMovement(vec3.x, -vec3.y * d, vec3.z);
-		}
 	}
 
 	@Override
@@ -107,15 +98,6 @@ public class KlineBlock extends Block {
 		} else {
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
 			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
-		}
-	}
-
-	@Override
-	public void updateEntityMovementAfterFallOn(BlockGetter pBlockGetter, Entity pEntity) {
-		if (pEntity.isSuppressingBounce()) {
-			super.updateEntityMovementAfterFallOn(pBlockGetter, pEntity);
-		} else {
-			this.bounceUp(pEntity);
 		}
 	}
 

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "misc",
   "ingredients": [
     "landsoficaria:healing_spell",
     "landsoficaria:empty_flask"

@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:void_jellyfish_jelly",
     "B": "landsoficaria:vineberries",

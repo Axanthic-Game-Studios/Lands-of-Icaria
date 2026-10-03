@@ -1,13 +1,11 @@
 package com.axanthic.icaria.common.goal;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.CobwebBlock;
 import com.axanthic.icaria.common.entity.ArachneDroneEntity;
 import com.axanthic.icaria.common.entity.ArachneEntity;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

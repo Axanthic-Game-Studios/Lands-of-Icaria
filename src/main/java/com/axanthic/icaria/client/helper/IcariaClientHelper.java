@@ -1,20 +1,20 @@
 package com.axanthic.icaria.client.helper;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaKeys;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaValues;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
 import com.mojang.math.Axis;
 
 import java.awt.*;
 import java.io.IOException;
 
-import javax.annotation.ParametersAreNonnullByDefault;
 import javax.imageio.ImageIO;
 
 import net.minecraft.client.Minecraft;
@@ -197,7 +197,7 @@ public class IcariaClientHelper {
 				var randomSource = RandomSource.create(432L);
 				var length = randomSource.nextFloat() * 2.0F + 2.0F;
 				var width = randomSource.nextFloat() * 0.5F + 0.5F;
-				if (IcariaConfig.RENDER_CRYSTAL_RAYS.get()) {
+				if (IcariaConfig.RENDER_CLUSTER_RAYS.get()) {
 					for (var i = 0; i < 96; ++i) {
 						pose.rotate(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
 						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
@@ -275,12 +275,12 @@ public class IcariaClientHelper {
 	}
 
 	public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-		var identifier = Identifier.parse(IcariaKeys.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
+		var identifier = Identifier.parse(IcariaIds.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
 		return IcariaClientHelper.getColor(identifier);
 	}
 
 	public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-		var identifier = Identifier.parse(IcariaKeys.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
+		var identifier = Identifier.parse(IcariaIds.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
 		return IcariaClientHelper.getColor(identifier);
 	}
 

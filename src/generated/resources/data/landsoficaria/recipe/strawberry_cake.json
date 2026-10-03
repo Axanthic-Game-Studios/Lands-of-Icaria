@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
     "A": "landsoficaria:fire_jellyfish_jelly",
     "B": "landsoficaria:strawberries",

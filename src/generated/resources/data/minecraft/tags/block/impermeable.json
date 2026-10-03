@@ -1,6 +1,10 @@
 {
   "values": [
     "landsoficaria:grainglass",
-    "landsoficaria:silkglass"
+    "landsoficaria:silkglass",
+    "landsoficaria:calcite_glass",
+    "landsoficaria:halite_glass",
+    "landsoficaria:jasper_glass",
+    "landsoficaria:zircon_glass"
   ]
 }

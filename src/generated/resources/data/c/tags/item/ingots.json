@@ -1,13 +1,13 @@
 {
   "values": [
+    "#c:ingots/bluridium",
     "#c:ingots/chalkos",
     "#c:ingots/kassiteros",
-    "#c:ingots/orichalcum",
-    "#c:ingots/vanadium",
-    "#c:ingots/vanadiumsteel",
-    "#c:ingots/sideros",
     "#c:ingots/molybdenum",
     "#c:ingots/molybdenumsteel",
-    "#c:ingots/bluridium"
+    "#c:ingots/orichalcum",
+    "#c:ingots/sideros",
+    "#c:ingots/vanadium",
+    "#c:ingots/vanadiumsteel"
   ]
 }

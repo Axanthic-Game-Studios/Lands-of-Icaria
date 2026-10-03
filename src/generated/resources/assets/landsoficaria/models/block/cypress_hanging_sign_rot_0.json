@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_hanging_sign_rot_0",
+  "textures": {
+    "all": "landsoficaria:block/cypress_hanging_sign",
+    "particle": "landsoficaria:block/stripped_cypress_log"
+  }
+}

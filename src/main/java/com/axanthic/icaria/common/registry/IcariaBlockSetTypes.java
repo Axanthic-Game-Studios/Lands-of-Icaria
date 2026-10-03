@@ -1,8 +1,7 @@
 package com.axanthic.icaria.common.registry;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 
@@ -10,15 +9,15 @@ import net.minecraft.world.level.block.state.properties.BlockSetType;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockSetTypes {
-	public static final BlockSetType CYPRESS = BlockSetType.register(IcariaBlockSetTypes.register("cypress"));
-	public static final BlockSetType DROUGHTROOT = BlockSetType.register(IcariaBlockSetTypes.register("droughtroot"));
-	public static final BlockSetType FIR = BlockSetType.register(IcariaBlockSetTypes.register("fir"));
-	public static final BlockSetType LAUREL = BlockSetType.register(IcariaBlockSetTypes.register("laurel"));
-	public static final BlockSetType OLIVE = BlockSetType.register(IcariaBlockSetTypes.register("olive"));
-	public static final BlockSetType PLANE = BlockSetType.register(IcariaBlockSetTypes.register("plane"));
-	public static final BlockSetType POPULUS = BlockSetType.register(IcariaBlockSetTypes.register("populus"));
+	public static final BlockSetType CYPRESS = IcariaBlockSetTypes.create("cypress");
+	public static final BlockSetType DROUGHTROOT = IcariaBlockSetTypes.create("droughtroot");
+	public static final BlockSetType FIR = IcariaBlockSetTypes.create("fir");
+	public static final BlockSetType LAUREL = IcariaBlockSetTypes.create("laurel");
+	public static final BlockSetType OLIVE = IcariaBlockSetTypes.create("olive");
+	public static final BlockSetType PLANE = IcariaBlockSetTypes.create("plane");
+	public static final BlockSetType POPULUS = IcariaBlockSetTypes.create("populus");
 
-	public static BlockSetType register(String pName) {
-		return new BlockSetType(IcariaKeys.ID + ":" + pName);
+	public static BlockSetType create(String pName) {
+		return new BlockSetType(IcariaIds.ID + ":" + pName);
 	}
 }

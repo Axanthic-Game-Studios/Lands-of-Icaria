@@ -1,11 +1,9 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 import com.axanthic.icaria.common.registry.IcariaParticleTypes;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.data.PackOutput;
 

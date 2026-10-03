@@ -1,5 +1,7 @@
 package com.axanthic.icaria.data.provider;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaFluids;
@@ -8,11 +10,7 @@ import com.axanthic.icaria.data.map.Freezable;
 import com.axanthic.icaria.data.map.GrinderFuel;
 import com.axanthic.icaria.data.map.Pottable;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import java.util.concurrent.CompletableFuture;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -47,7 +45,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 	}
 
 	public void compostables() {
-		this.compostables(IcariaItems.SPELT_BALE_BLOCK.get(), 0.85F);
+		this.compostables(IcariaItems.SPELT_BLOCK.get(), 0.85F);
 		this.compostables(IcariaItems.VINE_REED_BLOCK.get(), 0.85F);
 		this.compostables(IcariaItems.LAUREL_CHERRY_CAKE.get(), 1.0F);
 		this.compostables(IcariaItems.STRAWBERRY_CAKE.get(), 1.0F);
@@ -158,9 +156,9 @@ public class IcariaDataMapProvider extends DataMapProvider {
 		this.compostables(IcariaItems.GREEN_OLIVES.get(), 0.3F);
 		this.compostables(IcariaItems.GARLIC.get(), 0.65F);
 		this.compostables(IcariaItems.ONION.get(), 0.65F);
+		this.compostables(IcariaItems.PHYSALIS_SEEDS.get(), 0.3F);
 		this.compostables(IcariaItems.SPELT_SEEDS.get(), 0.3F);
 		this.compostables(IcariaItems.STRAWBERRY_SEEDS.get(), 0.3F);
-		this.compostables(IcariaItems.PHYSALIS_SEEDS.get(), 0.3F);
 	}
 
 	public void freezables() {
@@ -169,7 +167,7 @@ public class IcariaDataMapProvider extends DataMapProvider {
 	}
 
 	public void furnaceFuels() {
-		this.furnaceFuels(IcariaItems.SURFACE_LIGNITE.get(), 800);
+		this.furnaceFuels(IcariaItems.LIGNITE_RUBBLE.get(), 800);
 		this.furnaceFuels(IcariaItems.ARACHNE_STRING_BLOCK.get(), 100);
 		this.furnaceFuels(IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get(), 100);
 		this.furnaceFuels(IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), 100);

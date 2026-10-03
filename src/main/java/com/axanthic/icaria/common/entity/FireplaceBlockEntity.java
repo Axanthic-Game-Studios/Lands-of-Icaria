@@ -1,17 +1,16 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.FireplaceBlock;
 import com.axanthic.icaria.common.handler.FireplaceHandler;
 import com.axanthic.icaria.common.recipe.GrillingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import java.util.Optional;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,7 +23,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -148,7 +147,7 @@ public class FireplaceBlockEntity extends BlockEntity {
 	public void setResult(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
 		this.handler.set(1, ItemResource.of(this.getResult(pServerLevel).getItem()), this.getResult(pServerLevel).getCount() + this.handler.getAmountAsInt(1));
 		if (pServerLevel.getCapability(Capabilities.Item.BLOCK, pBlockPos.below(), Direction.UP) == null) {
-			var itemEntity = EntityType.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
+			var itemEntity = EntityTypes.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
 			if (itemEntity != null) {
 				itemEntity.setItem(this.handler.getResource(1).toStack());
 				if (pBlockState.getBlock() instanceof FireplaceBlock fireplaceBlock) {

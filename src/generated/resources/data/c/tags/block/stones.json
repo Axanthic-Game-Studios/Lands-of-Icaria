@@ -1,10 +1,10 @@
 {
   "values": [
+    "landsoficaria:grainite",
     "landsoficaria:yellowstone",
     "landsoficaria:silkstone",
     "landsoficaria:sunstone",
     "landsoficaria:voidshale",
-    "landsoficaria:baetyl",
-    "landsoficaria:smooth_relicstone"
+    "landsoficaria:baetyl"
   ]
 }

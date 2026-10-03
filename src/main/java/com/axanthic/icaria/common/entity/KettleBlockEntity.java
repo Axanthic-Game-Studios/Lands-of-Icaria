@@ -1,5 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.KettleBlock;
 import com.axanthic.icaria.common.handler.KettleHandler;
 import com.axanthic.icaria.common.properties.Kettle;
@@ -12,12 +14,9 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
 import java.util.Optional;
 
 import javax.annotation.Nullable;
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -30,7 +29,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.EntitySpawnReason;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeInput;
@@ -218,7 +217,7 @@ public class KettleBlockEntity extends BlockEntity {
 	public void setResult(BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel) {
 		this.handler.set(3, ItemResource.of(this.getResult(pServerLevel).getItem()), this.getResult(pServerLevel).getCount() + this.handler.getAmountAsInt(3));
 		if (pServerLevel.getCapability(Capabilities.Item.BLOCK, pBlockPos.below(), Direction.UP) == null) {
-			var itemEntity = EntityType.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
+			var itemEntity = EntityTypes.ITEM.create(pServerLevel, EntitySpawnReason.TRIGGERED);
 			if (itemEntity != null) {
 				itemEntity.setItem(this.handler.getResource(3).toStack());
 				if (pBlockState.getBlock() instanceof KettleBlock kettleBlock) {

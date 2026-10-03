@@ -1,11 +1,9 @@
 package com.axanthic.icaria.data.provider.model;
 
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.registry.IcariaKeys;
-
-import com.mojang.logging.annotations.MethodsReturnNonnullByDefault;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.TextureMapping;
@@ -29,6 +27,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.handheld(pItemModelGenerators);
 		IcariaItemModelProvider.horn(pItemModelGenerators);
 		IcariaItemModelProvider.parent(pItemModelGenerators);
+		IcariaItemModelProvider.spear(pItemModelGenerators);
 	}
 
 	public static void bident(ItemModelGenerators pItemModelGenerators) {
@@ -141,6 +140,10 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.RED_GROUND_FLOWERS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.WHITE_GROUND_FLOWERS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_BUSH.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.ONION.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.PAINTING.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.BROWN_RUG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.GREEN_RUG.get(), pItemModelGenerators);
@@ -277,7 +280,6 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.BLACK_OLIVES.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.GREEN_OLIVES.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.GARLIC.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.ONION.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.RAW_AETERNAE_MEAT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.COOKED_AETERNAE_MEAT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.RAW_CAPELLA_MEAT.get(), pItemModelGenerators);
@@ -352,9 +354,6 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.CATOBLEPAS_STEW.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.CERVER_STEW.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.THOG_STEW.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.SPELT_SEEDS.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.STRAWBERRY_SEEDS.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.PHYSALIS_SEEDS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.AETERNAE_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.ARACHNE_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.ARACHNE_DRONE_SPAWN_EGG.get(), pItemModelGenerators);
@@ -391,7 +390,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.generated(IcariaItems.NETHER_PYROMANCER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SOLDIER_REVENANT_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SCORPION_SPAWN_EGG.get(), pItemModelGenerators);
-		IcariaItemModelProvider.generated(IcariaItems.CRYSTAL_SLUG_SPAWN_EGG.get(), pItemModelGenerators);
+		IcariaItemModelProvider.generated(IcariaItems.CLUSTER_SLUG_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.FOREST_SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SNULL_SPAWN_EGG.get(), pItemModelGenerators);
 		IcariaItemModelProvider.generated(IcariaItems.SOLIFUGAE_SPAWN_EGG.get(), pItemModelGenerators);
@@ -456,12 +455,12 @@ public class IcariaItemModelProvider {
 	public static void parent(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemModelProvider.parent(IcariaItems.GRASSY_MARL.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.MARL.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.MARL_CHERT.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.SURFACE_CHERT.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.MARL_BONES.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.SURFACE_BONES.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.MARL_LIGNITE.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.SURFACE_LIGNITE.get(), "3", pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.BONES.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.MARL_CHERT_ORE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CHERT_RUBBLE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.MARL_LIGNITE_ORE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.LIGNITE_RUBBLE.get(), "3", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.COARSE_MARL.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.DRY_LAKE_BED.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.FARMLAND.get(), "dry", pItemModelGenerators);
@@ -491,7 +490,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.DOLOMITE_PILLAR_HEAD.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GRAINEL.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.SUSPICIOUS_GRAINEL.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.GRAINEL_CHERT.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CHERT_ORE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GRAINEL_PATH.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GRAINGLASS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GRAINGLASS_PANE.get(), "inventory", pItemModelGenerators);
@@ -669,18 +668,18 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.ANTHRACITE_ORE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.MOLYBDENUM_ORE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.HYLIASTRUM_ORE.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.CALCITE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CALCITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.BUDDING_CALCITE.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.HALITE.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.HALITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.BUDDING_HALITE.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.JASPER.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.JASPER_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.BUDDING_JASPER.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.ZIRCON.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.ZIRCON_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.BUDDING_ZIRCON.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.CALCITE_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.HALITE_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.JASPER_CRYSTAL.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.ZIRCON_CRYSTAL.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CALCITE_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.HALITE_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.JASPER_CLUSTER.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.ZIRCON_CLUSTER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.ARISTONE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PACKED_ARISTONE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.ENDER_JELLYFISH_JELLY_BLOCK.get(), pItemModelGenerators);
@@ -722,7 +721,7 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.SPELT_BALE_BLOCK.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.SPELT_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.VINE_REED_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.ROTTEN_BONES_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.RAW_CHALKOS_BLOCK.get(), pItemModelGenerators);
@@ -730,10 +729,10 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.RAW_VANADIUM_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.RAW_SIDEROS_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.RAW_MOLYBDENUM_BLOCK.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.CALCITE_BLOCK.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.HALITE_BLOCK.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.JASPER_BLOCK.get(), pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.ZIRCON_BLOCK.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.CALCITE_GLASS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.HALITE_GLASS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.JASPER_GLASS.get(), pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.ZIRCON_GLASS.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CHERT_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LIGNITE_BLOCK.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.CHALKOS_BLOCK.get(), pItemModelGenerators);
@@ -1176,11 +1175,21 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.GRINDER_STONE.get(), pItemModelGenerators);
 	}
 
+	public static void spear(ItemModelGenerators pItemModelGenerators) {
+		IcariaItemModelProvider.spear(IcariaItems.CHERT_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.CHALKOS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.KASSITEROS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.ORICHALCUM_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.VANADIUMSTEEL_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.SIDEROS_SPEAR.get(), pItemModelGenerators);
+		IcariaItemModelProvider.spear(IcariaItems.MOLYBDENUMSTEEL_SPEAR.get(), pItemModelGenerators);
+	}
+
 	public static void bident(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "handheld"))
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, 90.0F, -25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-50.0F, -90.0F, 25.0F).translation(9.13F, 3.2F, -6.13F).scale(0.68F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(195.0F, 90.0F, -55.0F).translation(0.0F, -4.0F, 2.0F).scale(0.85F))
@@ -1190,29 +1199,29 @@ public class IcariaItemModelProvider {
 	}
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "template_chest")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "template_chest")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
 	}
 
 	public static void generated(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void handheld(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "handheld")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "handheld")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 90.0F, -25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -90.0F, 25.0F).translation(1.13F, 3.2F, 1.13F).scale(0.68F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 0.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 180.0F, 0.0F).translation(0.0F, 3.0F, 1.0F).scale(0.55F))
 			.build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaKeys.MC, "generated"))
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated"))
 			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 115.0F, 5.0F).translation(0.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, -55.0F, -5.0F).translation(-1.0F, -2.5F, -7.5F))
 			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(0.0F, 55.0F, 0.0F).translation(-1.0F, 2.0F, 2.0F).scale(0.5F))
@@ -1229,5 +1238,18 @@ public class IcariaItemModelProvider {
 	public static void parent(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem))).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
+	}
+
+	public static void spear(Item pItem, ItemModelGenerators pItemModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated"))
+			.build()
+			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem))), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "generated"))
+			.transform(ItemDisplayContext.FIRST_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-20.0F, -90.0F, 35.0F).translation(3.13F, 2.0F, 0.13F).scale(1.36F, 1.36F, 0.68F))
+			.transform(ItemDisplayContext.FIRST_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(-20.0F, 90.0F, -35.0F).translation(3.13F, 2.0F, 0.13F).scale(1.36F, 1.36F, 0.68F))
+			.transform(ItemDisplayContext.THIRD_PERSON_LEFT_HAND, transformVecBuilder -> transformVecBuilder.rotation(5.0F, -270.0F, 40.0F).translation(0.0F, 2.0F, 2.0F).scale(1.7F, 1.7F, 0.85F))
+			.transform(ItemDisplayContext.THIRD_PERSON_RIGHT_HAND, transformVecBuilder -> transformVecBuilder.rotation(5.0F, 270.0F, -40.0F).translation(0.0F, 2.0F, 2.0F).scale(1.7F, 1.7F, 0.85F))
+			.build()
+			.create(IcariaModelProvider.itemFile(pItem, "in_hand"), new TextureMapping().putForced(TextureSlot.LAYER0, new Material(IcariaModelProvider.itemFile(pItem, "in_hand"))), pItemModelGenerators.modelOutput);
 	}
 }
