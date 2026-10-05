@@ -173,6 +173,7 @@
   "block.landsoficaria.cobbled_yellowstone_stairs": "Bruchgelbsteintreppe",
   "block.landsoficaria.cobbled_yellowstone_wall": "Bruchgelbsteinmauer",
   "block.landsoficaria.cobweb": "Spinnennetz",
+  "block.landsoficaria.cookie_jar": "Keksglas",
   "block.landsoficaria.cracked_relicstone_brick_slab": "Rissige Reliktensteinziegelstufe",
   "block.landsoficaria.cracked_relicstone_brick_stairs": "Rissige Reliktensteinziegeltreppe",
   "block.landsoficaria.cracked_relicstone_brick_wall": "Rissige Reliktensteinziegelmauer",
@@ -1417,6 +1418,7 @@
   "subtitle.landsoficaria.chalkos_armor.equip": "Kuffarrüstung angelegt",
   "subtitle.landsoficaria.chest_label.apply": "Kistenetikett angebracht",
   "subtitle.landsoficaria.chest_label.clear": "Kistenetikett abmontiert",
+  "subtitle.landsoficaria.cookie_jar.fill": "Keksglas befüllt",
   "subtitle.landsoficaria.crocotta.ambient": "Hyäne lacht",
   "subtitle.landsoficaria.crocotta.death": "Hyäne stirbt",
   "subtitle.landsoficaria.crocotta.hurt": "Hyäne nimmt Schaden",
@@ -1790,5 +1792,6 @@
   "tooltip.landsoficaria.chest_label.style": "Stil",
   "tooltip.landsoficaria.chest_label.title": "Rechte Maustaste zum Bearbeiten",
   "tooltip.landsoficaria.chest_label.white": "Weiß",
-  "tooltip.landsoficaria.chest_label.yellow": "Gelb"
+  "tooltip.landsoficaria.chest_label.yellow": "Gelb",
+  "tooltip.landsoficaria.cookie_jar": "%1$s / %2$s Kekse"
 }

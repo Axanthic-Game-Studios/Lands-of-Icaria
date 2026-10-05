@@ -8,6 +8,15 @@
     ],
     "subtitle": "subtitle.landsoficaria.barrel.break"
   },
+  "block.cookie_jar.fill": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.decorated_pot.insert"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.cookie_jar.fill"
+  },
   "block.grinder.grind": {
     "sounds": [
       "landsoficaria:block/grinder/grind_00",

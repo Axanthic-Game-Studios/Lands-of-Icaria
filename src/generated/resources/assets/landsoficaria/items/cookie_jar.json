@@ -1,0 +1,65 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_0"
+        },
+        "when": 0
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_1"
+        },
+        "when": 1
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_2"
+        },
+        "when": 2
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_3"
+        },
+        "when": 3
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_4"
+        },
+        "when": 4
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_5"
+        },
+        "when": 5
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_6"
+        },
+        "when": 6
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "landsoficaria:item/cookie_jar_7"
+        },
+        "when": 7
+      }
+    ],
+    "component": "landsoficaria:cookies",
+    "property": "minecraft:component"
+  }
+}

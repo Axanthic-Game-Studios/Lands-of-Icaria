@@ -41,6 +41,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot COBWEB_NEGATIVE_OPPOSITE = TextureSlot.create("cobweb_negative_opposite");
 	public static final TextureSlot COBWEB_POSITIVE = TextureSlot.create("cobweb_positive");
 	public static final TextureSlot COBWEB_POSITIVE_OPPOSITE = TextureSlot.create("cobweb_positive_opposite");
+	public static final TextureSlot COOKIE = TextureSlot.create("cookie");
 	public static final TextureSlot CROP = TextureSlot.create("crop");
 	public static final TextureSlot CROSS = TextureSlot.create("cross");
 	public static final TextureSlot CUPBOARD = TextureSlot.create("cupboard");

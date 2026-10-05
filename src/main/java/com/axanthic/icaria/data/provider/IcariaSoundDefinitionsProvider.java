@@ -30,6 +30,7 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 	@Override
 	public void registerSounds() {
 		this.register(IcariaSoundEvents.BARREL_BREAK, "block", "barrel", "break", 4);
+		this.register(IcariaSoundEvents.COOKIE_JAR_FILL, SoundEvents.DECORATED_POT_INSERT, "cookie_jar", "fill");
 		this.register(IcariaSoundEvents.GRINDER_GRIND, "block", "grinder", "grind", 31);
 		this.register(IcariaSoundEvents.KETTLE_CONCOCT, "block", "kettle", "concoct", 4);
 		this.register(IcariaSoundEvents.KETTLE_CONSUME, SoundEvents.VILLAGER_WORK_LEATHERWORKER, "kettle", "consume");

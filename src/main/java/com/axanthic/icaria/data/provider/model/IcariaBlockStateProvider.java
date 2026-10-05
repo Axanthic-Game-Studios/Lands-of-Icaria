@@ -36,6 +36,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.chain(pBlockModelGenerators);
 		IcariaBlockStateProvider.chessboard(pBlockModelGenerators);
 		IcariaBlockStateProvider.cobweb(pBlockModelGenerators);
+		IcariaBlockStateProvider.cookieJar(pBlockModelGenerators);
 		IcariaBlockStateProvider.countertop(pBlockModelGenerators);
 		IcariaBlockStateProvider.deadDroughtrootLog(pBlockModelGenerators);
 		IcariaBlockStateProvider.deadLog(pBlockModelGenerators);
@@ -492,6 +493,10 @@ public class IcariaBlockStateProvider {
 
 	public static void cobweb(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.cobweb(IcariaBlocks.COBWEB.get(), pBlockModelGenerators);
+	}
+
+	public static void cookieJar(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.cookieJar(IcariaBlocks.COOKIE_JAR.get(), pBlockModelGenerators);
 	}
 
 	public static void countertop(BlockModelGenerators pBlockModelGenerators) {
@@ -2512,6 +2517,21 @@ public class IcariaBlockStateProvider {
 				.select(Direction.SOUTH, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set")).with(BlockModelGenerators.Y_ROT_180)))
 				.select(Direction.WEST, Chessboard.PLAYED, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "played")).with(BlockModelGenerators.Y_ROT_270)))
 				.select(Direction.WEST, Chessboard.SET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "set")).with(BlockModelGenerators.Y_ROT_270)))
+			)
+		);
+	}
+
+	public static void cookieJar(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(IcariaBlockStateProperties.COOKIE_AMOUNT)
+				.select(0, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "0")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(1, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "1")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(2, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "2")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(3, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "3")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(4, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "4")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(5, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "5")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(6, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "6")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(7, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7")), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7")).with(BlockModelGenerators.Y_ROT_90), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7")).with(BlockModelGenerators.Y_ROT_180), BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

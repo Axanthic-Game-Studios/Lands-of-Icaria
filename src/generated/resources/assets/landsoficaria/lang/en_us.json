@@ -173,6 +173,7 @@
   "block.landsoficaria.cobbled_yellowstone_stairs": "Cobbled Yellowstone Stairs",
   "block.landsoficaria.cobbled_yellowstone_wall": "Cobbled Yellowstone Wall",
   "block.landsoficaria.cobweb": "Cobweb",
+  "block.landsoficaria.cookie_jar": "Cookie Jar",
   "block.landsoficaria.cracked_relicstone_brick_slab": "Cracked Relicstone Brick Slab",
   "block.landsoficaria.cracked_relicstone_brick_stairs": "Cracked Relicstone Brick Stairs",
   "block.landsoficaria.cracked_relicstone_brick_wall": "Cracked Relicstone Brick Wall",
@@ -1417,6 +1418,7 @@
   "subtitle.landsoficaria.chalkos_armor.equip": "Chalkos Armor equips",
   "subtitle.landsoficaria.chest_label.apply": "Chest Label applies",
   "subtitle.landsoficaria.chest_label.clear": "Chest Label clears",
+  "subtitle.landsoficaria.cookie_jar.fill": "Cookie Jar fills",
   "subtitle.landsoficaria.crocotta.ambient": "Crocotta laughs",
   "subtitle.landsoficaria.crocotta.death": "Crocotta dies",
   "subtitle.landsoficaria.crocotta.hurt": "Crocotta hurts",
@@ -1790,5 +1792,6 @@
   "tooltip.landsoficaria.chest_label.style": "Style",
   "tooltip.landsoficaria.chest_label.title": "Right click to edit",
   "tooltip.landsoficaria.chest_label.white": "White",
-  "tooltip.landsoficaria.chest_label.yellow": "Yellow"
+  "tooltip.landsoficaria.chest_label.yellow": "Yellow",
+  "tooltip.landsoficaria.cookie_jar": "%1$s / %2$s Cookies"
 }

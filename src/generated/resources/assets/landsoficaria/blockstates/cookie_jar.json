@@ -1,0 +1,140 @@
+{
+  "variants": {
+    "cookie_amount=0": [
+      {
+        "model": "landsoficaria:block/cookie_jar_0"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_0",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_0",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_0",
+        "y": 270
+      }
+    ],
+    "cookie_amount=1": [
+      {
+        "model": "landsoficaria:block/cookie_jar_1"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_1",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_1",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_1",
+        "y": 270
+      }
+    ],
+    "cookie_amount=2": [
+      {
+        "model": "landsoficaria:block/cookie_jar_2"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_2",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_2",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_2",
+        "y": 270
+      }
+    ],
+    "cookie_amount=3": [
+      {
+        "model": "landsoficaria:block/cookie_jar_3"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_3",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_3",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_3",
+        "y": 270
+      }
+    ],
+    "cookie_amount=4": [
+      {
+        "model": "landsoficaria:block/cookie_jar_4"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_4",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_4",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_4",
+        "y": 270
+      }
+    ],
+    "cookie_amount=5": [
+      {
+        "model": "landsoficaria:block/cookie_jar_5"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_5",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_5",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_5",
+        "y": 270
+      }
+    ],
+    "cookie_amount=6": [
+      {
+        "model": "landsoficaria:block/cookie_jar_6"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_6",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_6",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_6",
+        "y": 270
+      }
+    ],
+    "cookie_amount=7": [
+      {
+        "model": "landsoficaria:block/cookie_jar_7"
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_7",
+        "y": 90
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_7",
+        "y": 180
+      },
+      {
+        "model": "landsoficaria:block/cookie_jar_7",
+        "y": 270
+      }
+    ]
+  }
+}

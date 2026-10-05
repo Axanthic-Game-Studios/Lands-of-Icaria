@@ -18,7 +18,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class IcariaDataComponents {
 	public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENT_TYPES = DeferredRegister.create(Registries.DATA_COMPONENT_TYPE, IcariaIds.ID);
 
-	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> COLOR = IcariaDataComponents.DATA_COMPONENT_TYPES.register("color", () -> DataComponentType.<Integer>builder().persistent(Codec.INT).networkSynchronized(ByteBufCodecs.RGB_COLOR).cacheEncoding().build());
-	public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> LABEL = IcariaDataComponents.DATA_COMPONENT_TYPES.register("label", () -> DataComponentType.<String>builder().persistent(Codec.STRING).networkSynchronized(ByteBufCodecs.STRING_UTF8).cacheEncoding().build());
 	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Boolean>> STYLE = IcariaDataComponents.DATA_COMPONENT_TYPES.register("style", () -> DataComponentType.<Boolean>builder().persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL).cacheEncoding().build());
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> COLOR = IcariaDataComponents.DATA_COMPONENT_TYPES.register("color", () -> DataComponentType.<Integer>builder().persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT).cacheEncoding().build());
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> COOKIES = IcariaDataComponents.DATA_COMPONENT_TYPES.register("cookies", () -> DataComponentType.<Integer>builder().persistent(Codec.INT).networkSynchronized(ByteBufCodecs.INT).cacheEncoding().build());
+	public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> LABEL = IcariaDataComponents.DATA_COMPONENT_TYPES.register("label", () -> DataComponentType.<String>builder().persistent(Codec.STRING).networkSynchronized(ByteBufCodecs.STRING_UTF8).cacheEncoding().build());
 }

@@ -471,6 +471,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Vine Berry Cake");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
+		this.add(IcariaBlocks.COOKIE_JAR.get(), "Cookie Jar");
+
 		this.add(IcariaBlocks.POT.get(), "Pot");
 
 		this.add(IcariaBlocks.LARGE_BOWLS.get(), "Large Bowls");
@@ -1499,6 +1501,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("screen" + "." + IcariaIds.ID + "." + "chest_label", "Chest Label");
 
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "barrel" + "." + "break", "Barrel breaks");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "cookie_jar" + "." + "fill", "Cookie Jar fills");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "grinder" + "." + "grind", "Grinder grinds");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "concoct", "Kettle concocts");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kettle consumes");
@@ -1971,6 +1974,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "style", "Style");
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "classic", "Classic");
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "glowing", "Glowing");
+		this.add("tooltip" + "." + IcariaIds.ID + "." + "cookie_jar", "%1$s / %2$s Cookies");
 	}
 
 	@Override

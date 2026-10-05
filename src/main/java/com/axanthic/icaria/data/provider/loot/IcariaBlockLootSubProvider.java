@@ -16,6 +16,7 @@ import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.util.Util;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -30,6 +31,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.SetComponentsFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -49,6 +51,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropBush();
 		this.dropCake();
 		this.dropCobweb();
+		this.dropCookieJar();
 		this.dropCountertop();
 		this.dropDoor();
 		this.dropElse();
@@ -99,6 +102,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropCobweb() {
 		this.dropCobweb(IcariaBlocks.COBWEB.get(), IcariaItems.ARACHNE_STRING.get());
+	}
+
+	public void dropCookieJar() {
+		this.dropCookieJar(IcariaBlocks.COOKIE_JAR.get());
 	}
 
 	public void dropCountertop() {
@@ -1082,6 +1089,10 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 
 	public void dropCobweb(Block pBlock, Item pItem) {
 		this.add(pBlock, LootTable.lootTable().withPool(LootPool.lootPool().add(LootItem.lootTableItem(pBlock).when(this.shearsOrSilk()))).withPool(LootPool.lootPool().add(LootItem.lootTableItem(pItem).when(this.noShearsOrSilk()))));
+	}
+
+	public void dropCookieJar(Block pBlock) {
+		this.add(pBlock, LootTable.lootTable().withPool(Util.make(LootPool.lootPool(), pool -> IcariaBlockStateProperties.COOKIE_AMOUNT.getPossibleValues().forEach(i -> pool.add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.COOKIE_AMOUNT, i))).apply(SetComponentsFunction.setComponent(IcariaDataComponents.COOKIES.get(), i)))))));
 	}
 
 	public void dropCountertop(Block pBlock) {

@@ -854,6 +854,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.PINK_STORAGE_VASE.block())
 			.add(IcariaBlockItemIds.ARACHNE_SPAWNER.block())
 			.add(IcariaBlockItemIds.REVENANT_SPAWNER.block())
+			.add(IcariaBlockItemIds.COOKIE_JAR.block())
 			.add(IcariaBlockItemIds.POT.block());
 
 		this.tag(BlockTags.MINEABLE_WITH_SHOVEL)

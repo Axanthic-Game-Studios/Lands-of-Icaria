@@ -471,6 +471,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Rankenbeerenkuchen");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Rankensprossenkuchen");
 
+		this.add(IcariaBlocks.COOKIE_JAR.get(), "Keksglas");
+
 		this.add(IcariaBlocks.POT.get(), "Topf");
 
 		this.add(IcariaBlocks.LARGE_BOWLS.get(), "Große Schüsseln");
@@ -1499,6 +1501,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("screen" + "." + IcariaIds.ID + "." + "chest_label", "Kistenetikett");
 
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "barrel" + "." + "break", "Fass bricht");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "cookie_jar" + "." + "fill", "Keksglas befüllt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "grinder" + "." + "grind", "Mühle mahlt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "concoct", "Kessel braut");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
@@ -1971,6 +1974,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "style", "Stil");
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "classic", "Klassisch");
 		this.add("tooltip" + "." + IcariaIds.ID + "." + "chest_label" + "." + "glowing", "Leuchtend");
+		this.add("tooltip" + "." + IcariaIds.ID + "." + "cookie_jar", "%1$s / %2$s Kekse");
 	}
 
 	@Override

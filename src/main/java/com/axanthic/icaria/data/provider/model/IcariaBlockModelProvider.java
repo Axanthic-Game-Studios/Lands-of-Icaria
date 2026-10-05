@@ -56,6 +56,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyGrateCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlab(pBlockModelGenerators);
 		IcariaBlockModelProvider.cobweb(pBlockModelGenerators);
+		IcariaBlockModelProvider.cookieJar(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertop(pBlockModelGenerators);
 		IcariaBlockModelProvider.craftingTable(pBlockModelGenerators);
 		IcariaBlockModelProvider.cross(pBlockModelGenerators);
@@ -209,6 +210,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyGrateCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlabModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cobwebModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.cookieJarModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cupboardModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cuttingBoardModel(pBlockModelGenerators);
@@ -641,6 +643,10 @@ public class IcariaBlockModelProvider {
 
 	public static void cobweb(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.cobweb(IcariaBlocks.COBWEB.get(), pBlockModelGenerators);
+	}
+
+	public static void cookieJar(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.cookieJar(IcariaBlocks.COOKIE_JAR.get(), pBlockModelGenerators);
 	}
 
 	public static void countertop(BlockModelGenerators pBlockModelGenerators) {
@@ -2487,6 +2493,49 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.COBWEB_POSITIVE, new Material(IcariaModelProvider.blockFile(pBlock)))
 				.putForced(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE, new Material(IcariaModelProvider.blockFile(pBlock)))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBlock))), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cookieJar(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_5")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_6")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "6"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_7")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "7"), new TextureMapping()
+				.putForced(IcariaTextureSlots.COOKIE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cookie")))
+				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertop(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -6109,6 +6158,17 @@ public class IcariaBlockModelProvider {
 	public static void cobwebModel(BlockModelGenerators pBlockModelGenerators) {
 		CobwebModel.cross().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cobweb_cross"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		CobwebModel.plane().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cobweb_plane"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void cookieJarModel(BlockModelGenerators pBlockModelGenerators) {
+		CookieJarModel.M0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M3().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M4().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M5().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_5"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M6().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_6"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		CookieJarModel.M7().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_cookie_jar_7"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void countertopModel(BlockModelGenerators blockModels) {

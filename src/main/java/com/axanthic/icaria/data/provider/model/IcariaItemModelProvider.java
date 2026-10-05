@@ -23,6 +23,7 @@ public class IcariaItemModelProvider {
 	public static void register(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemModelProvider.bident(pItemModelGenerators);
 		IcariaItemModelProvider.chest(pItemModelGenerators);
+		IcariaItemModelProvider.cookieJar(pItemModelGenerators);
 		IcariaItemModelProvider.generated(pItemModelGenerators);
 		IcariaItemModelProvider.handheld(pItemModelGenerators);
 		IcariaItemModelProvider.horn(pItemModelGenerators);
@@ -43,6 +44,10 @@ public class IcariaItemModelProvider {
 	public static void chest(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemModelProvider.chest(IcariaItems.CHEST.get(), pItemModelGenerators);
 		IcariaItemModelProvider.chest(IcariaItems.TRAPPED_CHEST.get(), pItemModelGenerators);
+	}
+
+	public static void cookieJar(ItemModelGenerators pItemModelGenerators) {
+		IcariaItemModelProvider.cookieJar(IcariaItems.COOKIE_JAR.get(), pItemModelGenerators);
 	}
 
 	public static void generated(ItemModelGenerators pItemModelGenerators) {
@@ -1201,6 +1206,25 @@ public class IcariaItemModelProvider {
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.itemFile(IcariaIds.MC, "template_chest")).build()
 			.create(IcariaModelProvider.itemFile(pItem), new TextureMapping(), pItemModelGenerators.modelOutput);
+	}
+
+	public static void cookieJar(Item pItem, ItemModelGenerators pItemModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "0")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "0"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "1")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "1"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "2")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "2"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "3")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "3"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "4")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "4"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "5")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "5"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "6")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "6"), new TextureMapping(), pItemModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), "block" + "/" + IcariaModelProvider.itemName(pItem) + "_" + "7")).build()
+			.create(IcariaModelProvider.itemFile(pItem, "7"), new TextureMapping(), pItemModelGenerators.modelOutput);
 	}
 
 	public static void generated(Item pItem, ItemModelGenerators pItemModelGenerators) {

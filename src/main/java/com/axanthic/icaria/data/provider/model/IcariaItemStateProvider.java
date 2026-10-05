@@ -4,6 +4,7 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.renderer.UnbakedScrollItemSpecialModelRenderer;
 import com.axanthic.icaria.common.registry.IcariaColors;
+import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.types.SkullBlockTypes;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.item.CuboidItemModelWrapper;
 import net.minecraft.client.renderer.item.SelectItemModel;
 import net.minecraft.client.renderer.item.SpecialModelWrapper;
 import net.minecraft.client.renderer.item.properties.conditional.IsUsingItem;
+import net.minecraft.client.renderer.item.properties.select.ComponentContents;
 import net.minecraft.client.renderer.item.properties.select.DisplayContext;
 import net.minecraft.client.renderer.special.ChestSpecialRenderer;
 import net.minecraft.client.renderer.special.SkullSpecialRenderer;
@@ -35,6 +37,7 @@ public class IcariaItemStateProvider {
 	public static void register(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.bident(pItemModelGenerators);
 		IcariaItemStateProvider.chest(pItemModelGenerators);
+		IcariaItemStateProvider.cookieJar(pItemModelGenerators);
 		IcariaItemStateProvider.horn(pItemModelGenerators);
 		IcariaItemStateProvider.parent(pItemModelGenerators);
 		IcariaItemStateProvider.scroll(pItemModelGenerators);
@@ -56,6 +59,10 @@ public class IcariaItemStateProvider {
 	public static void chest(ItemModelGenerators pItemModelGenerators) {
 		IcariaItemStateProvider.chest(IcariaItems.CHEST.get(), pItemModelGenerators);
 		IcariaItemStateProvider.chest(IcariaItems.TRAPPED_CHEST.get(), pItemModelGenerators);
+	}
+
+	public static void cookieJar(ItemModelGenerators pItemModelGenerators) {
+		IcariaItemStateProvider.cookieJar(IcariaItems.COOKIE_JAR.get(), pItemModelGenerators);
 	}
 
 	public static void horn(ItemModelGenerators pItemModelGenerators) {
@@ -1222,6 +1229,10 @@ public class IcariaItemStateProvider {
 
 	public static void chest(Item pItem, ItemModelGenerators pItemModelGenerators) {
 		pItemModelGenerators.itemModelOutput.accept(pItem, new SpecialModelWrapper.Unbaked(IcariaModelProvider.itemFile(IcariaIds.MC, "chest"), Optional.empty(), new ChestSpecialRenderer.Unbaked(Identifier.fromNamespaceAndPath(IcariaModelProvider.itemId(pItem), IcariaModelProvider.itemName(pItem)))));
+	}
+
+	public static void cookieJar(Item pItem, ItemModelGenerators pItemModelGenerators) {
+		pItemModelGenerators.itemModelOutput.accept(pItem, new SelectItemModel.Unbaked(Optional.empty(), new SelectItemModel.UnbakedSwitch<>(new ComponentContents<>(IcariaDataComponents.COOKIES.get()), List.of(new SelectItemModel.SwitchCase<>(List.of(0), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "0"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(1), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "1"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(2), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "2"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(3), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "3"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(4), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "4"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(5), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "5"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(6), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "6"), Optional.empty(), List.of())), new SelectItemModel.SwitchCase<>(List.of(7), new CuboidItemModelWrapper.Unbaked(IcariaModelProvider.itemFile(pItem, "7"), Optional.empty(), List.of())))), Optional.empty()));
 	}
 
 	public static void horn(Item pItem, ItemModelGenerators pItemModelGenerators) {

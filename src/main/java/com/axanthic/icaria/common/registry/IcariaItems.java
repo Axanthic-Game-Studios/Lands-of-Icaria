@@ -427,6 +427,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> VINE_BERRY_CAKE = IcariaItems.register(IcariaBlockItemIds.VINE_BERRY_CAKE, IcariaItems.propertiesBlock().stacksTo(1), properties -> new BlockItem(IcariaBlocks.VINE_BERRY_CAKE.get(), properties));
 	public static final DeferredHolder<Item, Item> VINE_SPROUT_CAKE = IcariaItems.register(IcariaBlockItemIds.VINE_SPROUT_CAKE, IcariaItems.propertiesBlock().stacksTo(1), properties -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), properties));
 
+	public static final DeferredHolder<Item, Item> COOKIE_JAR = IcariaItems.register(IcariaBlockItemIds.COOKIE_JAR, IcariaItems.propertiesBlock(), properties -> new CookieJarItem(IcariaBlocks.COOKIE_JAR.get(), properties.component(IcariaDataComponents.COOKIES, 7)));
+
 	public static final DeferredHolder<Item, Item> POT = IcariaItems.register(IcariaBlockItemIds.POT, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.POT.get(), properties));
 
 	public static final DeferredHolder<Item, Item> LARGE_BOWLS = IcariaItems.register(IcariaBlockItemIds.LARGE_BOWLS, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.LARGE_BOWLS.get(), properties));
