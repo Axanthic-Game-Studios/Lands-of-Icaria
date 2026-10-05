@@ -73,6 +73,7 @@ Updates
 
 Fixes
 
+- Harvesting Vine Sprouts from Brushy Vines displays fitting Closed Captions now
 - Inconsistent Scroll Item Lighting
 - Rays properly render in front of Block Entities now (like Chests, Signs)
 - Misspelled German Chest Label Advancement Description Localization
