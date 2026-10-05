@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.entity.HutchBlockEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.HutchVoxelShapes;
 
 import javax.annotation.Nullable;
@@ -13,7 +14,6 @@ import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -150,49 +150,49 @@ public class HutchBlock extends Block implements EntityBlock, MediterraneanWater
 			pBlockEntity.setBottomLeftAngle(pLevel.getRandom().nextDouble());
 			pBlockEntity.setBottomLeftItem(pItemStack.getItem());
 			pItemStack.consume(1, pPlayer);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_ADD_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_FILL);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getBottomRightItem() == null && this.isBottomRow(pBlockHitResult) && this.isRightColumn(pBlockHitResult, pBlockState) && !pItemStack.isEmpty()) {
 			pBlockEntity.setBottomRightAngle(pLevel.getRandom().nextDouble());
 			pBlockEntity.setBottomRightItem(pItemStack.getItem());
 			pItemStack.consume(1, pPlayer);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_ADD_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_FILL);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getTopLeftItem() == null && this.isTopRow(pBlockHitResult) && this.isLeftColumn(pBlockHitResult, pBlockState) && !pItemStack.isEmpty()) {
 			pBlockEntity.setTopLeftAngle(pLevel.getRandom().nextDouble());
 			pBlockEntity.setTopLeftItem(pItemStack.getItem());
 			pItemStack.consume(1, pPlayer);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_ADD_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_FILL);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getTopRightItem() == null && this.isTopRow(pBlockHitResult) && this.isRightColumn(pBlockHitResult, pBlockState) && !pItemStack.isEmpty()) {
 			pBlockEntity.setTopRightAngle(pLevel.getRandom().nextDouble());
 			pBlockEntity.setTopRightItem(pItemStack.getItem());
 			pItemStack.consume(1, pPlayer);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_ADD_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_FILL);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getBottomLeftItem() != null && this.isBottomRow(pBlockHitResult) && this.isLeftColumn(pBlockHitResult, pBlockState)) {
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, new ItemStack(pBlockEntity.getBottomLeftItem()));
 			pBlockEntity.setBottomLeftAngle(0);
 			pBlockEntity.setBottomLeftItem(null);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_REMOVE_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_EMPTY);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getBottomRightItem() != null && this.isBottomRow(pBlockHitResult) && this.isRightColumn(pBlockHitResult, pBlockState)) {
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, new ItemStack(pBlockEntity.getBottomRightItem()));
 			pBlockEntity.setBottomRightAngle(0);
 			pBlockEntity.setBottomRightItem(null);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_REMOVE_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_EMPTY);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getTopLeftItem() != null && this.isTopRow(pBlockHitResult) && this.isLeftColumn(pBlockHitResult, pBlockState)) {
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, new ItemStack(pBlockEntity.getTopLeftItem()));
 			pBlockEntity.setTopLeftAngle(0);
 			pBlockEntity.setTopLeftItem(null);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_REMOVE_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_EMPTY);
 			return InteractionResult.SUCCESS;
 		} else if (pBlockEntity.getTopRightItem() != null && this.isTopRow(pBlockHitResult) && this.isRightColumn(pBlockHitResult, pBlockState)) {
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, new ItemStack(pBlockEntity.getTopRightItem()));
 			pBlockEntity.setTopRightAngle(0);
 			pBlockEntity.setTopRightItem(null);
-			this.update(pBlockPos, pLevel, pPlayer, SoundEvents.ITEM_FRAME_REMOVE_ITEM);
+			this.update(pBlockPos, pLevel, pPlayer, IcariaSoundEvents.HUTCH_EMPTY);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

@@ -53,6 +53,24 @@
     ],
     "subtitle": "subtitle.landsoficaria.grinder.grind"
   },
+  "block.hutch.empty": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.item_frame.remove_item"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.hutch.empty"
+  },
+  "block.hutch.fill": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "entity.item_frame.add_item"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.hutch.fill"
+  },
   "block.kettle.concoct": {
     "sounds": [
       "landsoficaria:block/kettle/concoct_00",

@@ -1503,6 +1503,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "barrel" + "." + "break", "Fass bricht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "cookie_jar" + "." + "fill", "Keksglas befüllt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "grinder" + "." + "grind", "Mühle mahlt");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "hutch" + "." + "fill", "Regal gefüllt");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "hutch" + "." + "empty", "Regal geleert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "concoct", "Kessel braut");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "pop", "Kessel poppt");

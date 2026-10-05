@@ -267,6 +267,8 @@ public class IcariaIdentifiers {
 	public static final Identifier BARREL_BREAK = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.barrel.break");
 	public static final Identifier COOKIE_JAR_FILL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.cookie_jar.fill");
 	public static final Identifier GRINDER_GRIND = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.grinder.grind");
+	public static final Identifier HUTCH_FILL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.hutch.fill");
+	public static final Identifier HUTCH_EMPTY = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.hutch.empty");
 	public static final Identifier KETTLE_CONCOCT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.concoct");
 	public static final Identifier KETTLE_CONSUME = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.consume");
 	public static final Identifier KETTLE_POP = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.pop");

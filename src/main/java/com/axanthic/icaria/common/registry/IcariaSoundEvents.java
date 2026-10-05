@@ -12,6 +12,8 @@ public class IcariaSoundEvents {
 	public static final SoundEvent BARREL_BREAK = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.BARREL_BREAK);
 	public static final SoundEvent COOKIE_JAR_FILL = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.COOKIE_JAR_FILL);
 	public static final SoundEvent GRINDER_GRIND = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.GRINDER_GRIND);
+	public static final SoundEvent HUTCH_FILL = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.HUTCH_FILL);
+	public static final SoundEvent HUTCH_EMPTY = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.HUTCH_EMPTY);
 	public static final SoundEvent KETTLE_CONCOCT = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_CONCOCT);
 	public static final SoundEvent KETTLE_CONSUME = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_CONSUME);
 	public static final SoundEvent KETTLE_POP = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_POP);

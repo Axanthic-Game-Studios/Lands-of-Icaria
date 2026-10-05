@@ -32,6 +32,8 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.BARREL_BREAK, "block", "barrel", "break", 4);
 		this.register(IcariaSoundEvents.COOKIE_JAR_FILL, SoundEvents.DECORATED_POT_INSERT, "cookie_jar", "fill");
 		this.register(IcariaSoundEvents.GRINDER_GRIND, "block", "grinder", "grind", 31);
+		this.register(IcariaSoundEvents.HUTCH_FILL, SoundEvents.ITEM_FRAME_ADD_ITEM, "hutch", "fill");
+		this.register(IcariaSoundEvents.HUTCH_EMPTY, SoundEvents.ITEM_FRAME_REMOVE_ITEM, "hutch", "empty");
 		this.register(IcariaSoundEvents.KETTLE_CONCOCT, "block", "kettle", "concoct", 4);
 		this.register(IcariaSoundEvents.KETTLE_CONSUME, SoundEvents.VILLAGER_WORK_LEATHERWORKER, "kettle", "consume");
 		this.register(IcariaSoundEvents.KETTLE_POP, SoundEvents.ITEM_PICKUP, "kettle", "pop");
