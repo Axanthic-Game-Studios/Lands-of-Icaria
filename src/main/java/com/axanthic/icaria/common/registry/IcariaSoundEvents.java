@@ -15,7 +15,7 @@ public class IcariaSoundEvents {
 	public static final SoundEvent KETTLE_CONCOCT = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_CONCOCT);
 	public static final SoundEvent KETTLE_CONSUME = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_CONSUME);
 	public static final SoundEvent KETTLE_POP = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.KETTLE_POP);
-	public static final SoundEvent LIGNITE_CRACKLE = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.LIGNITE_CRACKLE);
+	public static final SoundEvent LIGNITE_RUBBLE_CRACKLE = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.LIGNITE_RUBBLE_CRACKLE);
 	public static final SoundEvent POTTERY_BREAK = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.POTTERY_BREAK);
 	public static final SoundEvent ROTTEN_BONE_LADDER_BREAK = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.ROTTEN_BONE_LADDER_BREAK);
 	public static final SoundEvent AETERNAE_AMBIENT = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.AETERNAE_AMBIENT);

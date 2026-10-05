@@ -35,7 +35,7 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.KETTLE_CONCOCT, "block", "kettle", "concoct", 4);
 		this.register(IcariaSoundEvents.KETTLE_CONSUME, SoundEvents.VILLAGER_WORK_LEATHERWORKER, "kettle", "consume");
 		this.register(IcariaSoundEvents.KETTLE_POP, SoundEvents.ITEM_PICKUP, "kettle", "pop");
-		this.register(IcariaSoundEvents.LIGNITE_CRACKLE, SoundEvents.FURNACE_FIRE_CRACKLE, "lignite", "crackle");
+		this.register(IcariaSoundEvents.LIGNITE_RUBBLE_CRACKLE, SoundEvents.FURNACE_FIRE_CRACKLE, "lignite_rubble", "crackle");
 		this.register(IcariaSoundEvents.POTTERY_BREAK, "block", "pottery", "break", 4);
 		this.register(IcariaSoundEvents.ROTTEN_BONE_LADDER_BREAK, SoundEvents.GOAT_HORN_BREAK, "rotten_bone_ladder", "break");
 		this.register(IcariaSoundEvents.AETERNAE_AMBIENT, SoundEvents.COW_SOUNDS.get(CowSoundVariants.SoundSet.CLASSIC).ambientSound(), "aeternae", "ambient");

@@ -47,7 +47,7 @@ public class LigniteRubbleBlock extends FloorDecorationBlock {
 	public void particlesLava(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
 		if (pRandomSource.nextDouble() < 0.1D) {
 			pLevel.addParticle(ParticleTypes.LAVA, pBlockPos.getX() + pRandomSource.nextDouble(), pBlockPos.getY(), pBlockPos.getZ() + pRandomSource.nextDouble(), 0.0D, 0.0D, 0.0D);
-			pLevel.playLocalSound(pBlockPos, IcariaSoundEvents.LIGNITE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
+			pLevel.playLocalSound(pBlockPos, IcariaSoundEvents.LIGNITE_RUBBLE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F, false);
 		}
 	}
 

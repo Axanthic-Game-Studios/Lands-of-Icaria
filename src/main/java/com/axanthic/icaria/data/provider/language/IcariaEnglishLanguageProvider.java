@@ -1506,7 +1506,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "concoct", "Kettle concocts");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kettle consumes");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "pop", "Kettle pops");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite" + "." + "crackle", "Lignite crackles");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite_rubble" + "." + "crackle", "Lignite Rubble crackles");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "pottery" + "." + "break", "Pottery breaks");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "rotten_bone_ladder" + "." + "break", "Rotten Bone Ladder breaks");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "aeternae" + "." + "ambient", "Aeternae moos");

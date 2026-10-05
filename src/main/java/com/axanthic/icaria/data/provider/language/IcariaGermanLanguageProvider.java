@@ -1506,7 +1506,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "concoct", "Kessel braut");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite" + "." + "crackle", "Braunkohle knistert");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite_rubble" + "." + "crackle", "Braunkohlegeröll knistert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "pottery" + "." + "break", "Keramik bricht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "rotten_bone_ladder" + "." + "break", "Verrottete Knochenleiter bricht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");

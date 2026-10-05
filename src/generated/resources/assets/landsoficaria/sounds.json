@@ -80,14 +80,14 @@
     ],
     "subtitle": "subtitle.landsoficaria.kettle.pop"
   },
-  "block.lignite.crackle": {
+  "block.lignite_rubble.crackle": {
     "sounds": [
       {
         "type": "event",
         "name": "block.furnace.fire_crackle"
       }
     ],
-    "subtitle": "subtitle.landsoficaria.lignite.crackle"
+    "subtitle": "subtitle.landsoficaria.lignite_rubble.crackle"
   },
   "block.pottery.break": {
     "sounds": [

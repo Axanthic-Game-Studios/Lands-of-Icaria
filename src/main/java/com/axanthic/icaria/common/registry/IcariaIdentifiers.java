@@ -270,7 +270,7 @@ public class IcariaIdentifiers {
 	public static final Identifier KETTLE_CONCOCT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.concoct");
 	public static final Identifier KETTLE_CONSUME = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.consume");
 	public static final Identifier KETTLE_POP = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.kettle.pop");
-	public static final Identifier LIGNITE_CRACKLE = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.lignite.crackle");
+	public static final Identifier LIGNITE_RUBBLE_CRACKLE = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.lignite_rubble.crackle");
 	public static final Identifier POTTERY_BREAK = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.pottery.break");
 	public static final Identifier ROTTEN_BONE_LADDER_BREAK = Identifier.fromNamespaceAndPath(IcariaIds.ID, "block.rotten_bone_ladder.break");
 	public static final Identifier AETERNAE_AMBIENT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "entity.aeternae.ambient");
