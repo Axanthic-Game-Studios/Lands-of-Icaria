@@ -1627,6 +1627,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "trough" + "." + "fill", "Trough fills");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "vial" + "." + "empty", "Vial empties");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "vial" + "." + "fill", "Vial fills");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "vine_sprout" + "." + "pop", "Vine Sprout pops");
 
 		this.add(IcariaBiomeTags.HAS_PORTAL, "Has Portal");
 

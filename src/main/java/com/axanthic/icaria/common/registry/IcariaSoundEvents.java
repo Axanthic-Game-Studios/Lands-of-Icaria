@@ -136,4 +136,5 @@ public class IcariaSoundEvents {
 	public static final SoundEvent TROUGH_FILL = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.TROUGH_FILL);
 	public static final SoundEvent VIAL_EMPTY = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.VIAL_EMPTY);
 	public static final SoundEvent VIAL_FILL = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.VIAL_FILL);
+	public static final SoundEvent VINE_SPROUT_POP = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.VINE_SPROUT_POP);
 }

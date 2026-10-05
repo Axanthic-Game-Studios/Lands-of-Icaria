@@ -1138,5 +1138,14 @@
       }
     ],
     "subtitle": "subtitle.landsoficaria.vial.fill"
+  },
+  "item.vine_sprout.pop": {
+    "sounds": [
+      {
+        "type": "event",
+        "name": "block.sweet_berry_bush.pick_berries"
+      }
+    ],
+    "subtitle": "subtitle.landsoficaria.vine_sprout.pop"
   }
 }

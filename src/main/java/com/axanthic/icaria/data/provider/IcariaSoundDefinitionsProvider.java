@@ -156,6 +156,7 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.TROUGH_FILL, SoundEvents.COMPOSTER_FILL, "trough", "fill");
 		this.register(IcariaSoundEvents.VIAL_EMPTY, SoundEvents.BOTTLE_EMPTY, "vial", "empty");
 		this.register(IcariaSoundEvents.VIAL_FILL, SoundEvents.BOTTLE_FILL, "vial", "fill");
+		this.register(IcariaSoundEvents.VINE_SPROUT_POP, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, "vine_sprout", "pop");
 	}
 
 	public void register(SoundEvent pSoundEvent, String pCategory, String pObject, String pAction, int pSounds) {

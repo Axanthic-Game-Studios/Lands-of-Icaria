@@ -391,4 +391,5 @@ public class IcariaIdentifiers {
 	public static final Identifier TROUGH_FILL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.trough.fill");
 	public static final Identifier VIAL_EMPTY = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.vial.empty");
 	public static final Identifier VIAL_FILL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.vial.fill");
+	public static final Identifier VINE_SPROUT_POP = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.vine_sprout.pop");
 }
