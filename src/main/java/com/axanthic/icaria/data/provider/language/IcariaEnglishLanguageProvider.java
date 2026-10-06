@@ -472,6 +472,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
 		this.add(IcariaBlocks.COOKIE_JAR.get(), "Cookie Jar");
+		this.add(IcariaBlocks.POWDER_JAR.get(), "Powder Jar");
 
 		this.add(IcariaBlocks.POT.get(), "Pot");
 

@@ -9,6 +9,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CookieJarVoxelShapes {
-	public static final VoxelShape COOKIE_JAR = Block.box(2.5D, 0.0D, 2.5D, 13.5D, 11.0D, 13.5D);
+public class JarVoxelShapes {
+	public static final VoxelShape JAR = Block.box(2.5D, 0.0D, 2.5D, 13.5D, 11.0D, 13.5D);
 }

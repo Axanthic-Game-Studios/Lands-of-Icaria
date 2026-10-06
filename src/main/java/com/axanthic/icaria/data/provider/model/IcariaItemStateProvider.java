@@ -405,6 +405,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_BERRY_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_SPROUT_CAKE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POWDER_JAR.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LARGE_BOWLS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLATES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_SUBSTANCE.get(), pItemModelGenerators);

@@ -135,6 +135,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot WEST = TextureSlot.create("west");
 	public static final TextureSlot WHITE_CONCRETE_POWDER = TextureSlot.create("white_concrete_powder");
 	public static final TextureSlot WOOL = TextureSlot.create("wool");
+	public static final TextureSlot YELLOW_CONCRETE_POWDER = TextureSlot.create("yellow_concrete_powder");
 	public static final TextureSlot YELLOWSTONE = TextureSlot.create("yellowstone");
 	public static final TextureSlot YELLOWSTONE_BRICKS = TextureSlot.create("yellowstone_bricks");
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_powder_jar",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "particle": "landsoficaria:block/jar",
+    "yellow_concrete_powder": "minecraft:block/yellow_concrete_powder"
+  }
+}

@@ -339,6 +339,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.block(IcariaBlocks.REVENANT_SPAWNER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.LIGNITE_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.ANTHRACITE_TORCH.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.POWDER_JAR.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.CYPRESS_SAPLING.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.POTTED_CYPRESS_SAPLING.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.CYPRESS_LEAVES.get(), pBlockModelGenerators);

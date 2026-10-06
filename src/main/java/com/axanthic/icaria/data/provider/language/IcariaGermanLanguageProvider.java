@@ -472,6 +472,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Rankensprossenkuchen");
 
 		this.add(IcariaBlocks.COOKIE_JAR.get(), "Keksglas");
+		this.add(IcariaBlocks.POWDER_JAR.get(), "Pulverglas");
 
 		this.add(IcariaBlocks.POT.get(), "Topf");
 

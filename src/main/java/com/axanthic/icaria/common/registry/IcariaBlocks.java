@@ -446,7 +446,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> VINE_BERRY_CAKE = IcariaBlocks.register(IcariaBlockItemIds.VINE_BERRY_CAKE, IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL), properties -> new IcariaCakeBlock(false, 600, MobEffects.NIGHT_VISION, properties));
 	public static final DeferredHolder<Block, Block> VINE_SPROUT_CAKE = IcariaBlocks.register(IcariaBlockItemIds.VINE_SPROUT_CAKE, IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL), properties -> new IcariaCakeBlock(false, 600, MobEffects.SPEED, properties));
 
-	public static final DeferredHolder<Block, Block> COOKIE_JAR = IcariaBlocks.register(IcariaBlockItemIds.COOKIE_JAR, IcariaBlocks.propertiesCookieJar(MapColor.NONE, SoundType.GLASS), CookieJarBlock::new);
+	public static final DeferredHolder<Block, Block> COOKIE_JAR = IcariaBlocks.register(IcariaBlockItemIds.COOKIE_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), CookieJarBlock::new);
+	public static final DeferredHolder<Block, Block> POWDER_JAR = IcariaBlocks.register(IcariaBlockItemIds.POWDER_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
 
 	public static final DeferredHolder<Block, Block> POT = IcariaBlocks.register(IcariaBlockItemIds.POT, IcariaBlocks.propertiesPot(MapColor.NONE, SoundType.METAL), PotBlock::new);
 
@@ -1207,7 +1208,7 @@ public class IcariaBlocks {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
-	public static BlockBehaviour.Properties propertiesCookieJar(MapColor pMapColor, SoundType pSoundType) {
+	public static BlockBehaviour.Properties propertiesJar(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).requiresCorrectToolForDrops();
 	}
 

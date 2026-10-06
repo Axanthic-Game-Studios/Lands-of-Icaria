@@ -406,6 +406,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId VINE_SPROUT_CAKE = IcariaBlockItemIds.create("vine_sprout_cake");
 
 	public static final BlockItemId COOKIE_JAR = IcariaBlockItemIds.create("cookie_jar");
+	public static final BlockItemId POWDER_JAR = IcariaBlockItemIds.create("powder_jar");
 
 	public static final BlockItemId POT = IcariaBlockItemIds.create("pot");
 
