@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_flask_2",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "particle": "landsoficaria:block/jar"
+  }
+}

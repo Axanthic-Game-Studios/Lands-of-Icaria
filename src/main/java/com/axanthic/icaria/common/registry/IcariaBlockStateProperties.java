@@ -64,6 +64,7 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty CAKE_BITE = IntegerProperty.create("cake_bite", 0, 3);
 	public static final IntegerProperty CANDLE_AMOUNT = IntegerProperty.create("candle_amount", 0, 4);
 	public static final IntegerProperty COOKIE_AMOUNT = IntegerProperty.create("cookie_amount", 0, 7);
+	public static final IntegerProperty FLASK_AMOUNT = IntegerProperty.create("flask_amount", 1, 4);
 	public static final IntegerProperty LADDER_TICK = IntegerProperty.create("ladder_tick", 0, 40);
 	public static final IntegerProperty POT_FILL = IntegerProperty.create("pot_fill", 0, 3);
 	public static final IntegerProperty SUSPICIOUS_SUBSTANCE = IntegerProperty.create("suspicious_substance", 0, 3);

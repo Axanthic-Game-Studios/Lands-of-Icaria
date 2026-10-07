@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:droughtroot_raised_basin_countertop"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/droughtroot_raised_basin_countertop"
+}

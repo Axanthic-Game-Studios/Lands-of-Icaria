@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:laurel_flask_cupboard"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/laurel_flask_cupboard"
+}

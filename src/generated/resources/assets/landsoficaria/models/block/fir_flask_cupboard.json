@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_flask_cupboard",
+  "textures": {
+    "cupboard": "landsoficaria:block/fir_cupboard",
+    "kettle": "landsoficaria:block/kettle",
+    "log": "landsoficaria:block/fir_log",
+    "particle": "landsoficaria:block/smooth_fir_log",
+    "planks": "landsoficaria:block/fir_planks",
+    "smooth_log": "landsoficaria:block/smooth_fir_log",
+    "stripped_log": "landsoficaria:block/stripped_fir_log"
+  }
+}

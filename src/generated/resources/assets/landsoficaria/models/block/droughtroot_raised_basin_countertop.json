@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_raised_basin_countertop",
+  "textures": {
+    "halite_block": "landsoficaria:block/halite_block",
+    "log": "landsoficaria:block/droughtroot_log",
+    "molybdenumsteel_block": "landsoficaria:block/molybdenumsteel_block",
+    "particle": "landsoficaria:block/stripped_droughtroot_log",
+    "planks": "landsoficaria:block/droughtroot_planks",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log",
+    "trapdoor": "landsoficaria:block/droughtroot_trapdoor"
+  }
+}

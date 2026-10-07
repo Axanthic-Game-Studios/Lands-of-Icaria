@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:fir_dish_cupboard"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/fir_dish_cupboard"
+}

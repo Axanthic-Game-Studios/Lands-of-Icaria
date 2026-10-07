@@ -7,7 +7,7 @@ import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.shapes.AmphoraVoxelShapes;
+import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -96,12 +95,9 @@ public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		var amount = pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT);
-		var item = pItemStack.getItem();
-		if (item == IcariaItems.AMPHORA.get() && amount < 3) {
+		if (pItemStack.is(IcariaItems.AMPHORA.get()) && pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT) < 3) {
 			pLevel.playSound(pPlayer, pBlockPos, SoundEvents.DECORATED_POT_PLACE, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.AMPHORA_AMOUNT, amount + 1));
-			pPlayer.awardStat(Stats.ITEM_USED.get(item));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.AMPHORA_AMOUNT, pBlockState.getValue(IcariaBlockStateProperties.AMPHORA_AMOUNT) + 1));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else {
@@ -117,6 +113,6 @@ public class AmphoraBlock extends Block implements MediterraneanWaterloggedBlock
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return AmphoraVoxelShapes.AMPHORA;
+		return LayerVoxelShapes.Y_02;
 	}
 }

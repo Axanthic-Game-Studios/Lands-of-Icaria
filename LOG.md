@@ -8,11 +8,13 @@ Additions
 - Checkers and Chess Blocks
 - Chimney Blocks
 - Cobweb Block
-- Candle, Flower Pot, Mortar, Pot, Basins and Raised Basins Countertop Blocks for each Wood Type
+- Cookie Jar Block
+- Candle, Flower Pot, Mortar, Pot, Basin and Raised Basin Countertop Blocks for each Wood Type
 - Cupboard Blocks, Broken Cupboard Blocks and Cupboard Blocks with Dishes, Flasks, Pots and a Vase for each Wood Type
 - Cutting Board Blocks for each Wood Type
 - Fireplace Blocks
 - Firewood and Firewood Wedge Blocks for each Wood Type
+- Flask Block
 - Forge Recipes for Copper Nuggets from Copper Armor Pieces and Copper Tools
 - Forge Recipes for Golden Nuggets from Golden Nautilus Armor and Golden Spear
 - Forge Recipes for Iron Nuggets from Iron Nautilus Armor and Iron Spear
@@ -24,6 +26,7 @@ Additions
 - Large Bowls Block
 - Plates Block
 - Pot Block
+- Powder Jar Block
 - Scrollshelf Blocks for each Wood Type
 - Shelf Blocks for each Wood Type
 - Small Bowls Block
