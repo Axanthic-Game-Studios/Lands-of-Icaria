@@ -1,8 +1,8 @@
 Additions
 
 - Amphora Block dropping Fermented Fish and Fermented Snull Cream Loot
-- Arachne String Blocks in each Color
-- Arachne String Carpet Blocks in each Color
+- Terry Blocks in each Color
+- Terry Mats in each Color
 - Bathtub Blocks for each Wood Type
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Checkers and Chess Blocks

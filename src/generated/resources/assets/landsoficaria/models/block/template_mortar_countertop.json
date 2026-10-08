@@ -935,7 +935,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             5.0,
@@ -944,7 +944,7 @@
           ]
         },
         "west": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             5.0,
@@ -978,7 +978,7 @@
       "faces": {
         "down": {
           "rotation": 90,
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             8.0,
@@ -988,7 +988,7 @@
         },
         "up": {
           "rotation": 90,
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             8.0,
@@ -1021,7 +1021,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             5.0,
@@ -1030,7 +1030,7 @@
           ]
         },
         "west": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             5.0,

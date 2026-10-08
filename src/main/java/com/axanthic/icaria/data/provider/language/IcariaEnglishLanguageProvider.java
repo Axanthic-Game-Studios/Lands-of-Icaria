@@ -332,41 +332,41 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Block of Void Jellyfish Jelly");
 		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Block of Water Jellyfish Jelly");
 
-		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Block of Arachne String");
-		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), "White Block of Arachne String");
-		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), "Light Gray Block of Arachne String");
-		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), "Gray Block of Arachne String");
-		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), "Black Block of Arachne String");
-		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), "Brown Block of Arachne String");
-		this.add(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), "Red Block of Arachne String");
-		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), "Orange Block of Arachne String");
-		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), "Yellow Block of Arachne String");
-		this.add(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), "Lime Block of Arachne String");
-		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), "Green Block of Arachne String");
-		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), "Cyan Block of Arachne String");
-		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), "Light Blue Block of Arachne String");
-		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), "Blue Block of Arachne String");
-		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), "Purple Block of Arachne String");
-		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), "Magenta Block of Arachne String");
-		this.add(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), "Pink Block of Arachne String");
+		this.add(IcariaBlocks.TERRY_BLOCK.get(), "Block of Terry");
+		this.add(IcariaBlocks.WHITE_TERRY_BLOCK.get(), "White Block of Terry");
+		this.add(IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get(), "Light Gray Block of Terry");
+		this.add(IcariaBlocks.GRAY_TERRY_BLOCK.get(), "Gray Block of Terry");
+		this.add(IcariaBlocks.BLACK_TERRY_BLOCK.get(), "Black Block of Terry");
+		this.add(IcariaBlocks.BROWN_TERRY_BLOCK.get(), "Brown Block of Terry");
+		this.add(IcariaBlocks.RED_TERRY_BLOCK.get(), "Red Block of Terry");
+		this.add(IcariaBlocks.ORANGE_TERRY_BLOCK.get(), "Orange Block of Terry");
+		this.add(IcariaBlocks.YELLOW_TERRY_BLOCK.get(), "Yellow Block of Terry");
+		this.add(IcariaBlocks.LIME_TERRY_BLOCK.get(), "Lime Block of Terry");
+		this.add(IcariaBlocks.GREEN_TERRY_BLOCK.get(), "Green Block of Terry");
+		this.add(IcariaBlocks.CYAN_TERRY_BLOCK.get(), "Cyan Block of Terry");
+		this.add(IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get(), "Light Blue Block of Terry");
+		this.add(IcariaBlocks.BLUE_TERRY_BLOCK.get(), "Blue Block of Terry");
+		this.add(IcariaBlocks.PURPLE_TERRY_BLOCK.get(), "Purple Block of Terry");
+		this.add(IcariaBlocks.MAGENTA_TERRY_BLOCK.get(), "Magenta Block of Terry");
+		this.add(IcariaBlocks.PINK_TERRY_BLOCK.get(), "Pink Block of Terry");
 
-		this.add(IcariaBlocks.ARACHNE_STRING_CARPET.get(), "Arachne String Carpet");
-		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), "White Arachne String Carpet");
-		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), "Light Gray Arachne String Carpet");
-		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), "Gray Arachne String Carpet");
-		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), "Black Arachne String Carpet");
-		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), "Brown Arachne String Carpet");
-		this.add(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), "Red Arachne String Carpet");
-		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), "Orange Arachne String Carpet");
-		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), "Yellow Arachne String Carpet");
-		this.add(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), "Lime Arachne String Carpet");
-		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), "Green Arachne String Carpet");
-		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), "Cyan Arachne String Carpet");
-		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), "Light Blue Arachne String Carpet");
-		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), "Blue Arachne String Carpet");
-		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), "Purple Arachne String Carpet");
-		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), "Magenta Arachne String Carpet");
-		this.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), "Pink Arachne String Carpet");
+		this.add(IcariaBlocks.TERRY_MAT.get(), "Terry Mat");
+		this.add(IcariaBlocks.WHITE_TERRY_MAT.get(), "White Terry Mat");
+		this.add(IcariaBlocks.LIGHT_GRAY_TERRY_MAT.get(), "Light Gray Terry Mat");
+		this.add(IcariaBlocks.GRAY_TERRY_MAT.get(), "Gray Terry Mat");
+		this.add(IcariaBlocks.BLACK_TERRY_MAT.get(), "Black Terry Mat");
+		this.add(IcariaBlocks.BROWN_TERRY_MAT.get(), "Brown Terry Mat");
+		this.add(IcariaBlocks.RED_TERRY_MAT.get(), "Red Terry Mat");
+		this.add(IcariaBlocks.ORANGE_TERRY_MAT.get(), "Orange Terry Mat");
+		this.add(IcariaBlocks.YELLOW_TERRY_MAT.get(), "Yellow Terry Mat");
+		this.add(IcariaBlocks.LIME_TERRY_MAT.get(), "Lime Terry Mat");
+		this.add(IcariaBlocks.GREEN_TERRY_MAT.get(), "Green Terry Mat");
+		this.add(IcariaBlocks.CYAN_TERRY_MAT.get(), "Cyan Terry Mat");
+		this.add(IcariaBlocks.LIGHT_BLUE_TERRY_MAT.get(), "Light Blue Terry Mat");
+		this.add(IcariaBlocks.BLUE_TERRY_MAT.get(), "Blue Terry Mat");
+		this.add(IcariaBlocks.PURPLE_TERRY_MAT.get(), "Purple Terry Mat");
+		this.add(IcariaBlocks.MAGENTA_TERRY_MAT.get(), "Magenta Terry Mat");
+		this.add(IcariaBlocks.PINK_TERRY_MAT.get(), "Pink Terry Mat");
 
 		this.add(IcariaBlocks.SPELT_BLOCK.get(), "Block of Spelt");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Block of Vine Reed");
@@ -1619,11 +1619,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "bident" + "." + "throw", "Bident clangs");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "calcite" + "." + "fertilize", "Calcite fertilizes");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "capella_horn" + "." + "fail", "Capella horn plays");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "carpet" + "." + "apply", "Carpet applies");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "carpet" + "." + "clear", "Carpet clears");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "chest_label" + "." + "apply", "Chest Label applies");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "chest_label" + "." + "clear", "Chest Label clears");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "greek_fire_grenade" + "." + "throw", "Grenade flings");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "mat" + "." + "apply", "Mat applies");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "mat" + "." + "clear", "Mat clears");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "olives" + "." + "pop", "Olives pop");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "spell" + "." + "shoot", "Spell shoots");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "bubble_spell" + "." + "pop", "Bubble Spell pops");
@@ -1698,9 +1698,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Grainite Rubble Support Blocks");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_RUBBLE, "Rubble Support Blocks");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.block(), "Arachne String Blocks");
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Terry Blocks");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_CARPETS.block(), "Arachne String Carpets");
+		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Terry Mats");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.block(), "Vanadiumsteel Bars");
 
@@ -1864,9 +1864,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaItemTags.UNFIRED_STORAGE_VASES, "Unfired Storage Vases");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item(), "Arachne String Blocks");
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Terry Blocks");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item(), "Arachne String Carpets");
+		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Terry Mats");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.item(), "Vanadiumsteel Bars");
 

@@ -5,7 +5,7 @@
       "faces": {
         "down": {
           "rotation": 180,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -14,7 +14,7 @@
           ]
         },
         "up": {
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -48,7 +48,7 @@
       "faces": {
         "east": {
           "rotation": 90,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -58,7 +58,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -92,7 +92,7 @@
       "faces": {
         "down": {
           "rotation": 180,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -101,7 +101,7 @@
           ]
         },
         "up": {
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -135,7 +135,7 @@
       "faces": {
         "east": {
           "rotation": 90,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,
@@ -145,7 +145,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#red_arachne_string_block",
+          "texture": "#red_terry_block",
           "uv": [
             0.0,
             0.0,

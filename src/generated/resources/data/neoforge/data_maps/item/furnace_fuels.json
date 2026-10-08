@@ -6,37 +6,31 @@
     "landsoficaria:anthracite_block": {
       "burn_time": 28800
     },
-    "landsoficaria:arachne_string_block": {
+    "landsoficaria:black_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:arachne_string_carpet": {
+    "landsoficaria:black_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:black_arachne_string_block": {
+    "landsoficaria:blue_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:black_arachne_string_carpet": {
+    "landsoficaria:blue_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:blue_arachne_string_block": {
+    "landsoficaria:brown_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:blue_arachne_string_carpet": {
-      "burn_time": 67
-    },
-    "landsoficaria:brown_arachne_string_block": {
-      "burn_time": 100
-    },
-    "landsoficaria:brown_arachne_string_carpet": {
+    "landsoficaria:brown_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:chest": {
       "burn_time": 300
     },
-    "landsoficaria:cyan_arachne_string_block": {
+    "landsoficaria:cyan_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:cyan_arachne_string_carpet": {
+    "landsoficaria:cyan_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:cypress_bathtub": {
@@ -153,16 +147,16 @@
     "landsoficaria:fir_twigs": {
       "burn_time": 100
     },
-    "landsoficaria:gray_arachne_string_block": {
+    "landsoficaria:gray_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:gray_arachne_string_carpet": {
+    "landsoficaria:gray_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:green_arachne_string_block": {
+    "landsoficaria:green_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:green_arachne_string_carpet": {
+    "landsoficaria:green_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:laurel_bathtub": {
@@ -207,16 +201,16 @@
     "landsoficaria:laurel_wreath": {
       "burn_time": 100
     },
-    "landsoficaria:light_blue_arachne_string_block": {
+    "landsoficaria:light_blue_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:light_blue_arachne_string_carpet": {
+    "landsoficaria:light_blue_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:light_gray_arachne_string_block": {
+    "landsoficaria:light_gray_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:light_gray_arachne_string_carpet": {
+    "landsoficaria:light_gray_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:lignite": {
@@ -228,16 +222,16 @@
     "landsoficaria:lignite_rubble": {
       "burn_time": 800
     },
-    "landsoficaria:lime_arachne_string_block": {
+    "landsoficaria:lime_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:lime_arachne_string_carpet": {
+    "landsoficaria:lime_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:magenta_arachne_string_block": {
+    "landsoficaria:magenta_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:magenta_arachne_string_carpet": {
+    "landsoficaria:magenta_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:olive_bathtub": {
@@ -279,16 +273,16 @@
     "landsoficaria:olive_twigs": {
       "burn_time": 100
     },
-    "landsoficaria:orange_arachne_string_block": {
+    "landsoficaria:orange_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:orange_arachne_string_carpet": {
+    "landsoficaria:orange_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:pink_arachne_string_block": {
+    "landsoficaria:pink_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:pink_arachne_string_carpet": {
+    "landsoficaria:pink_terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:plane_bathtub": {
@@ -369,16 +363,22 @@
     "landsoficaria:populus_twigs": {
       "burn_time": 100
     },
-    "landsoficaria:purple_arachne_string_block": {
+    "landsoficaria:purple_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:purple_arachne_string_carpet": {
+    "landsoficaria:purple_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:red_arachne_string_block": {
+    "landsoficaria:red_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:red_arachne_string_carpet": {
+    "landsoficaria:red_terry_mat": {
+      "burn_time": 67
+    },
+    "landsoficaria:terry_block": {
+      "burn_time": 100
+    },
+    "landsoficaria:terry_mat": {
       "burn_time": 67
     },
     "landsoficaria:trapped_chest": {
@@ -390,16 +390,16 @@
     "landsoficaria:vine_reed_block": {
       "burn_time": 300
     },
-    "landsoficaria:white_arachne_string_block": {
+    "landsoficaria:white_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:white_arachne_string_carpet": {
+    "landsoficaria:white_terry_mat": {
       "burn_time": 67
     },
-    "landsoficaria:yellow_arachne_string_block": {
+    "landsoficaria:yellow_terry_block": {
       "burn_time": 100
     },
-    "landsoficaria:yellow_arachne_string_carpet": {
+    "landsoficaria:yellow_terry_mat": {
       "burn_time": 67
     }
   }

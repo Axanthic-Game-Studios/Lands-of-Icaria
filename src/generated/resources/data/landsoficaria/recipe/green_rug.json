@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "A": "landsoficaria:arachne_string",
-    "B": "landsoficaria:green_arachne_string_carpet"
+    "B": "landsoficaria:green_terry_mat"
   },
   "pattern": [
     "ABA",

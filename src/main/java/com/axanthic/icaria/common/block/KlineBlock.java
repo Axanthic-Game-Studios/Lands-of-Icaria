@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.properties.Carpet;
+import com.axanthic.icaria.common.properties.Mat;
 import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -44,7 +44,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class KlineBlock extends Block {
 	public KlineBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.CARPET, Carpet.ARACHNE_STRING_CARPET).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
 	}
 
 	@Override
@@ -54,16 +54,16 @@ public class KlineBlock extends Block {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.CARPET, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.PART);
+		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT, IcariaBlockStateProperties.PART);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
 		Block.dropResources(pBlockState, pLevel, pBlockPos);
 	}
 
-	public void dropCarpet(BlockState pBlockState, BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CARPET) != Carpet.ARACHNE_STRING_CARPET) {
-			var itemStack = new ItemStack(IcariaCommonHelper.getItemByCarpet(pBlockState.getValue(IcariaBlockStateProperties.CARPET)));
+	public void dropMat(BlockState pBlockState, BlockPos pBlockPos, Direction pDirection, Level pLevel) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.MAT) != Mat.TERRY_MAT) {
+			var itemStack = new ItemStack(IcariaCommonHelper.getItemFromMat(pBlockState.getValue(IcariaBlockStateProperties.MAT)));
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, itemStack);
 		}
 	}
@@ -91,13 +91,13 @@ public class KlineBlock extends Block {
 		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.PART, Part.HEAD));
 	}
 
-	public void update(Carpet pCarpet, BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
+	public void update(Mat pMat, BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
 		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
 		} else {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.CARPET, pCarpet).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
 		}
 	}
 
@@ -141,15 +141,15 @@ public class KlineBlock extends Block {
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof IcariaCarpetBlock carpetBlock && carpetBlock.getCarpet() != pBlockState.getValue(IcariaBlockStateProperties.CARPET)) {
-			this.dropCarpet(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
-			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.CARPET_APPLY, SoundSource.BLOCKS);
-			this.update(carpetBlock.getCarpet(), pBlockPos, pBlockState, pLevel);
+		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof MatBlock matBlock && matBlock.getMat() != pBlockState.getValue(IcariaBlockStateProperties.MAT)) {
+			this.dropMat(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
+			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.MAT_APPLY, SoundSource.BLOCKS);
+			this.update(matBlock.getMat(), pBlockPos, pBlockState, pLevel);
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.getItem() == Items.SHEARS && pBlockState.getValue(IcariaBlockStateProperties.CARPET) != Carpet.ARACHNE_STRING_CARPET) {
-			this.dropCarpet(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
-			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.CARPET_CLEAR, SoundSource.BLOCKS);
-			this.update(Carpet.ARACHNE_STRING_CARPET, pBlockPos, pBlockState, pLevel);
+		} else if (pItemStack.getItem() == Items.SHEARS && pBlockState.getValue(IcariaBlockStateProperties.MAT) != Mat.TERRY_MAT) {
+			this.dropMat(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
+			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.MAT_CLEAR, SoundSource.BLOCKS);
+			this.update(Mat.TERRY_MAT, pBlockPos, pBlockState, pLevel);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;

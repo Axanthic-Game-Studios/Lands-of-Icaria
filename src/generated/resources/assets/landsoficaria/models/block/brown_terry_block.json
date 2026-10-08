@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "landsoficaria:block/brown_terry_block",
+    "particle": "landsoficaria:block/brown_terry_block"
+  }
+}

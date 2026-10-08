@@ -11,11 +11,11 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_landsoficaria:green_arachne_string_carpet": {
+    "has_landsoficaria:green_terry_mat": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:green_arachne_string_carpet"
+            "items": "landsoficaria:green_terry_mat"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_landsoficaria:arachne_string",
-      "has_landsoficaria:green_arachne_string_carpet"
+      "has_landsoficaria:green_terry_mat"
     ]
   ],
   "rewards": {

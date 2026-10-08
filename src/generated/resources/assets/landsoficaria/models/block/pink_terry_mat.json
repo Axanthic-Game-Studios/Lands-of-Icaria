@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "particle": "landsoficaria:block/pink_terry_block",
+    "wool": "landsoficaria:block/pink_terry_block"
+  }
+}

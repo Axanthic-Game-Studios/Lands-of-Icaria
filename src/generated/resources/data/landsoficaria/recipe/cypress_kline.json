@@ -1,7 +1,7 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "A": "landsoficaria:arachne_string_block",
+    "A": "landsoficaria:terry_block",
     "B": "landsoficaria:cypress_planks"
   },
   "pattern": [

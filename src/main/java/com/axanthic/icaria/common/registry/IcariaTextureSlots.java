@@ -12,8 +12,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot ALL = TextureSlot.create("all");
 	public static final TextureSlot ANTHRACITE_BLOCK = TextureSlot.create("anthracite_block");
 	public static final TextureSlot ANVIL = TextureSlot.create("anvil");
-	public static final TextureSlot ARACHNE_STRING_BLOCK = TextureSlot.create("arachne_string_block");
-	public static final TextureSlot ARACHNE_STRING_MESH_BLOCK = TextureSlot.create("arachne_string_mesh_block");
 	public static final TextureSlot BARREL_BACK = TextureSlot.create("barrel_back");
 	public static final TextureSlot BARREL_FRONT = TextureSlot.create("barrel_front");
 	public static final TextureSlot BARS = TextureSlot.create("bars");
@@ -92,9 +90,9 @@ public class IcariaTextureSlots {
 	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
 	public static final TextureSlot PLANT = TextureSlot.create("plant");
-	public static final TextureSlot RED_ARACHNE_STRING_BLOCK = TextureSlot.create("red_arachne_string_block");
 	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");
 	public static final TextureSlot RED_STORAGE_VASE = TextureSlot.create("red_storage_vase");
+	public static final TextureSlot RED_TERRY_BLOCK = TextureSlot.create("red_terry_block");
 	public static final TextureSlot SHROOM = TextureSlot.create("shroom");
 	public static final TextureSlot SIDE = TextureSlot.create("side");
 	public static final TextureSlot SKULL = TextureSlot.create("skull");
@@ -119,6 +117,8 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
+	public static final TextureSlot TERRY_BLOCK = TextureSlot.create("terry_block");
+	public static final TextureSlot TERRY_MESH_BLOCK = TextureSlot.create("terry_mesh_block");
 	public static final TextureSlot TEXTURE = TextureSlot.create("texture");
 	public static final TextureSlot TOP = TextureSlot.create("top");
 	public static final TextureSlot TORCH_BONE = TextureSlot.create("torch_bone");

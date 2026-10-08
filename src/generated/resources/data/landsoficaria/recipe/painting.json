@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "key": {
     "A": "minecraft:stick",
-    "B": "#landsoficaria:arachne_string_blocks"
+    "B": "#landsoficaria:terry_blocks"
   },
   "pattern": [
     "AAA",

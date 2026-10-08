@@ -36,7 +36,6 @@ public class IcariaBlockStateProperties {
 	public static final BooleanProperty LABEL_DOWN = BooleanProperty.create("label_down");
 
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
-	public static final EnumProperty<Carpet> CARPET = EnumProperty.create("carpet", Carpet.class);
 	public static final EnumProperty<Chessboard> CHESSBOARD = EnumProperty.create("chessboard", Chessboard.class);
 	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
 	public static final EnumProperty<Fill> FILL = EnumProperty.create("fill", Fill.class);
@@ -44,6 +43,7 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
 	public static final EnumProperty<Ladder> LADDER = EnumProperty.create("ladder", Ladder.class);
+	public static final EnumProperty<Mat> MAT = EnumProperty.create("mat", Mat.class);
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
 	public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);

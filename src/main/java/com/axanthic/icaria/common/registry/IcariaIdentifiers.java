@@ -127,24 +127,23 @@ public class IcariaIdentifiers {
 	public static final Identifier ORICHALCUM = Identifier.fromNamespaceAndPath(IcariaIds.ID, "orichalcum");
 	public static final Identifier VANADIUMSTEEL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "vanadiumsteel");
 	public static final Identifier LAUREL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "laurel");
-
-	public static final Identifier ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "arachne_string_carpet");
-	public static final Identifier WHITE_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "white_arachne_string_carpet");
-	public static final Identifier LIGHT_GRAY_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "light_gray_arachne_string_carpet");
-	public static final Identifier GRAY_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "gray_arachne_string_carpet");
-	public static final Identifier BLACK_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "black_arachne_string_carpet");
-	public static final Identifier BROWN_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "brown_arachne_string_carpet");
-	public static final Identifier RED_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "red_arachne_string_carpet");
-	public static final Identifier ORANGE_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "orange_arachne_string_carpet");
-	public static final Identifier YELLOW_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "yellow_arachne_string_carpet");
-	public static final Identifier LIME_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "lime_arachne_string_carpet");
-	public static final Identifier GREEN_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "green_arachne_string_carpet");
-	public static final Identifier CYAN_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "cyan_arachne_string_carpet");
-	public static final Identifier LIGHT_BLUE_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "light_blue_arachne_string_carpet");
-	public static final Identifier BLUE_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "blue_arachne_string_carpet");
-	public static final Identifier PURPLE_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "purple_arachne_string_carpet");
-	public static final Identifier MAGENTA_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "magenta_arachne_string_carpet");
-	public static final Identifier PINK_ARACHNE_STRING_CARPET = Identifier.fromNamespaceAndPath(IcariaIds.ID, "pink_arachne_string_carpet");
+	public static final Identifier TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "terry_mat");
+	public static final Identifier WHITE_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "white_terry_mat");
+	public static final Identifier LIGHT_GRAY_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "light_gray_terry_mat");
+	public static final Identifier GRAY_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "gray_terry_mat");
+	public static final Identifier BLACK_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "black_terry_mat");
+	public static final Identifier BROWN_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "brown_terry_mat");
+	public static final Identifier RED_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "red_terry_mat");
+	public static final Identifier ORANGE_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "orange_terry_mat");
+	public static final Identifier YELLOW_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "yellow_terry_mat");
+	public static final Identifier LIME_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "lime_terry_mat");
+	public static final Identifier GREEN_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "green_terry_mat");
+	public static final Identifier CYAN_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "cyan_terry_mat");
+	public static final Identifier LIGHT_BLUE_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "light_blue_terry_mat");
+	public static final Identifier BLUE_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "blue_terry_mat");
+	public static final Identifier PURPLE_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "purple_terry_mat");
+	public static final Identifier MAGENTA_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "magenta_terry_mat");
+	public static final Identifier PINK_TERRY_MAT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "pink_terry_mat");
 
 	// GUI
 
@@ -380,11 +379,11 @@ public class IcariaIdentifiers {
 	public static final Identifier BIDENT_THROW = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.bident.throw");
 	public static final Identifier CALCITE_FERTILIZE = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.calcite.fertilize");
 	public static final Identifier CAPELLA_HORN_FAIL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.capella_horn.fail");
-	public static final Identifier CARPET_APPLY = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.carpet.apply");
-	public static final Identifier CARPET_CLEAR = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.carpet.clear");
 	public static final Identifier CHEST_LABEL_APPLY = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.chest_label.apply");
 	public static final Identifier CHEST_LABEL_CLEAR = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.chest_label.clear");
 	public static final Identifier GREEK_FIRE_GRENADE_THROW = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.greek_fire_grenade.throw");
+	public static final Identifier MAT_APPLY = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.mat.apply");
+	public static final Identifier MAT_CLEAR = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.mat.clear");
 	public static final Identifier OLIVES_POP = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.olives.pop");
 	public static final Identifier SPELL_SHOOT = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.spell.shoot");
 	public static final Identifier BUBBLE_SPELL_POP = Identifier.fromNamespaceAndPath(IcariaIds.ID, "item.bubble_spell.pop");

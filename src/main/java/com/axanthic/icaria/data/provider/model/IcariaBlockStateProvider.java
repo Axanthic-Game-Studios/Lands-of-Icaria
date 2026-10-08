@@ -32,7 +32,6 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.button(pBlockModelGenerators);
 		IcariaBlockStateProvider.cake(pBlockModelGenerators);
 		IcariaBlockStateProvider.cardonCactus(pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(pBlockModelGenerators);
 		IcariaBlockStateProvider.chain(pBlockModelGenerators);
 		IcariaBlockStateProvider.chessboard(pBlockModelGenerators);
 		IcariaBlockStateProvider.cobweb(pBlockModelGenerators);
@@ -63,6 +62,7 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.kline(pBlockModelGenerators);
 		IcariaBlockStateProvider.layer(pBlockModelGenerators);
 		IcariaBlockStateProvider.lootVase(pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(pBlockModelGenerators);
 		IcariaBlockStateProvider.oliveLeaves(pBlockModelGenerators);
 		IcariaBlockStateProvider.pane(pBlockModelGenerators);
 		IcariaBlockStateProvider.pillarHead(pBlockModelGenerators);
@@ -258,40 +258,40 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.block(IcariaBlocks.NATURE_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.block(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.WHITE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BLACK_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BROWN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.RED_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.ORANGE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.YELLOW_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIME_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.GREEN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.CYAN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.PURPLE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.MAGENTA_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.PINK_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.WHITE_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_GRAY_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.GRAY_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BLACK_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BROWN_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.RED_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.ORANGE_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.YELLOW_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIME_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.GREEN_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.CYAN_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.LIGHT_BLUE_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.BLUE_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.PURPLE_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.MAGENTA_TERRY_MAT.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.block(IcariaBlocks.PINK_TERRY_MAT.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.VINE_REED_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.ROTTEN_BONES_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.block(IcariaBlocks.RAW_CHALKOS_BLOCK.get(), pBlockModelGenerators);
@@ -465,23 +465,6 @@ public class IcariaBlockStateProvider {
 
 	public static void cardonCactus(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockStateProvider.cardonCactus(IcariaBlocks.CARDON_CACTUS.get(), pBlockModelGenerators);
-	}
-
-	public static void carpetHorizontal(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.CYPRESS_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.DROUGHTROOT_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.FIR_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.FIR_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.LAUREL_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.OLIVE_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.PLANE_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.POPULUS_STOOL.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.carpetHorizontal(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), pBlockModelGenerators);
 	}
 
 	public static void chain(BlockModelGenerators pBlockModelGenerators) {
@@ -837,6 +820,23 @@ public class IcariaBlockStateProvider {
 		IcariaBlockStateProvider.lootVase(IcariaBlocks.RED_LOOT_VASE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.lootVase(IcariaBlocks.LOST_LOOT_VASE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.lootVase(IcariaBlocks.CYAN_LOOT_VASE.get(), pBlockModelGenerators);
+	}
+
+	public static void matHorizontal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.CYPRESS_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.CYPRESS_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.DROUGHTROOT_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.DROUGHTROOT_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.FIR_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.FIR_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.LAUREL_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.LAUREL_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.OLIVE_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.OLIVE_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.PLANE_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.PLANE_TOWEL_HOLDER.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.POPULUS_STOOL.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.matHorizontal(IcariaBlocks.POPULUS_TOWEL_HOLDER.get(), pBlockModelGenerators);
 	}
 
 	public static void oliveLeaves(BlockModelGenerators pBlockModelGenerators) {
@@ -2427,81 +2427,6 @@ public class IcariaBlockStateProvider {
 		);
 	}
 
-	public static void carpetHorizontal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.CARPET)
-				.select(Direction.NORTH, Carpet.ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
-				.select(Direction.EAST, Carpet.ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.WHITE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock))))
-				.select(Direction.EAST, Carpet.WHITE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.WHITE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.WHITE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock))))
-				.select(Direction.EAST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock))))
-				.select(Direction.EAST, Carpet.GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.GRAY_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BLACK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock))))
-				.select(Direction.EAST, Carpet.BLACK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BLACK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BLACK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BROWN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock))))
-				.select(Direction.EAST, Carpet.BROWN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BROWN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BROWN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.RED_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock))))
-				.select(Direction.EAST, Carpet.RED_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.RED_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.RED_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock))))
-				.select(Direction.EAST, Carpet.ORANGE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.ORANGE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock))))
-				.select(Direction.EAST, Carpet.YELLOW_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.YELLOW_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIME_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock))))
-				.select(Direction.EAST, Carpet.LIME_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIME_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIME_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.GREEN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock))))
-				.select(Direction.EAST, Carpet.GREEN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.GREEN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.GREEN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.CYAN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock))))
-				.select(Direction.EAST, Carpet.CYAN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.CYAN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.CYAN_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock))))
-				.select(Direction.EAST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock))))
-				.select(Direction.EAST, Carpet.BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BLUE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock))))
-				.select(Direction.EAST, Carpet.PURPLE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.PURPLE_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock))))
-				.select(Direction.EAST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.PINK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock))))
-				.select(Direction.EAST, Carpet.PINK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.PINK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.PINK_ARACHNE_STRING_CARPET, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
-			)
-		);
-	}
-
 	public static void chain(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
 			.with(PropertyDispatch.initial(BlockStateProperties.AXIS)
@@ -3667,143 +3592,143 @@ public class IcariaBlockStateProvider {
 
 	public static void kline(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
-			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.CARPET, IcariaBlockStateProperties.PART)
-				.select(Direction.NORTH, Carpet.ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.WHITE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.LIGHT_GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.GRAY_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.BLACK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.BROWN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.RED_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.RED_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.RED_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.RED_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.RED_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.RED_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.RED_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.RED_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.ORANGE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.YELLOW_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIME_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.LIME_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.LIME_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.LIME_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIME_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.LIME_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIME_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.LIME_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.GREEN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.CYAN_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.LIGHT_BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.BLUE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.PURPLE_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.MAGENTA_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.NORTH, Carpet.PINK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head"))))
-				.select(Direction.NORTH, Carpet.PINK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot"))))
-				.select(Direction.EAST, Carpet.PINK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.EAST, Carpet.PINK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
-				.select(Direction.SOUTH, Carpet.PINK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.SOUTH, Carpet.PINK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
-				.select(Direction.WEST, Carpet.PINK_ARACHNE_STRING_CARPET, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
-				.select(Direction.WEST, Carpet.PINK_ARACHNE_STRING_CARPET, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT, IcariaBlockStateProperties.PART)
+				.select(Direction.NORTH, Mat.TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head"))))
+				.select(Direction.NORTH, Mat.TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot"))))
+				.select(Direction.EAST, Mat.TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.WHITE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.WHITE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.WHITE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.WHITE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.WHITE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.WHITE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.WHITE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.WHITE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIGHT_GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.LIGHT_GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.LIGHT_GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.LIGHT_GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIGHT_GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.LIGHT_GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIGHT_GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.LIGHT_GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.GRAY_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.GRAY_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BLACK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.BLACK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.BLACK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.BLACK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BLACK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.BLACK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BLACK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.BLACK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BROWN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.BROWN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.BROWN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.BROWN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BROWN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.BROWN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BROWN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.BROWN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.RED_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.RED_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.RED_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.RED_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.RED_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.RED_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.RED_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.RED_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.ORANGE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.ORANGE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.ORANGE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.ORANGE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.ORANGE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.ORANGE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.ORANGE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.ORANGE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.YELLOW_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.YELLOW_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.YELLOW_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.YELLOW_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.YELLOW_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.YELLOW_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.YELLOW_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.YELLOW_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIME_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.LIME_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.LIME_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.LIME_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIME_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.LIME_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIME_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.LIME_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.GREEN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.GREEN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.GREEN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.GREEN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.GREEN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.GREEN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.GREEN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.GREEN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.CYAN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.CYAN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.CYAN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.CYAN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.CYAN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.CYAN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.CYAN_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.CYAN_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIGHT_BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.LIGHT_BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.LIGHT_BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.LIGHT_BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIGHT_BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.LIGHT_BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIGHT_BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.LIGHT_BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BLUE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.BLUE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.PURPLE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.PURPLE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.PURPLE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.PURPLE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.PURPLE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.PURPLE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.PURPLE_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.PURPLE_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.MAGENTA_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.MAGENTA_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.MAGENTA_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.MAGENTA_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.MAGENTA_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.MAGENTA_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.MAGENTA_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.MAGENTA_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.PINK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head"))))
+				.select(Direction.NORTH, Mat.PINK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot"))))
+				.select(Direction.EAST, Mat.PINK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.EAST, Mat.PINK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.PINK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.SOUTH, Mat.PINK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.PINK_TERRY_MAT, Part.HEAD, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "head")).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.WEST, Mat.PINK_TERRY_MAT, Part.FOOT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock, "foot")).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}
@@ -3836,6 +3761,81 @@ public class IcariaBlockStateProvider {
 				.select(7, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "7"))))
 				.select(8, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "8"))))
 				.select(9, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock, "9"))))
+			)
+		);
+	}
+
+	public static void matHorizontal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		pBlockModelGenerators.blockStateOutput.accept(MultiVariantGenerator.dispatch(pBlock)
+			.with(PropertyDispatch.initial(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT)
+				.select(Direction.NORTH, Mat.TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock))))
+				.select(Direction.EAST, Mat.TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile(pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.WHITE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock))))
+				.select(Direction.EAST, Mat.WHITE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.WHITE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.WHITE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("white", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIGHT_GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock))))
+				.select(Direction.EAST, Mat.LIGHT_GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIGHT_GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIGHT_GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_gray", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock))))
+				.select(Direction.EAST, Mat.GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.GRAY_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("gray", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BLACK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock))))
+				.select(Direction.EAST, Mat.BLACK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BLACK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BLACK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("black", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BROWN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock))))
+				.select(Direction.EAST, Mat.BROWN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BROWN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BROWN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("brown", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.RED_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock))))
+				.select(Direction.EAST, Mat.RED_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.RED_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.RED_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("red", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.ORANGE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock))))
+				.select(Direction.EAST, Mat.ORANGE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.ORANGE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.ORANGE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("orange", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.YELLOW_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock))))
+				.select(Direction.EAST, Mat.YELLOW_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.YELLOW_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.YELLOW_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("yellow", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIME_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock))))
+				.select(Direction.EAST, Mat.LIME_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIME_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIME_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("lime", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.GREEN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock))))
+				.select(Direction.EAST, Mat.GREEN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.GREEN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.GREEN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("green", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.CYAN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock))))
+				.select(Direction.EAST, Mat.CYAN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.CYAN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.CYAN_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("cyan", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.LIGHT_BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock))))
+				.select(Direction.EAST, Mat.LIGHT_BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.LIGHT_BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.LIGHT_BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("light_blue", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock))))
+				.select(Direction.EAST, Mat.BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.BLUE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("blue", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.PURPLE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock))))
+				.select(Direction.EAST, Mat.PURPLE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.PURPLE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.PURPLE_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("purple", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.MAGENTA_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock))))
+				.select(Direction.EAST, Mat.MAGENTA_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.MAGENTA_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.MAGENTA_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("magenta", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
+				.select(Direction.NORTH, Mat.PINK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock))))
+				.select(Direction.EAST, Mat.PINK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_90)))
+				.select(Direction.SOUTH, Mat.PINK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_180)))
+				.select(Direction.WEST, Mat.PINK_TERRY_MAT, BlockModelGenerators.variants(BlockModelGenerators.plainModel(IcariaModelProvider.blockFile("pink", pBlock)).with(BlockModelGenerators.Y_ROT_270)))
 			)
 		);
 	}

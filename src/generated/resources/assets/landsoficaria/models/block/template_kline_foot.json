@@ -4,7 +4,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             16.0,
@@ -13,7 +13,7 @@
           ]
         },
         "up": {
-          "texture": "#arachne_string_mesh_block"
+          "texture": "#terry_mesh_block"
         }
       },
       "from": [
@@ -40,7 +40,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             15.0,
@@ -50,7 +50,7 @@
         },
         "west": {
           "rotation": 180,
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             15.0,
@@ -83,7 +83,7 @@
     {
       "faces": {
         "north": {
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             0.0,
@@ -93,7 +93,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             0.0,
@@ -127,7 +127,7 @@
       "faces": {
         "east": {
           "rotation": 180,
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             0.0,
@@ -136,7 +136,7 @@
           ]
         },
         "west": {
-          "texture": "#arachne_string_mesh_block",
+          "texture": "#terry_mesh_block",
           "uv": [
             0.0,
             15.0,
@@ -169,7 +169,7 @@
     {
       "faces": {
         "east": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             15.0,
@@ -179,7 +179,7 @@
         },
         "west": {
           "rotation": 180,
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             15.0,
@@ -212,7 +212,7 @@
     {
       "faces": {
         "north": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             0.0,
@@ -222,7 +222,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             0.0,
@@ -256,7 +256,7 @@
       "faces": {
         "east": {
           "rotation": 180,
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             15.0,
@@ -265,7 +265,7 @@
           ]
         },
         "west": {
-          "texture": "#arachne_string_block",
+          "texture": "#terry_block",
           "uv": [
             0.0,
             15.0,

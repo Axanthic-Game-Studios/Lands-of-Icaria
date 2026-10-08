@@ -360,7 +360,7 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.add(IcariaBlockItemIds.PACKED_ARISTONE.item());
 
 		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_LIGHT)
-			.addTag(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
+			.addTag(IcariaBlockItemTags.TERRY_BLOCKS.item());
 
 		this.tag(ItemTags.SULFUR_CUBE_ARCHETYPE_REGULAR)
 			.add(IcariaBlockItemIds.GRASSY_MARL.item())
@@ -1128,98 +1128,98 @@ public class IcariaItemTagsProvider extends ItemTagsProvider {
 			.addTag(IcariaBlockItemTags.COBBLESTONES_YELLOWSTONE.item());
 
 		this.tag(Tags.Items.DYED_BLACK)
-			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BLACK_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.BLACK_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.BLACK_STORAGE_VASE.item())
 			.add(IcariaItemIds.BLACK_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_BLUE)
-			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BLUE_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.BLUE_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.BLUE_STORAGE_VASE.item())
 			.add(IcariaItemIds.BLUE_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_BROWN)
-			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.BROWN_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.BROWN_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.BROWN_STORAGE_VASE.item())
 			.add(IcariaItemIds.BROWN_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_CYAN)
-			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.CYAN_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.CYAN_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.CYAN_STORAGE_VASE.item())
 			.add(IcariaItemIds.CYAN_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_GRAY)
-			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.GRAY_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.GRAY_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.GRAY_STORAGE_VASE.item())
 			.add(IcariaItemIds.GRAY_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_GREEN)
-			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.GREEN_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.GREEN_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.GREEN_STORAGE_VASE.item())
 			.add(IcariaItemIds.GREEN_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_LIGHT_BLUE)
-			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIGHT_BLUE_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.LIGHT_BLUE_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.LIGHT_BLUE_STORAGE_VASE.item())
 			.add(IcariaItemIds.LIGHT_BLUE_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_LIGHT_GRAY)
-			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIGHT_GRAY_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.LIGHT_GRAY_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.LIGHT_GRAY_STORAGE_VASE.item())
 			.add(IcariaItemIds.LIGHT_GRAY_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_LIME)
-			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.LIME_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.LIME_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.LIME_STORAGE_VASE.item())
 			.add(IcariaItemIds.LIME_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_MAGENTA)
-			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.MAGENTA_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.MAGENTA_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.MAGENTA_STORAGE_VASE.item())
 			.add(IcariaItemIds.MAGENTA_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_ORANGE)
-			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.ORANGE_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.ORANGE_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.ORANGE_STORAGE_VASE.item())
 			.add(IcariaItemIds.ORANGE_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_PINK)
-			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.PINK_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.PINK_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.PINK_STORAGE_VASE.item())
 			.add(IcariaItemIds.PINK_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_PURPLE)
-			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.PURPLE_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.PURPLE_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.PURPLE_STORAGE_VASE.item())
 			.add(IcariaItemIds.PURPLE_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_RED)
-			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.RED_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.RED_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.RED_STORAGE_VASE.item())
 			.add(IcariaItemIds.RED_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_WHITE)
-			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.WHITE_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.WHITE_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.WHITE_STORAGE_VASE.item())
 			.add(IcariaItemIds.WHITE_UNFIRED_STORAGE_VASE);
 
 		this.tag(Tags.Items.DYED_YELLOW)
-			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_BLOCK.item())
-			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_CARPET.item())
+			.add(IcariaBlockItemIds.YELLOW_TERRY_BLOCK.item())
+			.add(IcariaBlockItemIds.YELLOW_TERRY_MAT.item())
 			.add(IcariaBlockItemIds.YELLOW_STORAGE_VASE.item())
 			.add(IcariaItemIds.YELLOW_UNFIRED_STORAGE_VASE);
 

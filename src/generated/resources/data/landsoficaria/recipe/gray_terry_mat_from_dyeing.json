@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "minecraft:gray_dye",
+    "#landsoficaria:terry_mats"
+  ],
+  "result": {
+    "id": "landsoficaria:gray_terry_mat"
+  }
+}

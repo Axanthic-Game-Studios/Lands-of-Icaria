@@ -145,11 +145,11 @@ public class IcariaSoundDefinitionsProvider extends SoundDefinitionsProvider {
 		this.register(IcariaSoundEvents.BIDENT_THROW, SoundEvents.TRIDENT_THROW, "bident", "throw");
 		this.register(IcariaSoundEvents.CALCITE_FERTILIZE, SoundEvents.HOE_TILL, "calcite", "fertilize");
 		this.register(IcariaSoundEvents.CAPELLA_HORN_FAIL, "item", "capella_horn", "fail", 1);
-		this.register(IcariaSoundEvents.CARPET_APPLY, SoundEvents.WOOL_PLACE, "carpet", "apply");
-		this.register(IcariaSoundEvents.CARPET_CLEAR, SoundEvents.WOOL_BREAK, "carpet", "clear");
 		this.register(IcariaSoundEvents.CHEST_LABEL_APPLY, SoundEvents.AXE_STRIP, "chest_label", "apply");
 		this.register(IcariaSoundEvents.CHEST_LABEL_CLEAR, SoundEvents.AXE_STRIP, "chest_label", "clear");
 		this.register(IcariaSoundEvents.GREEK_FIRE_GRENADE_THROW, SoundEvents.WITCH_THROW, "greek_fire_grenade", "throw");
+		this.register(IcariaSoundEvents.MAT_APPLY, SoundEvents.WOOL_PLACE, "mat", "apply");
+		this.register(IcariaSoundEvents.MAT_CLEAR, SoundEvents.WOOL_BREAK, "mat", "clear");
 		this.register(IcariaSoundEvents.OLIVES_POP, SoundEvents.CAVE_VINES_PICK_BERRIES, "olives", "pop");
 		this.register(IcariaSoundEvents.SPELL_SHOOT, SoundEvents.ARROW_SHOOT, "spell", "shoot");
 		this.register(IcariaSoundEvents.BUBBLE_SPELL_POP, SoundEvents.BUBBLE_COLUMN_BUBBLE_POP, "bubble_spell", "pop");

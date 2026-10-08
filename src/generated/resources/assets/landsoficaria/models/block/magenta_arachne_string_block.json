@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "landsoficaria:block/magenta_arachne_string_block",
-    "particle": "landsoficaria:block/magenta_arachne_string_block"
-  }
-}

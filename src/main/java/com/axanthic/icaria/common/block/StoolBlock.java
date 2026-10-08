@@ -4,7 +4,7 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.StoolEntity;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.properties.Carpet;
+import com.axanthic.icaria.common.properties.Mat;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaFluids;
@@ -43,7 +43,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public StoolBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.CARPET, Carpet.ARACHNE_STRING_CARPET).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.STOOL_TAKEN, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.STOOL_TAKEN, false).setValue(BlockStateProperties.WATERLOGGED, false));
 	}
 
 	@Override
@@ -58,12 +58,12 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.CARPET, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.STOOL_TAKEN, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, IcariaBlockStateProperties.STOOL_TAKEN, BlockStateProperties.WATERLOGGED);
 	}
 
-	public void dropCarpet(BlockState pBlockState, BlockPos pBlockPos, Direction pDirection, Level pLevel) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CARPET) != Carpet.ARACHNE_STRING_CARPET) {
-			var itemStack = new ItemStack(IcariaCommonHelper.getItemByCarpet(pBlockState.getValue(IcariaBlockStateProperties.CARPET)));
+	public void dropMat(BlockState pBlockState, BlockPos pBlockPos, Direction pDirection, Level pLevel) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.MAT) != Mat.TERRY_MAT) {
+			var itemStack = new ItemStack(IcariaCommonHelper.getItemFromMat(pBlockState.getValue(IcariaBlockStateProperties.MAT)));
 			Block.popResourceFromFace(pLevel, pBlockPos, pDirection, itemStack);
 		}
 	}
@@ -96,15 +96,15 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
-		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof IcariaCarpetBlock carpetBlock && carpetBlock.getCarpet() != pBlockState.getValue(IcariaBlockStateProperties.CARPET)) {
-			this.dropCarpet(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
-			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.CARPET_APPLY, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CARPET, carpetBlock.getCarpet()));
+		if (pItemStack.getItem() instanceof BlockItem blockItem && blockItem.getBlock() instanceof MatBlock matBlock && matBlock.getMat() != pBlockState.getValue(IcariaBlockStateProperties.MAT)) {
+			this.dropMat(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
+			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.MAT_APPLY, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, matBlock.getMat()));
 			return InteractionResult.SUCCESS;
-		} else if (pItemStack.getItem() == Items.SHEARS && pBlockState.getValue(IcariaBlockStateProperties.CARPET) != Carpet.ARACHNE_STRING_CARPET) {
-			this.dropCarpet(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
-			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.CARPET_CLEAR, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CARPET, Carpet.ARACHNE_STRING_CARPET));
+		} else if (pItemStack.getItem() == Items.SHEARS && pBlockState.getValue(IcariaBlockStateProperties.MAT) != Mat.TERRY_MAT) {
+			this.dropMat(pBlockState, pBlockPos, pBlockHitResult.getDirection(), pLevel);
+			pLevel.playSound(pPlayer, pBlockPos, IcariaSoundEvents.MAT_CLEAR, SoundSource.BLOCKS);
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT));
 			return InteractionResult.SUCCESS;
 		} else if (!pBlockState.getValue(IcariaBlockStateProperties.STOOL_TAKEN)) {
 			var stool = new StoolEntity(IcariaEntityTypes.STOOL.get(), pLevel);

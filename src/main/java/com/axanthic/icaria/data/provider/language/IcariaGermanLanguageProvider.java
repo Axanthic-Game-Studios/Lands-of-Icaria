@@ -332,41 +332,41 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_BLOCK.get(), "Leeren-Quallengeleeblock");
 		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_BLOCK.get(), "Wasser-Quallengeleeblock");
 
-		this.add(IcariaBlocks.ARACHNE_STRING_BLOCK.get(), "Arachnefadenblock");
-		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_BLOCK.get(), "Weißer Arachnefadenblock");
-		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), "Hellgrauer Arachnefadenblock");
-		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_BLOCK.get(), "Grauer Arachnefadenblock");
-		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_BLOCK.get(), "Schwarzer Arachnefadenblock");
-		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_BLOCK.get(), "Brauner Arachnefadenblock");
-		this.add(IcariaBlocks.RED_ARACHNE_STRING_BLOCK.get(), "Roter Arachnefadenblock");
-		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_BLOCK.get(), "Oranger Arachnefadenblock");
-		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_BLOCK.get(), "Gelber Arachnefadenblock");
-		this.add(IcariaBlocks.LIME_ARACHNE_STRING_BLOCK.get(), "Hellgrüner Arachnefadenblock");
-		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_BLOCK.get(), "Grüner Arachnefadenblock");
-		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_BLOCK.get(), "Türkiser Arachnefadenblock");
-		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), "Hellblauer Arachnefadenblock");
-		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_BLOCK.get(), "Blauer Arachnefadenblock");
-		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_BLOCK.get(), "Violetter Arachnefadenblock");
-		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_BLOCK.get(), "Magenta Arachnefadenblock");
-		this.add(IcariaBlocks.PINK_ARACHNE_STRING_BLOCK.get(), "Rosa Arachnefadenblock");
+		this.add(IcariaBlocks.TERRY_BLOCK.get(), "Frotteeblock");
+		this.add(IcariaBlocks.WHITE_TERRY_BLOCK.get(), "Weißer Frotteeblock");
+		this.add(IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get(), "Hellgrauer Frotteeblock");
+		this.add(IcariaBlocks.GRAY_TERRY_BLOCK.get(), "Grauer Frotteeblock");
+		this.add(IcariaBlocks.BLACK_TERRY_BLOCK.get(), "Schwarzer Frotteeblock");
+		this.add(IcariaBlocks.BROWN_TERRY_BLOCK.get(), "Brauner Frotteeblock");
+		this.add(IcariaBlocks.RED_TERRY_BLOCK.get(), "Roter Frotteeblock");
+		this.add(IcariaBlocks.ORANGE_TERRY_BLOCK.get(), "Oranger Frotteeblock");
+		this.add(IcariaBlocks.YELLOW_TERRY_BLOCK.get(), "Gelber Frotteeblock");
+		this.add(IcariaBlocks.LIME_TERRY_BLOCK.get(), "Hellgrüner Frotteeblock");
+		this.add(IcariaBlocks.GREEN_TERRY_BLOCK.get(), "Grüner Frotteeblock");
+		this.add(IcariaBlocks.CYAN_TERRY_BLOCK.get(), "Türkiser Frotteeblock");
+		this.add(IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get(), "Hellblauer Frotteeblock");
+		this.add(IcariaBlocks.BLUE_TERRY_BLOCK.get(), "Blauer Frotteeblock");
+		this.add(IcariaBlocks.PURPLE_TERRY_BLOCK.get(), "Violetter Frotteeblock");
+		this.add(IcariaBlocks.MAGENTA_TERRY_BLOCK.get(), "Magenta Frotteeblock");
+		this.add(IcariaBlocks.PINK_TERRY_BLOCK.get(), "Rosa Frotteeblock");
 
-		this.add(IcariaBlocks.ARACHNE_STRING_CARPET.get(), "Arachnefadenteppich");
-		this.add(IcariaBlocks.WHITE_ARACHNE_STRING_CARPET.get(), "Weißer Arachnefadenteppich");
-		this.add(IcariaBlocks.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), "Hellgrauer Arachnefadenteppich");
-		this.add(IcariaBlocks.GRAY_ARACHNE_STRING_CARPET.get(), "Grauer Arachnefadenteppich");
-		this.add(IcariaBlocks.BLACK_ARACHNE_STRING_CARPET.get(), "Schwarzer Arachnefadenteppich");
-		this.add(IcariaBlocks.BROWN_ARACHNE_STRING_CARPET.get(), "Brauner Arachnefadenteppich");
-		this.add(IcariaBlocks.RED_ARACHNE_STRING_CARPET.get(), "Roter Arachnefadenteppich");
-		this.add(IcariaBlocks.ORANGE_ARACHNE_STRING_CARPET.get(), "Oranger Arachnefadenteppich");
-		this.add(IcariaBlocks.YELLOW_ARACHNE_STRING_CARPET.get(), "Gelber Arachnefadenteppich");
-		this.add(IcariaBlocks.LIME_ARACHNE_STRING_CARPET.get(), "Hellgrüner Arachnefadenteppich");
-		this.add(IcariaBlocks.GREEN_ARACHNE_STRING_CARPET.get(), "Grüner Arachnefadenteppich");
-		this.add(IcariaBlocks.CYAN_ARACHNE_STRING_CARPET.get(), "Türkiser Arachnefadenteppich");
-		this.add(IcariaBlocks.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), "Hellblauer Arachnefadenteppich");
-		this.add(IcariaBlocks.BLUE_ARACHNE_STRING_CARPET.get(), "Blauer Arachnefadenteppich");
-		this.add(IcariaBlocks.PURPLE_ARACHNE_STRING_CARPET.get(), "Violetter Arachnefadenteppich");
-		this.add(IcariaBlocks.MAGENTA_ARACHNE_STRING_CARPET.get(), "Magenta Arachnefadenteppich");
-		this.add(IcariaBlocks.PINK_ARACHNE_STRING_CARPET.get(), "Rosa Arachnefadenteppich");
+		this.add(IcariaBlocks.TERRY_MAT.get(), "Frotteematte");
+		this.add(IcariaBlocks.WHITE_TERRY_MAT.get(), "Weiße Frotteematte");
+		this.add(IcariaBlocks.LIGHT_GRAY_TERRY_MAT.get(), "Hellgraue Frotteematte");
+		this.add(IcariaBlocks.GRAY_TERRY_MAT.get(), "Graue Frotteematte");
+		this.add(IcariaBlocks.BLACK_TERRY_MAT.get(), "Schwarze Frotteematte");
+		this.add(IcariaBlocks.BROWN_TERRY_MAT.get(), "Braune Frotteematte");
+		this.add(IcariaBlocks.RED_TERRY_MAT.get(), "Rote Frotteematte");
+		this.add(IcariaBlocks.ORANGE_TERRY_MAT.get(), "Orange Frotteematte");
+		this.add(IcariaBlocks.YELLOW_TERRY_MAT.get(), "Gelbe Frotteematte");
+		this.add(IcariaBlocks.LIME_TERRY_MAT.get(), "Hellgrüne Frotteematte");
+		this.add(IcariaBlocks.GREEN_TERRY_MAT.get(), "Grüne Frotteematte");
+		this.add(IcariaBlocks.CYAN_TERRY_MAT.get(), "Türkise Frotteematte");
+		this.add(IcariaBlocks.LIGHT_BLUE_TERRY_MAT.get(), "Hellblaue Frotteematte");
+		this.add(IcariaBlocks.BLUE_TERRY_MAT.get(), "Blaue Frotteematte");
+		this.add(IcariaBlocks.PURPLE_TERRY_MAT.get(), "Violette Frotteematte");
+		this.add(IcariaBlocks.MAGENTA_TERRY_MAT.get(), "Magenta Frotteematte");
+		this.add(IcariaBlocks.PINK_TERRY_MAT.get(), "Rosa Frotteematte");
 
 		this.add(IcariaBlocks.SPELT_BLOCK.get(), "Dinkelblock");
 		this.add(IcariaBlocks.VINE_REED_BLOCK.get(), "Weinschilfblock");
@@ -1619,11 +1619,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "bident" + "." + "throw", "Bident klirrt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "calcite" + "." + "fertilize", "Calcit düngt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "capella_horn" + "." + "fail", "Kapellahorn spielt");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "carpet" + "." + "apply", "Teppich angebracht");
-		this.add("subtitle" + "." + IcariaIds.ID + "." + "carpet" + "." + "clear", "Teppich abmontiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "chest_label" + "." + "apply", "Kistenetikett angebracht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "chest_label" + "." + "clear", "Kistenetikett abmontiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "greek_fire_grenade" + "." + "throw", "Granate schleudert");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "mat" + "." + "apply", "Matte angebracht");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "mat" + "." + "clear", "Matte abmontiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "olives" + "." + "pop", "Oliven poppen");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "spell" + "." + "shoot", "Zauber schießt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "bubble_spell" + "." + "pop", "Blasen-Zauber platzt");
@@ -1698,9 +1698,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Schluffsteingeröllunterstützungsblöcke");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_RUBBLE, "Geröllunterstützungsblöcke");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.block(), "Arachnefadenteppiche");
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Frotteeblöcke");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_CARPETS.block(), "Arachnefadenblöcke");
+		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Frotteematten");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.block(), "Vanadinstahlgitter");
 
@@ -1864,9 +1864,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaItemTags.UNFIRED_STORAGE_VASES, "Ungebrannte Speichervasen");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item(), "Arachnefadenteppiche");
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Frotteeblöcke");
 
-		this.add(IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item(), "Arachnefadenblöcke");
+		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Frotteematten");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.item(), "Vanadinstahlgitter");
 

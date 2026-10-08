@@ -58,8 +58,8 @@ public class IcariaBlockItemTagsProvider extends BlockItemTagsProvider {
 			.add(IcariaBlockItemIds.VANADIUMSTEEL_CHAIN);
 
 		this.tag(BlockItemTags.DAMPENS_VIBRATIONS)
-			.addTag(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS)
-			.addTag(IcariaBlockItemTags.ARACHNE_STRING_CARPETS);
+			.addTag(IcariaBlockItemTags.TERRY_BLOCKS)
+			.addTag(IcariaBlockItemTags.TERRY_MATS);
 
 		this.tag(BlockItemTags.DIRT)
 			.add(IcariaBlockItemIds.MARL)
@@ -362,44 +362,6 @@ public class IcariaBlockItemTagsProvider extends BlockItemTagsProvider {
 			.add(IcariaBlockItemIds.PLANE_TRAPDOOR)
 			.add(IcariaBlockItemIds.POPULUS_TRAPDOOR);
 
-		this.tag(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS)
-			.add(IcariaBlockItemIds.ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_BLOCK)
-			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_BLOCK);
-
-		this.tag(IcariaBlockItemTags.ARACHNE_STRING_CARPETS)
-			.add(IcariaBlockItemIds.ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.WHITE_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.LIGHT_GRAY_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.GRAY_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.BLACK_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.BROWN_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.RED_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.ORANGE_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.YELLOW_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.LIME_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.GREEN_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.CYAN_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.LIGHT_BLUE_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.BLUE_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.PURPLE_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.MAGENTA_ARACHNE_STRING_CARPET)
-			.add(IcariaBlockItemIds.PINK_ARACHNE_STRING_CARPET);
-
 		this.tag(IcariaBlockItemTags.BARS_VANADIUMSTEEL)
 			.add(IcariaBlockItemIds.VANADIUMSTEEL_BARS)
 			.add(IcariaBlockItemIds.HORIZONTAL_VANADIUMSTEEL_BARS);
@@ -566,7 +528,7 @@ public class IcariaBlockItemTagsProvider extends BlockItemTagsProvider {
 			.add(IcariaBlockItemIds.ANTHRACITE_BLOCK);
 
 		this.tag(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING)
-			.add(IcariaBlockItemIds.ARACHNE_STRING_BLOCK);
+			.add(IcariaBlockItemIds.TERRY_BLOCK);
 
 		this.tag(IcariaBlockItemTags.STORAGE_BLOCKS_ARISTONE)
 			.add(IcariaBlockItemIds.PACKED_ARISTONE);
@@ -645,5 +607,43 @@ public class IcariaBlockItemTagsProvider extends BlockItemTagsProvider {
 
 		this.tag(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY)
 			.add(IcariaBlockItemIds.WATER_JELLYFISH_JELLY_BLOCK);
+
+		this.tag(IcariaBlockItemTags.TERRY_BLOCKS)
+			.add(IcariaBlockItemIds.TERRY_BLOCK)
+			.add(IcariaBlockItemIds.WHITE_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.LIGHT_GRAY_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.GRAY_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.BLACK_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.BROWN_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.RED_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.ORANGE_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.YELLOW_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.LIME_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.GREEN_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.CYAN_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.LIGHT_BLUE_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.BLUE_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.PURPLE_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.MAGENTA_TERRY_BLOCK)
+			.add(IcariaBlockItemIds.PINK_TERRY_BLOCK);
+
+		this.tag(IcariaBlockItemTags.TERRY_MATS)
+			.add(IcariaBlockItemIds.TERRY_MAT)
+			.add(IcariaBlockItemIds.WHITE_TERRY_MAT)
+			.add(IcariaBlockItemIds.LIGHT_GRAY_TERRY_MAT)
+			.add(IcariaBlockItemIds.GRAY_TERRY_MAT)
+			.add(IcariaBlockItemIds.BLACK_TERRY_MAT)
+			.add(IcariaBlockItemIds.BROWN_TERRY_MAT)
+			.add(IcariaBlockItemIds.RED_TERRY_MAT)
+			.add(IcariaBlockItemIds.ORANGE_TERRY_MAT)
+			.add(IcariaBlockItemIds.YELLOW_TERRY_MAT)
+			.add(IcariaBlockItemIds.LIME_TERRY_MAT)
+			.add(IcariaBlockItemIds.GREEN_TERRY_MAT)
+			.add(IcariaBlockItemIds.CYAN_TERRY_MAT)
+			.add(IcariaBlockItemIds.LIGHT_BLUE_TERRY_MAT)
+			.add(IcariaBlockItemIds.BLUE_TERRY_MAT)
+			.add(IcariaBlockItemIds.PURPLE_TERRY_MAT)
+			.add(IcariaBlockItemIds.MAGENTA_TERRY_MAT)
+			.add(IcariaBlockItemIds.PINK_TERRY_MAT);
 	}
 }

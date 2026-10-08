@@ -72,7 +72,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.boots();
 		this.bowl();
 		this.cake();
-		this.carpet();
 		this.centerFilled();
 		this.centerHollow();
 		this.chestplate();
@@ -87,6 +86,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.kline();
 		this.ladder();
 		this.leggings();
+		this.mat();
 		this.pickaxe();
 		this.pillarHead();
 		this.rug();
@@ -906,7 +906,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shaped3x3(1, IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get());
 		this.shaped3x3(1, IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.VOID_JELLYFISH_JELLY.get());
 		this.shaped3x3(1, IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get(), IcariaItems.WATER_JELLYFISH_JELLY.get());
-		this.shaped3x3(1, IcariaItems.ARACHNE_STRING_BLOCK.get(), IcariaItems.ARACHNE_STRING.get());
+		this.shaped3x3(1, IcariaItems.TERRY_BLOCK.get(), IcariaItems.ARACHNE_STRING.get());
 		this.shaped3x3(1, IcariaItems.SPELT_BLOCK.get(), IcariaItems.SPELT.get());
 		this.shaped3x3(1, IcariaItems.VINE_REED_BLOCK.get(), IcariaItems.VINE_REED.get());
 		this.shaped3x3(1, IcariaItems.ROTTEN_BONES_BLOCK.get(), IcariaItems.ROTTEN_BONES.get());
@@ -1198,26 +1198,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.cake(1, IcariaItems.VINE_SPROUT_CAKE.get(), IcariaItems.WATER_JELLYFISH_JELLY.get(), IcariaItems.VINE_SPROUT.get());
 	}
 
-	public void carpet() {
-		this.carpet(3, IcariaItems.ARACHNE_STRING_CARPET.get(), IcariaItems.ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.WHITE_ARACHNE_STRING_CARPET.get(), IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.GRAY_ARACHNE_STRING_CARPET.get(), IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.BLACK_ARACHNE_STRING_CARPET.get(), IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.BROWN_ARACHNE_STRING_CARPET.get(), IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.RED_ARACHNE_STRING_CARPET.get(), IcariaItems.RED_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get(), IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get(), IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.LIME_ARACHNE_STRING_CARPET.get(), IcariaItems.LIME_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.GREEN_ARACHNE_STRING_CARPET.get(), IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.CYAN_ARACHNE_STRING_CARPET.get(), IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.BLUE_ARACHNE_STRING_CARPET.get(), IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get());
-		this.carpet(3, IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), IcariaItems.PINK_ARACHNE_STRING_BLOCK.get());
-	}
-
 	public void centerFilled() {
 		this.centerFilled(1, IcariaItems.GRINDER.get(), IcariaItems.SUNSTONE_BRICKS.get(), IcariaItems.ORICHALCUM_INGOT.get());
 	}
@@ -1340,6 +1320,26 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.leggings(1, IcariaItems.VANADIUMSTEEL_LEGGINGS.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 	}
 
+	public void mat() {
+		this.mat(3, IcariaItems.TERRY_MAT.get(), IcariaItems.TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.WHITE_TERRY_MAT.get(), IcariaItems.WHITE_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.LIGHT_GRAY_TERRY_MAT.get(), IcariaItems.LIGHT_GRAY_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.GRAY_TERRY_MAT.get(), IcariaItems.GRAY_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.BLACK_TERRY_MAT.get(), IcariaItems.BLACK_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.BROWN_TERRY_MAT.get(), IcariaItems.BROWN_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.RED_TERRY_MAT.get(), IcariaItems.RED_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.ORANGE_TERRY_MAT.get(), IcariaItems.ORANGE_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.YELLOW_TERRY_MAT.get(), IcariaItems.YELLOW_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.LIME_TERRY_MAT.get(), IcariaItems.LIME_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.GREEN_TERRY_MAT.get(), IcariaItems.GREEN_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.CYAN_TERRY_MAT.get(), IcariaItems.CYAN_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.LIGHT_BLUE_TERRY_MAT.get(), IcariaItems.LIGHT_BLUE_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.BLUE_TERRY_MAT.get(), IcariaItems.BLUE_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.PURPLE_TERRY_MAT.get(), IcariaItems.PURPLE_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.MAGENTA_TERRY_MAT.get(), IcariaItems.MAGENTA_TERRY_BLOCK.get());
+		this.mat(3, IcariaItems.PINK_TERRY_MAT.get(), IcariaItems.PINK_TERRY_BLOCK.get());
+	}
+
 	public void pickaxe() {
 		this.pickaxe(1, IcariaItems.CHERT_PICKAXE.get(), IcariaItems.CHERT.get());
 		this.pickaxe(1, IcariaItems.CHALKOS_PICKAXE.get(), IcariaItems.CHALKOS_INGOT.get());
@@ -1357,9 +1357,9 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void rug() {
-		this.rug(1, IcariaItems.BROWN_RUG.get(), IcariaItems.BROWN_ARACHNE_STRING_CARPET.get());
-		this.rug(1, IcariaItems.GREEN_RUG.get(), IcariaItems.GREEN_ARACHNE_STRING_CARPET.get());
-		this.rug(1, IcariaItems.RED_RUG.get(), IcariaItems.RED_ARACHNE_STRING_CARPET.get());
+		this.rug(1, IcariaItems.BROWN_RUG.get(), IcariaItems.BROWN_TERRY_MAT.get());
+		this.rug(1, IcariaItems.GREEN_RUG.get(), IcariaItems.GREEN_TERRY_MAT.get());
+		this.rug(1, IcariaItems.RED_RUG.get(), IcariaItems.RED_TERRY_MAT.get());
 	}
 
 	public void scythe() {
@@ -1502,38 +1502,38 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void dyeing() {
-		this.dyeing(1, IcariaItems.WHITE_ARACHNE_STRING_BLOCK.get(), Items.DYE.white(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_BLOCK.get(), Items.DYE.lightGray(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.GRAY_ARACHNE_STRING_BLOCK.get(), Items.DYE.gray(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.BLACK_ARACHNE_STRING_BLOCK.get(), Items.DYE.black(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.BROWN_ARACHNE_STRING_BLOCK.get(), Items.DYE.brown(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.RED_ARACHNE_STRING_BLOCK.get(), Items.DYE.red(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.ORANGE_ARACHNE_STRING_BLOCK.get(), Items.DYE.orange(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.YELLOW_ARACHNE_STRING_BLOCK.get(), Items.DYE.yellow(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.LIME_ARACHNE_STRING_BLOCK.get(), Items.DYE.lime(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.GREEN_ARACHNE_STRING_BLOCK.get(), Items.DYE.green(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.CYAN_ARACHNE_STRING_BLOCK.get(), Items.DYE.cyan(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_BLOCK.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.BLUE_ARACHNE_STRING_BLOCK.get(), Items.DYE.blue(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.PURPLE_ARACHNE_STRING_BLOCK.get(), Items.DYE.purple(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.MAGENTA_ARACHNE_STRING_BLOCK.get(), Items.DYE.magenta(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.PINK_ARACHNE_STRING_BLOCK.get(), Items.DYE.pink(), IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item());
-		this.dyeing(1, IcariaItems.WHITE_ARACHNE_STRING_CARPET.get(), Items.DYE.white(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.LIGHT_GRAY_ARACHNE_STRING_CARPET.get(), Items.DYE.lightGray(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.GRAY_ARACHNE_STRING_CARPET.get(), Items.DYE.gray(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.BLACK_ARACHNE_STRING_CARPET.get(), Items.DYE.black(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.BROWN_ARACHNE_STRING_CARPET.get(), Items.DYE.brown(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.RED_ARACHNE_STRING_CARPET.get(), Items.DYE.red(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.ORANGE_ARACHNE_STRING_CARPET.get(), Items.DYE.orange(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.YELLOW_ARACHNE_STRING_CARPET.get(), Items.DYE.yellow(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.LIME_ARACHNE_STRING_CARPET.get(), Items.DYE.lime(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.GREEN_ARACHNE_STRING_CARPET.get(), Items.DYE.green(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.CYAN_ARACHNE_STRING_CARPET.get(), Items.DYE.cyan(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.LIGHT_BLUE_ARACHNE_STRING_CARPET.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.BLUE_ARACHNE_STRING_CARPET.get(), Items.DYE.blue(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.PURPLE_ARACHNE_STRING_CARPET.get(), Items.DYE.purple(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.MAGENTA_ARACHNE_STRING_CARPET.get(), Items.DYE.magenta(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
-		this.dyeing(1, IcariaItems.PINK_ARACHNE_STRING_CARPET.get(), Items.DYE.pink(), IcariaBlockItemTags.ARACHNE_STRING_CARPETS.item());
+		this.dyeing(1, IcariaItems.WHITE_TERRY_BLOCK.get(), Items.DYE.white(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_TERRY_BLOCK.get(), Items.DYE.lightGray(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.GRAY_TERRY_BLOCK.get(), Items.DYE.gray(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.BLACK_TERRY_BLOCK.get(), Items.DYE.black(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.BROWN_TERRY_BLOCK.get(), Items.DYE.brown(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.RED_TERRY_BLOCK.get(), Items.DYE.red(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.ORANGE_TERRY_BLOCK.get(), Items.DYE.orange(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.YELLOW_TERRY_BLOCK.get(), Items.DYE.yellow(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.LIME_TERRY_BLOCK.get(), Items.DYE.lime(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.GREEN_TERRY_BLOCK.get(), Items.DYE.green(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.CYAN_TERRY_BLOCK.get(), Items.DYE.cyan(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_TERRY_BLOCK.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.BLUE_TERRY_BLOCK.get(), Items.DYE.blue(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.PURPLE_TERRY_BLOCK.get(), Items.DYE.purple(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.MAGENTA_TERRY_BLOCK.get(), Items.DYE.magenta(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.PINK_TERRY_BLOCK.get(), Items.DYE.pink(), IcariaBlockItemTags.TERRY_BLOCKS.item());
+		this.dyeing(1, IcariaItems.WHITE_TERRY_MAT.get(), Items.DYE.white(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_TERRY_MAT.get(), Items.DYE.lightGray(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.GRAY_TERRY_MAT.get(), Items.DYE.gray(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.BLACK_TERRY_MAT.get(), Items.DYE.black(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.BROWN_TERRY_MAT.get(), Items.DYE.brown(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.RED_TERRY_MAT.get(), Items.DYE.red(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.ORANGE_TERRY_MAT.get(), Items.DYE.orange(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.YELLOW_TERRY_MAT.get(), Items.DYE.yellow(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.LIME_TERRY_MAT.get(), Items.DYE.lime(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.GREEN_TERRY_MAT.get(), Items.DYE.green(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.CYAN_TERRY_MAT.get(), Items.DYE.cyan(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_TERRY_MAT.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.BLUE_TERRY_MAT.get(), Items.DYE.blue(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.PURPLE_TERRY_MAT.get(), Items.DYE.purple(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.MAGENTA_TERRY_MAT.get(), Items.DYE.magenta(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.PINK_TERRY_MAT.get(), Items.DYE.pink(), IcariaBlockItemTags.TERRY_MATS.item());
 		this.dyeing(1, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), Items.DYE.white(), IcariaItemTags.UNFIRED_STORAGE_VASES);
 		this.dyeing(1, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), Items.DYE.lightGray(), IcariaItemTags.UNFIRED_STORAGE_VASES);
 		this.dyeing(1, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), Items.DYE.gray(), IcariaItemTags.UNFIRED_STORAGE_VASES);
@@ -1600,7 +1600,7 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shapeless(9, IcariaItems.NATURE_JELLYFISH_JELLY.get(), IcariaItems.NATURE_JELLYFISH_JELLY_BLOCK.get());
 		this.shapeless(9, IcariaItems.VOID_JELLYFISH_JELLY.get(), IcariaItems.VOID_JELLYFISH_JELLY_BLOCK.get());
 		this.shapeless(9, IcariaItems.WATER_JELLYFISH_JELLY.get(), IcariaItems.WATER_JELLYFISH_JELLY_BLOCK.get());
-		this.shapeless(9, IcariaItems.ARACHNE_STRING.get(), IcariaItems.ARACHNE_STRING_BLOCK.get());
+		this.shapeless(9, IcariaItems.ARACHNE_STRING.get(), IcariaItems.TERRY_BLOCK.get());
 		this.shapeless(9, IcariaItems.SPELT.get(), IcariaItems.SPELT_BLOCK.get());
 		this.shapeless(9, IcariaItems.VINE_REED.get(), IcariaItems.VINE_REED_BLOCK.get());
 		this.shapeless(9, IcariaItems.ROTTEN_BONES.get(), IcariaItems.ROTTEN_BONES_BLOCK.get());
@@ -1975,14 +1975,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
-	public void carpet(int pAmount, Item pResult, Item pResource) {
-		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', pResource)
-			.pattern("AA")
-			.unlockedBy(this.name(pResource), this.has(pResource))
-			.save(this.output, this.key(pResult));
-	}
-
 	public void centerFilled(int pAmount, Item pResult, Item pResource, Item pCenter) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', pResource)
@@ -2105,11 +2097,11 @@ public class IcariaRecipeProvider extends RecipeProvider {
 
 	public void kline(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', IcariaItems.ARACHNE_STRING_BLOCK.get())
+			.define('A', IcariaItems.TERRY_BLOCK.get())
 			.define('B', pResource)
 			.pattern("AAA")
 			.pattern("BBB")
-			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_BLOCK.get()), this.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
+			.unlockedBy(this.name(IcariaItems.TERRY_BLOCK.get()), this.has(IcariaItems.TERRY_BLOCK.get()))
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
@@ -2130,6 +2122,14 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("AAA")
 			.pattern("A A")
 			.pattern("A A")
+			.unlockedBy(this.name(pResource), this.has(pResource))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void mat(int pAmount, Item pResult, Item pResource) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pResource)
+			.pattern("AA")
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
@@ -2239,14 +2239,14 @@ public class IcariaRecipeProvider extends RecipeProvider {
 
 	public void stool(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', IcariaItems.ARACHNE_STRING_BLOCK.get())
-			.define('B', IcariaItems.ARACHNE_STRING_CARPET.get())
+			.define('A', IcariaItems.TERRY_BLOCK.get())
+			.define('B', IcariaItems.TERRY_MAT.get())
 			.define('C', pResource)
 			.pattern("ABA")
 			.pattern(" C ")
 			.pattern("C C")
-			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_BLOCK.get()), this.has(IcariaItems.ARACHNE_STRING_BLOCK.get()))
-			.unlockedBy(this.name(IcariaItems.ARACHNE_STRING_CARPET.get()), this.has(IcariaItems.ARACHNE_STRING_CARPET.get()))
+			.unlockedBy(this.name(IcariaItems.TERRY_BLOCK.get()), this.has(IcariaItems.TERRY_BLOCK.get()))
+			.unlockedBy(this.name(IcariaItems.TERRY_MAT.get()), this.has(IcariaItems.TERRY_MAT.get()))
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.save(this.output, this.key(pResult));
 	}
@@ -2425,12 +2425,12 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	public void painting() {
 		this.shaped(RecipeCategory.MISC, IcariaItems.PAINTING.get(), 1)
 			.define('A', Items.STICK)
-			.define('B', IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item())
+			.define('B', IcariaBlockItemTags.TERRY_BLOCKS.item())
 			.pattern("AAA")
 			.pattern("ABA")
 			.pattern("AAA")
 			.unlockedBy(this.name(Items.STICK), this.has(Items.STICK))
-			.unlockedBy(this.name(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item()), this.has(IcariaBlockItemTags.ARACHNE_STRING_BLOCKS.item()))
+			.unlockedBy(this.name(IcariaBlockItemTags.TERRY_BLOCKS.item()), this.has(IcariaBlockItemTags.TERRY_BLOCKS.item()))
 			.save(this.output, this.key(IcariaItems.PAINTING.get()));
 	}
 

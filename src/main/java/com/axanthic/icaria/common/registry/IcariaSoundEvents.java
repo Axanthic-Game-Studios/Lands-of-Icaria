@@ -125,11 +125,11 @@ public class IcariaSoundEvents {
 	public static final SoundEvent BIDENT_THROW = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.BIDENT_THROW);
 	public static final SoundEvent CALCITE_FERTILIZE = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CALCITE_FERTILIZE);
 	public static final SoundEvent CAPELLA_HORN_FAIL = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CAPELLA_HORN_FAIL);
-	public static final SoundEvent CARPET_APPLY = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CARPET_APPLY);
-	public static final SoundEvent CARPET_CLEAR = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CARPET_CLEAR);
 	public static final SoundEvent CHEST_LABEL_APPLY = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CHEST_LABEL_APPLY);
 	public static final SoundEvent CHEST_LABEL_CLEAR = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.CHEST_LABEL_CLEAR);
 	public static final SoundEvent GREEK_FIRE_GRENADE_THROW = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.GREEK_FIRE_GRENADE_THROW);
+	public static final SoundEvent MAT_APPLY = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.MAT_APPLY);
+	public static final SoundEvent MAT_CLEAR = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.MAT_CLEAR);
 	public static final SoundEvent OLIVES_POP = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.OLIVES_POP);
 	public static final SoundEvent SPELL_SHOOT = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.SPELL_SHOOT);
 	public static final SoundEvent BUBBLE_SPELL_POP = SoundEvent.createVariableRangeEvent(IcariaIdentifiers.BUBBLE_SPELL_POP);

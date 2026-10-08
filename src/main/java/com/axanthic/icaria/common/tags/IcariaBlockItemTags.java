@@ -13,10 +13,6 @@ import net.minecraft.tags.TagKey;
 @ParametersAreNonnullByDefault
 
 public class IcariaBlockItemTags {
-	public static final BlockItemTagId ARACHNE_STRING_BLOCKS = IcariaBlockItemTags.createIcaria("arachne_string_blocks");
-
-	public static final BlockItemTagId ARACHNE_STRING_CARPETS = IcariaBlockItemTags.createIcaria("arachne_string_carpets");
-
 	public static final BlockItemTagId BARS_VANADIUMSTEEL = IcariaBlockItemTags.create("bars/vanadiumsteel");
 
 	public static final BlockItemTagId COBBLESTONES_BAETYL = IcariaBlockItemTags.create("cobblesstones/baetyl");
@@ -90,6 +86,10 @@ public class IcariaBlockItemTags {
 	public static final BlockItemTagId STORAGE_BLOCKS_VINE_REED = IcariaBlockItemTags.create("storage_blocks/vine_reed");
 	public static final BlockItemTagId STORAGE_BLOCKS_VOID_JELLYFISH_JELLY = IcariaBlockItemTags.create("storage_blocks/void_jellyfish_jelly");
 	public static final BlockItemTagId STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = IcariaBlockItemTags.create("storage_blocks/water_jellyfish_jelly");
+
+	public static final BlockItemTagId TERRY_BLOCKS = IcariaBlockItemTags.createIcaria("terry_blocks");
+
+	public static final BlockItemTagId TERRY_MATS = IcariaBlockItemTags.createIcaria("terry_mats");
 
 	public static BlockItemTagId create(String pName) {
 		return new BlockItemTagId(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(IcariaIds.C, pName)), TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(IcariaIds.C, pName)));

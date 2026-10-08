@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:cyan_terry_block"
+  },
+  "pattern": [
+    "AA"
+  ],
+  "result": {
+    "count": 3,
+    "id": "landsoficaria:cyan_terry_mat"
+  }
+}

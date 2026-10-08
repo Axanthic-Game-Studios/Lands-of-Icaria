@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "landsoficaria:terry_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "landsoficaria:arachne_string"
+  }
+}
