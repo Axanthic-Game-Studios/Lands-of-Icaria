@@ -1,4 +1,4 @@
-package com.axanthic.icaria.compat;
+package com.axanthic.icaria.integration;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
@@ -40,7 +40,7 @@ import net.minecraft.world.item.ItemStack;
 @ParametersAreNonnullByDefault
 
 @JeiPlugin
-public class JeiCompat implements IModPlugin {
+public class JustEnoughItemsIntegration implements IModPlugin {
 	public static final Supplier<IRecipeHolderType<FiringRecipe>> FIRING = IRecipeHolderType.createDeferred(IcariaRecipeTypes.FIRING);
 	public static final Supplier<IRecipeHolderType<ForgingRecipe>> FORGING = IRecipeHolderType.createDeferred(IcariaRecipeTypes.FORGING);
 	public static final Supplier<IRecipeHolderType<GrindingRecipe>> GRINDING = IRecipeHolderType.createDeferred(IcariaRecipeTypes.GRINDING);
@@ -48,9 +48,9 @@ public class JeiCompat implements IModPlugin {
 	@Override
 	public void registerCategories(IRecipeCategoryRegistration pRegistration) {
 		var guiHelper = pRegistration.getJeiHelpers().getGuiHelper();
-		pRegistration.addRecipeCategories(new FiringRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "firing"), guiHelper.createDrawableItemLike(IcariaItems.KILN.get()), guiHelper, JeiCompat.FIRING.get()));
-		pRegistration.addRecipeCategories(new ForgingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "forging"), guiHelper.createDrawableItemLike(IcariaItems.FORGE.get()), guiHelper, JeiCompat.FORGING.get()));
-		pRegistration.addRecipeCategories(new GrindingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "grinding"), guiHelper.createDrawableItemLike(IcariaItems.GRINDER.get()), guiHelper, JeiCompat.GRINDING.get()));
+		pRegistration.addRecipeCategories(new FiringRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "firing"), guiHelper.createDrawableItemLike(IcariaItems.KILN.get()), guiHelper, JustEnoughItemsIntegration.FIRING.get()));
+		pRegistration.addRecipeCategories(new ForgingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "forging"), guiHelper.createDrawableItemLike(IcariaItems.FORGE.get()), guiHelper, JustEnoughItemsIntegration.FORGING.get()));
+		pRegistration.addRecipeCategories(new GrindingRecipeCategory(Component.translatable("category" + "." + IcariaIds.ID + "." + "grinding"), guiHelper.createDrawableItemLike(IcariaItems.GRINDER.get()), guiHelper, JustEnoughItemsIntegration.GRINDING.get()));
 	}
 
 	@Override
@@ -62,9 +62,9 @@ public class JeiCompat implements IModPlugin {
 		pRegistration.addCraftingStation(RecipeTypes.CRAFTING, IcariaItems.OLIVE_CRAFTING_TABLE.get());
 		pRegistration.addCraftingStation(RecipeTypes.CRAFTING, IcariaItems.PLANE_CRAFTING_TABLE.get());
 		pRegistration.addCraftingStation(RecipeTypes.CRAFTING, IcariaItems.POPULUS_CRAFTING_TABLE.get());
-		pRegistration.addCraftingStation(JeiCompat.FIRING.get(), IcariaItems.KILN.get());
-		pRegistration.addCraftingStation(JeiCompat.FORGING.get(), IcariaItems.FORGE.get());
-		pRegistration.addCraftingStation(JeiCompat.GRINDING.get(), IcariaItems.GRINDER.get());
+		pRegistration.addCraftingStation(JustEnoughItemsIntegration.FIRING.get(), IcariaItems.KILN.get());
+		pRegistration.addCraftingStation(JustEnoughItemsIntegration.FORGING.get(), IcariaItems.FORGE.get());
+		pRegistration.addCraftingStation(JustEnoughItemsIntegration.GRINDING.get(), IcariaItems.GRINDER.get());
 	}
 
 	@Override
