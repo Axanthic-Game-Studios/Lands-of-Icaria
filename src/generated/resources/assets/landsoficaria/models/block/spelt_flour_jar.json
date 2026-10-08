@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_spelt_flour_jar",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "particle": "landsoficaria:block/jar",
+    "spelt_flour_jar": "landsoficaria:block/spelt_flour_jar"
+  }
+}

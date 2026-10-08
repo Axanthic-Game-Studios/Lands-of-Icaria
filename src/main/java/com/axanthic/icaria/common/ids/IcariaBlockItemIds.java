@@ -406,7 +406,16 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId VINE_SPROUT_CAKE = IcariaBlockItemIds.create("vine_sprout_cake");
 
 	public static final BlockItemId COOKIE_JAR = IcariaBlockItemIds.create("cookie_jar");
-	public static final BlockItemId POWDER_JAR = IcariaBlockItemIds.create("powder_jar");
+	public static final BlockItemId GREENPOWDER_JAR = IcariaBlockItemIds.create("greenpowder_jar");
+	public static final BlockItemId CALCITE_DUST_JAR = IcariaBlockItemIds.create("calcite_dust_jar");
+	public static final BlockItemId HALITE_DUST_JAR = IcariaBlockItemIds.create("halite_dust_jar");
+	public static final BlockItemId SPELT_FLOUR_JAR = IcariaBlockItemIds.create("spelt_flour_jar");
+	public static final BlockItemId SUGAR_JAR = IcariaBlockItemIds.create("sugar_jar");
+	public static final BlockItemId ENDER_JELLYFISH_JELLY_JAR = IcariaBlockItemIds.create("ender_jellyfish_jelly_jar");
+	public static final BlockItemId FIRE_JELLYFISH_JELLY_JAR = IcariaBlockItemIds.create("fire_jellyfish_jelly_jar");
+	public static final BlockItemId NATURE_JELLYFISH_JELLY_JAR = IcariaBlockItemIds.create("nature_jellyfish_jelly_jar");
+	public static final BlockItemId VOID_JELLYFISH_JELLY_JAR = IcariaBlockItemIds.create("void_jellyfish_jelly_jar");
+	public static final BlockItemId WATER_JELLYFISH_JELLY_JAR = IcariaBlockItemIds.create("water_jellyfish_jelly_jar");
 
 	public static final BlockItemId FLASK = IcariaBlockItemIds.create("flask");
 

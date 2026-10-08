@@ -405,7 +405,16 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PHYSALIS_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_BERRY_CAKE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VINE_SPROUT_CAKE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.POWDER_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.GREENPOWDER_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CALCITE_DUST_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.HALITE_DUST_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SPELT_FLOUR_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.SUGAR_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.ENDER_JELLYFISH_JELLY_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIRE_JELLYFISH_JELLY_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.NATURE_JELLYFISH_JELLY_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.VOID_JELLYFISH_JELLY_JAR.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.WATER_JELLYFISH_JELLY_JAR.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FLASK.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LARGE_BOWLS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLATES.get(), pItemModelGenerators);

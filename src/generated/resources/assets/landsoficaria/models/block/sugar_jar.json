@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_sugar_jar",
+  "textures": {
+    "kettle": "landsoficaria:block/kettle",
+    "particle": "landsoficaria:block/jar",
+    "sugar_jar": "landsoficaria:block/sugar_jar"
+  }
+}

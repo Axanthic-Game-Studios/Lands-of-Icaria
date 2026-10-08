@@ -27,7 +27,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot CAKE_INSIDE = TextureSlot.create("cake_inside");
 	public static final TextureSlot CAKE_SIDE = TextureSlot.create("cake_side");
 	public static final TextureSlot CAKE_TOP = TextureSlot.create("cake_top");
-	public static final TextureSlot CALCITE = TextureSlot.create("calcite");
+	public static final TextureSlot CALCITE_DUST_JAR = TextureSlot.create("calcite_dust_jar");
 	public static final TextureSlot CANDLE = TextureSlot.create("candle");
 	public static final TextureSlot CHALKOS_BLOCK = TextureSlot.create("chalkos_block");
 	public static final TextureSlot CHALKOS_MESH_BLOCK = TextureSlot.create("chalkos_mesh_block");
@@ -39,7 +39,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot COBWEB_NEGATIVE_OPPOSITE = TextureSlot.create("cobweb_negative_opposite");
 	public static final TextureSlot COBWEB_POSITIVE = TextureSlot.create("cobweb_positive");
 	public static final TextureSlot COBWEB_POSITIVE_OPPOSITE = TextureSlot.create("cobweb_positive_opposite");
-	public static final TextureSlot COOKIE = TextureSlot.create("cookie");
+	public static final TextureSlot COOKIE_JAR = TextureSlot.create("cookie_jar");
 	public static final TextureSlot CROP = TextureSlot.create("crop");
 	public static final TextureSlot CROSS = TextureSlot.create("cross");
 	public static final TextureSlot CUPBOARD = TextureSlot.create("cupboard");
@@ -50,7 +50,9 @@ public class IcariaTextureSlots {
 	public static final TextureSlot EAST = TextureSlot.create("east");
 	public static final TextureSlot EDGE = TextureSlot.create("edge");
 	public static final TextureSlot END = TextureSlot.create("end");
+	public static final TextureSlot ENDER_JELLYFISH_JELLY_JAR = TextureSlot.create("ender_jellyfish_jelly_jar");
 	public static final TextureSlot FIRE = TextureSlot.create("fire");
+	public static final TextureSlot FIRE_JELLYFISH_JELLY_JAR = TextureSlot.create("fire_jellyfish_jelly_jar");
 	public static final TextureSlot FIREWOOD = TextureSlot.create("firewood");
 	public static final TextureSlot FLOWER_POT = TextureSlot.create("flower_pot");
 	public static final TextureSlot FLOWERS = TextureSlot.create("flowers");
@@ -58,11 +60,13 @@ public class IcariaTextureSlots {
 	public static final TextureSlot GRAINITE = TextureSlot.create("grainite");
 	public static final TextureSlot GRAINITE_BRICKS = TextureSlot.create("grainite_bricks");
 	public static final TextureSlot GRAY_STORAGE_VASE = TextureSlot.create("gray_storage_vase");
+	public static final TextureSlot GREENPOWDER_JAR = TextureSlot.create("greenpowder_jar");
 	public static final TextureSlot GRINDER = TextureSlot.create("grinder");
 	public static final TextureSlot GRINDER_ENGINE = TextureSlot.create("grinder_engine");
 	public static final TextureSlot GRINDER_FEEDER = TextureSlot.create("grinder_feeder");
 	public static final TextureSlot GRINDER_STONE = TextureSlot.create("grinder_stone");
-	public static final TextureSlot HALITE_BLOCK = TextureSlot.create("halite_block");
+	public static final TextureSlot HALITE_CLUSTER = TextureSlot.create("halite_cluster");
+	public static final TextureSlot HALITE_DUST_JAR = TextureSlot.create("halite_dust_jar");
 	public static final TextureSlot HERB_HOLDER = TextureSlot.create("herb_holder");
 	public static final TextureSlot HERB_HOLDER_OVERLAY = TextureSlot.create("herb_holder_overlay");
 	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
@@ -82,6 +86,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot MEDITERRANEAN_WATER = TextureSlot.create("mediterranean_water");
 	public static final TextureSlot MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("molybdenumsteel_block");
 	public static final TextureSlot MOSS = TextureSlot.create("moss");
+	public static final TextureSlot NATURE_JELLYFISH_JELLY_JAR = TextureSlot.create("nature_jellyfish_jelly_jar");
 	public static final TextureSlot NECK = TextureSlot.create("neck");
 	public static final TextureSlot NORTH = TextureSlot.create("north");
 	public static final TextureSlot ORANGE_STORAGE_VASE_LITE = TextureSlot.create("orange_storage_vase_lite");
@@ -106,6 +111,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot SMOOTH_MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("smooth_molybdenumsteel_block");
 	public static final TextureSlot SMOOTH_SIDEROS_BLOCK = TextureSlot.create("smooth_sideros_block");
 	public static final TextureSlot SOUTH = TextureSlot.create("south");
+	public static final TextureSlot SPELT_FLOUR_JAR = TextureSlot.create("spelt_flour_jar");
 	public static final TextureSlot STATIC_LEFT_GRINDER_CHAIN = TextureSlot.create("static_left_grinder_chain");
 	public static final TextureSlot STATIC_RIGHT_GRINDER_CHAIN = TextureSlot.create("static_right_grinder_chain");
 	public static final TextureSlot STEM = TextureSlot.create("stem");
@@ -116,6 +122,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STORAGE_VASE_NECK = TextureSlot.create("storage_vase_neck");
 	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
+	public static final TextureSlot SUGAR_JAR = TextureSlot.create("sugar_jar");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
 	public static final TextureSlot TERRY_BLOCK = TextureSlot.create("terry_block");
 	public static final TextureSlot TERRY_MESH_BLOCK = TextureSlot.create("terry_mesh_block");
@@ -130,12 +137,12 @@ public class IcariaTextureSlots {
 	public static final TextureSlot VANADIUMSTEEL_CHAIN = TextureSlot.create("vanadiumsteel_chain");
 	public static final TextureSlot VASE = TextureSlot.create("vase");
 	public static final TextureSlot VINE = TextureSlot.create("vine");
+	public static final TextureSlot VOID_JELLYFISH_JELLY_JAR = TextureSlot.create("void_jellyfish_jelly_jar");
 	public static final TextureSlot VOIDSHALE = TextureSlot.create("voidshale");
 	public static final TextureSlot WALL = TextureSlot.create("wall");
+	public static final TextureSlot WATER_JELLYFISH_JELLY_JAR = TextureSlot.create("water_jellyfish_jelly_jar");
 	public static final TextureSlot WEST = TextureSlot.create("west");
-	public static final TextureSlot WHITE_CONCRETE_POWDER = TextureSlot.create("white_concrete_powder");
 	public static final TextureSlot WOOL = TextureSlot.create("wool");
-	public static final TextureSlot YELLOW_CONCRETE_POWDER = TextureSlot.create("yellow_concrete_powder");
 	public static final TextureSlot YELLOWSTONE = TextureSlot.create("yellowstone");
 	public static final TextureSlot YELLOWSTONE_BRICKS = TextureSlot.create("yellowstone_bricks");
 }

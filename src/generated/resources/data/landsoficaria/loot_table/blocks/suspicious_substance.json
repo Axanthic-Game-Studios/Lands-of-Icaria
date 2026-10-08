@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "landsoficaria:spelt_flour"
+          "name": "minecraft:sugar"
         }
       ],
       "rolls": 1.0

@@ -2423,7 +2423,7 @@
     {
       "faces": {
         "up": {
-          "texture": "#halite_block",
+          "texture": "#halite_cluster",
           "uv": [
             0.0,
             0.0,

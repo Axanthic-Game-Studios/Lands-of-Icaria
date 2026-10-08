@@ -2,6 +2,23 @@
   "type": "minecraft:block",
   "pools": [
     {
+      "conditions": [
+        {
+          "condition": "minecraft:match_tool",
+          "predicate": {
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
@@ -170,6 +187,164 @@
             }
           ],
           "name": "landsoficaria:cookie_jar"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "condition": "minecraft:match_tool",
+            "predicate": {
+              "predicates": {
+                "minecraft:enchantments": [
+                  {
+                    "enchantments": "minecraft:silk_touch",
+                    "levels": {
+                      "min": 1
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "1"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "2"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "3"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "4"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "5"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 5.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "6"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 6.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "landsoficaria:cookie_jar",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "cookie_amount": "7"
+              }
+            }
+          ],
+          "functions": [
+            {
+              "count": 7.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "minecraft:cookie"
         }
       ],
       "rolls": 1.0

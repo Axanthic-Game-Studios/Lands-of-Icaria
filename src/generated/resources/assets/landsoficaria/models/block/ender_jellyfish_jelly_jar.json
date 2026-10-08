@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_ender_jellyfish_jelly_jar",
+  "textures": {
+    "ender_jellyfish_jelly_jar": "landsoficaria:block/ender_jellyfish_jelly_jar",
+    "kettle": "landsoficaria:block/kettle",
+    "particle": "landsoficaria:block/jar"
+  }
+}

@@ -4,7 +4,7 @@
     {
       "faces": {
         "north": {
-          "texture": "#halite_block",
+          "texture": "#halite_cluster",
           "uv": [
             6.0,
             6.0,
@@ -13,7 +13,7 @@
           ]
         },
         "south": {
-          "texture": "#halite_block",
+          "texture": "#halite_cluster",
           "uv": [
             6.0,
             6.0,
@@ -22,7 +22,7 @@
           ]
         },
         "up": {
-          "texture": "#halite_block",
+          "texture": "#halite_cluster",
           "uv": [
             6.0,
             6.0,
@@ -31,7 +31,7 @@
           ]
         },
         "west": {
-          "texture": "#halite_block",
+          "texture": "#halite_cluster",
           "uv": [
             6.0,
             6.0,

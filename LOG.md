@@ -21,12 +21,13 @@ Additions
 - Grinder Recipe for Yellow Dye from Golden Dandelion
 - Broken, Herb, Pan, Pot, Spoon and Towel Holder Blocks for each Wood Type
 - Hutch and Wall Hutch Blocks for each Wood Type
+- Ender, Fire, Nature, Void, Water Jellyfish Jelly Jar Blocks
 - Kitchen Table Blocks for each Wood Type
 - Kline Blocks for each Wood Type
 - Large Bowls Block
 - Plates Block
 - Pot Block
-- Powder Jar Block
+- Calcite, Greenpowder, Halite, Spelt Flour, Sugar Powder Jar Blocks
 - Scrollshelf Blocks for each Wood Type
 - Shelf Blocks for each Wood Type
 - Small Bowls Block

@@ -178,7 +178,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             6.0,
@@ -187,7 +187,7 @@
           ]
         },
         "east": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             8.0,
@@ -196,7 +196,7 @@
           ]
         },
         "north": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -205,7 +205,7 @@
           ]
         },
         "south": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             2.0,
@@ -214,7 +214,7 @@
           ]
         },
         "up": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             4.0,
@@ -223,7 +223,7 @@
           ]
         },
         "west": {
-          "texture": "#white_concrete_powder",
+          "texture": "#sugar_jar",
           "uv": [
             10.0,
             8.0,
@@ -256,7 +256,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -265,7 +265,7 @@
           ]
         },
         "east": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -274,7 +274,7 @@
           ]
         },
         "north": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -283,7 +283,7 @@
           ]
         },
         "south": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -292,7 +292,7 @@
           ]
         },
         "up": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -301,7 +301,7 @@
           ]
         },
         "west": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             0.0,
             0.0,
@@ -334,7 +334,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,
@@ -343,7 +343,7 @@
           ]
         },
         "east": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,
@@ -352,7 +352,7 @@
           ]
         },
         "north": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,
@@ -361,7 +361,7 @@
           ]
         },
         "south": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,
@@ -370,7 +370,7 @@
           ]
         },
         "up": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,
@@ -379,7 +379,7 @@
           ]
         },
         "west": {
-          "texture": "#calcite",
+          "texture": "#sugar_jar",
           "uv": [
             4.0,
             4.0,

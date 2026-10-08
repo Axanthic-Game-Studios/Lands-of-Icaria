@@ -14,7 +14,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class PowderJarModel {
+public class WaterJellyfishJellyJarModel {
 
 	public static ExtendedModelTemplate template() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
@@ -26,14 +26,14 @@ public class PowderJarModel {
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 12.0000F, 12.0000F).texture(IcariaTextureSlots.KETTLE))
 				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 12.0000F, 12.0000F).texture(IcariaTextureSlots.KETTLE))
 				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(8.0000F, 8.0000F, 12.0000F, 12.0000F).texture(IcariaTextureSlots.KETTLE)))
-			.element(elementBuilder -> elementBuilder.from(4.2500F, 0.2500F, 4.2500F).to(11.7500F, 6.2500F, 11.7500F)
+			.element(elementBuilder -> elementBuilder.from(4.2500F, 0.2500F, 4.2500F).to(11.7500F, 5.7500F, 11.7500F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(8.0000F, 3.2500F, 8.0000F))
-				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 3.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER))
-				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 3.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER))
-				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 3.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER))
-				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 3.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER))
-				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER))
-				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 15.0000F, 15.0000F).texture(IcariaTextureSlots.YELLOW_CONCRETE_POWDER)))
+				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(1.0000F, 5.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR))
+				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(1.0000F, 5.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR))
+				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(1.0000F, 5.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR))
+				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(1.0000F, 5.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR))
+				.face(Direction.UP, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR))
+				.face(Direction.DOWN, faceBuilder -> faceBuilder.uvs(1.0000F, 1.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.WATER_JELLYFISH_JELLY_JAR)))
 			.element(elementBuilder -> elementBuilder.from(4.0000F, 0.0000F, 4.0000F).to(12.0000F, 10.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 22.5000F, 0.0000F).origin(8.0000F, 5.0000F, 8.0000F))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(12.0000F, 12.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.KETTLE))

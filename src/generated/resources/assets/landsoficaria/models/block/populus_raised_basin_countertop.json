@@ -1,7 +1,7 @@
 {
   "parent": "landsoficaria:block/template_raised_basin_countertop",
   "textures": {
-    "halite_block": "landsoficaria:block/halite_block",
+    "halite_cluster": "landsoficaria:block/halite_cluster",
     "log": "landsoficaria:block/populus_log",
     "molybdenumsteel_block": "landsoficaria:block/molybdenumsteel_block",
     "particle": "landsoficaria:block/stripped_populus_log",

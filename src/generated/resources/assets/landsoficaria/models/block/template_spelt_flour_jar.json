@@ -82,57 +82,57 @@
     {
       "faces": {
         "down": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            0.0,
-            15.0,
-            15.0
+            1.0,
+            1.0,
+            16.0,
+            16.0
           ]
         },
         "east": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            3.0,
-            15.0,
-            15.0
+            1.0,
+            9.0,
+            16.0,
+            16.0
           ]
         },
         "north": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            3.0,
-            15.0,
-            15.0
+            1.0,
+            9.0,
+            16.0,
+            16.0
           ]
         },
         "south": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            3.0,
-            15.0,
-            15.0
+            1.0,
+            9.0,
+            16.0,
+            16.0
           ]
         },
         "up": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            0.0,
-            15.0,
-            15.0
+            1.0,
+            1.0,
+            16.0,
+            16.0
           ]
         },
         "west": {
-          "texture": "#yellow_concrete_powder",
+          "texture": "#spelt_flour_jar",
           "uv": [
-            0.0,
-            3.0,
-            15.0,
-            15.0
+            1.0,
+            9.0,
+            16.0,
+            16.0
           ]
         }
       },
@@ -153,7 +153,7 @@
       },
       "to": [
         11.75,
-        6.25,
+        3.75,
         11.75
       ]
     },

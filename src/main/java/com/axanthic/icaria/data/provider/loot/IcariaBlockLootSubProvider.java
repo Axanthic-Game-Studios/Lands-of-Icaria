@@ -152,7 +152,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.THOG_WALL_SKULL.get(), IcariaItems.THOG_SKULL.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
-		this.dropElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), IcariaItems.SPELT_FLOUR.get());
+		this.dropElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), Items.SUGAR);
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HUTCH.get(), IcariaItems.CYPRESS_HUTCH.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
@@ -249,6 +249,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropNone(IcariaBlocks.CYAN_LOOT_VASE.get());
 		this.dropNone(IcariaBlocks.ARACHNE_SPAWNER.get());
 		this.dropNone(IcariaBlocks.REVENANT_SPAWNER.get());
+		this.dropNone(IcariaBlocks.GREENPOWDER_JAR.get());
 		this.dropNone(IcariaBlocks.FLASK.get());
 		this.dropNone(IcariaBlocks.SIMPLE_CYPRESS_RACK.get());
 		this.dropNone(IcariaBlocks.CYPRESS_RACK.get());
@@ -650,7 +651,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.THOG_SKULL.get());
 		this.dropThis(IcariaBlocks.LIGNITE_TORCH.get());
 		this.dropThis(IcariaBlocks.ANTHRACITE_TORCH.get());
-		this.dropThis(IcariaBlocks.POWDER_JAR.get());
 		this.dropThis(IcariaBlocks.POT.get());
 		this.dropThis(IcariaBlocks.CHECKERS.get());
 		this.dropThis(IcariaBlocks.CHESS.get());
@@ -1055,6 +1055,15 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilkOrElse(IcariaBlocks.HALITE_CLUSTER.get(), IcariaItems.HALITE_SHARD.get(), 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.JASPER_CLUSTER.get(), IcariaItems.JASPER_SHARD.get(), 1.0F, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.ZIRCON_CLUSTER.get(), IcariaItems.ZIRCON_SHARD.get(), 1.0F, 2);
+		this.dropThisWithSilkOrElse(IcariaBlocks.CALCITE_DUST_JAR.get(), IcariaItems.CALCITE_DUST.get(), 5.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.HALITE_DUST_JAR.get(), IcariaItems.HALITE_DUST.get(), 4.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.SPELT_FLOUR_JAR.get(), IcariaItems.SPELT_FLOUR.get(), 3.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.SUGAR_JAR.get(), Items.SUGAR, 5.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.ENDER_JELLYFISH_JELLY_JAR.get(), IcariaItems.ENDER_JELLYFISH_JELLY.get(), 3.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.FIRE_JELLYFISH_JELLY_JAR.get(), IcariaItems.FIRE_JELLYFISH_JELLY.get(), 5.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.NATURE_JELLYFISH_JELLY_JAR.get(), IcariaItems.NATURE_JELLYFISH_JELLY.get(), 4.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.VOID_JELLYFISH_JELLY_JAR.get(), IcariaItems.VOID_JELLYFISH_JELLY.get(), 3.0F, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.WATER_JELLYFISH_JELLY_JAR.get(), IcariaItems.WATER_JELLYFISH_JELLY.get(), 5.0F, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.LARGE_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2.0F, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.SMALL_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2.0F, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1.0F, 2);
@@ -1094,7 +1103,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 	}
 
 	public void dropCookieJar(Block pBlock) {
-		this.add(pBlock, LootTable.lootTable().withPool(Util.make(LootPool.lootPool(), pool -> IcariaBlockStateProperties.COOKIE_AMOUNT.getPossibleValues().forEach(i -> pool.add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.COOKIE_AMOUNT, i))).apply(SetComponentsFunction.setComponent(IcariaDataComponents.COOKIES.get(), i)))))));
+		this.add(pBlock, LootTable.lootTable().withPool(Util.make(LootPool.lootPool().when(this.silk()), pool -> IcariaBlockStateProperties.COOKIE_AMOUNT.getPossibleValues().forEach(i -> pool.add(LootItem.lootTableItem(pBlock).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.COOKIE_AMOUNT, i))).apply(SetComponentsFunction.setComponent(IcariaDataComponents.COOKIES.get(), i)))))).withPool(Util.make(LootPool.lootPool().when(this.noSilk()), pool -> IcariaBlockStateProperties.COOKIE_AMOUNT.getPossibleValues().stream().filter(i -> i > 0).forEach(i -> pool.add(LootItem.lootTableItem(Items.COOKIE).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(pBlock).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.COOKIE_AMOUNT, i))).apply(SetItemCountFunction.setCount(ConstantValue.exactly(i))))))));
 	}
 
 	public void dropCountertop(Block pBlock) {

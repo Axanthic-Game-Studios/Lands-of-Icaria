@@ -1,7 +1,7 @@
 {
   "parent": "landsoficaria:block/template_cookie_jar_0",
   "textures": {
-    "cookie": "landsoficaria:block/cookie",
+    "cookie_jar": "landsoficaria:block/cookie_jar",
     "kettle": "landsoficaria:block/kettle",
     "particle": "landsoficaria:block/jar"
   }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "landsoficaria:item/powder_jar"
+    "model": "landsoficaria:item/halite_dust_jar"
   }
 }

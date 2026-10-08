@@ -472,7 +472,16 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Vine Sprout Cake");
 
 		this.add(IcariaBlocks.COOKIE_JAR.get(), "Cookie Jar");
-		this.add(IcariaBlocks.POWDER_JAR.get(), "Powder Jar");
+		this.add(IcariaBlocks.GREENPOWDER_JAR.get(), "Greenpowder Jar");
+		this.add(IcariaBlocks.CALCITE_DUST_JAR.get(), "Calcite Dust Jar");
+		this.add(IcariaBlocks.HALITE_DUST_JAR.get(), "Halite Dust Jar");
+		this.add(IcariaBlocks.SPELT_FLOUR_JAR.get(), "Spelt Flour Jar");
+		this.add(IcariaBlocks.SUGAR_JAR.get(), "Sugar Jar");
+		this.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_JAR.get(), "Ender Jellyfish Jelly Jar");
+		this.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_JAR.get(), "Fire Jellyfish Jelly Jar");
+		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_JAR.get(), "Nature Jellyfish Jelly Jar");
+		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_JAR.get(), "Void Jellyfish Jelly Jar");
+		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_JAR.get(), "Water Jellyfish Jelly Jar");
 
 		this.add(IcariaBlocks.FLASK.get(), "Flask");
 

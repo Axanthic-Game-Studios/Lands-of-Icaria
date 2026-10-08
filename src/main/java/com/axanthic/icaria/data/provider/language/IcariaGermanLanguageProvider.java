@@ -471,8 +471,17 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.VINE_BERRY_CAKE.get(), "Rankenbeerenkuchen");
 		this.add(IcariaBlocks.VINE_SPROUT_CAKE.get(), "Rankensprossenkuchen");
 
-		this.add(IcariaBlocks.COOKIE_JAR.get(), "Keksglas");
-		this.add(IcariaBlocks.POWDER_JAR.get(), "Pulverglas");
+		this.add(IcariaBlocks.COOKIE_JAR.get(), "Glas mit Keksen");
+		this.add(IcariaBlocks.GREENPOWDER_JAR.get(), "Glas mit Grünpulver");
+		this.add(IcariaBlocks.CALCITE_DUST_JAR.get(), "Glas mit Calcit-Staub");
+		this.add(IcariaBlocks.HALITE_DUST_JAR.get(), "Glas mit Halit-Staub");
+		this.add(IcariaBlocks.SPELT_FLOUR_JAR.get(), "Glas mit Dinkelmehl");
+		this.add(IcariaBlocks.SUGAR_JAR.get(), "Glas mit Zucker");
+		this.add(IcariaBlocks.ENDER_JELLYFISH_JELLY_JAR.get(), "Glas mit Ender-Quallengelee");
+		this.add(IcariaBlocks.FIRE_JELLYFISH_JELLY_JAR.get(), "Glas mit Feuer-Quallengelee");
+		this.add(IcariaBlocks.NATURE_JELLYFISH_JELLY_JAR.get(), "Glas mit Natur-Quallengelee");
+		this.add(IcariaBlocks.VOID_JELLYFISH_JELLY_JAR.get(), "Glas mit Leeren-Quallengelee");
+		this.add(IcariaBlocks.WATER_JELLYFISH_JELLY_JAR.get(), "Glas mit Wasser-Quallengelee");
 
 		this.add(IcariaBlocks.FLASK.get(), "Flasche");
 

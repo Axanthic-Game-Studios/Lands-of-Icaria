@@ -822,7 +822,16 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.VINE_SPROUT_CAKE.get());
 
 			pEvent.accept(IcariaItems.COOKIE_JAR.get());
-			pEvent.accept(IcariaItems.POWDER_JAR.get());
+			pEvent.accept(IcariaItems.GREENPOWDER_JAR.get());
+			pEvent.accept(IcariaItems.CALCITE_DUST_JAR.get());
+			pEvent.accept(IcariaItems.HALITE_DUST_JAR.get());
+			pEvent.accept(IcariaItems.SPELT_FLOUR_JAR.get());
+			pEvent.accept(IcariaItems.SUGAR_JAR.get());
+			pEvent.accept(IcariaItems.ENDER_JELLYFISH_JELLY_JAR.get());
+			pEvent.accept(IcariaItems.FIRE_JELLYFISH_JELLY_JAR.get());
+			pEvent.accept(IcariaItems.NATURE_JELLYFISH_JELLY_JAR.get());
+			pEvent.accept(IcariaItems.VOID_JELLYFISH_JELLY_JAR.get());
+			pEvent.accept(IcariaItems.WATER_JELLYFISH_JELLY_JAR.get());
 
 			pEvent.accept(IcariaItems.FLASK.get());
 

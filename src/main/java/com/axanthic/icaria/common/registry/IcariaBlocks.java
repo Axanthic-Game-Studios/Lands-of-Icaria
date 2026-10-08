@@ -447,7 +447,16 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> VINE_SPROUT_CAKE = IcariaBlocks.register(IcariaBlockItemIds.VINE_SPROUT_CAKE, IcariaBlocks.propertiesCake(MapColor.NONE, SoundType.WOOL), properties -> new IcariaCakeBlock(false, 600, MobEffects.SPEED, properties));
 
 	public static final DeferredHolder<Block, Block> COOKIE_JAR = IcariaBlocks.register(IcariaBlockItemIds.COOKIE_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), CookieJarBlock::new);
-	public static final DeferredHolder<Block, Block> POWDER_JAR = IcariaBlocks.register(IcariaBlockItemIds.POWDER_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> GREENPOWDER_JAR = IcariaBlocks.register(IcariaBlockItemIds.GREENPOWDER_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), GreenpowderJarBlock::new);
+	public static final DeferredHolder<Block, Block> CALCITE_DUST_JAR = IcariaBlocks.register(IcariaBlockItemIds.CALCITE_DUST_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> HALITE_DUST_JAR = IcariaBlocks.register(IcariaBlockItemIds.HALITE_DUST_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> SPELT_FLOUR_JAR = IcariaBlocks.register(IcariaBlockItemIds.SPELT_FLOUR_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> SUGAR_JAR = IcariaBlocks.register(IcariaBlockItemIds.SUGAR_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> ENDER_JELLYFISH_JELLY_JAR = IcariaBlocks.register(IcariaBlockItemIds.ENDER_JELLYFISH_JELLY_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> FIRE_JELLYFISH_JELLY_JAR = IcariaBlocks.register(IcariaBlockItemIds.FIRE_JELLYFISH_JELLY_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> NATURE_JELLYFISH_JELLY_JAR = IcariaBlocks.register(IcariaBlockItemIds.NATURE_JELLYFISH_JELLY_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> VOID_JELLYFISH_JELLY_JAR = IcariaBlocks.register(IcariaBlockItemIds.VOID_JELLYFISH_JELLY_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
+	public static final DeferredHolder<Block, Block> WATER_JELLYFISH_JELLY_JAR = IcariaBlocks.register(IcariaBlockItemIds.WATER_JELLYFISH_JELLY_JAR, IcariaBlocks.propertiesJar(MapColor.NONE, SoundType.GLASS), JarBlock::new);
 
 	public static final DeferredHolder<Block, Block> FLASK = IcariaBlocks.register(IcariaBlockItemIds.FLASK, IcariaBlocks.propertiesFlask(MapColor.NONE, SoundType.GLASS), FlaskBlock::new);
 
@@ -1211,7 +1220,7 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesJar(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak();
 	}
 
 	public static BlockBehaviour.Properties propertiesFlask(MapColor pMapColor, SoundType pSoundType) {

@@ -428,7 +428,16 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> VINE_SPROUT_CAKE = IcariaItems.register(IcariaBlockItemIds.VINE_SPROUT_CAKE, IcariaItems.propertiesBlock().stacksTo(1), properties -> new BlockItem(IcariaBlocks.VINE_SPROUT_CAKE.get(), properties));
 
 	public static final DeferredHolder<Item, Item> COOKIE_JAR = IcariaItems.register(IcariaBlockItemIds.COOKIE_JAR, IcariaItems.propertiesBlock(), properties -> new CookieJarItem(IcariaBlocks.COOKIE_JAR.get(), properties.component(IcariaDataComponents.COOKIES, 7)));
-	public static final DeferredHolder<Item, Item> POWDER_JAR = IcariaItems.register(IcariaBlockItemIds.POWDER_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.POWDER_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> GREENPOWDER_JAR = IcariaItems.register(IcariaBlockItemIds.GREENPOWDER_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.GREENPOWDER_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> CALCITE_DUST_JAR = IcariaItems.register(IcariaBlockItemIds.CALCITE_DUST_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CALCITE_DUST_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> HALITE_DUST_JAR = IcariaItems.register(IcariaBlockItemIds.HALITE_DUST_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.HALITE_DUST_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> SPELT_FLOUR_JAR = IcariaItems.register(IcariaBlockItemIds.SPELT_FLOUR_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.SPELT_FLOUR_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> SUGAR_JAR = IcariaItems.register(IcariaBlockItemIds.SUGAR_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.SUGAR_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> ENDER_JELLYFISH_JELLY_JAR = IcariaItems.register(IcariaBlockItemIds.ENDER_JELLYFISH_JELLY_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.ENDER_JELLYFISH_JELLY_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> FIRE_JELLYFISH_JELLY_JAR = IcariaItems.register(IcariaBlockItemIds.FIRE_JELLYFISH_JELLY_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.FIRE_JELLYFISH_JELLY_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> NATURE_JELLYFISH_JELLY_JAR = IcariaItems.register(IcariaBlockItemIds.NATURE_JELLYFISH_JELLY_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.NATURE_JELLYFISH_JELLY_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> VOID_JELLYFISH_JELLY_JAR = IcariaItems.register(IcariaBlockItemIds.VOID_JELLYFISH_JELLY_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.VOID_JELLYFISH_JELLY_JAR.get(), properties));
+	public static final DeferredHolder<Item, Item> WATER_JELLYFISH_JELLY_JAR = IcariaItems.register(IcariaBlockItemIds.WATER_JELLYFISH_JELLY_JAR, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.WATER_JELLYFISH_JELLY_JAR.get(), properties));
 
 	public static final DeferredHolder<Item, Item> FLASK = IcariaItems.register(IcariaBlockItemIds.FLASK, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.FLASK.get(), properties));
 
