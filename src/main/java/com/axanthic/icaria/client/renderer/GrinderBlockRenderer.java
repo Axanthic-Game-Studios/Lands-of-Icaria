@@ -6,7 +6,7 @@ import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.state.GrinderBlockRenderState;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.GrinderBlockEntity;
-import com.axanthic.icaria.common.properties.Side;
+import com.axanthic.icaria.common.enums.WidthPair;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
@@ -65,9 +65,9 @@ public record GrinderBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		var grinding = blockState.getValue(IcariaBlockStateProperties.GRINDER_GRINDING);
-		var side = blockState.getValue(IcariaBlockStateProperties.SIDE);
+		var widthPair = blockState.getValue(IcariaBlockStateProperties.WIDTH_PAIR);
 
-		if (level != null && side == Side.LEFT) {
+		if (level != null && widthPair == WidthPair.LEFT) {
 			var flag = grinding && pRenderState.tickClient;
 			var rotation = flag ? level.getGameTime() * 16.0F : 0.0F;
 			IcariaClientHelper.submitItem(pSubmitNodeCollector, pPoseStack, pRenderState.gear, direction, pRenderState.lightCoords, 1.5F, -0.5F, 0.34375F, 0.5F, 0.5F, 90.0F, 0.0F, 180.0F + direction.toYRot() + rotation, 0.625F, 1.0F, 0.625F);

@@ -3,11 +3,11 @@ package com.axanthic.icaria.data.provider.model;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.renderer.UnbakedScrollItemSpecialModelRenderer;
+import com.axanthic.icaria.common.enums.SkullBlockType;
 import com.axanthic.icaria.common.registry.IcariaColors;
 import com.axanthic.icaria.common.registry.IcariaDataComponents;
 import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.types.SkullBlockTypes;
 
 import java.util.List;
 import java.util.Optional;
@@ -466,7 +466,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_CYPRESS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_CYPRESS_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_CYPRESS_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SCROLLSHELF.get(), pItemModelGenerators);
@@ -523,7 +527,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_DROUGHTROOT_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_DROUGHTROOT_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_DROUGHTROOT_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.DROUGHTROOT_SCROLLSHELF.get(), pItemModelGenerators);
@@ -580,7 +588,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.FIR_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_FIR_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.FIR_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.FIR_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_FIR_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_FIR_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.FIR_SCROLLSHELF.get(), pItemModelGenerators);
@@ -637,7 +649,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_LAUREL_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.LAUREL_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.LAUREL_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_LAUREL_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_LAUREL_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LAUREL_SCROLLSHELF.get(), pItemModelGenerators);
@@ -694,7 +710,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_OLIVE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.OLIVE_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.OLIVE_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_OLIVE_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_OLIVE_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.OLIVE_SCROLLSHELF.get(), pItemModelGenerators);
@@ -751,7 +771,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_PLANE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.PLANE_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PLANE_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_PLANE_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_PLANE_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLANE_SCROLLSHELF.get(), pItemModelGenerators);
@@ -808,7 +832,11 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_VASE_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.BROKEN_POPULUS_CUPBOARD.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_HUTCH.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.POPULUS_KITCHEN_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.POPULUS_TIMBER_BENCH.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_POPULUS_TIMBER_TABLE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.BIGGER_POPULUS_TIMBER_BENCH.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_KLINE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_CRAFTING_TABLE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.POPULUS_SCROLLSHELF.get(), pItemModelGenerators);
@@ -1189,21 +1217,21 @@ public class IcariaItemStateProvider {
 	}
 
 	public static void skull(ItemModelGenerators pItemModelGenerators) {
-		IcariaItemStateProvider.skull(IcariaItems.AETERNAE_SKULL.get(), SkullBlockTypes.AETERNAE, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.ARGAN_HOUND_SKULL.get(), SkullBlockTypes.ARGAN_HOUND, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.CAPELLA_SKULL.get(), SkullBlockTypes.CAPELLA, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.CATOBLEPAS_SKULL.get(), SkullBlockTypes.CATOBLEPAS, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.CERVER_SKULL.get(), SkullBlockTypes.CERVER, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.CROCOTTA_SKULL.get(), SkullBlockTypes.CROCOTTA, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get(), SkullBlockTypes.CYPRESS_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get(), SkullBlockTypes.DROUGHTROOT_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.FIR_FOREST_HAG_SKULL.get(), SkullBlockTypes.FIR_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), SkullBlockTypes.LAUREL_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.OLIVE_FOREST_HAG_SKULL.get(), SkullBlockTypes.OLIVE_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.PLANE_FOREST_HAG_SKULL.get(), SkullBlockTypes.PLANE_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.POPULUS_FOREST_HAG_SKULL.get(), SkullBlockTypes.POPULUS_FOREST_HAG, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.REVENANT_SKULL.get(), SkullBlockTypes.REVENANT, pItemModelGenerators);
-		IcariaItemStateProvider.skull(IcariaItems.THOG_SKULL.get(), SkullBlockTypes.THOG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.AETERNAE_SKULL.get(), SkullBlockType.AETERNAE, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.ARGAN_HOUND_SKULL.get(), SkullBlockType.ARGAN_HOUND, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.CAPELLA_SKULL.get(), SkullBlockType.CAPELLA, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.CATOBLEPAS_SKULL.get(), SkullBlockType.CATOBLEPAS, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.CERVER_SKULL.get(), SkullBlockType.CERVER, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.CROCOTTA_SKULL.get(), SkullBlockType.CROCOTTA, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.CYPRESS_FOREST_HAG_SKULL.get(), SkullBlockType.CYPRESS_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.DROUGHTROOT_FOREST_HAG_SKULL.get(), SkullBlockType.DROUGHTROOT_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.FIR_FOREST_HAG_SKULL.get(), SkullBlockType.FIR_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.LAUREL_FOREST_HAG_SKULL.get(), SkullBlockType.LAUREL_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.OLIVE_FOREST_HAG_SKULL.get(), SkullBlockType.OLIVE_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.PLANE_FOREST_HAG_SKULL.get(), SkullBlockType.PLANE_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.POPULUS_FOREST_HAG_SKULL.get(), SkullBlockType.POPULUS_FOREST_HAG, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.REVENANT_SKULL.get(), SkullBlockType.REVENANT, pItemModelGenerators);
+		IcariaItemStateProvider.skull(IcariaItems.THOG_SKULL.get(), SkullBlockType.THOG, pItemModelGenerators);
 	}
 
 	public static void spear(ItemModelGenerators pItemModelGenerators) {

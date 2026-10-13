@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.registry;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.properties.*;
+import com.axanthic.icaria.common.enums.*;
 
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
 public class IcariaBlockStateProperties {
 	public static final BooleanProperty BATHTUB_REMAINS = BooleanProperty.create("bathtub_remains");
+	public static final BooleanProperty BENCH_TAKEN = BooleanProperty.create("bench_taken");
 	public static final BooleanProperty FLOWER_POTTED = BooleanProperty.create("flower_potted");
 	public static final BooleanProperty FULL_RACK = BooleanProperty.create("full_rack");
 	public static final BooleanProperty GRINDER_GRINDING = BooleanProperty.create("grinder_grinding");
@@ -37,20 +38,21 @@ public class IcariaBlockStateProperties {
 
 	public static final EnumProperty<Candle> CANDLE = EnumProperty.create("candle", Candle.class);
 	public static final EnumProperty<Chessboard> CHESSBOARD = EnumProperty.create("chessboard", Chessboard.class);
-	public static final EnumProperty<Corner> CORNER = EnumProperty.create("corner", Corner.class);
+	public static final EnumProperty<DepthPair> DEPTH_PAIR = EnumProperty.create("depth_pair", DepthPair.class);
+	public static final EnumProperty<DepthSpan> DEPTH_SPAN = EnumProperty.create("depth_span", DepthSpan.class);
 	public static final EnumProperty<Fill> FILL = EnumProperty.create("fill", Fill.class);
-	public static final EnumProperty<FirewoodWedge> FIREWOOD_WEDGE = EnumProperty.create("firewood_wedge", FirewoodWedge.class);
-	public static final EnumProperty<HorizontalCorner> HORIZONTAL_CORNER = EnumProperty.create("horizontal_corner", HorizontalCorner.class);
+	public static final EnumProperty<HeightPair> HEIGHT_PAIR = EnumProperty.create("height_pair", HeightPair.class);
+	public static final EnumProperty<HeightSpan> HEIGHT_SPAN = EnumProperty.create("height_span", HeightSpan.class);
 	public static final EnumProperty<Kettle> KETTLE = EnumProperty.create("kettle", Kettle.class);
 	public static final EnumProperty<Ladder> LADDER = EnumProperty.create("ladder", Ladder.class);
 	public static final EnumProperty<Mat> MAT = EnumProperty.create("mat", Mat.class);
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
-	public static final EnumProperty<Part> PART = EnumProperty.create("part", Part.class);
-	public static final EnumProperty<Side> SIDE = EnumProperty.create("side", Side.class);
 	public static final EnumProperty<Trough> TROUGH = EnumProperty.create("trough", Trough.class);
-	public static final EnumProperty<VerticalCorner> VERTICAL_CORNER = EnumProperty.create("vertical_corner", VerticalCorner.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
+	public static final EnumProperty<Wedge> WEDGE = EnumProperty.create("wedge", Wedge.class);
+	public static final EnumProperty<WidthPair> WIDTH_PAIR = EnumProperty.create("width_pair", WidthPair.class);
+	public static final EnumProperty<WidthSpan> WIDTH_SPAN = EnumProperty.create("width_span", WidthSpan.class);
 
 	public static final EnumProperty<Connection> CONNECTION_NORTH = EnumProperty.create("connection_north", Connection.class);
 	public static final EnumProperty<Connection> CONNECTION_EAST = EnumProperty.create("connection_east", Connection.class);

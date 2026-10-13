@@ -6,7 +6,8 @@ import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.state.KettleBlockRenderState;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
-import com.axanthic.icaria.common.properties.Kettle;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.Kettle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
@@ -30,7 +31,6 @@ import net.minecraft.data.AtlasIds;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.Vec3;
 
 @MethodsReturnNonnullByDefault
@@ -67,12 +67,12 @@ public record KettleBlockRenderer(BlockEntityRendererProvider.Context context) i
 		var level = pRenderState.level;
 
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		var doubleBlockHalf = blockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
+		var heightPair = blockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR);
 		var kettle = blockState.getValue(IcariaBlockStateProperties.KETTLE);
 
 		var textureAtlas = Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS);
 
-		if (level instanceof BlockAndTintGetter blockAndTintGetter && doubleBlockHalf == DoubleBlockHalf.LOWER && kettle != Kettle.EMPTY) {
+		if (level instanceof BlockAndTintGetter blockAndTintGetter && heightPair == HeightPair.BOTTOM && kettle != Kettle.EMPTY) {
 			var time = level.getGameTime();
 
 			var angle = 25.0F;

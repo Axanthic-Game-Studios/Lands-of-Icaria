@@ -3,8 +3,11 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.container.ForgeContainerData;
+import com.axanthic.icaria.common.enums.DepthPair;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.WidthPair;
 import com.axanthic.icaria.common.handler.ForgeHandler;
-import com.axanthic.icaria.common.properties.Corner;
+import com.axanthic.icaria.common.helper.IcariaMultiBlockHelper;
 import com.axanthic.icaria.common.recipe.ForgingRecipe;
 import com.axanthic.icaria.common.recipe.input.TripleRecipeInput;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
@@ -237,22 +240,22 @@ public class ForgeBlockEntity extends BlockEntity {
 
 	public void tickUpdate(ServerLevel pServerLevel) {
 		var direction = this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (this.getBlockState().getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT) {
-			this.setUpdate(this.hasFuel(), this.getBlockPos(), this.getBlockState(), pServerLevel, Corner.BOTTOM_FRONT_LEFT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.BOTTOM_FRONT_RIGHT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getOpposite().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.BOTTOM_BACK_LEFT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.BOTTOM_BACK_RIGHT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().above(), this.getBlockState(), pServerLevel, Corner.TOP_FRONT_LEFT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.TOP_FRONT_RIGHT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getOpposite().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.TOP_BACK_LEFT);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, Corner.TOP_BACK_RIGHT);
+		if (IcariaMultiBlockHelper.hasValue(this.getBlockState(), DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT)) {
+			this.setUpdate(this.hasFuel(), this.getBlockPos(), this.getBlockState(), pServerLevel, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.RIGHT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().above(), this.getBlockState(), pServerLevel, DepthPair.FRONT, HeightPair.TOP, WidthPair.LEFT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.FRONT, HeightPair.TOP, WidthPair.RIGHT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getOpposite().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.LEFT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.RIGHT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getOpposite().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.BACK, HeightPair.TOP, WidthPair.LEFT);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, DepthPair.BACK, HeightPair.TOP, WidthPair.RIGHT);
 		}
 	}
 
-	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, Corner pCorner) {
+	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, DepthPair pDepthPair, HeightPair pHeightPair, WidthPair pWidthPair) {
 		pServerLevel.blockEntityChanged(pBlockPos);
 		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, Block.UPDATE_ALL);
-		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, pCorner).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, pDepthPair).setValue(IcariaBlockStateProperties.HEIGHT_PAIR, pHeightPair).setValue(IcariaBlockStateProperties.WIDTH_PAIR, pWidthPair).setValue(BlockStateProperties.LIT, pLit));
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
 	}
 
@@ -277,24 +280,23 @@ public class ForgeBlockEntity extends BlockEntity {
 		var blockPos = pBlockEntity.getBlockPos();
 		var blockState = pBlockEntity.getBlockState();
 
-		var corner = blockState.getValue(IcariaBlockStateProperties.CORNER);
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 
-		if (corner == Corner.BOTTOM_FRONT_LEFT && pDirection == direction.getClockWise()) {
+		if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT) && pDirection == direction.getClockWise()) {
 			return this.getCap(pBlockEntity, blockPos, 0, 1);
-		} else if (corner == Corner.TOP_FRONT_LEFT && pDirection == Direction.UP) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.LEFT) && pDirection == Direction.UP) {
 			return this.getCap(pBlockEntity, blockPos.below(), 1, 2);
-		} else if (corner == Corner.TOP_BACK_LEFT && pDirection == Direction.UP) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.BACK, HeightPair.TOP, WidthPair.LEFT) && pDirection == Direction.UP) {
 			return this.getCap(pBlockEntity, blockPos.below().relative(direction), 2, 3);
-		} else if (corner == Corner.TOP_BACK_RIGHT && pDirection == Direction.UP) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.BACK, HeightPair.TOP, WidthPair.RIGHT) && pDirection == Direction.UP) {
 			return this.getCap(pBlockEntity, blockPos.below().relative(direction).relative(direction.getClockWise()), 3, 4);
-		} else if (corner == Corner.BOTTOM_FRONT_LEFT && pDirection == Direction.DOWN) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT) && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, blockPos, 4, 6);
-		} else if (corner == Corner.BOTTOM_FRONT_RIGHT && pDirection == Direction.DOWN) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.RIGHT) && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction.getClockWise()), 4, 6);
-		} else if (corner == Corner.BOTTOM_BACK_LEFT && pDirection == Direction.DOWN) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.LEFT) && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction), 4, 6);
-		} else if (corner == Corner.BOTTOM_BACK_RIGHT && pDirection == Direction.DOWN) {
+		} else if (IcariaMultiBlockHelper.hasValue(blockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.RIGHT) && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction).relative(direction.getClockWise()), 4, 6);
 		} else {
 			return null;

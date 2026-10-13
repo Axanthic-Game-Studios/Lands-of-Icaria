@@ -1,0 +1,72 @@
+package com.axanthic.icaria.common.entity;
+
+import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
+import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.block.BiggerTimberBenchBlock;
+import com.axanthic.icaria.common.block.TimberBenchBlock;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+
+import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.vehicle.DismountHelper;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.phys.Vec3;
+
+@MethodsReturnNonnullByDefault
+@ParametersAreNonnullByDefault
+
+public class BenchEntity extends Entity {
+	public BenchEntity(EntityType<? extends BenchEntity> pEntityType, Level pLevel) {
+		super(pEntityType, pLevel);
+	}
+
+	@Override
+	public boolean hurtServer(ServerLevel pServerLevel, DamageSource pDamageSource, float pDamage) {
+		return false;
+	}
+
+	@Override
+	public void addAdditionalSaveData(ValueOutput pValueOutput) {
+		return;
+	}
+
+	@Override
+	public void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+		return;
+	}
+
+	@Override
+	public void readAdditionalSaveData(ValueInput pValueInput) {
+		return;
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+		var blockPos = this.blockPosition();
+		var blockState = this.level().getBlockState(blockPos);
+		var flag = blockState.getBlock() instanceof TimberBenchBlock || blockState.getBlock() instanceof BiggerTimberBenchBlock;
+		if (!flag) {
+			this.discard();
+		} else if (this.getPassengers().isEmpty()) {
+			this.discard();
+			this.level().setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.BENCH_TAKEN, false));
+		}
+	}
+
+	@Override
+	public Vec3 getDismountLocationForPassenger(LivingEntity pLivingEntity) {
+		var vec3 = DismountHelper.findSafeDismountLocation(pLivingEntity.getType(), this.level(), this.blockPosition().relative(pLivingEntity.getDirection()), false);
+		if (vec3 != null) {
+			return vec3;
+		} else {
+			return super.getDismountLocationForPassenger(pLivingEntity);
+		}
+	}
+}

@@ -3,8 +3,11 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
+import com.axanthic.icaria.common.enums.DepthPair;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.WidthPair;
+import com.axanthic.icaria.common.helper.IcariaMultiBlockHelper;
 import com.axanthic.icaria.common.menu.provider.ForgeMenuProvider;
-import com.axanthic.icaria.common.properties.Corner;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.ForgeVoxelShapes;
@@ -47,7 +50,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	public ForgeBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false).setValue(IcariaBlockStateProperties.WIDTH_PAIR, WidthPair.LEFT));
 	}
 
 	@Override
@@ -110,7 +113,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public int getAnalogOutputSignal(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Direction pDirection) {
-		return pLevel.getBlockEntity(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState)) instanceof ForgeBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
+		return pLevel.getBlockEntity(ForgeBlock.getMultiBlockPos(pBlockPos, pBlockState)) instanceof ForgeBlockEntity blockEntity ? blockEntity.getRedstoneStrength() : 0;
 	}
 
 	@Override
@@ -120,7 +123,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_LEFT && pBlockState.getValue(BlockStateProperties.LIT)) {
+		if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT) && pBlockState.getValue(BlockStateProperties.LIT)) {
 			this.particlesEmber(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.particlesItems(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.particlesSmoke(pBlockPos, pBlockState, pLevel, pRandomSource);
@@ -130,7 +133,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.CORNER, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
+		pBuilder.add(IcariaBlockStateProperties.DEPTH_PAIR, IcariaBlockStateProperties.HEIGHT_PAIR, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT, IcariaBlockStateProperties.WIDTH_PAIR);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -140,7 +143,7 @@ public class ForgeBlock extends BaseEntityBlock {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		this.removeMultiBlock(ForgeBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -163,10 +166,10 @@ public class ForgeBlock extends BaseEntityBlock {
 	public void removeMultiBlock(BlockPos pBlockPos, Direction pDirection, Level pLevel) {
 		pLevel.setBlockAndUpdate(pBlockPos, Blocks.AIR.defaultBlockState());
 		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
-		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState());
-		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 		pLevel.setBlockAndUpdate(pBlockPos.above(), Blocks.AIR.defaultBlockState());
 		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState());
+		pLevel.setBlockAndUpdate(pBlockPos.offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 		pLevel.setBlockAndUpdate(pBlockPos.above().offset(pDirection.getOpposite().getUnitVec3i()).offset(pDirection.getCounterClockWise().getUnitVec3i()), Blocks.AIR.defaultBlockState());
 	}
@@ -174,14 +177,14 @@ public class ForgeBlock extends BaseEntityBlock {
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_FRONT_RIGHT));
-		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.BOTTOM_BACK_RIGHT));
-		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_FRONT_RIGHT));
-		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.CORNER, Corner.TOP_BACK_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos, IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.BACK, HeightPair.TOP, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, DepthPair.BACK, HeightPair.TOP, WidthPair.RIGHT));
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
@@ -195,24 +198,24 @@ public class ForgeBlock extends BaseEntityBlock {
 		return new ForgeBlockEntity(pBlockPos, pBlockState);
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_RIGHT) {
-			return pBlockPos.below().offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_BACK_LEFT) {
-			return pBlockPos.below().offset(direction.getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_RIGHT) {
-			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.TOP_FRONT_LEFT) {
-			return pBlockPos.below();
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_RIGHT) {
-			return pBlockPos.offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_BACK_LEFT) {
-			return pBlockPos.offset(direction.getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.CORNER) == Corner.BOTTOM_FRONT_RIGHT) {
-			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
-		} else {
+		if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT)) {
 			return pBlockPos;
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.LEFT)) {
+			return pBlockPos.below();
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.RIGHT)) {
+			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.LEFT)) {
+			return pBlockPos.offset(direction.getUnitVec3i());
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return pBlockPos.offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.TOP, WidthPair.LEFT)) {
+			return pBlockPos.below().offset(direction.getUnitVec3i());
+		} else {
+			return pBlockPos.below().offset(direction.getUnitVec3i()).offset(direction.getClockWise().getUnitVec3i());
 		}
 	}
 
@@ -222,7 +225,7 @@ public class ForgeBlock extends BaseEntityBlock {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var direction = pBlockPlaceContext.getHorizontalDirection().getOpposite();
 		var level = pBlockPlaceContext.getLevel();
-		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.above()).canBeReplaced() && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.above().offset(direction.getOpposite().getUnitVec3i()).offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
@@ -232,13 +235,13 @@ public class ForgeBlock extends BaseEntityBlock {
 	@Override
 	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
 		var blockState = pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.CORNER, blockState.getValue(IcariaBlockStateProperties.CORNER).getOpposite());
+		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.WIDTH_PAIR, blockState.getValue(IcariaBlockStateProperties.WIDTH_PAIR).getOpposite());
 	}
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		this.removeMultiBlock(ForgeBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -249,7 +252,7 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		var blockPos = ForgeBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+		var blockPos = ForgeBlock.getMultiBlockPos(pBlockPos, pBlockState);
 		if (pLevel instanceof ServerLevel serverLevel && serverLevel.getBlockEntity(blockPos) instanceof ForgeBlockEntity blockEntity) {
 			pPlayer.openMenu(new ForgeMenuProvider(blockEntity));
 			return InteractionResult.SUCCESS_SERVER;
@@ -265,19 +268,26 @@ public class ForgeBlock extends BaseEntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(IcariaBlockStateProperties.CORNER)) {
-			case BOTTOM_FRONT_LEFT -> this.getBottomFrontLeft(pBlockState);
-			case BOTTOM_FRONT_RIGHT -> this.getBottomFrontRight(pBlockState);
-			case BOTTOM_BACK_LEFT -> this.getBottomBackLeft(pBlockState);
-			case BOTTOM_BACK_RIGHT -> this.getBottomBackRight(pBlockState);
-			case TOP_FRONT_LEFT -> this.getTopFrontLeft(pBlockState);
-			case TOP_FRONT_RIGHT -> this.getTopFrontRight(pBlockState);
-			case TOP_BACK_LEFT -> this.getTopBackLeft(pBlockState);
-			case TOP_BACK_RIGHT -> this.getTopBackRight(pBlockState);
-		};
+		if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.LEFT)) {
+			return this.getFrontBottomLeft(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return this.getFrontBottomRight(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.LEFT)) {
+			return this.getFrontTopLeft(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.FRONT, HeightPair.TOP, WidthPair.RIGHT)) {
+			return this.getFrontTopRight(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.LEFT)) {
+			return this.getBackBottomLeft(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return this.getBackBottomRight(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, DepthPair.BACK, HeightPair.TOP, WidthPair.LEFT)) {
+			return this.getBackTopLeft(pBlockState);
+		} else {
+			return this.getBackTopRight(pBlockState);
+		}
 	}
 
-	public VoxelShape getBottomFrontLeft(BlockState pBlockState) {
+	public VoxelShape getFrontBottomLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_EAST;
@@ -286,7 +296,7 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public VoxelShape getBottomFrontRight(BlockState pBlockState) {
+	public VoxelShape getFrontBottomRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_EAST;
@@ -295,25 +305,7 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public VoxelShape getBottomBackLeft(BlockState pBlockState) {
-		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_NORTH;
-			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_EAST;
-			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_WEST;
-		};
-	}
-
-	public VoxelShape getBottomBackRight(BlockState pBlockState) {
-		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_NORTH;
-			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_EAST;
-			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_WEST;
-		};
-	}
-
-	public VoxelShape getTopFrontLeft(BlockState pBlockState) {
+	public VoxelShape getFrontTopLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.TOP_FRONT_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_FRONT_LEFT_EAST;
@@ -322,7 +314,7 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public VoxelShape getTopFrontRight(BlockState pBlockState) {
+	public VoxelShape getFrontTopRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.TOP_FRONT_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_FRONT_RIGHT_EAST;
@@ -331,7 +323,25 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public VoxelShape getTopBackLeft(BlockState pBlockState) {
+	public VoxelShape getBackBottomLeft(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_WEST;
+		};
+	}
+
+	public VoxelShape getBackBottomRight(BlockState pBlockState) {
+		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_NORTH;
+			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_EAST;
+			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_SOUTH;
+			default -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_WEST;
+		};
+	}
+
+	public VoxelShape getBackTopLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.TOP_BACK_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_BACK_LEFT_EAST;
@@ -340,7 +350,7 @@ public class ForgeBlock extends BaseEntityBlock {
 		};
 	}
 
-	public VoxelShape getTopBackRight(BlockState pBlockState) {
+	public VoxelShape getBackTopRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> ForgeVoxelShapes.TOP_BACK_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_BACK_RIGHT_EAST;

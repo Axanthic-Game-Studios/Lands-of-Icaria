@@ -3,8 +3,9 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.KettleBlockEntity;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.Kettle;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.KettleVoxelShapes;
 import com.axanthic.icaria.common.tags.IcariaItemTags;
@@ -41,7 +42,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -54,7 +54,7 @@ public class KettleBlock extends BaseEntityBlock {
 
 	public KettleBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
 	}
 
 	@Override
@@ -97,10 +97,10 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.ACTIVE) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.ACTIVE) {
 			this.particlesActive(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.soundsActive(pBlockPos, pLevel, pRandomSource);
-		} else if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.BREWING) {
 			this.particlesActive(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.particlesConcocting(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.soundsActive(pBlockPos, pLevel, pRandomSource);
@@ -110,7 +110,7 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.KETTLE, BlockStateProperties.LIT);
+		pBuilder.add(IcariaBlockStateProperties.HEIGHT_PAIR, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.KETTLE, BlockStateProperties.LIT);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -121,7 +121,7 @@ public class KettleBlock extends BaseEntityBlock {
 	public void entityInside(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Entity pEntity, InsideBlockEffectApplier pInsideBlockEffectApplier, boolean pIsPrecise) {
 		if (pEntity instanceof ItemEntity itemEntity) {
 			if (pLevel.getBlockEntity(pBlockPos) instanceof KettleBlockEntity blockEntity) {
-				if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+				if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 					if (pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
 						var itemStack = itemEntity.getItem();
 						if (itemStack.is(IcariaItemTags.KETTLE_ITEMS)) {
@@ -129,8 +129,8 @@ public class KettleBlock extends BaseEntityBlock {
 							blockEntity.set(itemStack);
 							itemStack.shrink(1);
 							pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
-							pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
-							pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
+							pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.LIT, true));
+							pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.LIT, true));
 						}
 					}
 				}
@@ -141,7 +141,7 @@ public class KettleBlock extends BaseEntityBlock {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
+		this.removeMultiBlock(KettleBlock.getMultiBlockPos(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -161,8 +161,8 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
-		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP));
 	}
 
 	public void soundsActive(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
@@ -183,8 +183,8 @@ public class KettleBlock extends BaseEntityBlock {
 		return new KettleBlockEntity(pBlockPos, pBlockState);
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 			return pBlockPos;
 		} else {
 			return pBlockPos.below();
@@ -196,7 +196,7 @@ public class KettleBlock extends BaseEntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext)) {
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.above()).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
@@ -211,7 +211,7 @@ public class KettleBlock extends BaseEntityBlock {
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState), pLevel);
+		this.removeMultiBlock(KettleBlock.getMultiBlockPos(pBlockPos, pBlockState), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -224,24 +224,24 @@ public class KettleBlock extends BaseEntityBlock {
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
 		if (itemStack.is(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()) && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) == Kettle.EMPTY) {
-			return this.water(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
+			return this.mediterraneanWaterBucket(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
 		} else if (itemStack.is(IcariaItemTags.KETTLE_ITEMS) && pBlockState.getValue(IcariaBlockStateProperties.KETTLE) != Kettle.EMPTY) {
-			return this.items(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
+			return this.kettleItems(pBlockPos, pBlockState, pInteractionHand, pLevel, pPlayer);
 		} else {
 			return InteractionResult.FAIL;
 		}
 	}
 
-	public InteractionResult items(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
-		var blockPos = KettleBlock.getBlockEntityPosition(pBlockPos, pBlockState);
+	public InteractionResult kettleItems(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
+		var blockPos = KettleBlock.getMultiBlockPos(pBlockPos, pBlockState);
 		var itemStack = pPlayer.getItemInHand(pInteractionHand);
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pLevel.getBlockEntity(blockPos) instanceof KettleBlockEntity blockEntity) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pLevel.getBlockEntity(blockPos) instanceof KettleBlockEntity blockEntity) {
 			blockEntity.reset();
 			blockEntity.set(itemStack);
 			itemStack.consume(1, pPlayer);
 			pLevel.playSound(null, pBlockPos, IcariaSoundEvents.KETTLE_CONSUME, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.LIT, true));
-			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(BlockStateProperties.LIT, true));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.LIT, true));
+			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(IcariaBlockStateProperties.KETTLE, Kettle.ACTIVE).setValue(BlockStateProperties.LIT, true));
 			pPlayer.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
 			return InteractionResult.SUCCESS;
 		} else {
@@ -249,12 +249,12 @@ public class KettleBlock extends BaseEntityBlock {
 		}
 	}
 
-	public InteractionResult water(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+	public InteractionResult mediterraneanWaterBucket(BlockPos pBlockPos, BlockState pBlockState, InteractionHand pInteractionHand, Level pLevel, Player pPlayer) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 			IcariaCommonHelper.setItemInHand(pInteractionHand, new ItemStack(Items.BUCKET), pPlayer);
 			pLevel.playSound(null, pBlockPos, SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS);
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
-			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED));
+			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(IcariaBlockStateProperties.KETTLE, Kettle.FILLED));
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.MEDITERRANEAN_WATER_BUCKET.get()));
 			return InteractionResult.SUCCESS;
 		} else {
@@ -269,27 +269,27 @@ public class KettleBlock extends BaseEntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF)) {
-			case LOWER -> this.getLower(pBlockState);
-			case UPPER -> this.getUpper(pBlockState);
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR)) {
+			case BOTTOM -> this.getBottom(pBlockState);
+			case TOP -> this.getTop(pBlockState);
 		};
 	}
 
-	public VoxelShape getLower(BlockState pBlockState) {
+	public VoxelShape getBottom(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KettleVoxelShapes.LOWER_NORTH;
-			case EAST -> KettleVoxelShapes.LOWER_EAST;
-			case SOUTH -> KettleVoxelShapes.LOWER_SOUTH;
-			default -> KettleVoxelShapes.LOWER_WEST;
+			case NORTH -> KettleVoxelShapes.BOTTOM_NORTH;
+			case EAST -> KettleVoxelShapes.BOTTOM_EAST;
+			case SOUTH -> KettleVoxelShapes.BOTTOM_SOUTH;
+			default -> KettleVoxelShapes.BOTTOM_WEST;
 		};
 	}
 
-	public VoxelShape getUpper(BlockState pBlockState) {
+	public VoxelShape getTop(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KettleVoxelShapes.UPPER_NORTH;
-			case EAST -> KettleVoxelShapes.UPPER_EAST;
-			case SOUTH -> KettleVoxelShapes.UPPER_SOUTH;
-			default -> KettleVoxelShapes.UPPER_WEST;
+			case NORTH -> KettleVoxelShapes.TOP_NORTH;
+			case EAST -> KettleVoxelShapes.TOP_EAST;
+			case SOUTH -> KettleVoxelShapes.TOP_SOUTH;
+			default -> KettleVoxelShapes.TOP_WEST;
 		};
 	}
 

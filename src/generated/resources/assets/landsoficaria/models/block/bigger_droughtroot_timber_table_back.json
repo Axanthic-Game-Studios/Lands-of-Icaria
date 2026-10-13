@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_bigger_timber_table_back",
+  "textures": {
+    "log": "landsoficaria:block/droughtroot_log",
+    "log_top": "landsoficaria:block/droughtroot_log_top",
+    "particle": "landsoficaria:block/droughtroot_log",
+    "stripped_log": "landsoficaria:block/stripped_droughtroot_log",
+    "stripped_log_top": "landsoficaria:block/stripped_droughtroot_log_top"
+  }
+}

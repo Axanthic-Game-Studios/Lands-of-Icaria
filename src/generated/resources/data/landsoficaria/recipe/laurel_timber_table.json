@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:laurel_log",
+    "B": "landsoficaria:stripped_laurel_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:laurel_timber_table"
+  }
+}

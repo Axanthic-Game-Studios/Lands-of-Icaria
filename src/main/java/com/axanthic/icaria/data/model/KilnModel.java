@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 
 public class KilnModel {
 
-	public static ExtendedModelTemplate lower() {
+	public static ExtendedModelTemplate bottom() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(3.0000F, 14.0000F, 6.0000F).to(6.0000F, 16.0000F, 10.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -107,7 +107,7 @@ public class KilnModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate upper() {
+	public static ExtendedModelTemplate top() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(3.0000F, 0.0000F, 10.0000F).to(13.0000F, 14.0000F, 13.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(16.0000F, 0.0000F, 15.0000F))

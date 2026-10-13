@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:plane_log",
+    "B": "landsoficaria:stripped_plane_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:plane_timber_bench"
+  }
+}

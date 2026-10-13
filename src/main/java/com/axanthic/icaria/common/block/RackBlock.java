@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.helper.IcariaBarrelHelper;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.BarrelPayload;
@@ -78,20 +79,20 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-		IcariaCommonHelper.loadedOrTappedRack(pBlockPos, pBlockState, pServerLevel);
+		IcariaBarrelHelper.loadedOrTappedRack(pBlockPos, pBlockState, pServerLevel);
 	}
 
 	@Override
 	public void onProjectileHit(Level pLevel, BlockState pBlockState, BlockHitResult pBlockHitResult, Projectile pProjectile) {
 		if (!pLevel.isClientSide() && pProjectile.isOnFire() && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-			IcariaCommonHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 		}
 	}
 
 	@Override
 	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
 		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
-		IcariaCommonHelper.loadedOrTappedRack(pBlockPos, pBlockState, pLevel);
+		IcariaBarrelHelper.loadedOrTappedRack(pBlockPos, pBlockState, pLevel);
 	}
 
 	public BlockState getLoaded() {
@@ -188,12 +189,12 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FIRE_CHARGE) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (!pLevel.isClientSide() && pItemStack.is(Items.FLINT_AND_STEEL) && pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand.asEquipmentSlot());
 			return InteractionResult.SUCCESS;

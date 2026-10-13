@@ -3,9 +3,11 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.FireplaceBlock;
+import com.axanthic.icaria.common.enums.HeightPair;
 import com.axanthic.icaria.common.handler.FireplaceHandler;
 import com.axanthic.icaria.common.recipe.GrillingRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import java.util.Optional;
@@ -32,7 +34,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -173,7 +174,7 @@ public class FireplaceBlockEntity extends BlockEntity {
 	}
 
 	public void tickUpdate(ServerLevel pServerLevel) {
-		if (this.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+		if (this.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 			this.setUpdate(this.getBlockPos(), this.getBlockState(), pServerLevel);
 			this.setUpdate(this.getBlockPos().above(), this.getBlockState(), pServerLevel);
 		}
@@ -201,7 +202,7 @@ public class FireplaceBlockEntity extends BlockEntity {
 
 	@Nullable
 	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
-		if (pBlockEntity.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pDirection == Direction.DOWN) {
+		if (pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, pBlockEntity.getBlockPos(), 1, 2);
 		} else {
 			return null;

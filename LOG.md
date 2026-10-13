@@ -22,7 +22,6 @@ Additions
 - Broken, Herb, Pan, Pot, Spoon and Towel Holder Blocks for each Wood Type
 - Hutch and Wall Hutch Blocks for each Wood Type
 - Ender, Fire, Nature, Void, Water Jellyfish Jelly Jar Blocks
-- Kitchen Table Blocks for each Wood Type
 - Kline Blocks for each Wood Type
 - Large Bowls Block
 - Plates Block
@@ -35,6 +34,9 @@ Additions
 - Stonecutter Recipes for Cobbled Yellowstone, Sunstone, Silkstone, Voidshale and Baetyl Blocks, Slabs, Stairs and Walls
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block
+- Table Blocks for each Wood Type
+- Timber Bench Blocks for each Wood Type
+- Timber Table Blocks for each Wood Type
 - Vase Block
 - Rugs
 - Fish

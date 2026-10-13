@@ -2,9 +2,9 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.enums.DepthPair;
+import com.axanthic.icaria.common.enums.Mat;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.properties.Mat;
-import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import com.axanthic.icaria.common.shapes.KlineVoxelShapes;
@@ -44,7 +44,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class KlineBlock extends Block {
 	public KlineBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT));
 	}
 
 	@Override
@@ -54,7 +54,7 @@ public class KlineBlock extends Block {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT, IcariaBlockStateProperties.PART);
+		pBuilder.add(IcariaBlockStateProperties.DEPTH_PAIR, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MAT);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -76,7 +76,7 @@ public class KlineBlock extends Block {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(KlineBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		this.removeMultiBlock(KlineBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -87,26 +87,26 @@ public class KlineBlock extends Block {
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
+		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
 	}
 
 	public void update(Mat pMat, BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		if (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR) == DepthPair.FRONT) {
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(IcariaBlockStateProperties.MAT, pMat));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK).setValue(IcariaBlockStateProperties.MAT, pMat));
 		} else {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.MAT, pMat).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK).setValue(IcariaBlockStateProperties.MAT, pMat));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(IcariaBlockStateProperties.MAT, pMat));
 		}
 	}
 
-	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			return pBlockPos.relative(direction);
-		} else {
+		if (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR) == DepthPair.FRONT) {
 			return pBlockPos;
+		} else {
+			return pBlockPos.relative(direction);
 		}
 	}
 
@@ -115,7 +115,7 @@ public class KlineBlock extends Block {
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		if (level.getBlockState(blockPos.relative(pBlockPlaceContext.getHorizontalDirection())).canBeReplaced()) {
+		if (level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.relative(pBlockPlaceContext.getHorizontalDirection())).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
@@ -130,7 +130,7 @@ public class KlineBlock extends Block {
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(KlineBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		this.removeMultiBlock(KlineBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -158,27 +158,27 @@ public class KlineBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(IcariaBlockStateProperties.PART)) {
-			case HEAD -> this.getHead(pBlockState);
-			case FOOT -> this.getFoot(pBlockState);
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR)) {
+			case FRONT -> this.getFront(pBlockState);
+			case BACK -> this.getBack(pBlockState);
 		};
 	}
 
-	public VoxelShape getHead(BlockState pBlockState) {
+	public VoxelShape getFront(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KlineVoxelShapes.HEAD_NORTH;
-			case EAST -> KlineVoxelShapes.HEAD_EAST;
-			case SOUTH -> KlineVoxelShapes.HEAD_SOUTH;
-			default -> KlineVoxelShapes.HEAD_WEST;
+			case NORTH -> KlineVoxelShapes.FRONT_NORTH;
+			case EAST -> KlineVoxelShapes.FRONT_EAST;
+			case SOUTH -> KlineVoxelShapes.FRONT_SOUTH;
+			default -> KlineVoxelShapes.FRONT_WEST;
 		};
 	}
 
-	public VoxelShape getFoot(BlockState pBlockState) {
+	public VoxelShape getBack(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> KlineVoxelShapes.FOOT_NORTH;
-			case EAST -> KlineVoxelShapes.FOOT_EAST;
-			case SOUTH -> KlineVoxelShapes.FOOT_SOUTH;
-			default -> KlineVoxelShapes.FOOT_WEST;
+			case NORTH -> KlineVoxelShapes.BACK_NORTH;
+			case EAST -> KlineVoxelShapes.BACK_EAST;
+			case SOUTH -> KlineVoxelShapes.BACK_SOUTH;
+			default -> KlineVoxelShapes.BACK_WEST;
 		};
 	}
 }

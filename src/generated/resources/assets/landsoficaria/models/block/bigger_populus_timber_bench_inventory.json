@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_bigger_timber_bench_inventory",
+  "textures": {
+    "log": "landsoficaria:block/populus_log",
+    "log_top": "landsoficaria:block/populus_log_top",
+    "particle": "landsoficaria:block/populus_log",
+    "stripped_log": "landsoficaria:block/stripped_populus_log",
+    "stripped_log_top": "landsoficaria:block/stripped_populus_log_top"
+  }
+}

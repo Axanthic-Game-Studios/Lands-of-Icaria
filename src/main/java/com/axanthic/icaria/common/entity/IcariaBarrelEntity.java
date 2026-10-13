@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.helper.IcariaBarrelHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -90,9 +90,9 @@ public class IcariaBarrelEntity extends Entity {
 			this.playSound(IcariaSoundEvents.BARREL_BREAK);
 			if (!this.level().isClientSide()) {
 				if (this.getBlockState().hasProperty(IcariaBlockStateProperties.LOADED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.LOADED_BARREL) || this.getBlockState().is(IcariaBlockTags.BARRELS_LOADED)) {
-					IcariaCommonHelper.loaded(this.blockPosition(), this, Level.ExplosionInteraction.BLOCK, this.level(), 2, 10);
+					IcariaBarrelHelper.loaded(this.blockPosition(), this, Level.ExplosionInteraction.BLOCK, this.level(), 2, 10);
 				} else if (this.getBlockState().hasProperty(IcariaBlockStateProperties.TAPPED_BARREL) && this.getBlockState().getValue(IcariaBlockStateProperties.TAPPED_BARREL) || this.getBlockState().is(IcariaBlockTags.BARRELS_TAPPED)) {
-					IcariaCommonHelper.tapped(this.blockPosition(), this.level());
+					IcariaBarrelHelper.tapped(this.blockPosition(), this.level());
 				} else {
 					this.dropFromLootTable(this.damageSources().fall());
 				}

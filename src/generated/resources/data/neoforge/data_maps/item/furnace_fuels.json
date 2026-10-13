@@ -6,6 +6,48 @@
     "landsoficaria:anthracite_block": {
       "burn_time": 28800
     },
+    "landsoficaria:bigger_cypress_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_cypress_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_droughtroot_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_droughtroot_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_fir_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_fir_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_laurel_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_laurel_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_olive_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_olive_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_plane_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_plane_timber_table": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_populus_timber_bench": {
+      "burn_time": 900
+    },
+    "landsoficaria:bigger_populus_timber_table": {
+      "burn_time": 900
+    },
     "landsoficaria:black_terry_block": {
       "burn_time": 100
     },
@@ -48,9 +90,6 @@
     "landsoficaria:cypress_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:cypress_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:cypress_kline": {
       "burn_time": 600
     },
@@ -62,6 +101,15 @@
     },
     "landsoficaria:cypress_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:cypress_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:cypress_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:cypress_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:cypress_trough": {
       "burn_time": 300
@@ -87,9 +135,6 @@
     "landsoficaria:droughtroot_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:droughtroot_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:droughtroot_kline": {
       "burn_time": 600
     },
@@ -101,6 +146,15 @@
     },
     "landsoficaria:droughtroot_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:droughtroot_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:droughtroot_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:droughtroot_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:droughtroot_trough": {
       "burn_time": 300
@@ -126,9 +180,6 @@
     "landsoficaria:fir_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:fir_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:fir_kline": {
       "burn_time": 600
     },
@@ -140,6 +191,15 @@
     },
     "landsoficaria:fir_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:fir_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:fir_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:fir_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:fir_trough": {
       "burn_time": 300
@@ -177,9 +237,6 @@
     "landsoficaria:laurel_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:laurel_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:laurel_kline": {
       "burn_time": 600
     },
@@ -191,6 +248,15 @@
     },
     "landsoficaria:laurel_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:laurel_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:laurel_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:laurel_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:laurel_trough": {
       "burn_time": 300
@@ -252,9 +318,6 @@
     "landsoficaria:olive_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:olive_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:olive_kline": {
       "burn_time": 600
     },
@@ -266,6 +329,15 @@
     },
     "landsoficaria:olive_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:olive_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:olive_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:olive_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:olive_trough": {
       "burn_time": 300
@@ -303,9 +375,6 @@
     "landsoficaria:plane_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:plane_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:plane_kline": {
       "burn_time": 600
     },
@@ -317,6 +386,15 @@
     },
     "landsoficaria:plane_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:plane_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:plane_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:plane_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:plane_trough": {
       "burn_time": 300
@@ -342,9 +420,6 @@
     "landsoficaria:populus_hutch": {
       "burn_time": 300
     },
-    "landsoficaria:populus_kitchen_table": {
-      "burn_time": 600
-    },
     "landsoficaria:populus_kline": {
       "burn_time": 600
     },
@@ -356,6 +431,15 @@
     },
     "landsoficaria:populus_stool": {
       "burn_time": 300
+    },
+    "landsoficaria:populus_table": {
+      "burn_time": 600
+    },
+    "landsoficaria:populus_timber_bench": {
+      "burn_time": 600
+    },
+    "landsoficaria:populus_timber_table": {
+      "burn_time": 600
     },
     "landsoficaria:populus_trough": {
       "burn_time": 300

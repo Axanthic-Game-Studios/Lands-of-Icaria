@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:fir_log",
+    "B": "landsoficaria:stripped_fir_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:fir_timber_bench"
+  }
+}

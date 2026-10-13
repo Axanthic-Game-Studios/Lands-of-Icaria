@@ -1,0 +1,9 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_front_remains",
+  "textures": {
+    "bones": "landsoficaria:block/bones",
+    "log": "landsoficaria:block/populus_log",
+    "particle": "landsoficaria:block/populus_planks",
+    "planks": "landsoficaria:block/populus_planks"
+  }
+}

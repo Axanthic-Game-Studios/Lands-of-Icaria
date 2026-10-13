@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.properties.Mat;
+import com.axanthic.icaria.common.enums.Mat;
 
 import net.minecraft.world.level.block.CarpetBlock;
 

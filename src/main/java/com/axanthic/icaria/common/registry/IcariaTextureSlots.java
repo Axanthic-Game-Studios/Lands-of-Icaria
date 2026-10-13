@@ -122,6 +122,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot STORAGE_VASE_NECK = TextureSlot.create("storage_vase_neck");
 	public static final TextureSlot STRIPPED_CYPRESS_LOG = TextureSlot.create("stripped_cypress_log");
 	public static final TextureSlot STRIPPED_LOG = TextureSlot.create("stripped_log");
+	public static final TextureSlot STRIPPED_LOG_TOP = TextureSlot.create("stripped_log_top");
 	public static final TextureSlot SUGAR_JAR = TextureSlot.create("sugar_jar");
 	public static final TextureSlot SUNSTONE_BRICKS = TextureSlot.create("sunstone_bricks");
 	public static final TextureSlot TERRY_BLOCK = TextureSlot.create("terry_block");

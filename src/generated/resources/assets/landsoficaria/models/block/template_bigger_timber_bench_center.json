@@ -1,0 +1,161 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "up": {
+          "texture": "#log"
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        5,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        4,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "up": {
+          "texture": "#stripped_log"
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#stripped_log"
+        }
+      },
+      "from": [
+        8,
+        4,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        12,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            15.0
+          ]
+        },
+        "up": {
+          "texture": "#log"
+        }
+      },
+      "from": [
+        12,
+        5,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        13,
+        10,
+        16
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "depth_pair=back,facing=east": {
+      "model": "landsoficaria:block/laurel_table_back",
+      "y": 90
+    },
+    "depth_pair=back,facing=north": {
+      "model": "landsoficaria:block/laurel_table_back"
+    },
+    "depth_pair=back,facing=south": {
+      "model": "landsoficaria:block/laurel_table_back",
+      "y": 180
+    },
+    "depth_pair=back,facing=west": {
+      "model": "landsoficaria:block/laurel_table_back",
+      "y": 270
+    },
+    "depth_pair=front,facing=east": {
+      "model": "landsoficaria:block/laurel_table_front",
+      "y": 90
+    },
+    "depth_pair=front,facing=north": {
+      "model": "landsoficaria:block/laurel_table_front"
+    },
+    "depth_pair=front,facing=south": {
+      "model": "landsoficaria:block/laurel_table_front",
+      "y": 180
+    },
+    "depth_pair=front,facing=west": {
+      "model": "landsoficaria:block/laurel_table_front",
+      "y": 270
+    }
+  }
+}

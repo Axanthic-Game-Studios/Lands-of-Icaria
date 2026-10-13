@@ -1,0 +1,335 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "south": {
+          "texture": "#log_top",
+          "uv": [
+            0.0,
+            10.0,
+            1.0,
+            15.0
+          ]
+        },
+        "up": {
+          "texture": "#log"
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        5,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        4,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "south": {
+          "texture": "#log_top",
+          "uv": [
+            3.0,
+            10.0,
+            7.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#stripped_log"
+        },
+        "west": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        4,
+        4,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        8,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#log_top",
+          "uv": [
+            9.0,
+            10.0,
+            13.0,
+            16.0
+          ]
+        },
+        "up": {
+          "texture": "#stripped_log"
+        }
+      },
+      "from": [
+        8,
+        4,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        12,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "texture": "#log",
+          "uv": [
+            0.0,
+            10.0,
+            16.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#log_top",
+          "uv": [
+            15.0,
+            10.0,
+            16.0,
+            15.0
+          ]
+        },
+        "up": {
+          "texture": "#log"
+        }
+      },
+      "from": [
+        12,
+        5,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        13,
+        10,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log_top",
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            3.0,
+            5.0,
+            6.0,
+            11.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            5.0,
+            3.0,
+            11.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            10.0,
+            5.0,
+            13.0,
+            11.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            13.0,
+            5.0,
+            16.0,
+            11.0
+          ]
+        }
+      },
+      "from": [
+        3,
+        0,
+        11
+      ],
+      "rotation": {
+        "origin": [
+          3,
+          0,
+          12.5
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": -22.5
+      },
+      "to": [
+        6,
+        6,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#stripped_log_top",
+          "uv": [
+            13.0,
+            0.0,
+            16.0,
+            3.0
+          ]
+        },
+        "east": {
+          "texture": "#stripped_log",
+          "uv": [
+            10.0,
+            5.0,
+            13.0,
+            11.0
+          ]
+        },
+        "north": {
+          "texture": "#stripped_log",
+          "uv": [
+            13.0,
+            5.0,
+            16.0,
+            11.0
+          ]
+        },
+        "south": {
+          "texture": "#stripped_log",
+          "uv": [
+            3.0,
+            5.0,
+            6.0,
+            11.0
+          ]
+        },
+        "west": {
+          "texture": "#stripped_log",
+          "uv": [
+            0.0,
+            5.0,
+            3.0,
+            11.0
+          ]
+        }
+      },
+      "from": [
+        10,
+        0,
+        11
+      ],
+      "rotation": {
+        "origin": [
+          13,
+          0,
+          12.5
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 22.5
+      },
+      "to": [
+        13,
+        6,
+        14
+      ]
+    }
+  ]
+}

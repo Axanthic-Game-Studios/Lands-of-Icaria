@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_landsoficaria:stripped_laurel_wood": {
+    "has_landsoficaria:stripped_laurel_log": {
       "conditions": {
         "items": [
           {
-            "items": "landsoficaria:stripped_laurel_wood"
+            "items": "landsoficaria:stripped_laurel_log"
           }
         ]
       },
@@ -43,7 +43,7 @@
       "has_the_recipe",
       "has_landsoficaria:terry_block",
       "has_landsoficaria:terry_mat",
-      "has_landsoficaria:stripped_laurel_wood"
+      "has_landsoficaria:stripped_laurel_log"
     ]
   ],
   "rewards": {

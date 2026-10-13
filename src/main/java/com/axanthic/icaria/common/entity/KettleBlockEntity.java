@@ -3,8 +3,9 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.KettleBlock;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.Kettle;
 import com.axanthic.icaria.common.handler.KettleHandler;
-import com.axanthic.icaria.common.properties.Kettle;
 import com.axanthic.icaria.common.recipe.EntityConcoctingRecipe;
 import com.axanthic.icaria.common.recipe.ExplosionConcoctingRecipe;
 import com.axanthic.icaria.common.recipe.ItemConcoctingRecipe;
@@ -37,7 +38,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -140,8 +140,8 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	public void performUpdate(ServerLevel pServerLevel) {
-		pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
-		pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
+		pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
+		pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
 	}
 
 	@Override
@@ -245,7 +245,7 @@ public class KettleBlockEntity extends BlockEntity {
 	}
 
 	public void tickUpdate(ServerLevel pServerLevel) {
-		if (this.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+		if (this.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 			this.setUpdate(this.getBlockPos(), this.getBlockState(), pServerLevel);
 			this.setUpdate(this.getBlockPos().above(), this.getBlockState(), pServerLevel);
 		}
@@ -259,8 +259,8 @@ public class KettleBlockEntity extends BlockEntity {
 
 	public void tickStates(ServerLevel pServerLevel) {
 		if (this.hasRecipe(pServerLevel) && this.hasSlot(pServerLevel)) {
-			pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
-			pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
+			pServerLevel.setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
+			pServerLevel.setBlockAndUpdate(this.getBlockPos().above(), this.getBlockState().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(IcariaBlockStateProperties.KETTLE, Kettle.BREWING).setValue(BlockStateProperties.LIT, true));
 		}
 	}
 
@@ -285,7 +285,7 @@ public class KettleBlockEntity extends BlockEntity {
 
 	@Nullable
 	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
-		if (pBlockEntity.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pDirection == Direction.DOWN) {
+		if (pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pDirection == Direction.DOWN) {
 			return this.getCap(pBlockEntity, pBlockEntity.getBlockPos(), 3, 4);
 		} else {
 			return null;

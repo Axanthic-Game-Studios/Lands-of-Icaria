@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_timber_table_inventory",
+  "textures": {
+    "log": "landsoficaria:block/laurel_log",
+    "log_top": "landsoficaria:block/laurel_log_top",
+    "particle": "landsoficaria:block/laurel_log",
+    "stripped_log": "landsoficaria:block/stripped_laurel_log",
+    "stripped_log_top": "landsoficaria:block/stripped_laurel_log_top"
+  }
+}

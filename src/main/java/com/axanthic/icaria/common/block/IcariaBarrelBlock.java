@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.IcariaBarrelEntity;
+import com.axanthic.icaria.common.helper.IcariaBarrelHelper;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.BarrelPayload;
@@ -64,7 +65,7 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
-		IcariaCommonHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pServerLevel);
+		IcariaBarrelHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pServerLevel);
 	}
 
 	@Override
@@ -75,14 +76,14 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public void onProjectileHit(Level pLevel, BlockState pBlockState, BlockHitResult pBlockHitResult, Projectile pProjectile) {
 		if (!pLevel.isClientSide() && pProjectile.isOnFire() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED)) {
-			IcariaCommonHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockHitResult.getBlockPos(), null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 		}
 	}
 
 	@Override
 	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
 		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
-		IcariaCommonHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pLevel);
+		IcariaBarrelHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pLevel);
 	}
 
 	@Override
@@ -127,12 +128,12 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	@Override
 	public InteractionResult useItemOn(ItemStack pItemStack, BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, InteractionHand pInteractionHand, BlockHitResult pBlockHitResult) {
 		if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED) && pItemStack.is(Items.FIRE_CHARGE)) {
-			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.consume(1, pPlayer);
 			return InteractionResult.SUCCESS;
 		} else if (!pLevel.isClientSide() && pBlockState.is(IcariaBlockTags.BARRELS_LOADED) && pItemStack.is(Items.FLINT_AND_STEEL)) {
-			IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
+			IcariaBarrelHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.hurtAndBreak(1, pPlayer, pInteractionHand.asEquipmentSlot());
 			return InteractionResult.SUCCESS;

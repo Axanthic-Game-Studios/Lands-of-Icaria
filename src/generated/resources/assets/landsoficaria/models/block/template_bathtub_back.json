@@ -1,0 +1,219 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "east": {
+          "texture": "#planks",
+          "uv": [
+            15.0,
+            2.0,
+            0.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#planks",
+          "uv": [
+            14.0,
+            2.0,
+            15.0,
+            15.0
+          ]
+        },
+        "up": {
+          "rotation": 90,
+          "texture": "#planks",
+          "uv": [
+            0.0,
+            2.0,
+            15.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#planks"
+        }
+      },
+      "from": [
+        1,
+        1,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        2,
+        14,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "north": {
+          "texture": "#planks",
+          "uv": [
+            14.0,
+            2.0,
+            2.0,
+            15.0
+          ]
+        },
+        "south": {
+          "texture": "#planks"
+        },
+        "up": {
+          "texture": "#planks",
+          "uv": [
+            2.0,
+            2.0,
+            14.0,
+            3.0
+          ]
+        }
+      },
+      "from": [
+        2,
+        1,
+        14
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        14,
+        14,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#planks"
+        },
+        "south": {
+          "texture": "#planks",
+          "uv": [
+            1.0,
+            2.0,
+            2.0,
+            15.0
+          ]
+        },
+        "up": {
+          "rotation": 270,
+          "texture": "#planks",
+          "uv": [
+            1.0,
+            2.0,
+            16.0,
+            3.0
+          ]
+        },
+        "west": {
+          "texture": "#planks",
+          "uv": [
+            16.0,
+            2.0,
+            1.0,
+            15.0
+          ]
+        }
+      },
+      "from": [
+        14,
+        1,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        15,
+        14,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#log"
+        },
+        "east": {
+          "rotation": 270,
+          "texture": "#log",
+          "uv": [
+            14.0,
+            1.0,
+            15.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#log",
+          "uv": [
+            1.0,
+            1.0,
+            15.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#planks"
+        },
+        "west": {
+          "rotation": 90,
+          "texture": "#log",
+          "uv": [
+            1.0,
+            1.0,
+            2.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        1,
+        0,
+        0
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        15,
+        1,
+        15
+      ]
+    }
+  ]
+}

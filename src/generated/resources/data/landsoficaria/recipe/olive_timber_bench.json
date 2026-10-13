@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:olive_log",
+    "B": "landsoficaria:stripped_olive_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:olive_timber_bench"
+  }
+}

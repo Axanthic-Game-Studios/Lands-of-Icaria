@@ -3,7 +3,7 @@ package com.axanthic.icaria.common.world.feature.vine;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.IcariaVineBlock;
-import com.axanthic.icaria.common.properties.Vine;
+import com.axanthic.icaria.common.enums.Vine;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 
 import com.mojang.serialization.Codec;

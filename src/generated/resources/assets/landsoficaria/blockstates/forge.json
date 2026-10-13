@@ -1,243 +1,243 @@
 {
   "variants": {
-    "corner=bottom_back_left,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=east,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
       "y": 90
     },
-    "corner=bottom_back_left,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=east,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
       "y": 90
     },
-    "corner=bottom_back_left,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_left"
+    "depth_pair=back,facing=east,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
+      "y": 90
     },
-    "corner=bottom_back_left,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_left"
+    "depth_pair=back,facing=east,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
+      "y": 90
     },
-    "corner=bottom_back_left,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=east,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
+      "y": 90
+    },
+    "depth_pair=back,facing=east,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
+      "y": 90
+    },
+    "depth_pair=back,facing=east,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
+      "y": 90
+    },
+    "depth_pair=back,facing=east,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
+      "y": 90
+    },
+    "depth_pair=back,facing=north,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left"
+    },
+    "depth_pair=back,facing=north,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right"
+    },
+    "depth_pair=back,facing=north,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left"
+    },
+    "depth_pair=back,facing=north,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right"
+    },
+    "depth_pair=back,facing=north,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left"
+    },
+    "depth_pair=back,facing=north,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right"
+    },
+    "depth_pair=back,facing=north,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left"
+    },
+    "depth_pair=back,facing=north,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right"
+    },
+    "depth_pair=back,facing=south,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
       "y": 180
     },
-    "corner=bottom_back_left,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=south,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
       "y": 180
     },
-    "corner=bottom_back_left,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=south,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
+      "y": 180
+    },
+    "depth_pair=back,facing=south,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
+      "y": 180
+    },
+    "depth_pair=back,facing=south,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
+      "y": 180
+    },
+    "depth_pair=back,facing=south,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
+      "y": 180
+    },
+    "depth_pair=back,facing=south,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
+      "y": 180
+    },
+    "depth_pair=back,facing=south,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
+      "y": 180
+    },
+    "depth_pair=back,facing=west,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
       "y": 270
     },
-    "corner=bottom_back_left,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_left",
+    "depth_pair=back,facing=west,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
       "y": 270
     },
-    "corner=bottom_back_right,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
-      "y": 90
-    },
-    "corner=bottom_back_right,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
-      "y": 90
-    },
-    "corner=bottom_back_right,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_right"
-    },
-    "corner=bottom_back_right,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_right"
-    },
-    "corner=bottom_back_right,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
-      "y": 180
-    },
-    "corner=bottom_back_right,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
-      "y": 180
-    },
-    "corner=bottom_back_right,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
+    "depth_pair=back,facing=west,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_bottom_left",
       "y": 270
     },
-    "corner=bottom_back_right,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_back_right",
+    "depth_pair=back,facing=west,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_bottom_right",
       "y": 270
     },
-    "corner=bottom_front_left,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
-      "y": 90
-    },
-    "corner=bottom_front_left,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
-      "y": 90
-    },
-    "corner=bottom_front_left,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_left"
-    },
-    "corner=bottom_front_left,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_left"
-    },
-    "corner=bottom_front_left,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
-      "y": 180
-    },
-    "corner=bottom_front_left,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
-      "y": 180
-    },
-    "corner=bottom_front_left,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
+    "depth_pair=back,facing=west,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
       "y": 270
     },
-    "corner=bottom_front_left,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_left",
+    "depth_pair=back,facing=west,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
       "y": 270
     },
-    "corner=bottom_front_right,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_right",
-      "y": 90
-    },
-    "corner=bottom_front_right,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_right_lit",
-      "y": 90
-    },
-    "corner=bottom_front_right,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_right"
-    },
-    "corner=bottom_front_right,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_right_lit"
-    },
-    "corner=bottom_front_right,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_right",
-      "y": 180
-    },
-    "corner=bottom_front_right,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_right_lit",
-      "y": 180
-    },
-    "corner=bottom_front_right,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_bottom_front_right",
+    "depth_pair=back,facing=west,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_back_top_left",
       "y": 270
     },
-    "corner=bottom_front_right,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_bottom_front_right_lit",
+    "depth_pair=back,facing=west,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_back_top_right",
       "y": 270
     },
-    "corner=top_back_left,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=east,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
       "y": 90
     },
-    "corner=top_back_left,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=east,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right",
       "y": 90
     },
-    "corner=top_back_left,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_left"
+    "depth_pair=front,facing=east,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
+      "y": 90
     },
-    "corner=top_back_left,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_left"
+    "depth_pair=front,facing=east,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right_lit",
+      "y": 90
     },
-    "corner=top_back_left,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=east,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
+      "y": 90
+    },
+    "depth_pair=front,facing=east,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
+      "y": 90
+    },
+    "depth_pair=front,facing=east,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
+      "y": 90
+    },
+    "depth_pair=front,facing=east,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
+      "y": 90
+    },
+    "depth_pair=front,facing=north,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left"
+    },
+    "depth_pair=front,facing=north,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right"
+    },
+    "depth_pair=front,facing=north,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left"
+    },
+    "depth_pair=front,facing=north,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right_lit"
+    },
+    "depth_pair=front,facing=north,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left"
+    },
+    "depth_pair=front,facing=north,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right"
+    },
+    "depth_pair=front,facing=north,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left"
+    },
+    "depth_pair=front,facing=north,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right"
+    },
+    "depth_pair=front,facing=south,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
       "y": 180
     },
-    "corner=top_back_left,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=south,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right",
       "y": 180
     },
-    "corner=top_back_left,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=south,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
+      "y": 180
+    },
+    "depth_pair=front,facing=south,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right_lit",
+      "y": 180
+    },
+    "depth_pair=front,facing=south,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
+      "y": 180
+    },
+    "depth_pair=front,facing=south,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
+      "y": 180
+    },
+    "depth_pair=front,facing=south,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
+      "y": 180
+    },
+    "depth_pair=front,facing=south,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
+      "y": 180
+    },
+    "depth_pair=front,facing=west,height_pair=bottom,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
       "y": 270
     },
-    "corner=top_back_left,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_left",
+    "depth_pair=front,facing=west,height_pair=bottom,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right",
       "y": 270
     },
-    "corner=top_back_right,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_right",
-      "y": 90
-    },
-    "corner=top_back_right,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_right",
-      "y": 90
-    },
-    "corner=top_back_right,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_right"
-    },
-    "corner=top_back_right,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_right"
-    },
-    "corner=top_back_right,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_right",
-      "y": 180
-    },
-    "corner=top_back_right,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_right",
-      "y": 180
-    },
-    "corner=top_back_right,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_top_back_right",
+    "depth_pair=front,facing=west,height_pair=bottom,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_bottom_left",
       "y": 270
     },
-    "corner=top_back_right,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_top_back_right",
+    "depth_pair=front,facing=west,height_pair=bottom,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_bottom_right_lit",
       "y": 270
     },
-    "corner=top_front_left,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_left",
-      "y": 90
-    },
-    "corner=top_front_left,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_left",
-      "y": 90
-    },
-    "corner=top_front_left,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_left"
-    },
-    "corner=top_front_left,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_left"
-    },
-    "corner=top_front_left,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_left",
-      "y": 180
-    },
-    "corner=top_front_left,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_left",
-      "y": 180
-    },
-    "corner=top_front_left,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_left",
+    "depth_pair=front,facing=west,height_pair=top,lit=false,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
       "y": 270
     },
-    "corner=top_front_left,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_left",
+    "depth_pair=front,facing=west,height_pair=top,lit=false,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
       "y": 270
     },
-    "corner=top_front_right,facing=east,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_right",
-      "y": 90
-    },
-    "corner=top_front_right,facing=east,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_right",
-      "y": 90
-    },
-    "corner=top_front_right,facing=north,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_right"
-    },
-    "corner=top_front_right,facing=north,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_right"
-    },
-    "corner=top_front_right,facing=south,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_right",
-      "y": 180
-    },
-    "corner=top_front_right,facing=south,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_right",
-      "y": 180
-    },
-    "corner=top_front_right,facing=west,lit=false": {
-      "model": "landsoficaria:block/forge_top_front_right",
+    "depth_pair=front,facing=west,height_pair=top,lit=true,width_pair=left": {
+      "model": "landsoficaria:block/forge_front_top_left",
       "y": 270
     },
-    "corner=top_front_right,facing=west,lit=true": {
-      "model": "landsoficaria:block/forge_top_front_right",
+    "depth_pair=front,facing=west,height_pair=top,lit=true,width_pair=right": {
+      "model": "landsoficaria:block/forge_front_top_right",
       "y": 270
     }
   }

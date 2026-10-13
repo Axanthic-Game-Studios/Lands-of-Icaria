@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:stripped_plane_log",
+    "B": "landsoficaria:plane_planks"
+  },
+  "pattern": [
+    "BBB",
+    "A A",
+    "A A"
+  ],
+  "result": {
+    "id": "landsoficaria:plane_table"
+  }
+}

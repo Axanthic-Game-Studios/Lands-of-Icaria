@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:plane_timber_bench"
+  },
+  "pattern": [
+    "AAA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:bigger_plane_timber_bench"
+  }
+}

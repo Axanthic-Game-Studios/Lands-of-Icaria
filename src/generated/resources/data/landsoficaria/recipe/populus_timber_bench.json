@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:populus_log",
+    "B": "landsoficaria:stripped_populus_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:populus_timber_bench"
+  }
+}

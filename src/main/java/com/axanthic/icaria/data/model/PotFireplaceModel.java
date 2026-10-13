@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 
 public class PotFireplaceModel {
 
-	public static ExtendedModelTemplate lower() {
+	public static ExtendedModelTemplate bottom() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 4.0000F, 14.0000F).to(16.0000F, 16.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -156,7 +156,7 @@ public class PotFireplaceModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate lowerLit() {
+	public static ExtendedModelTemplate bottomLit() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 4.0000F, 14.0000F).to(16.0000F, 16.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -294,7 +294,7 @@ public class PotFireplaceModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate upper() {
+	public static ExtendedModelTemplate top() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(7.0000F, 2.0000F, 14.5000F).to(9.0000F, 16.0000F, 15.5000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))

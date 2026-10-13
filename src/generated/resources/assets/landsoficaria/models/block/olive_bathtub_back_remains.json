@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_back_remains",
+  "textures": {
+    "bones": "landsoficaria:block/bones",
+    "log": "landsoficaria:block/olive_log",
+    "particle": "landsoficaria:block/olive_planks",
+    "planks": "landsoficaria:block/olive_planks",
+    "skull": "landsoficaria:block/skull"
+  }
+}

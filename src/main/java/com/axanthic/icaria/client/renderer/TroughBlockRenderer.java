@@ -5,7 +5,7 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.state.ThroughBlockRenderState;
 import com.axanthic.icaria.common.entity.TroughBlockEntity;
-import com.axanthic.icaria.common.properties.Trough;
+import com.axanthic.icaria.common.enums.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 

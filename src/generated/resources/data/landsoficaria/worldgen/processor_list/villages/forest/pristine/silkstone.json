@@ -4135,7 +4135,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "north",
-                "vertical_corner": "bottom_left"
+                "height_pair": "bottom",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4147,7 +4148,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "north",
-              "vertical_corner": "bottom_left"
+              "height_pair": "bottom",
+              "width_pair": "left"
             }
           }
         },
@@ -4157,7 +4159,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "east",
-                "vertical_corner": "bottom_left"
+                "height_pair": "bottom",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4169,7 +4172,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "east",
-              "vertical_corner": "bottom_left"
+              "height_pair": "bottom",
+              "width_pair": "left"
             }
           }
         },
@@ -4179,7 +4183,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "south",
-                "vertical_corner": "bottom_left"
+                "height_pair": "bottom",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4191,7 +4196,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "south",
-              "vertical_corner": "bottom_left"
+              "height_pair": "bottom",
+              "width_pair": "left"
             }
           }
         },
@@ -4201,7 +4207,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "west",
-                "vertical_corner": "bottom_left"
+                "height_pair": "bottom",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4213,7 +4220,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "west",
-              "vertical_corner": "bottom_left"
+              "height_pair": "bottom",
+              "width_pair": "left"
             }
           }
         },
@@ -4223,7 +4231,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "north",
-                "vertical_corner": "bottom_right"
+                "height_pair": "bottom",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4235,7 +4244,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "north",
-              "vertical_corner": "bottom_right"
+              "height_pair": "bottom",
+              "width_pair": "right"
             }
           }
         },
@@ -4245,7 +4255,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "east",
-                "vertical_corner": "bottom_right"
+                "height_pair": "bottom",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4257,7 +4268,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "east",
-              "vertical_corner": "bottom_right"
+              "height_pair": "bottom",
+              "width_pair": "right"
             }
           }
         },
@@ -4267,7 +4279,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "south",
-                "vertical_corner": "bottom_right"
+                "height_pair": "bottom",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4279,7 +4292,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "south",
-              "vertical_corner": "bottom_right"
+              "height_pair": "bottom",
+              "width_pair": "right"
             }
           }
         },
@@ -4289,7 +4303,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "west",
-                "vertical_corner": "bottom_right"
+                "height_pair": "bottom",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4301,7 +4316,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "west",
-              "vertical_corner": "bottom_right"
+              "height_pair": "bottom",
+              "width_pair": "right"
             }
           }
         },
@@ -4311,7 +4327,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "north",
-                "vertical_corner": "top_left"
+                "height_pair": "top",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4323,7 +4340,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "north",
-              "vertical_corner": "top_left"
+              "height_pair": "top",
+              "width_pair": "left"
             }
           }
         },
@@ -4333,7 +4351,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "east",
-                "vertical_corner": "top_left"
+                "height_pair": "top",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4345,7 +4364,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "east",
-              "vertical_corner": "top_left"
+              "height_pair": "top",
+              "width_pair": "left"
             }
           }
         },
@@ -4355,7 +4375,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "south",
-                "vertical_corner": "top_left"
+                "height_pair": "top",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4367,7 +4388,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "south",
-              "vertical_corner": "top_left"
+              "height_pair": "top",
+              "width_pair": "left"
             }
           }
         },
@@ -4377,7 +4399,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "west",
-                "vertical_corner": "top_left"
+                "height_pair": "top",
+                "width_pair": "left"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4389,7 +4412,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "west",
-              "vertical_corner": "top_left"
+              "height_pair": "top",
+              "width_pair": "left"
             }
           }
         },
@@ -4399,7 +4423,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "north",
-                "vertical_corner": "top_right"
+                "height_pair": "top",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4411,7 +4436,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "north",
-              "vertical_corner": "top_right"
+              "height_pair": "top",
+              "width_pair": "right"
             }
           }
         },
@@ -4421,7 +4447,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "east",
-                "vertical_corner": "top_right"
+                "height_pair": "top",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4433,7 +4460,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "east",
-              "vertical_corner": "top_right"
+              "height_pair": "top",
+              "width_pair": "right"
             }
           }
         },
@@ -4443,7 +4471,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "south",
-                "vertical_corner": "top_right"
+                "height_pair": "top",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4455,7 +4484,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "south",
-              "vertical_corner": "top_right"
+              "height_pair": "top",
+              "width_pair": "right"
             }
           }
         },
@@ -4465,7 +4495,8 @@
               "Name": "landsoficaria:triple_laurel_barrel_rack",
               "Properties": {
                 "facing": "west",
-                "vertical_corner": "top_right"
+                "height_pair": "top",
+                "width_pair": "right"
               }
             },
             "predicate_type": "minecraft:blockstate_match"
@@ -4477,7 +4508,8 @@
             "Name": "landsoficaria:triple_populus_barrel_rack",
             "Properties": {
               "facing": "west",
-              "vertical_corner": "top_right"
+              "height_pair": "top",
+              "width_pair": "right"
             }
           }
         }

@@ -1,63 +1,63 @@
 {
   "variants": {
-    "facing=east,half=lower,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_lower",
+    "facing=east,height_pair=bottom,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_bottom",
       "y": 90
     },
-    "facing=east,half=lower,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_lower_lit",
+    "facing=east,height_pair=bottom,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_bottom_lit",
       "y": 90
     },
-    "facing=east,half=upper,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=east,height_pair=top,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 90
     },
-    "facing=east,half=upper,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=east,height_pair=top,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 90
     },
-    "facing=north,half=lower,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_lower"
+    "facing=north,height_pair=bottom,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_bottom"
     },
-    "facing=north,half=lower,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_lower_lit"
+    "facing=north,height_pair=bottom,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_bottom_lit"
     },
-    "facing=north,half=upper,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_upper"
+    "facing=north,height_pair=top,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_top"
     },
-    "facing=north,half=upper,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_upper"
+    "facing=north,height_pair=top,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_top"
     },
-    "facing=south,half=lower,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_lower",
+    "facing=south,height_pair=bottom,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_bottom",
       "y": 180
     },
-    "facing=south,half=lower,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_lower_lit",
+    "facing=south,height_pair=bottom,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_bottom_lit",
       "y": 180
     },
-    "facing=south,half=upper,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=south,height_pair=top,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 180
     },
-    "facing=south,half=upper,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=south,height_pair=top,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 180
     },
-    "facing=west,half=lower,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_lower",
+    "facing=west,height_pair=bottom,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_bottom",
       "y": 270
     },
-    "facing=west,half=lower,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_lower_lit",
+    "facing=west,height_pair=bottom,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_bottom_lit",
       "y": 270
     },
-    "facing=west,half=upper,lit=false": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=west,height_pair=top,lit=false": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 270
     },
-    "facing=west,half=upper,lit=true": {
-      "model": "landsoficaria:block/grate_fireplace_upper",
+    "facing=west,height_pair=top,lit=true": {
+      "model": "landsoficaria:block/grate_fireplace_top",
       "y": 270
     }
   }

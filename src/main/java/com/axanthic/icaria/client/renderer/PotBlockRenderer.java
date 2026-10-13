@@ -5,7 +5,7 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.state.PotBlockRenderState;
 import com.axanthic.icaria.common.entity.PotBlockEntity;
-import com.axanthic.icaria.common.properties.Fill;
+import com.axanthic.icaria.common.enums.Fill;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 

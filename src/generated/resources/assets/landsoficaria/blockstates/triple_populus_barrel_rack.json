@@ -1,62 +1,62 @@
 {
   "variants": {
-    "facing=east,vertical_corner=bottom_left": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=east,height_pair=bottom,width_pair=left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_left",
       "y": 90
     },
-    "facing=east,vertical_corner=bottom_right": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=east,height_pair=bottom,width_pair=right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_right",
       "y": 90
     },
-    "facing=east,vertical_corner=top_left": {
+    "facing=east,height_pair=top,width_pair=left": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
       "y": 90
     },
-    "facing=east,vertical_corner=top_right": {
+    "facing=east,height_pair=top,width_pair=right": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
       "y": 90
     },
-    "facing=north,vertical_corner=bottom_left": {
-      "model": "landsoficaria:block/populus_barrel_rack"
+    "facing=north,height_pair=bottom,width_pair=left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_left"
     },
-    "facing=north,vertical_corner=bottom_right": {
-      "model": "landsoficaria:block/populus_barrel_rack"
+    "facing=north,height_pair=bottom,width_pair=right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_right"
     },
-    "facing=north,vertical_corner=top_left": {
+    "facing=north,height_pair=top,width_pair=left": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_left"
     },
-    "facing=north,vertical_corner=top_right": {
+    "facing=north,height_pair=top,width_pair=right": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_right"
     },
-    "facing=south,vertical_corner=bottom_left": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=south,height_pair=bottom,width_pair=left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_left",
       "y": 180
     },
-    "facing=south,vertical_corner=bottom_right": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=south,height_pair=bottom,width_pair=right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_right",
       "y": 180
     },
-    "facing=south,vertical_corner=top_left": {
+    "facing=south,height_pair=top,width_pair=left": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
       "y": 180
     },
-    "facing=south,vertical_corner=top_right": {
+    "facing=south,height_pair=top,width_pair=right": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
       "y": 180
     },
-    "facing=west,vertical_corner=bottom_left": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=west,height_pair=bottom,width_pair=left": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_left",
       "y": 270
     },
-    "facing=west,vertical_corner=bottom_right": {
-      "model": "landsoficaria:block/populus_barrel_rack",
+    "facing=west,height_pair=bottom,width_pair=right": {
+      "model": "landsoficaria:block/triple_populus_barrel_rack_bottom_right",
       "y": 270
     },
-    "facing=west,vertical_corner=top_left": {
+    "facing=west,height_pair=top,width_pair=left": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_left",
       "y": 270
     },
-    "facing=west,vertical_corner=top_right": {
+    "facing=west,height_pair=top,width_pair=right": {
       "model": "landsoficaria:block/triple_populus_barrel_rack_top_right",
       "y": 270
     }

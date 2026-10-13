@@ -18,6 +18,7 @@ public class IcariaEntityTypeIds {
 	public static final ResourceKey<EntityType<?>> ARACHNE_DRONE = IcariaEntityTypeIds.create("arachne_drone");
 	public static final ResourceKey<EntityType<?>> ARGAN_HOUND = IcariaEntityTypeIds.create("argan_hound");
 	public static final ResourceKey<EntityType<?>> BARREL = IcariaEntityTypeIds.create("barrel");
+	public static final ResourceKey<EntityType<?>> BENCH = IcariaEntityTypeIds.create("bench");
 	public static final ResourceKey<EntityType<?>> BIDENT = IcariaEntityTypeIds.create("bident");
 	public static final ResourceKey<EntityType<?>> CAPELLA = IcariaEntityTypeIds.create("capella");
 	public static final ResourceKey<EntityType<?>> CATOBLEPAS = IcariaEntityTypeIds.create("catoblepas");

@@ -3,7 +3,9 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.FireplaceBlockEntity;
+import com.axanthic.icaria.common.enums.HeightPair;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.tags.IcariaItemTags;
 
 import com.mojang.serialization.MapCodec;
@@ -36,7 +38,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.phys.BlockHitResult;
 
 @MethodsReturnNonnullByDefault
@@ -49,7 +50,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	public FireplaceBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
 	}
 
 	public FireplaceBlock(float pItemHeight, Properties pProperties) {
@@ -97,7 +98,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER && pBlockState.getValue(BlockStateProperties.LIT)) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pBlockState.getValue(BlockStateProperties.LIT)) {
 			this.particlesBlock(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.particlesItems(pBlockPos, pBlockState, pLevel, pRandomSource);
 			this.sounds(pBlockPos, pLevel, pRandomSource);
@@ -106,7 +107,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.DOUBLE_BLOCK_HALF, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
+		pBuilder.add(IcariaBlockStateProperties.HEIGHT_PAIR, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -116,7 +117,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState), pServerLevel);
+		this.removeMultiBlock(FireplaceBlock.getMultiBlockPos(pBlockPos, pBlockState), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -138,8 +139,8 @@ public class FireplaceBlock extends BaseEntityBlock {
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
-		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP));
 	}
 
 	public void sounds(BlockPos pBlockPos, Level pLevel, RandomSource pRandomSource) {
@@ -149,12 +150,12 @@ public class FireplaceBlock extends BaseEntityBlock {
 	}
 
 	public void update(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, boolean pLit) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, pLit).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
-			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(BlockStateProperties.LIT, pLit).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.LIT, pLit));
+			pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(BlockStateProperties.LIT, pLit));
 		} else {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, pLit).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.UPPER));
-			pLevel.setBlockAndUpdate(pBlockPos.below(), pBlockState.setValue(BlockStateProperties.LIT, pLit).setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, DoubleBlockHalf.LOWER));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.TOP).setValue(BlockStateProperties.LIT, pLit));
+			pLevel.setBlockAndUpdate(pBlockPos.below(), pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.LIT, pLit));
 		}
 	}
 
@@ -164,8 +165,8 @@ public class FireplaceBlock extends BaseEntityBlock {
 		return new FireplaceBlockEntity(pBlockPos, pBlockState);
 	}
 
-	public static BlockPos getBlockEntityPosition(BlockPos pBlockPos, BlockState pBlockState) {
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
 			return pBlockPos;
 		} else {
 			return pBlockPos.below();
@@ -177,7 +178,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext)) {
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.above()).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
@@ -192,7 +193,7 @@ public class FireplaceBlock extends BaseEntityBlock {
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState), pLevel);
+		this.removeMultiBlock(FireplaceBlock.getMultiBlockPos(pBlockPos, pBlockState), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -229,8 +230,8 @@ public class FireplaceBlock extends BaseEntityBlock {
 	}
 
 	public InteractionResult fireplaceItems(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		var blockPos = FireplaceBlock.getBlockEntityPosition(pBlockPos, pBlockState);
-		if (pBlockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.UPPER && pLevel.getBlockEntity(blockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getIntake().isEmpty()) {
+		var blockPos = FireplaceBlock.getMultiBlockPos(pBlockPos, pBlockState);
+		if (pBlockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.TOP && pLevel.getBlockEntity(blockPos) instanceof FireplaceBlockEntity blockEntity && blockEntity.getIntake().isEmpty()) {
 			blockEntity.set(pItemStack);
 			pPlayer.awardStat(Stats.ITEM_USED.get(pItemStack.getItem()));
 			pItemStack.consume(1, pPlayer);

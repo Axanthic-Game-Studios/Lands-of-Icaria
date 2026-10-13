@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:cypress_log",
+    "B": "landsoficaria:stripped_cypress_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:cypress_timber_table"
+  }
+}

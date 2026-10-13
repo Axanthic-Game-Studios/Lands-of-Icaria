@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:laurel_timber_table"
+  },
+  "pattern": [
+    "AAA"
+  ],
+  "result": {
+    "count": 2,
+    "id": "landsoficaria:bigger_laurel_timber_table"
+  }
+}

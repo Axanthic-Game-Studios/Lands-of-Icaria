@@ -51,7 +51,9 @@ public class StoolEntity extends Entity {
 		var blockPos = this.blockPosition();
 		var blockState = this.level().getBlockState(blockPos);
 		var flag = blockState.getBlock() instanceof StoolBlock;
-		if (this.getPassengers().isEmpty() || !flag) {
+		if (!flag) {
+			this.discard();
+		} else if (this.getPassengers().isEmpty()) {
 			this.discard();
 			this.level().setBlockAndUpdate(blockPos, blockState.setValue(IcariaBlockStateProperties.STOOL_TAKEN, false));
 		}

@@ -3,9 +3,9 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.container.GrinderContainerData;
+import com.axanthic.icaria.common.enums.WidthPair;
 import com.axanthic.icaria.common.handler.GrinderHandler;
 import com.axanthic.icaria.common.payload.GrinderPayload;
-import com.axanthic.icaria.common.properties.Side;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.recipe.GrindingRecipe;
 import com.axanthic.icaria.common.recipe.input.DoubleRecipeInput;
@@ -284,16 +284,16 @@ public class GrinderBlockEntity extends BlockEntity {
 
 	public void tickUpdate(ServerLevel pServerLevel) {
 		var direction = this.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (this.getBlockState().getValue(IcariaBlockStateProperties.SIDE) == Side.LEFT) {
-			this.setUpdate(this.hasFuel() && this.hasRecipe(pServerLevel), this.getBlockPos(), this.getBlockState(), pServerLevel, Side.LEFT);
-			this.setUpdate(this.hasFuel() && this.hasRecipe(pServerLevel), this.getBlockPos().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, Side.RIGHT);
+		if (this.getBlockState().getValue(IcariaBlockStateProperties.WIDTH_PAIR) == WidthPair.LEFT) {
+			this.setUpdate(this.hasFuel() && this.hasRecipe(pServerLevel), this.getBlockPos(), this.getBlockState(), pServerLevel, WidthPair.LEFT);
+			this.setUpdate(this.hasFuel() && this.hasRecipe(pServerLevel), this.getBlockPos().offset(direction.getCounterClockWise().getUnitVec3i()), this.getBlockState(), pServerLevel, WidthPair.RIGHT);
 		}
 	}
 
-	public void setUpdate(boolean pGrinding, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, Side pSide) {
+	public void setUpdate(boolean pGrinding, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, WidthPair pWidthPair) {
 		pServerLevel.blockEntityChanged(pBlockPos);
 		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, Block.UPDATE_ALL);
-		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.SIDE, pSide).setValue(IcariaBlockStateProperties.GRINDER_GRINDING, pGrinding));
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.GRINDER_GRINDING, pGrinding).setValue(IcariaBlockStateProperties.WIDTH_PAIR, pWidthPair));
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
 	}
 
@@ -322,16 +322,16 @@ public class GrinderBlockEntity extends BlockEntity {
 		var blockPos = pBlockEntity.getBlockPos();
 		var blockState = pBlockEntity.getBlockState();
 
-		var side = blockState.getValue(IcariaBlockStateProperties.SIDE);
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		var widthPair = blockState.getValue(IcariaBlockStateProperties.WIDTH_PAIR);
 
-		if (side == Side.RIGHT && pDirection == direction.getOpposite()) {
+		if (pDirection == direction.getOpposite() && widthPair == WidthPair.RIGHT) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction.getClockWise()), 0, 1);
-		} else if (side == Side.RIGHT && pDirection == Direction.UP) {
+		} else if (pDirection == Direction.UP && widthPair == WidthPair.RIGHT) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction.getClockWise()), 2, 3);
-		} else if (side == Side.RIGHT && pDirection == Direction.DOWN) {
+		} else if (pDirection == Direction.DOWN && widthPair == WidthPair.RIGHT) {
 			return this.getCap(pBlockEntity, blockPos.relative(direction.getClockWise()), 3, 6);
-		} else if (side == Side.LEFT && pDirection == Direction.DOWN) {
+		} else if (pDirection == Direction.DOWN && widthPair == WidthPair.LEFT) {
 			return this.getCap(pBlockEntity, blockPos, 3, 6);
 		} else {
 			return null;

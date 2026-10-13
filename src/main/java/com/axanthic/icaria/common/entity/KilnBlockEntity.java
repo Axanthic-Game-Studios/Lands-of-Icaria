@@ -3,9 +3,11 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.container.KilnContainerData;
+import com.axanthic.icaria.common.enums.HeightPair;
 import com.axanthic.icaria.common.handler.KilnHandler;
 import com.axanthic.icaria.common.recipe.FiringRecipe;
 import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
 import com.mojang.serialization.Codec;
@@ -40,7 +42,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
@@ -228,16 +229,16 @@ public class KilnBlockEntity extends BlockEntity {
 	}
 
 	public void tickUpdate(ServerLevel pServerLevel) {
-		if (this.getBlockState().getValue(BlockStateProperties.DOUBLE_BLOCK_HALF) == DoubleBlockHalf.LOWER) {
-			this.setUpdate(this.hasFuel(), this.getBlockPos(), this.getBlockState(), pServerLevel, DoubleBlockHalf.LOWER);
-			this.setUpdate(this.hasFuel(), this.getBlockPos().above(), this.getBlockState(), pServerLevel, DoubleBlockHalf.UPPER);
+		if (this.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM) {
+			this.setUpdate(this.hasFuel(), this.getBlockPos(), this.getBlockState(), pServerLevel, HeightPair.BOTTOM);
+			this.setUpdate(this.hasFuel(), this.getBlockPos().above(), this.getBlockState(), pServerLevel, HeightPair.TOP);
 		}
 	}
 
-	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, DoubleBlockHalf pDoubleBlockHalf) {
+	public void setUpdate(boolean pLit, BlockPos pBlockPos, BlockState pBlockState, ServerLevel pServerLevel, HeightPair pHeightPair) {
 		pServerLevel.blockEntityChanged(pBlockPos);
 		pServerLevel.sendBlockUpdated(pBlockPos, pBlockState, pBlockState, Block.UPDATE_ALL);
-		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.DOUBLE_BLOCK_HALF, pDoubleBlockHalf).setValue(BlockStateProperties.LIT, pLit));
+		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.HEIGHT_PAIR, pHeightPair).setValue(BlockStateProperties.LIT, pLit));
 		pServerLevel.updateNeighbourForOutputSignal(pBlockPos, pBlockState.getBlock());
 	}
 
@@ -262,14 +263,14 @@ public class KilnBlockEntity extends BlockEntity {
 		var blockPos = pBlockEntity.getBlockPos();
 		var blockState = pBlockEntity.getBlockState();
 
-		var half = blockState.getValue(BlockStateProperties.DOUBLE_BLOCK_HALF);
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
+		var heightPair = blockState.getValue(IcariaBlockStateProperties.HEIGHT_PAIR);
 
-		if (half == DoubleBlockHalf.LOWER && pDirection == direction.getOpposite()) {
+		if (pDirection == direction.getOpposite() && heightPair == HeightPair.BOTTOM) {
 			return this.getCap(pBlockEntity, blockPos, 0, 1);
-		} else if (half == DoubleBlockHalf.UPPER && pDirection == direction.getClockWise()) {
+		} else if (pDirection == direction.getClockWise() && heightPair == HeightPair.TOP) {
 			return this.getCap(pBlockEntity, blockPos.below(), 1, 2);
-		} else if (half == DoubleBlockHalf.LOWER && pDirection == Direction.DOWN) {
+		} else if (pDirection == Direction.DOWN && heightPair == HeightPair.BOTTOM) {
 			return this.getCap(pBlockEntity, blockPos, 2, 3);
 		} else {
 			return null;

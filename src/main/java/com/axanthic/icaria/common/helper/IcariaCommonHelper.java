@@ -2,12 +2,11 @@ package com.axanthic.icaria.common.helper;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.properties.Mat;
+import com.axanthic.icaria.common.enums.Mat;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
-import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import javax.annotation.Nullable;
 
@@ -26,7 +25,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.SupportType;
-import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
 
@@ -70,37 +68,6 @@ public class IcariaCommonHelper {
 	public static void hurt(DamageSource pDamageSource, Entity pEntity, float pAmount) {
 		if (pEntity.level() instanceof ServerLevel serverLevel) {
 			pEntity.hurtServer(serverLevel, pDamageSource, pAmount);
-		}
-	}
-
-	public static void loaded(BlockPos pBlockPos, @Nullable Entity pEntity, Level.ExplosionInteraction pExplosionInteraction, Level pLevel, int pRadius, int pChance) {
-		IcariaCommonHelper.explosion(pBlockPos, pEntity, pExplosionInteraction, pLevel, pRadius);
-		IcariaCommonHelper.fire(pBlockPos, pLevel, pRadius, pChance);
-	}
-
-	public static void tapped(BlockPos pBlockPos, Level pLevel) {
-		if (pLevel.getBlockState(pBlockPos).isAir() && pLevel.getBlockState(pBlockPos.below()).isSolidRender()) {
-			pLevel.setBlockAndUpdate(pBlockPos, IcariaBlocks.MEDITERRANEAN_WATER.get().defaultBlockState());
-		}
-	}
-
-	public static void loadedOrTappedBarrel(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (!pLevel.isClientSide()) {
-			if (pBlockState.is(IcariaBlockTags.BARRELS_LOADED)) {
-				IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
-			} else if (pBlockState.is(IcariaBlockTags.BARRELS_TAPPED)) {
-				IcariaCommonHelper.tapped(pBlockPos, pLevel);
-			}
-		}
-	}
-
-	public static void loadedOrTappedRack(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (!pLevel.isClientSide()) {
-			if (pBlockState.getValue(IcariaBlockStateProperties.LOADED_BARREL)) {
-				IcariaCommonHelper.loaded(pBlockPos, null, Level.ExplosionInteraction.BLOCK, pLevel, 2, 10);
-			} else if (pBlockState.getValue(IcariaBlockStateProperties.TAPPED_BARREL)) {
-				IcariaCommonHelper.tapped(pBlockPos, pLevel);
-			}
 		}
 	}
 

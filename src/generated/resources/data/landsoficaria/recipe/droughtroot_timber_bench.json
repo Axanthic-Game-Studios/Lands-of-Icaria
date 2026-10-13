@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "landsoficaria:droughtroot_log",
+    "B": "landsoficaria:stripped_droughtroot_log"
+  },
+  "pattern": [
+    "AAA",
+    "B B"
+  ],
+  "result": {
+    "id": "landsoficaria:droughtroot_timber_bench"
+  }
+}

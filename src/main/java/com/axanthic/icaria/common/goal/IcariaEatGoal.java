@@ -4,7 +4,7 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.block.TroughBlock;
 import com.axanthic.icaria.common.entity.IcariaAnimalEntity;
-import com.axanthic.icaria.common.properties.Trough;
+import com.axanthic.icaria.common.enums.Trough;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;

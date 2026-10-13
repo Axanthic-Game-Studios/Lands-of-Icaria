@@ -3,9 +3,9 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.BathtubBlockEntity;
+import com.axanthic.icaria.common.enums.DepthPair;
+import com.axanthic.icaria.common.enums.Fill;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
-import com.axanthic.icaria.common.properties.Fill;
-import com.axanthic.icaria.common.properties.Part;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.shapes.BathtubVoxelShapes;
@@ -46,7 +46,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class BathtubBlock extends Block implements EntityBlock {
 	public BathtubBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.BATHTUB_FILL, 0).setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, false).setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.BATHTUB_FILL, 0).setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, false).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH));
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.BATHTUB_FILL, IcariaBlockStateProperties.BATHTUB_REMAINS, IcariaBlockStateProperties.FILL, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.PART);
+		pBuilder.add(IcariaBlockStateProperties.BATHTUB_FILL, IcariaBlockStateProperties.BATHTUB_REMAINS, IcariaBlockStateProperties.DEPTH_PAIR, IcariaBlockStateProperties.FILL, BlockStateProperties.HORIZONTAL_FACING);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -76,7 +76,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(BathtubBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		this.removeMultiBlock(BathtubBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -87,27 +87,27 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
+		pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
 	}
 
 	public void update(Fill pFill, BlockPos pBlockPos, BlockState pBlockState, Level pLevel, int i) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		if (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR) == DepthPair.FRONT) {
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
 		} else {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_FILL, i).setValue(IcariaBlockStateProperties.FILL, pFill).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
 		}
 	}
 
 	public void update(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
+		if (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR) == DepthPair.FRONT) {
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
 		} else {
-			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.PART, Part.FOOT));
-			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING).getOpposite()), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.PART, Part.HEAD));
+			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.BACK));
+			pLevel.setBlockAndUpdate(pBlockPos.relative(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)), pBlockState.setValue(IcariaBlockStateProperties.BATHTUB_REMAINS, true).setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT));
 		}
 	}
 
@@ -116,12 +116,12 @@ public class BathtubBlock extends Block implements EntityBlock {
 		return new BathtubBlockEntity(pBlockPos, pBlockState);
 	}
 
-	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pBlockState.getValue(IcariaBlockStateProperties.PART) == Part.HEAD) {
-			return pBlockPos.relative(direction);
-		} else {
+		if (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR) == DepthPair.FRONT) {
 			return pBlockPos;
+		} else {
+			return pBlockPos.relative(direction);
 		}
 	}
 
@@ -130,7 +130,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
-		if (level.getBlockState(blockPos.relative(pBlockPlaceContext.getHorizontalDirection())).canBeReplaced()) {
+		if (level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.relative(pBlockPlaceContext.getHorizontalDirection())).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, pBlockPlaceContext.getHorizontalDirection().getOpposite());
 		} else {
 			return null;
@@ -145,7 +145,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(BathtubBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		this.removeMultiBlock(BathtubBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -165,7 +165,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	public InteractionResult useItemOn(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (!pBlockState.getValue(IcariaBlockStateProperties.BATHTUB_REMAINS)) {
-			return this.skeleton(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
+			return this.remains(pBlockPos, pBlockState, pItemStack, pLevel, pPlayer);
 		} else {
 			return InteractionResult.FAIL;
 		}
@@ -186,7 +186,7 @@ public class BathtubBlock extends Block implements EntityBlock {
 		}
 	}
 
-	public InteractionResult skeleton(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+	public InteractionResult remains(BlockPos pBlockPos, BlockState pBlockState, ItemStack pItemStack, Level pLevel, Player pPlayer) {
 		if (pItemStack.is(IcariaItems.BONES.get())) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.BONE_BLOCK_PLACE, SoundSource.BLOCKS);
 			pPlayer.awardStat(Stats.ITEM_USED.get(IcariaItems.BONES.get()));
@@ -326,27 +326,27 @@ public class BathtubBlock extends Block implements EntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(IcariaBlockStateProperties.PART)) {
-			case HEAD -> this.getHead(pBlockState);
-			case FOOT -> this.getFoot(pBlockState);
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR)) {
+			case FRONT -> this.getFront(pBlockState);
+			case BACK -> this.getBack(pBlockState);
 		};
 	}
 
-	public VoxelShape getHead(BlockState pBlockState) {
+	public VoxelShape getFront(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> BathtubVoxelShapes.HEAD_NORTH;
-			case EAST -> BathtubVoxelShapes.HEAD_EAST;
-			case SOUTH -> BathtubVoxelShapes.HEAD_SOUTH;
-			default -> BathtubVoxelShapes.HEAD_WEST;
+			case NORTH -> BathtubVoxelShapes.FRONT_NORTH;
+			case EAST -> BathtubVoxelShapes.FRONT_EAST;
+			case SOUTH -> BathtubVoxelShapes.FRONT_SOUTH;
+			default -> BathtubVoxelShapes.FRONT_WEST;
 		};
 	}
 
-	public VoxelShape getFoot(BlockState pBlockState) {
+	public VoxelShape getBack(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
-			case NORTH -> BathtubVoxelShapes.FOOT_NORTH;
-			case EAST -> BathtubVoxelShapes.FOOT_EAST;
-			case SOUTH -> BathtubVoxelShapes.FOOT_SOUTH;
-			default -> BathtubVoxelShapes.FOOT_WEST;
+			case NORTH -> BathtubVoxelShapes.BACK_NORTH;
+			case EAST -> BathtubVoxelShapes.BACK_EAST;
+			case SOUTH -> BathtubVoxelShapes.BACK_SOUTH;
+			default -> BathtubVoxelShapes.BACK_WEST;
 		};
 	}
 }

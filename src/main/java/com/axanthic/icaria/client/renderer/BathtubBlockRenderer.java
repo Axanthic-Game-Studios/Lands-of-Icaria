@@ -5,8 +5,8 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.state.BathtubBlockRenderState;
 import com.axanthic.icaria.common.entity.BathtubBlockEntity;
-import com.axanthic.icaria.common.properties.Fill;
-import com.axanthic.icaria.common.properties.Part;
+import com.axanthic.icaria.common.enums.DepthPair;
+import com.axanthic.icaria.common.enums.Fill;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaIdentifiers;
 
@@ -54,9 +54,9 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 		var level = pRenderState.level;
 
 		var bathtubFill = blockState.getValue(IcariaBlockStateProperties.BATHTUB_FILL);
+		var depthPair = blockState.getValue(IcariaBlockStateProperties.DEPTH_PAIR);
 		var direction = blockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
 		var fill = blockState.getValue(IcariaBlockStateProperties.FILL);
-		var part = blockState.getValue(IcariaBlockStateProperties.PART);
 
 		var textureAtlas = Minecraft.getInstance().getAtlasManager().getAtlasOrThrow(AtlasIds.BLOCKS);
 
@@ -71,12 +71,12 @@ public record BathtubBlockRenderer(BlockEntityRendererProvider.Context context) 
 
 			var y = bathtubFill * 0.0625F + 0.0625F + 0.0005F;
 
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.translucentMovingBlock(), (pose, vertexConsumer) -> this.submit(part, vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, y, r, g, b));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.translucentMovingBlock(), (pose, vertexConsumer) -> this.submit(depthPair, vertexConsumer, sprite, pose.pose(), direction, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, y, r, g, b));
 		}
 	}
 
-	public void submit(Part pPart, VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pLightCoords, int pOverlayCoords, float pY, float pRed, float pGreen, float pBlue) {
-		if (pPart == Part.HEAD) {
+	public void submit(DepthPair pDepthPair, VertexConsumer pVertexConsumer, TextureAtlasSprite pTextureAtlasSprite, Matrix4f pMatrix4f, Direction pDirection, int pLightCoords, int pOverlayCoords, float pY, float pRed, float pGreen, float pBlue) {
+		if (pDepthPair == DepthPair.BACK) {
 			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pLightCoords, pOverlayCoords, 0.125F, 0.875F, 0.0F, 0.875F, 0.125F, 0.875F, 0.0F, 0.875F, pY, pRed, pGreen, pBlue, 1.0F);
 		} else {
 			IcariaClientHelper.submitSprite(pVertexConsumer, pTextureAtlasSprite, pMatrix4f, pDirection, pLightCoords, pOverlayCoords, 0.125F, 0.875F, 0.125F, 1.0F, 0.125F, 0.875F, 0.125F, 1.0F, pY, pRed, pGreen, pBlue, 1.0F);

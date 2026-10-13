@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.properties.FirewoodWedge;
+import com.axanthic.icaria.common.enums.Wedge;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.FirewoodWedgeVoxelShapes;
@@ -29,12 +29,12 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class FirewoodWedgeBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
 	public FirewoodWedgeBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.FIREWOOD_WEDGE, FirewoodWedge.JAGGED).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false).setValue(IcariaBlockStateProperties.WEDGE, Wedge.JAGGED));
 	}
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(IcariaBlockStateProperties.FIREWOOD_WEDGE, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
+		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED, IcariaBlockStateProperties.WEDGE);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class FirewoodWedgeBlock extends Block implements MediterraneanWaterlogge
 		var blockState = this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction.getOpposite()).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 
 		if (player != null) {
-			return blockState.setValue(IcariaBlockStateProperties.FIREWOOD_WEDGE, player.isShiftKeyDown() ? FirewoodWedge.SMOOTH : FirewoodWedge.JAGGED);
+			return blockState.setValue(IcariaBlockStateProperties.WEDGE, player.isShiftKeyDown() ? Wedge.SMOOTH : Wedge.JAGGED);
 		} else {
 			return blockState;
 		}
@@ -73,7 +73,7 @@ public class FirewoodWedgeBlock extends Block implements MediterraneanWaterlogge
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(IcariaBlockStateProperties.FIREWOOD_WEDGE)) {
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.WEDGE)) {
 			case JAGGED -> this.getJagged(pBlockState);
 			case SMOOTH -> this.getSmooth(pBlockState);
 		};

@@ -1,33 +1,33 @@
 {
   "variants": {
-    "facing=east,half=lower": {
-      "model": "landsoficaria:block/kiln_lower",
+    "facing=east,height_pair=bottom": {
+      "model": "landsoficaria:block/kiln_bottom",
       "y": 90
     },
-    "facing=east,half=upper": {
-      "model": "landsoficaria:block/kiln_upper",
+    "facing=east,height_pair=top": {
+      "model": "landsoficaria:block/kiln_top",
       "y": 90
     },
-    "facing=north,half=lower": {
-      "model": "landsoficaria:block/kiln_lower"
+    "facing=north,height_pair=bottom": {
+      "model": "landsoficaria:block/kiln_bottom"
     },
-    "facing=north,half=upper": {
-      "model": "landsoficaria:block/kiln_upper"
+    "facing=north,height_pair=top": {
+      "model": "landsoficaria:block/kiln_top"
     },
-    "facing=south,half=lower": {
-      "model": "landsoficaria:block/kiln_lower",
+    "facing=south,height_pair=bottom": {
+      "model": "landsoficaria:block/kiln_bottom",
       "y": 180
     },
-    "facing=south,half=upper": {
-      "model": "landsoficaria:block/kiln_upper",
+    "facing=south,height_pair=top": {
+      "model": "landsoficaria:block/kiln_top",
       "y": 180
     },
-    "facing=west,half=lower": {
-      "model": "landsoficaria:block/kiln_lower",
+    "facing=west,height_pair=bottom": {
+      "model": "landsoficaria:block/kiln_bottom",
       "y": 270
     },
-    "facing=west,half=upper": {
-      "model": "landsoficaria:block/kiln_upper",
+    "facing=west,height_pair=top": {
+      "model": "landsoficaria:block/kiln_top",
       "y": 270
     }
   }

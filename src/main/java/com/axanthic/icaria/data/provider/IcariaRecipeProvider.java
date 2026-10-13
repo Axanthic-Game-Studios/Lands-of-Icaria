@@ -82,7 +82,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hangingSign();
 		this.helmet();
 		this.hutch();
-		this.kitchenTable();
 		this.kline();
 		this.ladder();
 		this.leggings();
@@ -98,8 +97,11 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stairs();
 		this.stool();
 		this.sword();
-		this.torch();
+		this.table();
+		this.timberBench();
+		this.timberTable();
 		this.tintedGlass();
+		this.torch();
 		this.trough();
 		this.arrow();
 		this.coarseMarl();
@@ -1030,12 +1032,26 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shaped3x1(6, IcariaItems.PLATOSHALE_SLAB.get(), IcariaItems.PLATOSHALE.get());
 		this.shaped3x1(6, IcariaItems.PLATOSHALE_BRICK_SLAB.get(), IcariaItems.PLATOSHALE_BRICKS.get());
 		this.shaped3x1(6, IcariaItems.CYPRESS_SLAB.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_CYPRESS_TIMBER_TABLE.get(), IcariaItems.CYPRESS_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_CYPRESS_TIMBER_BENCH.get(), IcariaItems.CYPRESS_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.DROUGHTROOT_SLAB.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_DROUGHTROOT_TIMBER_TABLE.get(), IcariaItems.DROUGHTROOT_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_DROUGHTROOT_TIMBER_BENCH.get(), IcariaItems.DROUGHTROOT_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.FIR_SLAB.get(), IcariaItems.FIR_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_FIR_TIMBER_TABLE.get(), IcariaItems.FIR_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_FIR_TIMBER_BENCH.get(), IcariaItems.FIR_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.LAUREL_SLAB.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_LAUREL_TIMBER_TABLE.get(), IcariaItems.LAUREL_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_LAUREL_TIMBER_BENCH.get(), IcariaItems.LAUREL_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.OLIVE_SLAB.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_OLIVE_TIMBER_TABLE.get(), IcariaItems.OLIVE_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_OLIVE_TIMBER_BENCH.get(), IcariaItems.OLIVE_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.PLANE_SLAB.get(), IcariaItems.PLANE_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_PLANE_TIMBER_TABLE.get(), IcariaItems.PLANE_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_PLANE_TIMBER_BENCH.get(), IcariaItems.PLANE_TIMBER_BENCH.get());
 		this.shaped3x1(6, IcariaItems.POPULUS_SLAB.get(), IcariaItems.POPULUS_PLANKS.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_POPULUS_TIMBER_TABLE.get(), IcariaItems.POPULUS_TIMBER_TABLE.get());
+		this.shaped3x1(2, IcariaItems.BIGGER_POPULUS_TIMBER_BENCH.get(), IcariaItems.POPULUS_TIMBER_BENCH.get());
 		this.shaped3x1(1, IcariaItems.CHEST_LABEL.get(), Items.PAPER);
 		this.shaped3x1(1, IcariaItems.SPELT_BREAD.get(), IcariaItems.SPELT.get());
 	}
@@ -1281,16 +1297,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.hutch(4, IcariaItems.POPULUS_HUTCH.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
 	}
 
-	public void kitchenTable() {
-		this.kitchenTable(1, IcariaItems.CYPRESS_KITCHEN_TABLE.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.FIR_KITCHEN_TABLE.get(), IcariaItems.FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.LAUREL_KITCHEN_TABLE.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.OLIVE_KITCHEN_TABLE.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.PLANE_KITCHEN_TABLE.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
-		this.kitchenTable(1, IcariaItems.POPULUS_KITCHEN_TABLE.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
-	}
-
 	public void kline() {
 		this.kline(1, IcariaItems.CYPRESS_KLINE.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.kline(1, IcariaItems.DROUGHTROOT_KLINE.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
@@ -1460,13 +1466,13 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public void stool() {
-		this.stool(1, IcariaItems.CYPRESS_STOOL.get(), IcariaItems.STRIPPED_CYPRESS_WOOD.get());
-		this.stool(1, IcariaItems.DROUGHTROOT_STOOL.get(), IcariaItems.STRIPPED_DROUGHTROOT_WOOD.get());
-		this.stool(1, IcariaItems.FIR_STOOL.get(), IcariaItems.STRIPPED_FIR_WOOD.get());
-		this.stool(1, IcariaItems.LAUREL_STOOL.get(), IcariaItems.STRIPPED_LAUREL_WOOD.get());
-		this.stool(1, IcariaItems.OLIVE_STOOL.get(), IcariaItems.STRIPPED_OLIVE_WOOD.get());
-		this.stool(1, IcariaItems.PLANE_STOOL.get(), IcariaItems.STRIPPED_PLANE_WOOD.get());
-		this.stool(1, IcariaItems.POPULUS_STOOL.get(), IcariaItems.STRIPPED_POPULUS_WOOD.get());
+		this.stool(1, IcariaItems.CYPRESS_STOOL.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
+		this.stool(1, IcariaItems.DROUGHTROOT_STOOL.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+		this.stool(1, IcariaItems.FIR_STOOL.get(), IcariaItems.STRIPPED_FIR_LOG.get());
+		this.stool(1, IcariaItems.LAUREL_STOOL.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
+		this.stool(1, IcariaItems.OLIVE_STOOL.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
+		this.stool(1, IcariaItems.PLANE_STOOL.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
+		this.stool(1, IcariaItems.POPULUS_STOOL.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 	}
 
 	public void sword() {
@@ -1477,6 +1483,36 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.sword(1, IcariaItems.VANADIUMSTEEL_SWORD.get(), IcariaItems.VANADIUMSTEEL_INGOT.get());
 		this.sword(1, IcariaItems.SIDEROS_SWORD.get(), IcariaItems.SIDEROS_INGOT.get());
 		this.sword(1, IcariaItems.MOLYBDENUMSTEEL_SWORD.get(), IcariaItems.MOLYBDENUMSTEEL_INGOT.get());
+	}
+
+	public void table() {
+		this.table(1, IcariaItems.CYPRESS_TABLE.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get(), IcariaItems.CYPRESS_PLANKS.get());
+		this.table(1, IcariaItems.DROUGHTROOT_TABLE.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
+		this.table(1, IcariaItems.FIR_TABLE.get(), IcariaItems.STRIPPED_FIR_LOG.get(), IcariaItems.FIR_PLANKS.get());
+		this.table(1, IcariaItems.LAUREL_TABLE.get(), IcariaItems.STRIPPED_LAUREL_LOG.get(), IcariaItems.LAUREL_PLANKS.get());
+		this.table(1, IcariaItems.OLIVE_TABLE.get(), IcariaItems.STRIPPED_OLIVE_LOG.get(), IcariaItems.OLIVE_PLANKS.get());
+		this.table(1, IcariaItems.PLANE_TABLE.get(), IcariaItems.STRIPPED_PLANE_LOG.get(), IcariaItems.PLANE_PLANKS.get());
+		this.table(1, IcariaItems.POPULUS_TABLE.get(), IcariaItems.STRIPPED_POPULUS_LOG.get(), IcariaItems.POPULUS_PLANKS.get());
+	}
+
+	public void timberBench() {
+		this.timberBench(1, IcariaItems.CYPRESS_TIMBER_BENCH.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
+		this.timberBench(1, IcariaItems.DROUGHTROOT_TIMBER_BENCH.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+		this.timberBench(1, IcariaItems.FIR_TIMBER_BENCH.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get());
+		this.timberBench(1, IcariaItems.LAUREL_TIMBER_BENCH.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
+		this.timberBench(1, IcariaItems.OLIVE_TIMBER_BENCH.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
+		this.timberBench(1, IcariaItems.PLANE_TIMBER_BENCH.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
+		this.timberBench(1, IcariaItems.POPULUS_TIMBER_BENCH.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
+	}
+
+	public void timberTable() {
+		this.timberTable(1, IcariaItems.CYPRESS_TIMBER_TABLE.get(), IcariaItems.CYPRESS_LOG.get(), IcariaItems.STRIPPED_CYPRESS_LOG.get());
+		this.timberTable(1, IcariaItems.DROUGHTROOT_TIMBER_TABLE.get(), IcariaItems.DROUGHTROOT_LOG.get(), IcariaItems.STRIPPED_DROUGHTROOT_LOG.get());
+		this.timberTable(1, IcariaItems.FIR_TIMBER_TABLE.get(), IcariaItems.FIR_LOG.get(), IcariaItems.STRIPPED_FIR_LOG.get());
+		this.timberTable(1, IcariaItems.LAUREL_TIMBER_TABLE.get(), IcariaItems.LAUREL_LOG.get(), IcariaItems.STRIPPED_LAUREL_LOG.get());
+		this.timberTable(1, IcariaItems.OLIVE_TIMBER_TABLE.get(), IcariaItems.OLIVE_LOG.get(), IcariaItems.STRIPPED_OLIVE_LOG.get());
+		this.timberTable(1, IcariaItems.PLANE_TIMBER_TABLE.get(), IcariaItems.PLANE_LOG.get(), IcariaItems.STRIPPED_PLANE_LOG.get());
+		this.timberTable(1, IcariaItems.POPULUS_TIMBER_TABLE.get(), IcariaItems.POPULUS_LOG.get(), IcariaItems.STRIPPED_POPULUS_LOG.get());
 	}
 
 	public void tintedGlass() {
@@ -2083,18 +2119,6 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.save(this.output, this.key(pResult));
 	}
 
-	public void kitchenTable(int pAmount, Item pResult, Item pLog, Item pPlanks) {
-		this.shaped(RecipeCategory.MISC, pResult, pAmount)
-			.define('A', pLog)
-			.define('B', pPlanks)
-			.pattern("BBB")
-			.pattern("A A")
-			.pattern("A A")
-			.unlockedBy(this.name(pLog), this.has(pLog))
-			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
-			.save(this.output, this.key(pResult));
-	}
-
 	public void kline(int pAmount, Item pResult, Item pResource) {
 		this.shaped(RecipeCategory.MISC, pResult, pAmount)
 			.define('A', IcariaItems.TERRY_BLOCK.get())
@@ -2260,6 +2284,41 @@ public class IcariaRecipeProvider extends RecipeProvider {
 			.pattern("B")
 			.unlockedBy(this.name(pResource), this.has(pResource))
 			.unlockedBy(this.name(Items.BONE), this.has(Items.BONE))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void table(int pAmount, Item pResult, Item pLog, Item pPlanks) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pPlanks)
+			.pattern("BBB")
+			.pattern("A A")
+			.pattern("A A")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pPlanks), this.has(pPlanks))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void timberBench(int pAmount, Item pResult, Item pLog, Item pStrippedLog) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pStrippedLog)
+			.pattern("AAA")
+			.pattern("B B")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pStrippedLog), this.has(pStrippedLog))
+			.save(this.output, this.key(pResult));
+	}
+
+	public void timberTable(int pAmount, Item pResult, Item pLog, Item pStrippedLog) {
+		this.shaped(RecipeCategory.MISC, pResult, pAmount)
+			.define('A', pLog)
+			.define('B', pStrippedLog)
+			.pattern("AAA")
+			.pattern("B B")
+			.pattern("B B")
+			.unlockedBy(this.name(pLog), this.has(pLog))
+			.unlockedBy(this.name(pStrippedLog), this.has(pStrippedLog))
 			.save(this.output, this.key(pResult));
 	}
 

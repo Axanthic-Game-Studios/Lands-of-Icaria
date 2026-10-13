@@ -2,8 +2,10 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.enums.HeightPair;
+import com.axanthic.icaria.common.enums.WidthPair;
+import com.axanthic.icaria.common.helper.IcariaMultiBlockHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
-import com.axanthic.icaria.common.properties.VerticalCorner;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.TripleBarrelRackVoxelShapes;
 
@@ -42,7 +44,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 public class TripleBarrelRackBlock extends Block {
 	public TripleBarrelRackBlock(Properties pProperties) {
 		super(pProperties);
-		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_LEFT));
+		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.WIDTH_PAIR, WidthPair.LEFT));
 	}
 
 	@Override
@@ -52,7 +54,7 @@ public class TripleBarrelRackBlock extends Block {
 
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-		pBuilder.add(BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.VERTICAL_CORNER);
+		pBuilder.add(IcariaBlockStateProperties.HEIGHT_PAIR, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.WIDTH_PAIR);
 	}
 
 	public void drop(BlockPos pBlockPos, BlockState pBlockState, Level pLevel) {
@@ -62,7 +64,7 @@ public class TripleBarrelRackBlock extends Block {
 	@Override
 	public void onBlockExploded(BlockState pBlockState, ServerLevel pServerLevel, BlockPos pBlockPos, Explosion pExplosion) {
 		this.drop(pBlockPos, pBlockState, pServerLevel);
-		this.removeMultiBlock(TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
+		this.removeMultiBlock(TripleBarrelRackBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pServerLevel);
 		super.onBlockExploded(pBlockState, pServerLevel, pBlockPos, pExplosion);
 	}
 
@@ -76,22 +78,22 @@ public class TripleBarrelRackBlock extends Block {
 	@Override
 	public void setPlacedBy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, @Nullable LivingEntity pLivingEntity, ItemStack pItemStack) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.BOTTOM_RIGHT));
-		pLevel.setBlockAndUpdate(pBlockPos.above(), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_LEFT));
-		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), pBlockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, VerticalCorner.TOP_RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos, IcariaMultiBlockHelper.setValue(pBlockState, HeightPair.BOTTOM, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, HeightPair.BOTTOM, WidthPair.RIGHT));
+		pLevel.setBlockAndUpdate(pBlockPos.above(), IcariaMultiBlockHelper.setValue(pBlockState, HeightPair.TOP, WidthPair.LEFT));
+		pLevel.setBlockAndUpdate(pBlockPos.above().offset(direction.getCounterClockWise().getUnitVec3i()), IcariaMultiBlockHelper.setValue(pBlockState, HeightPair.TOP, WidthPair.RIGHT));
 	}
 
-	public static BlockPos getPlacedBlockPosition(BlockPos pBlockPos, BlockState pBlockState) {
+	public static BlockPos getMultiBlockPos(BlockPos pBlockPos, BlockState pBlockState) {
 		var direction = pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING);
-		if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_RIGHT) {
-			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.TOP_LEFT) {
-			return pBlockPos.below();
-		} else if (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER) == VerticalCorner.BOTTOM_RIGHT) {
-			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
-		} else {
+		if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.BOTTOM, WidthPair.LEFT)) {
 			return pBlockPos;
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return pBlockPos.offset(direction.getClockWise().getUnitVec3i());
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.TOP, WidthPair.LEFT)) {
+			return pBlockPos.below();
+		} else {
+			return pBlockPos.below().offset(direction.getClockWise().getUnitVec3i());
 		}
 	}
 
@@ -101,7 +103,7 @@ public class TripleBarrelRackBlock extends Block {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var direction = pBlockPlaceContext.getHorizontalDirection().getOpposite();
 		var level = pBlockPlaceContext.getLevel();
-		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above()).canBeReplaced(pBlockPlaceContext) && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced(pBlockPlaceContext)) {
+		if (blockPos.getY() < level.getMaxY() && level.getBlockState(blockPos).canBeReplaced() && level.getBlockState(blockPos.offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced() && level.getBlockState(blockPos.above()).canBeReplaced() && level.getBlockState(blockPos.above().offset(direction.getCounterClockWise().getUnitVec3i())).canBeReplaced()) {
 			return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
 		} else {
 			return null;
@@ -111,13 +113,13 @@ public class TripleBarrelRackBlock extends Block {
 	@Override
 	public BlockState mirror(BlockState pBlockState, Mirror pMirror) {
 		var blockState = pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pMirror.mirror(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
-		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.VERTICAL_CORNER, blockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER).getOpposite());
+		return pMirror == Mirror.NONE ? blockState : blockState.setValue(IcariaBlockStateProperties.WIDTH_PAIR, blockState.getValue(IcariaBlockStateProperties.WIDTH_PAIR).getOpposite());
 	}
 
 	@Override
 	public BlockState playerWillDestroy(Level pLevel, BlockPos pBlockPos, BlockState pBlockState, Player pPlayer) {
 		this.drop(pBlockPos, pBlockState, pLevel);
-		this.removeMultiBlock(TripleBarrelRackBlock.getPlacedBlockPosition(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
+		this.removeMultiBlock(TripleBarrelRackBlock.getMultiBlockPos(pBlockPos, pBlockState), pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING), pLevel);
 		return super.playerWillDestroy(pLevel, pBlockPos, pBlockState, pPlayer);
 	}
 
@@ -139,15 +141,18 @@ public class TripleBarrelRackBlock extends Block {
 
 	@Override
 	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		return switch (pBlockState.getValue(IcariaBlockStateProperties.VERTICAL_CORNER)) {
-			case BOTTOM_LEFT -> this.getNorth(pBlockState);
-			case BOTTOM_RIGHT -> this.getEast(pBlockState);
-			case TOP_LEFT -> this.getSouth(pBlockState);
-			case TOP_RIGHT -> this.getWest(pBlockState);
-		};
+		if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.BOTTOM, WidthPair.LEFT)) {
+			return this.getBottomLeft(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.BOTTOM, WidthPair.RIGHT)) {
+			return this.getBottomRight(pBlockState);
+		} else if (IcariaMultiBlockHelper.hasValue(pBlockState, HeightPair.TOP, WidthPair.LEFT)) {
+			return this.getTopLeft(pBlockState);
+		} else {
+			return this.getTopRight(pBlockState);
+		}
 	}
 
-	public VoxelShape getNorth(BlockState pBlockState) {
+	public VoxelShape getBottomLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_EAST;
@@ -156,7 +161,7 @@ public class TripleBarrelRackBlock extends Block {
 		};
 	}
 
-	public VoxelShape getEast(BlockState pBlockState) {
+	public VoxelShape getBottomRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_EAST;
@@ -165,7 +170,7 @@ public class TripleBarrelRackBlock extends Block {
 		};
 	}
 
-	public VoxelShape getSouth(BlockState pBlockState) {
+	public VoxelShape getTopLeft(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> TripleBarrelRackVoxelShapes.TOP_LEFT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.TOP_LEFT_EAST;
@@ -174,7 +179,7 @@ public class TripleBarrelRackBlock extends Block {
 		};
 	}
 
-	public VoxelShape getWest(BlockState pBlockState) {
+	public VoxelShape getTopRight(BlockState pBlockState) {
 		return switch (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
 			case NORTH -> TripleBarrelRackVoxelShapes.TOP_RIGHT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.TOP_RIGHT_EAST;

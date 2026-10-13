@@ -14,13 +14,13 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class KlineVoxelShapes {
-	public static final VoxelShape HEAD_NORTH = Stream.of(Block.box(0.5D, 0.0D, -15.5D, 15.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, -16.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape HEAD_EAST = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 31.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, 0.0D, 32.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape HEAD_SOUTH = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 15.5D, 6.5D, 31.5D), Block.box(0.0D, 6.5D, 0.0D, 16.0D, 8.5D, 32.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape HEAD_WEST = Stream.of(Block.box(-15.5D, 0.0D, 0.5D, 15.5D, 6.5D, 15.5D), Block.box(-16.0D, 6.5D, 0.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape FRONT_NORTH = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 15.5D, 6.5D, 31.5D), Block.box(0.0D, 6.5D, 0.0D, 16.0D, 8.5D, 32.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape FRONT_EAST = Stream.of(Block.box(-15.5D, 0.0D, 0.5D, 15.5D, 6.5D, 15.5D), Block.box(-16.0D, 6.5D, 0.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape FRONT_SOUTH = Stream.of(Block.box(0.5D, 0.0D, -15.5D, 15.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, -16.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape FRONT_WEST = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 31.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, 0.0D, 32.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 
-	public static final VoxelShape FOOT_NORTH = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 15.5D, 6.5D, 31.5D), Block.box(0.0D, 6.5D, 0.0D, 16.0D, 8.5D, 32.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape FOOT_EAST = Stream.of(Block.box(-15.5D, 0.0D, 0.5D, 15.5D, 6.5D, 15.5D), Block.box(-16.0D, 6.5D, 0.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape FOOT_SOUTH = Stream.of(Block.box(0.5D, 0.0D, -15.5D, 15.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, -16.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
-	public static final VoxelShape FOOT_WEST = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 31.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, 0.0D, 32.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape BACK_NORTH = Stream.of(Block.box(0.5D, 0.0D, -15.5D, 15.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, -16.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape BACK_EAST = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 31.5D, 6.5D, 15.5D), Block.box(0.0D, 6.5D, 0.0D, 32.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape BACK_SOUTH = Stream.of(Block.box(0.5D, 0.0D, 0.5D, 15.5D, 6.5D, 31.5D), Block.box(0.0D, 6.5D, 0.0D, 16.0D, 8.5D, 32.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
+	public static final VoxelShape BACK_WEST = Stream.of(Block.box(-15.5D, 0.0D, 0.5D, 15.5D, 6.5D, 15.5D), Block.box(-16.0D, 6.5D, 0.0D, 16.0D, 8.5D, 16.0D)).reduce((a, b) -> Shapes.join(a, b, BooleanOp.OR)).get();
 }

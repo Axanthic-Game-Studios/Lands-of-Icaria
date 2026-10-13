@@ -895,7 +895,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.CYPRESS_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_CYPRESS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.CYPRESS_HUTCH.get());
-			pEvent.accept(IcariaItems.CYPRESS_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.CYPRESS_TABLE.get());
+			pEvent.accept(IcariaItems.CYPRESS_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.CYPRESS_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_CYPRESS_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_CYPRESS_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.CYPRESS_KLINE.get());
 			pEvent.accept(IcariaItems.CYPRESS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.CYPRESS_SCROLLSHELF.get());
@@ -954,7 +958,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.DROUGHTROOT_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_DROUGHTROOT_CUPBOARD.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_HUTCH.get());
-			pEvent.accept(IcariaItems.DROUGHTROOT_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_TABLE.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.DROUGHTROOT_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_DROUGHTROOT_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_DROUGHTROOT_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_KLINE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.DROUGHTROOT_SCROLLSHELF.get());
@@ -1013,7 +1021,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.FIR_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_FIR_CUPBOARD.get());
 			pEvent.accept(IcariaItems.FIR_HUTCH.get());
-			pEvent.accept(IcariaItems.FIR_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.FIR_TABLE.get());
+			pEvent.accept(IcariaItems.FIR_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.FIR_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_FIR_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_FIR_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.FIR_KLINE.get());
 			pEvent.accept(IcariaItems.FIR_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.FIR_SCROLLSHELF.get());
@@ -1072,7 +1084,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.LAUREL_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_LAUREL_CUPBOARD.get());
 			pEvent.accept(IcariaItems.LAUREL_HUTCH.get());
-			pEvent.accept(IcariaItems.LAUREL_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.LAUREL_TABLE.get());
+			pEvent.accept(IcariaItems.LAUREL_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.LAUREL_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_LAUREL_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_LAUREL_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.LAUREL_KLINE.get());
 			pEvent.accept(IcariaItems.LAUREL_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.LAUREL_SCROLLSHELF.get());
@@ -1131,7 +1147,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.OLIVE_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_OLIVE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.OLIVE_HUTCH.get());
-			pEvent.accept(IcariaItems.OLIVE_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.OLIVE_TABLE.get());
+			pEvent.accept(IcariaItems.OLIVE_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.OLIVE_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_OLIVE_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_OLIVE_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.OLIVE_KLINE.get());
 			pEvent.accept(IcariaItems.OLIVE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.OLIVE_SCROLLSHELF.get());
@@ -1190,7 +1210,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.PLANE_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_PLANE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.PLANE_HUTCH.get());
-			pEvent.accept(IcariaItems.PLANE_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.PLANE_TABLE.get());
+			pEvent.accept(IcariaItems.PLANE_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.PLANE_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_PLANE_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_PLANE_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.PLANE_KLINE.get());
 			pEvent.accept(IcariaItems.PLANE_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.PLANE_SCROLLSHELF.get());
@@ -1249,7 +1273,11 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.POPULUS_VASE_CUPBOARD.get());
 			pEvent.accept(IcariaItems.BROKEN_POPULUS_CUPBOARD.get());
 			pEvent.accept(IcariaItems.POPULUS_HUTCH.get());
-			pEvent.accept(IcariaItems.POPULUS_KITCHEN_TABLE.get());
+			pEvent.accept(IcariaItems.POPULUS_TABLE.get());
+			pEvent.accept(IcariaItems.POPULUS_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.POPULUS_TIMBER_BENCH.get());
+			pEvent.accept(IcariaItems.BIGGER_POPULUS_TIMBER_TABLE.get());
+			pEvent.accept(IcariaItems.BIGGER_POPULUS_TIMBER_BENCH.get());
 			pEvent.accept(IcariaItems.POPULUS_KLINE.get());
 			pEvent.accept(IcariaItems.POPULUS_CRAFTING_TABLE.get());
 			pEvent.accept(IcariaItems.POPULUS_SCROLLSHELF.get());
@@ -1913,14 +1941,14 @@ public class IcariaCommonEvents {
 		var h = Mth.sin(pPlayer.getYRot() * IcariaValues.DEG_2_RAD);
 		var i = Mth.cos(pPlayer.getYRot() * IcariaValues.DEG_2_RAD);
 
-		var hasBlock = pPlayer.getData(pAttachmentType);
+		var flag = pPlayer.getData(pAttachmentType);
 
-		if (hasBlock && IcariaCommonHelper.hasWrongCarrySetup(pPlayer)) {
+		if (flag && IcariaCommonHelper.hasWrongCarrySetup(pPlayer)) {
 			level.addFreshEntity(pEntity);
 			pEntity.setDeltaMovement(-h * g, -f, i * g);
 			pEntity.snapTo(pPlayer.blockPosition().above(2), 0.0F, 0.0F);
 			pPlayer.setData(pAttachmentType, false);
-		} else if (hasBlock && !level.isClientSide()) {
+		} else if (flag && !level.isClientSide()) {
 			pPlayer.addEffect(new MobEffectInstance(MobEffects.SLOWNESS, 40));
 			PacketDistributor.sendToAllPlayers(pCustomPacketPayload);
 		}

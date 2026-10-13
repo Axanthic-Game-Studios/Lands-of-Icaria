@@ -4,6 +4,7 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
+import com.axanthic.icaria.common.shapes.DeadLogVoxelShapes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -27,8 +27,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
-	public static final VoxelShape SHAPE = Shapes.join(Shapes.block(), Shapes.box(0.125D, 0.5D, 0.125D, 0.875D, 1.0D, 0.875D), BooleanOp.ONLY_FIRST);
-
 	public DeadLogBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.AXIS, Direction.Axis.Y).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -67,10 +65,19 @@ public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWat
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
-		if (pBlockState.getValue(BlockStateProperties.AXIS).isHorizontal()) {
-			return Shapes.block();
-		} else {
-			return DeadLogBlock.SHAPE;
-		}
+		return switch (pBlockState.getValue(BlockStateProperties.AXIS)) {
+			case X -> DeadLogVoxelShapes.X;
+			case Y -> DeadLogVoxelShapes.Y;
+			case Z -> DeadLogVoxelShapes.Z;
+		};
+	}
+
+	@Override
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(BlockStateProperties.AXIS)) {
+			case X -> DeadLogVoxelShapes.X;
+			case Y -> Shapes.block();
+			case Z -> DeadLogVoxelShapes.Z;
+		};
 	}
 }

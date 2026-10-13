@@ -1,32 +1,32 @@
 {
   "variants": {
-    "facing=east,firewood_wedge=jagged": {
+    "facing=east,wedge=jagged": {
       "model": "landsoficaria:block/laurel_firewood_wedge_jagged",
       "y": 90
     },
-    "facing=east,firewood_wedge=smooth": {
+    "facing=east,wedge=smooth": {
       "model": "landsoficaria:block/laurel_firewood_wedge_smooth",
       "y": 90
     },
-    "facing=north,firewood_wedge=jagged": {
+    "facing=north,wedge=jagged": {
       "model": "landsoficaria:block/laurel_firewood_wedge_jagged"
     },
-    "facing=north,firewood_wedge=smooth": {
+    "facing=north,wedge=smooth": {
       "model": "landsoficaria:block/laurel_firewood_wedge_smooth"
     },
-    "facing=south,firewood_wedge=jagged": {
+    "facing=south,wedge=jagged": {
       "model": "landsoficaria:block/laurel_firewood_wedge_jagged",
       "y": 180
     },
-    "facing=south,firewood_wedge=smooth": {
+    "facing=south,wedge=smooth": {
       "model": "landsoficaria:block/laurel_firewood_wedge_smooth",
       "y": 180
     },
-    "facing=west,firewood_wedge=jagged": {
+    "facing=west,wedge=jagged": {
       "model": "landsoficaria:block/laurel_firewood_wedge_jagged",
       "y": 270
     },
-    "facing=west,firewood_wedge=smooth": {
+    "facing=west,wedge=smooth": {
       "model": "landsoficaria:block/laurel_firewood_wedge_smooth",
       "y": 270
     }

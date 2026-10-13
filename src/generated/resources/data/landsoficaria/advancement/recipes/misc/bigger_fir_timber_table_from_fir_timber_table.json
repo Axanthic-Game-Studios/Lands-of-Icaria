@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:fir_timber_table": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:fir_timber_table"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:bigger_fir_timber_table_from_fir_timber_table"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:fir_timber_table"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:bigger_fir_timber_table_from_fir_timber_table"
+    ]
+  }
+}

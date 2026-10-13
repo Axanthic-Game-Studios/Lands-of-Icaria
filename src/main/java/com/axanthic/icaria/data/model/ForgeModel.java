@@ -18,7 +18,7 @@ import net.neoforged.neoforge.client.model.generators.template.ExtendedModelTemp
 
 public class ForgeModel {
 
-	public static ExtendedModelTemplate bottomBackLeft() {
+	public static ExtendedModelTemplate backBottomLeft() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(2.0000F, 14.0000F, 0.0000F).to(4.0000F, 16.0000F, 2.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -52,7 +52,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate bottomBackRight() {
+	public static ExtendedModelTemplate backBottomRight() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 14.0000F, 4.0000F).to(16.0000F, 16.0000F, 14.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -87,7 +87,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate bottomFrontLeft() {
+	public static ExtendedModelTemplate frontBottomLeft() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 9.0000F, 3.0000F).to(13.0000F, 12.0000F, 16.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -156,7 +156,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate bottomFrontRight() {
+	public static ExtendedModelTemplate frontBottomRight() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 15.0000F, 11.0000F).to(16.0000F, 16.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -265,7 +265,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate bottomFrontRightLit() {
+	public static ExtendedModelTemplate frontBottomRightLit() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 15.0000F, 11.0000F).to(16.0000F, 16.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -383,7 +383,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate topBackLeft() {
+	public static ExtendedModelTemplate backTopLeft() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 2.0000F).to(4.0000F, 15.0000F, 4.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -439,7 +439,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate topBackRight() {
+	public static ExtendedModelTemplate backTopRight() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(12.0000F, 0.0000F, 4.0000F).to(16.0000F, 6.0000F, 14.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))
@@ -514,7 +514,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate topFrontLeft() {
+	public static ExtendedModelTemplate frontTopLeft() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 11.0000F).to(3.0000F, 5.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(-8.0000F, -16.0000F, 8.0000F))
@@ -591,7 +591,7 @@ public class ForgeModel {
 			.build();
 	}
 
-	public static ExtendedModelTemplate topFrontRight() {
+	public static ExtendedModelTemplate frontTopRight() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block"))
 			.element(elementBuilder -> elementBuilder.from(13.0000F, 0.0000F, 11.0000F).to(16.0000F, 5.0000F, 12.0000F)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 0.0000F, 0.0000F).origin(0.0000F, 0.0000F, 0.0000F))

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_landsoficaria:droughtroot_timber_bench": {
+      "conditions": {
+        "items": [
+          {
+            "items": "landsoficaria:droughtroot_timber_bench"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "landsoficaria:bigger_droughtroot_timber_bench_from_droughtroot_timber_bench"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_landsoficaria:droughtroot_timber_bench"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "landsoficaria:bigger_droughtroot_timber_bench_from_droughtroot_timber_bench"
+    ]
+  }
+}

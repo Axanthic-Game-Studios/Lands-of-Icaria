@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_bigger_timber_table_back",
+  "textures": {
+    "log": "landsoficaria:block/olive_log",
+    "log_top": "landsoficaria:block/olive_log_top",
+    "particle": "landsoficaria:block/olive_log",
+    "stripped_log": "landsoficaria:block/stripped_olive_log",
+    "stripped_log_top": "landsoficaria:block/stripped_olive_log_top"
+  }
+}

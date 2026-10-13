@@ -2,7 +2,7 @@ package com.axanthic.icaria.common.block;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.properties.Candle;
+import com.axanthic.icaria.common.enums.Candle;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 
 import net.minecraft.core.BlockPos;

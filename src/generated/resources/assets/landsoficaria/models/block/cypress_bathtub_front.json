@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_bathtub_front",
+  "textures": {
+    "log": "landsoficaria:block/cypress_log",
+    "particle": "landsoficaria:block/cypress_planks",
+    "planks": "landsoficaria:block/cypress_planks"
+  }
+}

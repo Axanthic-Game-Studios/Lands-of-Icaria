@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "depth_span=back,facing=east": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_back",
+      "y": 90
+    },
+    "depth_span=back,facing=north": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_back"
+    },
+    "depth_span=back,facing=south": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_back",
+      "y": 180
+    },
+    "depth_span=back,facing=west": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_back",
+      "y": 270
+    },
+    "depth_span=center,facing=east": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_center",
+      "y": 90
+    },
+    "depth_span=center,facing=north": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_center"
+    },
+    "depth_span=center,facing=south": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_center",
+      "y": 180
+    },
+    "depth_span=center,facing=west": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_center",
+      "y": 270
+    },
+    "depth_span=front,facing=east": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_front",
+      "y": 90
+    },
+    "depth_span=front,facing=north": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_front"
+    },
+    "depth_span=front,facing=south": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_front",
+      "y": 180
+    },
+    "depth_span=front,facing=west": {
+      "model": "landsoficaria:block/bigger_laurel_timber_table_front",
+      "y": 270
+    }
+  }
+}
