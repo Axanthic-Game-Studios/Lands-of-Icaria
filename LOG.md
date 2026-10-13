@@ -1,8 +1,6 @@
 Additions
 
 - Amphora Block dropping Fermented Fish and Fermented Snull Cream Loot
-- Terry Blocks in each Color
-- Terry Mats in each Color
 - Bathtub Blocks for each Wood Type
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Checkers and Chess Blocks
@@ -35,6 +33,8 @@ Additions
 - Stool Blocks for each Wood Type
 - Suspicious Substance Block
 - Table Blocks for each Wood Type
+- Terry Blocks in each Color
+- Terry Mats in each Color
 - Timber Bench Blocks for each Wood Type
 - Timber Table Blocks for each Wood Type
 - Vase Block
