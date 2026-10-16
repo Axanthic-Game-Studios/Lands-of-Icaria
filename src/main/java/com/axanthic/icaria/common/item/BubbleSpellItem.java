@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.item;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.BubbleSpellEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
@@ -31,7 +32,7 @@ public class BubbleSpellItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
         var itemStack = pPlayer.getItemInHand(pUsedHand);
         if (!pLevel.isClientSide()) {
-            for (int i = 0; i < pLevel.getRandom().nextInt(4) + 4; ++i) {
+            for (int i = 0; i < pLevel.getRandom().nextInt(IcariaConfig.BUBBLE_MAX_COUNT.get()) + IcariaConfig.BUBBLE_MIN_COUNT.get(); ++i) {
                 if (this.getEntity().create(pLevel) instanceof BubbleSpellEntity spellEntity) {
                     spellEntity.moveTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
                     spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, 0.05F, 20.0F);

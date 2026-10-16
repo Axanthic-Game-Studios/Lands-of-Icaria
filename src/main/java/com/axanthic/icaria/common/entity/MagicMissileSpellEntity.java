@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
@@ -21,7 +22,7 @@ public class MagicMissileSpellEntity extends SpellEntity {
         var level = this.level();
         var blockPos = pResult.getBlockPos();
         if (level.getBlockState(blockPos).getDestroySpeed(level, blockPos) > 0) {
-            level.destroyBlock(blockPos, false);
+            level.destroyBlock(blockPos, IcariaConfig.MAGIC_MISSILE_DIGGING.get());
         }
     }
 
@@ -29,7 +30,7 @@ public class MagicMissileSpellEntity extends SpellEntity {
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().magic(), 8.0F);
+            livingEntity.hurt(this.damageSources().magic(), IcariaConfig.MAGIC_MISSILE_DAMAGE.get().floatValue());
         }
     }
 }

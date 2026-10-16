@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -20,7 +21,7 @@ public class FortifyingSpellEntity extends SpellEntity {
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 300));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, IcariaConfig.FORTIFYING_DURATION.get(), IcariaConfig.FORTIFYING_LEVEL.get()));
         }
     }
 }

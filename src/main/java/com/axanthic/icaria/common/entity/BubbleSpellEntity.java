@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -17,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BubbleSpellEntity extends ThrowableProjectile {
     public int minAge = 0;
-    public int maxAge = 400;
+    public int maxAge = IcariaConfig.BUBBLE_DURATION.get();
 
     public static final EntityDataAccessor<Integer> AGE = SynchedEntityData.defineId(BubbleSpellEntity.class, EntityDataSerializers.INT);
 
@@ -32,7 +33,7 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 
     @Override
     public float getGravity() {
-        return 0.0F;
+        return IcariaConfig.BUBBLE_GRAVITY.get().floatValue();
     }
 
     public int getAge() {
@@ -60,7 +61,7 @@ public class BubbleSpellEntity extends ThrowableProjectile {
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.hurt(this.damageSources().magic(), 2.0F);
+            livingEntity.hurt(this.damageSources().magic(), IcariaConfig.BUBBLE_DAMAGE.get().floatValue());
             this.discard();
         }
     }

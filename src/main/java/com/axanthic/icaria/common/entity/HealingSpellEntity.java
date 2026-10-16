@@ -1,5 +1,6 @@
 package com.axanthic.icaria.common.entity;
 
+import com.axanthic.icaria.common.config.IcariaConfig;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
@@ -19,7 +20,7 @@ public class HealingSpellEntity extends SpellEntity {
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, 1));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.HEAL, 1, IcariaConfig.HEALING_EXPONENT.get()));
         }
     }
 }

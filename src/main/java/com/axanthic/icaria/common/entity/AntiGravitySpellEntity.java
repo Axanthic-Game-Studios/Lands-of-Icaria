@@ -1,6 +1,7 @@
 package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
 import net.minecraft.world.effect.MobEffectInstance;
@@ -31,7 +32,7 @@ public class AntiGravitySpellEntity extends SpellEntity {
         var entity = new FloatingBlockEntity(IcariaEntityTypes.FLOATING_BLOCK.get(), level, blockState, blockPos);
         if (level.getBlockEntity(blockPos) == null && !(block instanceof TripleBarrelRackBlock) && !(block instanceof DoorBlock)) {
             entity.moveTo(blockPos, 0.0F, 0.0F);
-            entity.setDeltaMovement(0.0D, 0.05D, 0.0D);
+            entity.setDeltaMovement(0.0D, IcariaConfig.ANTI_GRAVITY_BLOCK_GRAVITY.get(), 0.0D);
             level.addFreshEntity(entity);
             level.removeBlock(blockPos, false);
         }
@@ -41,7 +42,7 @@ public class AntiGravitySpellEntity extends SpellEntity {
     public void onHitEntity(EntityHitResult pResult) {
         super.onHitEntity(pResult);
         if (pResult.getEntity() instanceof LivingEntity livingEntity) {
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, 300));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.LEVITATION, IcariaConfig.ANTI_GRAVITY_LEVITATION_DURATION.get()));
         }
     }
 }
