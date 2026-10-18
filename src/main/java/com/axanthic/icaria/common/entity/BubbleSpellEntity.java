@@ -63,7 +63,7 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 	@Override
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		this.pop();
-		IcariaCommonHelper.hurt(this.damageSources().magic(), pEntityHitResult.getEntity(), 2.0F);
+		IcariaCommonHelper.hurt(this.damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), 2.0F);
 	}
 
 	public void pop() {

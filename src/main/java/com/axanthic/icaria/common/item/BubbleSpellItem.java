@@ -36,6 +36,7 @@ public class BubbleSpellItem extends Item {
 	public void createAmount(Level pLevel, Player pPlayer) {
 		for (var i = 0; i < this.amount; ++i) {
 			if (IcariaEntityTypes.BUBBLE_SPELL.get().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof BubbleSpellEntity bubbleSpellEntity) {
+				bubbleSpellEntity.setOwner(pPlayer);
 				bubbleSpellEntity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
 				bubbleSpellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
 				pLevel.addFreshEntity(bubbleSpellEntity);

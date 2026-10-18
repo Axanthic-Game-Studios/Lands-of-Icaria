@@ -43,6 +43,7 @@ public abstract class SpellItem extends Item {
 			if (this.getEntity().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof SpellEntity spellEntity) {
 				spellEntity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
 				spellEntity.setColor(this.colour);
+				spellEntity.setOwner(pPlayer);
 				spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
 				pLevel.addFreshEntity(spellEntity);
 			}

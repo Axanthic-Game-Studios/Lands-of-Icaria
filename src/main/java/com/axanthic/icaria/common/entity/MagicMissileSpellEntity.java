@@ -35,6 +35,6 @@ public class MagicMissileSpellEntity extends SpellEntity {
 	@Override
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		super.onHitEntity(pEntityHitResult);
-		IcariaCommonHelper.hurt(this.level().damageSources().magic(), pEntityHitResult.getEntity(), 8.0F);
+		IcariaCommonHelper.hurt(this.level().damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), 8.0F);
 	}
 }
