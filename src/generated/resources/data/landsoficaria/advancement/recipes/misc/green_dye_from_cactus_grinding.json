@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:green_dye_from_cactus_grinding"
+        "recipes": "landsoficaria:green_dye_from_cactus_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

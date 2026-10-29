@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:target"
+        "recipes": "landsoficaria:target"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

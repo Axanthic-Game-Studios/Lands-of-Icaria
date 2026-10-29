@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_forest_hag_from_namdrake_rowan_rowan_entity_concocting"
+        "recipes": "landsoficaria:laurel_forest_hag_from_namdrake_rowan_rowan_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

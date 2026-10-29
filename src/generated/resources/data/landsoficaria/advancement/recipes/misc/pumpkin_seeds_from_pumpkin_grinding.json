@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:pumpkin_seeds_from_pumpkin_grinding"
+        "recipes": "landsoficaria:pumpkin_seeds_from_pumpkin_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

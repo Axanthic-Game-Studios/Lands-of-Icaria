@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:gold_ingot_from_raw_gold_forging"
+        "recipes": "landsoficaria:gold_ingot_from_raw_gold_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

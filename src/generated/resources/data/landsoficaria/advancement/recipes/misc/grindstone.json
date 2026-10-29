@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grindstone"
+        "recipes": "landsoficaria:grindstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

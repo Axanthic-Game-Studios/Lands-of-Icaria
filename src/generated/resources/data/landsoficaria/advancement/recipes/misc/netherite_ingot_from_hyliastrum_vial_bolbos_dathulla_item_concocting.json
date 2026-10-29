@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:netherite_ingot_from_hyliastrum_vial_bolbos_dathulla_item_concocting"
+        "recipes": "landsoficaria:netherite_ingot_from_hyliastrum_vial_bolbos_dathulla_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

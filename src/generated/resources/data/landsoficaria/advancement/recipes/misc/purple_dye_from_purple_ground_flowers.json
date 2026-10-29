@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:purple_dye_from_purple_ground_flowers"
+        "recipes": "landsoficaria:purple_dye_from_purple_ground_flowers"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

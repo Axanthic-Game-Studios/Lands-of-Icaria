@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cracked_relicstone_bricks_from_relicstone_bricks_smelting"
+        "recipes": "landsoficaria:cracked_relicstone_bricks_from_relicstone_bricks_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

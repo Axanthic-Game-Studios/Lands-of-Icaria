@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:spelt_flour_from_spelt_grinding"
+        "recipes": "landsoficaria:spelt_flour_from_spelt_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

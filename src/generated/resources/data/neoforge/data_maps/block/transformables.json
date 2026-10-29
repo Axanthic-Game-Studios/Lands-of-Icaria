@@ -1,0 +1,1049 @@
+{
+  "values": {
+    "landsoficaria:coarse_marl": {
+      "transformers": {
+        "minecraft:hoe": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:coarse_marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:marl"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.hoe.till"
+        },
+        "minecraft:shovel": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:coarse_marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:marl_path"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.shovel.flatten"
+        }
+      }
+    },
+    "landsoficaria:cypress_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:cypress_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_cypress_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:cypress_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:cypress_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_cypress_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_cypress_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_cypress_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_cypress_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_droughtroot_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_droughtroot_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_droughtroot_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_fir_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_fir_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_fir_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_laurel_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_laurel_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_laurel_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_olive_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_olive_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_olive_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_plane_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_plane_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_plane_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dead_populus_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:dead_populus_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_dead_populus_log",
+                  "properties": {
+                    "axis": "y",
+                    "mediterranean_waterlogged": "false",
+                    "waterlogged": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:droughtroot_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:droughtroot_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_droughtroot_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:droughtroot_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:droughtroot_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_droughtroot_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:dry_lake_bed": {
+      "transformers": {
+        "minecraft:hoe": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:dry_lake_bed"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:coarse_marl"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.hoe.till"
+        },
+        "minecraft:shovel": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:dry_lake_bed"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:marl_path"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.shovel.flatten"
+        }
+      }
+    },
+    "landsoficaria:fir_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:fir_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_fir_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:fir_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:fir_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_fir_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:grainel": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "landsoficaria:grainel"
+                  }
+                ]
+              },
+              "then": {
+                "id": "landsoficaria:grainel_path"
+              }
+            }
+          ]
+        },
+        "disallowed_faces": [
+          "down"
+        ],
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.shovel.flatten"
+      },
+      "transformer": "minecraft:shovel"
+    },
+    "landsoficaria:grassy_marl": {
+      "transformers": {
+        "minecraft:hoe": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:grassy_marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:farmland",
+                  "properties": {
+                    "moisture": "0"
+                  }
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.hoe.till"
+        },
+        "minecraft:shovel": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:grassy_marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:marl_path"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.shovel.flatten"
+        }
+      }
+    },
+    "landsoficaria:laurel_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:laurel_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_laurel_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:laurel_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:laurel_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_laurel_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:loam": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "landsoficaria:loam"
+                  }
+                ]
+              },
+              "then": {
+                "id": "landsoficaria:loam_path"
+              }
+            }
+          ]
+        },
+        "disallowed_faces": [
+          "down"
+        ],
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.shovel.flatten"
+      },
+      "transformer": "minecraft:shovel"
+    },
+    "landsoficaria:marl": {
+      "transformers": {
+        "minecraft:hoe": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:farmland",
+                  "properties": {
+                    "moisture": "0"
+                  }
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.hoe.till"
+        },
+        "minecraft:shovel": {
+          "block_state_provider": {
+            "type": "minecraft:rule_based",
+            "rules": [
+              {
+                "if_true": {
+                  "type": "minecraft:all_of",
+                  "predicates": [
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "minecraft:air",
+                      "offset": [
+                        0,
+                        1,
+                        0
+                      ]
+                    },
+                    {
+                      "type": "minecraft:matching_blocks",
+                      "blocks": "landsoficaria:marl"
+                    }
+                  ]
+                },
+                "then": {
+                  "id": "landsoficaria:marl_path"
+                }
+              }
+            ]
+          },
+          "disallowed_faces": [
+            "down"
+          ],
+          "item_damage_per_use": 1,
+          "sound": "minecraft:item.shovel.flatten"
+        }
+      }
+    },
+    "landsoficaria:marl_path": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "landsoficaria:marl_path"
+                  }
+                ]
+              },
+              "then": {
+                "id": "landsoficaria:farmland",
+                "properties": {
+                  "moisture": "0"
+                }
+              }
+            }
+          ]
+        },
+        "disallowed_faces": [
+          "down"
+        ],
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.hoe.till"
+      },
+      "transformer": "minecraft:hoe"
+    },
+    "landsoficaria:olive_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:olive_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_olive_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:olive_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:olive_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_olive_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:plane_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:plane_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_plane_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:plane_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:plane_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_plane_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:populus_log": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:populus_log"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_populus_log",
+                  "properties": {
+                    "axis": "y",
+                    "player_placed": "false"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:populus_wood": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:matching_blocks",
+                "blocks": "landsoficaria:populus_wood"
+              },
+              "then": {
+                "type": "minecraft:copy_properties",
+                "source": {
+                  "id": "landsoficaria:stripped_populus_wood",
+                  "properties": {
+                    "axis": "y"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.axe.strip"
+      },
+      "transformer": "minecraft:axe"
+    },
+    "landsoficaria:silksand": {
+      "transform_data": {
+        "block_state_provider": {
+          "type": "minecraft:rule_based",
+          "rules": [
+            {
+              "if_true": {
+                "type": "minecraft:all_of",
+                "predicates": [
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "minecraft:air",
+                    "offset": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "type": "minecraft:matching_blocks",
+                    "blocks": "landsoficaria:silksand"
+                  }
+                ]
+              },
+              "then": {
+                "id": "landsoficaria:silksand_path"
+              }
+            }
+          ]
+        },
+        "disallowed_faces": [
+          "down"
+        ],
+        "item_damage_per_use": 1,
+        "sound": "minecraft:item.shovel.flatten"
+      },
+      "transformer": "minecraft:shovel"
+    }
+  }
+}

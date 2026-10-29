@@ -284,6 +284,42 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId MAGENTA_TERRY_BLOCK = IcariaBlockItemIds.create("magenta_terry_block");
 	public static final BlockItemId PINK_TERRY_BLOCK = IcariaBlockItemIds.create("pink_terry_block");
 
+	public static final BlockItemId TERRY_STAIRS = IcariaBlockItemIds.create("terry_stairs");
+	public static final BlockItemId WHITE_TERRY_STAIRS = IcariaBlockItemIds.create("white_terry_stairs");
+	public static final BlockItemId LIGHT_GRAY_TERRY_STAIRS = IcariaBlockItemIds.create("light_gray_terry_stairs");
+	public static final BlockItemId GRAY_TERRY_STAIRS = IcariaBlockItemIds.create("gray_terry_stairs");
+	public static final BlockItemId BLACK_TERRY_STAIRS = IcariaBlockItemIds.create("black_terry_stairs");
+	public static final BlockItemId BROWN_TERRY_STAIRS = IcariaBlockItemIds.create("brown_terry_stairs");
+	public static final BlockItemId RED_TERRY_STAIRS = IcariaBlockItemIds.create("red_terry_stairs");
+	public static final BlockItemId ORANGE_TERRY_STAIRS = IcariaBlockItemIds.create("orange_terry_stairs");
+	public static final BlockItemId YELLOW_TERRY_STAIRS = IcariaBlockItemIds.create("yellow_terry_stairs");
+	public static final BlockItemId LIME_TERRY_STAIRS = IcariaBlockItemIds.create("lime_terry_stairs");
+	public static final BlockItemId GREEN_TERRY_STAIRS = IcariaBlockItemIds.create("green_terry_stairs");
+	public static final BlockItemId CYAN_TERRY_STAIRS = IcariaBlockItemIds.create("cyan_terry_stairs");
+	public static final BlockItemId LIGHT_BLUE_TERRY_STAIRS = IcariaBlockItemIds.create("light_blue_terry_stairs");
+	public static final BlockItemId BLUE_TERRY_STAIRS = IcariaBlockItemIds.create("blue_terry_stairs");
+	public static final BlockItemId PURPLE_TERRY_STAIRS = IcariaBlockItemIds.create("purple_terry_stairs");
+	public static final BlockItemId MAGENTA_TERRY_STAIRS = IcariaBlockItemIds.create("magenta_terry_stairs");
+	public static final BlockItemId PINK_TERRY_STAIRS = IcariaBlockItemIds.create("pink_terry_stairs");
+
+	public static final BlockItemId TERRY_SLAB = IcariaBlockItemIds.create("terry_slab");
+	public static final BlockItemId WHITE_TERRY_SLAB = IcariaBlockItemIds.create("white_terry_slab");
+	public static final BlockItemId LIGHT_GRAY_TERRY_SLAB = IcariaBlockItemIds.create("light_gray_terry_slab");
+	public static final BlockItemId GRAY_TERRY_SLAB = IcariaBlockItemIds.create("gray_terry_slab");
+	public static final BlockItemId BLACK_TERRY_SLAB = IcariaBlockItemIds.create("black_terry_slab");
+	public static final BlockItemId BROWN_TERRY_SLAB = IcariaBlockItemIds.create("brown_terry_slab");
+	public static final BlockItemId RED_TERRY_SLAB = IcariaBlockItemIds.create("red_terry_slab");
+	public static final BlockItemId ORANGE_TERRY_SLAB = IcariaBlockItemIds.create("orange_terry_slab");
+	public static final BlockItemId YELLOW_TERRY_SLAB = IcariaBlockItemIds.create("yellow_terry_slab");
+	public static final BlockItemId LIME_TERRY_SLAB = IcariaBlockItemIds.create("lime_terry_slab");
+	public static final BlockItemId GREEN_TERRY_SLAB = IcariaBlockItemIds.create("green_terry_slab");
+	public static final BlockItemId CYAN_TERRY_SLAB = IcariaBlockItemIds.create("cyan_terry_slab");
+	public static final BlockItemId LIGHT_BLUE_TERRY_SLAB = IcariaBlockItemIds.create("light_blue_terry_slab");
+	public static final BlockItemId BLUE_TERRY_SLAB = IcariaBlockItemIds.create("blue_terry_slab");
+	public static final BlockItemId PURPLE_TERRY_SLAB = IcariaBlockItemIds.create("purple_terry_slab");
+	public static final BlockItemId MAGENTA_TERRY_SLAB = IcariaBlockItemIds.create("magenta_terry_slab");
+	public static final BlockItemId PINK_TERRY_SLAB = IcariaBlockItemIds.create("pink_terry_slab");
+
 	public static final BlockItemId TERRY_MAT = IcariaBlockItemIds.create("terry_mat");
 	public static final BlockItemId WHITE_TERRY_MAT = IcariaBlockItemIds.create("white_terry_mat");
 	public static final BlockItemId LIGHT_GRAY_TERRY_MAT = IcariaBlockItemIds.create("light_gray_terry_mat");

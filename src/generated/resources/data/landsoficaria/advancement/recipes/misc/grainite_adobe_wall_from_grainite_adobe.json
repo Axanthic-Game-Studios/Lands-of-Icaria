@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grainite_adobe_wall_from_grainite_adobe"
+        "recipes": "landsoficaria:grainite_adobe_wall_from_grainite_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

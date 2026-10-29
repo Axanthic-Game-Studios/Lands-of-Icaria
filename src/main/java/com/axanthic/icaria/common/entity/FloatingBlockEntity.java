@@ -3,6 +3,8 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
+import com.axanthic.icaria.common.registry.IcariaFluids;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -10,14 +12,13 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySelector;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.gamerules.GameRules;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
@@ -115,8 +116,9 @@ public class FloatingBlockEntity extends Entity {
 		} else {
 			this.setDeltaMovement(this.getDeltaMovement().add(0.0, -0.05D, 0.0));
 			if (this.onGround()) {
+				var fluidState = this.level().getFluidState(this.blockPosition());
 				if (this.level().getBlockState(this.blockPosition()).canBeReplaced() && this.getBlockState().canSurvive(this.level(), this.blockPosition())) {
-					this.level().setBlockAndUpdate(this.blockPosition(), this.getBlockState());
+					this.level().setBlockAndUpdate(this.blockPosition(), this.getBlockState().trySetValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState.is(IcariaFluids.MEDITERRANEAN_WATER)).trySetValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER)));
 					this.discard();
 				} else if (this.level() instanceof ServerLevel serverLevel && serverLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
 					this.spawnAtLocation(serverLevel, this.getBlockState().getBlock());
@@ -137,5 +139,10 @@ public class FloatingBlockEntity extends Entity {
 	@Override
 	public MovementEmission getMovementEmission() {
 		return MovementEmission.NONE;
+	}
+
+	@Override
+	public MoveSimulationType getMoveSimulationType() {
+		return MoveSimulationType.SERVER_AND_CLIENT;
 	}
 }

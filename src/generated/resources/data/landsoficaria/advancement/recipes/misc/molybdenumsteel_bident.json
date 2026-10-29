@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenumsteel_bident"
+        "recipes": "landsoficaria:molybdenumsteel_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

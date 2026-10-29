@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:relicstone_tile_wall_from_relicstone_stonecutting"
+        "recipes": "landsoficaria:relicstone_tile_wall_from_relicstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

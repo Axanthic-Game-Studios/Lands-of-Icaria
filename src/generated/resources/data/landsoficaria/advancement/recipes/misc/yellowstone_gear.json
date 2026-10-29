@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_gear"
+        "recipes": "landsoficaria:yellowstone_gear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

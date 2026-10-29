@@ -7,8 +7,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.DirectionVoxelShapes;
 
-import com.mojang.serialization.MapCodec;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
@@ -30,8 +28,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class ClusterBlock extends DirectionalBlock implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
-	public static final MapCodec<ClusterBlock> CODEC = Block.simpleCodec(ClusterBlock::new);
-
 	public ClusterBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.FACING, Direction.DOWN).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -88,11 +84,6 @@ public class ClusterBlock extends DirectionalBlock implements EntityBlock, Medit
 	@Override
 	public FluidState getFluidState(BlockState pBlockState) {
 		return pBlockState.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED) ? IcariaFluids.MEDITERRANEAN_WATER.get().getSource(false) : pBlockState.getValue(BlockStateProperties.WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pBlockState);
-	}
-
-	@Override
-	public MapCodec<? extends DirectionalBlock> codec() {
-		return ClusterBlock.CODEC;
 	}
 
 	@Override

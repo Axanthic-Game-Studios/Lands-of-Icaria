@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_bathtub"
+        "recipes": "landsoficaria:olive_bathtub"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

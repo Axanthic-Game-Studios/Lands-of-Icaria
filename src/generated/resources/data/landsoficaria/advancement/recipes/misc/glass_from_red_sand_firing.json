@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:glass_from_red_sand_firing"
+        "recipes": "landsoficaria:glass_from_red_sand_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

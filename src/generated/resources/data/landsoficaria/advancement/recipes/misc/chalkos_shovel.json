@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_shovel"
+        "recipes": "landsoficaria:chalkos_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

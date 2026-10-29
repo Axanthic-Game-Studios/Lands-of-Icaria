@@ -317,6 +317,35 @@ public class GrinderBlockEntity extends BlockEntity {
 		return tagValueOutput.buildResult();
 	}
 
+	public ItemStack getGear() {
+		return this.handler.getResource(1).toStack();
+	}
+
+	public ItemStack getIntake() {
+		return this.handler.getResource(2).toStack();
+	}
+
+	public ItemStack getResult(ServerLevel pServerLevel) {
+		if (this.getRecipe(pServerLevel).isPresent()) {
+			return this.getRecipe(pServerLevel).get().value().result().create();
+		} else {
+			return ItemStack.EMPTY;
+		}
+	}
+
+	public Optional<RecipeHolder<GrindingRecipe>> getRecipe(ServerLevel pServerLevel) {
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.getRecipeInput(), pServerLevel);
+	}
+
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	public RecipeInput getRecipeInput() {
+		return new DoubleRecipeInput(this.handler.getResource(1).toStack(), this.handler.getResource(2).toStack());
+	}
+
 	@Nullable
 	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
 		var blockPos = pBlockEntity.getBlockPos();
@@ -345,34 +374,5 @@ public class GrinderBlockEntity extends BlockEntity {
 		} else {
 			return null;
 		}
-	}
-
-	public ItemStack getGear() {
-		return this.handler.getResource(1).toStack();
-	}
-
-	public ItemStack getIntake() {
-		return this.handler.getResource(2).toStack();
-	}
-
-	public ItemStack getResult(ServerLevel pServerLevel) {
-		if (this.getRecipe(pServerLevel).isPresent()) {
-			return this.getRecipe(pServerLevel).get().value().result().create();
-		} else {
-			return ItemStack.EMPTY;
-		}
-	}
-
-	public Optional<RecipeHolder<GrindingRecipe>> getRecipe(ServerLevel pServerLevel) {
-		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.GRINDING.get(), this.getRecipeInput(), pServerLevel);
-	}
-
-	@Override
-	public Packet<ClientGamePacketListener> getUpdatePacket() {
-		return ClientboundBlockEntityDataPacket.create(this);
-	}
-
-	public RecipeInput getRecipeInput() {
-		return new DoubleRecipeInput(this.handler.getResource(1).toStack(), this.handler.getResource(2).toStack());
 	}
 }

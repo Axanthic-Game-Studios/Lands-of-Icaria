@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_planks"
+        "recipes": "landsoficaria:fir_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

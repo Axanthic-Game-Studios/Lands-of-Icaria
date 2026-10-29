@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:night_vision_from_mondanos_mondanos_mondanos_potion_concocting"
+        "recipes": "landsoficaria:night_vision_from_mondanos_mondanos_mondanos_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

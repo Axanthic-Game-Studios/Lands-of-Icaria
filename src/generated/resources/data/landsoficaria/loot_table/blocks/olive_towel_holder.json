@@ -8,295 +8,263 @@
           "name": "landsoficaria:olive_towel_holder"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "white_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "white_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:white_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "light_gray_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "light_gray_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:light_gray_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "gray_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "gray_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:gray_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "black_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "black_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:black_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "brown_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "brown_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:brown_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "red_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "red_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:red_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "orange_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "orange_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:orange_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "yellow_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "yellow_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:yellow_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "lime_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "lime_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:lime_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "green_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "green_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:green_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "cyan_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "cyan_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:cyan_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "light_blue_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "light_blue_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:light_blue_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "blue_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "blue_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:blue_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "purple_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "purple_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:purple_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "magenta_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "magenta_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:magenta_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_towel_holder",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "mat": "pink_terry_mat"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_towel_holder",
+        "state": {
+          "mat": "pink_terry_mat"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:pink_terry_mat"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/olive_towel_holder"

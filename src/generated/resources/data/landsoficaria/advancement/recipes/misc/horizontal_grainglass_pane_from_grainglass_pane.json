@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:horizontal_grainglass_pane_from_grainglass_pane"
+        "recipes": "landsoficaria:horizontal_grainglass_pane_from_grainglass_pane"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

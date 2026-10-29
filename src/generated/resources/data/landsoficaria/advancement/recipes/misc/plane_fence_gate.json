@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_fence_gate"
+        "recipes": "landsoficaria:plane_fence_gate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

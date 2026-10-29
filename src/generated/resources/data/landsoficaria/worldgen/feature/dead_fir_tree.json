@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_fir_log",
+  "log": "landsoficaria:fir_log",
+  "max": 10,
+  "min": 8,
+  "moss": "landsoficaria:forest_moss",
+  "treeShrooms": "landsoficaria:tinder_fungus_tree_shrooms",
+  "twigs": "landsoficaria:fir_twigs"
+}

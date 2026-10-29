@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_blue_yellow_fisshh_from_raw_blue_yellow_fisshh_grilling"
+        "recipes": "landsoficaria:cooked_blue_yellow_fisshh_from_raw_blue_yellow_fisshh_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

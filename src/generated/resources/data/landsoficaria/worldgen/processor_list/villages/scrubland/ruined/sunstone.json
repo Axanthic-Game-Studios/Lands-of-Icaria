@@ -11,9 +11,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -28,9 +26,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -45,9 +41,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -62,9 +56,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -79,9 +71,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -96,9 +86,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -113,9 +101,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -130,9 +116,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:sunstone_adobe"
-          }
+          "output_state": "landsoficaria:sunstone_adobe"
         }
       ]
     },
@@ -147,9 +131,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -164,9 +146,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -175,18 +155,14 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:sunstone_adobe"
-            },
+            "block_state": "landsoficaria:sunstone_adobe",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:cobweb"
-          },
+          "output_state": "minecraft:cobweb",
           "position_predicate": {
             "max_chance": 1.0,
             "max_dist": 8,
@@ -195,18 +171,14 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:sunstone_adobe"
-            },
+            "block_state": "landsoficaria:sunstone_adobe",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          },
+          "output_state": "minecraft:air",
           "position_predicate": {
             "max_chance": 1.0,
             "max_dist": 8,
@@ -220,18 +192,14 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:relicstone_tiles"
-            },
+            "block_state": "landsoficaria:relicstone_tiles",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:cobweb"
-          },
+          "output_state": "minecraft:cobweb",
           "position_predicate": {
             "max_chance": 1.0,
             "max_dist": 8,
@@ -240,18 +208,14 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:relicstone_tiles"
-            },
+            "block_state": "landsoficaria:relicstone_tiles",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          },
+          "output_state": "minecraft:air",
           "position_predicate": {
             "max_chance": 1.0,
             "max_dist": 8,
@@ -265,33 +229,25 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:relicstone_tiles"
-            },
+            "block_state": "landsoficaria:relicstone_tiles",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:cracked_relicstone_tiles"
-          }
+          "output_state": "landsoficaria:cracked_relicstone_tiles"
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:relicstone_tiles"
-            },
+            "block_state": "landsoficaria:relicstone_tiles",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:mossy_relicstone_tiles"
-          }
+          "output_state": "landsoficaria:mossy_relicstone_tiles"
         }
       ]
     },
@@ -306,9 +262,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -323,9 +277,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -334,43 +286,25 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:red_loot_vase",
-              "Properties": {
-                "mediterranean_waterlogged": "false",
-                "vase_variant": "0",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:red_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:arachne_spawner"
-          }
+          "output_state": "landsoficaria:arachne_spawner"
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:red_loot_vase",
-              "Properties": {
-                "mediterranean_waterlogged": "false",
-                "vase_variant": "0",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:red_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.5
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -385,9 +319,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -402,9 +334,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -419,9 +349,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -436,9 +364,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -453,9 +379,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -470,9 +394,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -487,9 +409,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -504,9 +424,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -521,9 +439,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -538,9 +454,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -555,9 +469,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -572,9 +484,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -589,9 +499,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -606,9 +514,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -623,9 +529,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -640,9 +544,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -657,9 +559,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     }

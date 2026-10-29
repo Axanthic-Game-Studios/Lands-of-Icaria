@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cracked_relicstone_tile_slab_from_cracked_relicstone_tiles"
+        "recipes": "landsoficaria:cracked_relicstone_tile_slab_from_cracked_relicstone_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

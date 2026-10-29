@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:light_gray_unfired_storage_vase_from_dyeing"
+        "recipes": "landsoficaria:light_gray_unfired_storage_vase_from_dyeing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

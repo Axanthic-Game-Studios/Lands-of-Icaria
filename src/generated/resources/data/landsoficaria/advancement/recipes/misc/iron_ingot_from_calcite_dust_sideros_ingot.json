@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:iron_ingot_from_calcite_dust_sideros_ingot"
+        "recipes": "landsoficaria:iron_ingot_from_calcite_dust_sideros_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_timber_bench"
+        "recipes": "landsoficaria:laurel_timber_bench"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

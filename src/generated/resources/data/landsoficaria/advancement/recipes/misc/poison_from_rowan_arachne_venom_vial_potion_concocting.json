@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:poison_from_rowan_arachne_venom_vial_potion_concocting"
+        "recipes": "landsoficaria:poison_from_rowan_arachne_venom_vial_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -28,11 +28,11 @@ public class SnullEmissiveRenderLayer extends RenderLayer<SnullRenderState, Snul
 	@Override
 	public void submit(PoseStack poseStack, SubmitNodeCollector nodeCollector, int pLightCoords, SnullRenderState pRenderState, float yRot, float xRot) {
 		var color = Color.getHSBColor(pRenderState.ageInTicks * 0.1F, 1.0F, 1.0F);
-		nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_EMISSIVE, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor, null);
+		nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_EMISSIVE, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor);
 		if (pRenderState.livingEntity.getCustomName() != null && pRenderState.livingEntity.getCustomName().getString().equalsIgnoreCase("Pro")) {
-			nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_EYES, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity, color.getRed() / 255.0F, color.getGreen() / 255.0F, color.getBlue() / 255.0F), null, pRenderState.outlineColor, null);
+			nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_EYES, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity, color.getRed() / 255.0F, color.getGreen() / 255.0F, color.getBlue() / 255.0F), null, pRenderState.outlineColor);
 		} else if (pRenderState.livingEntity.getCustomName() != null && pRenderState.livingEntity.getCustomName().getString().equalsIgnoreCase("Sans")) {
-			nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_SANS, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor, null);
+			nodeCollector.submitModel(this.getParentModel(), pRenderState, poseStack, IcariaRenderTypes.SNULL_SANS, LightCoordsUtil.FULL_BRIGHT, OverlayTexture.NO_OVERLAY, IcariaClientHelper.getLightBasedColorAndAlpha(pRenderState.livingEntity), null, pRenderState.outlineColor);
 		}
 	}
 }

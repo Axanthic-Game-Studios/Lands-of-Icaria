@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:repeater"
+        "recipes": "landsoficaria:repeater"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

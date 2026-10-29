@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:platoshale_wall_from_platoshale"
+        "recipes": "landsoficaria:platoshale_wall_from_platoshale"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

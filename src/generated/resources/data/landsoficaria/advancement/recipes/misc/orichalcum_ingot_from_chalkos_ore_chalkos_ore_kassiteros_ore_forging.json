@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_ingot_from_chalkos_ore_chalkos_ore_kassiteros_ore_forging"
+        "recipes": "landsoficaria:orichalcum_ingot_from_chalkos_ore_chalkos_ore_kassiteros_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -42,8 +42,8 @@ public class BidentRenderer extends EntityRenderer<BidentEntity, BidentRenderSta
 	public void submit(BidentRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		pPoseStack.pushPose();
 		pPoseStack.translate(0.0F, 0.25F, 0.0F);
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.yRot - 90.0F));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pRenderState.xRot - 45.0F));
+		pPoseStack.rotateDegrees(Axis.YP, pRenderState.yRot - 90.0F);
+		pPoseStack.rotateDegrees(Axis.ZP, pRenderState.xRot - 45.0F);
 		pRenderState.itemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 		pPoseStack.popPose();
 		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);

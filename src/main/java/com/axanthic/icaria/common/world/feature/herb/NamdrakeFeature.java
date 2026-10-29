@@ -4,37 +4,31 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class NamdrakeFeature extends Feature<NoneFeatureConfiguration> {
-	public NamdrakeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+public class NamdrakeFeature implements Feature {
+	public static final MapCodec<NamdrakeFeature> CODEC = MapCodec.unit(NamdrakeFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 
 		var size = 4;
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+					this.placeHerb(pWorldGenLevel, pBlockPos.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 				}
 			}
 		}
@@ -52,5 +46,10 @@ public class NamdrakeFeature extends Feature<NoneFeatureConfiguration> {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(IcariaBlocks.DRY_LAKE_BED.get())) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.NAMDRAKE.get().defaultBlockState());
 		}
+	}
+
+	@Override
+	public MapCodec<NamdrakeFeature> codec() {
+		return NamdrakeFeature.CODEC;
 	}
 }

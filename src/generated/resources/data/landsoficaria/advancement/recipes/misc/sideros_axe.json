@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sideros_axe"
+        "recipes": "landsoficaria:sideros_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

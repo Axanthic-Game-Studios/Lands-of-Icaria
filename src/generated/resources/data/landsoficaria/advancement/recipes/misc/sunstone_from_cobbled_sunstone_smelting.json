@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sunstone_from_cobbled_sunstone_smelting"
+        "recipes": "landsoficaria:sunstone_from_cobbled_sunstone_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

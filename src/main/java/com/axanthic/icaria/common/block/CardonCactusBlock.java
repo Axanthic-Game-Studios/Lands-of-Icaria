@@ -4,8 +4,6 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 
-import com.mojang.serialization.MapCodec;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -32,8 +30,6 @@ import net.minecraft.world.level.pathfinder.PathType;
 @ParametersAreNonnullByDefault
 
 public class CardonCactusBlock extends PipeBlock {
-	public static final MapCodec<CardonCactusBlock> CODEC = Block.simpleCodec(CardonCactusBlock::new);
-
 	public CardonCactusBlock(Properties pProperties) {
 		super(8.0F, pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.NORTH, false).setValue(BlockStateProperties.EAST, false).setValue(BlockStateProperties.SOUTH, false).setValue(BlockStateProperties.WEST, false).setValue(BlockStateProperties.UP, false).setValue(BlockStateProperties.DOWN, false));
@@ -122,11 +118,6 @@ public class CardonCactusBlock extends PipeBlock {
 		var belowWest = !pLevelReader.getBlockState(pBlockPos.below()).is(BlockItemTags.SAND.block()) && !pLevelReader.getBlockState(pBlockPos.below()).is(this) && pLevelReader.getBlockState(pBlockPos.west()).is(this);
 
 		return this.defaultBlockState().setValue(BlockStateProperties.UP, above).setValue(BlockStateProperties.DOWN, below).setValue(BlockStateProperties.NORTH, north || belowNorth).setValue(BlockStateProperties.EAST, east || belowEast).setValue(BlockStateProperties.SOUTH, south || belowSouth).setValue(BlockStateProperties.WEST, west || belowWest);
-	}
-
-	@Override
-	public MapCodec<? extends PipeBlock> codec() {
-		return CardonCactusBlock.CODEC;
 	}
 
 	@Override

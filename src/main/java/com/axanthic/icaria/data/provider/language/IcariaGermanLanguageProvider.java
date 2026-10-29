@@ -13,8 +13,8 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 @ParametersAreNonnullByDefault
 
 public class IcariaGermanLanguageProvider extends LanguageProvider {
-	public IcariaGermanLanguageProvider(PackOutput pPackOutput, String pId, String pLanguage) {
-		super(pPackOutput, pId, pLanguage);
+	public IcariaGermanLanguageProvider(PackOutput pPackOutput, String pId) {
+		super(pPackOutput, pId, "de_de");
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("advancement" + "." + IcariaIds.ID + "." + "chalkos_pickaxe" + "." + "description", "Stelle eine Kuffarspitzhacke her");
 		this.add("advancement" + "." + IcariaIds.ID + "." + "kiln" + "." + "description", "Stelle einen Töpferofen auf");
 		this.add("advancement" + "." + IcariaIds.ID + "." + "kassiteros_pickaxe" + "." + "description", "Stelle eine Galmeispitzhacke her");
-		this.add("advancement" + "." + IcariaIds.ID + "." + "forge" + "." + "description", "Stelle eine Schmelze auf");
+		this.add("advancement" + "." + IcariaIds.ID + "." + "forge" + "." + "description", "Stelle eine Schmiede auf");
 		this.add("advancement" + "." + IcariaIds.ID + "." + "orichalcum_pickaxe" + "." + "description", "Stelle eine Goldmessingspitzhacke her");
 		this.add("advancement" + "." + IcariaIds.ID + "." + "grinder" + "." + "description", "Stelle eine Mühle auf");
 		this.add("advancement" + "." + IcariaIds.ID + "." + "vanadiumsteel_pickaxe" + "." + "description", "Stelle eine Vanadinstahlspitzhacke her");
@@ -407,7 +407,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.KETTLE.get(), "Kessel");
 		this.add(IcariaBlocks.GRINDER.get(), "Mühle");
 		this.add(IcariaBlocks.KILN.get(), "Töpferofen");
-		this.add(IcariaBlocks.FORGE.get(), "Schmelze");
+		this.add(IcariaBlocks.FORGE.get(), "Schmiede");
 
 		this.add(IcariaBlocks.CHEST.get(), "Truhe");
 		this.add(IcariaBlocks.TRAPPED_CHEST.get(), "Redstone-Truhe");
@@ -1069,30 +1069,54 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add("command" + "." + IcariaIds.ID + "." + "heal" + "." + "success", "Heilen gelungen");
 
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_settings", "Rendereinstellungen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_settings" + "." + "tooltip", "Rendereinstellungen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_cluster_rays", "Haufenstrahlen rendern");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_cluster_rays" + "." + "tooltip", "Standard: An. Ob ein Haufen Strahlen rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_settings", "Renderentfernungseinstellungen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_settings" + "." + "tooltip", "Renderentfernungseinstellungen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays", "Renderentfernung Haufenstrahlen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays" + "." + "tooltip", "Standard: 256. Ob ein Haufen Strahlen basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items", "Renderentfernung Feuerstellengegstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items" + "." + "tooltip", "Standard: 256. Ob eine Feuerstelle Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items", "Renderentfernung Schmelzegegenstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items" + "." + "tooltip", "Standard: 256. Ob eine Schmelze Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears", "Renderentfernung Mühlengegenstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears" + "." + "tooltip", "Standard: 256. Ob eine Mühle Zahnräder basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items", "Renderentfernung Kesselgegenstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items" + "." + "tooltip", "Standard: 256. Ob ein Kessel Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items", "Renderentfernung Töpferofengegenstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items" + "." + "tooltip", "Standard: 256. Ob ein Töpferofen Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items", "Renderentfernung Regalgegenstände");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items" + "." + "tooltip", "Default: 256. Ob ein Regal Gegenstände basierend auf der Entfernung zu einem Spieler rendern soll.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_settings", "Spawneinstellungen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_settings" + "." + "tooltip", "Spawneinstellungen");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_configuration", "Render-Konfiguration");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays", "Render-Distanz der Cluster-Strahlen");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items", "Render-Distanz der Feuerstellen-Gegenstände");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items", "Render-Distanz der Schmiede-Gegenstände");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears", "Render-Distanz der Mühlen-Zahnräder");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items", "Render-Distanz der Regal-Gegenstände");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items", "Render-Distanz der Kessel-Gegenstände");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items", "Render-Distanz der Töpferofen-Gegenstände");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_configuration", "Spawn-Konfiguration");
+
 		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_arachnids", "Spinnentiere spawnen");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_arachnids" + "." + "tooltip", "Standard: An. Ob Spinnentiere spawnen sollen.");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "spell_configuration", "Zauber-Konfiguration");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "damage_bubble_spell", "Schaden des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "damage_magic_missile_spell", "Schaden des Magie-Geschoss-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "health_healing_spell", "Heilung des Heilungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_anti_gravity_spell", "Ungenauigkeit des Anti-Schwerkraft-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_bubble_spell", "Ungenauigkeit des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_fortifying_spell", "Ungenauigkeit des Stärkungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_freezing_spell", "Ungenauigkeit des Vereisungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_healing_spell", "Ungenauigkeit des Heilungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_magic_missile_spell", "Ungenauigkeit des Magie-Geschoss-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_anti_gravity_spell", "Geschwindigkeit des Anti-Schwerkraft-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_bubble_spell", "Geschwindigkeit des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_fortifying_spell", "Geschwindigkeit des Stärkungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_freezing_spell", "Geschwindigkeit des Vereisungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_healing_spell", "Geschwindigkeit des Heilungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_magic_missile_spell", "Geschwindigkeit des Magie-Geschoss-Zaubers");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_anti_gravity_spell", "Abklingzeit des Anti-Schwerkraft-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_bubble_spell", "Abklingzeit des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_fortifying_spell", "Abklingzeit des Stärkungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_freezing_spell", "Abklingzeit des Vereisungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_healing_spell", "Abklingzeit des Heilungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_magic_missile_spell", "Abklingzeit des Magie-Geschoss-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_anti_gravity_spell", "Effektverstärkung des Anti-Schwerkraft-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_fortifying_spell", "Effektverstärkung des Stärkungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_freezing_spell", "Effektverstärkung des Vereisungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_anti_gravity_spell", "Effektdauer des Anti-Schwerkraft-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_fortifying_spell", "Effektdauer des Stärkungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_freezing_spell", "Effektdauer des Vereisungs-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "minimum_bubble_amount_bubble_spell", "Minimale Blasen-Anzahl des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "maximum_bubble_amount_bubble_spell", "Maximale Blasen-Anzahl des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "minimum_bubble_lifetime_bubble_spell", "Minimale Blasen-Lebensdauer des Blasen-Zaubers");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "maximum_bubble_lifetime_bubble_spell", "Maximale Blasen-Lebensdauer des Blasen-Zaubers");
 
 		this.add("dimension" + "." + IcariaIds.ID + "." + "icaria", "Lands of Icaria");
 
@@ -1732,13 +1756,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlockTags.SOILS, "Böden");
 
+		this.add(IcariaBlockTags.SPELL_IMMUNE_BLOCKS, "Zauberresistente Blöcke");
+
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_CLUSTER, "Haufenunterstützungsblöcke");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Schluffsteingeröllunterstützungsblöcke");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_RUBBLE, "Geröllunterstützungsblöcke");
-
-		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Frotteeblöcke");
-
-		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Frotteematten");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.block(), "Vanadinstahlgitter");
 
@@ -1814,6 +1836,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY.block(), "Leeren-Quallengeleespeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY.block(), "Wasser-Quallengeleespeicherblöcke");
 
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Frotteeblöcke");
+		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Frotteematten");
+		this.add(IcariaBlockItemTags.TERRY_SLABS.block(), "Frotteestufen");
+		this.add(IcariaBlockItemTags.TERRY_STAIRS.block(), "Frotteetreppen");
+
 		this.add(IcariaInstrumentTags.CAPELLA_HORNS, "Kapellahörner");
 
 		this.add(IcariaItemTags.BRICKS_LOAM, "Lehmziegel");
@@ -1828,7 +1855,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTags.DUSTS_CALCITE, "Calcitstaub");
 		this.add(IcariaItemTags.DUSTS_HALITE, "Halitstaub");
 
-		this.add(IcariaItemTags.FIREPLACE_ITEMS, "Feuerstellengegenstände");
+		this.add(IcariaItemTags.FIREPLACE_ITEMS, "Feuerstellen-Gegenstände");
 
 		this.add(IcariaItemTags.GEMS_ANTHRACITE, "Schwarzkohleedelsteine");
 		this.add(IcariaItemTags.GEMS_CALCITE, "Calcitedelsteine");
@@ -1852,7 +1879,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTags.INGOTS_VANADIUM, "Vanadinbarren");
 		this.add(IcariaItemTags.INGOTS_VANADIUMSTEEL, "Vanadinstahlbarren");
 
-		this.add(IcariaItemTags.KETTLE_ITEMS, "Kesselgegenstände");
+		this.add(IcariaItemTags.KETTLE_ITEMS, "Kessel-Gegenstände");
 
 		this.add(IcariaItemTags.NUGGETS_BLURIDIUM, "Bluritklumpen");
 		this.add(IcariaItemTags.NUGGETS_CHALKOS, "Kuffarklumpen");
@@ -1901,10 +1928,6 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaItemTags.TOOLS_SCYTHE, "Sensen");
 
 		this.add(IcariaItemTags.UNFIRED_STORAGE_VASES, "Ungebrannte Speichervasen");
-
-		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Frotteeblöcke");
-
-		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Frotteematten");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.item(), "Vanadinstahlgitter");
 
@@ -1979,6 +2002,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VINE_REED.item(), "Weinschilfspeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY.item(), "Leeren-Quallengeleespeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY.item(), "Wasser-Quallengeleespeicherblöcke");
+
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Frotteeblöcke");
+		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Frotteematten");
+		this.add(IcariaBlockItemTags.TERRY_SLABS.item(), "Frotteestufen");
+		this.add(IcariaBlockItemTags.TERRY_STAIRS.item(), "Frotteetreppen");
 
 		this.add(IcariaPaintingTags.PAINTINGS, "Gemälde");
 		this.add(IcariaPaintingTags.BROWN_RUGS, "Braune Läufer");

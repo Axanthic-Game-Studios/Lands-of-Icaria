@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:voidshale_brick_wall_from_voidshale_bricks"
+        "recipes": "landsoficaria:voidshale_brick_wall_from_voidshale_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

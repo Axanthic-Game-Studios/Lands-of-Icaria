@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_fence"
+        "recipes": "landsoficaria:populus_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

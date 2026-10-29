@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_populus_wood_from_stripped_dead_populus_log"
+        "recipes": "landsoficaria:stripped_populus_wood_from_stripped_dead_populus_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

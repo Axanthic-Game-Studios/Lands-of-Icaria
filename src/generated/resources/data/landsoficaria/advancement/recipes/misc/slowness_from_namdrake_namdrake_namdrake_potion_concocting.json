@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:slowness_from_namdrake_namdrake_namdrake_potion_concocting"
+        "recipes": "landsoficaria:slowness_from_namdrake_namdrake_namdrake_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_bident"
+        "recipes": "landsoficaria:kassiteros_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

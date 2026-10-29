@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_relicstone_from_relicstone_smelting"
+        "recipes": "landsoficaria:smooth_relicstone_from_relicstone_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

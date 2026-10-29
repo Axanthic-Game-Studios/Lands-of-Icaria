@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grainite_wall_from_grainite_stonecutting"
+        "recipes": "landsoficaria:grainite_wall_from_grainite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

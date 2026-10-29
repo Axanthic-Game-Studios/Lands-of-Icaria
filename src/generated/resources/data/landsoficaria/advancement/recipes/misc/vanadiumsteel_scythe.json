@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_scythe"
+        "recipes": "landsoficaria:vanadiumsteel_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

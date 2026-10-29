@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:arachne_drone_from_namdrake_bolbos_bolbos_entity_concocting"
+        "recipes": "landsoficaria:arachne_drone_from_namdrake_bolbos_bolbos_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

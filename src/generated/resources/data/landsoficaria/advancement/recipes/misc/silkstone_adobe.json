@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkstone_adobe"
+        "recipes": "landsoficaria:silkstone_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

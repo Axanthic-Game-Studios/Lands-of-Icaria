@@ -33,7 +33,7 @@ public class CrawlerRevenantRenderer extends MobRenderer<CrawlerRevenantEntity, 
 	@Override
 	public void extractRenderState(CrawlerRevenantEntity pEntity, CrawlerRevenantRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.shadowStrength = pEntity.getShadowStrength();
 		pRenderState.id = pEntity.getId();
 		pRenderState.maxTick = pEntity.maxTick;

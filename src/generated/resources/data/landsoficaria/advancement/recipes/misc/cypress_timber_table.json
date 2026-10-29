@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_timber_table"
+        "recipes": "landsoficaria:cypress_timber_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

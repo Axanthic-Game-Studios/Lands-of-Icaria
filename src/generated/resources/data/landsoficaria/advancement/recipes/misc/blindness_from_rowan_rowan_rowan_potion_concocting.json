@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:blindness_from_rowan_rowan_rowan_potion_concocting"
+        "recipes": "landsoficaria:blindness_from_rowan_rowan_rowan_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

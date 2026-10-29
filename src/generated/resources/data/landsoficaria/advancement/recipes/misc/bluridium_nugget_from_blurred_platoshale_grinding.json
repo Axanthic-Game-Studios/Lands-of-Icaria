@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bluridium_nugget_from_blurred_platoshale_grinding"
+        "recipes": "landsoficaria:bluridium_nugget_from_blurred_platoshale_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

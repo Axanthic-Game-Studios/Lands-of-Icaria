@@ -2,15 +2,18 @@ package com.axanthic.icaria;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.client.meta.ColorMetadataManager;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
+
+import net.minecraft.resources.Identifier;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
-import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.neoforge.client.event.AddClientReloadListenersEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
@@ -29,27 +32,14 @@ public class Icaria {
 	}
 
 	public static void addListeners(IEventBus pBus) {
+		pBus.addListener(Icaria::onAddClientReloadListeners);
 		pBus.addListener(Icaria::onFMLClientSetup);
-		pBus.addListener(Icaria::onFMLCommonSetup);
 		pBus.addListener(Icaria::onRegisterPayloadHandlers);
-	}
-
-	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
-		Icaria.registerExtensionPoint(pEvent);
-	}
-
-	public static void onFMLCommonSetup(FMLCommonSetupEvent pEvent) {
-		Icaria.registerSetups(pEvent);
-	}
-
-	public static void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
-		Icaria.registerPayloadHandlers(pEvent);
 	}
 
 	public static void registerConfigs(IEventBus pBus) {
 		IcariaConfig.registerClientConfig();
-		IcariaConfig.registerCommonConfig();
-		IcariaConfig.registerServerConfig();
+		IcariaConfig.registerLocalConfig();
 	}
 
 	public static void registerRegistries(IEventBus pBus) {
@@ -60,7 +50,7 @@ public class Icaria {
 		IcariaDataComponents.DATA_COMPONENT_TYPES.register(pBus);
 		IcariaEntityDataSerializers.ENTITY_DATA_SERIALIZERS.register(pBus);
 		IcariaEntityTypes.ENTITY_TYPES.register(pBus);
-		IcariaFeatures.FEATURES.register(pBus);
+		IcariaFeatureTypes.FEATURE_TYPES.register(pBus);
 		IcariaFluids.FLUIDS.register(pBus);
 		IcariaFluidTypes.FLUID_TYPES.register(pBus);
 		IcariaItems.ITEMS.register(pBus);
@@ -77,15 +67,15 @@ public class Icaria {
 		IcariaStructureTypes.STRUCTURE_TYPES.register(pBus);
 	}
 
-	public static void registerExtensionPoint(FMLClientSetupEvent pEvent) {
+	public static void onAddClientReloadListeners(AddClientReloadListenersEvent pEvent) {
+		pEvent.addListener(Identifier.fromNamespaceAndPath(IcariaIds.ID, "color"), new ColorMetadataManager());
+	}
+
+	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
 		ModLoadingContext.get().getActiveContainer().registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
 	}
 
-	public static void registerSetups(FMLCommonSetupEvent pEvent) {
-		pEvent.enqueueWork(IcariaFlammables::setup);
-	}
-
-	public static void registerPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
+	public static void onRegisterPayloadHandlers(RegisterPayloadHandlersEvent pEvent) {
 		pEvent.registrar(IcariaIds.ID).playToClient(BarrelPayload.TYPE, BarrelPayload.STREAM_CODEC, BarrelPayload::handle);
 		pEvent.registrar(IcariaIds.ID).playToServer(ChestLabelPayload.TYPE, ChestLabelPayload.STREAM_CODEC, ChestLabelPayload::handle);
 		pEvent.registrar(IcariaIds.ID).playToClient(GrinderPayload.TYPE, GrinderPayload.STREAM_CODEC, GrinderPayload::handle);

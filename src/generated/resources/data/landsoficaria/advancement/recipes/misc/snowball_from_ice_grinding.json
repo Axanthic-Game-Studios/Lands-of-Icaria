@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:snowball_from_ice_grinding"
+        "recipes": "landsoficaria:snowball_from_ice_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

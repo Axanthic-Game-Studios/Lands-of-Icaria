@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:halite_shard_from_halite_block_grinding"
+        "recipes": "landsoficaria:halite_shard_from_halite_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -8,8 +8,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.tags.IcariaItemTags;
 
-import com.mojang.serialization.MapCodec;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -45,8 +43,6 @@ import net.minecraft.world.phys.BlockHitResult;
 
 public class FireplaceBlock extends BaseEntityBlock {
 	public float itemHeight;
-
-	public static final MapCodec<FireplaceBlock> CODEC = Block.simpleCodec(FireplaceBlock::new);
 
 	public FireplaceBlock(Properties pProperties) {
 		super(pProperties);
@@ -263,11 +259,6 @@ public class FireplaceBlock extends BaseEntityBlock {
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
 		}
-	}
-
-	@Override
-	public MapCodec<? extends BaseEntityBlock> codec() {
-		return FireplaceBlock.CODEC;
 	}
 
 	@Nullable

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:horizontal_silkglass_pane_from_silkglass_pane"
+        "recipes": "landsoficaria:horizontal_silkglass_pane_from_silkglass_pane"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -10,8 +10,6 @@ import net.minecraft.world.entity.LivingEntity;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenRenderState extends LivingEntityRenderState {
-	public float blue;
-	public float green;
-	public float red;
+	public int color;
 	public LivingEntity livingEntity;
 }

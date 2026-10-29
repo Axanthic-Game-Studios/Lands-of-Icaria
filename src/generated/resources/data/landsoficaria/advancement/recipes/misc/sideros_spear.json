@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sideros_spear"
+        "recipes": "landsoficaria:sideros_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:pink_dye_from_pink_ground_flowers"
+        "recipes": "landsoficaria:pink_dye_from_pink_ground_flowers"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

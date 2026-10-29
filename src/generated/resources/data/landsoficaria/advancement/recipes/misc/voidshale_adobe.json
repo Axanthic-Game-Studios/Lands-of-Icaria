@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:voidshale_adobe"
+        "recipes": "landsoficaria:voidshale_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

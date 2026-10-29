@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/farmland",
+  "parent": "minecraft:block/template_cube_bottom_top_indented",
   "textures": {
-    "dirt": "landsoficaria:block/silksand",
+    "bottom": "landsoficaria:block/silksand",
     "particle": "landsoficaria:block/silksand",
+    "side": "landsoficaria:block/silksand",
     "top": "landsoficaria:block/silksand_path"
   }
 }

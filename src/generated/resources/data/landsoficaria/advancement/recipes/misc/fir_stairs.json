@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_stairs"
+        "recipes": "landsoficaria:fir_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

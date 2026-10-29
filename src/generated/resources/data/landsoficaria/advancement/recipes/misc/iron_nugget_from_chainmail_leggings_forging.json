@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:iron_nugget_from_chainmail_leggings_forging"
+        "recipes": "landsoficaria:iron_nugget_from_chainmail_leggings_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

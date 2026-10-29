@@ -8,2115 +8,2183 @@
           "name": "landsoficaria:laurel_countertop"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "white_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "white_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:white_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "white_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "white_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:white_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "white_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "white_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:white_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "white_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "white_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:white_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "gray_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "gray_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gray_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "black_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "black_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:black_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "black_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "black_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:black_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "black_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "black_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:black_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "black_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "black_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:black_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "brown_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "brown_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "brown_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "brown_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "brown_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "brown_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "brown_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "brown_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "red_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "red_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:red_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "red_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "red_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:red_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "red_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "red_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:red_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "red_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "red_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:red_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "orange_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "orange_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:orange_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "orange_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "orange_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:orange_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "orange_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "orange_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:orange_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "orange_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "orange_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:orange_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "yellow_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "yellow_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:yellow_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "yellow_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "yellow_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:yellow_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "yellow_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "yellow_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:yellow_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "yellow_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "yellow_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:yellow_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "lime_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "lime_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:lime_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "lime_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "lime_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:lime_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "lime_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "lime_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:lime_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "lime_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "lime_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:lime_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "green_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "green_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:green_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "green_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "green_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:green_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "green_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "green_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:green_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "green_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "green_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:green_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "cyan_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "cyan_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:cyan_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "cyan_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "cyan_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:cyan_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "cyan_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "cyan_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:cyan_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "cyan_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "cyan_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:cyan_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "light_blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "blue_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "blue_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:blue_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "purple_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "purple_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:purple_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "purple_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "purple_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:purple_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "purple_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "purple_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:purple_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "purple_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "purple_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:purple_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "magenta_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "magenta_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:magenta_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "magenta_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "magenta_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:magenta_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "magenta_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "magenta_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:magenta_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "magenta_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "magenta_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:magenta_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "pink_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "pink_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "1"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "1"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:pink_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 1.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 1
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "pink_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "pink_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "2"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "2"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:pink_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 2.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 2
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "pink_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "pink_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "3"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "3"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:pink_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 3.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 3
+      },
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "pink_candle"
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle": "pink_candle"
+            }
+          },
+          {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_countertop",
+            "state": {
+              "candle_amount": "4"
+            }
           }
-        },
-        {
-          "block": "landsoficaria:laurel_countertop",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle_amount": "4"
-          }
-        }
-      ],
+        ]
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:pink_candle"
         }
       ],
-      "functions": [
-        {
-          "count": 4.0,
-          "function": "minecraft:set_count"
-        }
-      ],
-      "rolls": 1.0
+      "modifier": {
+        "type": "minecraft:set_count",
+        "count": 4
+      },
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/laurel_countertop"

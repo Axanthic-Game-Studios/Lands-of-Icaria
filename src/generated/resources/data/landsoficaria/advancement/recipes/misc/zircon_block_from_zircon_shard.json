@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:zircon_block_from_zircon_shard"
+        "recipes": "landsoficaria:zircon_block_from_zircon_shard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_relicstone_from_relicstone_brick_slab"
+        "recipes": "landsoficaria:chiseled_relicstone_from_relicstone_brick_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

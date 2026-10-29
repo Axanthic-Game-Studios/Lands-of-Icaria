@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:mossy_relicstone_tile_stairs"
+        "recipes": "landsoficaria:mossy_relicstone_tile_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

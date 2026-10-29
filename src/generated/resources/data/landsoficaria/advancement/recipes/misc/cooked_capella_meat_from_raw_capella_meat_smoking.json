@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_capella_meat_from_raw_capella_meat_smoking"
+        "recipes": "landsoficaria:cooked_capella_meat_from_raw_capella_meat_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

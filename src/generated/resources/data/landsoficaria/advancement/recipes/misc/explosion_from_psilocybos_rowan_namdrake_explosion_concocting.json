@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:explosion_from_psilocybos_rowan_namdrake_explosion_concocting"
+        "recipes": "landsoficaria:explosion_from_psilocybos_rowan_namdrake_explosion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

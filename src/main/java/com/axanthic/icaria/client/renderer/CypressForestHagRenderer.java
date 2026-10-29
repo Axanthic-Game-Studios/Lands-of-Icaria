@@ -26,7 +26,7 @@ public class CypressForestHagRenderer extends MobRenderer<ForestHagEntity, Cypre
 	public void extractRenderState(ForestHagEntity pEntity, CypressForestHagRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.aggressive = pEntity.isAggressive();
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.livingEntity = pEntity;
 	}
 

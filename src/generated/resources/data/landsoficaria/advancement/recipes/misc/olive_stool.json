@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_stool"
+        "recipes": "landsoficaria:olive_stool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

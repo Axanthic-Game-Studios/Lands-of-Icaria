@@ -3,49 +3,33 @@
   "criteria": {
     "chest": {
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:location_check",
-            "predicate": {
-              "block": {
-                "blocks": "landsoficaria:chest"
+        "location": {
+          "type": "minecraft:all_of",
+          "terms": [
+            {
+              "type": "minecraft:location_check",
+              "predicate": {
+                "block": {
+                  "blocks": [
+                    "landsoficaria:chest",
+                    "landsoficaria:trapped_chest"
+                  ]
+                }
+              }
+            },
+            {
+              "type": "minecraft:match_tool",
+              "predicate": {
+                "items": "landsoficaria:chest_label"
               }
             }
-          },
-          {
-            "condition": "minecraft:match_tool",
-            "predicate": {
-              "items": "landsoficaria:chest_label"
-            }
-          }
-        ]
-      },
-      "trigger": "minecraft:item_used_on_block"
-    },
-    "trapped_chest": {
-      "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:location_check",
-            "predicate": {
-              "block": {
-                "blocks": "landsoficaria:trapped_chest"
-              }
-            }
-          },
-          {
-            "condition": "minecraft:match_tool",
-            "predicate": {
-              "items": "landsoficaria:chest_label"
-            }
-          }
-        ]
+          ]
+        }
       },
       "trigger": "minecraft:item_used_on_block"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.chest.description"
     },
@@ -58,8 +42,7 @@
   },
   "requirements": [
     [
-      "chest",
-      "trapped_chest"
+      "chest"
     ]
   ],
   "sends_telemetry_event": true

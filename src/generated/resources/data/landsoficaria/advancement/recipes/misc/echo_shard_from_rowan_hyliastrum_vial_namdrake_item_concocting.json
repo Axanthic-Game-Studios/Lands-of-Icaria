@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:echo_shard_from_rowan_hyliastrum_vial_namdrake_item_concocting"
+        "recipes": "landsoficaria:echo_shard_from_rowan_hyliastrum_vial_namdrake_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

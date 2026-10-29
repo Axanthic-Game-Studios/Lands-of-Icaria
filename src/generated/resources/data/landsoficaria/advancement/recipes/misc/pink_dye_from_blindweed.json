@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:pink_dye_from_blindweed"
+        "recipes": "landsoficaria:pink_dye_from_blindweed"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

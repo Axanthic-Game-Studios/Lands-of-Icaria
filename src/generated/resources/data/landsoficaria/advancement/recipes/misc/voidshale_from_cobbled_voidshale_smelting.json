@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:voidshale_from_cobbled_voidshale_smelting"
+        "recipes": "landsoficaria:voidshale_from_cobbled_voidshale_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

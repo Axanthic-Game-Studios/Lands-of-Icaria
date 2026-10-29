@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:iron_nugget_from_iron_horse_armor_forging"
+        "recipes": "landsoficaria:iron_nugget_from_iron_horse_armor_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

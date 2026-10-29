@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:strawberry_seeds_from_strawberries"
+        "recipes": "landsoficaria:strawberry_seeds_from_strawberries"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

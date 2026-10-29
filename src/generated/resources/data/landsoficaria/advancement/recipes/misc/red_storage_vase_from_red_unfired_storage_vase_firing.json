@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:red_storage_vase_from_red_unfired_storage_vase_firing"
+        "recipes": "landsoficaria:red_storage_vase_from_red_unfired_storage_vase_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

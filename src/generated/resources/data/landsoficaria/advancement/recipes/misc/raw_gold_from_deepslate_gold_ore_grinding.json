@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_gold_from_deepslate_gold_ore_grinding"
+        "recipes": "landsoficaria:raw_gold_from_deepslate_gold_ore_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

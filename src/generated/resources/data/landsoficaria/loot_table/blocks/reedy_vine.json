@@ -5,123 +5,131 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "minecraft:shears"
-              }
-            },
-            {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "none"
-              }
-            }
-          ],
-          "name": "landsoficaria:reedy_vine"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:match_tool",
-              "predicate": {
-                "items": "minecraft:shears"
-              }
-            },
-            {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "vine"
-              }
-            }
-          ],
-          "name": "landsoficaria:reedy_vine"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:match_tool",
+          "condition": {
+            "type": "minecraft:all_of",
+            "terms": [
+              {
+                "type": "minecraft:match_tool",
                 "predicate": {
                   "items": "minecraft:shears"
                 }
+              },
+              {
+                "type": "minecraft:match_block",
+                "blocks": "landsoficaria:reedy_vine",
+                "state": {
+                  "vine": "none"
+                }
               }
-            },
-            {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "none"
-              }
-            }
-          ],
-          "functions": [
-            {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:uniform_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "bonusMultiplier": 2
-              }
-            }
-          ],
-          "name": "landsoficaria:vine_reed"
+            ]
+          },
+          "name": "landsoficaria:reedy_vine"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:match_tool",
+          "condition": {
+            "type": "minecraft:all_of",
+            "terms": [
+              {
+                "type": "minecraft:match_tool",
                 "predicate": {
                   "items": "minecraft:shears"
                 }
+              },
+              {
+                "type": "minecraft:match_block",
+                "blocks": "landsoficaria:reedy_vine",
+                "state": {
+                  "vine": "vine"
+                }
               }
-            },
-            {
-              "block": "landsoficaria:reedy_vine",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "vine": "vine"
+            ]
+          },
+          "name": "landsoficaria:reedy_vine"
+        }
+      ],
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:all_of",
+            "terms": [
+              {
+                "type": "minecraft:inverted",
+                "term": {
+                  "type": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:shears"
+                  }
+                }
+              },
+              {
+                "type": "minecraft:match_block",
+                "blocks": "landsoficaria:reedy_vine",
+                "state": {
+                  "vine": "none"
+                }
               }
+            ]
+          },
+          "modifier": {
+            "type": "minecraft:apply_bonus",
+            "enchantment": "minecraft:fortune",
+            "formula": "minecraft:uniform_bonus_count",
+            "parameters": {
+              "bonusMultiplier": 2
             }
-          ],
-          "functions": [
-            {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:uniform_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "bonusMultiplier": 2
-              }
-            }
-          ],
+          },
           "name": "landsoficaria:vine_reed"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
+    },
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "condition": {
+            "type": "minecraft:all_of",
+            "terms": [
+              {
+                "type": "minecraft:inverted",
+                "term": {
+                  "type": "minecraft:match_tool",
+                  "predicate": {
+                    "items": "minecraft:shears"
+                  }
+                }
+              },
+              {
+                "type": "minecraft:match_block",
+                "blocks": "landsoficaria:reedy_vine",
+                "state": {
+                  "vine": "vine"
+                }
+              }
+            ]
+          },
+          "modifier": {
+            "type": "minecraft:apply_bonus",
+            "enchantment": "minecraft:fortune",
+            "formula": "minecraft:uniform_bonus_count",
+            "parameters": {
+              "bonusMultiplier": 2
+            }
+          },
+          "name": "landsoficaria:vine_reed"
+        }
+      ],
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/reedy_vine"

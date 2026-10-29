@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_trough"
+        "recipes": "landsoficaria:olive_trough"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

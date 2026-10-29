@@ -26,7 +26,7 @@ public class LaurelForestHagRenderer extends MobRenderer<ForestHagEntity, Laurel
 	public void extractRenderState(ForestHagEntity pEntity, LaurelForestHagRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.aggressive = pEntity.isAggressive();
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.livingEntity = pEntity;
 	}
 

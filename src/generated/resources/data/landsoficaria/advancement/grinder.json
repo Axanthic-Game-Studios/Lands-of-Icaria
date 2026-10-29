@@ -3,18 +3,15 @@
   "criteria": {
     "grinder": {
       "conditions": {
-        "location": [
-          {
-            "block": "landsoficaria:grinder",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "landsoficaria:grinder"
+        }
       },
       "trigger": "minecraft:placed_block"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.grinder.description"
     },

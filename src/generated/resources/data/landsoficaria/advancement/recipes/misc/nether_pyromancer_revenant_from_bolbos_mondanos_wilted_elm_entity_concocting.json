@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:nether_pyromancer_revenant_from_bolbos_mondanos_wilted_elm_entity_concocting"
+        "recipes": "landsoficaria:nether_pyromancer_revenant_from_bolbos_mondanos_wilted_elm_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

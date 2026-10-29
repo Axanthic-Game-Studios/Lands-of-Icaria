@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:crawler_revenant_from_bolbos_dathulla_mondanos_entity_concocting"
+        "recipes": "landsoficaria:crawler_revenant_from_bolbos_dathulla_mondanos_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

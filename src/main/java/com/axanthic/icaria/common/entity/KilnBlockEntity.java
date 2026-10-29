@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
@@ -30,6 +31,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.util.ProblemReporter;
+import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.world.Containers;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.inventory.ContainerData;
@@ -45,6 +47,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.TagValueOutput;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
+import net.minecraft.world.level.storage.loot.LootContext;
+import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.Vec3;
 
 import net.neoforged.neoforge.transfer.RangedResourceHandler;
@@ -98,7 +102,8 @@ public class KilnBlockEntity extends BlockEntity {
 	}
 
 	public int getFuelTime(ServerLevel pServerLevel) {
-		return this.handler.getResource(0).toStack().getBurnTime(IcariaRecipeTypes.FIRING.get(), pServerLevel.fuelValues());
+		var fuel = this.handler.getResource(0).get(DataComponents.COOKING_FUEL);
+		return fuel != null ? fuel.burnTime().get(this.getLootContext(pServerLevel), 0) : 0;
 	}
 
 	public int getRedstoneStrength() {
@@ -258,6 +263,39 @@ public class KilnBlockEntity extends BlockEntity {
 		return tagValueOutput.buildResult();
 	}
 
+	public ItemStack getFuel() {
+		return this.handler.getResource(0).toStack();
+	}
+
+	public ItemStack getIntake() {
+		return this.handler.getResource(1).toStack();
+	}
+
+	public ItemStack getResult(ServerLevel pServerLevel) {
+		if (this.getRecipe(pServerLevel).isPresent()) {
+			return this.getRecipe(pServerLevel).get().value().result().create();
+		} else {
+			return ItemStack.EMPTY;
+		}
+	}
+
+	public LootContext getLootContext(ServerLevel pServerLevel) {
+		return new LootContext.Builder(new LootParams.Builder(pServerLevel).create(ContextKeySet.EMPTY)).create(Optional.empty());
+	}
+
+	public Optional<RecipeHolder<FiringRecipe>> getRecipe(ServerLevel pServerLevel) {
+		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.getRecipeInput(), pServerLevel);
+	}
+
+	@Override
+	public Packet<ClientGamePacketListener> getUpdatePacket() {
+		return ClientboundBlockEntityDataPacket.create(this);
+	}
+
+	public RecipeInput getRecipeInput() {
+		return new SingleRecipeInput(this.handler.getResource(1).toStack());
+	}
+
 	@Nullable
 	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
 		var blockPos = pBlockEntity.getBlockPos();
@@ -284,34 +322,5 @@ public class KilnBlockEntity extends BlockEntity {
 		} else {
 			return null;
 		}
-	}
-
-	public ItemStack getFuel() {
-		return this.handler.getResource(0).toStack();
-	}
-
-	public ItemStack getIntake() {
-		return this.handler.getResource(1).toStack();
-	}
-
-	public ItemStack getResult(ServerLevel pServerLevel) {
-		if (this.getRecipe(pServerLevel).isPresent()) {
-			return this.getRecipe(pServerLevel).get().value().result().create();
-		} else {
-			return ItemStack.EMPTY;
-		}
-	}
-
-	public Optional<RecipeHolder<FiringRecipe>> getRecipe(ServerLevel pServerLevel) {
-		return pServerLevel.recipeAccess().getRecipeFor(IcariaRecipeTypes.FIRING.get(), this.getRecipeInput(), pServerLevel);
-	}
-
-	@Override
-	public Packet<ClientGamePacketListener> getUpdatePacket() {
-		return ClientboundBlockEntityDataPacket.create(this);
-	}
-
-	public RecipeInput getRecipeInput() {
-		return new SingleRecipeInput(this.handler.getResource(1).toStack());
 	}
 }

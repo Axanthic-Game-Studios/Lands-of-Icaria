@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_helmet"
+        "recipes": "landsoficaria:kassiteros_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

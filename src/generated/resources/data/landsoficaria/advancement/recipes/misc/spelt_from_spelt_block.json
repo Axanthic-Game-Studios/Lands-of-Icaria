@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:spelt_from_spelt_block"
+        "recipes": "landsoficaria:spelt_from_spelt_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

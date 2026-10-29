@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vinegaroon_from_mondanos_mondanos_psilocybos_entity_concocting"
+        "recipes": "landsoficaria:vinegaroon_from_mondanos_mondanos_psilocybos_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

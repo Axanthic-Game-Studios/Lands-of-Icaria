@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:anti_gravity_spell_from_namdrake_bolbos_hyliastrum_vial_item_concocting"
+        "recipes": "landsoficaria:anti_gravity_spell_from_namdrake_bolbos_hyliastrum_vial_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

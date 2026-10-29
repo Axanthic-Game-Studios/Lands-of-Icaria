@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cracked_nether_bricks_from_nether_bricks_grinding"
+        "recipes": "landsoficaria:cracked_nether_bricks_from_nether_bricks_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

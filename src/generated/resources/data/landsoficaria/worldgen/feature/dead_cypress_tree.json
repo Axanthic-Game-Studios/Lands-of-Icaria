@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_cypress_log",
+  "log": "landsoficaria:cypress_log",
+  "max": 8,
+  "min": 5,
+  "moss": "landsoficaria:steppe_moss",
+  "treeShrooms": "landsoficaria:tinder_fungus_tree_shrooms",
+  "twigs": "landsoficaria:cypress_twigs"
+}

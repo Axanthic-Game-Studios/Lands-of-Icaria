@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:dolomite_from_dolomite_ore_forging"
+        "recipes": "landsoficaria:dolomite_from_dolomite_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

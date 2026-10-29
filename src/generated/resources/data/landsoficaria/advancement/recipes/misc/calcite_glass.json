@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:calcite_glass"
+        "recipes": "landsoficaria:calcite_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

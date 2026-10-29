@@ -5,32 +5,28 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:olive_leaves",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "olives": "black"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:olive_leaves",
+            "state": {
+              "olives": "black"
             }
-          ],
+          },
           "name": "landsoficaria:black_olives"
         },
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:olive_leaves",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "olives": "green"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:olive_leaves",
+            "state": {
+              "olives": "green"
             }
-          ],
+          },
           "name": "landsoficaria:green_olives"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:olive_leaves/olive_leaves"

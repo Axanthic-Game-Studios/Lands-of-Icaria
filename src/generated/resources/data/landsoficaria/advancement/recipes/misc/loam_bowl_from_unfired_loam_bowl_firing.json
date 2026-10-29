@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_bowl_from_unfired_loam_bowl_firing"
+        "recipes": "landsoficaria:loam_bowl_from_unfired_loam_bowl_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

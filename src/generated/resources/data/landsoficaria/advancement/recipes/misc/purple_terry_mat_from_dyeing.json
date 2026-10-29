@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:purple_terry_mat_from_dyeing"
+        "recipes": "landsoficaria:purple_terry_mat_from_dyeing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

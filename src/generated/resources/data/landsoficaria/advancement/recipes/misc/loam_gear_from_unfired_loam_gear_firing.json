@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_gear_from_unfired_loam_gear_firing"
+        "recipes": "landsoficaria:loam_gear_from_unfired_loam_gear_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

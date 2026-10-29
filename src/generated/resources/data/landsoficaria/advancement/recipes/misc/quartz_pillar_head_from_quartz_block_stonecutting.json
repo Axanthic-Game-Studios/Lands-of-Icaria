@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:quartz_pillar_head_from_quartz_block_stonecutting"
+        "recipes": "landsoficaria:quartz_pillar_head_from_quartz_block_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

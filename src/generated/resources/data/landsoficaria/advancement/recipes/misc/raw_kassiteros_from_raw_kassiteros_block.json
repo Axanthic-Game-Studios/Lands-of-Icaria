@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_kassiteros_from_raw_kassiteros_block"
+        "recipes": "landsoficaria:raw_kassiteros_from_raw_kassiteros_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

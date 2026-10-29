@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bluridium_ingot_from_bluridium_block"
+        "recipes": "landsoficaria:bluridium_ingot_from_bluridium_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

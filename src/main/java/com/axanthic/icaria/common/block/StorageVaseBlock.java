@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -41,6 +42,11 @@ public class StorageVaseBlock extends Block implements EntityBlock, Mediterranea
 	@Override
 	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
+	}
+
+	@Override
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
+		return false;
 	}
 
 	@Override

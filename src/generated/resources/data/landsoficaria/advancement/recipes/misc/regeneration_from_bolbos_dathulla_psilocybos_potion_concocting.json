@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:regeneration_from_bolbos_dathulla_psilocybos_potion_concocting"
+        "recipes": "landsoficaria:regeneration_from_bolbos_dathulla_psilocybos_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

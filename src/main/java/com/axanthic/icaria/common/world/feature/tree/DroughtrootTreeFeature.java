@@ -2,76 +2,88 @@ package com.axanthic.icaria.common.world.feature.tree;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaFeatureHelper;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DroughtrootTreeFeature extends TreeFeature {
-	public DroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.FALLEN_DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
-	}
+public record DroughtrootTreeFeature(BlockState fallen, BlockState leaves, BlockState log, BlockState shrooms, BlockState twigs) implements Feature {
+	public static final MapCodec<DroughtrootTreeFeature> CODEC = RecordCodecBuilder.mapCodec(
+		instance -> instance.group(
+			BlockState.CODEC.fieldOf("fallen").forGetter(DroughtrootTreeFeature::fallen),
+			BlockState.CODEC.fieldOf("leaves").forGetter(DroughtrootTreeFeature::leaves),
+			BlockState.CODEC.fieldOf("log").forGetter(DroughtrootTreeFeature::log),
+			BlockState.CODEC.fieldOf("shrooms").forGetter(DroughtrootTreeFeature::shrooms),
+			BlockState.CODEC.fieldOf("twigs").forGetter(DroughtrootTreeFeature::twigs)
+		).apply(instance, DroughtrootTreeFeature::new)
+	);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+		var heightTrunk = pRandomSource.nextIntBetweenInclusive(2, 4);
+		var heightLower = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var heightInner = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var heightUpper = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var heightTotal = pBlockPos.below().getY() + heightTrunk + heightLower + heightInner + heightUpper;
 
-		var heightTrunk = random.nextIntBetweenInclusive(2, 4);
-		var heightLower = random.nextIntBetweenInclusive(1, 4);
-		var heightInner = random.nextIntBetweenInclusive(1, 4);
-		var heightUpper = random.nextIntBetweenInclusive(1, 4);
-		var heightTotal = origin.below().getY() + heightTrunk + heightLower + heightInner + heightUpper;
-
-		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+		if (heightTotal < pWorldGenLevel.getMaxY() && pWorldGenLevel.getBlockState(pBlockPos.atY(heightTotal)).canBeReplaced()) {
 			for (var i = 1; i <= heightTrunk; i++) {
-				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(i), this.log(), Direction.Axis.Y);
 			}
 
 			for (var i = 1; i <= heightLower; i++) {
 				heightTrunk++;
 				direction = direction.getOpposite();
-				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-				this.placeLog(level, origin.below().above(heightTrunk).relative(direction), direction.getAxis());
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction), 2);
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getClockWise()));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getCounterClockWise()));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction).relative(direction.getClockWise()));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction).relative(direction.getCounterClockWise()));
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction), this.log(), direction.getAxis());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction), this.leaves(), 2);
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction.getClockWise()), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction.getCounterClockWise()), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction).relative(direction.getClockWise()), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction).relative(direction.getCounterClockWise()), this.leaves());
 			}
 
 			for (var i = 1; i <= heightInner; i++) {
 				heightTrunk++;
 				direction = direction.getOpposite();
-				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getClockWise()));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction.getCounterClockWise()));
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction.getClockWise()), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction.getCounterClockWise()), this.leaves());
 			}
 
 			for (var i = 1; i <= heightUpper; i++) {
 				heightTrunk++;
 				direction = direction.getOpposite();
-				this.placeLeaves(level, origin.below().above(heightTrunk));
-				this.placeLeaves(level, origin.below().above(heightTrunk).relative(direction));
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).relative(direction), this.leaves());
 			}
 
-			this.placeTwigsPatch(level, origin, 4);
-			this.placeFallenPatch(level, origin, 4);
-			this.placeShroomsPatch(level, origin, 4);
+			IcariaFeatureHelper.placeTwigsPatch(pWorldGenLevel, pBlockPos, this.twigs(), 4);
+			IcariaFeatureHelper.placeFallenPatch(pWorldGenLevel, pBlockPos, this.fallen(), 4);
+			IcariaFeatureHelper.placeShroomsPatch(pWorldGenLevel, pBlockPos, this.shrooms(), 4);
 
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public MapCodec<DroughtrootTreeFeature> codec() {
+		return DroughtrootTreeFeature.CODEC;
 	}
 }

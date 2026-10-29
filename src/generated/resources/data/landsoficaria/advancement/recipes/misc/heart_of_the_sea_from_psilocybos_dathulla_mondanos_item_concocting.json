@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:heart_of_the_sea_from_psilocybos_dathulla_mondanos_item_concocting"
+        "recipes": "landsoficaria:heart_of_the_sea_from_psilocybos_dathulla_mondanos_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

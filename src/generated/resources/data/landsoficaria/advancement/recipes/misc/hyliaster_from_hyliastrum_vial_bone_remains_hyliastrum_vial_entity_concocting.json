@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:hyliaster_from_hyliastrum_vial_bone_remains_hyliastrum_vial_entity_concocting"
+        "recipes": "landsoficaria:hyliaster_from_hyliastrum_vial_bone_remains_hyliastrum_vial_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

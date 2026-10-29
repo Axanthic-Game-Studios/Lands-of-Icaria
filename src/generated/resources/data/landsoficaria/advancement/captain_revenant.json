@@ -3,21 +3,18 @@
   "criteria": {
     "captain_revenant": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "landsoficaria:captain_revenant"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "landsoficaria:captain_revenant"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.captain_revenant.description"
     },

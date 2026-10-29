@@ -83,7 +83,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:mossy_stone_bricks"
+        "recipes": "landsoficaria:mossy_stone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

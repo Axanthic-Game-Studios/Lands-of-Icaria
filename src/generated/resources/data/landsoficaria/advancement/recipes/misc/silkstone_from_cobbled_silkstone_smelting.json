@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkstone_from_cobbled_silkstone_smelting"
+        "recipes": "landsoficaria:silkstone_from_cobbled_silkstone_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

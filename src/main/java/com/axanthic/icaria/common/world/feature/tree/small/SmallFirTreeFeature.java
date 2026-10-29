@@ -2,51 +2,61 @@ package com.axanthic.icaria.common.world.feature.tree.small;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaFeatureHelper;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class SmallFirTreeFeature extends SmallTreeFeature {
-	public SmallFirTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.FALLEN_FIR_LEAVES.get(), IcariaBlocks.FIR_LEAVES.get(), IcariaBlocks.FIR_LOG.get());
-	}
+public record SmallFirTreeFeature(BlockState fallen, BlockState leaves, BlockState log) implements Feature {
+	public static final MapCodec<SmallFirTreeFeature> CODEC = RecordCodecBuilder.mapCodec(
+		instance -> instance.group(
+			BlockState.CODEC.fieldOf("fallen").forGetter(SmallFirTreeFeature::fallen),
+			BlockState.CODEC.fieldOf("leaves").forGetter(SmallFirTreeFeature::leaves),
+			BlockState.CODEC.fieldOf("log").forGetter(SmallFirTreeFeature::log)
+		).apply(instance, SmallFirTreeFeature::new)
+	);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var aabb = IcariaFeatureHelper.aabb(pBlockPos);
 
-		var aabb = this.aabb(origin);
+		if (pWorldGenLevel.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && pWorldGenLevel.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos, this.log(), Direction.Axis.Y);
 
-		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && level.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
-			this.placeLog(level, origin, Direction.Axis.Y);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.above(), this.leaves());
 
-			this.placeLeaves(level, origin.above());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.north(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.east(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.south(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.west(), this.leaves());
 
-			this.placeLeaves(level, origin.north());
-			this.placeLeaves(level, origin.east());
-			this.placeLeaves(level, origin.south());
-			this.placeLeaves(level, origin.west());
+			IcariaFeatureHelper.placeFallen(pWorldGenLevel, pBlockPos.above().above(), this.fallen(), pRandomSource.nextIntBetweenInclusive(4, 8));
 
-			this.placeFallen(level, origin.above().above(), random.nextIntBetweenInclusive(4, 8));
-
-			this.placeFallen(level, origin.north().above(), random.nextIntBetweenInclusive(4, 8), 2);
-			this.placeFallen(level, origin.east().above(), random.nextIntBetweenInclusive(4, 8), 2);
-			this.placeFallen(level, origin.south().above(), random.nextIntBetweenInclusive(4, 8), 2);
-			this.placeFallen(level, origin.west().above(), random.nextIntBetweenInclusive(4, 8), 2);
+			IcariaFeatureHelper.placeFallen(pWorldGenLevel, pBlockPos.north().above(), this.fallen(), pRandomSource.nextIntBetweenInclusive(4, 8), 2);
+			IcariaFeatureHelper.placeFallen(pWorldGenLevel, pBlockPos.east().above(), this.fallen(), pRandomSource.nextIntBetweenInclusive(4, 8), 2);
+			IcariaFeatureHelper.placeFallen(pWorldGenLevel, pBlockPos.south().above(), this.fallen(), pRandomSource.nextIntBetweenInclusive(4, 8), 2);
+			IcariaFeatureHelper.placeFallen(pWorldGenLevel, pBlockPos.west().above(), this.fallen(), pRandomSource.nextIntBetweenInclusive(4, 8), 2);
 
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public MapCodec<SmallFirTreeFeature> codec() {
+		return SmallFirTreeFeature.CODEC;
 	}
 }

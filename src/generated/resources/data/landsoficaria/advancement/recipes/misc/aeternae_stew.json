@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:aeternae_stew"
+        "recipes": "landsoficaria:aeternae_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

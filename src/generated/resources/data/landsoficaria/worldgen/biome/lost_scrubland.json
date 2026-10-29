@@ -1,5 +1,44 @@
 {
   "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "landsoficaria:arachne_drone",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            },
+            {
+              "type": "landsoficaria:laurel_forest_hag",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "type": "landsoficaria:plane_forest_hag",
+              "count": 1,
+              "weight": 1
+            },
+            {
+              "type": "landsoficaria:crawler_revenant",
+              "count": 1,
+              "weight": 100
+            },
+            {
+              "type": "landsoficaria:overgrown_revenant",
+              "count": 1,
+              "weight": 100
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
     "minecraft:gameplay/snow_golem_melts": false,
     "minecraft:visual/water_fog_color": "#468c52"
   },
@@ -70,47 +109,5 @@
     ]
   ],
   "has_precipitation": false,
-  "spawn_costs": {},
-  "spawners": {
-    "ambient": [],
-    "axolotls": [],
-    "creature": [],
-    "misc": [],
-    "monster": [
-      {
-        "type": "landsoficaria:arachne_drone",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:laurel_forest_hag",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
-      },
-      {
-        "type": "landsoficaria:plane_forest_hag",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 1
-      },
-      {
-        "type": "landsoficaria:crawler_revenant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:overgrown_revenant",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 100
-      }
-    ],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
-  },
   "temperature": 1.0
 }

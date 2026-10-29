@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_leggings"
+        "recipes": "landsoficaria:vanadiumsteel_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

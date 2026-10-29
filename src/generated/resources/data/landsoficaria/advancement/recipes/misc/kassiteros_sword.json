@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_sword"
+        "recipes": "landsoficaria:kassiteros_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -3,21 +3,18 @@
   "criteria": {
     "loot_vase": {
       "conditions": {
-        "source": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "landsoficaria:loot_vase"
-            }
+        "source": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "landsoficaria:loot_vase"
           }
-        ]
+        }
       },
       "trigger": "minecraft:effects_changed"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.loot_vase.description"
     },

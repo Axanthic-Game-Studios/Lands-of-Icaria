@@ -5,7 +5,7 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import java.util.ArrayList;
 
@@ -15,41 +15,34 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class RuinFeature extends Feature<NoneFeatureConfiguration> {
+public class RuinFeature implements Feature {
 	public ArrayList<EntityType<?>> mobs = new ArrayList<>();
 
-	public RuinFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+	public static final MapCodec<RuinFeature> CODEC = MapCodec.unit(RuinFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
 		this.setMobs();
 
 		for (var x = 0; x < 16; x++) {
-			var pX = origin.getX() + x;
+			var pX = pBlockPos.getX() + x;
 			for (var z = 0; z < 16; z++) {
-				var pZ = origin.getZ() + z;
+				var pZ = pBlockPos.getZ() + z;
 				for (var y = 40; y < 48; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
-					var oldState = level.getBlockState(belowPos);
+					var oldState = pWorldGenLevel.getBlockState(belowPos);
 					var newState = oldState.is(IcariaBlocks.MARL.get()) ? IcariaBlocks.GRASSY_MARL.get().defaultBlockState() : oldState;
 
-					this.replaceRelicstone(level, blockPos, newState, 10);
+					this.replaceRelicstone(pWorldGenLevel, blockPos, newState, 10);
 
-					this.setMobsForSpawners(level, blockPos, random);
+					this.setMobsForSpawners(pWorldGenLevel, blockPos, pRandomSource);
 				}
 			}
 		}
@@ -83,5 +76,10 @@ public class RuinFeature extends Feature<NoneFeatureConfiguration> {
 
 	public EntityType<?> getMob(RandomSource pRandomSource) {
 		return this.mobs.get(pRandomSource.nextInt(this.mobs.size()));
+	}
+
+	@Override
+	public MapCodec<RuinFeature> codec() {
+		return RuinFeature.CODEC;
 	}
 }

@@ -23,6 +23,19 @@ public class IcariaPaintingItem extends HangingEntityItem {
 		super(IcariaEntityTypes.PAINTING.get(), pProperties);
 	}
 
+	public InteractionResult handleAction(BlockPos pBlockPos, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var optional = IcariaPaintingEntity.create(pBlockPos, pDirection, pLevel);
+		if (optional.isPresent() && optional.get().survives() && !pLevel.isClientSide()) {
+			pItemStack.consume(1, pPlayer);
+			pLevel.addFreshEntity(optional.get());
+			pLevel.gameEvent(pPlayer, GameEvent.ENTITY_PLACE, optional.get().position());
+			optional.get().playPlacementSound();
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.CONSUME;
+		}
+	}
+
 	@Override
 	public InteractionResult useOn(UseOnContext pUseOnContext) {
 		var direction = pUseOnContext.getClickedFace();
@@ -32,19 +45,6 @@ public class IcariaPaintingItem extends HangingEntityItem {
 		var blockPos = pUseOnContext.getClickedPos().relative(direction);
 		if (player != null && this.mayPlace(player, direction, itemStack, blockPos)) {
 			return this.handleAction(blockPos, direction, itemStack, level, player);
-		} else {
-			return InteractionResult.CONSUME;
-		}
-	}
-
-	public InteractionResult handleAction(BlockPos pBlockPos, Direction pDirection, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		var optional = IcariaPaintingEntity.create(pBlockPos, pDirection, pLevel);
-		if (optional.isPresent() && optional.get().survives() && !pLevel.isClientSide()) {
-			pItemStack.consume(1, pPlayer);
-			pLevel.addFreshEntity(optional.get());
-			pLevel.gameEvent(pPlayer, GameEvent.ENTITY_PLACE, optional.get().position());
-			optional.get().playPlacementSound();
-			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.CONSUME;
 		}

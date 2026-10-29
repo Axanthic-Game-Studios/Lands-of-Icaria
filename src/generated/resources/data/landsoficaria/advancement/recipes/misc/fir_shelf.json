@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_shelf"
+        "recipes": "landsoficaria:fir_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

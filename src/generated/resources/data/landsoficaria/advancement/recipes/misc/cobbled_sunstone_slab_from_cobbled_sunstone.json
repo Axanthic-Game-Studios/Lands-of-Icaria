@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_sunstone_slab_from_cobbled_sunstone"
+        "recipes": "landsoficaria:cobbled_sunstone_slab_from_cobbled_sunstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

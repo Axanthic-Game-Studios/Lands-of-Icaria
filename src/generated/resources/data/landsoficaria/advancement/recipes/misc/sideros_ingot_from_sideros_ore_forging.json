@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sideros_ingot_from_sideros_ore_forging"
+        "recipes": "landsoficaria:sideros_ingot_from_sideros_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

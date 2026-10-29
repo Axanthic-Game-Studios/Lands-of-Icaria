@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_droughtroot_log",
+  "log": "landsoficaria:droughtroot_log",
+  "max": 11,
+  "min": 3,
+  "moss": "minecraft:air",
+  "treeShrooms": "landsoficaria:unnamed_tree_shrooms",
+  "twigs": "landsoficaria:droughtroot_twigs"
+}

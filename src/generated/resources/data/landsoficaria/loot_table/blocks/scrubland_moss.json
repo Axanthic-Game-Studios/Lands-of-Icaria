@@ -5,193 +5,161 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "1"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "1"
             }
-          ],
-          "functions": [
-            {
-              "count": 1.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "2"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "2"
             }
-          ],
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "3"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "3"
             }
-          ],
-          "functions": [
-            {
-              "count": 3.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 3
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "4"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "4"
             }
-          ],
-          "functions": [
-            {
-              "count": 4.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 4
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "5"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "5"
             }
-          ],
-          "functions": [
-            {
-              "count": 5.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 5
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "6"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "6"
             }
-          ],
-          "functions": [
-            {
-              "count": 6.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 6
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "7"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "7"
             }
-          ],
-          "functions": [
-            {
-              "count": 7.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 7
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:scrubland_moss",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "layers": "8"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:scrubland_moss",
+            "state": {
+              "layers": "8"
             }
-          ],
-          "functions": [
-            {
-              "count": 8.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 8
+          },
           "name": "landsoficaria:scrubland_moss"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/scrubland_moss"

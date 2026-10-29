@@ -9,8 +9,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.KilnVoxelShapes;
 
-import com.mojang.serialization.MapCodec;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -43,8 +41,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class KilnBlock extends BaseEntityBlock {
-	public static final MapCodec<KilnBlock> CODEC = Block.simpleCodec(KilnBlock::new);
-
 	public KilnBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
@@ -174,11 +170,6 @@ public class KilnBlock extends BaseEntityBlock {
 		} else {
 			return InteractionResult.SUCCESS;
 		}
-	}
-
-	@Override
-	public MapCodec<? extends BaseEntityBlock> codec() {
-		return KilnBlock.CODEC;
 	}
 
 	@Override

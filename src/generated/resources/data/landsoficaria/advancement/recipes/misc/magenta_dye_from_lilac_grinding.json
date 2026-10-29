@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:magenta_dye_from_lilac_grinding"
+        "recipes": "landsoficaria:magenta_dye_from_lilac_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

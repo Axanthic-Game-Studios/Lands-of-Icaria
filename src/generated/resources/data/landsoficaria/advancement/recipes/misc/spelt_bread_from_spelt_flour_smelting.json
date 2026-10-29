@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:spelt_bread_from_spelt_flour_smelting"
+        "recipes": "landsoficaria:spelt_bread_from_spelt_flour_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

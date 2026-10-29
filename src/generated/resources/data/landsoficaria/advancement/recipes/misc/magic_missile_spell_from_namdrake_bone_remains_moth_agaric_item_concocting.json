@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:magic_missile_spell_from_namdrake_bone_remains_moth_agaric_item_concocting"
+        "recipes": "landsoficaria:magic_missile_spell_from_namdrake_bone_remains_moth_agaric_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

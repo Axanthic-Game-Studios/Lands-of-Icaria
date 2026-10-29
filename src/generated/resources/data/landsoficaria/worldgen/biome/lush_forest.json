@@ -1,5 +1,52 @@
 {
   "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "monster": [
+            {
+              "type": "landsoficaria:cluster_slug",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            },
+            {
+              "type": "landsoficaria:forest_snull",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            },
+            {
+              "type": "landsoficaria:fir_forest_hag",
+              "count": 1,
+              "weight": 10
+            },
+            {
+              "type": "landsoficaria:populus_forest_hag",
+              "count": 1,
+              "weight": 10
+            },
+            {
+              "type": "landsoficaria:myrmeke_drone",
+              "count": {
+                "type": "minecraft:uniform",
+                "max_inclusive": 3,
+                "min_inclusive": 1
+              },
+              "weight": 100
+            }
+          ]
+        }
+      },
+      "modifier": "overlay"
+    },
     "minecraft:gameplay/snow_golem_melts": false,
     "minecraft:visual/water_fog_color": "#408055"
   },
@@ -78,47 +125,5 @@
     ]
   ],
   "has_precipitation": false,
-  "spawn_costs": {},
-  "spawners": {
-    "ambient": [],
-    "axolotls": [],
-    "creature": [],
-    "misc": [],
-    "monster": [
-      {
-        "type": "landsoficaria:cluster_slug",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:forest_snull",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      },
-      {
-        "type": "landsoficaria:fir_forest_hag",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "landsoficaria:populus_forest_hag",
-        "maxCount": 1,
-        "minCount": 1,
-        "weight": 10
-      },
-      {
-        "type": "landsoficaria:myrmeke_drone",
-        "maxCount": 3,
-        "minCount": 1,
-        "weight": 100
-      }
-    ],
-    "underground_water_creature": [],
-    "water_ambient": [],
-    "water_creature": []
-  },
   "temperature": 1.0
 }

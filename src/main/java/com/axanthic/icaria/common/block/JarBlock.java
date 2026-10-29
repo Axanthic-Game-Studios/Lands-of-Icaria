@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -36,6 +37,11 @@ public class JarBlock extends Block {
 	@Override
 	public boolean canSurvive(BlockState pBlockState, LevelReader pLevelReader, BlockPos pBlockPos) {
 		return IcariaCommonHelper.hasRigidBlockBelow(pBlockPos, pLevelReader);
+	}
+
+	@Override
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
+		return false;
 	}
 
 	@Override

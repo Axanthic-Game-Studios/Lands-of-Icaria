@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_yellowstone_from_yellowstone_grinding"
+        "recipes": "landsoficaria:cobbled_yellowstone_from_yellowstone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

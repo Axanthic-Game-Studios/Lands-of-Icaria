@@ -4,42 +4,36 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.AABB;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class DathullaFeature extends Feature<NoneFeatureConfiguration> {
-	public DathullaFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+public class DathullaFeature implements Feature {
+	public static final MapCodec<DathullaFeature> CODEC = MapCodec.unit(DathullaFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 
 		var size = 4;
 
-		var aabb = new AABB(origin.getX() - 2, origin.getY() - 1, origin.getZ() - 2, origin.getX() + 2, origin.getY() - 1, origin.getZ() + 2);
+		var aabb = new AABB(pBlockPos.getX() - 2, pBlockPos.getY() - 1, pBlockPos.getZ() - 2, pBlockPos.getX() + 2, pBlockPos.getY() - 1, pBlockPos.getZ() + 2);
 
 		for (var x = -size; x <= size; x++) {
 			for (var y = -size; y <= size; y++) {
 				for (var z = -size; z <= size; z++) {
-					if (level.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.RELICSTONE.get()))) {
-						this.placeHerb(level, origin.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
+					if (pWorldGenLevel.getBlockStates(aabb).anyMatch(blockState -> blockState.is(IcariaBlocks.RELICSTONE.get()))) {
+						this.placeHerb(pWorldGenLevel, pBlockPos.relative(direction, x).above(y).relative(direction.getClockWise(), z), 16);
 					}
 				}
 			}
@@ -58,5 +52,10 @@ public class DathullaFeature extends Feature<NoneFeatureConfiguration> {
 		if (pWorldGenLevel.getBlockState(pBlockPos).isAir() && pWorldGenLevel.getBlockState(pBlockPos.below()).is(BlockTags.SUBSTRATE_OVERWORLD)) {
 			this.setBlock(pWorldGenLevel, pBlockPos, IcariaBlocks.DATHULLA.get().defaultBlockState());
 		}
+	}
+
+	@Override
+	public MapCodec<DathullaFeature> codec() {
+		return DathullaFeature.CODEC;
 	}
 }

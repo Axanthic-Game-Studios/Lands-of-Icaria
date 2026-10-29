@@ -9,14 +9,14 @@ import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.util.ARGB;
 import net.minecraft.world.attribute.EnvironmentAttributes;
-import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.BiomeGenerationSettings;
 import net.minecraft.world.level.biome.BiomeSpecialEffects;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
-import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 @SuppressWarnings("unused")
@@ -26,31 +26,31 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class IcariaBiomes {
 	public static void bootstrap(BootstrapContext<Biome> pBootstrapContext) {
-		pBootstrapContext.register(IcariaBiomeIds.FOREST, IcariaBiomes.forestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LUSH_FOREST, IcariaBiomes.lushForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LOST_FOREST, IcariaBiomes.lostForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.DEEP_FOREST, IcariaBiomes.deepForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.FOREST, IcariaBiomes.forestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LUSH_FOREST, IcariaBiomes.lushForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LOST_FOREST, IcariaBiomes.lostForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.DEEP_FOREST, IcariaBiomes.deepForestBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
 
-		pBootstrapContext.register(IcariaBiomeIds.SCRUBLAND, IcariaBiomes.scrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LUSH_SCRUBLAND, IcariaBiomes.lushScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LOST_SCRUBLAND, IcariaBiomes.lostScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.DEEP_SCRUBLAND, IcariaBiomes.deepScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.SCRUBLAND, IcariaBiomes.scrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LUSH_SCRUBLAND, IcariaBiomes.lushScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LOST_SCRUBLAND, IcariaBiomes.lostScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.DEEP_SCRUBLAND, IcariaBiomes.deepScrublandBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
 
-		pBootstrapContext.register(IcariaBiomeIds.STEPPE, IcariaBiomes.steppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LUSH_STEPPE, IcariaBiomes.lushSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LOST_STEPPE, IcariaBiomes.lostSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.DEEP_STEPPE, IcariaBiomes.deepSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.STEPPE, IcariaBiomes.steppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LUSH_STEPPE, IcariaBiomes.lushSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LOST_STEPPE, IcariaBiomes.lostSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.DEEP_STEPPE, IcariaBiomes.deepSteppeBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
 
-		pBootstrapContext.register(IcariaBiomeIds.DESERT, IcariaBiomes.desertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LUSH_DESERT, IcariaBiomes.lushDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.LOST_DESERT, IcariaBiomes.lostDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
-		pBootstrapContext.register(IcariaBiomeIds.DEEP_DESERT, IcariaBiomes.deepDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.DESERT, IcariaBiomes.desertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LUSH_DESERT, IcariaBiomes.lushDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.LOST_DESERT, IcariaBiomes.lostDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.DEEP_DESERT, IcariaBiomes.deepDesertBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
 
-		pBootstrapContext.register(IcariaBiomeIds.VOID, IcariaBiomes.voidBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CONFIGURED_CARVER)));
+		pBootstrapContext.register(IcariaBiomeIds.VOID, IcariaBiomes.voidBiome(pBootstrapContext.lookup(Registries.PLACED_FEATURE), pBootstrapContext.lookup(Registries.CARVER)));
 	}
 
-	public static Biome forestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome forestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -58,7 +58,7 @@ public class IcariaBiomes {
 		IcariaBiomes.forestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.forestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4227157)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void forestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -124,20 +124,20 @@ public class IcariaBiomes {
 	}
 
 	public static void forestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.AETERNAE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CAPELLA.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CATOBLEPAS.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.THOG.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CROCOTTA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARGAN_HOUND.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CERVER.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CROCOTTA.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.FIR_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 1, 1, 1);
 	}
 
-	public static Biome lushForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lushForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -145,7 +145,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4227157)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -211,16 +211,16 @@ public class IcariaBiomes {
 	}
 
 	public static void lushForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FOREST_SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.FOREST_SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.FIR_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3);
 	}
 
-	public static Biome lostForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lostForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -228,7 +228,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4227157)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -297,15 +297,15 @@ public class IcariaBiomes {
 	}
 
 	public static void lostForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARACHNE_DRONE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIR_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRAWLER_REVENANT.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARACHNE_DRONE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.FIR_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.POPULUS_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.CRAWLER_REVENANT.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 100, 1, 1);
 	}
 
-	public static Biome deepForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome deepForestBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -313,7 +313,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepForestBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepForestMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4227157).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4227157)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepForestBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -373,16 +373,16 @@ public class IcariaBiomes {
 	}
 
 	public static void deepForestMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FOREST_SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.FOREST_SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SCORPION.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOLIFUGAE.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VINEGAROON.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.SCORPION.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.SOLIFUGAE.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.VINEGAROON.get(), 100, 1, 1);
 	}
 
-	public static Biome scrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome scrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -390,7 +390,7 @@ public class IcariaBiomes {
 		IcariaBiomes.scrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.scrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4623442)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void scrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -446,20 +446,20 @@ public class IcariaBiomes {
 	}
 
 	public static void scrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.AETERNAE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CAPELLA.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CATOBLEPAS.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.THOG.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CROCOTTA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CERVER.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CROCOTTA.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 1, 1, 1);
 	}
 
-	public static Biome lushScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lushScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -467,7 +467,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4623442)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -522,16 +522,16 @@ public class IcariaBiomes {
 	}
 
 	public static void lushScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 35));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 35);
+		pBuilder.addSpawn(IcariaEntityTypes.SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3);
 	}
 
-	public static Biome lostScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lostScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -539,7 +539,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4623442)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -597,15 +597,15 @@ public class IcariaBiomes {
 	}
 
 	public static void lostScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARACHNE_DRONE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRAWLER_REVENANT.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARACHNE_DRONE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.LAUREL_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.PLANE_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.CRAWLER_REVENANT.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 100, 1, 1);
 	}
 
-	public static Biome deepScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome deepScrublandBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -613,7 +613,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepScrublandBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepScrublandMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 4623442).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(4623442)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepScrublandBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -662,16 +662,16 @@ public class IcariaBiomes {
 	}
 
 	public static void deepScrublandMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SCORPION.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOLIFUGAE.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VINEGAROON.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.SCORPION.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.SOLIFUGAE.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.VINEGAROON.get(), 100, 1, 1);
 	}
 
-	public static Biome steppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome steppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -679,7 +679,7 @@ public class IcariaBiomes {
 		IcariaBiomes.steppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.steppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(5085517)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void steppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -735,20 +735,20 @@ public class IcariaBiomes {
 	}
 
 	public static void steppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.AETERNAE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CAPELLA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CATOBLEPAS.get(), 1, 35));
-		pBuilder.addSpawn(MobCategory.CREATURE, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.THOG.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.AETERNAE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CAPELLA.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CATOBLEPAS.get(), 100, 1, 35);
+		pBuilder.addSpawn(IcariaEntityTypes.THOG.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CROCOTTA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CERVER.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CROCOTTA.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 1, 1, 1);
 	}
 
-	public static Biome lushSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lushSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -756,7 +756,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(5085517)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -811,16 +811,16 @@ public class IcariaBiomes {
 	}
 
 	public static void lushSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3);
 	}
 
-	public static Biome lostSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lostSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -828,7 +828,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(5085517)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -886,15 +886,15 @@ public class IcariaBiomes {
 	}
 
 	public static void lostSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARACHNE_DRONE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRAWLER_REVENANT.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARACHNE_DRONE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CYPRESS_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OLIVE_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.CRAWLER_REVENANT.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 100, 1, 1);
 	}
 
-	public static Biome deepSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome deepSteppeBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -902,7 +902,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepSteppeBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepSteppeMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5085517).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(5085517)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepSteppeBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -951,16 +951,16 @@ public class IcariaBiomes {
 	}
 
 	public static void deepSteppeMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CLUSTER_SLUG.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SNULL.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.CLUSTER_SLUG.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.SNULL.get(), 100, 1, 3);
 
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SCORPION.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOLIFUGAE.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VINEGAROON.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.SCORPION.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.SOLIFUGAE.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.VINEGAROON.get(), 100, 1, 1);
 	}
 
-	public static Biome desertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome desertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -968,7 +968,7 @@ public class IcariaBiomes {
 		IcariaBiomes.desertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.desertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(6399571)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void desertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1009,14 +1009,14 @@ public class IcariaBiomes {
 	}
 
 	public static void desertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CERVER.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CROCOTTA.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARGAN_HOUND.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CERVER.get(), 1, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.CROCOTTA.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 1, 1, 1);
 	}
 
-	public static Biome lushDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lushDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -1024,7 +1024,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lushDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lushDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(6399571)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lushDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1064,12 +1064,12 @@ public class IcariaBiomes {
 	}
 
 	public static void lushDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 10, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.MYRMEKE_DRONE.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 10, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.MYRMEKE_DRONE.get(), 100, 1, 3);
 	}
 
-	public static Biome lostDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome lostDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -1077,7 +1077,7 @@ public class IcariaBiomes {
 		IcariaBiomes.lostDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.lostDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(6399571)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void lostDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1120,14 +1120,14 @@ public class IcariaBiomes {
 	}
 
 	public static void lostDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ARACHNE_DRONE.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.MONSTER, 1, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.CRAWLER_REVENANT.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.ARACHNE_DRONE.get(), 100, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.DROUGHTROOT_FOREST_HAG.get(), 1, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.CRAWLER_REVENANT.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.OVERGROWN_REVENANT.get(), 100, 1, 1);
 	}
 
-	public static Biome deepDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome deepDesertBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -1135,7 +1135,7 @@ public class IcariaBiomes {
 		IcariaBiomes.deepDesertBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.deepDesertMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 6399571).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, true).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(6399571)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void deepDesertBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1172,13 +1172,13 @@ public class IcariaBiomes {
 	}
 
 	public static void deepDesertMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SCORPION.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.SOLIFUGAE.get(), 1, 1));
-		pBuilder.addSpawn(MobCategory.MONSTER, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VINEGAROON.get(), 1, 1));
+		pBuilder.addSpawn(IcariaEntityTypes.SCORPION.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.SOLIFUGAE.get(), 100, 1, 1);
+		pBuilder.addSpawn(IcariaEntityTypes.VINEGAROON.get(), 100, 1, 1);
 	}
 
-	public static Biome voidBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<ConfiguredWorldCarver<?>> pConfiguredWorldCarvers) {
-		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pConfiguredWorldCarvers);
+	public static Biome voidBiome(HolderGetter<PlacedFeature> pPlacedFeatures, HolderGetter<WorldCarver> pWorldCarvers) {
+		var biomeGenerationSettings = new BiomeGenerationSettings.Builder(pPlacedFeatures, pWorldCarvers);
 		var biomeSpecialEffects = new BiomeSpecialEffects.Builder();
 		var mobSpawnSettings = new MobSpawnSettings.Builder();
 
@@ -1186,7 +1186,7 @@ public class IcariaBiomes {
 		IcariaBiomes.voidBiomeSpecialEffects(biomeSpecialEffects);
 		IcariaBiomes.voidMobSpawnSettings(mobSpawnSettings);
 
-		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, 5083986).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
+		return new Biome.BiomeBuilder().hasPrecipitation(false).downfall(0.0F).temperature(1.0F).temperatureAdjustment(Biome.TemperatureModifier.NONE).setAttribute(EnvironmentAttributes.SNOW_GOLEM_MELTS, false).setAttribute(EnvironmentAttributes.WATER_FOG_COLOR, ARGB.vector3fFromRGB24(5083986)).generationSettings(biomeGenerationSettings.build()).mobSpawnSettings(mobSpawnSettings.build()).specialEffects(biomeSpecialEffects.build()).build();
 	}
 
 	public static void voidBiomeGenerationSettings(BiomeGenerationSettings.Builder pBuilder) {
@@ -1200,14 +1200,14 @@ public class IcariaBiomes {
 	}
 
 	public static void voidMobSpawnSettings(MobSpawnSettings.Builder pBuilder) {
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FEESH.get(), 5, 15));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FICHE.get(), 5, 15));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FISSHH.get(), 5, 15));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 100, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FYSH.get(), 5, 15));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 80, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.ENDER_JELLYFISH.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 80, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.FIRE_JELLYFISH.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 80, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.NATURE_JELLYFISH.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 80, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.VOID_JELLYFISH.get(), 1, 3));
-		pBuilder.addSpawn(MobCategory.WATER_AMBIENT, 80, new MobSpawnSettings.SpawnerData(IcariaEntityTypes.WATER_JELLYFISH.get(), 1, 3));
+		pBuilder.addSpawn(IcariaEntityTypes.FEESH.get(), 100, 5, 15);
+		pBuilder.addSpawn(IcariaEntityTypes.FICHE.get(), 100, 5, 15);
+		pBuilder.addSpawn(IcariaEntityTypes.FISSHH.get(), 100, 5, 15);
+		pBuilder.addSpawn(IcariaEntityTypes.FYSH.get(), 100, 5, 15);
+		pBuilder.addSpawn(IcariaEntityTypes.ENDER_JELLYFISH.get(), 80, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.FIRE_JELLYFISH.get(), 80, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.NATURE_JELLYFISH.get(), 80, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.VOID_JELLYFISH.get(), 80, 1, 3);
+		pBuilder.addSpawn(IcariaEntityTypes.WATER_JELLYFISH.get(), 80, 1, 3);
 	}
 }

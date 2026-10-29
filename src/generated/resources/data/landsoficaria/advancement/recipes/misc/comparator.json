@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:comparator"
+        "recipes": "landsoficaria:comparator"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

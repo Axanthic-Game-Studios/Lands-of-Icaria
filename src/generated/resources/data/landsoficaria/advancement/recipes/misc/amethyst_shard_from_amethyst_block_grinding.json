@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:amethyst_shard_from_amethyst_block_grinding"
+        "recipes": "landsoficaria:amethyst_shard_from_amethyst_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

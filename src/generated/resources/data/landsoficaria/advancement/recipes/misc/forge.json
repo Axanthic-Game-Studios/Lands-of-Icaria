@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:forge"
+        "recipes": "landsoficaria:forge"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

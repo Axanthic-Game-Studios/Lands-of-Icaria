@@ -103,7 +103,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:mossy_relicstone_tiles"
+        "recipes": "landsoficaria:mossy_relicstone_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

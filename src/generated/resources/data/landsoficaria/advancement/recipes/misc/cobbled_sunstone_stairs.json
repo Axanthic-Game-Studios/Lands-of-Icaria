@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_sunstone_stairs"
+        "recipes": "landsoficaria:cobbled_sunstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

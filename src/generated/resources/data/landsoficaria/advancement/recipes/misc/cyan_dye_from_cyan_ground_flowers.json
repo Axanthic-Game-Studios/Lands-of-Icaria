@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cyan_dye_from_cyan_ground_flowers"
+        "recipes": "landsoficaria:cyan_dye_from_cyan_ground_flowers"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

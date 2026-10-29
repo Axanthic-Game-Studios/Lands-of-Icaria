@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bone_remains_from_namdrake_dathulla_item_concocting"
+        "recipes": "landsoficaria:bone_remains_from_namdrake_dathulla_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:gold_nugget_from_gilded_blackstone_grinding"
+        "recipes": "landsoficaria:gold_nugget_from_gilded_blackstone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:emerald_from_deepslate_emerald_ore_forging"
+        "recipes": "landsoficaria:emerald_from_deepslate_emerald_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

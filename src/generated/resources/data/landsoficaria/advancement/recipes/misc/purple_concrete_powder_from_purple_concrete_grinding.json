@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:purple_concrete_powder_from_purple_concrete_grinding"
+        "recipes": "landsoficaria:purple_concrete_powder_from_purple_concrete_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

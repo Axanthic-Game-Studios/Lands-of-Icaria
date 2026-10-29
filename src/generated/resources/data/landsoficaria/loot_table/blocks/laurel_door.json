@@ -5,19 +5,17 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:laurel_door",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "half": "lower"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:laurel_door",
+            "state": {
+              "half": "lower"
             }
-          ],
+          },
           "name": "landsoficaria:laurel_door"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/laurel_door"

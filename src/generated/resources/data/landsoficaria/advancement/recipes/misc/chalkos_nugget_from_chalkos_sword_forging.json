@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_nugget_from_chalkos_sword_forging"
+        "recipes": "landsoficaria:chalkos_nugget_from_chalkos_sword_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

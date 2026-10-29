@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_wood_from_fir_log"
+        "recipes": "landsoficaria:fir_wood_from_fir_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

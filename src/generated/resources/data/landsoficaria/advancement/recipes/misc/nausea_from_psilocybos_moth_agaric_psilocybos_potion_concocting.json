@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:nausea_from_psilocybos_moth_agaric_psilocybos_potion_concocting"
+        "recipes": "landsoficaria:nausea_from_psilocybos_moth_agaric_psilocybos_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_brick_stairs_from_loam_bricks_stonecutting"
+        "recipes": "landsoficaria:loam_brick_stairs_from_loam_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_scythe"
+        "recipes": "landsoficaria:orichalcum_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

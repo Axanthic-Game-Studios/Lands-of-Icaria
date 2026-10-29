@@ -2,13 +2,12 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.block.KettleBlock;
-import com.axanthic.icaria.common.block.TripleBarrelRackBlock;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
+import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.DoorBlock;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
@@ -26,8 +25,7 @@ public class MagicMissileSpellEntity extends SpellEntity {
 		var level = this.level();
 		var blockPos = pBlockHitResult.getBlockPos();
 		var blockState = level.getBlockState(blockPos);
-		var block = blockState.getBlock();
-		if (blockState.getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !(block instanceof DoorBlock) && !(block instanceof KettleBlock) && !(block instanceof TripleBarrelRackBlock)) {
+		if (blockState.getDestroySpeed(level, blockPos) > 0 && level.getBlockEntity(blockPos) == null && !blockState.is(IcariaBlockTags.SPELL_IMMUNE_BLOCKS)) {
 			level.destroyBlock(blockPos, false);
 		}
 	}
@@ -35,6 +33,6 @@ public class MagicMissileSpellEntity extends SpellEntity {
 	@Override
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		super.onHitEntity(pEntityHitResult);
-		IcariaCommonHelper.hurt(this.level().damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), 8.0F);
+		IcariaCommonHelper.hurt(this.level().damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), IcariaConfig.DAMAGE_MAGIC_MISSILE_SPELL.get().floatValue());
 	}
 }

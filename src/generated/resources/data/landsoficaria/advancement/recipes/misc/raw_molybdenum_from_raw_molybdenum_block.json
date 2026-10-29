@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_molybdenum_from_raw_molybdenum_block"
+        "recipes": "landsoficaria:raw_molybdenum_from_raw_molybdenum_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

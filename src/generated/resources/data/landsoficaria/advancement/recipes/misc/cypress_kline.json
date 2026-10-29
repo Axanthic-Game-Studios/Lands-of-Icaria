@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_kline"
+        "recipes": "landsoficaria:cypress_kline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

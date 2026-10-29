@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_timber_bench"
+        "recipes": "landsoficaria:olive_timber_bench"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

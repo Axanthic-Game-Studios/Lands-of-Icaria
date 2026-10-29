@@ -6,48 +6,42 @@ import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 @SuppressWarnings("unused")
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
-	public RelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+public class RelicstonePillarFeature implements Feature {
+	public static final MapCodec<RelicstonePillarFeature> CODEC = MapCodec.unit(RelicstonePillarFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
 		var offset = 0;
-		var height = random.nextIntBetweenInclusive(1, 3);
+		var height = pRandomSource.nextIntBetweenInclusive(1, 3);
 
-		this.placeHead(level, origin, Direction.UP);
+		this.placeHead(pWorldGenLevel, pBlockPos, Direction.UP);
 
 		for (var i = 1; i <= height; i++) {
 			offset++;
-			this.placePillar(level, origin.above(offset), Direction.UP);
+			this.placePillar(pWorldGenLevel, pBlockPos.above(offset), Direction.UP);
 		}
 
 		offset++;
-		this.placeHead(level, origin.above(offset), Direction.DOWN);
+		this.placeHead(pWorldGenLevel, pBlockPos.above(offset), Direction.DOWN);
 
-		this.placeSuspiciousPatch(level, origin, 64);
+		this.placeSuspiciousPatch(pWorldGenLevel, pBlockPos, 64);
 
 		return true;
 	}
@@ -114,5 +108,10 @@ public class RelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
 			pWorldGenLevel.setBlock(pBlockPos.below(), IcariaBlocks.SUSPICIOUS_SILKSAND.get().defaultBlockState(), Block.UPDATE_ALL);
 			pWorldGenLevel.getBlockEntity(pBlockPos.below(), BlockEntityTypes.BRUSHABLE_BLOCK).ifPresent(brushableBlockEntity -> brushableBlockEntity.setLootTable(IcariaLootTableIds.SUSPICIOUS_SAND, pBlockPos.below().asLong()));
 		}
+	}
+
+	@Override
+	public MapCodec<RelicstonePillarFeature> codec() {
+		return RelicstonePillarFeature.CODEC;
 	}
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_salmon_from_salmon_grilling"
+        "recipes": "landsoficaria:cooked_salmon_from_salmon_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

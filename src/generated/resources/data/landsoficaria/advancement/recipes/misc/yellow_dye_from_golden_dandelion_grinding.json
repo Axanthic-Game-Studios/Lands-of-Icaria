@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellow_dye_from_golden_dandelion_grinding"
+        "recipes": "landsoficaria:yellow_dye_from_golden_dandelion_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

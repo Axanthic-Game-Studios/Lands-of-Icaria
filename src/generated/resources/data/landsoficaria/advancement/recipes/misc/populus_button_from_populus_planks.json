@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_button_from_populus_planks"
+        "recipes": "landsoficaria:populus_button_from_populus_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

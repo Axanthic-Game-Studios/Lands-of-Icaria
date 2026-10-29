@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellow_terry_block_from_dyeing"
+        "recipes": "landsoficaria:yellow_terry_block_from_dyeing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

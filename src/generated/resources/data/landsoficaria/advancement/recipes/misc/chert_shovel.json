@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chert_shovel"
+        "recipes": "landsoficaria:chert_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

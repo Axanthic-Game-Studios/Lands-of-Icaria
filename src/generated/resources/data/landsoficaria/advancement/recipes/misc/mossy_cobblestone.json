@@ -83,7 +83,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:mossy_cobblestone"
+        "recipes": "landsoficaria:mossy_cobblestone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_hutch"
+        "recipes": "landsoficaria:fir_hutch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

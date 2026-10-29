@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:freezing_spell_from_rowan_rowan_bone_remains_item_concocting"
+        "recipes": "landsoficaria:freezing_spell_from_rowan_rowan_bone_remains_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

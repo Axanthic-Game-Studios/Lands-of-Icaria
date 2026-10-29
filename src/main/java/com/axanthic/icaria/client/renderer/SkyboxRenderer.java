@@ -3,6 +3,8 @@ package com.axanthic.icaria.client.renderer;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 
+import com.mojang.renderpearl.api.buffers.GpuBufferSlice;
+
 import net.minecraft.client.renderer.state.level.LevelRenderState;
 import net.minecraft.client.renderer.state.level.SkyRenderState;
 
@@ -16,7 +18,7 @@ import org.joml.Matrix4fc;
 public class SkyboxRenderer implements CustomSkyboxRenderer {
 
 	@Override
-	public boolean renderSky(LevelRenderState pLevelRenderState, SkyRenderState pSkyRenderState, Matrix4fc pMatrix4fc, Runnable pRunnable) {
+	public boolean renderSky(LevelRenderState pLevelRenderState, SkyRenderState pSkyRenderState, Matrix4fc pMatrix4fc, GpuBufferSlice pGpuBufferSlice) {
 		return true;
 	}
 }

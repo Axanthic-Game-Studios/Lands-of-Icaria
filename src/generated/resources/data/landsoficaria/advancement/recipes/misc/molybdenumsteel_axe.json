@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenumsteel_axe"
+        "recipes": "landsoficaria:molybdenumsteel_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

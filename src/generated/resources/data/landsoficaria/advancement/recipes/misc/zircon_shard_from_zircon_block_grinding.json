@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:zircon_shard_from_zircon_block_grinding"
+        "recipes": "landsoficaria:zircon_shard_from_zircon_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

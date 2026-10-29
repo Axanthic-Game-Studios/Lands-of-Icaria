@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_hutch"
+        "recipes": "landsoficaria:olive_hutch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

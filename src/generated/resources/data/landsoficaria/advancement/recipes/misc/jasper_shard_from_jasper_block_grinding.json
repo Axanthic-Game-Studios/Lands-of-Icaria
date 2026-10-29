@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:jasper_shard_from_jasper_block_grinding"
+        "recipes": "landsoficaria:jasper_shard_from_jasper_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

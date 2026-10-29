@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:voidshale_slab_from_voidshale_stonecutting"
+        "recipes": "landsoficaria:voidshale_slab_from_voidshale_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

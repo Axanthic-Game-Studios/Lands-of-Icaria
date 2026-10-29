@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_timber_table"
+        "recipes": "landsoficaria:populus_timber_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

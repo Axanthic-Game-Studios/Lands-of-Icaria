@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_bricks_from_yellowstone"
+        "recipes": "landsoficaria:yellowstone_bricks_from_yellowstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

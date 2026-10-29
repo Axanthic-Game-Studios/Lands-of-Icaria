@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_blue_gray_feesh_from_raw_blue_gray_feesh_grilling"
+        "recipes": "landsoficaria:cooked_blue_gray_feesh_from_raw_blue_gray_feesh_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

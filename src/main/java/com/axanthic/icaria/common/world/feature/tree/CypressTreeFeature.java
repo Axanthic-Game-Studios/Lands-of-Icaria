@@ -2,105 +2,117 @@ package com.axanthic.icaria.common.world.feature.tree;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaFeatureHelper;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CypressTreeFeature extends TreeFeature {
-	public CypressTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.FALLEN_CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LEAVES.get(), IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.CYPRESS_TWIGS.get());
-	}
+public record CypressTreeFeature(BlockState fallen, BlockState leaves, BlockState log, BlockState shrooms, BlockState twigs) implements Feature {
+	public static final MapCodec<CypressTreeFeature> CODEC = RecordCodecBuilder.mapCodec(
+		instance -> instance.group(
+			BlockState.CODEC.fieldOf("fallen").forGetter(CypressTreeFeature::fallen),
+			BlockState.CODEC.fieldOf("leaves").forGetter(CypressTreeFeature::leaves),
+			BlockState.CODEC.fieldOf("log").forGetter(CypressTreeFeature::log),
+			BlockState.CODEC.fieldOf("shrooms").forGetter(CypressTreeFeature::shrooms),
+			BlockState.CODEC.fieldOf("twigs").forGetter(CypressTreeFeature::twigs)
+		).apply(instance, CypressTreeFeature::new)
+	);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
 		var heightTrunk = 0;
-		var heightCrown = random.nextIntBetweenInclusive(1, 4);
-		var heightTotal = origin.below().getY() + heightCrown + 8;
+		var heightCrown = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var heightTotal = pBlockPos.below().getY() + heightCrown + 8;
 
-		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+		if (heightTotal < pWorldGenLevel.getMaxY() && pWorldGenLevel.getBlockState(pBlockPos.atY(heightTotal)).canBeReplaced()) {
 			heightTrunk++;
-			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-
-			heightTrunk++;
-			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
 
 			heightTrunk++;
-			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-			this.placeLeaves(level, origin.below().above(heightTrunk).north(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).east(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).south(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).west(), 2);
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
 
 			heightTrunk++;
-			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-			this.placeLeaves(level, origin.below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.below().above(heightTrunk).north().east(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).east().south(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).south().west(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).west().north(), 2);
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves(), 2);
+
+			heightTrunk++;
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north().east(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east().south(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south().west(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west().north(), this.leaves(), 2);
 
 			for (var i = 1; i <= heightCrown; i++) {
 				heightTrunk++;
-				this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-				this.placeLeaves(level, origin.below().above(heightTrunk).north());
-				this.placeLeaves(level, origin.below().above(heightTrunk).east());
-				this.placeLeaves(level, origin.below().above(heightTrunk).south());
-				this.placeLeaves(level, origin.below().above(heightTrunk).west());
-				this.placeLeaves(level, origin.below().above(heightTrunk).north().east());
-				this.placeLeaves(level, origin.below().above(heightTrunk).east().south());
-				this.placeLeaves(level, origin.below().above(heightTrunk).south().west());
-				this.placeLeaves(level, origin.below().above(heightTrunk).west().north());
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north().east(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east().south(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south().west(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west().north(), this.leaves());
 			}
 
 			heightTrunk++;
-			this.placeLog(level, origin.below().above(heightTrunk), Direction.Axis.Y);
-			this.placeLeaves(level, origin.below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.below().above(heightTrunk).west());
-			this.placeLeaves(level, origin.below().above(heightTrunk).north().east(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).east().south(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).south().west(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).west().north(), 2);
+			IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.log(), Direction.Axis.Y);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north().east(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east().south(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south().west(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west().north(), this.leaves(), 2);
 
 			heightTrunk++;
-			this.placeLeaves(level, origin.below().above(heightTrunk));
-			this.placeLeaves(level, origin.below().above(heightTrunk).north());
-			this.placeLeaves(level, origin.below().above(heightTrunk).east());
-			this.placeLeaves(level, origin.below().above(heightTrunk).south());
-			this.placeLeaves(level, origin.below().above(heightTrunk).west());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves());
 
 			heightTrunk++;
-			this.placeLeaves(level, origin.below().above(heightTrunk));
-			this.placeLeaves(level, origin.below().above(heightTrunk).north(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).east(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).south(), 2);
-			this.placeLeaves(level, origin.below().above(heightTrunk).west(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.leaves());
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).north(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).east(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).south(), this.leaves(), 2);
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk).west(), this.leaves(), 2);
 
 			heightTrunk++;
-			this.placeLeaves(level, origin.below().above(heightTrunk));
+			IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.below().above(heightTrunk), this.leaves());
 
-			this.placeTwigsPatch(level, origin, 4);
-			this.placeFallenPatch(level, origin, 4);
-			this.placeShroomsPatch(level, origin, 4);
+			IcariaFeatureHelper.placeTwigsPatch(pWorldGenLevel, pBlockPos, this.twigs(), 4);
+			IcariaFeatureHelper.placeFallenPatch(pWorldGenLevel, pBlockPos, this.fallen(), 4);
+			IcariaFeatureHelper.placeShroomsPatch(pWorldGenLevel, pBlockPos, this.shrooms(), 4);
 
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public MapCodec<CypressTreeFeature> codec() {
+		return CypressTreeFeature.CODEC;
 	}
 }

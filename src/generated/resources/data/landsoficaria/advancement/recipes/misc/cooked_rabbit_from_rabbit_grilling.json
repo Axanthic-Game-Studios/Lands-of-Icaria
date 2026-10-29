@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_rabbit_from_rabbit_grilling"
+        "recipes": "landsoficaria:cooked_rabbit_from_rabbit_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

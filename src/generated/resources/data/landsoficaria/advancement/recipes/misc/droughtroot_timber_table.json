@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_timber_table"
+        "recipes": "landsoficaria:droughtroot_timber_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

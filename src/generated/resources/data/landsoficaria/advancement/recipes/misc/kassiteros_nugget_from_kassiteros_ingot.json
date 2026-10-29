@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_nugget_from_kassiteros_ingot"
+        "recipes": "landsoficaria:kassiteros_nugget_from_kassiteros_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

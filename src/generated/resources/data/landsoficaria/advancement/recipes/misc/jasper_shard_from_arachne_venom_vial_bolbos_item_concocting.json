@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:jasper_shard_from_arachne_venom_vial_bolbos_item_concocting"
+        "recipes": "landsoficaria:jasper_shard_from_arachne_venom_vial_bolbos_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

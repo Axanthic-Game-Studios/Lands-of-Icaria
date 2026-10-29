@@ -8,44 +8,41 @@ import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
-import java.util.function.BiConsumer;
-
 import net.minecraft.advancements.predicates.StatePropertiesPredicate;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchBlock;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record IcariaBlockInteractLootSubProvider(HolderLookup.Provider provider) implements LootTableSubProvider {
+public record IcariaBlockInteractLootSubProvider(Context context) implements LootTableSubProvider {
 
 	@Override
-	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTableIds.OLIVE_LEAVES, LootTable.lootTable()
+	public void run() {
+		this.context().accept(IcariaLootTableIds.OLIVE_LEAVES, LootTable.lootTable()
 			.withPool(LootPool.lootPool()
-				.add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(IcariaBlocks.OLIVE_LEAVES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))))
-				.add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get()).when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(IcariaBlocks.OLIVE_LEAVES.get()).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))))
+				.add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get()).when(MatchBlock.blockMatches(this.context().lookup(Registries.BLOCK), IcariaBlocks.OLIVE_LEAVES.get(), StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.BLACK))))
+				.add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get()).when(MatchBlock.blockMatches(this.context().lookup(Registries.BLOCK), IcariaBlocks.OLIVE_LEAVES.get(), StatePropertiesPredicate.Builder.properties().hasProperty(IcariaBlockStateProperties.OLIVES, Olives.GREEN))))
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTableIds.STRAWBERRY_BUSH, LootTable.lootTable()
+		this.context().accept(IcariaLootTableIds.STRAWBERRY_BUSH, LootTable.lootTable()
 			.withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRIES.get()))
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTableIds.BLOOMY_VINE, LootTable.lootTable()
+		this.context().accept(IcariaLootTableIds.BLOOMY_VINE, LootTable.lootTable()
 			.withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(IcariaItems.VINEBERRIES.get()))
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTableIds.BRUSHY_VINE, LootTable.lootTable()
+		this.context().accept(IcariaLootTableIds.BRUSHY_VINE, LootTable.lootTable()
 			.withPool(LootPool.lootPool()
 				.add(LootItem.lootTableItem(IcariaItems.VINE_SPROUT.get()))
 			)

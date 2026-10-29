@@ -59,7 +59,7 @@ public class IcariaFarmlandBlock extends Block {
 
 	public boolean isHydrated(BlockPos pBlockPos, LevelReader pLevelReader) {
 		for (var blockPos : BlockPos.betweenClosed(pBlockPos.offset(-4, 0, -4), pBlockPos.offset(4, 1, 4))) {
-			if (pLevelReader.getBlockState(pBlockPos).canBeHydrated(pLevelReader, pBlockPos, pLevelReader.getFluidState(blockPos), blockPos)) {
+			if (pLevelReader.getBlockState(pBlockPos).canBeHydrated(pLevelReader, pBlockPos, pLevelReader.getFluidState(blockPos))) {
 				return true;
 			}
 		}

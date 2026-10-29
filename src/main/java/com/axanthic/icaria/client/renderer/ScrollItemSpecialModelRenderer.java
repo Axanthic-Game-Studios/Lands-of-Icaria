@@ -81,7 +81,7 @@ public record ScrollItemSpecialModelRenderer() implements SpecialModelRenderer<I
 
 	public void submit(PoseStack pPoseStack, String pPath, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, int pOverlayCoords, float pScale, float pX, float pY, float pZ, float pXRot) {
 		pPoseStack.pushPose();
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
+		pPoseStack.rotateDegrees(Axis.XP, pXRot);
 		pPoseStack.scale(pScale, pScale, pScale);
 		pPoseStack.translate(pX, pY, pZ);
 		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, RenderTypes.text(Identifier.fromNamespaceAndPath(IcariaIds.ID, pPath)), (pose, vertexConsumer) -> this.submit(pose.pose(), vertexConsumer, pLightCoords, pOverlayCoords));

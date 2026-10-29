@@ -88,8 +88,9 @@ public class IcariaBlockItemTags {
 	public static final BlockItemTagId STORAGE_BLOCKS_WATER_JELLYFISH_JELLY = IcariaBlockItemTags.create("storage_blocks/water_jellyfish_jelly");
 
 	public static final BlockItemTagId TERRY_BLOCKS = IcariaBlockItemTags.createIcaria("terry_blocks");
-
 	public static final BlockItemTagId TERRY_MATS = IcariaBlockItemTags.createIcaria("terry_mats");
+	public static final BlockItemTagId TERRY_SLABS = IcariaBlockItemTags.createIcaria("terry_slabs");
+	public static final BlockItemTagId TERRY_STAIRS = IcariaBlockItemTags.createIcaria("terry_stairs");
 
 	public static BlockItemTagId create(String pName) {
 		return new BlockItemTagId(TagKey.create(Registries.BLOCK, Identifier.fromNamespaceAndPath(IcariaIds.C, pName)), TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(IcariaIds.C, pName)));

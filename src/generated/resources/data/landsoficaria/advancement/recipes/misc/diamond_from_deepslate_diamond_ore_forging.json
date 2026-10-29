@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:diamond_from_deepslate_diamond_ore_forging"
+        "recipes": "landsoficaria:diamond_from_deepslate_diamond_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

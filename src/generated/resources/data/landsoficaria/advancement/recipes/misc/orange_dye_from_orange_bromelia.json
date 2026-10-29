@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orange_dye_from_orange_bromelia"
+        "recipes": "landsoficaria:orange_dye_from_orange_bromelia"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

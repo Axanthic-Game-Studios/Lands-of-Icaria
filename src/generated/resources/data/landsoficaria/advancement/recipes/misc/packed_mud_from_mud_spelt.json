@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:packed_mud_from_mud_spelt"
+        "recipes": "landsoficaria:packed_mud_from_mud_spelt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

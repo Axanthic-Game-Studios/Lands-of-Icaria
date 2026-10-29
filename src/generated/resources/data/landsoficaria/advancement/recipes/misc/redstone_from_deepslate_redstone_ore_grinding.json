@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:redstone_from_deepslate_redstone_ore_grinding"
+        "recipes": "landsoficaria:redstone_from_deepslate_redstone_ore_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

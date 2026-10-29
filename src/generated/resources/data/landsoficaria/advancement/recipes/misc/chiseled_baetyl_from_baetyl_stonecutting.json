@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_baetyl_from_baetyl_stonecutting"
+        "recipes": "landsoficaria:chiseled_baetyl_from_baetyl_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

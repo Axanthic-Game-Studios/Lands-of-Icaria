@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:trapped_chest_from_tripwire_hook_chest"
+        "recipes": "landsoficaria:trapped_chest_from_tripwire_hook_chest"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

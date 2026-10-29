@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bone_meal_from_marl_bones_grinding"
+        "recipes": "landsoficaria:bone_meal_from_marl_bones_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

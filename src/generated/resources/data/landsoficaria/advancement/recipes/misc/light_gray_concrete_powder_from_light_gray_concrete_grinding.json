@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:light_gray_concrete_powder_from_light_gray_concrete_grinding"
+        "recipes": "landsoficaria:light_gray_concrete_powder_from_light_gray_concrete_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

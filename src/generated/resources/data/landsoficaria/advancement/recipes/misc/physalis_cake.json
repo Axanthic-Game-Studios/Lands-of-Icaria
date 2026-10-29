@@ -53,7 +53,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:physalis_cake"
+        "recipes": "landsoficaria:physalis_cake"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

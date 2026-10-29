@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_ingot_from_orichalcum_block"
+        "recipes": "landsoficaria:orichalcum_ingot_from_orichalcum_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

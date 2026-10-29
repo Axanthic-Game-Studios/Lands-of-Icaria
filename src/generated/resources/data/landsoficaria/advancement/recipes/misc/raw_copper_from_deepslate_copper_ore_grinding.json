@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_copper_from_deepslate_copper_ore_grinding"
+        "recipes": "landsoficaria:raw_copper_from_deepslate_copper_ore_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

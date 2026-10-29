@@ -35,16 +35,14 @@ public record ClusterBlockRenderer(BlockEntityRendererProvider.Context context) 
 		pRenderState.x = pBlockEntity.x;
 		pRenderState.y = pBlockEntity.y;
 		pRenderState.z = pBlockEntity.z;
-		pRenderState.red = pBlockEntity.red;
-		pRenderState.green = pBlockEntity.green;
-		pRenderState.blue = pBlockEntity.blue;
+		pRenderState.color = IcariaClientHelper.getColor(pBlockEntity);
 	}
 
 	@Override
 	public void submit(ClusterBlockRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		pPoseStack.pushPose();
 		IcariaClientHelper.setPositionAndSize(pPoseStack, pRenderState.x, pRenderState.y, pRenderState.z, 1.0F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.color);
 		pPoseStack.popPose();
 	}
 

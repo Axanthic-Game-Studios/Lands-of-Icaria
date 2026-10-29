@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_wood_from_plane_log"
+        "recipes": "landsoficaria:plane_wood_from_plane_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

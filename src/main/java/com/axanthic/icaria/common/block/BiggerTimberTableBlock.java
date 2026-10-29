@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -39,6 +40,11 @@ public class BiggerTimberTableBlock extends Block {
 
 	@Override
 	public boolean canDropFromExplosion(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, Explosion pExplosion) {
+		return false;
+	}
+
+	@Override
+	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
 		return false;
 	}
 

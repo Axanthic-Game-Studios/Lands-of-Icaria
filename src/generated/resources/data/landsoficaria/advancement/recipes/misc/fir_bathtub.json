@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_bathtub"
+        "recipes": "landsoficaria:fir_bathtub"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

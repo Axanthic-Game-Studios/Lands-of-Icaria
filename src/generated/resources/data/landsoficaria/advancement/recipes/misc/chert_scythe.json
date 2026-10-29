@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chert_scythe"
+        "recipes": "landsoficaria:chert_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_bident"
+        "recipes": "landsoficaria:chalkos_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

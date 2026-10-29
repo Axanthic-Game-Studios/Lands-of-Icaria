@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:black_dye_from_voidlily_grinding"
+        "recipes": "landsoficaria:black_dye_from_voidlily_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

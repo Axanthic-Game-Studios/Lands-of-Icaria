@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_relicstone_stairs_from_smooth_relicstone_stonecutting"
+        "recipes": "landsoficaria:smooth_relicstone_stairs_from_smooth_relicstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

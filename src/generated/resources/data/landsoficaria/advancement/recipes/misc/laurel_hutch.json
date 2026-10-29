@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_hutch"
+        "recipes": "landsoficaria:laurel_hutch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

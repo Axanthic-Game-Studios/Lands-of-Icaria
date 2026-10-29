@@ -4,18 +4,18 @@ import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BlockItemTags;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.AABB;
 
 @SuppressWarnings("unused")
@@ -23,38 +23,32 @@ import net.minecraft.world.phys.AABB;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
-	public CardonCactusFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+public class CardonCactusFeature implements Feature {
+	public static final MapCodec<CardonCactusFeature> CODEC = MapCodec.unit(CardonCactusFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+		var aabb = this.aabb(pBlockPos);
 
-		var aabb = this.aabb(origin);
+		if (pWorldGenLevel.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			this.placeArm(pWorldGenLevel, pBlockPos, direction, 1, 2);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getClockWise(), 1, 2);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getOpposite(), 1, 2);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getCounterClockWise(), 1, 2);
 
-		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
-			this.placeArm(level, origin, direction, 1, 2);
-			this.placeArm(level, origin, direction.getClockWise(), 1, 2);
-			this.placeArm(level, origin, direction.getOpposite(), 1, 2);
-			this.placeArm(level, origin, direction.getCounterClockWise(), 1, 2);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction, 2, 8);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getClockWise(), 2, 8);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getOpposite(), 2, 8);
+			this.placeArm(pWorldGenLevel, pBlockPos, direction.getCounterClockWise(), 2, 8);
 
-			this.placeArm(level, origin, direction, 2, 8);
-			this.placeArm(level, origin, direction.getClockWise(), 2, 8);
-			this.placeArm(level, origin, direction.getOpposite(), 2, 8);
-			this.placeArm(level, origin, direction.getCounterClockWise(), 2, 8);
+			this.placeTrunk(pWorldGenLevel, pBlockPos, 0);
+			this.placeTrunk(pWorldGenLevel, pBlockPos, 1);
+			this.placeTrunk(pWorldGenLevel, pBlockPos, 2);
+			this.placeTrunk(pWorldGenLevel, pBlockPos, 3);
 
-			this.placeTrunk(level, origin, 0);
-			this.placeTrunk(level, origin, 1);
-			this.placeTrunk(level, origin, 2);
-			this.placeTrunk(level, origin, 3);
-
-			this.placeCactus(level, origin.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
+			this.placeCactus(pWorldGenLevel, pBlockPos.above(4), IcariaBlocks.CARDON_CACTUS.get().defaultBlockState().setValue(BlockStateProperties.DOWN, true));
 
 			return true;
 		} else {
@@ -119,5 +113,10 @@ public class CardonCactusFeature extends Feature<NoneFeatureConfiguration> {
 			pBlockPos.south().west().getY(),
 			pBlockPos.south().west().getZ()
 		);
+	}
+
+	@Override
+	public MapCodec<CardonCactusFeature> codec() {
+		return CardonCactusFeature.CODEC;
 	}
 }

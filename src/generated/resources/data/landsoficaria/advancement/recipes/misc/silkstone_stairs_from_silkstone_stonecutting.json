@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkstone_stairs_from_silkstone_stonecutting"
+        "recipes": "landsoficaria:silkstone_stairs_from_silkstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

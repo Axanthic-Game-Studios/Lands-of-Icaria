@@ -6,7 +6,7 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import javax.annotation.Nullable;
 
 import net.minecraft.core.Direction;
-import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -14,12 +14,12 @@ import net.minecraft.world.level.block.state.BlockState;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class IcariaSignItem extends SignItem {
-	public Block blockStanding;
+public class IcariaSignItem extends StandingAndWallBlockItem {
+	public Block block;
 
-	public IcariaSignItem(Block pBlockStanding, Block pBlockWall, Properties pProperties) {
-		super(pBlockStanding, pBlockWall, pProperties);
-		this.blockStanding = pBlockStanding;
+	public IcariaSignItem(Block pBlock, Block pWallBlock, Direction pDirection, Properties pProperties) {
+		super(pBlock, pWallBlock, pDirection, pProperties);
+		this.block = pBlock;
 	}
 
 	@Nullable
@@ -31,7 +31,7 @@ public class IcariaSignItem extends SignItem {
 		} else if (player != null && player.isShiftKeyDown()) {
 			return this.wallBlock.getStateForPlacement(pBlockPlaceContext);
 		} else {
-			return this.blockStanding.getStateForPlacement(pBlockPlaceContext);
+			return this.block.getStateForPlacement(pBlockPlaceContext);
 		}
 	}
 }

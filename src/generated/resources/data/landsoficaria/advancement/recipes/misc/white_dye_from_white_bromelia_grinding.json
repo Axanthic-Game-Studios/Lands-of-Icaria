@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:white_dye_from_white_bromelia_grinding"
+        "recipes": "landsoficaria:white_dye_from_white_bromelia_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

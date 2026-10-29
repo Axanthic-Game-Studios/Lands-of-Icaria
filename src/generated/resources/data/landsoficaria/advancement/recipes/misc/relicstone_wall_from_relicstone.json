@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:relicstone_wall_from_relicstone"
+        "recipes": "landsoficaria:relicstone_wall_from_relicstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

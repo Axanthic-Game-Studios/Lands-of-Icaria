@@ -2,8 +2,6 @@ package com.axanthic.icaria.common.events;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.block.DeadLogBlock;
-import com.axanthic.icaria.common.block.IcariaLogBlock;
 import com.axanthic.icaria.common.entity.*;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.ids.IcariaRegistryIds;
@@ -16,7 +14,7 @@ import com.axanthic.icaria.common.variant.FeeshVariant;
 import com.axanthic.icaria.common.variant.FicheVariant;
 import com.axanthic.icaria.common.variant.FisshhVariant;
 import com.axanthic.icaria.common.variant.FyshVariant;
-import com.axanthic.icaria.data.IcariaRecipeRunner;
+import com.axanthic.icaria.data.bootstrap.IcariaRecipeBootstrap;
 import com.axanthic.icaria.data.provider.*;
 import com.axanthic.icaria.data.provider.advancement.IcariaAdvancementProvider;
 import com.axanthic.icaria.data.provider.language.IcariaEnglishLanguageProvider;
@@ -24,6 +22,7 @@ import com.axanthic.icaria.data.provider.language.IcariaGermanLanguageProvider;
 import com.axanthic.icaria.data.provider.loot.IcariaLootTableProvider;
 import com.axanthic.icaria.data.provider.model.IcariaModelProvider;
 import com.axanthic.icaria.data.provider.tags.*;
+import com.axanthic.icaria.data.registry.*;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 
@@ -31,6 +30,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
@@ -44,11 +44,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 import net.neoforged.bus.api.SubscribeEvent;
@@ -56,14 +52,12 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.attachment.AttachmentType;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
-import net.neoforged.neoforge.common.ItemAbilities;
-import net.neoforged.neoforge.common.ItemAbility;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.data.event.GatherDataRegistryEntriesEvent;
 import net.neoforged.neoforge.event.BlockEntityTypeAddBlocksEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.OnDatapackSyncEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.RegisterSpawnPlacementsEvent;
 import net.neoforged.neoforge.event.entity.living.ArmorHurtEvent;
@@ -73,11 +67,11 @@ import net.neoforged.neoforge.event.entity.player.ArrowLooseEvent;
 import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerDestroyItemEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
-import net.neoforged.neoforge.event.level.BlockEvent;
 import net.neoforged.neoforge.event.level.block.BreakBlockEvent;
 import net.neoforged.neoforge.event.tick.PlayerTickEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
-import net.neoforged.neoforge.registries.DataPackRegistryEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.NewDatapackRegistryEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 
 @SuppressWarnings("unused")
@@ -163,49 +157,12 @@ public class IcariaCommonEvents {
 	}
 
 	@SubscribeEvent
-	public static void onBlockToolModification(BlockEvent.BlockToolModificationEvent pEvent) {
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.GRASSY_MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.MARL.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.COARSE_MARL.get(), IcariaBlocks.MARL.get(), ItemAbilities.HOE_TILL, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.COARSE_MARL.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DRY_LAKE_BED.get(), IcariaBlocks.COARSE_MARL.get(), ItemAbilities.HOE_TILL, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DRY_LAKE_BED.get(), IcariaBlocks.MARL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.MARL_PATH.get(), IcariaBlocks.FARMLAND.get(), ItemAbilities.HOE_TILL, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.LOAM.get(), IcariaBlocks.LOAM_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.GRAINEL.get(), IcariaBlocks.GRAINEL_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.SILKSAND.get(), IcariaBlocks.SILKSAND_PATH.get(), ItemAbilities.SHOVEL_FLATTEN, true);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_WOOD.get(), IcariaBlocks.STRIPPED_CYPRESS_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_CYPRESS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_CYPRESS_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DROUGHTROOT_WOOD.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DROUGHTROOT_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.STRIPPED_DEAD_DROUGHTROOT_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.FIR_WOOD.get(), IcariaBlocks.STRIPPED_FIR_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.FIR_LOG.get(), IcariaBlocks.STRIPPED_FIR_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_FIR_LOG.get(), IcariaBlocks.STRIPPED_DEAD_FIR_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.LAUREL_WOOD.get(), IcariaBlocks.STRIPPED_LAUREL_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.STRIPPED_LAUREL_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_LAUREL_LOG.get(), IcariaBlocks.STRIPPED_DEAD_LAUREL_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.OLIVE_WOOD.get(), IcariaBlocks.STRIPPED_OLIVE_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.OLIVE_LOG.get(), IcariaBlocks.STRIPPED_OLIVE_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_OLIVE_LOG.get(), IcariaBlocks.STRIPPED_DEAD_OLIVE_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.PLANE_WOOD.get(), IcariaBlocks.STRIPPED_PLANE_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.PLANE_LOG.get(), IcariaBlocks.STRIPPED_PLANE_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_PLANE_LOG.get(), IcariaBlocks.STRIPPED_DEAD_PLANE_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.POPULUS_WOOD.get(), IcariaBlocks.STRIPPED_POPULUS_WOOD.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.POPULUS_LOG.get(), IcariaBlocks.STRIPPED_POPULUS_LOG.get(), ItemAbilities.AXE_STRIP, false);
-		IcariaCommonEvents.toolModification(pEvent, IcariaBlocks.DEAD_POPULUS_LOG.get(), IcariaBlocks.STRIPPED_DEAD_POPULUS_LOG.get(), ItemAbilities.AXE_STRIP, false);
-	}
-
-	@SubscribeEvent
 	public static void onBreakBlock(BreakBlockEvent pEvent) {
 		var pos = pEvent.getPos();
 		var player = pEvent.getPlayer();
 		var levelAccessor = pEvent.getLevel();
 		var itemStack = player.getMainHandItem();
-		for (var blockPos : BlockPos.withinManhattan(pos, 1, 1, 1)) {
+		for (var blockPos : BlockPos.withinBoxByManhattanDistance(pos, 1, 1, 1)) {
 			if (itemStack.getItem() instanceof ScytheItem) {
 				if (itemStack.isCorrectToolForDrops(levelAccessor.getBlockState(pos))) {
 					if (itemStack.isCorrectToolForDrops(levelAccessor.getBlockState(blockPos))) {
@@ -276,36 +233,33 @@ public class IcariaCommonEvents {
 
 	@SubscribeEvent
 	public static void onGatherData(GatherDataEvent.Client pEvent) {
-		var generator = pEvent.getGenerator();
-		var lookupProvider = pEvent.getLookupProvider();
+		var packOutput = pEvent.getGenerator().getPackOutput();
+		var reloadableLookupProvider = pEvent.getReloadableLookupProvider();
 
-		var packOutput = generator.getPackOutput();
-
-		var builtinEntries = new IcariaDatapackBuiltinEntriesProvider(packOutput, lookupProvider, IcariaIds.ID);
-
-		var registryProvider = builtinEntries.getRegistryProvider();
-
-		pEvent.addProvider(new IcariaAdvancementProvider(packOutput, lookupProvider));
-		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaIds.ID, "en_us"));
-		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaIds.ID, "de_de"));
-		pEvent.addProvider(new IcariaLootTableProvider(packOutput, lookupProvider));
+		pEvent.addProvider(new IcariaEnglishLanguageProvider(packOutput, IcariaIds.ID));
+		pEvent.addProvider(new IcariaGermanLanguageProvider(packOutput, IcariaIds.ID));
 		pEvent.addProvider(new IcariaModelProvider(packOutput, IcariaIds.ID));
-		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, registryProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, registryProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, lookupProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, registryProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaPotionTagsProvider(packOutput, registryProvider));
-		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, registryProvider, IcariaIds.ID));
-		pEvent.addProvider(new IcariaDataMapProvider(packOutput, lookupProvider));
-		pEvent.addProvider(builtinEntries);
+		pEvent.addProvider(new IcariaBiomeTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaBlockTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaEntityTypeTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaFluidTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaInstrumentTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaItemTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaPaintingVariantTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaPotionTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaStructureTagsProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaDataMapProvider(packOutput, reloadableLookupProvider));
 		pEvent.addProvider(new IcariaEquipmentAssetProvider(packOutput));
 		pEvent.addProvider(new IcariaParticleDescriptionProvider(packOutput));
-		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, lookupProvider, IcariaIds.ID));
+		pEvent.addProvider(new IcariaRecipePrioritiesProvider(packOutput, reloadableLookupProvider, IcariaIds.ID));
 		pEvent.addProvider(new IcariaSoundDefinitionsProvider(packOutput, IcariaIds.ID));
-		pEvent.addProvider(new IcariaRecipeRunner(packOutput, lookupProvider));
+	}
+
+	@SubscribeEvent
+	public static void onGatherDataRegistryEntries(GatherDataRegistryEntriesEvent pEvent) {
+		IcariaCommonEvents.addBootstrap(pEvent);
+		IcariaCommonEvents.addProvider(pEvent);
+		IcariaCommonEvents.addRegistry(pEvent);
 	}
 
 	@SubscribeEvent
@@ -323,11 +277,11 @@ public class IcariaCommonEvents {
 	}
 
 	@SubscribeEvent
-	public static void onNewRegistry(DataPackRegistryEvent.NewRegistry pEvent) {
-		pEvent.dataPackRegistry(IcariaRegistryIds.FEESH_VARIANT, FeeshVariant.CODEC, FeeshVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistryIds.FICHE_VARIANT, FicheVariant.CODEC, FicheVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistryIds.FISSHH_VARIANT, FisshhVariant.CODEC, FisshhVariant.CODEC);
-		pEvent.dataPackRegistry(IcariaRegistryIds.FYSH_VARIANT, FyshVariant.CODEC, FyshVariant.CODEC);
+	public static void onNewDatapackRegistry(NewDatapackRegistryEvent pEvent) {
+		pEvent.worldRegistry(IcariaRegistryIds.FEESH_VARIANT, FeeshVariant.CODEC, FeeshVariant.CODEC);
+		pEvent.worldRegistry(IcariaRegistryIds.FICHE_VARIANT, FicheVariant.CODEC, FicheVariant.CODEC);
+		pEvent.worldRegistry(IcariaRegistryIds.FISSHH_VARIANT, FisshhVariant.CODEC, FisshhVariant.CODEC);
+		pEvent.worldRegistry(IcariaRegistryIds.FYSH_VARIANT, FyshVariant.CODEC, FyshVariant.CODEC);
 	}
 
 	@SubscribeEvent
@@ -351,13 +305,6 @@ public class IcariaCommonEvents {
 	public static void onPlayerTick(PlayerTickEvent.Pre pEvent) {
 		IcariaCommonEvents.carriable(pEvent);
 		IcariaCommonEvents.unblindingTotem(pEvent, IcariaItems.TOTEM_OF_UNBLINDING.get());
-	}
-
-	@SubscribeEvent
-	public static void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent pEvent) {
-		pEvent.getBuilder().addMix(Potions.AWKWARD, IcariaItems.BLINDWEED.get(), IcariaPotions.BLINDNESS);
-		pEvent.getBuilder().addMix(Potions.AWKWARD, IcariaItems.SNULL_CREAM.get(), IcariaPotions.NAUSEA);
-		pEvent.getBuilder().addMix(Potions.AWKWARD, Items.WITHER_ROSE, IcariaPotions.WITHER);
 	}
 
 	@SubscribeEvent
@@ -425,6 +372,227 @@ public class IcariaCommonEvents {
 		pEvent.register(IcariaEntityTypes.SOLIFUGAE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SolifugaeEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.THOG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, ThogEntity::checkAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
 		pEvent.register(IcariaEntityTypes.VINEGAROON.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VinegaroonEntity::checkAnyLightArachnidSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+	}
+
+	public static void stuffingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
+		IcariaCommonEvents.stuffingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.stuffingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void stuffingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pEvent.getSource() == player.level().damageSources().starve()) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.setCanceled(true);
+					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
+					player.awardStat(Stats.ITEM_USED.get(pItem));
+					player.getFoodData().setFoodLevel(20);
+					player.getFoodData().setSaturation(20.0F);
+					player.removeEffect(MobEffects.HUNGER);
+					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, player);
+				}
+			}
+		}
+	}
+
+	public static void unblindingTotem(PlayerTickEvent.Pre pEvent, Item pItem) {
+		IcariaCommonEvents.unblindingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unblindingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unblindingTotem(PlayerTickEvent.Pre pEvent, Item pItem, ItemStack pTotem) {
+		if (!pEvent.getEntity().hasEffect(IcariaMobEffects.BLINDNESS_IMMUNITY)) {
+			if (pEvent.getEntity().hasEffect(MobEffects.BLINDNESS) || pEvent.getEntity().hasEffect(MobEffects.DARKNESS)) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.getEntity().addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY, 600));
+					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
+					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
+				}
+			}
+		}
+	}
+
+	public static void undrowningTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
+		IcariaCommonEvents.undrowningTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.undrowningTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void undrowningTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pEvent.getSource() == player.level().damageSources().drown()) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.setCanceled(true);
+					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
+					player.awardStat(Stats.ITEM_USED.get(pItem));
+					player.setAirSupply(300);
+					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, player);
+				}
+			}
+		}
+	}
+
+	public static void undyingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
+		IcariaCommonEvents.undyingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.undyingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void undyingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pEvent.getSource() != player.level().damageSources().fellOutOfWorld() && pEvent.getAmount() >= player.getHealth()) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.setCanceled(true);
+					player.setHealth(2.0F);
+					player.removeAllEffects();
+					player.awardStat(Stats.ITEM_USED.get(pItem));
+					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1));
+					player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0));
+					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
+					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, player);
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem) {
+		for (var slot : EquipmentSlot.VALUES) {
+			if (slot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
+				IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getMainHandItem());
+				IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getOffhandItem());
+			}
+		}
+	}
+
+	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+				if (pStack.has(DataComponents.EQUIPPABLE)) {
+					if (pTotem.getItem() == pItem) {
+						player.awardStat(Stats.ITEM_USED.get(pItem));
+						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+						pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+						IcariaCommonEvents.totemPayload(pItem, player);
+					}
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(ArrowLooseEvent pEvent, Item pItem) {
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unshatteringTotem(ArrowLooseEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+			if (pStack.getItem() instanceof BowItem || pStack.getItem() instanceof CrossbowItem) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
+					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(AttackEntityEvent pEvent, Item pItem) {
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unshatteringTotem(AttackEntityEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+			if (pStack.has(DataComponents.WEAPON)) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
+					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(LivingShieldBlockEvent pEvent, Item pItem) {
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unshatteringTotem(LivingShieldBlockEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+				if (pStack.getItem() instanceof ShieldItem) {
+					if (pTotem.getItem() == pItem) {
+						player.awardStat(Stats.ITEM_USED.get(pItem));
+						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+						pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+						IcariaCommonEvents.totemPayload(pItem, player);
+					}
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(PlayerDestroyItemEvent pEvent, Item pItem) {
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getOriginal(), pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getOriginal(), pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unshatteringTotem(PlayerDestroyItemEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pEvent.getHand() != null) {
+			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+				if (pStack.has(DataComponents.WEAPON) || pStack.getItem() instanceof FlintAndSteelItem || pStack.getItem() instanceof ShearsItem) {
+					if (pTotem.getItem() == pItem) {
+						pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
+						pEvent.getEntity().setItemInHand(pEvent.getHand(), pStack);
+						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+						pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
+						IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
+					}
+				}
+			}
+		}
+	}
+
+	public static void unshatteringTotem(PlayerInteractEvent.EntityInteract pEvent, Item pItem) {
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unshatteringTotem(PlayerInteractEvent.EntityInteract pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
+		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
+			if (pStack.getItem() instanceof BrushItem || pStack.getItem() instanceof ShearsItem) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
+					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
+					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
+				}
+			}
+		}
+	}
+
+	public static void unsinkingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
+		IcariaCommonEvents.unsinkingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
+		IcariaCommonEvents.unsinkingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	}
+
+	public static void unsinkingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
+		if (pEvent.getEntity() instanceof Player player) {
+			if (pEvent.getSource() == player.level().damageSources().fellOutOfWorld()) {
+				if (pTotem.getItem() == pItem) {
+					pEvent.setCanceled(true);
+					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
+					player.awardStat(Stats.ITEM_USED.get(pItem));
+					player.teleportTo(player.blockPosition().getX() + 0.5D, pEvent.getEntity().level().getMaxY(), player.blockPosition().getZ() + 0.5D);
+					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
+					IcariaCommonEvents.totemPayload(pItem, player);
+				}
+			}
+		}
 	}
 
 	public static void blocks(BuildCreativeModeTabContentsEvent pEvent) {
@@ -699,6 +867,42 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.PURPLE_TERRY_BLOCK.get());
 			pEvent.accept(IcariaItems.MAGENTA_TERRY_BLOCK.get());
 			pEvent.accept(IcariaItems.PINK_TERRY_BLOCK.get());
+
+			pEvent.accept(IcariaItems.TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.WHITE_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.LIGHT_GRAY_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.GRAY_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.BLACK_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.BROWN_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.RED_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.ORANGE_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.YELLOW_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.LIME_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.GREEN_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.CYAN_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.LIGHT_BLUE_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.BLUE_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.PURPLE_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.MAGENTA_TERRY_STAIRS.get());
+			pEvent.accept(IcariaItems.PINK_TERRY_STAIRS.get());
+
+			pEvent.accept(IcariaItems.TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.WHITE_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.LIGHT_GRAY_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.GRAY_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.BLACK_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.BROWN_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.RED_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.ORANGE_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.YELLOW_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.LIME_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.GREEN_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.CYAN_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.LIGHT_BLUE_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.BLUE_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.PURPLE_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.MAGENTA_TERRY_SLAB.get());
+			pEvent.accept(IcariaItems.PINK_TERRY_SLAB.get());
 
 			pEvent.accept(IcariaItems.TERRY_MAT.get());
 			pEvent.accept(IcariaItems.WHITE_TERRY_MAT.get());
@@ -1706,224 +1910,40 @@ public class IcariaCommonEvents {
 		}
 	}
 
-	public static void stuffingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
-		IcariaCommonEvents.stuffingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.stuffingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	public static void addBootstrap(GatherDataRegistryEntriesEvent pEvent) {
+		pEvent.add(new IcariaRecipeBootstrap());
 	}
 
-	public static void stuffingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pEvent.getSource() == player.level().damageSources().starve()) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.setCanceled(true);
-					player.addEffect(new MobEffectInstance(MobEffects.SATURATION, 200));
-					player.awardStat(Stats.ITEM_USED.get(pItem));
-					player.getFoodData().setFoodLevel(20);
-					player.getFoodData().setSaturation(20.0F);
-					player.removeEffect(MobEffects.HUNGER);
-					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, player);
-				}
-			}
-		}
+	public static void addProvider(GatherDataRegistryEntriesEvent pEvent) {
+		pEvent.add(Registries.ADVANCEMENT, new IcariaAdvancementProvider());
+		pEvent.add(Registries.LOOT_TABLE, new IcariaLootTableProvider());
 	}
 
-	public static void unblindingTotem(PlayerTickEvent.Pre pEvent, Item pItem) {
-		IcariaCommonEvents.unblindingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unblindingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
+	public static void addRegistry(GatherDataRegistryEntriesEvent pEvent) {
+		pEvent.add(Registries.BIOME, IcariaBiomes::bootstrap);
+		pEvent.add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, IcariaBiomeModifiers::bootstrap);
+		pEvent.add(Registries.CONTEXT_INT_PROVIDER, IcariaContextIntProviders::bootstrap);
+		pEvent.add(Registries.DIMENSION_TYPE, IcariaDimensionTypes::bootstrap);
+		pEvent.add(Registries.FEATURE, IcariaFeatures::bootstrap);
+		pEvent.add(IcariaRegistryIds.FEESH_VARIANT, IcariaFeeshVariants::bootstrap);
+		pEvent.add(IcariaRegistryIds.FICHE_VARIANT, IcariaFicheVariants::bootstrap);
+		pEvent.add(IcariaRegistryIds.FISSHH_VARIANT, IcariaFisshhVariants::bootstrap);
+		pEvent.add(IcariaRegistryIds.FYSH_VARIANT, IcariaFyshVariants::bootstrap);
+		pEvent.add(Registries.INSTRUMENT, IcariaInstruments::bootstrap);
+		pEvent.add(Registries.LEVEL_STEM, IcariaLevelStems::bootstrap);
+		pEvent.add(Registries.MATERIAL_RULE, IcariaMaterialRules::bootstrap);
+		pEvent.add(Registries.NOISE_SETTINGS, IcariaNoiseSettings::bootstrap);
+		pEvent.add(Registries.PAINTING_VARIANT, IcariaPaintingVariants::bootstrap);
+		pEvent.add(Registries.PLACED_FEATURE, IcariaPlacedFeatures::bootstrap);
+		pEvent.add(Registries.PROCESSOR_LIST, IcariaProcessorLists::bootstrap);
+		pEvent.add(Registries.STRUCTURE, IcariaStructures::bootstrap);
+		pEvent.add(Registries.STRUCTURE_SET, IcariaStructureSets::bootstrap);
+		pEvent.add(Registries.TEMPLATE_POOL, IcariaTemplatePools::bootstrap);
 	}
 
-	public static void unblindingTotem(PlayerTickEvent.Pre pEvent, Item pItem, ItemStack pTotem) {
-		if (!pEvent.getEntity().hasEffect(IcariaMobEffects.BLINDNESS_IMMUNITY)) {
-			if (pEvent.getEntity().hasEffect(MobEffects.BLINDNESS) || pEvent.getEntity().hasEffect(MobEffects.DARKNESS)) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.getEntity().addEffect(new MobEffectInstance(IcariaMobEffects.BLINDNESS_IMMUNITY, 600));
-					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
-					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
-				}
-			}
-		}
-	}
-
-	public static void undrowningTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
-		IcariaCommonEvents.undrowningTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.undrowningTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void undrowningTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pEvent.getSource() == player.level().damageSources().drown()) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.setCanceled(true);
-					player.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 600));
-					player.awardStat(Stats.ITEM_USED.get(pItem));
-					player.setAirSupply(300);
-					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, player);
-				}
-			}
-		}
-	}
-
-	public static void undyingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
-		IcariaCommonEvents.undyingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.undyingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void undyingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pEvent.getSource() != player.level().damageSources().fellOutOfWorld() && pEvent.getAmount() >= player.getHealth()) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.setCanceled(true);
-					player.setHealth(2.0F);
-					player.removeAllEffects();
-					player.awardStat(Stats.ITEM_USED.get(pItem));
-					player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 900, 1));
-					player.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 800, 0));
-					player.addEffect(new MobEffectInstance(MobEffects.ABSORPTION, 100, 1));
-					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, player);
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem) {
-		for (var slot : EquipmentSlot.VALUES) {
-			if (slot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
-				IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getMainHandItem());
-				IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getArmorItemStack(slot), pEvent.getEntity().getOffhandItem());
-			}
-		}
-	}
-
-	public static void unshatteringTotem(ArmorHurtEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-				if (pStack.has(DataComponents.EQUIPPABLE)) {
-					if (pTotem.getItem() == pItem) {
-						player.awardStat(Stats.ITEM_USED.get(pItem));
-						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-						pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-						IcariaCommonEvents.totemPayload(pItem, player);
-					}
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(ArrowLooseEvent pEvent, Item pItem) {
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unshatteringTotem(ArrowLooseEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-			if (pStack.getItem() instanceof BowItem || pStack.getItem() instanceof CrossbowItem) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
-					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(AttackEntityEvent pEvent, Item pItem) {
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unshatteringTotem(AttackEntityEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-			if (pStack.has(DataComponents.WEAPON)) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
-					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(LivingShieldBlockEvent pEvent, Item pItem) {
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unshatteringTotem(LivingShieldBlockEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-				if (pStack.getItem() instanceof ShieldItem) {
-					if (pTotem.getItem() == pItem) {
-						player.awardStat(Stats.ITEM_USED.get(pItem));
-						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-						pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-						IcariaCommonEvents.totemPayload(pItem, player);
-					}
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(PlayerDestroyItemEvent pEvent, Item pItem) {
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getOriginal(), pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getOriginal(), pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unshatteringTotem(PlayerDestroyItemEvent pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pEvent.getHand() != null) {
-			if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-				if (pStack.has(DataComponents.WEAPON) || pStack.getItem() instanceof FlintAndSteelItem || pStack.getItem() instanceof ShearsItem) {
-					if (pTotem.getItem() == pItem) {
-						pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
-						pEvent.getEntity().setItemInHand(pEvent.getHand(), pStack);
-						pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-						pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
-						IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
-					}
-				}
-			}
-		}
-	}
-
-	public static void unshatteringTotem(PlayerInteractEvent.EntityInteract pEvent, Item pItem) {
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem(), pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unshatteringTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem(), pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unshatteringTotem(PlayerInteractEvent.EntityInteract pEvent, Item pItem, ItemStack pStack, ItemStack pTotem) {
-		if (pStack.getDamageValue() >= pStack.getMaxDamage() * 0.7F) {
-			if (pStack.getItem() instanceof BrushItem || pStack.getItem() instanceof ShearsItem) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.getEntity().awardStat(Stats.ITEM_USED.get(pItem));
-					pStack.setDamageValue((int) (pStack.getMaxDamage() * 0.3F));
-					pTotem.hurtAndBreak(1, pEvent.getEntity(), pEvent.getEntity().getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, pEvent.getEntity());
-				}
-			}
-		}
-	}
-
-	public static void unsinkingTotem(LivingIncomingDamageEvent pEvent, Item pItem) {
-		IcariaCommonEvents.unsinkingTotem(pEvent, pItem, pEvent.getEntity().getMainHandItem());
-		IcariaCommonEvents.unsinkingTotem(pEvent, pItem, pEvent.getEntity().getOffhandItem());
-	}
-
-	public static void unsinkingTotem(LivingIncomingDamageEvent pEvent, Item pItem, ItemStack pTotem) {
-		if (pEvent.getEntity() instanceof Player player) {
-			if (pEvent.getSource() == player.level().damageSources().fellOutOfWorld()) {
-				if (pTotem.getItem() == pItem) {
-					pEvent.setCanceled(true);
-					player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, 600));
-					player.awardStat(Stats.ITEM_USED.get(pItem));
-					player.teleportTo(player.blockPosition().getX() + 0.5D, pEvent.getEntity().level().getMaxY(), player.blockPosition().getZ() + 0.5D);
-					pTotem.hurtAndBreak(1, player, player.getUsedItemHand().asEquipmentSlot());
-					IcariaCommonEvents.totemPayload(pItem, player);
-				}
-			}
+	public static void lifesteal(LivingIncomingDamageEvent pEvent) {
+		if (pEvent.getSource().getEntity() instanceof Player player && player.hasEffect(IcariaMobEffects.LIFESTEAL)) {
+			player.heal(pEvent.getAmount());
 		}
 	}
 
@@ -1961,33 +1981,6 @@ public class IcariaCommonEvents {
 			return 1;
 		} else {
 			return 0;
-		}
-	}
-
-	public static void lifesteal(LivingIncomingDamageEvent pEvent) {
-		if (pEvent.getSource().getEntity() instanceof Player player && player.hasEffect(IcariaMobEffects.LIFESTEAL)) {
-			player.heal(pEvent.getAmount());
-		}
-	}
-
-	public static void toolModification(BlockEvent.BlockToolModificationEvent pEvent, Block pBlockOld, Block pBlockNew, ItemAbility pItemAbility, boolean pCheckAbove) {
-		var useOnContext = pEvent.getContext();
-		if (pEvent.getItemAbility() == pItemAbility) {
-			var state = useOnContext.getLevel().getBlockState(useOnContext.getClickedPos());
-			if (state.is(pBlockOld)) {
-				var flag = !useOnContext.getLevel().getBlockState(useOnContext.getClickedPos().above()).isAir() && pCheckAbove;
-				if (!flag) {
-					if (state.getBlock() instanceof DeadLogBlock) {
-						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, state.getValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED)).setValue(BlockStateProperties.WATERLOGGED, state.getValue(BlockStateProperties.WATERLOGGED)));
-					} else if (state.getBlock() instanceof IcariaLogBlock) {
-						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)).setValue(IcariaBlockStateProperties.PLAYER_PLACED, state.getValue(IcariaBlockStateProperties.PLAYER_PLACED)));
-					} else if (state.getBlock() instanceof RotatedPillarBlock) {
-						pEvent.setFinalState(pBlockNew.defaultBlockState().setValue(BlockStateProperties.AXIS, state.getValue(BlockStateProperties.AXIS)));
-					} else {
-						pEvent.setFinalState(pBlockNew.defaultBlockState());
-					}
-				}
-			}
 		}
 	}
 

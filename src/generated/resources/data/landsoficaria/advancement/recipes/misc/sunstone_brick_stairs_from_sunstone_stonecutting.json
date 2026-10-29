@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sunstone_brick_stairs_from_sunstone_stonecutting"
+        "recipes": "landsoficaria:sunstone_brick_stairs_from_sunstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grainite_from_grainel"
+        "recipes": "landsoficaria:grainite_from_grainel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

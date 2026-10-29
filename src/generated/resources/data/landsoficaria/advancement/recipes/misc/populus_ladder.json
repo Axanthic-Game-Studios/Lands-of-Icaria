@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_ladder"
+        "recipes": "landsoficaria:populus_ladder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

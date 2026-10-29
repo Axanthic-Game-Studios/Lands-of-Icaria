@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kettle"
+        "recipes": "landsoficaria:kettle"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

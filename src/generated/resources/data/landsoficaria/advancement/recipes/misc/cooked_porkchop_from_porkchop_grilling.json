@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_porkchop_from_porkchop_grilling"
+        "recipes": "landsoficaria:cooked_porkchop_from_porkchop_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

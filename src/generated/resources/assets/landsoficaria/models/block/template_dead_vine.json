@@ -31,7 +31,7 @@
         "y": 0.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         16,
         16,
@@ -68,7 +68,7 @@
         "y": 0.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         16,
         16,

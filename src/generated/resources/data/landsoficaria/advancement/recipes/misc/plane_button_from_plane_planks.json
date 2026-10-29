@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_button_from_plane_planks"
+        "recipes": "landsoficaria:plane_button_from_plane_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

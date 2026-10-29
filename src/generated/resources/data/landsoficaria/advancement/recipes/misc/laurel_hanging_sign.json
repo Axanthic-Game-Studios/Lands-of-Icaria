@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_hanging_sign"
+        "recipes": "landsoficaria:laurel_hanging_sign"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

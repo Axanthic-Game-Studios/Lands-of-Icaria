@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_chicken_from_chicken_grilling"
+        "recipes": "landsoficaria:cooked_chicken_from_chicken_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

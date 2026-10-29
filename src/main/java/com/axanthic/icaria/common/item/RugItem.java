@@ -32,6 +32,19 @@ public class RugItem extends HangingEntityItem {
 		this.tagKey = pTagKey;
 	}
 
+	public InteractionResult handleAction(BlockPos pBlockPos, Direction pDirection, Direction pHorizontalDirection, ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		var optional = RugEntity.create(pBlockPos, pDirection, pHorizontalDirection, new ItemStack(this), pLevel, this.getTagKey());
+		if (optional.isPresent() && optional.get().survives() && !pLevel.isClientSide()) {
+			pItemStack.consume(1, pPlayer);
+			pLevel.addFreshEntity(optional.get());
+			pLevel.gameEvent(pPlayer, GameEvent.ENTITY_PLACE, optional.get().position());
+			optional.get().playPlacementSound();
+			return InteractionResult.SUCCESS;
+		} else {
+			return InteractionResult.CONSUME;
+		}
+	}
+
 	@Override
 	public InteractionResult useOn(UseOnContext pUseOnContext) {
 		var direction = pUseOnContext.getClickedFace();
@@ -42,19 +55,6 @@ public class RugItem extends HangingEntityItem {
 		var blockPos = pUseOnContext.getClickedPos().relative(direction);
 		if (player != null && player.mayUseItemAt(blockPos, direction, itemStack)) {
 			return this.handleAction(blockPos, direction, horizontalDirection, itemStack, level, player);
-		} else {
-			return InteractionResult.CONSUME;
-		}
-	}
-
-	public InteractionResult handleAction(BlockPos pBlockPos, Direction pDirection, Direction pHorizontalDirection, ItemStack pItemStack, Level pLevel, Player pPlayer) {
-		var optional = RugEntity.create(pBlockPos, pDirection, pHorizontalDirection, new ItemStack(this), pLevel, this.getTagKey());
-		if (optional.isPresent() && optional.get().survives() && !pLevel.isClientSide()) {
-			pItemStack.consume(1, pPlayer);
-			pLevel.addFreshEntity(optional.get());
-			pLevel.gameEvent(pPlayer, GameEvent.ENTITY_PLACE, optional.get().position());
-			optional.get().playPlacementSound();
-			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.CONSUME;
 		}

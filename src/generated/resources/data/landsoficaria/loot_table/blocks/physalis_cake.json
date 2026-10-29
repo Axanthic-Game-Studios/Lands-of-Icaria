@@ -2,310 +2,276 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "white_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "white_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:white_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_gray_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "light_gray_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_gray_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "gray_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "gray_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:gray_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "black_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "black_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:black_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "brown_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "brown_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:brown_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "red_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "red_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:red_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "orange_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "orange_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:orange_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "yellow_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "yellow_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:yellow_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "lime_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "lime_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:lime_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "green_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "green_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:green_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "cyan_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "cyan_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:cyan_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "light_blue_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "light_blue_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:light_blue_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "blue_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "blue_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:blue_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "purple_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "purple_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:purple_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "magenta_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "magenta_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:magenta_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:physalis_cake",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "candle": "pink_candle"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:physalis_cake",
+        "state": {
+          "candle": "pink_candle"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:pink_candle"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/physalis_cake"

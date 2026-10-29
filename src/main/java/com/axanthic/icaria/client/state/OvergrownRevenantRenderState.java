@@ -12,9 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class OvergrownRevenantRenderState extends LivingEntityRenderState {
 	public float attackTime;
-	public float blue;
-	public float green;
-	public float red;
+	public int color;
 	public int id;
 	public ItemStackRenderState itemStackRenderState;
 	public LivingEntity livingEntity;

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:gravel_from_cobblestone_grinding"
+        "recipes": "landsoficaria:gravel_from_cobblestone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

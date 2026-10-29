@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:healing_flask_from_healing_spell_empty_flask"
+        "recipes": "landsoficaria:healing_flask_from_healing_spell_empty_flask"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

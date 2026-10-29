@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_silkstone_from_silkstone_grinding"
+        "recipes": "landsoficaria:cobbled_silkstone_from_silkstone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

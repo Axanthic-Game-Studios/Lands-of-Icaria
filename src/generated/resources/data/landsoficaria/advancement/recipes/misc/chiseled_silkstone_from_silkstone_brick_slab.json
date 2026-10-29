@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_silkstone_from_silkstone_brick_slab"
+        "recipes": "landsoficaria:chiseled_silkstone_from_silkstone_brick_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

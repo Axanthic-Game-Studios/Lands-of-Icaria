@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:red_dye_from_red_ground_flowers_grinding"
+        "recipes": "landsoficaria:red_dye_from_red_ground_flowers_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

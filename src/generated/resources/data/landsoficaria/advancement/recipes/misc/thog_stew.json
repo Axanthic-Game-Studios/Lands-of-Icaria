@@ -43,7 +43,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:thog_stew"
+        "recipes": "landsoficaria:thog_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

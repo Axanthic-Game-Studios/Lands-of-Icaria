@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:relicstone_tile_wall_from_relicstone_tiles"
+        "recipes": "landsoficaria:relicstone_tile_wall_from_relicstone_tiles"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

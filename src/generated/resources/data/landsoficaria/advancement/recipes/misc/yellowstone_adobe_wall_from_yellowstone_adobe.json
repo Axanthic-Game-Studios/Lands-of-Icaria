@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_adobe_wall_from_yellowstone_adobe"
+        "recipes": "landsoficaria:yellowstone_adobe_wall_from_yellowstone_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

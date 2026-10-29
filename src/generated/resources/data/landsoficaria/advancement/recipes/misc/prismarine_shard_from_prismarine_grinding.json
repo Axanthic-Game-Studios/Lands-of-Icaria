@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:prismarine_shard_from_prismarine_grinding"
+        "recipes": "landsoficaria:prismarine_shard_from_prismarine_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

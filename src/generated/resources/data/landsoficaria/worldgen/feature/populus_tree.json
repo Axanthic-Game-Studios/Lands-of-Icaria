@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:populus_tree",
+  "fallen": "landsoficaria:fallen_populus_leaves",
+  "leaves": "landsoficaria:populus_leaves",
+  "log": "landsoficaria:populus_log",
+  "shrooms": "landsoficaria:turkey_tail_tree_shrooms",
+  "twigs": "landsoficaria:populus_twigs"
+}

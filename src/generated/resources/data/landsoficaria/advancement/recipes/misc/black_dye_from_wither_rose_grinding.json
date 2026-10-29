@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:black_dye_from_wither_rose_grinding"
+        "recipes": "landsoficaria:black_dye_from_wither_rose_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

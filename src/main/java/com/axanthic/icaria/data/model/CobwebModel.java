@@ -18,20 +18,16 @@ public class CobwebModel {
 
 	public static ExtendedModelTemplate cross() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
-			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F)
-				.shade(false)
+			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F).shadeDirectionOverride(Direction.UP)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F).rescale(true))
 				.face(Direction.WEST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.COBWEB_NEGATIVE)))
-			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F)
-				.shade(false)
+			.element(elementBuilder -> elementBuilder.from(8.0000F, 0.0000F, 0.0000F).to(8.0000F, 16.0000F, 16.0000F).shadeDirectionOverride(Direction.UP)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F).rescale(true))
 				.face(Direction.EAST, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.COBWEB_NEGATIVE_OPPOSITE)))
-			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 8.0000F).to(16.0000F, 16.0000F, 8.0000F)
-				.shade(false)
+			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 8.0000F).to(16.0000F, 16.0000F, 8.0000F).shadeDirectionOverride(Direction.UP)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F).rescale(true))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.COBWEB_POSITIVE)))
-			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 8.0000F).to(16.0000F, 16.0000F, 8.0000F)
-				.shade(false)
+			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 8.0000F).to(16.0000F, 16.0000F, 8.0000F).shadeDirectionOverride(Direction.UP)
 				.rotation(rotationBuilder -> rotationBuilder.eulerXYZ(0.0000F, 45.0000F, 0.0000F).origin(8.0000F, 8.0000F, 8.0000F).rescale(true))
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.COBWEB_POSITIVE_OPPOSITE)))
 			.build();
@@ -39,8 +35,7 @@ public class CobwebModel {
 
 	public static ExtendedModelTemplate plane() {
 		return ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "block")).ambientOcclusion(false)
-			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 0.8000F).to(16.0000F, 16.0000F, 0.8000F)
-				.shade(false)
+			.element(elementBuilder -> elementBuilder.from(0.0000F, 0.0000F, 0.8000F).to(16.0000F, 16.0000F, 0.8000F).shadeDirectionOverride(Direction.UP)
 				.face(Direction.NORTH, faceBuilder -> faceBuilder.uvs(16.0000F, 0.0000F, 0.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE))
 				.face(Direction.SOUTH, faceBuilder -> faceBuilder.uvs(0.0000F, 0.0000F, 16.0000F, 16.0000F).texture(IcariaTextureSlots.TEXTURE)))
 			.build();

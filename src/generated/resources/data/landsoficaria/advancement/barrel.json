@@ -3,21 +3,18 @@
   "criteria": {
     "barrel": {
       "conditions": {
-        "source": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "landsoficaria:barrel"
-            }
+        "source": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "landsoficaria:barrel"
           }
-        ]
+        }
       },
       "trigger": "minecraft:effects_changed"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.barrel.description"
     },

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_voidshale_wall_from_cobbled_voidshale"
+        "recipes": "landsoficaria:cobbled_voidshale_wall_from_cobbled_voidshale"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

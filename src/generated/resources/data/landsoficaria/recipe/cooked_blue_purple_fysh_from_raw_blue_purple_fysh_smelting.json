@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 200,
   "experience": 0.35,
   "ingredient": "landsoficaria:raw_blue_purple_fysh",
   "result": {

@@ -5,6 +5,7 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.client.state.SpellRenderState;
 import com.axanthic.icaria.common.entity.SpellEntity;
+import com.axanthic.icaria.common.registry.IcariaIds;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -15,6 +16,8 @@ import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 
 import org.joml.Matrix4f;
@@ -42,14 +45,14 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 		pRenderState.xRotOld = pEntity.xRotO;
 		pRenderState.yRot = pEntity.getYRot();
 		pRenderState.yRotOld = pEntity.yRotO;
-		pRenderState.color = pEntity.getColor();
+		pRenderState.entityType = pEntity.getType();
 	}
 
 	@Override
 	public void submit(SpellRenderState pRenderState, PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, CameraRenderState pCameraRenderState) {
 		pPoseStack.pushPose();
 
-		var color = pRenderState.color;
+		var identifier = Identifier.fromNamespaceAndPath(IcariaIds.ID, "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pRenderState.entityType).getPath() + "." + "png");
 		var ticks = pRenderState.ageInTicks;
 
 		var distance = 25.0F;
@@ -57,14 +60,10 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 		var speed = 1.5F;
 		var wiggle = 0.0025F;
 
-		var red = (color >> 16 & 255) / 255.0F;
-		var green = (color >> 8 & 255) / 255.0F;
-		var blue = (color & 255) / 255.0F;
-
 		pPoseStack.translate(0.0D, 0.25D, 0.0D);
 
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(pRenderState.partialTick, pRenderState.yRotOld, pRenderState.yRot) + 180.0F));
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(Mth.lerp(pRenderState.partialTick, pRenderState.xRotOld, pRenderState.xRot) + 90.0F));
+		pPoseStack.rotateDegrees(Axis.YP, Mth.lerp(pRenderState.partialTick, pRenderState.yRotOld, pRenderState.yRot) + 180.0F);
+		pPoseStack.rotateDegrees(Axis.XP, Mth.lerp(pRenderState.partialTick, pRenderState.xRotOld, pRenderState.xRot) + 90.0F);
 
 		for (var f = 0.0F; f < length; f++) {
 			var alpha = (length - f) / length;
@@ -75,8 +74,8 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 
 			var resolution = f / distance;
 
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE_TEXTURED, (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, red, green, blue, alpha, x - width, x + width, resolution, y + width, y - width));
-			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE_TEXTURED, (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, red, green, blue, alpha, x + width, x - width, resolution, y + width, y - width));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.additiveTextured(identifier), (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, alpha, x - width, x + width, resolution, y + width, y - width));
+			pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.additiveTextured(identifier), (pose, vertexConsumer) -> this.submit(pose.pose(), pRenderState, vertexConsumer, alpha, x + width, x - width, resolution, y + width, y - width));
 		}
 
 		pPoseStack.popPose();
@@ -84,11 +83,11 @@ public class SpellRenderer extends EntityRenderer<SpellEntity, SpellRenderState>
 		super.submit(pRenderState, pPoseStack, pSubmitNodeCollector, pCameraRenderState);
 	}
 
-	public void submit(Matrix4f pMatrix4f, SpellRenderState pRenderState, VertexConsumer pVertexConsumer, float pRed, float pGreen, float pBlue, float pAlpha, float pXMin, float pXMax, float pY, float pZMin, float pZMax) {
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 1.0F);
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 1.0F);
-		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 0.0F);
-		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(pRed, pGreen, pBlue, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 0.0F);
+	public void submit(Matrix4f pMatrix4f, SpellRenderState pRenderState, VertexConsumer pVertexConsumer, float pAlpha, float pXMin, float pXMax, float pY, float pZMin, float pZMax) {
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMin).setColor(1.0F, 1.0F, 1.0F, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 1.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMin).setColor(1.0F, 1.0F, 1.0F, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 1.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMax, pY, pZMax).setColor(1.0F, 1.0F, 1.0F, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(1.0F, 0.0F);
+		pVertexConsumer.addVertex(pMatrix4f, pXMin, pY, pZMax).setColor(1.0F, 1.0F, 1.0F, pAlpha).setLight(pRenderState.lightCoords).setNormal(1.0F, 1.0F, 1.0F).setOverlay(OverlayTexture.NO_OVERLAY).setUv(0.0F, 0.0F);
 	}
 
 	@Override

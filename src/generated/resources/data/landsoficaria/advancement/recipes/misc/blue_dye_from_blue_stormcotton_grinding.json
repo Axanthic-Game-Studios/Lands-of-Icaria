@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:blue_dye_from_blue_stormcotton_grinding"
+        "recipes": "landsoficaria:blue_dye_from_blue_stormcotton_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

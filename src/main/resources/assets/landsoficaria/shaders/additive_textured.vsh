@@ -1,22 +1,24 @@
-#version 150
+#version 330
 
-#moj_import <minecraft:dynamictransforms.glsl>
-#moj_import <minecraft:fog.glsl>
-#moj_import <minecraft:projection.glsl>
+#extension GL_ARB_separate_shader_objects : require
 
-in vec2 UV0;
-in vec3 Position;
-in vec4 Color;
+#include <minecraft:dynamictransforms.glsl>
+#include <minecraft:fog.glsl>
+#include <minecraft:projection.glsl>
 
-out float cylindricalVertexDistance;
-out float sphericalVertexDistance;
-out vec2 texCoord0;
-out vec4 vertexColor;
+layout(location = 0) in vec3 Position;
+layout(location = 1) in vec4 Color;
+layout(location = 2) in vec2 UV0;
+
+layout(location = 0) out float sphericalVertexDistance;
+layout(location = 1) out float cylindricalVertexDistance;
+layout(location = 2) out vec2 texCoord0;
+layout(location = 3) out vec4 vertexColor;
 
 void main() {
-	gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
-	cylindricalVertexDistance = fog_cylindrical_distance(Position);
-	sphericalVertexDistance = fog_spherical_distance(Position);
-	texCoord0 = UV0;
-	vertexColor = Color;
+    gl_Position = ProjMat * ModelViewMat * vec4(Position, 1.0);
+    sphericalVertexDistance = fog_spherical_distance(Position);
+    cylindricalVertexDistance = fog_cylindrical_distance(Position);
+    texCoord0 = UV0;
+    vertexColor = Color;
 }

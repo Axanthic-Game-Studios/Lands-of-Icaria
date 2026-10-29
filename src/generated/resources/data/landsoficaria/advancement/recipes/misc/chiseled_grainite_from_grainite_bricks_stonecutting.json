@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_grainite_from_grainite_bricks_stonecutting"
+        "recipes": "landsoficaria:chiseled_grainite_from_grainite_bricks_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

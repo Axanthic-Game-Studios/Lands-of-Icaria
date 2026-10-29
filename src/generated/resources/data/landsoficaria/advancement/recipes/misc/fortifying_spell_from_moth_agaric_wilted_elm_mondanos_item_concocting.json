@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fortifying_spell_from_moth_agaric_wilted_elm_mondanos_item_concocting"
+        "recipes": "landsoficaria:fortifying_spell_from_moth_agaric_wilted_elm_mondanos_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

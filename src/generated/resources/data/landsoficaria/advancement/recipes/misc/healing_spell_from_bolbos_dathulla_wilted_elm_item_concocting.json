@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:healing_spell_from_bolbos_dathulla_wilted_elm_item_concocting"
+        "recipes": "landsoficaria:healing_spell_from_bolbos_dathulla_wilted_elm_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

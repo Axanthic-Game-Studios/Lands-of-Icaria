@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fletching_table"
+        "recipes": "landsoficaria:fletching_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

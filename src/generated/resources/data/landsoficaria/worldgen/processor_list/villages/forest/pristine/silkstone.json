@@ -11,9 +11,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:silkstone_adobe"
-          }
+          "output_state": "landsoficaria:silkstone_adobe"
         }
       ]
     },
@@ -23,8 +21,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -38,8 +36,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -51,8 +49,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -66,8 +64,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -79,8 +77,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -94,8 +92,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -107,8 +105,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -122,8 +120,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -134,37 +132,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
-                "facing": "north",
-                "half": "bottom",
-                "mediterranean_waterlogged": "false",
-                "shape": "straight",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:yellowstone_adobe_stairs",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
-              "facing": "north",
-              "half": "bottom",
-              "mediterranean_waterlogged": "false",
-              "shape": "straight",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:silkstone_adobe_stairs"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -178,8 +158,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -191,8 +171,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -206,8 +186,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -219,8 +199,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -234,8 +214,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -247,8 +227,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -262,8 +242,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -275,8 +255,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -290,8 +270,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -303,8 +283,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -318,8 +298,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -331,8 +311,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -346,8 +326,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -359,8 +339,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -374,8 +354,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -387,8 +367,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -402,8 +382,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -415,8 +395,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -430,8 +410,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -443,8 +423,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -458,8 +438,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -471,8 +451,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -486,8 +466,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -499,8 +479,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -514,8 +494,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -527,8 +507,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -542,8 +522,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -555,8 +535,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -570,8 +550,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -583,8 +563,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -598,8 +578,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -611,8 +591,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -626,8 +606,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -639,8 +619,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -654,8 +634,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -667,8 +647,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -682,8 +662,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -695,8 +675,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -710,8 +690,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -723,8 +703,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -738,8 +718,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -751,8 +731,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -766,8 +746,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -779,8 +759,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -794,8 +774,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -807,8 +787,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -822,8 +802,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -835,8 +815,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -850,8 +830,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -863,8 +843,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -878,8 +858,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -891,8 +871,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -906,8 +886,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -919,8 +899,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -934,8 +914,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -947,8 +927,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -962,8 +942,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -975,8 +955,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -990,8 +970,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1003,8 +983,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1018,8 +998,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1031,8 +1011,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1046,8 +1026,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1059,8 +1039,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1074,8 +1054,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1087,8 +1067,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1102,8 +1082,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1115,8 +1095,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_stairs",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1130,8 +1110,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_stairs",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1148,8 +1128,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_slab",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_slab",
+              "properties": {
                 "type": "top",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -1161,8 +1141,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_slab",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_slab",
+            "properties": {
               "type": "top",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -1171,33 +1151,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_slab",
-              "Properties": {
-                "type": "bottom",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:yellowstone_adobe_slab",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_slab",
-            "Properties": {
-              "type": "bottom",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:silkstone_adobe_slab"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:yellowstone_adobe_slab",
-              "Properties": {
+              "id": "landsoficaria:yellowstone_adobe_slab",
+              "properties": {
                 "type": "double",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -1209,8 +1175,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:silkstone_adobe_slab",
-            "Properties": {
+            "id": "landsoficaria:silkstone_adobe_slab",
+            "properties": {
               "type": "double",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -1224,23 +1190,14 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:red_loot_vase",
-              "Properties": {
-                "mediterranean_waterlogged": "false",
-                "vase_variant": "0",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:red_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.66
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "minecraft:air"
-          }
+          "output_state": "minecraft:air"
         }
       ]
     },
@@ -1250,8 +1207,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:stripped_laurel_log",
-              "Properties": {
+              "id": "landsoficaria:stripped_laurel_log",
+              "properties": {
                 "axis": "x",
                 "player_placed": "false"
               }
@@ -1262,8 +1219,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:stripped_populus_log",
-            "Properties": {
+            "id": "landsoficaria:stripped_populus_log",
+            "properties": {
               "axis": "x",
               "player_placed": "false"
             }
@@ -1271,31 +1228,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:stripped_laurel_log",
-              "Properties": {
-                "axis": "y",
-                "player_placed": "false"
-              }
-            },
+            "block_state": "landsoficaria:stripped_laurel_log",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:stripped_populus_log",
-            "Properties": {
-              "axis": "y",
-              "player_placed": "false"
-            }
-          }
+          "output_state": "landsoficaria:stripped_populus_log"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:stripped_laurel_log",
-              "Properties": {
+              "id": "landsoficaria:stripped_laurel_log",
+              "properties": {
                 "axis": "z",
                 "player_placed": "false"
               }
@@ -1306,8 +1251,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:stripped_populus_log",
-            "Properties": {
+            "id": "landsoficaria:stripped_populus_log",
+            "properties": {
               "axis": "z",
               "player_placed": "false"
             }
@@ -1321,8 +1266,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1336,8 +1281,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1349,8 +1294,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1364,8 +1309,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1377,8 +1322,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1392,8 +1337,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1405,8 +1350,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1420,8 +1365,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1432,37 +1377,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
-                "facing": "north",
-                "half": "bottom",
-                "mediterranean_waterlogged": "false",
-                "shape": "straight",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:laurel_stairs",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
-              "facing": "north",
-              "half": "bottom",
-              "mediterranean_waterlogged": "false",
-              "shape": "straight",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:populus_stairs"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1476,8 +1403,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1489,8 +1416,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1504,8 +1431,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1517,8 +1444,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1532,8 +1459,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1545,8 +1472,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1560,8 +1487,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1573,8 +1500,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1588,8 +1515,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1601,8 +1528,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1616,8 +1543,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1629,8 +1556,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1644,8 +1571,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1657,8 +1584,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1672,8 +1599,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1685,8 +1612,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1700,8 +1627,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1713,8 +1640,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1728,8 +1655,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1741,8 +1668,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1756,8 +1683,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1769,8 +1696,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1784,8 +1711,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1797,8 +1724,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1812,8 +1739,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1825,8 +1752,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1840,8 +1767,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1853,8 +1780,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -1868,8 +1795,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -1881,8 +1808,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1896,8 +1823,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1909,8 +1836,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1924,8 +1851,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1937,8 +1864,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1952,8 +1879,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1965,8 +1892,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -1980,8 +1907,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -1993,8 +1920,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2008,8 +1935,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2021,8 +1948,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2036,8 +1963,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2049,8 +1976,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2064,8 +1991,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2077,8 +2004,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2092,8 +2019,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2105,8 +2032,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2120,8 +2047,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2133,8 +2060,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2148,8 +2075,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2161,8 +2088,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2176,8 +2103,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2189,8 +2116,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2204,8 +2131,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2217,8 +2144,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2232,8 +2159,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2245,8 +2172,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2260,8 +2187,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2273,8 +2200,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2288,8 +2215,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2301,8 +2228,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -2316,8 +2243,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -2329,8 +2256,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "north",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2344,8 +2271,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "north",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2357,8 +2284,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2372,8 +2299,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2385,8 +2312,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2400,8 +2327,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2413,8 +2340,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_stairs",
-              "Properties": {
+              "id": "landsoficaria:laurel_stairs",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -2428,8 +2355,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_stairs",
-            "Properties": {
+            "id": "landsoficaria:populus_stairs",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -2446,8 +2373,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_slab",
-              "Properties": {
+              "id": "landsoficaria:laurel_slab",
+              "properties": {
                 "type": "top",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -2459,8 +2386,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_slab",
-            "Properties": {
+            "id": "landsoficaria:populus_slab",
+            "properties": {
               "type": "top",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -2469,33 +2396,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_slab",
-              "Properties": {
-                "type": "bottom",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:laurel_slab",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:populus_slab",
-            "Properties": {
-              "type": "bottom",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:populus_slab"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_slab",
-              "Properties": {
+              "id": "landsoficaria:laurel_slab",
+              "properties": {
                 "type": "double",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -2507,8 +2420,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_slab",
-            "Properties": {
+            "id": "landsoficaria:populus_slab",
+            "properties": {
               "type": "double",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -2522,39 +2435,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
-                "facing": "north",
-                "full_rack": "false",
-                "loaded_barrel": "false",
-                "mediterranean_waterlogged": "false",
-                "tapped_barrel": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:simple_laurel_rack",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
-              "facing": "north",
-              "full_rack": "false",
-              "loaded_barrel": "false",
-              "mediterranean_waterlogged": "false",
-              "tapped_barrel": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:simple_populus_rack"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -2569,8 +2462,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -2583,8 +2476,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -2599,8 +2492,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -2613,8 +2506,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -2629,8 +2522,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -2643,8 +2536,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2659,8 +2552,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2673,8 +2566,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2689,8 +2582,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2703,8 +2596,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2719,8 +2612,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2733,8 +2626,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2749,8 +2642,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2763,8 +2656,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -2779,8 +2672,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -2793,8 +2686,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -2809,8 +2702,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -2823,8 +2716,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -2839,8 +2732,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -2853,8 +2746,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -2869,8 +2762,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -2883,8 +2776,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2899,8 +2792,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2913,8 +2806,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2929,8 +2822,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2943,8 +2836,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2959,8 +2852,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -2973,8 +2866,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:simple_laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:simple_laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -2989,8 +2882,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:simple_populus_rack",
-            "Properties": {
+            "id": "landsoficaria:simple_populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3007,39 +2900,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
-                "facing": "north",
-                "full_rack": "false",
-                "loaded_barrel": "false",
-                "mediterranean_waterlogged": "false",
-                "tapped_barrel": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:laurel_rack",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
-              "facing": "north",
-              "full_rack": "false",
-              "loaded_barrel": "false",
-              "mediterranean_waterlogged": "false",
-              "tapped_barrel": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:populus_rack"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -3054,8 +2927,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -3068,8 +2941,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -3084,8 +2957,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -3098,8 +2971,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "false",
                 "loaded_barrel": "false",
@@ -3114,8 +2987,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "false",
               "loaded_barrel": "false",
@@ -3128,8 +3001,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3144,8 +3017,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3158,8 +3031,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3174,8 +3047,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3188,8 +3061,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3204,8 +3077,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3218,8 +3091,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3234,8 +3107,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3248,8 +3121,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -3264,8 +3137,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -3278,8 +3151,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -3294,8 +3167,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -3308,8 +3181,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -3324,8 +3197,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -3338,8 +3211,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "true",
@@ -3354,8 +3227,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "true",
@@ -3368,8 +3241,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "north",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3384,8 +3257,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "north",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3398,8 +3271,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "east",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3414,8 +3287,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "east",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3428,8 +3301,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "south",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3444,8 +3317,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "south",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3458,8 +3331,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_rack",
-              "Properties": {
+              "id": "landsoficaria:laurel_rack",
+              "properties": {
                 "facing": "west",
                 "full_rack": "true",
                 "loaded_barrel": "false",
@@ -3474,8 +3347,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_rack",
-            "Properties": {
+            "id": "landsoficaria:populus_rack",
+            "properties": {
               "facing": "west",
               "full_rack": "true",
               "loaded_barrel": "false",
@@ -3492,35 +3365,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "standing_barrel": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:laurel_barrel",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "standing_barrel": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:populus_barrel"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3533,8 +3390,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3545,8 +3402,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3559,8 +3416,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3571,8 +3428,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3585,8 +3442,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3597,8 +3454,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3611,8 +3468,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "north",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3623,8 +3480,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3637,8 +3494,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3649,8 +3506,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3663,8 +3520,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3675,8 +3532,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3689,8 +3546,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3705,35 +3562,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "standing_barrel": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:loaded_laurel_barrel",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "standing_barrel": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:loaded_populus_barrel"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3746,8 +3587,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3758,8 +3599,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3772,8 +3613,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3784,8 +3625,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3798,8 +3639,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3810,8 +3651,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3824,8 +3665,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "north",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3836,8 +3677,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3850,8 +3691,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3862,8 +3703,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3876,8 +3717,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3888,8 +3729,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:loaded_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:loaded_laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -3902,8 +3743,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:loaded_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:loaded_populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -3918,35 +3759,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "standing_barrel": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:tapped_laurel_barrel",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "standing_barrel": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:tapped_populus_barrel"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3959,8 +3784,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3971,8 +3796,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -3985,8 +3810,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -3997,8 +3822,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "false",
@@ -4011,8 +3836,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "false",
@@ -4023,8 +3848,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -4037,8 +3862,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "north",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -4049,8 +3874,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -4063,8 +3888,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -4075,8 +3900,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -4089,8 +3914,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -4101,8 +3926,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:tapped_laurel_barrel",
-              "Properties": {
+              "id": "landsoficaria:tapped_laurel_barrel",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "standing_barrel": "true",
@@ -4115,8 +3940,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:tapped_populus_barrel",
-            "Properties": {
+            "id": "landsoficaria:tapped_populus_barrel",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "standing_barrel": "true",
@@ -4131,33 +3956,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
-                "facing": "north",
-                "height_pair": "bottom",
-                "width_pair": "left"
-              }
-            },
+            "block_state": "landsoficaria:triple_laurel_barrel_rack",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
-              "facing": "north",
-              "height_pair": "bottom",
-              "width_pair": "left"
-            }
-          }
+          "output_state": "landsoficaria:triple_populus_barrel_rack"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "east",
                 "height_pair": "bottom",
                 "width_pair": "left"
@@ -4169,8 +3980,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "east",
               "height_pair": "bottom",
               "width_pair": "left"
@@ -4180,8 +3991,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "south",
                 "height_pair": "bottom",
                 "width_pair": "left"
@@ -4193,8 +4004,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "south",
               "height_pair": "bottom",
               "width_pair": "left"
@@ -4204,8 +4015,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "west",
                 "height_pair": "bottom",
                 "width_pair": "left"
@@ -4217,8 +4028,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "west",
               "height_pair": "bottom",
               "width_pair": "left"
@@ -4228,8 +4039,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "north",
                 "height_pair": "bottom",
                 "width_pair": "right"
@@ -4241,8 +4052,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "north",
               "height_pair": "bottom",
               "width_pair": "right"
@@ -4252,8 +4063,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "east",
                 "height_pair": "bottom",
                 "width_pair": "right"
@@ -4265,8 +4076,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "east",
               "height_pair": "bottom",
               "width_pair": "right"
@@ -4276,8 +4087,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "south",
                 "height_pair": "bottom",
                 "width_pair": "right"
@@ -4289,8 +4100,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "south",
               "height_pair": "bottom",
               "width_pair": "right"
@@ -4300,8 +4111,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "west",
                 "height_pair": "bottom",
                 "width_pair": "right"
@@ -4313,8 +4124,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "west",
               "height_pair": "bottom",
               "width_pair": "right"
@@ -4324,8 +4135,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "north",
                 "height_pair": "top",
                 "width_pair": "left"
@@ -4337,8 +4148,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "north",
               "height_pair": "top",
               "width_pair": "left"
@@ -4348,8 +4159,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "east",
                 "height_pair": "top",
                 "width_pair": "left"
@@ -4361,8 +4172,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "east",
               "height_pair": "top",
               "width_pair": "left"
@@ -4372,8 +4183,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "south",
                 "height_pair": "top",
                 "width_pair": "left"
@@ -4385,8 +4196,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "south",
               "height_pair": "top",
               "width_pair": "left"
@@ -4396,8 +4207,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "west",
                 "height_pair": "top",
                 "width_pair": "left"
@@ -4409,8 +4220,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "west",
               "height_pair": "top",
               "width_pair": "left"
@@ -4420,8 +4231,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "north",
                 "height_pair": "top",
                 "width_pair": "right"
@@ -4433,8 +4244,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "north",
               "height_pair": "top",
               "width_pair": "right"
@@ -4444,8 +4255,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "east",
                 "height_pair": "top",
                 "width_pair": "right"
@@ -4457,8 +4268,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "east",
               "height_pair": "top",
               "width_pair": "right"
@@ -4468,8 +4279,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "south",
                 "height_pair": "top",
                 "width_pair": "right"
@@ -4481,8 +4292,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "south",
               "height_pair": "top",
               "width_pair": "right"
@@ -4492,8 +4303,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:triple_laurel_barrel_rack",
-              "Properties": {
+              "id": "landsoficaria:triple_laurel_barrel_rack",
+              "properties": {
                 "facing": "west",
                 "height_pair": "top",
                 "width_pair": "right"
@@ -4505,8 +4316,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:triple_populus_barrel_rack",
-            "Properties": {
+            "id": "landsoficaria:triple_populus_barrel_rack",
+            "properties": {
               "facing": "west",
               "height_pair": "top",
               "width_pair": "right"
@@ -4521,8 +4332,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "floor",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
@@ -4535,8 +4346,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "floor",
               "facing": "north",
               "mediterranean_waterlogged": "false",
@@ -4547,8 +4358,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "floor",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
@@ -4561,8 +4372,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "floor",
               "facing": "east",
               "mediterranean_waterlogged": "false",
@@ -4573,8 +4384,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "floor",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
@@ -4587,8 +4398,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "floor",
               "facing": "south",
               "mediterranean_waterlogged": "false",
@@ -4599,8 +4410,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "floor",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
@@ -4613,8 +4424,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "floor",
               "facing": "west",
               "mediterranean_waterlogged": "false",
@@ -4624,35 +4435,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
-                "face": "wall",
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:laurel_wall_sign",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
-              "face": "wall",
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:populus_wall_sign"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "wall",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
@@ -4665,8 +4460,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "wall",
               "facing": "east",
               "mediterranean_waterlogged": "false",
@@ -4677,8 +4472,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "wall",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
@@ -4691,8 +4486,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "wall",
               "facing": "south",
               "mediterranean_waterlogged": "false",
@@ -4703,8 +4498,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "wall",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
@@ -4717,8 +4512,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "wall",
               "facing": "west",
               "mediterranean_waterlogged": "false",
@@ -4729,8 +4524,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "ceiling",
                 "facing": "north",
                 "mediterranean_waterlogged": "false",
@@ -4743,8 +4538,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "ceiling",
               "facing": "north",
               "mediterranean_waterlogged": "false",
@@ -4755,8 +4550,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "ceiling",
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
@@ -4769,8 +4564,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "ceiling",
               "facing": "east",
               "mediterranean_waterlogged": "false",
@@ -4781,8 +4576,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "ceiling",
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
@@ -4795,8 +4590,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "ceiling",
               "facing": "south",
               "mediterranean_waterlogged": "false",
@@ -4807,8 +4602,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:laurel_wall_sign",
-              "Properties": {
+              "id": "landsoficaria:laurel_wall_sign",
+              "properties": {
                 "face": "ceiling",
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
@@ -4821,8 +4616,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:populus_wall_sign",
-            "Properties": {
+            "id": "landsoficaria:populus_wall_sign",
+            "properties": {
               "face": "ceiling",
               "facing": "west",
               "mediterranean_waterlogged": "false",
@@ -4843,9 +4638,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_planks"
-          }
+          "output_state": "landsoficaria:fir_planks"
         }
       ]
     },
@@ -4855,8 +4648,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_slab",
-              "Properties": {
+              "id": "landsoficaria:plane_slab",
+              "properties": {
                 "type": "top",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -4868,8 +4661,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_slab",
-            "Properties": {
+            "id": "landsoficaria:fir_slab",
+            "properties": {
               "type": "top",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -4878,33 +4671,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:plane_slab",
-              "Properties": {
-                "type": "bottom",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:plane_slab",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_slab",
-            "Properties": {
-              "type": "bottom",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:fir_slab"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_slab",
-              "Properties": {
+              "id": "landsoficaria:plane_slab",
+              "properties": {
                 "type": "double",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -4916,8 +4695,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_slab",
-            "Properties": {
+            "id": "landsoficaria:fir_slab",
+            "properties": {
               "type": "double",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -4931,39 +4710,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
-                "east": "false",
-                "mediterranean_waterlogged": "false",
-                "north": "false",
-                "south": "false",
-                "waterlogged": "false",
-                "west": "false"
-              }
-            },
+            "block_state": "landsoficaria:plane_fence",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
-              "east": "false",
-              "mediterranean_waterlogged": "false",
-              "north": "false",
-              "south": "false",
-              "waterlogged": "false",
-              "west": "false"
-            }
-          }
+          "output_state": "landsoficaria:fir_fence"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -4978,8 +4737,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -4992,8 +4751,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5008,8 +4767,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5022,8 +4781,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5038,8 +4797,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5052,8 +4811,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5068,8 +4827,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5082,8 +4841,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5098,8 +4857,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5112,8 +4871,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5128,8 +4887,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5142,8 +4901,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5158,8 +4917,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5172,8 +4931,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5188,8 +4947,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5202,8 +4961,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5218,8 +4977,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5232,8 +4991,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5248,8 +5007,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5262,8 +5021,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5278,8 +5037,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5292,8 +5051,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "false",
@@ -5308,8 +5067,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "false",
@@ -5322,8 +5081,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "false",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5338,8 +5097,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "false",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5352,8 +5111,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5368,8 +5127,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5382,8 +5141,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_fence",
-              "Properties": {
+              "id": "landsoficaria:plane_fence",
+              "properties": {
                 "east": "true",
                 "mediterranean_waterlogged": "false",
                 "north": "true",
@@ -5398,8 +5157,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_fence",
-            "Properties": {
+            "id": "landsoficaria:fir_fence",
+            "properties": {
               "east": "true",
               "mediterranean_waterlogged": "false",
               "north": "true",
@@ -5422,9 +5181,7 @@
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_crafting_table"
-          }
+          "output_state": "landsoficaria:fir_crafting_table"
         }
       ]
     },
@@ -5434,8 +5191,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "north",
                 "half": "upper",
                 "hinge": "left",
@@ -5449,8 +5206,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "north",
               "half": "upper",
               "hinge": "left",
@@ -5462,8 +5219,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "east",
                 "half": "upper",
                 "hinge": "left",
@@ -5477,8 +5234,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "east",
               "half": "upper",
               "hinge": "left",
@@ -5490,8 +5247,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "south",
                 "half": "upper",
                 "hinge": "left",
@@ -5505,8 +5262,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "south",
               "half": "upper",
               "hinge": "left",
@@ -5518,8 +5275,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "west",
                 "half": "upper",
                 "hinge": "left",
@@ -5533,8 +5290,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "west",
               "half": "upper",
               "hinge": "left",
@@ -5545,37 +5302,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
-                "facing": "north",
-                "half": "lower",
-                "hinge": "left",
-                "open": "false",
-                "powered": "false"
-              }
-            },
+            "block_state": "landsoficaria:plane_door",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
-              "facing": "north",
-              "half": "lower",
-              "hinge": "left",
-              "open": "false",
-              "powered": "false"
-            }
-          }
+          "output_state": "landsoficaria:fir_door"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "east",
                 "half": "lower",
                 "hinge": "left",
@@ -5589,8 +5328,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "east",
               "half": "lower",
               "hinge": "left",
@@ -5602,8 +5341,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "south",
                 "half": "lower",
                 "hinge": "left",
@@ -5617,8 +5356,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "south",
               "half": "lower",
               "hinge": "left",
@@ -5630,8 +5369,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "west",
                 "half": "lower",
                 "hinge": "left",
@@ -5645,8 +5384,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "west",
               "half": "lower",
               "hinge": "left",
@@ -5658,8 +5397,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "north",
                 "half": "upper",
                 "hinge": "right",
@@ -5673,8 +5412,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "north",
               "half": "upper",
               "hinge": "right",
@@ -5686,8 +5425,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "east",
                 "half": "upper",
                 "hinge": "right",
@@ -5701,8 +5440,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "east",
               "half": "upper",
               "hinge": "right",
@@ -5714,8 +5453,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "south",
                 "half": "upper",
                 "hinge": "right",
@@ -5729,8 +5468,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "south",
               "half": "upper",
               "hinge": "right",
@@ -5742,8 +5481,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "west",
                 "half": "upper",
                 "hinge": "right",
@@ -5757,8 +5496,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "west",
               "half": "upper",
               "hinge": "right",
@@ -5770,8 +5509,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "north",
                 "half": "lower",
                 "hinge": "right",
@@ -5785,8 +5524,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "north",
               "half": "lower",
               "hinge": "right",
@@ -5798,8 +5537,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "east",
                 "half": "lower",
                 "hinge": "right",
@@ -5813,8 +5552,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "east",
               "half": "lower",
               "hinge": "right",
@@ -5826,8 +5565,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "south",
                 "half": "lower",
                 "hinge": "right",
@@ -5841,8 +5580,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "south",
               "half": "lower",
               "hinge": "right",
@@ -5854,8 +5593,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_door",
-              "Properties": {
+              "id": "landsoficaria:plane_door",
+              "properties": {
                 "facing": "west",
                 "half": "lower",
                 "hinge": "right",
@@ -5869,8 +5608,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_door",
-            "Properties": {
+            "id": "landsoficaria:fir_door",
+            "properties": {
               "facing": "west",
               "half": "lower",
               "hinge": "right",
@@ -5887,8 +5626,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "north",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -5903,8 +5642,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "north",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -5917,8 +5656,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "east",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -5933,8 +5672,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "east",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -5947,8 +5686,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "south",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -5963,8 +5702,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "south",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -5977,8 +5716,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "west",
                 "half": "top",
                 "mediterranean_waterlogged": "false",
@@ -5993,8 +5732,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "west",
               "half": "top",
               "mediterranean_waterlogged": "false",
@@ -6006,39 +5745,19 @@
         },
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
-                "facing": "north",
-                "half": "bottom",
-                "mediterranean_waterlogged": "false",
-                "open": "false",
-                "powered": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:plane_trapdoor",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
-              "facing": "north",
-              "half": "bottom",
-              "mediterranean_waterlogged": "false",
-              "open": "false",
-              "powered": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:fir_trapdoor"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "east",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -6053,8 +5772,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "east",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -6067,8 +5786,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "south",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -6083,8 +5802,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "south",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -6097,8 +5816,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_trapdoor",
-              "Properties": {
+              "id": "landsoficaria:plane_trapdoor",
+              "properties": {
                 "facing": "west",
                 "half": "bottom",
                 "mediterranean_waterlogged": "false",
@@ -6113,8 +5832,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_trapdoor",
-            "Properties": {
+            "id": "landsoficaria:fir_trapdoor",
+            "properties": {
               "facing": "west",
               "half": "bottom",
               "mediterranean_waterlogged": "false",
@@ -6131,33 +5850,19 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": {
-              "Name": "landsoficaria:plane_ladder",
-              "Properties": {
-                "facing": "north",
-                "mediterranean_waterlogged": "false",
-                "waterlogged": "false"
-              }
-            },
+            "block_state": "landsoficaria:plane_ladder",
             "predicate_type": "minecraft:blockstate_match"
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": {
-            "Name": "landsoficaria:fir_ladder",
-            "Properties": {
-              "facing": "north",
-              "mediterranean_waterlogged": "false",
-              "waterlogged": "false"
-            }
-          }
+          "output_state": "landsoficaria:fir_ladder"
         },
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_ladder",
-              "Properties": {
+              "id": "landsoficaria:plane_ladder",
+              "properties": {
                 "facing": "east",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -6169,8 +5874,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_ladder",
-            "Properties": {
+            "id": "landsoficaria:fir_ladder",
+            "properties": {
               "facing": "east",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -6180,8 +5885,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_ladder",
-              "Properties": {
+              "id": "landsoficaria:plane_ladder",
+              "properties": {
                 "facing": "south",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -6193,8 +5898,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_ladder",
-            "Properties": {
+            "id": "landsoficaria:fir_ladder",
+            "properties": {
               "facing": "south",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"
@@ -6204,8 +5909,8 @@
         {
           "input_predicate": {
             "block_state": {
-              "Name": "landsoficaria:plane_ladder",
-              "Properties": {
+              "id": "landsoficaria:plane_ladder",
+              "properties": {
                 "facing": "west",
                 "mediterranean_waterlogged": "false",
                 "waterlogged": "false"
@@ -6217,8 +5922,8 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "landsoficaria:fir_ladder",
-            "Properties": {
+            "id": "landsoficaria:fir_ladder",
+            "properties": {
               "facing": "west",
               "mediterranean_waterlogged": "false",
               "waterlogged": "false"

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_shelf"
+        "recipes": "landsoficaria:olive_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

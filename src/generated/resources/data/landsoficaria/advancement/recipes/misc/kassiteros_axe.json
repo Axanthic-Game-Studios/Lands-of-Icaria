@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_axe"
+        "recipes": "landsoficaria:kassiteros_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

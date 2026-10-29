@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_deepslate_from_cracked_deepslate_tiles_grinding"
+        "recipes": "landsoficaria:cobbled_deepslate_from_cracked_deepslate_tiles_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

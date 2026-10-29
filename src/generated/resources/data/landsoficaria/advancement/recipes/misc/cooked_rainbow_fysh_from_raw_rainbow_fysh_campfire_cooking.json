@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_rainbow_fysh_from_raw_rainbow_fysh_campfire_cooking"
+        "recipes": "landsoficaria:cooked_rainbow_fysh_from_raw_rainbow_fysh_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

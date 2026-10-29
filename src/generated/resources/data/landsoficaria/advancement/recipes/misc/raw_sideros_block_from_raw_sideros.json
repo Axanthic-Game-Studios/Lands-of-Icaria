@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_sideros_block_from_raw_sideros"
+        "recipes": "landsoficaria:raw_sideros_block_from_raw_sideros"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

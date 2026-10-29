@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_axe"
+        "recipes": "landsoficaria:vanadiumsteel_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_hutch"
+        "recipes": "landsoficaria:populus_hutch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

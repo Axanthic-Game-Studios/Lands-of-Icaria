@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_shovel"
+        "recipes": "landsoficaria:vanadiumsteel_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

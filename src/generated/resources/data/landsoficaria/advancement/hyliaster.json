@@ -3,21 +3,18 @@
   "criteria": {
     "hyliaster": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "landsoficaria:hyliaster"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "landsoficaria:hyliaster"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.hyliaster.description"
     },

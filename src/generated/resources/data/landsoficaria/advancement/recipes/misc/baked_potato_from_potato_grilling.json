@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:baked_potato_from_potato_grilling"
+        "recipes": "landsoficaria:baked_potato_from_potato_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

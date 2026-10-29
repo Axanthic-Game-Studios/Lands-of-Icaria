@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_dolomite_slab_from_smooth_dolomite"
+        "recipes": "landsoficaria:smooth_dolomite_slab_from_smooth_dolomite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:red_dye_from_firehilt"
+        "recipes": "landsoficaria:red_dye_from_firehilt"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

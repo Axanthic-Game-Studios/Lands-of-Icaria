@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bubble_spell_from_mondanos_bolbos_psilocybos_item_concocting"
+        "recipes": "landsoficaria:bubble_spell_from_mondanos_bolbos_psilocybos_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

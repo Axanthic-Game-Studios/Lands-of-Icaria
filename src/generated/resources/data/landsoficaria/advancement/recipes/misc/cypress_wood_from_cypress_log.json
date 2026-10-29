@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_wood_from_cypress_log"
+        "recipes": "landsoficaria:cypress_wood_from_cypress_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

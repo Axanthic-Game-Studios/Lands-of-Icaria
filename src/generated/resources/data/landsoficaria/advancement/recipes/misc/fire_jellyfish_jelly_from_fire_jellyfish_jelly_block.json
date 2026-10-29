@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fire_jellyfish_jelly_from_fire_jellyfish_jelly_block"
+        "recipes": "landsoficaria:fire_jellyfish_jelly_from_fire_jellyfish_jelly_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

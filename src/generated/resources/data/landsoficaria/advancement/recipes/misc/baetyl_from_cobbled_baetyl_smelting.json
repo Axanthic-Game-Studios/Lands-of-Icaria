@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:baetyl_from_cobbled_baetyl_smelting"
+        "recipes": "landsoficaria:baetyl_from_cobbled_baetyl_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

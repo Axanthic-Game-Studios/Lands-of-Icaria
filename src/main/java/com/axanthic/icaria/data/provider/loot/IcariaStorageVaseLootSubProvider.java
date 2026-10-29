@@ -5,56 +5,52 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
-import java.util.function.BiConsumer;
-
-import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.LootTableSubProvider;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public record IcariaStorageVaseLootSubProvider(HolderLookup.Provider provider) implements LootTableSubProvider {
+public record IcariaStorageVaseLootSubProvider(Context context) implements LootTableSubProvider {
 
 	@Override
-	public void generate(BiConsumer<ResourceKey<LootTable>, LootTable.Builder> pBiConsumer) {
-		pBiConsumer.accept(IcariaLootTableIds.RED_STORAGE_VASE, LootTable.lootTable()
-			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
-				.add(LootItem.lootTableItem(IcariaItems.ENDER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.FIRE_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.NATURE_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.VOID_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.WATER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.SPELT.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.HALITE_DUST.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.SPELT_FLOUR.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.SNULL_CREAM.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.UNFIRED_LOAM_BOWL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.LOAM_BOWL.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+	public void run() {
+		this.context().accept(IcariaLootTableIds.RED_STORAGE_VASE, LootTable.lootTable()
+			.withPool(LootPool.lootPool().setRolls(ContextIntProviders.between(1, 5))
+				.add(LootItem.lootTableItem(IcariaItems.ENDER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.FIRE_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.NATURE_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.VOID_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.WATER_JELLYFISH_JELLY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.SPELT.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.HALITE_DUST.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.SPELT_FLOUR.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.GARLIC.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.SNULL_CREAM.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.UNFIRED_LOAM_BOWL.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.LOAM_BOWL.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.PHYSALIS_SEEDS.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.SPELT_SEEDS.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_SEEDS.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
 			)
 		);
 
-		pBiConsumer.accept(IcariaLootTableIds.CYAN_STORAGE_VASE, LootTable.lootTable()
-			.withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
-				.add(LootItem.lootTableItem(IcariaItems.SPELT_BREAD.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
+		this.context().accept(IcariaLootTableIds.CYAN_STORAGE_VASE, LootTable.lootTable()
+			.withPool(LootPool.lootPool().setRolls(ContextIntProviders.between(1, 5))
+				.add(LootItem.lootTableItem(IcariaItems.SPELT_BREAD.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
 				.add(LootItem.lootTableItem(IcariaItems.VINE_SPROUT.get()))
-				.add(LootItem.lootTableItem(IcariaItems.VINEBERRIES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRIES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.PHYSALIS.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F))))
-				.add(LootItem.lootTableItem(IcariaItems.ONION.get()).apply(SetItemCountFunction.setCount(UniformGenerator.between(1.0F, 3.0F)))))
+				.add(LootItem.lootTableItem(IcariaItems.VINEBERRIES.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRIES.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.PHYSALIS.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.BLACK_OLIVES.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.GREEN_OLIVES.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3))))
+				.add(LootItem.lootTableItem(IcariaItems.ONION.get()).apply(SetItemCountFunction.setCount(ContextIntProviders.between(1, 3)))))
 			.withPool(LootPool.lootPool().when(LootItemRandomChanceCondition.randomChance(0.1F))
 				.add(LootItem.lootTableItem(IcariaItems.LAUREL_CHERRY_CAKE.get()))
 				.add(LootItem.lootTableItem(IcariaItems.STRAWBERRY_CAKE.get()))

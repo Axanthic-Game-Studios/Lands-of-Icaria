@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenumsteel_dagger"
+        "recipes": "landsoficaria:molybdenumsteel_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.layer.OvergrownRevenantEmissiveRenderLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantItemRenderLayer;
 import com.axanthic.icaria.client.layer.OvergrownRevenantRaysRenderLayer;
@@ -33,10 +34,8 @@ public class OvergrownRevenantRenderer extends MobRenderer<OvergrownRevenantEnti
 	@Override
 	public void extractRenderState(OvergrownRevenantEntity pEntity, OvergrownRevenantRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
-		pRenderState.blue = pEntity.blue;
-		pRenderState.green = pEntity.green;
-		pRenderState.red = pEntity.red;
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
+		pRenderState.color = IcariaClientHelper.getColor(pEntity);
 		pRenderState.id = pEntity.getId();
 		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;

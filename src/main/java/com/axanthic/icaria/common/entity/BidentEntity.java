@@ -14,7 +14,6 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.LivingEntity;
@@ -95,7 +94,7 @@ public class BidentEntity extends AbstractArrow {
 				if (entity instanceof LivingEntity livingEntity) {
 					if (entity.hurtServer(serverLevel, damageSource, bidentItem.getAttackDamage())) {
 						if (livingEntity.getType() != EntityTypes.ENDERMAN) {
-							this.deflect(ProjectileDeflection.REVERSE, entity, EntityReference.of(owner), false);
+							this.deflect(ProjectileDeflection.REVERSE, entity, this.owner, false, new Vec3(0.02D, 0.2D, 0.02D));
 							this.doKnockback(livingEntity, damageSource);
 							this.setDealt(true);
 							this.setDeltaMovement(vec3);

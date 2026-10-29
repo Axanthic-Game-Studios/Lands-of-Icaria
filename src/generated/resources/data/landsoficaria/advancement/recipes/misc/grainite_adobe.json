@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grainite_adobe"
+        "recipes": "landsoficaria:grainite_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

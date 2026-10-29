@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_ingot_from_lignite_ore_kassiteros_ore_vanadium_ore_forging"
+        "recipes": "landsoficaria:vanadiumsteel_ingot_from_lignite_ore_kassiteros_ore_vanadium_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

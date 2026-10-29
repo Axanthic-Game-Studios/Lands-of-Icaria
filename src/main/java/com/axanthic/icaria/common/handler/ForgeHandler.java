@@ -3,9 +3,8 @@ package com.axanthic.icaria.common.handler;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.ForgeBlockEntity;
-import com.axanthic.icaria.common.registry.IcariaRecipeTypes;
 
-import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 
 import net.neoforged.neoforge.transfer.item.ItemResource;
@@ -25,7 +24,7 @@ public class ForgeHandler extends ItemStacksResourceHandler {
 	@Override
 	public boolean isValid(int pIndex, ItemResource pItemResource) {
 		return switch (pIndex) {
-			case 0 -> this.blockEntity.getLevel() instanceof ServerLevel serverLevel && pItemResource.toStack().getBurnTime(IcariaRecipeTypes.FORGING.get(), serverLevel.fuelValues()) > 0;
+			case 0 -> pItemResource.has(DataComponents.COOKING_FUEL);
 			case 1, 2, 3 -> true;
 			default -> false;
 		};

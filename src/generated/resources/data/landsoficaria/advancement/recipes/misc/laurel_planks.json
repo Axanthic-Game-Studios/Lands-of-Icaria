@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_planks"
+        "recipes": "landsoficaria:laurel_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:popped_chorus_fruit_from_purpur_block_grinding"
+        "recipes": "landsoficaria:popped_chorus_fruit_from_purpur_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

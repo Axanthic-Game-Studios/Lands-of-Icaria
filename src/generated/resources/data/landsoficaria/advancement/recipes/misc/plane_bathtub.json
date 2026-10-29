@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_bathtub"
+        "recipes": "landsoficaria:plane_bathtub"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

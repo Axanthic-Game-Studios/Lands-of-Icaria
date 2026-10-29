@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:empty_flask"
+        "recipes": "landsoficaria:empty_flask"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

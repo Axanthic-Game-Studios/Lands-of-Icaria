@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_mutton_from_mutton_grilling"
+        "recipes": "landsoficaria:cooked_mutton_from_mutton_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

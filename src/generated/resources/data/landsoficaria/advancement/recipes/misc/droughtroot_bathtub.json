@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_bathtub"
+        "recipes": "landsoficaria:droughtroot_bathtub"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

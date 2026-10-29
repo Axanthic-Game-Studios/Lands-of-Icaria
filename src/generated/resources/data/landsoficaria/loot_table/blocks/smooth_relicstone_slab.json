@@ -5,61 +5,53 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:smooth_relicstone_slab",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "type": "bottom"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:smooth_relicstone_slab",
+            "state": {
+              "type": "bottom"
             }
-          ],
+          },
           "name": "landsoficaria:smooth_relicstone_slab"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:smooth_relicstone_slab",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "type": "top"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:smooth_relicstone_slab",
+            "state": {
+              "type": "top"
             }
-          ],
+          },
           "name": "landsoficaria:smooth_relicstone_slab"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
       "entries": [
         {
           "type": "minecraft:item",
-          "conditions": [
-            {
-              "block": "landsoficaria:smooth_relicstone_slab",
-              "condition": "minecraft:block_state_property",
-              "properties": {
-                "type": "double"
-              }
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "landsoficaria:smooth_relicstone_slab",
+            "state": {
+              "type": "double"
             }
-          ],
-          "functions": [
-            {
-              "count": 2.0,
-              "function": "minecraft:set_count"
-            }
-          ],
+          },
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 2
+          },
           "name": "landsoficaria:smooth_relicstone_slab"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/smooth_relicstone_slab"

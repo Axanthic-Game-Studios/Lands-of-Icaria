@@ -10,13 +10,12 @@ import com.axanthic.icaria.common.registry.IcariaPotions;
 import com.axanthic.icaria.common.tags.IcariaBlockItemTags;
 import com.axanthic.icaria.common.tags.IcariaItemTags;
 
-import java.util.Optional;
-
+import net.minecraft.advancements.Advancement;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.BlockItemTags;
@@ -40,12 +39,13 @@ import net.neoforged.neoforge.common.Tags;
 @ParametersAreNonnullByDefault
 
 public class IcariaRecipeProvider extends RecipeProvider {
-	public IcariaRecipeProvider(HolderLookup.Provider pProvider, RecipeOutput pPackOutput) {
-		super(pProvider, pPackOutput);
+	public IcariaRecipeProvider(BootstrapContext<Recipe<?>> pRecipe, BootstrapContext<Advancement> pAdvancement) {
+		super(pRecipe, pAdvancement);
 	}
 
 	@Override
 	public void buildRecipes() {
+		this.brewing();
 		this.campfireCooking();
 		this.smelting();
 		this.smoking();
@@ -127,6 +127,12 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.mossyStoneBricks();
 		this.onionSoup();
 		this.thogStew();
+	}
+
+	public void brewing() {
+		this.brewing(IcariaPotions.BLINDNESS, IcariaItems.BLINDWEED.get());
+		this.brewing(IcariaPotions.NAUSEA, IcariaItems.SNULL_CREAM.get());
+		this.brewing(IcariaPotions.WITHER, Items.WITHER_ROSE);
 	}
 
 	public void campfireCooking() {
@@ -1031,6 +1037,23 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.shaped3x1(6, IcariaItems.MOSSY_RELICSTONE_TILE_SLAB.get(), IcariaItems.MOSSY_RELICSTONE_TILES.get());
 		this.shaped3x1(6, IcariaItems.PLATOSHALE_SLAB.get(), IcariaItems.PLATOSHALE.get());
 		this.shaped3x1(6, IcariaItems.PLATOSHALE_BRICK_SLAB.get(), IcariaItems.PLATOSHALE_BRICKS.get());
+		this.shaped3x1(6, IcariaItems.TERRY_SLAB.get(), IcariaItems.TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.WHITE_TERRY_SLAB.get(), IcariaItems.WHITE_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.LIGHT_GRAY_TERRY_SLAB.get(), IcariaItems.LIGHT_GRAY_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.GRAY_TERRY_SLAB.get(), IcariaItems.GRAY_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.BLACK_TERRY_SLAB.get(), IcariaItems.BLACK_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.BROWN_TERRY_SLAB.get(), IcariaItems.BROWN_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.RED_TERRY_SLAB.get(), IcariaItems.RED_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.ORANGE_TERRY_SLAB.get(), IcariaItems.ORANGE_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.YELLOW_TERRY_SLAB.get(), IcariaItems.YELLOW_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.LIME_TERRY_SLAB.get(), IcariaItems.LIME_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.GREEN_TERRY_SLAB.get(), IcariaItems.GREEN_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.CYAN_TERRY_SLAB.get(), IcariaItems.CYAN_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.LIGHT_BLUE_TERRY_SLAB.get(), IcariaItems.LIGHT_BLUE_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.BLUE_TERRY_SLAB.get(), IcariaItems.BLUE_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.PURPLE_TERRY_SLAB.get(), IcariaItems.PURPLE_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.MAGENTA_TERRY_SLAB.get(), IcariaItems.MAGENTA_TERRY_BLOCK.get());
+		this.shaped3x1(6, IcariaItems.PINK_TERRY_SLAB.get(), IcariaItems.PINK_TERRY_BLOCK.get());
 		this.shaped3x1(6, IcariaItems.CYPRESS_SLAB.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.shaped3x1(2, IcariaItems.BIGGER_CYPRESS_TIMBER_TABLE.get(), IcariaItems.CYPRESS_TIMBER_TABLE.get());
 		this.shaped3x1(2, IcariaItems.BIGGER_CYPRESS_TIMBER_BENCH.get(), IcariaItems.CYPRESS_TIMBER_BENCH.get());
@@ -1456,6 +1479,23 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stairs(4, IcariaItems.MOSSY_RELICSTONE_TILE_STAIRS.get(), IcariaItems.MOSSY_RELICSTONE_TILES.get());
 		this.stairs(4, IcariaItems.PLATOSHALE_STAIRS.get(), IcariaItems.PLATOSHALE.get());
 		this.stairs(4, IcariaItems.PLATOSHALE_BRICK_STAIRS.get(), IcariaItems.PLATOSHALE_BRICKS.get());
+		this.stairs(4, IcariaItems.TERRY_STAIRS.get(), IcariaItems.TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.WHITE_TERRY_STAIRS.get(), IcariaItems.WHITE_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.LIGHT_GRAY_TERRY_STAIRS.get(), IcariaItems.LIGHT_GRAY_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.GRAY_TERRY_STAIRS.get(), IcariaItems.GRAY_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.BLACK_TERRY_STAIRS.get(), IcariaItems.BLACK_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.BROWN_TERRY_STAIRS.get(), IcariaItems.BROWN_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.RED_TERRY_STAIRS.get(), IcariaItems.RED_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.ORANGE_TERRY_STAIRS.get(), IcariaItems.ORANGE_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.YELLOW_TERRY_STAIRS.get(), IcariaItems.YELLOW_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.LIME_TERRY_STAIRS.get(), IcariaItems.LIME_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.GREEN_TERRY_STAIRS.get(), IcariaItems.GREEN_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.CYAN_TERRY_STAIRS.get(), IcariaItems.CYAN_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.LIGHT_BLUE_TERRY_STAIRS.get(), IcariaItems.LIGHT_BLUE_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.BLUE_TERRY_STAIRS.get(), IcariaItems.BLUE_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.PURPLE_TERRY_STAIRS.get(), IcariaItems.PURPLE_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.MAGENTA_TERRY_STAIRS.get(), IcariaItems.MAGENTA_TERRY_BLOCK.get());
+		this.stairs(4, IcariaItems.PINK_TERRY_STAIRS.get(), IcariaItems.PINK_TERRY_BLOCK.get());
 		this.stairs(4, IcariaItems.CYPRESS_STAIRS.get(), IcariaItems.CYPRESS_PLANKS.get());
 		this.stairs(4, IcariaItems.DROUGHTROOT_STAIRS.get(), IcariaItems.DROUGHTROOT_PLANKS.get());
 		this.stairs(4, IcariaItems.FIR_STAIRS.get(), IcariaItems.FIR_PLANKS.get());
@@ -1570,6 +1610,38 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.dyeing(1, IcariaItems.PURPLE_TERRY_MAT.get(), Items.DYE.purple(), IcariaBlockItemTags.TERRY_MATS.item());
 		this.dyeing(1, IcariaItems.MAGENTA_TERRY_MAT.get(), Items.DYE.magenta(), IcariaBlockItemTags.TERRY_MATS.item());
 		this.dyeing(1, IcariaItems.PINK_TERRY_MAT.get(), Items.DYE.pink(), IcariaBlockItemTags.TERRY_MATS.item());
+		this.dyeing(1, IcariaItems.WHITE_TERRY_SLAB.get(), Items.DYE.white(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_TERRY_SLAB.get(), Items.DYE.lightGray(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.GRAY_TERRY_SLAB.get(), Items.DYE.gray(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.BLACK_TERRY_SLAB.get(), Items.DYE.black(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.BROWN_TERRY_SLAB.get(), Items.DYE.brown(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.RED_TERRY_SLAB.get(), Items.DYE.red(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.ORANGE_TERRY_SLAB.get(), Items.DYE.orange(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.YELLOW_TERRY_SLAB.get(), Items.DYE.yellow(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.LIME_TERRY_SLAB.get(), Items.DYE.lime(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.GREEN_TERRY_SLAB.get(), Items.DYE.green(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.CYAN_TERRY_SLAB.get(), Items.DYE.cyan(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_TERRY_SLAB.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.BLUE_TERRY_SLAB.get(), Items.DYE.blue(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.PURPLE_TERRY_SLAB.get(), Items.DYE.purple(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.MAGENTA_TERRY_SLAB.get(), Items.DYE.magenta(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.PINK_TERRY_SLAB.get(), Items.DYE.pink(), IcariaBlockItemTags.TERRY_SLABS.item());
+		this.dyeing(1, IcariaItems.WHITE_TERRY_STAIRS.get(), Items.DYE.white(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.LIGHT_GRAY_TERRY_STAIRS.get(), Items.DYE.lightGray(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.GRAY_TERRY_STAIRS.get(), Items.DYE.gray(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.BLACK_TERRY_STAIRS.get(), Items.DYE.black(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.BROWN_TERRY_STAIRS.get(), Items.DYE.brown(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.RED_TERRY_STAIRS.get(), Items.DYE.red(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.ORANGE_TERRY_STAIRS.get(), Items.DYE.orange(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.YELLOW_TERRY_STAIRS.get(), Items.DYE.yellow(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.LIME_TERRY_STAIRS.get(), Items.DYE.lime(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.GREEN_TERRY_STAIRS.get(), Items.DYE.green(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.CYAN_TERRY_STAIRS.get(), Items.DYE.cyan(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.LIGHT_BLUE_TERRY_STAIRS.get(), Items.DYE.lightBlue(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.BLUE_TERRY_STAIRS.get(), Items.DYE.blue(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.PURPLE_TERRY_STAIRS.get(), Items.DYE.purple(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.MAGENTA_TERRY_STAIRS.get(), Items.DYE.magenta(), IcariaBlockItemTags.TERRY_STAIRS.item());
+		this.dyeing(1, IcariaItems.PINK_TERRY_STAIRS.get(), Items.DYE.pink(), IcariaBlockItemTags.TERRY_STAIRS.item());
 		this.dyeing(1, IcariaItems.WHITE_UNFIRED_STORAGE_VASE.get(), Items.DYE.white(), IcariaItemTags.UNFIRED_STORAGE_VASES);
 		this.dyeing(1, IcariaItems.LIGHT_GRAY_UNFIRED_STORAGE_VASE.get(), Items.DYE.lightGray(), IcariaItemTags.UNFIRED_STORAGE_VASES);
 		this.dyeing(1, IcariaItems.GRAY_UNFIRED_STORAGE_VASE.get(), Items.DYE.gray(), IcariaItemTags.UNFIRED_STORAGE_VASES);
@@ -1694,6 +1766,19 @@ public class IcariaRecipeProvider extends RecipeProvider {
 		this.stew(1, IcariaItems.AETERNAE_STEW.get(), Items.BEETROOT, IcariaItems.RAW_AETERNAE_MEAT.get());
 		this.stew(1, IcariaItems.CATOBLEPAS_STEW.get(), IcariaItems.ONION.get(), IcariaItems.RAW_CATOBLEPAS_MEAT.get());
 		this.stew(1, IcariaItems.CERVER_STEW.get(), Items.CARROT, IcariaItems.RAW_CERVER_MEAT.get());
+	}
+
+	public void brewing(Holder<Potion> pResult, Item pResource) {
+		BrewingRecipeBuilder.brewingContainerTransform(Items.POTION, pResult, Items.DRAGON_BREATH, Items.LINGERING_POTION)
+			.save(this.output, this.key("brewing", pResult, Items.DRAGON_BREATH, Items.LINGERING_POTION));
+		BrewingRecipeBuilder.brewingContainerTransform(Items.POTION, pResult, Items.GUNPOWDER, Items.SPLASH_POTION)
+			.save(this.output, this.key("brewing", pResult, Items.GUNPOWDER, Items.SPLASH_POTION));
+		BrewingRecipeBuilder.brewingMix(Items.LINGERING_POTION, Potions.AWKWARD, pResource, pResult)
+			.save(this.output, this.key("brewing", pResult, pResource, Items.LINGERING_POTION));
+		BrewingRecipeBuilder.brewingMix(Items.SPLASH_POTION, Potions.AWKWARD, pResource, pResult)
+			.save(this.output, this.key("brewing", pResult, pResource, Items.SPLASH_POTION));
+		BrewingRecipeBuilder.brewingMix(Items.POTION, Potions.AWKWARD, pResource, pResult)
+			.save(this.output, this.key("brewing", pResult, pResource, Items.POTION));
 	}
 
 	public void campfireCooking(float pExperience, int pTime, Item pResult, Item pResource) {
@@ -2755,19 +2840,19 @@ public class IcariaRecipeProvider extends RecipeProvider {
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResourceA, Item pResourceB, Item pResourceC) {
-		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, pPotion.key().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceC).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResourceA, Item pResourceB) {
-		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, pPotion.key().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResourceA).getPath() + "_" + BuiltInRegistries.ITEM.getKey(pResourceB).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion, Item pResource) {
-		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, pPotion.key().identifier().getPath() + "_" + "from" + "_" + BuiltInRegistries.ITEM.getKey(pResource).getPath() + "_" + pFrom));
 	}
 
 	public ResourceKey<Recipe<?>> key(String pFrom, Holder<Potion> pPotion) {
-		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, Optional.ofNullable(pPotion.getKey()).orElseThrow().identifier().getPath() + "_" + "from" + "_" + pFrom));
+		return ResourceKey.create(Registries.RECIPE, Identifier.fromNamespaceAndPath(IcariaIds.ID, pPotion.key().identifier().getPath() + "_" + "from" + "_" + pFrom));
 	}
 
 	public String name(Item pItem) {

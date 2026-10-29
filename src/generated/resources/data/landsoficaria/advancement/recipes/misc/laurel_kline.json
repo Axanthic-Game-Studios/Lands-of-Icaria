@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_kline"
+        "recipes": "landsoficaria:laurel_kline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

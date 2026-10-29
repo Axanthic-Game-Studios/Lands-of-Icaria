@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "landsoficaria:block/purple_terry_slab"
+    },
+    "type=double": {
+      "model": "landsoficaria:block/purple_terry_block"
+    },
+    "type=top": {
+      "model": "landsoficaria:block/purple_terry_slab_top"
+    }
+  }
+}

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:relicstone_from_cracked_relicstone_tiles_grinding"
+        "recipes": "landsoficaria:relicstone_from_cracked_relicstone_tiles_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

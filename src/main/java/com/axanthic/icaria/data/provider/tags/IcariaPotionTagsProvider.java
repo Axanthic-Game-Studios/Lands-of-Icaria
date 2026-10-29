@@ -15,8 +15,8 @@ import net.minecraft.tags.PotionTags;
 @ParametersAreNonnullByDefault
 
 public class IcariaPotionTagsProvider extends PotionTagsProvider {
-	public IcariaPotionTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider) {
-		super(pPackOutput, pProvider);
+	public IcariaPotionTagsProvider(PackOutput pPackOutput, CompletableFuture<HolderLookup.Provider> pProvider, String pId) {
+		super(pPackOutput, pProvider, pId);
 	}
 
 	@Override

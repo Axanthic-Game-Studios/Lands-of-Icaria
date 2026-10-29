@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_dagger"
+        "recipes": "landsoficaria:orichalcum_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

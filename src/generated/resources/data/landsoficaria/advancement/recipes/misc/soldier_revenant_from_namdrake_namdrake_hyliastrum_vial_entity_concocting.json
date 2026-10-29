@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:soldier_revenant_from_namdrake_namdrake_hyliastrum_vial_entity_concocting"
+        "recipes": "landsoficaria:soldier_revenant_from_namdrake_namdrake_hyliastrum_vial_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

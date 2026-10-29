@@ -9,7 +9,7 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import java.util.ArrayList;
 
@@ -22,56 +22,49 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.DecoratedPotBlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class VillageFeature extends Feature<NoneFeatureConfiguration> {
+public class VillageFeature implements Feature {
 	public ArrayList<EntityType<?>> mobs = new ArrayList<>();
 
-	public VillageFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+	public static final MapCodec<VillageFeature> CODEC = MapCodec.unit(VillageFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
-		this.placeWalk(level, origin);
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		this.placeWalk(pWorldGenLevel, pBlockPos);
 
 		this.setMobs();
 
 		for (var x = 0; x < 16; x++) {
-			var pX = origin.getX() + x;
+			var pX = pBlockPos.getX() + x;
 			for (var z = 0; z < 16; z++) {
-				var pZ = origin.getZ() + z;
+				var pZ = pBlockPos.getZ() + z;
 				for (var y = 8; y < 84; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
-					var oldState = level.getBlockState(belowPos);
+					var oldState = pWorldGenLevel.getBlockState(belowPos);
 					var newState = oldState.is(IcariaBlocks.MARL.get()) ? IcariaBlocks.GRASSY_MARL.get().defaultBlockState() : oldState;
 
-					this.replace(level, blockPos, newState);
+					this.replace(pWorldGenLevel, blockPos, newState);
 				}
 
 				for (var y = 84; y < 112; y++) {
 					var blockPos = new BlockPos(pX, y, pZ);
 					var belowPos = new BlockPos(pX, y, pZ).below();
-					var oldState = level.getBlockState(belowPos);
+					var oldState = pWorldGenLevel.getBlockState(belowPos);
 					var newState = oldState.is(IcariaBlocks.MARL.get()) ? IcariaBlocks.GRASSY_MARL.get().defaultBlockState() : oldState;
 
-					this.replaceBlocks(level, blockPos, newState);
-					this.replaceRuined(level, blockPos);
+					this.replaceBlocks(pWorldGenLevel, blockPos, newState);
+					this.replaceRuined(pWorldGenLevel, blockPos);
 
-					this.setLootForChests(level, blockPos, random);
-					this.setLootForDecoratedPots(level, blockPos, random);
-					this.setLootForStorageVases(level, blockPos, random);
-					this.setMobsForSpawners(level, blockPos, random);
+					this.setLootForChests(pWorldGenLevel, blockPos, pRandomSource);
+					this.setLootForDecoratedPots(pWorldGenLevel, blockPos, pRandomSource);
+					this.setLootForStorageVases(pWorldGenLevel, blockPos, pRandomSource);
+					this.setMobsForSpawners(pWorldGenLevel, blockPos, pRandomSource);
 				}
 			}
 		}
@@ -187,5 +180,10 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 
 	public EntityType<?> getMob(RandomSource pRandomSource) {
 		return this.mobs.get(pRandomSource.nextInt(this.mobs.size()));
+	}
+
+	@Override
+	public MapCodec<VillageFeature> codec() {
+		return VillageFeature.CODEC;
 	}
 }

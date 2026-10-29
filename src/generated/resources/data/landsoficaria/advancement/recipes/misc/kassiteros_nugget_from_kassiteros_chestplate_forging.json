@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_nugget_from_kassiteros_chestplate_forging"
+        "recipes": "landsoficaria:kassiteros_nugget_from_kassiteros_chestplate_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

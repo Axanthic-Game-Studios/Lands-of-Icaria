@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_thog_meat_from_raw_thog_meat_smoking"
+        "recipes": "landsoficaria:cooked_thog_meat_from_raw_thog_meat_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:calcite_block_from_calcite_shard"
+        "recipes": "landsoficaria:calcite_block_from_calcite_shard"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

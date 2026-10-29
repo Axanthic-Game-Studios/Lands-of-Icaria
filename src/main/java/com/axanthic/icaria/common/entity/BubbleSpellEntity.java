@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 
@@ -20,9 +21,6 @@ import net.minecraft.world.phys.EntityHitResult;
 @ParametersAreNonnullByDefault
 
 public class BubbleSpellEntity extends ThrowableProjectile {
-	public int maxAge = 400;
-	public int minAge = 200;
-
 	public static final EntityDataAccessor<Integer> AGE = SynchedEntityData.defineId(BubbleSpellEntity.class, EntityDataSerializers.INT);
 
 	public BubbleSpellEntity(EntityType<? extends BubbleSpellEntity> pEntityType, Level pLevel) {
@@ -63,7 +61,7 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 	@Override
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		this.pop();
-		IcariaCommonHelper.hurt(this.damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), 2.0F);
+		IcariaCommonHelper.hurt(this.damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), IcariaConfig.DAMAGE_BUBBLE_SPELL.get().floatValue());
 	}
 
 	public void pop() {
@@ -84,8 +82,10 @@ public class BubbleSpellEntity extends ThrowableProjectile {
 	@Override
 	public void tick() {
 		super.tick();
+		var min = IcariaConfig.MINIMUM_BUBBLE_LIFETIME_BUBBLE_SPELL.get();
+		var max = IcariaConfig.MAXIMUM_BUBBLE_LIFETIME_BUBBLE_SPELL.get();
 		var age = this.getAge();
-		if (age < this.getRandom().nextIntBetweenInclusive(this.minAge, this.maxAge)) {
+		if (age < this.getRandom().nextIntBetweenInclusive(Math.min(min, max), Math.max(min, max))) {
 			age++;
 			this.setAge(age);
 		} else {

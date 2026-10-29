@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_kline"
+        "recipes": "landsoficaria:droughtroot_kline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:void_jellyfish_from_psilocybos_mondanos_entity_concocting"
+        "recipes": "landsoficaria:void_jellyfish_from_psilocybos_mondanos_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

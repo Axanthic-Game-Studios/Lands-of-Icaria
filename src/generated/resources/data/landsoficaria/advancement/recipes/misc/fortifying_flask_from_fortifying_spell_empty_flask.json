@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fortifying_flask_from_fortifying_spell_empty_flask"
+        "recipes": "landsoficaria:fortifying_flask_from_fortifying_spell_empty_flask"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

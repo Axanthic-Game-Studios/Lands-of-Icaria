@@ -19,18 +19,17 @@ import net.minecraft.world.level.Level;
 @ParametersAreNonnullByDefault
 
 public abstract class SpellItem extends Item {
-	public float inaccuracy;
-	public float velocity;
-
-	public int colour;
-	public int cooldown;
-
-	public SpellItem(float pInaccuracy, float pVelocity, int pColour, int pCooldown, Properties pProperties) {
+	public SpellItem(Properties pProperties) {
 		super(pProperties);
-		this.inaccuracy = pInaccuracy;
-		this.velocity = pVelocity;
-		this.colour = pColour;
-		this.cooldown = pCooldown;
+	}
+
+	public void shoot(ItemStack pItemStack, Level pLevel, Player pPlayer) {
+		if (this.getEntity().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof SpellEntity entity) {
+			entity.setOwner(pPlayer);
+			entity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.getVelocity(), this.getInaccuracy());
+			entity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
+			pLevel.addFreshEntity(entity);
+		}
 	}
 
 	public void handleAction(ItemStack pItemStack, Level pLevel, Player pPlayer) {
@@ -38,15 +37,9 @@ public abstract class SpellItem extends Item {
 			pPlayer.playSound(IcariaSoundEvents.SPELL_SHOOT);
 		} else {
 			pPlayer.awardStat(Stats.ITEM_USED.get(this));
-			pPlayer.getCooldowns().addCooldown(pItemStack, this.cooldown);
+			pPlayer.getCooldowns().addCooldown(pItemStack, this.getCooldown());
 			pItemStack.consume(1, pPlayer);
-			if (this.getEntity().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof SpellEntity spellEntity) {
-				spellEntity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
-				spellEntity.setColor(this.colour);
-				spellEntity.setOwner(pPlayer);
-				spellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
-				pLevel.addFreshEntity(spellEntity);
-			}
+			this.shoot(pItemStack, pLevel, pPlayer);
 		}
 	}
 
@@ -55,6 +48,12 @@ public abstract class SpellItem extends Item {
 		this.handleAction(pPlayer.getItemInHand(pInteractionHand), pLevel, pPlayer);
 		return super.use(pLevel, pPlayer, pInteractionHand);
 	}
+
+	public abstract float getInaccuracy();
+
+	public abstract float getVelocity();
+
+	public abstract int getCooldown();
 
 	public abstract EntityType<?> getEntity();
 }

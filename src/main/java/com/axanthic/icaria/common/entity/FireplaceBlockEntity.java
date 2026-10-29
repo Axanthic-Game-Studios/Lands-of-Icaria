@@ -200,24 +200,6 @@ public class FireplaceBlockEntity extends BlockEntity {
 		return tagValueOutput.buildResult();
 	}
 
-	@Nullable
-	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
-		if (pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pDirection == Direction.DOWN) {
-			return this.getCap(pBlockEntity, pBlockEntity.getBlockPos(), 1, 2);
-		} else {
-			return null;
-		}
-	}
-
-	@Nullable
-	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, BlockPos pBlockPos, int p0, int p1) {
-		if (pBlockEntity.getLevel() != null && pBlockEntity.getLevel().getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity) {
-			return RangedResourceHandler.of(blockEntity.handler, p0, p1);
-		} else {
-			return null;
-		}
-	}
-
 	public ItemStack getIntake() {
 		return this.handler.getResource(0).toStack();
 	}
@@ -241,5 +223,23 @@ public class FireplaceBlockEntity extends BlockEntity {
 
 	public RecipeInput getRecipeInput() {
 		return new SingleRecipeInput(this.handler.getResource(0).toStack());
+	}
+
+	@Nullable
+	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, @Nullable Direction pDirection) {
+		if (pBlockEntity.getBlockState().getValue(IcariaBlockStateProperties.HEIGHT_PAIR) == HeightPair.BOTTOM && pDirection == Direction.DOWN) {
+			return this.getCap(pBlockEntity, pBlockEntity.getBlockPos(), 1, 2);
+		} else {
+			return null;
+		}
+	}
+
+	@Nullable
+	public ResourceHandler<ItemResource> getCap(BlockEntity pBlockEntity, BlockPos pBlockPos, int p0, int p1) {
+		if (pBlockEntity.getLevel() != null && pBlockEntity.getLevel().getBlockEntity(pBlockPos) instanceof FireplaceBlockEntity blockEntity) {
+			return RangedResourceHandler.of(blockEntity.handler, p0, p1);
+		} else {
+			return null;
+		}
 	}
 }

@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:end_crystal_from_arachne_venom_vial_dathulla_hyliastrum_vial_item_concocting"
+        "recipes": "landsoficaria:end_crystal_from_arachne_venom_vial_dathulla_hyliastrum_vial_item_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

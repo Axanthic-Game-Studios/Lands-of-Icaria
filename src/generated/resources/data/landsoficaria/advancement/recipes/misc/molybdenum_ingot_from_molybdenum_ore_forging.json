@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenum_ingot_from_molybdenum_ore_forging"
+        "recipes": "landsoficaria:molybdenum_ingot_from_molybdenum_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

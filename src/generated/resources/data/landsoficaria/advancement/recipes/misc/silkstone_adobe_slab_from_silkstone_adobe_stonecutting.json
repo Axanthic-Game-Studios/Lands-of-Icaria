@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkstone_adobe_slab_from_silkstone_adobe_stonecutting"
+        "recipes": "landsoficaria:silkstone_adobe_slab_from_silkstone_adobe_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

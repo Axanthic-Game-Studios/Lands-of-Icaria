@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadium_gear"
+        "recipes": "landsoficaria:vanadium_gear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

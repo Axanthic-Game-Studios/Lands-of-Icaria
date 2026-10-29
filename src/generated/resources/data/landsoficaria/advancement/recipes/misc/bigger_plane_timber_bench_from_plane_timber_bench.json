@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bigger_plane_timber_bench_from_plane_timber_bench"
+        "recipes": "landsoficaria:bigger_plane_timber_bench_from_plane_timber_bench"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:lake",
+  "barrier": {
+    "id": "landsoficaria:grassy_marl",
+    "properties": {
+      "moss": "none"
+    }
+  },
+  "can_place_feature": {
+    "type": "minecraft:true"
+  },
+  "can_replace_with_air_or_fluid": {
+    "type": "minecraft:true"
+  },
+  "can_replace_with_barrier": {
+    "type": "minecraft:true"
+  },
+  "fluid": {
+    "id": "landsoficaria:mediterranean_water",
+    "properties": {
+      "level": "0"
+    }
+  }
+}

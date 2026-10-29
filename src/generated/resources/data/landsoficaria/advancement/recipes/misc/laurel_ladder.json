@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_ladder"
+        "recipes": "landsoficaria:laurel_ladder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

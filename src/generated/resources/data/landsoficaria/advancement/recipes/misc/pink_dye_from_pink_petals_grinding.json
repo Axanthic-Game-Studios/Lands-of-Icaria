@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:pink_dye_from_pink_petals_grinding"
+        "recipes": "landsoficaria:pink_dye_from_pink_petals_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

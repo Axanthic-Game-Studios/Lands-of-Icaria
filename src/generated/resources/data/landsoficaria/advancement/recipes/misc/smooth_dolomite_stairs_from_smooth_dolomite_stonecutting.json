@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_dolomite_stairs_from_smooth_dolomite_stonecutting"
+        "recipes": "landsoficaria:smooth_dolomite_stairs_from_smooth_dolomite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_spear"
+        "recipes": "landsoficaria:orichalcum_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

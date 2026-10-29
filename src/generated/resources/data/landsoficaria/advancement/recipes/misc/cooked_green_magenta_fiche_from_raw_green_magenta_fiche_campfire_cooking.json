@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_green_magenta_fiche_from_raw_green_magenta_fiche_campfire_cooking"
+        "recipes": "landsoficaria:cooked_green_magenta_fiche_from_raw_green_magenta_fiche_campfire_cooking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

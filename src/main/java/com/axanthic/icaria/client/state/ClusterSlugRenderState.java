@@ -12,12 +12,10 @@ import net.minecraft.world.entity.LivingEntity;
 
 public class ClusterSlugRenderState extends LivingEntityRenderState {
 	public boolean climbing;
-	public float blue;
-	public float green;
-	public float red;
 	public float renderScale;
 	public float shadowScale;
 	public float shadowStrength;
+	public int color;
 	public AnimationState hideAnimationState;
 	public AnimationState hurtAnimationState;
 	public AnimationState moveAnimationState;

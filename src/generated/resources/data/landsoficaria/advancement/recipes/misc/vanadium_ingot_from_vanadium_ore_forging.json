@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadium_ingot_from_vanadium_ore_forging"
+        "recipes": "landsoficaria:vanadium_ingot_from_vanadium_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

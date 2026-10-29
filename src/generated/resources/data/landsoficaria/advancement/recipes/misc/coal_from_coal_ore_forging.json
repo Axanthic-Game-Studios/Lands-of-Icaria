@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:coal_from_coal_ore_forging"
+        "recipes": "landsoficaria:coal_from_coal_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -56,7 +56,7 @@ public class VaseBlock extends Block implements MediterraneanWaterloggedBlock, S
 	@Override
 	public void onProjectileHit(Level pLevel, BlockState pBlockState, BlockHitResult pBlockHitResult, Projectile pProjectile) {
 		var blockPos = pBlockHitResult.getBlockPos();
-		if (pLevel instanceof ServerLevel serverLevel && pProjectile.mayBreak(serverLevel) && pProjectile.mayInteract(serverLevel, blockPos)) {
+		if (pLevel instanceof ServerLevel serverLevel && pProjectile.mayBreak(serverLevel, blockPos) && pProjectile.mayInteract(serverLevel, blockPos)) {
 			pLevel.destroyBlock(blockPos, true, pProjectile);
 		}
 	}

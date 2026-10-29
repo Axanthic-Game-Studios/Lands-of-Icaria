@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_nugget_from_chalkos_ingot"
+        "recipes": "landsoficaria:chalkos_nugget_from_chalkos_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

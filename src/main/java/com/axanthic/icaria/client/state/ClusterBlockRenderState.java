@@ -12,7 +12,5 @@ public class ClusterBlockRenderState extends BlockEntityRenderState {
 	public double x;
 	public double y;
 	public double z;
-	public float red;
-	public float green;
-	public float blue;
+	public int color;
 }

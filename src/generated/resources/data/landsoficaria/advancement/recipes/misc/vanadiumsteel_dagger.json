@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_dagger"
+        "recipes": "landsoficaria:vanadiumsteel_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

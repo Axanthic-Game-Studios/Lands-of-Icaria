@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenumsteel_shovel"
+        "recipes": "landsoficaria:molybdenumsteel_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

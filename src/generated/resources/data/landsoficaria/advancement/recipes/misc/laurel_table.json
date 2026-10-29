@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_table"
+        "recipes": "landsoficaria:laurel_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

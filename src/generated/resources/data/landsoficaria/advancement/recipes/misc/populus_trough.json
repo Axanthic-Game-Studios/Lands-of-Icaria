@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_trough"
+        "recipes": "landsoficaria:populus_trough"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,888 @@
+{
+  "values": {
+    "landsoficaria:anthracite_block": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:black_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:black_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:blindweed": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:bloomy_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:blue_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:blue_hydracinth": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:blue_stormcotton": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:blue_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:blue_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:bolbos": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:branchy_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:brown_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:brown_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:brushy_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:chameomile": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:charmonder": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:clover": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:cyan_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:cyan_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:cyan_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:cypress_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:cypress_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:cypress_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:cypress_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:cypress_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:cypress_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dathulla": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:dead_cypress_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_droughtroot_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_fir_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_laurel_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_olive_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_plane_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dead_populus_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:droughtroot_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:droughtroot_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:droughtroot_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:droughtroot_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:droughtroot_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:dry_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:fallen_cypress_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_droughtroot_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_fir_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_laurel_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_olive_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_plane_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fallen_populus_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fir_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fir_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fir_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fir_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:fir_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:fir_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:firehilt": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:forest_moss": {
+      "burn_odds": 100,
+      "ignite_odds": 5
+    },
+    "landsoficaria:gray_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:gray_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:green_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:green_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:large_brown_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:large_grass": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:laurel_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:laurel_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:laurel_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:laurel_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:laurel_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:laurel_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:light_blue_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:light_blue_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:light_gray_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:light_gray_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:lignite_block": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:lignite_rubble": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:lime_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:lime_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:lionfangs": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:magenta_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:magenta_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:medium_brown_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:medium_grass": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:medium_mixed_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:medium_white_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:medium_yellow_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:mondanos": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:moth_agaric": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:namdrake": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:olive_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:olive_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:olive_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:olive_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:olive_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:olive_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:orange_bromelia": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:orange_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:orange_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:palm_fern": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:pink_bromelia": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:pink_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:pink_stormcotton": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:pink_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:pink_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:plane_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:plane_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:plane_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:plane_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:plane_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:plane_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_fence": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_fence_gate": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_firewood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_firewood_wedge": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_leaves": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:populus_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_planks": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_scrollshelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:populus_shelf": {
+      "burn_odds": 20,
+      "ignite_odds": 30
+    },
+    "landsoficaria:populus_slab": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_stairs": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:populus_twigs": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:populus_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:psilocybos": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_bromelia": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_hydracinth": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_staghorn": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_stormcotton": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:purple_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:purple_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:red_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:red_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:red_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:reedy_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:rowan": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:scrubland_moss": {
+      "burn_odds": 100,
+      "ignite_odds": 5
+    },
+    "landsoficaria:small_grass": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:small_mixed_grain": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:speardrops": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:spelt_block": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:steppe_moss": {
+      "burn_odds": 100,
+      "ignite_odds": 5
+    },
+    "landsoficaria:strawberry_bush": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:stripped_cypress_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_cypress_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_cypress_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_droughtroot_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_fir_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_laurel_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_olive_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_plane_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_dead_populus_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_droughtroot_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_droughtroot_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_fir_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_fir_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_laurel_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_laurel_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_olive_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_olive_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_plane_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_plane_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_populus_log": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:stripped_populus_wood": {
+      "burn_odds": 5,
+      "ignite_odds": 5
+    },
+    "landsoficaria:sunkettle": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:sunsponge": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:swirly_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:thorny_vine": {
+      "burn_odds": 100,
+      "ignite_odds": 15
+    },
+    "landsoficaria:vine_reed_block": {
+      "burn_odds": 20,
+      "ignite_odds": 5
+    },
+    "landsoficaria:voidlily": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:white_bromelia": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:white_ground_flowers": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:white_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:white_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    },
+    "landsoficaria:wilted_elm": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:yellow_staghorn": {
+      "burn_odds": 100,
+      "ignite_odds": 60
+    },
+    "landsoficaria:yellow_terry_block": {
+      "burn_odds": 60,
+      "ignite_odds": 30
+    },
+    "landsoficaria:yellow_terry_mat": {
+      "burn_odds": 20,
+      "ignite_odds": 60
+    }
+  }
+}

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_stairs"
+        "recipes": "landsoficaria:populus_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "landsoficaria:block/green_terry_block",
+    "particle": "landsoficaria:block/green_terry_block",
+    "side": "landsoficaria:block/green_terry_block",
+    "top": "landsoficaria:block/green_terry_block"
+  }
+}

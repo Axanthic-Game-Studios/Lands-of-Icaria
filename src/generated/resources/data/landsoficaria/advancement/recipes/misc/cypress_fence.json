@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_fence"
+        "recipes": "landsoficaria:cypress_fence"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

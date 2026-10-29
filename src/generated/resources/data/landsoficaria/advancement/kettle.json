@@ -3,18 +3,15 @@
   "criteria": {
     "kettle": {
       "conditions": {
-        "location": [
-          {
-            "block": "landsoficaria:kettle",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "landsoficaria:kettle"
+        }
       },
       "trigger": "minecraft:placed_block"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.kettle.description"
     },

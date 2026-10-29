@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:wither_from_bone_remains_moth_agaric_rowan_potion_concocting"
+        "recipes": "landsoficaria:wither_from_bone_remains_moth_agaric_rowan_potion_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

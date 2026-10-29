@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_ingot_from_raw_chalkos_raw_chalkos_raw_kassiteros_forging"
+        "recipes": "landsoficaria:orichalcum_ingot_from_raw_chalkos_raw_chalkos_raw_kassiteros_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

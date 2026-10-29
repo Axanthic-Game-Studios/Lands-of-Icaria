@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_chestplate"
+        "recipes": "landsoficaria:orichalcum_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

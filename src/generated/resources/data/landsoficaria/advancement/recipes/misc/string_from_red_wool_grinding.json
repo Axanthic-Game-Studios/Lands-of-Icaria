@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:string_from_red_wool_grinding"
+        "recipes": "landsoficaria:string_from_red_wool_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:bigger_olive_timber_table_from_olive_timber_table"
+        "recipes": "landsoficaria:bigger_olive_timber_table_from_olive_timber_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

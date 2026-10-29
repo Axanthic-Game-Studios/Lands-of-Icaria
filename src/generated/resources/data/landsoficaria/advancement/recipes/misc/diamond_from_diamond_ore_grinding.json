@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:diamond_from_diamond_ore_grinding"
+        "recipes": "landsoficaria:diamond_from_diamond_ore_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

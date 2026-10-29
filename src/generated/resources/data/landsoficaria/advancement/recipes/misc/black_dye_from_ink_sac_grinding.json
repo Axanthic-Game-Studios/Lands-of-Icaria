@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:black_dye_from_ink_sac_grinding"
+        "recipes": "landsoficaria:black_dye_from_ink_sac_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

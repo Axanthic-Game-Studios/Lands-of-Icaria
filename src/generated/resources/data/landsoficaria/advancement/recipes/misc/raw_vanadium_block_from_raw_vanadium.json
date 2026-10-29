@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:raw_vanadium_block_from_raw_vanadium"
+        "recipes": "landsoficaria:raw_vanadium_block_from_raw_vanadium"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

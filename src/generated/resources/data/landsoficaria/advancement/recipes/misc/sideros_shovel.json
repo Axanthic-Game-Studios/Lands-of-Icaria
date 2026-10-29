@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sideros_shovel"
+        "recipes": "landsoficaria:sideros_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_kline"
+        "recipes": "landsoficaria:olive_kline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chert_bident"
+        "recipes": "landsoficaria:chert_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

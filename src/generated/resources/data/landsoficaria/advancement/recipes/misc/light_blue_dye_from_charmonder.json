@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:light_blue_dye_from_charmonder"
+        "recipes": "landsoficaria:light_blue_dye_from_charmonder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

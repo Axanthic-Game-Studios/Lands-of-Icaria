@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_adobe_stairs_from_yellowstone_adobe_stonecutting"
+        "recipes": "landsoficaria:yellowstone_adobe_stairs_from_yellowstone_adobe_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

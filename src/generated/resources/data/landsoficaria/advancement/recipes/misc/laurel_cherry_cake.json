@@ -53,7 +53,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_cherry_cake"
+        "recipes": "landsoficaria:laurel_cherry_cake"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

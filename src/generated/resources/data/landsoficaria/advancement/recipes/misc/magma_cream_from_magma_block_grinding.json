@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:magma_cream_from_magma_block_grinding"
+        "recipes": "landsoficaria:magma_cream_from_magma_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

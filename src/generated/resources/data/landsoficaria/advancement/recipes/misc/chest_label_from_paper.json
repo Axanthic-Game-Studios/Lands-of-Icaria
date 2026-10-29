@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chest_label_from_paper"
+        "recipes": "landsoficaria:chest_label_from_paper"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

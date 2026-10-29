@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:populus_wood_from_dead_populus_log"
+        "recipes": "landsoficaria:populus_wood_from_dead_populus_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:kassiteros_boots"
+        "recipes": "landsoficaria:kassiteros_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

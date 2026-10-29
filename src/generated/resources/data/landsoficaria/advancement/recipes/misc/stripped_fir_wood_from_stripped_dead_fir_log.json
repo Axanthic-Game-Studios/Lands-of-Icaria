@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:stripped_fir_wood_from_stripped_dead_fir_log"
+        "recipes": "landsoficaria:stripped_fir_wood_from_stripped_dead_fir_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:voidshale_gear"
+        "recipes": "landsoficaria:voidshale_gear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

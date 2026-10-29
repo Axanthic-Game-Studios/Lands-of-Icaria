@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lime_dye_from_speardrops_grinding"
+        "recipes": "landsoficaria:lime_dye_from_speardrops_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

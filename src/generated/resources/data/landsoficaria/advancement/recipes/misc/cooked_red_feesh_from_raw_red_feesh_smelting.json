@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_red_feesh_from_raw_red_feesh_smelting"
+        "recipes": "landsoficaria:cooked_red_feesh_from_raw_red_feesh_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

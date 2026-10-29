@@ -26,7 +26,7 @@ public class BarrelRenderLayer extends RenderLayer<AvatarRenderState, PlayerMode
 	public void submit(PoseStack pPoseStack, SubmitNodeCollector pSubmitNodeCollector, int pLightCoords, AvatarRenderState pRenderState, float pYRot, float pXRot) {
 		if (pRenderState.getRenderDataOrThrow(IcariaContextKeys.BARREL)) {
 			pPoseStack.pushPose();
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(180.0F));
+			pPoseStack.rotateDegrees(Axis.XP, 180.0F);
 			pPoseStack.translate(-0.5D, 0.5D, -0.5D);
 			pRenderState.getRenderDataOrThrow(IcariaContextKeys.BARREL_BLOCK_MODEL_RENDER_STATE).submit(pPoseStack, pSubmitNodeCollector, pRenderState.lightCoords, OverlayTexture.NO_OVERLAY, pRenderState.outlineColor);
 			pPoseStack.popPose();

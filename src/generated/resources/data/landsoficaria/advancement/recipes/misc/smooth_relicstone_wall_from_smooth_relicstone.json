@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_relicstone_wall_from_smooth_relicstone"
+        "recipes": "landsoficaria:smooth_relicstone_wall_from_smooth_relicstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -186,6 +186,9 @@
     "minecraft:pink_tulip": {
       "block": "minecraft:potted_pink_tulip"
     },
+    "minecraft:poplar_sapling": {
+      "block": "minecraft:potted_poplar_sapling"
+    },
     "minecraft:poppy": {
       "block": "minecraft:potted_poppy"
     },

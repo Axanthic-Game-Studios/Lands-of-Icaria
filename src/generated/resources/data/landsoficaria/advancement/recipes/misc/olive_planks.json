@@ -63,7 +63,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_planks"
+        "recipes": "landsoficaria:olive_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

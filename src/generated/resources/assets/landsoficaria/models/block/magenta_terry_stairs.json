@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "landsoficaria:block/magenta_terry_block",
+    "particle": "landsoficaria:block/magenta_terry_block",
+    "side": "landsoficaria:block/magenta_terry_block",
+    "top": "landsoficaria:block/magenta_terry_block"
+  }
+}

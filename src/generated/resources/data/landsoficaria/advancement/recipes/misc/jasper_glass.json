@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:jasper_glass"
+        "recipes": "landsoficaria:jasper_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

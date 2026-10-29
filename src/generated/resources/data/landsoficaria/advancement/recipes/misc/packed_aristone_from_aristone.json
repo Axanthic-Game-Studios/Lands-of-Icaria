@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:packed_aristone_from_aristone"
+        "recipes": "landsoficaria:packed_aristone_from_aristone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

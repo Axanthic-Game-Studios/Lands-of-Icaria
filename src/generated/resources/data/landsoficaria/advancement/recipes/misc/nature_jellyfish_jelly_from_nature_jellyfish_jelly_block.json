@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:nature_jellyfish_jelly_from_nature_jellyfish_jelly_block"
+        "recipes": "landsoficaria:nature_jellyfish_jelly_from_nature_jellyfish_jelly_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:simple_block",
+  "to_place": {
+    "id": "landsoficaria:jasper_cluster",
+    "properties": {
+      "facing": "down",
+      "mediterranean_waterlogged": "false",
+      "waterlogged": "false"
+    }
+  }
+}

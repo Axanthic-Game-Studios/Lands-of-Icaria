@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:light_blue_dye_from_blue_orchid_grinding"
+        "recipes": "landsoficaria:light_blue_dye_from_blue_orchid_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

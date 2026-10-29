@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkstone_brick_wall_from_silkstone_bricks"
+        "recipes": "landsoficaria:silkstone_brick_wall_from_silkstone_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

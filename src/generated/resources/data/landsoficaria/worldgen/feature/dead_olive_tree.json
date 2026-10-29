@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_olive_log",
+  "log": "landsoficaria:olive_log",
+  "max": 5,
+  "min": 5,
+  "moss": "landsoficaria:steppe_moss",
+  "treeShrooms": "landsoficaria:unnamed_tree_shrooms",
+  "twigs": "landsoficaria:olive_twigs"
+}

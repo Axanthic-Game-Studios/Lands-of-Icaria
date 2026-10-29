@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_sword"
+        "recipes": "landsoficaria:chalkos_sword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,8 @@
+{
+  "type": "landsoficaria:cypress_tree",
+  "fallen": "landsoficaria:fallen_cypress_leaves",
+  "leaves": "landsoficaria:cypress_leaves",
+  "log": "landsoficaria:cypress_log",
+  "shrooms": "landsoficaria:tinder_fungus_tree_shrooms",
+  "twigs": "landsoficaria:cypress_twigs"
+}

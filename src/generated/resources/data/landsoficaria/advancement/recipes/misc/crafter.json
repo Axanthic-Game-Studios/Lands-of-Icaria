@@ -103,7 +103,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:crafter"
+        "recipes": "landsoficaria:crafter"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

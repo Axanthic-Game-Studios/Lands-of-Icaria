@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaItems;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -45,10 +44,6 @@ import net.minecraft.world.level.storage.ValueOutput;
 @ParametersAreNonnullByDefault
 
 public class SlugEntity extends IcariaPathfinderMobEntity {
-	public float red;
-	public float green;
-	public float blue;
-
 	public int maxCooldown = 400;
 	public int minCooldown = 0;
 	public int maxHide = 80;
@@ -235,7 +230,6 @@ public class SlugEntity extends IcariaPathfinderMobEntity {
 			this.tickMove();
 			this.tickShow();
 			this.tickParticlePlusSounds();
-			this.tickRegisterRaysValues();
 		} else {
 			this.setClimbing(this.horizontalCollision);
 			this.setMovement();
@@ -284,14 +278,6 @@ public class SlugEntity extends IcariaPathfinderMobEntity {
 				var blockParticleOption = new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockStateOn());
 				this.level().addParticle(blockParticleOption, x, y, z, 0.0D, 0.0D, 0.0D);
 			}
-		}
-	}
-
-	public void tickRegisterRaysValues() {
-		if (this.tickCount <= 1) {
-			this.red = IcariaClientHelper.getRed(this);
-			this.green = IcariaClientHelper.getGreen(this);
-			this.blue = IcariaClientHelper.getBlue(this);
 		}
 	}
 

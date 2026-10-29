@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_slab_from_droughtroot_planks"
+        "recipes": "landsoficaria:droughtroot_slab_from_droughtroot_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

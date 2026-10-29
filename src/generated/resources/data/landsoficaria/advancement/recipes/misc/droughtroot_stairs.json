@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_stairs"
+        "recipes": "landsoficaria:droughtroot_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

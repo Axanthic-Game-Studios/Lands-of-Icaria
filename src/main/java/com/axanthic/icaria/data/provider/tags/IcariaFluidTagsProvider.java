@@ -23,6 +23,18 @@ public class IcariaFluidTagsProvider extends FluidTagsProvider {
 
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
+		this.tag(FluidTags.AXOLOTL_TRIES_TO_FIND)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
+
+		this.tag(FluidTags.BUBBLE_COLUMN_CAN_OCCUPY)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
+
+		this.tag(FluidTags.DOLPHIN_TRIES_TO_FIND)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
+
+		this.tag(FluidTags.FROG_TRIES_TO_FIND_LAND_NEAR)
+			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
+
 		this.tag(FluidTags.SUPPORTS_FROGSPAWN)
 			.add(IcariaFluidIds.MEDITERRANEAN_WATER);
 

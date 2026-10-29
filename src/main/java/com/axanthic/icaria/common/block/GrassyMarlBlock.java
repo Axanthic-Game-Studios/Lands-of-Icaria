@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.BonemealSource;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -47,12 +48,12 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public boolean isBonemealSuccess(Level pLevel, RandomSource pRandomSource, BlockPos pBlockPos, BlockState pBlockState) {
+	public boolean isBonemealSuccess(Level pLevel, RandomSource pRandomSource, BlockPos pBlockPos, BlockState pBlockState, BonemealSource pBonemealSource) {
 		return true;
 	}
 
 	@Override
-	public boolean isValidBonemealTarget(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState) {
+	public boolean isValidBonemealTarget(LevelReader pLevelReader, BlockPos pBlockPos, BlockState pBlockState, BonemealSource pBonemealSource) {
 		return pLevelReader.getBlockState(pBlockPos.above()).isAir();
 	}
 
@@ -62,7 +63,7 @@ public class GrassyMarlBlock extends Block implements BonemealableBlock {
 	}
 
 	@Override
-	public void performBonemeal(ServerLevel pServerLevel, RandomSource pRandomSource, BlockPos pBlockPos, BlockState pBlockState) {
+	public void performBonemeal(ServerLevel pServerLevel, RandomSource pRandomSource, BlockPos pBlockPos, BlockState pBlockState, BonemealSource pBonemealSource) {
 		for (var i = 0; i < 64; ++i) {
 			var blockPos = pBlockPos.offset(pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1, pRandomSource.nextInt(3) - 1);
 			if (pServerLevel.getBlockState(blockPos).is(this)) {

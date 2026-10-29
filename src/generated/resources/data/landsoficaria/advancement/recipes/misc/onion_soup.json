@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:onion_soup"
+        "recipes": "landsoficaria:onion_soup"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

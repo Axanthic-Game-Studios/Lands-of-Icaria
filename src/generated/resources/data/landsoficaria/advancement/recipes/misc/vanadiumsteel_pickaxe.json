@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_pickaxe"
+        "recipes": "landsoficaria:vanadiumsteel_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

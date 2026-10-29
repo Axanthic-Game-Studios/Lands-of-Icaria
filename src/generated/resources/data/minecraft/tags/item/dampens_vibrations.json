@@ -1,6 +1,8 @@
 {
   "values": [
     "#landsoficaria:terry_blocks",
-    "#landsoficaria:terry_mats"
+    "#landsoficaria:terry_mats",
+    "#landsoficaria:terry_slabs",
+    "#landsoficaria:terry_stairs"
   ]
 }

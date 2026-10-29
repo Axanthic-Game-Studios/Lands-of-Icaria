@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:daedalian_gear_from_blue_gearfragment_green_gearfragment_yellow_gearfragment"
+        "recipes": "landsoficaria:daedalian_gear_from_blue_gearfragment_green_gearfragment_yellow_gearfragment"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

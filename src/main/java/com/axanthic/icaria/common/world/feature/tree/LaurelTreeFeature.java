@@ -2,82 +2,93 @@ package com.axanthic.icaria.common.world.feature.tree;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaFeatureHelper;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import java.util.ArrayList;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LaurelTreeFeature extends TreeFeature {
-	public LaurelTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.FALLEN_LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_LEAVES.get(), IcariaBlocks.LAUREL_LOG.get(), IcariaBlocks.TINDER_FUNGUS_TREE_SHROOMS.get(), IcariaBlocks.LAUREL_TWIGS.get());
-	}
+public record LaurelTreeFeature(BlockState fallen, BlockState leaves, BlockState log, BlockState shrooms, BlockState twigs) implements Feature {
+	public static final MapCodec<LaurelTreeFeature> CODEC = RecordCodecBuilder.mapCodec(
+		instance -> instance.group(
+			BlockState.CODEC.fieldOf("fallen").forGetter(LaurelTreeFeature::fallen),
+			BlockState.CODEC.fieldOf("leaves").forGetter(LaurelTreeFeature::leaves),
+			BlockState.CODEC.fieldOf("log").forGetter(LaurelTreeFeature::log),
+			BlockState.CODEC.fieldOf("shrooms").forGetter(LaurelTreeFeature::shrooms),
+			BlockState.CODEC.fieldOf("twigs").forGetter(LaurelTreeFeature::twigs)
+		).apply(instance, LaurelTreeFeature::new)
+	);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
 		var directions = new ArrayList<Direction>();
 
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
+		var countBranch = pRandomSource.nextIntBetweenInclusive(2, 3);
+		var heightTrunk = pRandomSource.nextIntBetweenInclusive(2, 4);
+		var heightTotal = pBlockPos.below().getY() + heightTrunk + 7;
 
-		var countBranch = random.nextIntBetweenInclusive(2, 3);
-		var heightTrunk = random.nextIntBetweenInclusive(2, 4);
-		var heightTotal = origin.below().getY() + heightTrunk + 7;
-
-		if (heightTotal < level.getMaxY() && level.getBlockState(origin.atY(heightTotal)).canBeReplaced()) {
+		if (heightTotal < pWorldGenLevel.getMaxY() && pWorldGenLevel.getBlockState(pBlockPos.atY(heightTotal)).canBeReplaced()) {
 			for (var direction : Direction.Plane.HORIZONTAL) {
 				directions.add(direction);
 			}
 
 			for (var i = 1; i <= heightTrunk; i++) {
-				this.placeLog(level, origin.below().above(i), Direction.Axis.Y);
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.below().above(i), this.log(), Direction.Axis.Y);
 			}
 
 			for (var i = 1; i <= countBranch; i++) {
-				var direction = directions.get(random.nextInt(directions.size()));
+				var direction = directions.get(pRandomSource.nextInt(directions.size()));
 				var clockWise = direction.getClockWise();
-				var blockPos = new BlockPos(origin.below().above(heightTrunk));
+				var blockPos = pBlockPos.below().above(heightTrunk);
 
-				var heightBranch = random.nextIntBetweenInclusive(4, 6);
+				var heightBranch = pRandomSource.nextIntBetweenInclusive(4, 6);
 
 				directions.remove(direction);
 
 				for (var j = 1; j <= heightBranch; j++) {
 					blockPos = blockPos.above();
-					if (random.nextInt(j * 2 + 1) == 0) {
+					if (pRandomSource.nextInt(j * 2 + 1) == 0) {
 						blockPos = blockPos.relative(direction);
 					}
 
-					if (random.nextInt(j * 2 + 3) == 0) {
+					if (pRandomSource.nextInt(j * 2 + 3) == 0) {
 						blockPos = blockPos.relative(clockWise);
 					}
 
-					this.placeLog(level, blockPos, Direction.Axis.Y);
-					this.placeLeaves(level, blockPos.above());
-					this.placeLeaves(level, blockPos.north());
-					this.placeLeaves(level, blockPos.east());
-					this.placeLeaves(level, blockPos.south());
-					this.placeLeaves(level, blockPos.west());
-					this.placeLeaves(level, blockPos.below());
+					IcariaFeatureHelper.placeLog(pWorldGenLevel, blockPos, this.log(), Direction.Axis.Y);
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.above(), this.leaves());
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.north(), this.leaves());
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.east(), this.leaves());
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.south(), this.leaves());
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.west(), this.leaves());
+					IcariaFeatureHelper.placeLeaves(pWorldGenLevel, blockPos.below(), this.leaves());
 				}
 			}
 
-			this.placeTwigsPatch(level, origin, 4);
-			this.placeFallenPatch(level, origin, 4);
-			this.placeShroomsPatch(level, origin, 4);
+			IcariaFeatureHelper.placeTwigsPatch(pWorldGenLevel, pBlockPos, this.twigs(), 4);
+			IcariaFeatureHelper.placeFallenPatch(pWorldGenLevel, pBlockPos, this.fallen(), 4);
+			IcariaFeatureHelper.placeShroomsPatch(pWorldGenLevel, pBlockPos, this.shrooms(), 4);
 
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public MapCodec<LaurelTreeFeature> codec() {
+		return LaurelTreeFeature.CODEC;
 	}
 }

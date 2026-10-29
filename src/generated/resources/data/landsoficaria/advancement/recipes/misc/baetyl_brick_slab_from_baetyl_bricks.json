@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:baetyl_brick_slab_from_baetyl_bricks"
+        "recipes": "landsoficaria:baetyl_brick_slab_from_baetyl_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

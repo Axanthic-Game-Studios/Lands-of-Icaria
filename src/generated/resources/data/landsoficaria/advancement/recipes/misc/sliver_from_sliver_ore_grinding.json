@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sliver_from_sliver_ore_grinding"
+        "recipes": "landsoficaria:sliver_from_sliver_ore_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -51,8 +51,8 @@ public class NatureJellyfishRenderer extends MobRenderer<NatureJellyfishEntity, 
 	public void setupRotations(NatureJellyfishRenderState pRenderState, PoseStack pPoseStack, float pBodyRot, float pEntityScale) {
 		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		pPoseStack.translate(0.0F, pRenderState.renderScale * 0.5F, 0.0F);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pRenderState.xBodyRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pRenderState.zBodyRot));
+		pPoseStack.rotateDegrees(Axis.XP, pRenderState.xBodyRot);
+		pPoseStack.rotateDegrees(Axis.YP, pRenderState.zBodyRot);
 		pPoseStack.translate(0.0F, pRenderState.renderScale * -1.0F, 0.0F);
 	}
 

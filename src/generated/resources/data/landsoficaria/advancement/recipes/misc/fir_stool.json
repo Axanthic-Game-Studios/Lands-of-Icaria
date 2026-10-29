@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_stool"
+        "recipes": "landsoficaria:fir_stool"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

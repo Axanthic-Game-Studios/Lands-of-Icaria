@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_wood_from_olive_log"
+        "recipes": "landsoficaria:olive_wood_from_olive_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

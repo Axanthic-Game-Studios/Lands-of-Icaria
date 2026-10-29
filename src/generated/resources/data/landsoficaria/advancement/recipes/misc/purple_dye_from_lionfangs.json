@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:purple_dye_from_lionfangs"
+        "recipes": "landsoficaria:purple_dye_from_lionfangs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

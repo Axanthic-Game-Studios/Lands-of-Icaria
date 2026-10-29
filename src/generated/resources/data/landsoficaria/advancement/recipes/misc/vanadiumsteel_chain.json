@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_chain"
+        "recipes": "landsoficaria:vanadiumsteel_chain"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

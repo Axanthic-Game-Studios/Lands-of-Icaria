@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_chestplate_forging"
+        "recipes": "landsoficaria:vanadiumsteel_nugget_from_vanadiumsteel_chestplate_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:white_dye_from_chameomile"
+        "recipes": "landsoficaria:white_dye_from_chameomile"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

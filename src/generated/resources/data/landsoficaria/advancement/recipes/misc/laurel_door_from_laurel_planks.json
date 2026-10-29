@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_door_from_laurel_planks"
+        "recipes": "landsoficaria:laurel_door_from_laurel_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

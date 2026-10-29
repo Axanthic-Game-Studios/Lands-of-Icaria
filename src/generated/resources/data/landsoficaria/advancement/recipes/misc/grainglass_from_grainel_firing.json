@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grainglass_from_grainel_firing"
+        "recipes": "landsoficaria:grainglass_from_grainel_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

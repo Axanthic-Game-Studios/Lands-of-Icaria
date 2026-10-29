@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:scorpion_from_moth_agaric_mondanos_wilted_elm_entity_concocting"
+        "recipes": "landsoficaria:scorpion_from_moth_agaric_mondanos_wilted_elm_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

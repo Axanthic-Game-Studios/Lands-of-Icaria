@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:aeternae_from_rowan_namdrake_wilted_elm_entity_concocting"
+        "recipes": "landsoficaria:aeternae_from_rowan_namdrake_wilted_elm_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

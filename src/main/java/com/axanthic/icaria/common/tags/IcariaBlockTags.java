@@ -61,6 +61,8 @@ public class IcariaBlockTags {
 
 	public static final TagKey<Block> SOILS = IcariaBlockTags.createIcaria("soils");
 
+	public static final TagKey<Block> SPELL_IMMUNE_BLOCKS = IcariaBlockTags.createIcaria("spell_immune");
+
 	public static final TagKey<Block> SUPPORT_BLOCKS_CLUSTER = IcariaBlockTags.createIcaria("support_blocks/cluster");
 	public static final TagKey<Block> SUPPORT_BLOCKS_GRAINITE_RUBBLE = IcariaBlockTags.createIcaria("support_blocks/grainite_rubble");
 	public static final TagKey<Block> SUPPORT_BLOCKS_RUBBLE = IcariaBlockTags.createIcaria("support_blocks/rubble");

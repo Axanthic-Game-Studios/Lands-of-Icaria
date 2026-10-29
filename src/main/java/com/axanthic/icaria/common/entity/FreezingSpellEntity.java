@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaDataMapTypes;
 import com.axanthic.icaria.common.registry.IcariaMobEffects;
 
@@ -58,7 +59,7 @@ public class FreezingSpellEntity extends SpellEntity {
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		super.onHitEntity(pEntityHitResult);
 		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity && livingEntity.canFreeze()) {
-			var mobEffectInstance = new MobEffectInstance(IcariaMobEffects.FREEZING, 300);
+			var mobEffectInstance = new MobEffectInstance(IcariaMobEffects.FREEZING, IcariaConfig.EFFECT_DURATION_FREEZING_SPELL.get(), IcariaConfig.EFFECT_AMPLIFIER_FREEZING_SPELL.get());
 			livingEntity.addEffect(mobEffectInstance);
 		}
 	}

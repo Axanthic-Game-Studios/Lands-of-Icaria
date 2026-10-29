@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:droughtroot_table"
+        "recipes": "landsoficaria:droughtroot_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

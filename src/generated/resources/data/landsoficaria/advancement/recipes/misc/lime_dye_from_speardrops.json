@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lime_dye_from_speardrops"
+        "recipes": "landsoficaria:lime_dye_from_speardrops"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

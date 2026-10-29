@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_nugget_from_orichalcum_chestplate_forging"
+        "recipes": "landsoficaria:orichalcum_nugget_from_orichalcum_chestplate_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

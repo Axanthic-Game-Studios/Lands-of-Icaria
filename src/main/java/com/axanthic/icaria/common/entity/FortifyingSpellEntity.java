@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.config.IcariaConfig;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -22,7 +23,7 @@ public class FortifyingSpellEntity extends SpellEntity {
 	public void onHitEntity(EntityHitResult pEntityHitResult) {
 		super.onHitEntity(pEntityHitResult);
 		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity) {
-			var mobEffectInstance = new MobEffectInstance(MobEffects.RESISTANCE, 300);
+			var mobEffectInstance = new MobEffectInstance(MobEffects.RESISTANCE, IcariaConfig.EFFECT_DURATION_FORTIFYING_SPELL.get(), IcariaConfig.EFFECT_AMPLIFIER_FORTIFYING_SPELL.get());
 			livingEntity.addEffect(mobEffectInstance);
 		}
 	}

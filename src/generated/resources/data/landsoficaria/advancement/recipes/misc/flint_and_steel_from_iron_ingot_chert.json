@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:flint_and_steel_from_iron_ingot_chert"
+        "recipes": "landsoficaria:flint_and_steel_from_iron_ingot_chert"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

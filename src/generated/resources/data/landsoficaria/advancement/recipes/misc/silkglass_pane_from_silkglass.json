@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkglass_pane_from_silkglass"
+        "recipes": "landsoficaria:silkglass_pane_from_silkglass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

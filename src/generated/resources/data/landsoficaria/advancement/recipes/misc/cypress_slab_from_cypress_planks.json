@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_slab_from_cypress_planks"
+        "recipes": "landsoficaria:cypress_slab_from_cypress_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

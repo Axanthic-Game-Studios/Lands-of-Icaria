@@ -1403,6 +1403,23 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.slab(IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(IcariaBlocks.PLATOSHALE_SLAB.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(IcariaBlocks.PLATOSHALE_BRICK_SLAB.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.TERRY_SLAB.get(), IcariaBlocks.TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.WHITE_TERRY_SLAB.get(), IcariaBlocks.WHITE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.LIGHT_GRAY_TERRY_SLAB.get(), IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.GRAY_TERRY_SLAB.get(), IcariaBlocks.GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BLACK_TERRY_SLAB.get(), IcariaBlocks.BLACK_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BROWN_TERRY_SLAB.get(), IcariaBlocks.BROWN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.RED_TERRY_SLAB.get(), IcariaBlocks.RED_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.ORANGE_TERRY_SLAB.get(), IcariaBlocks.ORANGE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.YELLOW_TERRY_SLAB.get(), IcariaBlocks.YELLOW_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.LIME_TERRY_SLAB.get(), IcariaBlocks.LIME_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.GREEN_TERRY_SLAB.get(), IcariaBlocks.GREEN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.CYAN_TERRY_SLAB.get(), IcariaBlocks.CYAN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.LIGHT_BLUE_TERRY_SLAB.get(), IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.BLUE_TERRY_SLAB.get(), IcariaBlocks.BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.PURPLE_TERRY_SLAB.get(), IcariaBlocks.PURPLE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.MAGENTA_TERRY_SLAB.get(), IcariaBlocks.MAGENTA_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.slab(IcariaBlocks.PINK_TERRY_SLAB.get(), IcariaBlocks.PINK_TERRY_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(IcariaBlocks.CYPRESS_SLAB.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(IcariaBlocks.DROUGHTROOT_SLAB.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(IcariaBlocks.FIR_SLAB.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
@@ -1468,6 +1485,23 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.stairs(IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get(), IcariaBlocks.MOSSY_RELICSTONE_TILES.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.PLATOSHALE_STAIRS.get(), IcariaBlocks.PLATOSHALE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.PLATOSHALE_BRICK_STAIRS.get(), IcariaBlocks.PLATOSHALE_BRICKS.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.TERRY_STAIRS.get(), IcariaBlocks.TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.WHITE_TERRY_STAIRS.get(), IcariaBlocks.WHITE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.LIGHT_GRAY_TERRY_STAIRS.get(), IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.GRAY_TERRY_STAIRS.get(), IcariaBlocks.GRAY_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BLACK_TERRY_STAIRS.get(), IcariaBlocks.BLACK_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BROWN_TERRY_STAIRS.get(), IcariaBlocks.BROWN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.RED_TERRY_STAIRS.get(), IcariaBlocks.RED_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.ORANGE_TERRY_STAIRS.get(), IcariaBlocks.ORANGE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.YELLOW_TERRY_STAIRS.get(), IcariaBlocks.YELLOW_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.LIME_TERRY_STAIRS.get(), IcariaBlocks.LIME_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.GREEN_TERRY_STAIRS.get(), IcariaBlocks.GREEN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.CYAN_TERRY_STAIRS.get(), IcariaBlocks.CYAN_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.LIGHT_BLUE_TERRY_STAIRS.get(), IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.BLUE_TERRY_STAIRS.get(), IcariaBlocks.BLUE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.PURPLE_TERRY_STAIRS.get(), IcariaBlocks.PURPLE_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.MAGENTA_TERRY_STAIRS.get(), IcariaBlocks.MAGENTA_TERRY_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.stairs(IcariaBlocks.PINK_TERRY_STAIRS.get(), IcariaBlocks.PINK_TERRY_BLOCK.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.CYPRESS_STAIRS.get(), IcariaBlocks.CYPRESS_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.DROUGHTROOT_STAIRS.get(), IcariaBlocks.DROUGHTROOT_PLANKS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(IcariaBlocks.FIR_STAIRS.get(), IcariaBlocks.FIR_PLANKS.get(), pBlockModelGenerators);
@@ -3908,14 +3942,16 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void farmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "farmland")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_cube_bottom_top_indented")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "dry"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
 				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "farmland_dry")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl"))), pBlockModelGenerators.modelOutput);
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "farmland")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_cube_bottom_top_indented")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "wet"), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
 				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "farmland_wet")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl"))), pBlockModelGenerators.modelOutput);
 	}
@@ -3955,9 +3991,10 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void fertilizedFarmland(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "farmland")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_cube_bottom_top_indented")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl")))
 				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "fertilized_farmland")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "marl"))), pBlockModelGenerators.modelOutput);
 	}
@@ -5095,9 +5132,10 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void path(Block pPath, Block pBase, BlockModelGenerators pBlockModelGenerators) {
-		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "farmland")).build()
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_cube_bottom_top_indented")).build()
 			.create(IcariaModelProvider.blockFile(pPath), new TextureMapping()
-				.putForced(IcariaTextureSlots.DIRT, new Material(IcariaModelProvider.blockFile(pBase)))
+				.putForced(IcariaTextureSlots.BOTTOM, new Material(IcariaModelProvider.blockFile(pBase)))
+				.putForced(IcariaTextureSlots.SIDE, new Material(IcariaModelProvider.blockFile(pBase)))
 				.putForced(IcariaTextureSlots.TOP, new Material(IcariaModelProvider.blockFile(pPath)))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pBase))), pBlockModelGenerators.modelOutput);
 	}

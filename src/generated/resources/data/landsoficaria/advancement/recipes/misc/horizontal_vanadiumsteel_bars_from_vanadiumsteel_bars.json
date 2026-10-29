@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:horizontal_vanadiumsteel_bars_from_vanadiumsteel_bars"
+        "recipes": "landsoficaria:horizontal_vanadiumsteel_bars_from_vanadiumsteel_bars"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

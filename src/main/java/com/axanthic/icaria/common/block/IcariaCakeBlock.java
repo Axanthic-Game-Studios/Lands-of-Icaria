@@ -14,6 +14,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -36,7 +37,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -73,11 +73,6 @@ public class IcariaCakeBlock extends Block {
 	@Override
 	public boolean hasAnalogOutputSignal(BlockState pBlockState) {
 		return true;
-	}
-
-	@Override
-	public boolean isPathfindable(BlockState pBlockState, PathComputationType pPathComputationType) {
-		return false;
 	}
 
 	@Override
@@ -137,7 +132,7 @@ public class IcariaCakeBlock extends Block {
 		for (var j = 0; j < 16; ++j) {
 			var randomSource = pPlayer.getRandom();
 			if (!pLevel.isClientSide() && this.teleport) {
-				pPlayer.randomTeleport(pPlayer.getX() + (randomSource.nextDouble() - 0.5D) * 16.0D, Mth.clamp(pPlayer.getY() + (randomSource.nextDouble() - 0.5D) * 16.0D, pLevel.getMinY(), pLevel.getMaxY()), pPlayer.getZ() + (randomSource.nextDouble() - 0.5D) * 16.0D, true);
+				pPlayer.randomTeleport(pPlayer.getX() + (randomSource.nextDouble() - 0.5D) * 16.0D, Mth.clamp(pPlayer.getY() + (randomSource.nextDouble() - 0.5D) * 16.0D, pLevel.getMinY(), pLevel.getMaxY()), pPlayer.getZ() + (randomSource.nextDouble() - 0.5D) * 16.0D, true, BlockTags.CONSUMABLE_DOES_NOT_TELEPORT_TO);
 				if (pPlayer.isPassenger()) {
 					pPlayer.stopRiding();
 				}

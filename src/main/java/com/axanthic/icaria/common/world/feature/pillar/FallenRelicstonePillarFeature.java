@@ -6,18 +6,18 @@ import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.phys.AABB;
 
 @SuppressWarnings("unused")
@@ -25,65 +25,59 @@ import net.minecraft.world.phys.AABB;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfiguration> {
-	public FallenRelicstonePillarFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec);
-	}
+public class FallenRelicstonePillarFeature implements Feature {
+	public static final MapCodec<FallenRelicstonePillarFeature> CODEC = MapCodec.unit(FallenRelicstonePillarFeature::new);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
-		var offset = random.nextIntBetweenInclusive(1, 2);
-		var length = random.nextIntBetweenInclusive(1, 3);
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var offset = pRandomSource.nextIntBetweenInclusive(1, 2);
+		var length = pRandomSource.nextIntBetweenInclusive(1, 3);
 		var lengthTotal = length + 1;
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 
-		var relative = origin.below().relative(direction, offset);
+		var relative = pBlockPos.below().relative(direction, offset);
 
 		var aabb = this.aabb(relative, direction, lengthTotal);
 
-		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && level.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
-			this.placeHead(level, origin, Direction.UP);
+		if (pWorldGenLevel.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && pWorldGenLevel.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			this.placeHead(pWorldGenLevel, pBlockPos, Direction.UP);
 
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
 
 			for (var i = 1; i <= length; i++) {
 				offset++;
-				this.placePillar(level, origin.relative(direction, offset), direction);
-				this.placeSuspicious(level, origin.relative(direction, offset), 64);
-				this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
-				this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
-				this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
-				this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
+				this.placePillar(pWorldGenLevel, pBlockPos.relative(direction, offset), direction);
+				this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset), 64);
+				this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
+				this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
+				this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
+				this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
 			}
 
 			offset++;
-			this.placeHead(level, origin.relative(direction, offset), direction.getOpposite());
-			this.placeSuspicious(level, origin.relative(direction, offset), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
+			this.placeHead(pWorldGenLevel, pBlockPos.relative(direction, offset), direction.getOpposite());
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
 
 			offset++;
-			this.placeSuspicious(level, origin.relative(direction, offset), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 2), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 2), 64);
 
 			offset++;
-			this.placeSuspicious(level, origin.relative(direction, offset), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
-			this.placeSuspicious(level, origin.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise(), 1), 64);
+			this.placeSuspicious(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise(), 1), 64);
 
-			this.placeSuspiciousPatch(level, origin, 64);
-			this.placeRubblePatch(level, origin, 4);
+			this.placeSuspiciousPatch(pWorldGenLevel, pBlockPos, 64);
+			this.placeRubblePatch(pWorldGenLevel, pBlockPos, 4);
 
 			return true;
 		} else {
@@ -199,5 +193,10 @@ public class FallenRelicstonePillarFeature extends Feature<NoneFeatureConfigurat
 			pBlockPos.relative(pDirection, pLength).getY(),
 			pBlockPos.relative(pDirection, pLength).getZ()
 		);
+	}
+
+	@Override
+	public MapCodec<FallenRelicstonePillarFeature> codec() {
+		return FallenRelicstonePillarFeature.CODEC;
 	}
 }

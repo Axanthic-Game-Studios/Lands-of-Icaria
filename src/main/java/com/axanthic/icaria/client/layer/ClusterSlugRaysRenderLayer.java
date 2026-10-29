@@ -31,7 +31,7 @@ public class ClusterSlugRaysRenderLayer extends RenderLayer<ClusterSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToCenter(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, -0.060F, -0.055F, -0.310F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.color);
 		pPoseStack.popPose();
 	}
 
@@ -39,7 +39,7 @@ public class ClusterSlugRaysRenderLayer extends RenderLayer<ClusterSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToNeck(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, 0.125F, -0.060F, -0.095F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.color);
 		pPoseStack.popPose();
 	}
 
@@ -47,7 +47,7 @@ public class ClusterSlugRaysRenderLayer extends RenderLayer<ClusterSlugRenderSta
 		pPoseStack.pushPose();
 		this.getParentModel().translateToRear(pPoseStack);
 		IcariaClientHelper.setPositionAndSize(pPoseStack, 0.090F, -0.060F, 0.165F, 0.375F);
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.red, pRenderState.green, pRenderState.blue);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRenderState.livingEntity, pRenderState.color);
 		pPoseStack.popPose();
 	}
 }

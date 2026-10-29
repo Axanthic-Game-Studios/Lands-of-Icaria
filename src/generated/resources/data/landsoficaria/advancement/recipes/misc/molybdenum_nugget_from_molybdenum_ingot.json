@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenum_nugget_from_molybdenum_ingot"
+        "recipes": "landsoficaria:molybdenum_nugget_from_molybdenum_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

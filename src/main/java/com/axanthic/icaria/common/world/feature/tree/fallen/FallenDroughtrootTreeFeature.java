@@ -2,83 +2,95 @@ package com.axanthic.icaria.common.world.feature.tree.fallen;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.common.registry.IcariaBlocks;
+import com.axanthic.icaria.common.helper.IcariaFeatureHelper;
 
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
-import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.chunk.ChunkGenerator;
+import net.minecraft.world.level.levelgen.feature.Feature;
 
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class FallenDroughtrootTreeFeature extends FallenTreeFeature {
-	public FallenDroughtrootTreeFeature(Codec<NoneFeatureConfiguration> pCodec) {
-		super(pCodec, IcariaBlocks.DEAD_DROUGHTROOT_LOG.get(), IcariaBlocks.DROUGHTROOT_LEAVES.get(), IcariaBlocks.DROUGHTROOT_LOG.get(), IcariaBlocks.UNNAMED_TREE_SHROOMS.get(), IcariaBlocks.DROUGHTROOT_TWIGS.get());
-	}
+public record FallenDroughtrootTreeFeature(BlockState dead, BlockState leaves, BlockState log, BlockState shrooms, BlockState twigs) implements Feature {
+	public static final MapCodec<FallenDroughtrootTreeFeature> CODEC = RecordCodecBuilder.mapCodec(
+		instance -> instance.group(
+			BlockState.CODEC.fieldOf("dead").forGetter(FallenDroughtrootTreeFeature::dead),
+			BlockState.CODEC.fieldOf("leaves").forGetter(FallenDroughtrootTreeFeature::leaves),
+			BlockState.CODEC.fieldOf("log").forGetter(FallenDroughtrootTreeFeature::log),
+			BlockState.CODEC.fieldOf("shrooms").forGetter(FallenDroughtrootTreeFeature::shrooms),
+			BlockState.CODEC.fieldOf("twigs").forGetter(FallenDroughtrootTreeFeature::twigs)
+		).apply(instance, FallenDroughtrootTreeFeature::new)
+	);
 
 	@Override
-	public boolean place(FeaturePlaceContext<NoneFeatureConfiguration> pFeaturePlaceContext) {
-		var level = pFeaturePlaceContext.level();
-		var origin = pFeaturePlaceContext.origin();
-		var random = pFeaturePlaceContext.random();
-
-		var offset = random.nextIntBetweenInclusive(1, 2);
-		var lengthTrunk = random.nextIntBetweenInclusive(0, 2);
-		var lengthLower = random.nextIntBetweenInclusive(1, 4);
-		var lengthInner = random.nextIntBetweenInclusive(1, 4);
-		var lengthUpper = random.nextIntBetweenInclusive(1, 4);
+	public boolean place(WorldGenLevel pWorldGenLevel, ChunkGenerator pChunkGenerator, RandomSource pRandomSource, BlockPos pBlockPos) {
+		var offset = pRandomSource.nextIntBetweenInclusive(1, 2);
+		var lengthTrunk = pRandomSource.nextIntBetweenInclusive(0, 2);
+		var lengthLower = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var lengthInner = pRandomSource.nextIntBetweenInclusive(1, 4);
+		var lengthUpper = pRandomSource.nextIntBetweenInclusive(1, 4);
 		var lengthTotal = lengthTrunk + lengthLower + lengthInner + lengthUpper + 1;
 
-		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(random);
+		var direction = Direction.Plane.HORIZONTAL.getRandomDirection(pRandomSource);
 		var orthogonal = direction.getClockWise();
 
-		var aabb = this.aabb(origin, direction, lengthTotal, offset, 1);
+		var aabb = IcariaFeatureHelper.aabb(pBlockPos, direction, lengthTotal, offset, 1);
 
-		if (level.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && level.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
-			this.placeDead(level, origin, Direction.Axis.Y);
+		if (pWorldGenLevel.getBlockStates(aabb).allMatch(BlockBehaviour.BlockStateBase::isSolidRender) && pWorldGenLevel.getBlockStates(aabb.move(0.0D, 1.0D, 0.0D)).allMatch(BlockBehaviour.BlockStateBase::isAir)) {
+			IcariaFeatureHelper.placeDead(pWorldGenLevel, pBlockPos, this.dead(), Direction.Axis.Y);
 
 			offset++;
-			this.placeDead(level, origin.relative(direction, offset), direction.getAxis());
-			this.placeShrooms(level, origin.relative(direction, offset).relative(direction.getClockWise()), direction.getClockWise(), 4);
-			this.placeShrooms(level, origin.relative(direction, offset).relative(direction.getCounterClockWise()), direction.getCounterClockWise(), 4);
+			IcariaFeatureHelper.placeDead(pWorldGenLevel, pBlockPos.relative(direction, offset), this.dead(), direction.getAxis());
+			IcariaFeatureHelper.placeShrooms(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getClockWise()), this.shrooms(), direction.getClockWise(), 4);
+			IcariaFeatureHelper.placeShrooms(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(direction.getCounterClockWise()), this.shrooms(), direction.getCounterClockWise(), 4);
 
 			for (var i = 1; i <= lengthTrunk; i++) {
 				offset++;
-				this.placeLog(level, origin.relative(direction, offset), direction.getAxis());
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.relative(direction, offset), this.log(), direction.getAxis());
 			}
 
 			for (var i = 1; i <= lengthLower; i++) {
 				offset++;
 				orthogonal = orthogonal.getOpposite();
-				this.placeLog(level, origin.relative(direction, offset), direction.getAxis());
-				this.placeLog(level, origin.relative(direction, offset).relative(orthogonal), orthogonal.getAxis());
-				this.placeLeaves(level, origin.relative(direction, offset).above());
-				this.placeLeaves(level, origin.relative(direction, offset).relative(orthogonal).above());
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.relative(direction, offset), this.log(), direction.getAxis());
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(orthogonal), this.log(), orthogonal.getAxis());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset).above(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(orthogonal).above(), this.leaves());
 			}
 
 			for (var i = 1; i <= lengthInner; i++) {
 				offset++;
 				orthogonal = orthogonal.getOpposite();
-				this.placeLog(level, origin.relative(direction, offset), direction.getAxis());
-				this.placeLeaves(level, origin.relative(direction, offset).above());
-				this.placeLeaves(level, origin.relative(direction, offset).relative(orthogonal));
+				IcariaFeatureHelper.placeLog(pWorldGenLevel, pBlockPos.relative(direction, offset), this.log(), direction.getAxis());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset).above(), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(orthogonal), this.leaves());
 			}
 
 			for (var i = 1; i <= lengthUpper; i++) {
 				offset++;
 				orthogonal = orthogonal.getOpposite();
-				this.placeLeaves(level, origin.relative(direction, offset));
-				this.placeLeaves(level, origin.relative(direction, offset).relative(orthogonal));
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset), this.leaves());
+				IcariaFeatureHelper.placeLeaves(pWorldGenLevel, pBlockPos.relative(direction, offset).relative(orthogonal), this.leaves());
 			}
 
-			this.placeTwigsPatch(level, origin, 4);
+			IcariaFeatureHelper.placeTwigsPatch(pWorldGenLevel, pBlockPos, this.twigs(), 4);
 
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public MapCodec<FallenDroughtrootTreeFeature> codec() {
+		return FallenDroughtrootTreeFeature.CODEC;
 	}
 }

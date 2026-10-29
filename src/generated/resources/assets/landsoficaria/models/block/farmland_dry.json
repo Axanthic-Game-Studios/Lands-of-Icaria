@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/farmland",
+  "parent": "minecraft:block/template_cube_bottom_top_indented",
   "textures": {
-    "dirt": "landsoficaria:block/marl",
+    "bottom": "landsoficaria:block/marl",
     "particle": "landsoficaria:block/marl",
+    "side": "landsoficaria:block/marl",
     "top": "landsoficaria:block/farmland_dry"
   }
 }

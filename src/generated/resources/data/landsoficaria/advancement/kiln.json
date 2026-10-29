@@ -3,18 +3,15 @@
   "criteria": {
     "kiln": {
       "conditions": {
-        "location": [
-          {
-            "block": "landsoficaria:kiln",
-            "condition": "minecraft:block_state_property"
-          }
-        ]
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "landsoficaria:kiln"
+        }
       },
       "trigger": "minecraft:placed_block"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.kiln.description"
     },

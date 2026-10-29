@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:marl_adobe_slab_from_marl_adobe"
+        "recipes": "landsoficaria:marl_adobe_slab_from_marl_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

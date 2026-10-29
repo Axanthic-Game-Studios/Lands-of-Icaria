@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sliver_block_from_sliver"
+        "recipes": "landsoficaria:sliver_block_from_sliver"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

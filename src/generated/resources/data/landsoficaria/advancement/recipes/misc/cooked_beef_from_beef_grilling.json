@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_beef_from_beef_grilling"
+        "recipes": "landsoficaria:cooked_beef_from_beef_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

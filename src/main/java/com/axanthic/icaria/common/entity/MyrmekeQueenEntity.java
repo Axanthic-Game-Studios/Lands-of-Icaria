@@ -2,7 +2,6 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.common.goal.MyrmekeQueenHurtByTargetGoal;
 import com.axanthic.icaria.common.goal.MyrmekeQueenSummonGoal;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -27,10 +26,6 @@ import net.minecraft.world.level.block.state.BlockState;
 @ParametersAreNonnullByDefault
 
 public class MyrmekeQueenEntity extends Monster {
-	public float red;
-	public float green;
-	public float blue;
-
 	public MyrmekeQueenEntity(EntityType<? extends MyrmekeQueenEntity> pEntityType, Level pLevel) {
 		super(pEntityType, pLevel);
 	}
@@ -48,22 +43,6 @@ public class MyrmekeQueenEntity extends Monster {
 		this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
 		this.targetSelector.addGoal(1, new MyrmekeQueenHurtByTargetGoal(this).setAlertOthers());
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-		if (this.level().isClientSide()) {
-			this.tickRegisterRaysValues();
-		}
-	}
-
-	public void tickRegisterRaysValues() {
-		if (this.tickCount <= 1) {
-			this.red = IcariaClientHelper.getRed(this);
-			this.green = IcariaClientHelper.getGreen(this);
-			this.blue = IcariaClientHelper.getBlue(this);
-		}
 	}
 
 	public static AttributeSupplier.Builder registerAttributes() {

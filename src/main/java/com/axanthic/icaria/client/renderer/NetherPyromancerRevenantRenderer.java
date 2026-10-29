@@ -31,7 +31,7 @@ public class NetherPyromancerRevenantRenderer extends MobRenderer<NetherPyromanc
 	@Override
 	public void extractRenderState(NetherPyromancerRevenantEntity pEntity, NetherPyromancerRevenantRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.id = pEntity.getId();
 		pRenderState.reloadAnimationState = pEntity.reloadAnimationState;
 		pRenderState.thrownAnimationState = pEntity.thrownAnimationState;

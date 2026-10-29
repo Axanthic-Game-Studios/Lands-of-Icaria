@@ -12,8 +12,6 @@ import com.axanthic.icaria.common.registry.IcariaBlockEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.shapes.ForgeVoxelShapes;
 
-import com.mojang.serialization.MapCodec;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -46,8 +44,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class ForgeBlock extends BaseEntityBlock {
-	public static final MapCodec<ForgeBlock> CODEC = Block.simpleCodec(ForgeBlock::new);
-
 	public ForgeBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.DEPTH_PAIR, DepthPair.FRONT).setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false).setValue(IcariaBlockStateProperties.WIDTH_PAIR, WidthPair.LEFT));
@@ -259,11 +255,6 @@ public class ForgeBlock extends BaseEntityBlock {
 		} else {
 			return InteractionResult.SUCCESS;
 		}
-	}
-
-	@Override
-	public MapCodec<? extends BaseEntityBlock> codec() {
-		return ForgeBlock.CODEC;
 	}
 
 	@Override

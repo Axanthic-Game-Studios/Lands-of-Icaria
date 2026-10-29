@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_gray_fysh_from_raw_gray_fysh_smelting"
+        "recipes": "landsoficaria:cooked_gray_fysh_from_raw_gray_fysh_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

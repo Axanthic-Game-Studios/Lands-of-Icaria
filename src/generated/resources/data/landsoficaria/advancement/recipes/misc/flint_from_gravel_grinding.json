@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:flint_from_gravel_grinding"
+        "recipes": "landsoficaria:flint_from_gravel_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,6 @@
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.kassiteros_pickaxe.description"
     },

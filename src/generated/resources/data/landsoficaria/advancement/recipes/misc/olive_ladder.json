@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_ladder"
+        "recipes": "landsoficaria:olive_ladder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

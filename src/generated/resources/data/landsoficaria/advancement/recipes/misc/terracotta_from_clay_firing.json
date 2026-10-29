@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:terracotta_from_clay_firing"
+        "recipes": "landsoficaria:terracotta_from_clay_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

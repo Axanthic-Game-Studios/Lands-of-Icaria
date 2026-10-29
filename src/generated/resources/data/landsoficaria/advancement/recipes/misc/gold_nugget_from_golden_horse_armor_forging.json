@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:gold_nugget_from_golden_horse_armor_forging"
+        "recipes": "landsoficaria:gold_nugget_from_golden_horse_armor_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

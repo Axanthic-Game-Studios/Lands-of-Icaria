@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:green_dye_from_cardon_cactus_smelting"
+        "recipes": "landsoficaria:green_dye_from_cardon_cactus_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

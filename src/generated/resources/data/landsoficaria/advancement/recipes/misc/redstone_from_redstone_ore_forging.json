@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:redstone_from_redstone_ore_forging"
+        "recipes": "landsoficaria:redstone_from_redstone_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

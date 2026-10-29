@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:gray_terry_mat"
+        "recipes": "landsoficaria:gray_terry_mat"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

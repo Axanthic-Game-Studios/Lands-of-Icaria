@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadium_nugget_from_vanadium_ingot"
+        "recipes": "landsoficaria:vanadium_nugget_from_vanadium_ingot"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

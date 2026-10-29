@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_plane_log",
+  "log": "landsoficaria:plane_log",
+  "max": 3,
+  "min": 1,
+  "moss": "landsoficaria:scrubland_moss",
+  "treeShrooms": "landsoficaria:turkey_tail_tree_shrooms",
+  "twigs": "landsoficaria:plane_twigs"
+}

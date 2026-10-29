@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_pickaxe"
+        "recipes": "landsoficaria:orichalcum_pickaxe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

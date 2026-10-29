@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_from_cobbled_yellowstone_smelting"
+        "recipes": "landsoficaria:yellowstone_from_cobbled_yellowstone_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

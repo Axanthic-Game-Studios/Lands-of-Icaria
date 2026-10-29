@@ -2,20 +2,15 @@ package com.axanthic.icaria.client.helper;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.client.meta.ColorMetadataManager;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaColors;
-import com.axanthic.icaria.common.registry.IcariaIds;
 import com.axanthic.icaria.common.registry.IcariaValues;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
-
-import java.awt.*;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.animation.AnimationDefinition;
@@ -29,9 +24,9 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.util.ARGB;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.PlayerModelPart;
@@ -45,12 +40,12 @@ import org.joml.Matrix4f;
 public class IcariaClientHelper {
 
 	public static float getAngleBasedAlpha(LivingEntity pLivingEntity) {
-		if (pLivingEntity.level().getDefaultClockTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDefaultClockTime() < IcariaValues.DUSK_EXIT) {
-			return (pLivingEntity.level().getDefaultClockTime() - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
-		} else if (pLivingEntity.level().getDefaultClockTime() >= IcariaValues.DUSK_INIT && pLivingEntity.level().getDefaultClockTime() < IcariaValues.DAWN_INIT) {
+		if (pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) >= IcariaValues.DUSK_INIT && pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) < IcariaValues.DUSK_EXIT) {
+			return (pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) - IcariaValues.DUSK_INIT) / (IcariaValues.DUSK_EXIT - IcariaValues.DUSK_INIT);
+		} else if (pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) >= IcariaValues.DUSK_INIT && pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) < IcariaValues.DAWN_INIT) {
 			return 1.0F;
-		} else if (pLivingEntity.level().getDefaultClockTime() >= IcariaValues.DAWN_INIT && pLivingEntity.level().getDefaultClockTime() < IcariaValues.DAWN_EXIT) {
-			return (IcariaValues.DAWN_EXIT - pLivingEntity.level().getDefaultClockTime()) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
+		} else if (pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) >= IcariaValues.DAWN_INIT && pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position()) < IcariaValues.DAWN_EXIT) {
+			return (IcariaValues.DAWN_EXIT - pLivingEntity.level().environmentAttributes().getValue(EnvironmentAttributes.SUN_ANGLE, pLivingEntity.position())) / (IcariaValues.DAWN_EXIT - IcariaValues.DAWN_INIT);
 		} else {
 			return 0.0F;
 		}
@@ -68,28 +63,12 @@ public class IcariaClientHelper {
 		return Math.max(IcariaClientHelper.getAngleBasedAlpha(pLivingEntity) * IcariaClientHelper.getBlockBasedAlpha(pLivingEntity), IcariaClientHelper.getLocalBasedAlpha(pLivingEntity));
 	}
 
-	public static float getRed(BlockEntity pBlockEntity) {
-		return IcariaClientHelper.getImageBasedColor(pBlockEntity).getRed() / 255.0F;
+	public static int getColor(BlockEntity pBlockEntity) {
+		return ColorMetadataManager.resolve(BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).withPrefix("block" + "/"));
 	}
 
-	public static float getRed(LivingEntity pLivingEntity) {
-		return IcariaClientHelper.getImageBasedColor(pLivingEntity).getRed() / 255.0F;
-	}
-
-	public static float getGreen(BlockEntity pBlockEntity) {
-		return IcariaClientHelper.getImageBasedColor(pBlockEntity).getGreen() / 255.0F;
-	}
-
-	public static float getGreen(LivingEntity pLivingEntity) {
-		return IcariaClientHelper.getImageBasedColor(pLivingEntity).getGreen() / 255.0F;
-	}
-
-	public static float getBlue(BlockEntity pBlockEntity) {
-		return IcariaClientHelper.getImageBasedColor(pBlockEntity).getBlue() / 255.0F;
-	}
-
-	public static float getBlue(LivingEntity pLivingEntity) {
-		return IcariaClientHelper.getImageBasedColor(pLivingEntity).getBlue() / 255.0F;
+	public static int getColor(LivingEntity pLivingEntity) {
+		return ColorMetadataManager.resolve(BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).withPrefix("entity" + "/"));
 	}
 
 	public static int getColorAndAlpha(LivingEntity pLivingEntity) {
@@ -113,40 +92,46 @@ public class IcariaClientHelper {
 	}
 
 	public static void renderLeftHand(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LocalPlayer pLocalPlayer, int pOverlayCoords, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
-		pPoseStack.pushPose();
-		pPoseStack.translate(pX, pY, pZ);
-		pPoseStack.scale(pScale, pScale, pScale);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-		Minecraft.getInstance().getEntityRenderDispatcher().getPlayerRenderer(pLocalPlayer).renderLeftHand(pPoseStack, pSubmitNodeCollector, pOverlayCoords, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.LEFT_SLEEVE), pLocalPlayer);
-		pPoseStack.popPose();
+		var avatarRenderState = Minecraft.getInstance().gameRenderer.gameRenderState().levelRenderState.playerRenderState.avatarRenderState;
+		if (avatarRenderState != null) {
+			pPoseStack.pushPose();
+			pPoseStack.translate(pX, pY, pZ);
+			pPoseStack.scale(pScale, pScale, pScale);
+			pPoseStack.rotateDegrees(Axis.XP, pXRot);
+			pPoseStack.rotateDegrees(Axis.YP, pYRot);
+			pPoseStack.rotateDegrees(Axis.ZP, pZRot);
+			Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(avatarRenderState).renderLeftHand(pPoseStack, pSubmitNodeCollector, pOverlayCoords, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.LEFT_SLEEVE));
+			pPoseStack.popPose();
+		}
 	}
 
 	public static void renderRightHand(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LocalPlayer pLocalPlayer, int pOverlayCoords, float pScale, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
-		pPoseStack.pushPose();
-		pPoseStack.translate(pX, pY, pZ);
-		pPoseStack.scale(pScale, pScale, pScale);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-		Minecraft.getInstance().getEntityRenderDispatcher().getPlayerRenderer(pLocalPlayer).renderRightHand(pPoseStack, pSubmitNodeCollector, pOverlayCoords, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.RIGHT_SLEEVE), pLocalPlayer);
-		pPoseStack.popPose();
+		var avatarRenderState = Minecraft.getInstance().gameRenderer.gameRenderState().levelRenderState.playerRenderState.avatarRenderState;
+		if (avatarRenderState != null) {
+			pPoseStack.pushPose();
+			pPoseStack.translate(pX, pY, pZ);
+			pPoseStack.scale(pScale, pScale, pScale);
+			pPoseStack.rotateDegrees(Axis.XP, pXRot);
+			pPoseStack.rotateDegrees(Axis.YP, pYRot);
+			pPoseStack.rotateDegrees(Axis.ZP, pZRot);
+			Minecraft.getInstance().getEntityRenderDispatcher().getRenderer(avatarRenderState).renderRightHand(pPoseStack, pSubmitNodeCollector, pOverlayCoords, pLocalPlayer.getSkin().body().texturePath(), pLocalPlayer.isModelPartShown(PlayerModelPart.RIGHT_SLEEVE));
+			pPoseStack.popPose();
+		}
 	}
 
 	public static void setPart(PoseStack pPoseStack, ModelPart pModelPart) {
 		pPoseStack.translate(pModelPart.xRot * IcariaValues.DEG_2_RAD, pModelPart.yRot * IcariaValues.DEG_2_RAD, pModelPart.zRot * IcariaValues.DEG_2_RAD);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pModelPart.xRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pModelPart.yRot));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pModelPart.zRot));
+		pPoseStack.rotateDegrees(Axis.XP, pModelPart.xRot);
+		pPoseStack.rotateDegrees(Axis.YP, pModelPart.yRot);
+		pPoseStack.rotateDegrees(Axis.ZP, pModelPart.zRot);
 		pPoseStack.translate(pModelPart.x / 16.0F, pModelPart.y / 16.0F, pModelPart.z / 16.0F);
 	}
 
 	public static void setPositionAndRotation(PoseStack pPoseStack, float pX, float pY, float pZ, float pXRot, float pYRot, float pZRot) {
 		pPoseStack.translate(0.0F, 0.0F, 0.0F);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+		pPoseStack.rotateDegrees(Axis.XP, pXRot);
+		pPoseStack.rotateDegrees(Axis.YP, pYRot);
+		pPoseStack.rotateDegrees(Axis.ZP, pZRot);
 		pPoseStack.translate(pX, pY, pZ);
 	}
 
@@ -171,44 +156,47 @@ public class IcariaClientHelper {
 			pPoseStack.pushPose();
 			IcariaClientHelper.translate(pPoseStack, pDirection, pXMin, pXMax, pY, pZMin, pZMax);
 			pPoseStack.scale(pXScale, pYScale, pZScale);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+			pPoseStack.rotateDegrees(Axis.XP, pXRot);
+			pPoseStack.rotateDegrees(Axis.YP, pYRot);
+			pPoseStack.rotateDegrees(Axis.ZP, pZRot);
 			pItemStackRenderState.submit(pPoseStack, pSubmitNodeCollector, pLightCoords, OverlayTexture.NO_OVERLAY, 0);
 			pPoseStack.popPose();
 		}
 	}
 
-	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, float pRed, float pGreen, float pBlue) {
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, int pColor) {
 		var alpha = 0.1F;
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pColor, alpha);
 	}
 
-	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LivingEntity pLivingEntity, float pRed, float pGreen, float pBlue) {
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, LivingEntity pLivingEntity, int pColor) {
 		var alpha = 0.1F * (pLivingEntity.isInvisible() ? 0.0F : IcariaClientHelper.getLightBasedAlpha(pLivingEntity));
-		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pRed, pGreen, pBlue, alpha);
+		IcariaClientHelper.submitRays(pSubmitNodeCollector, pPoseStack, pColor, alpha);
 	}
 
-	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, float pRed, float pGreen, float pBlue, float pAlpha) {
+	public static void submitRays(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, int pColor, float pAlpha) {
 		pSubmitNodeCollector.submitCustomGeometry(pPoseStack,
-			IcariaRenderTypes.ADDITIVE,
+			IcariaRenderTypes.additive(),
 			(pose, vertexConsumer) -> {
 				var matrix4f = pose.pose();
 				var randomSource = RandomSource.create(432L);
 				var length = randomSource.nextFloat() * 2.0F + 2.0F;
 				var width = randomSource.nextFloat() * 0.5F + 0.5F;
-				if (IcariaConfig.RENDER_CLUSTER_RAYS.get()) {
+				var red = (pColor >> 16 & 255) / 255.0F;
+				var green = (pColor >> 8 & 255) / 255.0F;
+				var blue = (pColor & 255) / 255.0F;
+				if (IcariaConfig.RENDER_DISTANCE_CLUSTER_RAYS.get() > 0) {
 					for (var i = 0; i < 96; ++i) {
 						pose.rotate(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, red, green, blue, pAlpha);
 						IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
 						IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
 						pose.rotate(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, red, green, blue, pAlpha);
 						IcariaClientHelper.vertexB(vertexConsumer, matrix4f, length, width);
 						IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
 						pose.rotate(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F));
-						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, pRed, pGreen, pBlue, pAlpha);
+						IcariaClientHelper.vertexA(vertexConsumer, matrix4f, red, green, blue, pAlpha);
 						IcariaClientHelper.vertexC(vertexConsumer, matrix4f, length, width);
 						IcariaClientHelper.vertexD(vertexConsumer, matrix4f, length, width);
 					}
@@ -239,9 +227,9 @@ public class IcariaClientHelper {
 	public static void submitString(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, Component pComponent, int pLightCoords, float pScale, float pX, float pY, float pXRot, float pYRot, float pZRot) {
 		pPoseStack.pushPose();
 		pPoseStack.scale(pScale, pScale, pScale);
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
+		pPoseStack.rotateDegrees(Axis.XP, pXRot);
+		pPoseStack.rotateDegrees(Axis.YP, pYRot);
+		pPoseStack.rotateDegrees(Axis.ZP, pZRot);
 		pSubmitNodeCollector.submitText(pPoseStack, pX - Minecraft.getInstance().font.width(pComponent) * 0.5F, pY, pComponent.getVisualOrderText(), false, Font.DisplayMode.POLYGON_OFFSET, pLightCoords, IcariaColors.TEXT, 0, 0);
 		pPoseStack.popPose();
 	}
@@ -272,28 +260,5 @@ public class IcariaClientHelper {
 
 	public static void vertexD(VertexConsumer pVertexConsumer, Matrix4f pMatrix4f, float pLength, float pWidth) {
 		pVertexConsumer.addVertex(pMatrix4f, 0.0F, pLength, pWidth).setColor(0.0F, 0.0F, 0.0F, 0.0F);
-	}
-
-	public static Color getImageBasedColor(BlockEntity pBlockEntity) {
-		var identifier = Identifier.parse(IcariaIds.ID + ":" + "textures" + "/" + "block" + "/" + BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).getPath() + "_" + "rays" + "." + "png");
-		return IcariaClientHelper.getColor(identifier);
-	}
-
-	public static Color getImageBasedColor(LivingEntity pLivingEntity) {
-		var identifier = Identifier.parse(IcariaIds.ID + ":" + "textures" + "/" + "entity" + "/" + BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).getPath() + "_" + "rays" + "." + "png");
-		return IcariaClientHelper.getColor(identifier);
-	}
-
-	public static Color getColor(Identifier pIdentifier) {
-		var optional = Minecraft.getInstance().getResourceManager().getResource(pIdentifier);
-		if (optional.isPresent()) {
-			try {
-				return new Color(ImageIO.read(optional.get().open()).getRGB(0, 0));
-			} catch (IOException pException) {
-				throw new RuntimeException(pException);
-			}
-		} else {
-			return new Color(0, 0, 0);
-		}
 	}
 }

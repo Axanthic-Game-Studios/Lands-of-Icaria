@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:arachne_from_arachne_venom_vial_hyliastrum_vial_psilocybos_entity_concocting"
+        "recipes": "landsoficaria:arachne_from_arachne_venom_vial_hyliastrum_vial_psilocybos_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

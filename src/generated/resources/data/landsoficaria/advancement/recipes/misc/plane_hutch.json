@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:plane_hutch"
+        "recipes": "landsoficaria:plane_hutch"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

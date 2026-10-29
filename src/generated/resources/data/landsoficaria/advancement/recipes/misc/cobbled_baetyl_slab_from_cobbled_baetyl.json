@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_baetyl_slab_from_cobbled_baetyl"
+        "recipes": "landsoficaria:cobbled_baetyl_slab_from_cobbled_baetyl"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

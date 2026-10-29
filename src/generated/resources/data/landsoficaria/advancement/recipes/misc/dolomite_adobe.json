@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:dolomite_adobe"
+        "recipes": "landsoficaria:dolomite_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

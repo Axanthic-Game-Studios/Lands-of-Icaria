@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.payload.TotemPayload;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
+import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 
@@ -26,13 +27,13 @@ public class TotemRunnable implements Runnable {
 
 	@Override
 	public void run() {
-		var minecraft = Minecraft.getInstance();
-		var player = this.payloadContext.player().level().getEntity(payload.id);
-		if (player != null && player.level() instanceof ClientLevel clientLevel) {
-			clientLevel.playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.TOTEM_USE, player.getSoundSource(), 1.0F, 1.0F, false);
-			minecraft.particleEngine.createTrackingEmitter(player, ParticleTypes.TOTEM_OF_UNDYING, 20);
-			if (player == this.payloadContext.player()) {
-				minecraft.gameRenderer.displayItemActivation(this.payload.itemStack);
+		var player = this.payloadContext.player();
+		var entity = player.level().getEntity(this.payload.id);
+		if (entity != null && entity.level() instanceof ClientLevel clientLevel) {
+			clientLevel.playLocalSound(entity.getX(), entity.getY(), entity.getZ(), SoundEvents.TOTEM_USE, entity.getSoundSource(), 1.0F, 1.0F, false);
+			Minecraft.getInstance().particleEngine.createTrackingEmitter(entity, ParticleTypes.TOTEM_OF_UNDYING, 20);
+			if (entity == player && player instanceof LocalPlayer localPlayer) {
+				localPlayer.displayItemActivation(this.payload.itemStack);
 			}
 		}
 	}

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:grinder"
+        "recipes": "landsoficaria:grinder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

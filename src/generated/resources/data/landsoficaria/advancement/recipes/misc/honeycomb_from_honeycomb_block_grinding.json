@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:honeycomb_from_honeycomb_block_grinding"
+        "recipes": "landsoficaria:honeycomb_from_honeycomb_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

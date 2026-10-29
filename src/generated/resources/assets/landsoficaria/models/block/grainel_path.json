@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/farmland",
+  "parent": "minecraft:block/template_cube_bottom_top_indented",
   "textures": {
-    "dirt": "landsoficaria:block/grainel",
+    "bottom": "landsoficaria:block/grainel",
     "particle": "landsoficaria:block/grainel",
+    "side": "landsoficaria:block/grainel",
     "top": "landsoficaria:block/grainel_path"
   }
 }

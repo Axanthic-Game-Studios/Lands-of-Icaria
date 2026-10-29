@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:dolomite_pillar_head_from_smooth_dolomite_stonecutting"
+        "recipes": "landsoficaria:dolomite_pillar_head_from_smooth_dolomite_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

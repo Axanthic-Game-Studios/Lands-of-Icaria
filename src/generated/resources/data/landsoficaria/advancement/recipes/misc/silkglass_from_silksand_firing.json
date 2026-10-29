@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:silkglass_from_silksand_firing"
+        "recipes": "landsoficaria:silkglass_from_silksand_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_bident"
+        "recipes": "landsoficaria:vanadiumsteel_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

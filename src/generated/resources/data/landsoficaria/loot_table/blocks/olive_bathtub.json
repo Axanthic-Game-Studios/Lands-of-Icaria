@@ -8,25 +8,23 @@
           "name": "landsoficaria:olive_bathtub"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     },
     {
-      "conditions": [
-        {
-          "block": "landsoficaria:olive_bathtub",
-          "condition": "minecraft:block_state_property",
-          "properties": {
-            "bathtub_remains": "true"
-          }
+      "condition": {
+        "type": "minecraft:match_block",
+        "blocks": "landsoficaria:olive_bathtub",
+        "state": {
+          "bathtub_remains": "true"
         }
-      ],
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:bone"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:blocks/olive_bathtub"

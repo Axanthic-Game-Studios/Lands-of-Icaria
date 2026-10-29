@@ -1,0 +1,10 @@
+{
+  "type": "landsoficaria:dead_tree",
+  "deadLog": "landsoficaria:dead_populus_log",
+  "log": "landsoficaria:populus_log",
+  "max": 8,
+  "min": 6,
+  "moss": "landsoficaria:forest_moss",
+  "treeShrooms": "landsoficaria:turkey_tail_tree_shrooms",
+  "twigs": "landsoficaria:populus_twigs"
+}

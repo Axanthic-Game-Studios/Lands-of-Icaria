@@ -24,9 +24,8 @@ public class GrinderHandler extends ItemStacksResourceHandler {
 
 	@Override
 	public boolean isValid(int pIndex, ItemResource pItemResource) {
-		var grinderFuel = pItemResource.typeHolder().getData(IcariaDataMapTypes.GRINDER_FUELS);
 		return switch (pIndex) {
-			case 0 -> grinderFuel != null && grinderFuel.burnTime() > 0;
+			case 0 -> pItemResource.typeHolder().getData(IcariaDataMapTypes.GRINDER_FUELS) != null;
 			case 1 -> pItemResource.is(IcariaItemTags.GRINDER_GEARS);
 			case 2 -> true;
 			default -> false;

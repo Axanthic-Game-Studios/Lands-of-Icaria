@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:brick_from_clay_ball_firing"
+        "recipes": "landsoficaria:brick_from_clay_ball_firing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

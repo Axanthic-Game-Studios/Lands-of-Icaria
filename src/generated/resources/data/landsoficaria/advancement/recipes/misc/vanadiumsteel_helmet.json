@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_helmet"
+        "recipes": "landsoficaria:vanadiumsteel_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

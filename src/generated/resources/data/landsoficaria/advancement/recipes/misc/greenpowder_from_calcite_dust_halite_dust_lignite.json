@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:greenpowder_from_calcite_dust_halite_dust_lignite"
+        "recipes": "landsoficaria:greenpowder_from_calcite_dust_halite_dust_lignite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

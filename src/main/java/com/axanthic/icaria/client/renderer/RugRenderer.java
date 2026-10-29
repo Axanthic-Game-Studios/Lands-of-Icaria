@@ -45,9 +45,9 @@ public class RugRenderer extends EntityRenderer<RugEntity, RugRenderState> {
 	public void submit(SubmitNodeCollector pSubmitNodeCollector, PoseStack pPoseStack, RugRenderState pRenderState, TextureAtlasSprite pTextureAtlasSprite, boolean pAxis, float pXRot, float pYRot, float pZRot, int pLightCoords) {
 		if (pAxis) {
 			pPoseStack.pushPose();
-			pPoseStack.mulPose(Axis.ZP.rotationDegrees(pZRot));
-			pPoseStack.mulPose(Axis.YP.rotationDegrees(pYRot));
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(pXRot));
+			pPoseStack.rotateDegrees(Axis.ZP, pZRot);
+			pPoseStack.rotateDegrees(Axis.YP, pYRot);
+			pPoseStack.rotateDegrees(Axis.XP, pXRot);
 			this.submit(pSubmitNodeCollector, pPoseStack, pTextureAtlasSprite, pRenderState.paintingVariant.value().height(), pRenderState.paintingVariant.value().width(), pLightCoords);
 			pPoseStack.popPose();
 		}

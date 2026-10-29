@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:wheat_seeds_from_hay_block_grinding"
+        "recipes": "landsoficaria:wheat_seeds_from_hay_block_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:rotten_bones_from_rotten_bones_block"
+        "recipes": "landsoficaria:rotten_bones_from_rotten_bones_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_cod_from_cod_grilling"
+        "recipes": "landsoficaria:cooked_cod_from_cod_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

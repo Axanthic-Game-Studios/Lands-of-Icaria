@@ -22,7 +22,7 @@
         0,
         0.8
       ],
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         16,
         16,

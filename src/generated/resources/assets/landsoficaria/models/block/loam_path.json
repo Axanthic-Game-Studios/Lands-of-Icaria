@@ -1,8 +1,9 @@
 {
-  "parent": "minecraft:block/farmland",
+  "parent": "minecraft:block/template_cube_bottom_top_indented",
   "textures": {
-    "dirt": "landsoficaria:block/loam",
+    "bottom": "landsoficaria:block/loam",
     "particle": "landsoficaria:block/loam",
+    "side": "landsoficaria:block/loam",
     "top": "landsoficaria:block/loam_path"
   }
 }

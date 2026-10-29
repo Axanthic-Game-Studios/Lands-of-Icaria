@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:quartz_pillar_head"
+        "recipes": "landsoficaria:quartz_pillar_head"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

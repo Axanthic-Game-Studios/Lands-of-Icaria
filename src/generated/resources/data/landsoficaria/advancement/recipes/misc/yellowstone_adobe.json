@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:yellowstone_adobe"
+        "recipes": "landsoficaria:yellowstone_adobe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

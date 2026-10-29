@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:ender_jellyfish_jelly_from_ender_jellyfish_jelly_block"
+        "recipes": "landsoficaria:ender_jellyfish_jelly_from_ender_jellyfish_jelly_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

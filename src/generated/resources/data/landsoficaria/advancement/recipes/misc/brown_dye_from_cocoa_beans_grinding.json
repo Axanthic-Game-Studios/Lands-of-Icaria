@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:brown_dye_from_cocoa_beans_grinding"
+        "recipes": "landsoficaria:brown_dye_from_cocoa_beans_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

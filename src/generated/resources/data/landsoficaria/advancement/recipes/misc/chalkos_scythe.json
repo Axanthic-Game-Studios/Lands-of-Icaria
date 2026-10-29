@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_scythe"
+        "recipes": "landsoficaria:chalkos_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

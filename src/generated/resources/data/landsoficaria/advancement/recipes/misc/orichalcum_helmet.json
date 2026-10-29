@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_helmet"
+        "recipes": "landsoficaria:orichalcum_helmet"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

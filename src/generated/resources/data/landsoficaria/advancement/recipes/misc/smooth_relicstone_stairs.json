@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:smooth_relicstone_stairs"
+        "recipes": "landsoficaria:smooth_relicstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

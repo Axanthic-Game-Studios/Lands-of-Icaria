@@ -54,7 +54,7 @@ public class SnullRenderer extends MobRenderer<SnullEntity, SnullRenderState, Sn
 		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		if (pRenderState.climbing) {
 			pPoseStack.translate(0.0F, pRenderState.renderScale * 0.25F, 0.0F);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+			pPoseStack.rotateDegrees(Axis.XP, 90.0F);
 			pPoseStack.translate(0.0F, pRenderState.renderScale * -0.5F, 0.0F);
 		}
 	}

@@ -31,7 +31,7 @@ public class CivilianRevenantRenderer extends MobRenderer<CivilianRevenantEntity
 	@Override
 	public void extractRenderState(CivilianRevenantEntity pEntity, CivilianRevenantRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.id = pEntity.getId();
 		pRenderState.itemStackRenderState = new ItemStackRenderState();
 		pRenderState.livingEntity = pEntity;

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vanadiumsteel_boots"
+        "recipes": "landsoficaria:vanadiumsteel_boots"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

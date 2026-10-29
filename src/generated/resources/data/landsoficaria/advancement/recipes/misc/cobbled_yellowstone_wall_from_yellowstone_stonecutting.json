@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_yellowstone_wall_from_yellowstone_stonecutting"
+        "recipes": "landsoficaria:cobbled_yellowstone_wall_from_yellowstone_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lignite_from_lignite_rubble_grinding"
+        "recipes": "landsoficaria:lignite_from_lignite_rubble_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_brick_slab_from_loam_bricks"
+        "recipes": "landsoficaria:loam_brick_slab_from_loam_bricks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

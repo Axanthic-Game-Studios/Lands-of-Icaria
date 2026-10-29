@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lime_concrete_powder_from_lime_concrete_grinding"
+        "recipes": "landsoficaria:lime_concrete_powder_from_lime_concrete_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

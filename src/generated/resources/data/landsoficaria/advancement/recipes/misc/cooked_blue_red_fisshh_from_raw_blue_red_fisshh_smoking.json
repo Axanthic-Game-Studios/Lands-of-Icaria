@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cooked_blue_red_fisshh_from_raw_blue_red_fisshh_smoking"
+        "recipes": "landsoficaria:cooked_blue_red_fisshh_from_raw_blue_red_fisshh_smoking"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

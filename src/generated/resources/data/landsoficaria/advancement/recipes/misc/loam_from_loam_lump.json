@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:loam_from_loam_lump"
+        "recipes": "landsoficaria:loam_from_loam_lump"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

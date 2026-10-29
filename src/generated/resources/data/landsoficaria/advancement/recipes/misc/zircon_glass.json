@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:zircon_glass"
+        "recipes": "landsoficaria:zircon_glass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

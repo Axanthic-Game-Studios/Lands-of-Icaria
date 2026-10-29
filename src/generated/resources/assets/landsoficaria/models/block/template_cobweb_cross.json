@@ -24,7 +24,7 @@
         "y": 45.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         8,
         16,
@@ -53,7 +53,7 @@
         "y": 45.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         8,
         16,
@@ -82,7 +82,7 @@
         "y": 45.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         16,
         16,
@@ -111,7 +111,7 @@
         "y": 45.0,
         "z": 0.0
       },
-      "shade": false,
+      "shade_direction_override": "up",
       "to": [
         16,
         16,

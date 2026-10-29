@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_platoshale_from_platoshale_stonecutting"
+        "recipes": "landsoficaria:chiseled_platoshale_from_platoshale_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

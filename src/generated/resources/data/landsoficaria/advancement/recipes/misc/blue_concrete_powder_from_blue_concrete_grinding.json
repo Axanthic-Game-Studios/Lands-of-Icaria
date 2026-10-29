@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:blue_concrete_powder_from_blue_concrete_grinding"
+        "recipes": "landsoficaria:blue_concrete_powder_from_blue_concrete_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

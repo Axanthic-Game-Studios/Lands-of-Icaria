@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "landsoficaria:block/white_terry_block",
+    "particle": "landsoficaria:block/white_terry_block",
+    "side": "landsoficaria:block/white_terry_block",
+    "top": "landsoficaria:block/white_terry_block"
+  }
+}

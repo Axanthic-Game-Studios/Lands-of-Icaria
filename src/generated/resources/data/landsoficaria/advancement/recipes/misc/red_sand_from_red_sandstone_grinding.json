@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:red_sand_from_red_sandstone_grinding"
+        "recipes": "landsoficaria:red_sand_from_red_sandstone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

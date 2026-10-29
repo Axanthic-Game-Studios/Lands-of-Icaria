@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:arachne_string_from_terry_block"
+        "recipes": "landsoficaria:arachne_string_from_terry_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

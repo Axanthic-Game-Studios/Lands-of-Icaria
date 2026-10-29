@@ -13,8 +13,8 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 @ParametersAreNonnullByDefault
 
 public class IcariaEnglishLanguageProvider extends LanguageProvider {
-	public IcariaEnglishLanguageProvider(PackOutput pPackOutput, String pId, String pLanguage) {
-		super(pPackOutput, pId, pLanguage);
+	public IcariaEnglishLanguageProvider(PackOutput pPackOutput, String pId) {
+		super(pPackOutput, pId, "en_us");
 	}
 
 	@Override
@@ -1069,30 +1069,54 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add("command" + "." + IcariaIds.ID + "." + "heal" + "." + "success", "Healed successfully");
 
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_settings", "Render Settings");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_settings" + "." + "tooltip", "Render Settings");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_cluster_rays", "Render Cluster Rays");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_cluster_rays" + "." + "tooltip", "Default: ON. Whether a Cluster should render Rays.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_settings", "Render Distance Settings");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_settings" + "." + "tooltip", "Render Distance Settings");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays", "Render Distance Cluster Rays");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays" + "." + "tooltip", "Default: 256. Whether a Cluster should render Rays based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items", "Render Distance Fireplace Items");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items" + "." + "tooltip", "Default: 256. Whether a Fireplace should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items", "Render Distance Forge Items");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items" + "." + "tooltip", "Default: 256. Whether a Forge should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears", "Render Distance Grinder Gears");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears" + "." + "tooltip", "Default: 256. Whether a Grinder should render Gears based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items", "Render Distance Kettle Items");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items" + "." + "tooltip", "Default: 256. Whether a Kettle should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items", "Render Distance Kiln Items");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items" + "." + "tooltip", "Default: 256. Whether a Kiln should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items", "Render Distance Hutch Items");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items" + "." + "tooltip", "Default: 256. Whether a Hutch should render Items based on Distance to a Player.");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_settings", "Spawn Settings");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_settings" + "." + "tooltip", "Spawn Settings");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_configuration", "Render Configuration");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_cluster_rays", "Cluster Rays Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_fireplace_items", "Fireplace Items Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_forge_items", "Forge Items Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_grinder_gears", "Grinder Gears Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_hutch_items", "Hutch Items Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kettle_items", "Kettle Items Render Distance");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "render_distance_kiln_items", "Kiln Items Render Distance");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_configuration", "Spawn Configuration");
+
 		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_arachnids", "Spawn Arachnids");
-		this.add("configuration" + "." + IcariaIds.ID + "." + "spawn_arachnids" + "." + "tooltip", "Default: ON. Whether Arachnids should spawn.");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "spell_configuration", "Spell Configuration");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "damage_bubble_spell", "Bubble Spell Damage");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "damage_magic_missile_spell", "Magic Missile Spell Damage");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "health_healing_spell", "Healing Spell Health");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_anti_gravity_spell", "Anti Gravity Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_bubble_spell", "Bubble Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_fortifying_spell", "Fortifying Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_freezing_spell", "Freezing Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_healing_spell", "Healing Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "inaccuracy_magic_missile_spell", "Magic Missile Spell Inaccuracy");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_anti_gravity_spell", "Anti Gravity Spell Velocity");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_bubble_spell", "Bubble Spell Velocity");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_fortifying_spell", "Fortifying Spell Velocity");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_freezing_spell", "Freezing Spell Velocity");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_healing_spell", "Healing Spell Velocity");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "velocity_magic_missile_spell", "Magic Missile Spell Velocity");
+
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_anti_gravity_spell", "Anti Gravity Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_bubble_spell", "Bubble Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_fortifying_spell", "Fortifying Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_freezing_spell", "Freezing Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_healing_spell", "Healing Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "cooldown_magic_missile_spell", "Magic Missile Spell Cooldown");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_anti_gravity_spell", "Anti Gravity Spell Effect Amplifier");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_fortifying_spell", "Fortifying Spell Effect Amplifier");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_amplifier_freezing_spell", "Freezing Spell Effect Amplifier");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_anti_gravity_spell", "Anti Gravity Spell Effect Duration");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_fortifying_spell", "Fortifying Spell Effect Duration");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "effect_duration_freezing_spell", "Freezing Spell Effect Duration");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "minimum_bubble_amount_bubble_spell", "Minimum Bubble Spell Bubble Amount");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "maximum_bubble_amount_bubble_spell", "Maximum Bubble Spell Bubble Amount");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "minimum_bubble_lifetime_bubble_spell", "Minimum Bubble Spell Bubble Lifetime");
+		this.add("configuration" + "." + IcariaIds.ID + "." + "maximum_bubble_lifetime_bubble_spell", "Maximum Bubble Spell Bubble Lifetime");
 
 		this.add("dimension" + "." + IcariaIds.ID + "." + "icaria", "Lands of Icaria");
 
@@ -1732,13 +1756,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlockTags.SOILS, "Soils");
 
+		this.add(IcariaBlockTags.SPELL_IMMUNE_BLOCKS, "Spell Immune Blocks");
+
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_CLUSTER, "Cluster Support Blocks");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_GRAINITE_RUBBLE, "Grainite Rubble Support Blocks");
 		this.add(IcariaBlockTags.SUPPORT_BLOCKS_RUBBLE, "Rubble Support Blocks");
-
-		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Terry Blocks");
-
-		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Terry Mats");
 
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.block(), "Vanadiumsteel Bars");
 
@@ -1813,6 +1835,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VINE_REED.block(), "Vine Reed Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY.block(), "Void Jellyfish Jelly Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY.block(), "Water Jellyfish Jelly Storage Blocks");
+
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.block(), "Terry Blocks");
+		this.add(IcariaBlockItemTags.TERRY_MATS.block(), "Terry Mats");
+		this.add(IcariaBlockItemTags.TERRY_SLABS.block(), "Terry Slabs");
+		this.add(IcariaBlockItemTags.TERRY_STAIRS.block(), "Terry Stairs");
 
 		this.add(IcariaInstrumentTags.CAPELLA_HORNS, "Capella Horns");
 
@@ -1902,10 +1929,6 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaItemTags.UNFIRED_STORAGE_VASES, "Unfired Storage Vases");
 
-		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Terry Blocks");
-
-		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Terry Mats");
-
 		this.add(IcariaBlockItemTags.BARS_VANADIUMSTEEL.item(), "Vanadiumsteel Bars");
 
 		this.add(IcariaBlockItemTags.COBBLESTONES_BAETYL.item(), "Baetyl Cobblestones");
@@ -1979,6 +2002,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VINE_REED.item(), "Vine Reed Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_VOID_JELLYFISH_JELLY.item(), "Void Jellyfish Jelly Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_WATER_JELLYFISH_JELLY.item(), "Water Jellyfish Jelly Storage Blocks");
+
+		this.add(IcariaBlockItemTags.TERRY_BLOCKS.item(), "Terry Blocks");
+		this.add(IcariaBlockItemTags.TERRY_MATS.item(), "Terry Mats");
+		this.add(IcariaBlockItemTags.TERRY_SLABS.item(), "Terry Slabs");
+		this.add(IcariaBlockItemTags.TERRY_STAIRS.item(), "Terry Stairs");
 
 		this.add(IcariaPaintingTags.PAINTINGS, "Paintings");
 		this.add(IcariaPaintingTags.BROWN_RUGS, "Brown Rugs");

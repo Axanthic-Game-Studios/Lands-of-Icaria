@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.entity;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 
 import net.minecraft.tags.EntityTypeTags;
@@ -23,9 +24,9 @@ public class HealingSpellEntity extends SpellEntity {
 		super.onHitEntity(pEntityHitResult);
 		if (pEntityHitResult.getEntity() instanceof LivingEntity livingEntity) {
 			if (livingEntity.is(EntityTypeTags.UNDEAD)) {
-				IcariaCommonHelper.hurt(this.damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), 8.0F);
+				IcariaCommonHelper.hurt(this.damageSources().indirectMagic(this, this.getOwner()), pEntityHitResult.getEntity(), IcariaConfig.HEALTH_HEALING_SPELL.get().floatValue());
 			} else {
-				livingEntity.heal(8.0F);
+				livingEntity.heal(IcariaConfig.HEALTH_HEALING_SPELL.get().floatValue());
 			}
 		}
 	}

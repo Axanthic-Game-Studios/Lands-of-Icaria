@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:ender_jellyfish_from_bolbos_dathulla_entity_concocting"
+        "recipes": "landsoficaria:ender_jellyfish_from_bolbos_dathulla_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

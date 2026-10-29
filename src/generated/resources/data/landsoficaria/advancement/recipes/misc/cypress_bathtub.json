@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cypress_bathtub"
+        "recipes": "landsoficaria:cypress_bathtub"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

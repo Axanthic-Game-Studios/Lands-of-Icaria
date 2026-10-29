@@ -6,7 +6,7 @@ import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemInstance;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ToolMaterial;
@@ -19,14 +19,14 @@ import net.neoforged.neoforge.common.ItemAbility;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class ScytheItem extends HoeItem {
+public class ScytheItem extends Item {
 	public ScytheItem(ToolMaterial pToolMaterial, float pAttackDamage, float pAttackSpeed, Properties pProperties) {
-		super(pToolMaterial, pAttackDamage, pAttackSpeed, pProperties);
+		super(pProperties.hoe(pToolMaterial, pAttackDamage, pAttackSpeed));
 	}
 
 	@Override
 	public boolean canPerformAction(ItemInstance pItemInstance, ItemAbility pItemAbility) {
-		return pItemAbility == ItemAbilities.HOE_TILL || pItemAbility == ItemAbilities.SWORD_SWEEP;
+		return pItemAbility == ItemAbilities.SWORD_SWEEP;
 	}
 
 	@Override

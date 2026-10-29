@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:relicstone_pillar_head"
+        "recipes": "landsoficaria:relicstone_pillar_head"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

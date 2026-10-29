@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:blaze_powder_from_blaze_rod_grinding"
+        "recipes": "landsoficaria:blaze_powder_from_blaze_rod_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

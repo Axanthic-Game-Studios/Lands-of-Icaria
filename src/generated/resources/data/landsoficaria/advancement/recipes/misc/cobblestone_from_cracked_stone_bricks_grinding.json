@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobblestone_from_cracked_stone_bricks_grinding"
+        "recipes": "landsoficaria:cobblestone_from_cracked_stone_bricks_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

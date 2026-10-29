@@ -2,6 +2,7 @@ package com.axanthic.icaria.common.item;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.entity.BubbleSpellEntity;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -19,27 +20,19 @@ import net.minecraft.world.level.Level;
 @ParametersAreNonnullByDefault
 
 public class BubbleSpellItem extends Item {
-	public float inaccuracy;
-	public float velocity;
-
-	public int amount;
-	public int cooldown;
-
-	public BubbleSpellItem(float pInaccuracy, float pVelocity, int pAmount, int pCooldown, Properties pProperties) {
+	public BubbleSpellItem(Properties pProperties) {
 		super(pProperties);
-		this.inaccuracy = pInaccuracy;
-		this.velocity = pVelocity;
-		this.amount = pAmount;
-		this.cooldown = pCooldown;
 	}
 
-	public void createAmount(Level pLevel, Player pPlayer) {
-		for (var i = 0; i < this.amount; ++i) {
-			if (IcariaEntityTypes.BUBBLE_SPELL.get().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof BubbleSpellEntity bubbleSpellEntity) {
-				bubbleSpellEntity.setOwner(pPlayer);
-				bubbleSpellEntity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
-				bubbleSpellEntity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, this.velocity, this.inaccuracy);
-				pLevel.addFreshEntity(bubbleSpellEntity);
+	public void shoot(Level pLevel, Player pPlayer) {
+		var min = IcariaConfig.MINIMUM_BUBBLE_AMOUNT_BUBBLE_SPELL.get();
+		var max = IcariaConfig.MAXIMUM_BUBBLE_AMOUNT_BUBBLE_SPELL.get();
+		for (var i = 0; i < pLevel.getRandom().nextIntBetweenInclusive(Math.min(min, max), Math.max(min, max)); ++i) {
+			if (IcariaEntityTypes.BUBBLE_SPELL.get().create(pLevel, EntitySpawnReason.SPAWN_ITEM_USE) instanceof BubbleSpellEntity entity) {
+				entity.setOwner(pPlayer);
+				entity.shootFromRotation(pPlayer, pPlayer.getXRot(), pPlayer.getYRot(), 0.0F, IcariaConfig.VELOCITY_BUBBLE_SPELL.get().floatValue(), IcariaConfig.INACCURACY_BUBBLE_SPELL.get().floatValue());
+				entity.snapTo(pPlayer.getX(), pPlayer.getY() + pPlayer.getEyeHeight(), pPlayer.getZ());
+				pLevel.addFreshEntity(entity);
 			}
 		}
 	}
@@ -49,9 +42,9 @@ public class BubbleSpellItem extends Item {
 			pPlayer.playSound(IcariaSoundEvents.BUBBLE_SPELL_SHOOT);
 		} else {
 			pPlayer.awardStat(Stats.ITEM_USED.get(this));
-			pPlayer.getCooldowns().addCooldown(pItemStack, this.cooldown);
+			pPlayer.getCooldowns().addCooldown(pItemStack, IcariaConfig.COOLDOWN_BUBBLE_SPELL.get());
 			pItemStack.consume(1, pPlayer);
-			this.createAmount(pLevel, pPlayer);
+			this.shoot(pLevel, pPlayer);
 		}
 	}
 

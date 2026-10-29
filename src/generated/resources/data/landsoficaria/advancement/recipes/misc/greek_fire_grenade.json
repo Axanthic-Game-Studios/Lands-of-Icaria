@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:greek_fire_grenade"
+        "recipes": "landsoficaria:greek_fire_grenade"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

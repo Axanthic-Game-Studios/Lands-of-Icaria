@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:blue_dye_from_blue_hydracinth_grinding"
+        "recipes": "landsoficaria:blue_dye_from_blue_hydracinth_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:red_dye_from_rose_bush_grinding"
+        "recipes": "landsoficaria:red_dye_from_rose_bush_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

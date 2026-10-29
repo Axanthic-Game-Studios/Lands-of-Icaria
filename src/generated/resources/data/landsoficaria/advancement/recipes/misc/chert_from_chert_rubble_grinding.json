@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chert_from_chert_rubble_grinding"
+        "recipes": "landsoficaria:chert_from_chert_rubble_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

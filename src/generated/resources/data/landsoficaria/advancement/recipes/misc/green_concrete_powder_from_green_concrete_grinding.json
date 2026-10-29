@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:green_concrete_powder_from_green_concrete_grinding"
+        "recipes": "landsoficaria:green_concrete_powder_from_green_concrete_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

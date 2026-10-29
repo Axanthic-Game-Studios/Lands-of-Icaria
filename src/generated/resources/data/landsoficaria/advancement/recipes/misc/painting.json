@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:painting"
+        "recipes": "landsoficaria:painting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:orichalcum_shovel"
+        "recipes": "landsoficaria:orichalcum_shovel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

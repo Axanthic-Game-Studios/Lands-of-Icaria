@@ -60,11 +60,12 @@ Updates
 - Just Enough Items shows Anvil Repair Recipes for all damageable Items now
 - Kilns no longer show Smoke Particles inside the Burning Chamber when no Input Item is present
 - Kilns now show light instead of dark Smoke Particles inside the Burning Chamber when an Input Item is present
-- Mediterranean Water now support Frogspawn and Lily Pad similar to vanilla
+- Mediterranean Water now supports Bubble Columns, Frogspawn and Lily Pads
 - Revenants can open, close and walk through Doors now
 - Skulls now hide the Player from the Locator Bar when worn
 - Soldier Revenants have a Chance to spawn with a Kassiteros Spear now
 - Spelt Bale Blocks no longer ignite from Lava to be in line with vanilla Hay Bale Blocks
+- Storage Vases no longer block Pathfinding
 - Strawberry Bushes can be composted now
 - Surface Lignite can be set on Fire now
 - Surface Lignite, Twigs, Palm Ferns and Moss can ignite from Lava now
@@ -79,6 +80,7 @@ Updates
 
 Fixes
 
+- Waterlogged Blocks moved using the Anti Gravity Spell now update their State accordingly when landing outside Fluid Blocks and vice versa
 - Harvesting Vine Sprouts from Brushy Vines displays fitting Closed Captions now
 - Inconsistent Scroll Item Lighting
 - Rays properly render in front of Block Entities now (like Chests, Signs)

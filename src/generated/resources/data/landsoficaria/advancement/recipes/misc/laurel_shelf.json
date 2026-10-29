@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:laurel_shelf"
+        "recipes": "landsoficaria:laurel_shelf"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_kline"
+        "recipes": "landsoficaria:fir_kline"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

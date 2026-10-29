@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.layer.ClusterSlugEmissiveRenderLayer;
 import com.axanthic.icaria.client.layer.ClusterSlugRaysRenderLayer;
 import com.axanthic.icaria.client.model.ClusterSlugModel;
@@ -38,12 +39,10 @@ public class ClusterSlugRenderer extends MobRenderer<SlugEntity, ClusterSlugRend
 	public void extractRenderState(SlugEntity pEntity, ClusterSlugRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.climbing = pEntity.getClimbing();
-		pRenderState.blue = pEntity.blue;
-		pRenderState.green = pEntity.green;
-		pRenderState.red = pEntity.red;
 		pRenderState.renderScale = pEntity.getSizeForRender();
 		pRenderState.shadowScale = pEntity.getSizeForShadow();
 		pRenderState.shadowStrength = pEntity.getShadowStrength();
+		pRenderState.color = IcariaClientHelper.getColor(pEntity);
 		pRenderState.hideAnimationState = pEntity.hideAnimationState;
 		pRenderState.hurtAnimationState = pEntity.hurtAnimationState;
 		pRenderState.moveAnimationState = pEntity.moveAnimationState;
@@ -61,7 +60,7 @@ public class ClusterSlugRenderer extends MobRenderer<SlugEntity, ClusterSlugRend
 		super.setupRotations(pRenderState, pPoseStack, pBodyRot, pEntityScale);
 		if (pRenderState.climbing) {
 			pPoseStack.translate(0.0F, pRenderState.renderScale * 0.25F, 0.0F);
-			pPoseStack.mulPose(Axis.XP.rotationDegrees(90.0F));
+			pPoseStack.rotateDegrees(Axis.XP, 90.0F);
 			pPoseStack.translate(0.0F, pRenderState.renderScale * -0.5F, 0.0F);
 		}
 	}

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:olive_crafting_table_from_olive_planks"
+        "recipes": "landsoficaria:olive_crafting_table_from_olive_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

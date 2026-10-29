@@ -13,6 +13,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MoveSimulationType;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -101,5 +102,10 @@ public class LootVaseEntity extends Entity {
 	@Override
 	public Entity.MovementEmission getMovementEmission() {
 		return Entity.MovementEmission.NONE;
+	}
+
+	@Override
+	public MoveSimulationType getMoveSimulationType() {
+		return MoveSimulationType.SERVER_AND_CLIENT;
 	}
 }

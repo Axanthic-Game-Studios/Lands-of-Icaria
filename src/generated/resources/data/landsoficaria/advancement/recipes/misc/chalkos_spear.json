@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chalkos_spear"
+        "recipes": "landsoficaria:chalkos_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

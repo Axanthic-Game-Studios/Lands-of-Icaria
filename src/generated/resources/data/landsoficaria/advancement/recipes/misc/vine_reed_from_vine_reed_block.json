@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:vine_reed_from_vine_reed_block"
+        "recipes": "landsoficaria:vine_reed_from_vine_reed_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

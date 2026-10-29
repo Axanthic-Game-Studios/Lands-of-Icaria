@@ -18,6 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -81,9 +82,9 @@ public class IcariaBarrelBlock extends Block implements MediterraneanWaterlogged
 	}
 
 	@Override
-	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
-		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
-		IcariaBarrelHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pLevel);
+	public void playerDestroy(ServerLevel pServerLevel, ServerPlayer pServerPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
+		super.playerDestroy(pServerLevel, pServerPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
+		IcariaBarrelHelper.loadedOrTappedBarrel(pBlockPos, pBlockState, pServerLevel);
 	}
 
 	@Override

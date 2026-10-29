@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:quartz_wall_from_quartz_block"
+        "recipes": "landsoficaria:quartz_wall_from_quartz_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

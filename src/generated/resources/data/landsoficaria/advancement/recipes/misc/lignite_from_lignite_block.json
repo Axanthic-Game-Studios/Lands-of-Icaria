@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lignite_from_lignite_block"
+        "recipes": "landsoficaria:lignite_from_lignite_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

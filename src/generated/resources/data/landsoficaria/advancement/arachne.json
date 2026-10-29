@@ -3,21 +3,18 @@
   "criteria": {
     "arachne": {
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "landsoficaria:arachne"
-            }
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "landsoficaria:arachne"
           }
-        ]
+        }
       },
       "trigger": "minecraft:player_killed_entity"
     }
   },
   "display": {
-    "background": "landsoficaria:block/sunstone_bricks",
     "description": {
       "translate": "advancement.landsoficaria.arachne.description"
     },

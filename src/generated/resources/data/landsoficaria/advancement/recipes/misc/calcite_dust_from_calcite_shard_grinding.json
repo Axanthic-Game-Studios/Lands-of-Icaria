@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:calcite_dust_from_calcite_shard_grinding"
+        "recipes": "landsoficaria:calcite_dust_from_calcite_shard_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

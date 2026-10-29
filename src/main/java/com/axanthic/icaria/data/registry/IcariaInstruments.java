@@ -22,6 +22,6 @@ public class IcariaInstruments {
 	}
 
 	public static void register(BootstrapContext<Instrument> pBootstrapContext, ResourceKey<Instrument> pInstrument, SoundEvent pSoundEvent, float pDuration, float pRange) {
-		pBootstrapContext.register(pInstrument, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, Component.translatable(Util.makeDescriptionId("instrument", pInstrument.identifier()))));
+		pBootstrapContext.register(pInstrument, new Instrument(Holder.direct(pSoundEvent), pDuration, pRange, 0, Component.translatable(Util.makeDescriptionId("instrument", pInstrument.identifier()))));
 	}
 }

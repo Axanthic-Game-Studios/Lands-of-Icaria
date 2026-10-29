@@ -7,10 +7,10 @@ import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 @ParametersAreNonnullByDefault
 
 public class IcariaValues {
-	public static final float DUSK_INIT = 12000.0F;
-	public static final float DUSK_EXIT = 13000.0F;
-	public static final float DAWN_INIT = 23000.0F;
-	public static final float DAWN_EXIT = 24000.0F;
+	public static final float DUSK_INIT = 77.62566F;
+	public static final float DUSK_EXIT = 93.52133F;
+	public static final float DAWN_INIT = 266.47867F;
+	public static final float DAWN_EXIT = 282.37433F;
 
 	public static final float DEG_2_RAD = 0.0174532925199433F;
 	public static final float HALFSQRT3 = 0.8660254037844386F;

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sideros_bident"
+        "recipes": "landsoficaria:sideros_bident"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:clay_ball_from_clay_grinding"
+        "recipes": "landsoficaria:clay_ball_from_clay_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

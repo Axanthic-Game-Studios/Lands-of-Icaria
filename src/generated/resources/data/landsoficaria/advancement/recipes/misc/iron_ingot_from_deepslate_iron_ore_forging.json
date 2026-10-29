@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:iron_ingot_from_deepslate_iron_ore_forging"
+        "recipes": "landsoficaria:iron_ingot_from_deepslate_iron_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

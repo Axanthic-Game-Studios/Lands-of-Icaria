@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:molybdenumsteel_ingot_from_anthracite_ore_molybdenum_ore_sideros_ore_forging"
+        "recipes": "landsoficaria:molybdenumsteel_ingot_from_anthracite_ore_molybdenum_ore_sideros_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

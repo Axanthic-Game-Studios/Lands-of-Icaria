@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:physalis_seeds_from_physalis"
+        "recipes": "landsoficaria:physalis_seeds_from_physalis"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

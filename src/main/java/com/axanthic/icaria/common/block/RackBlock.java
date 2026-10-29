@@ -18,6 +18,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -90,9 +91,9 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public void playerDestroy(Level pLevel, Player pPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
-		super.playerDestroy(pLevel, pPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
-		IcariaBarrelHelper.loadedOrTappedRack(pBlockPos, pBlockState, pLevel);
+	public void playerDestroy(ServerLevel pServerLevel, ServerPlayer pServerPlayer, BlockPos pBlockPos, BlockState pBlockState, @Nullable BlockEntity pBlockEntity, ItemStack pItemStack) {
+		super.playerDestroy(pServerLevel, pServerPlayer, pBlockPos, pBlockState, pBlockEntity, pItemStack);
+		IcariaBarrelHelper.loadedOrTappedRack(pBlockPos, pBlockState, pServerLevel);
 	}
 
 	public BlockState getLoaded() {

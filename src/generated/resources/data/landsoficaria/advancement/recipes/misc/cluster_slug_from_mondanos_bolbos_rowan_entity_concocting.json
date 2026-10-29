@@ -33,7 +33,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cluster_slug_from_mondanos_bolbos_rowan_entity_concocting"
+        "recipes": "landsoficaria:cluster_slug_from_mondanos_bolbos_rowan_entity_concocting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

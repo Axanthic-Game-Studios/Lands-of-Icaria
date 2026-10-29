@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:light_gray_dye_from_oxeye_daisy_grinding"
+        "recipes": "landsoficaria:light_gray_dye_from_oxeye_daisy_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

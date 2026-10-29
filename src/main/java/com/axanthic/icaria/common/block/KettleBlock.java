@@ -10,8 +10,6 @@ import com.axanthic.icaria.common.registry.*;
 import com.axanthic.icaria.common.shapes.KettleVoxelShapes;
 import com.axanthic.icaria.common.tags.IcariaItemTags;
 
-import com.mojang.serialization.MapCodec;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -50,8 +48,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @ParametersAreNonnullByDefault
 
 public class KettleBlock extends BaseEntityBlock {
-	public static final MapCodec<KettleBlock> CODEC = Block.simpleCodec(KettleBlock::new);
-
 	public KettleBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.HEIGHT_PAIR, HeightPair.BOTTOM).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.KETTLE, Kettle.EMPTY).setValue(BlockStateProperties.LIT, false));
@@ -260,11 +256,6 @@ public class KettleBlock extends BaseEntityBlock {
 		} else {
 			return InteractionResult.FAIL;
 		}
-	}
-
-	@Override
-	public MapCodec<? extends BaseEntityBlock> codec() {
-		return KettleBlock.CODEC;
 	}
 
 	@Override

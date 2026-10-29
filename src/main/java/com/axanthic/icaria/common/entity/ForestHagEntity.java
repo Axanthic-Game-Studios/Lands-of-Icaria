@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.registry.IcariaSoundEvents;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.Entity;
@@ -20,7 +21,6 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.level.Level;
 
 @MethodsReturnNonnullByDefault
@@ -47,7 +47,7 @@ public class ForestHagEntity extends Monster {
 	}
 
 	public float damage(DamageSource pDamageSource, float pDamage) {
-		if (pDamageSource.getEntity() instanceof LivingEntity livingEntity && livingEntity.getMainHandItem().getItem() instanceof AxeItem) {
+		if (pDamageSource.getEntity() instanceof LivingEntity livingEntity && livingEntity.getMainHandItem().is(ItemTags.AXES)) {
 			return pDamage * 2;
 		} else if (pDamageSource.is(DamageTypes.ON_FIRE)) {
 			return pDamage * 2;

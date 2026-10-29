@@ -216,7 +216,6 @@ public class IcariaIdentifiers {
 	// MISC
 
 	public static final Identifier MEDITERRANEAN_WATER_UNDERWATER = Identifier.fromNamespaceAndPath(IcariaIds.ID, "textures/misc/mediterranean_water_underwater.png");
-	public static final Identifier SPELL = Identifier.fromNamespaceAndPath(IcariaIds.ID, "textures/misc/spell.png");
 
 	// PACKET TYPE
 

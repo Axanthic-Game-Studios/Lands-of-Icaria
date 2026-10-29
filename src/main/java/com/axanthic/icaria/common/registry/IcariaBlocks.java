@@ -308,6 +308,42 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> MAGENTA_TERRY_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.MAGENTA_TERRY_BLOCK, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_PURPLE, SoundType.WOOL), Block::new);
 	public static final DeferredHolder<Block, Block> PINK_TERRY_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.PINK_TERRY_BLOCK, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_MAGENTA, SoundType.WOOL), Block::new);
 
+	public static final DeferredHolder<Block, Block> TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_BROWN, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> WHITE_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.WHITE_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_WHITE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.WHITE_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> LIGHT_GRAY_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.LIGHT_GRAY_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.DEEPSLATE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.LIGHT_GRAY_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> GRAY_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.GRAY_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_GRAY, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.GRAY_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> BLACK_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.BLACK_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_BLACK, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.BLACK_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> BROWN_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.BROWN_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.PODZOL, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.BROWN_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> RED_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.RED_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_RED, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.RED_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> ORANGE_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.ORANGE_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_ORANGE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.ORANGE_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> YELLOW_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.YELLOW_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_YELLOW, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.YELLOW_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> LIME_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.LIME_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_GREEN, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.LIME_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> GREEN_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.GREEN_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.GREEN_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> CYAN_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.CYAN_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.GLOW_LICHEN, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.CYAN_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> LIGHT_BLUE_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.LIGHT_BLUE_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_LIGHT_BLUE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.LIGHT_BLUE_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> BLUE_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.BLUE_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_BLUE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.BLUE_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> PURPLE_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.PURPLE_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_MAGENTA, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.PURPLE_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> MAGENTA_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.MAGENTA_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_PURPLE, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.MAGENTA_TERRY_BLOCK.get().defaultBlockState(), properties));
+	public static final DeferredHolder<Block, Block> PINK_TERRY_STAIRS = IcariaBlocks.register(IcariaBlockItemIds.PINK_TERRY_STAIRS, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_MAGENTA, SoundType.WOOL), properties -> new IcariaStairBlock(IcariaBlocks.PINK_TERRY_BLOCK.get().defaultBlockState(), properties));
+
+	public static final DeferredHolder<Block, Block> TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_BROWN, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> WHITE_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.WHITE_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_WHITE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> LIGHT_GRAY_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.LIGHT_GRAY_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.DEEPSLATE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> GRAY_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.GRAY_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_GRAY, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> BLACK_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.BLACK_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_BLACK, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> BROWN_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.BROWN_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.PODZOL, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> RED_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.RED_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_RED, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> ORANGE_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.ORANGE_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_ORANGE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> YELLOW_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.YELLOW_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_YELLOW, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> LIME_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.LIME_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_GREEN, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> GREEN_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.GREEN_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> CYAN_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.CYAN_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.GLOW_LICHEN, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> LIGHT_BLUE_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.LIGHT_BLUE_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_LIGHT_BLUE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> BLUE_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.BLUE_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_BLUE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> PURPLE_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.PURPLE_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.COLOR_MAGENTA, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> MAGENTA_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.MAGENTA_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_PURPLE, SoundType.WOOL), IcariaSlabBlock::new);
+	public static final DeferredHolder<Block, Block> PINK_TERRY_SLAB = IcariaBlocks.register(IcariaBlockItemIds.PINK_TERRY_SLAB, IcariaBlocks.propertiesTerryBlock(MapColor.TERRACOTTA_MAGENTA, SoundType.WOOL), IcariaSlabBlock::new);
+
 	public static final DeferredHolder<Block, Block> TERRY_MAT = IcariaBlocks.register(IcariaBlockItemIds.TERRY_MAT, IcariaBlocks.propertiesTerryMat(MapColor.COLOR_BROWN, SoundType.WOOL), properties -> new MatBlock(Mat.TERRY_MAT, properties));
 	public static final DeferredHolder<Block, Block> WHITE_TERRY_MAT = IcariaBlocks.register(IcariaBlockItemIds.WHITE_TERRY_MAT, IcariaBlocks.propertiesTerryMat(MapColor.TERRACOTTA_WHITE, SoundType.WOOL), properties -> new MatBlock(Mat.WHITE_TERRY_MAT, properties));
 	public static final DeferredHolder<Block, Block> LIGHT_GRAY_TERRY_MAT = IcariaBlocks.register(IcariaBlockItemIds.LIGHT_GRAY_TERRY_MAT, IcariaBlocks.propertiesTerryMat(MapColor.DEEPSLATE, SoundType.WOOL), properties -> new MatBlock(Mat.LIGHT_GRAY_TERRY_MAT, properties));
@@ -336,10 +372,10 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> RAW_SIDEROS_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.RAW_SIDEROS_BLOCK, IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_ORANGE, SoundType.METAL), Block::new);
 	public static final DeferredHolder<Block, Block> RAW_MOLYBDENUM_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.RAW_MOLYBDENUM_BLOCK, IcariaBlocks.propertiesRawMetalBlock(MapColor.COLOR_LIGHT_GRAY, SoundType.METAL), Block::new);
 
-	public static final DeferredHolder<Block, Block> CALCITE_GLASS = IcariaBlocks.register(IcariaBlockItemIds.CALCITE_GLASS, IcariaBlocks.propertiesCrystalBlock(MapColor.COLOR_LIGHT_GRAY, SoundType.GLASS), HalfTransparentBlock::new);
-	public static final DeferredHolder<Block, Block> HALITE_GLASS = IcariaBlocks.register(IcariaBlockItemIds.HALITE_GLASS, IcariaBlocks.propertiesCrystalBlock(MapColor.COLOR_GREEN, SoundType.GLASS), HalfTransparentBlock::new);
-	public static final DeferredHolder<Block, Block> JASPER_GLASS = IcariaBlocks.register(IcariaBlockItemIds.JASPER_GLASS, IcariaBlocks.propertiesCrystalBlock(MapColor.COLOR_RED, SoundType.GLASS), HalfTransparentBlock::new);
-	public static final DeferredHolder<Block, Block> ZIRCON_GLASS = IcariaBlocks.register(IcariaBlockItemIds.ZIRCON_GLASS, IcariaBlocks.propertiesCrystalBlock(MapColor.COLOR_BLUE, SoundType.GLASS), HalfTransparentBlock::new);
+	public static final DeferredHolder<Block, Block> CALCITE_GLASS = IcariaBlocks.register(IcariaBlockItemIds.CALCITE_GLASS, IcariaBlocks.propertiesClusterGlass(MapColor.COLOR_LIGHT_GRAY, SoundType.GLASS), HalfTransparentBlock::new);
+	public static final DeferredHolder<Block, Block> HALITE_GLASS = IcariaBlocks.register(IcariaBlockItemIds.HALITE_GLASS, IcariaBlocks.propertiesClusterGlass(MapColor.COLOR_GREEN, SoundType.GLASS), HalfTransparentBlock::new);
+	public static final DeferredHolder<Block, Block> JASPER_GLASS = IcariaBlocks.register(IcariaBlockItemIds.JASPER_GLASS, IcariaBlocks.propertiesClusterGlass(MapColor.COLOR_RED, SoundType.GLASS), HalfTransparentBlock::new);
+	public static final DeferredHolder<Block, Block> ZIRCON_GLASS = IcariaBlocks.register(IcariaBlockItemIds.ZIRCON_GLASS, IcariaBlocks.propertiesClusterGlass(MapColor.COLOR_BLUE, SoundType.GLASS), HalfTransparentBlock::new);
 	public static final DeferredHolder<Block, Block> CHERT_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.CHERT_BLOCK, IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_GRAY, SoundType.STONE), Block::new);
 	public static final DeferredHolder<Block, Block> LIGNITE_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.LIGNITE_BLOCK, IcariaBlocks.propertiesCoalBlock(MapColor.COLOR_BROWN, SoundType.STONE), Block::new);
 	public static final DeferredHolder<Block, Block> CHALKOS_BLOCK = IcariaBlocks.register(IcariaBlockItemIds.CHALKOS_BLOCK, IcariaBlocks.propertiesMetalBlock(MapColor.COLOR_GREEN, SoundType.METAL), Block::new);
@@ -1002,12 +1038,12 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> ROWAN = IcariaBlocks.register(IcariaBlockItemIds.ROWAN, IcariaBlocks.propertiesPlant(MapColor.NONE, SoundType.GRASS), IcariaBushBlock::new);
 	public static final DeferredHolder<Block, Block> WILTED_ELM = IcariaBlocks.register(IcariaBlockItemIds.WILTED_ELM, IcariaBlocks.propertiesPlant(MapColor.NONE, SoundType.GRASS), IcariaBushBlock::new);
 
-	public static final DeferredHolder<Block, Block> BLUE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.BLUE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
-	public static final DeferredHolder<Block, Block> CYAN_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.CYAN_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
-	public static final DeferredHolder<Block, Block> PINK_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.PINK_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
-	public static final DeferredHolder<Block, Block> PURPLE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.PURPLE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
-	public static final DeferredHolder<Block, Block> RED_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.RED_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
-	public static final DeferredHolder<Block, Block> WHITE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.WHITE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), FlowerBedBlock::new);
+	public static final DeferredHolder<Block, Block> BLUE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.BLUE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
+	public static final DeferredHolder<Block, Block> CYAN_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.CYAN_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
+	public static final DeferredHolder<Block, Block> PINK_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.PINK_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
+	public static final DeferredHolder<Block, Block> PURPLE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.PURPLE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
+	public static final DeferredHolder<Block, Block> RED_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.RED_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
+	public static final DeferredHolder<Block, Block> WHITE_GROUND_FLOWERS = IcariaBlocks.register(IcariaBlockItemIds.WHITE_GROUND_FLOWERS, IcariaBlocks.propertiesGroundFlower(MapColor.NONE, SoundType.PINK_PETALS), properties -> new FlowerBedBlock(properties, 3));
 
 	public static final DeferredHolder<Block, Block> FOREST_MOSS = IcariaBlocks.register(IcariaBlockItemIds.FOREST_MOSS, IcariaBlocks.propertiesMoss(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.MOSS), LayerBlock::new);
 	public static final DeferredHolder<Block, Block> SCRUBLAND_MOSS = IcariaBlocks.register(IcariaBlockItemIds.SCRUBLAND_MOSS, IcariaBlocks.propertiesMoss(MapColor.TERRACOTTA_LIGHT_GREEN, SoundType.MOSS), LayerBlock::new);
@@ -1076,355 +1112,355 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesGrassyMarl(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F).randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F).randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesMarl(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesMarlOre(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesFloorDecoration(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesSurfaceLignite(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesFarmland(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F).isSuffocating(IcariaBlocks::always).isViewBlocking(IcariaBlocks::always).randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F).isSuffocating(IcariaBlocks::always).randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesStone(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesLoam(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.FLUTE).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.FLUTE).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.6F).explosionResistance(0.6F);
 	}
 
 	public static BlockBehaviour.Properties propertiesSand(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesSuspiciousSand(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F);
 	}
 
 	public static BlockBehaviour.Properties propertiesSandOre(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesGlass(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.3F).explosionResistance(0.3F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(IcariaBlocks::never).isViewBlocking(IcariaBlocks::never).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.3F).explosionResistance(0.3F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(IcariaBlocks::never).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesQuartz(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesChimney(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).forceSolidOff().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).forceSolidOff().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesMineral(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesBudding(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesCluster(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).lightLevel(blockState -> 6).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).lightLevel(blockState -> 6).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesAristone(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesPackedAristone(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.CHIME).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.CHIME).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.98F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesJellyfishJellyBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.8F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).friction(0.8F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesTerryBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.GUITAR).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.GUITAR).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesTerryMat(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.1F).explosionResistance(0.1F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.1F).explosionResistance(0.1F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesSpeltBaleBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BANJO).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BANJO).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesVineReedBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesRottenBonesBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.XYLOPHONE).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(2.0F).explosionResistance(2.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.XYLOPHONE).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(2.0F).explosionResistance(2.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesRawMetalBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
 	}
 
-	public static BlockBehaviour.Properties propertiesCrystalBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(0.3F).explosionResistance(0.3F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(IcariaBlocks::never).isViewBlocking(IcariaBlocks::never).noOcclusion().requiresCorrectToolForDrops();
+	public static BlockBehaviour.Properties propertiesClusterGlass(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HAT).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.3F).explosionResistance(0.3F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(IcariaBlocks::never).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesMetalBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesCoalBlock(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesBars(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesChain(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(5.0F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesWorkstation(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(1.5F).explosionResistance(6.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesChest(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(2.5F).explosionResistance(2.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(2.5F).explosionResistance(2.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesStorageVase(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.25F).explosionResistance(4.2F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(1.25F).explosionResistance(4.2F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesAmphora(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesVase(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).instabreak();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).instabreak();
 	}
 
 	public static BlockBehaviour.Properties propertiesLootVase(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).instabreak().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesSpawner(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(5.0F).explosionResistance(5.0F).noOcclusion().requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(5.0F).explosionResistance(5.0F).noOcclusion().requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesCobweb(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F).noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.25F).explosionResistance(0.25F).noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesLadder(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.4F).explosionResistance(0.4F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.4F).explosionResistance(0.4F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesSkull(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F);
 	}
 
 	public static BlockBehaviour.Properties propertiesTorch(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesCake(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesJar(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak();
 	}
 
 	public static BlockBehaviour.Properties propertiesFlask(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesPot(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).requiresCorrectToolForDrops();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesTableDecoration(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesChessboard(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak();
 	}
 
 	public static BlockBehaviour.Properties propertiesSapling(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesFlowerPot(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesLeaves(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(IcariaBlocks::never).isViewBlocking(IcariaBlocks::never).ignitedByLava().noOcclusion().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).isRedstoneConductor(IcariaBlocks::never).isSuffocating(IcariaBlocks::never).isValidSpawn(Blocks::ocelotOrParrot).ignitedByLava().noOcclusion().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesTwigs(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).ignitedByLava().instabreak().noCollision().noOcclusion().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesWood(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(2.0F).explosionResistance(2.0F).ignitedByLava().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(2.0F).explosionResistance(2.0F).ignitedByLava().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesPlanks(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesBarrel(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).instabreak().noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).instabreak().noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesBathtub(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesTrough(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesStool(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).bounceRestitution(0.75F).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).bounceRestitution(0.75F).destroyTime(2.0F).explosionResistance(3.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCuttingBoard(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesHolder(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCountertop(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCupboard(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesHutch(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesTable(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesBench(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesKline(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).bounceRestitution(0.75F).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).bounceRestitution(0.75F).destroyTime(1.0F).explosionResistance(1.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesCraftingTable(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(2.5F).explosionResistance(2.5F);
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(2.5F).explosionResistance(2.5F);
 	}
 
 	public static BlockBehaviour.Properties propertiesScrollshelf(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(1.5F).explosionResistance(1.5F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesDoor(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(3.0F).explosionResistance(3.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(3.0F).explosionResistance(3.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesTrapDoor(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.NORMAL).sound(pSoundType).destroyTime(3.0F).explosionResistance(3.0F).noOcclusion();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(3.0F).explosionResistance(3.0F).noOcclusion();
 	}
 
 	public static BlockBehaviour.Properties propertiesPressurePlate(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).forceSolidOn().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).forceSolidOn().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesButton(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.5F).explosionResistance(0.5F).noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesSign(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(1.0F).explosionResistance(1.0F).noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesShelf(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASS).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(2.0F).explosionResistance(3.0F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesVine(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).ignitedByLava().noCollision().randomTicks().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.2F).explosionResistance(0.2F).ignitedByLava().noCollision().randomTicks().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesGrass(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesPlant(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundFlower(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesMoss(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.1F).explosionResistance(0.1F).ignitedByLava();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.1F).explosionResistance(0.1F).ignitedByLava();
 	}
 
 	public static BlockBehaviour.Properties propertiesPalmFern(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).ignitedByLava().instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesGroundShroom(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).postProcess(IcariaBlocks::postProcessSelf).instabreak().noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).postProcess(IcariaBlocks::postProcessSelf).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesTreeShroom(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
 	}
 
 	public static BlockBehaviour.Properties propertiesCactus(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(0.4F).explosionResistance(0.4F).randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(0.4F).explosionResistance(0.4F).randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesBush(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).offsetType(BlockBehaviour.OffsetType.XZ).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesSeeds(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).instabreak().noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesWater(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).destroyTime(100.0F).explosionResistance(100.0F).noCollision().liquid().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).destroyTime(100.0F).explosionResistance(100.0F).noCollision().liquid().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesFire(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.DESTROY).sound(pSoundType).lightLevel(blockState -> 15).instabreak().noCollision().noTerrainParticles().replaceable();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).lightLevel(blockState -> 15).instabreak().noCollision().noTerrainParticles().replaceable();
 	}
 
 	public static BlockBehaviour.Properties propertiesPortal(MapColor pMapColor, SoundType pSoundType) {
-		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.BLOCK).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel(blockState -> 11).noCollision().randomTicks();
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(-1.0F).explosionResistance(-1.0F).lightLevel(blockState -> 11).noCollision().randomTicks();
 	}
 
 	public static BlockBehaviour.Properties propertiesNone() {

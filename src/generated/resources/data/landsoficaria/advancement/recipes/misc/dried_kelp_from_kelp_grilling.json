@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:dried_kelp_from_kelp_grilling"
+        "recipes": "landsoficaria:dried_kelp_from_kelp_grilling"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

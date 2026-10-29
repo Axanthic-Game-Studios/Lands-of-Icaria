@@ -2,6 +2,7 @@ package com.axanthic.icaria.client.renderer;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
+import com.axanthic.icaria.client.helper.IcariaClientHelper;
 import com.axanthic.icaria.client.layer.MyrmekeQueenEmissiveRenderLayer;
 import com.axanthic.icaria.client.layer.MyrmekeQueenRaysRenderLayer;
 import com.axanthic.icaria.client.model.MyrmekeQueenModel;
@@ -27,9 +28,7 @@ public class MyrmekeQueenRenderer extends MobRenderer<MyrmekeQueenEntity, Myrmek
 	@Override
 	public void extractRenderState(MyrmekeQueenEntity pEntity, MyrmekeQueenRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
-		pRenderState.blue = pEntity.blue;
-		pRenderState.green = pEntity.green;
-		pRenderState.red = pEntity.red;
+		pRenderState.color = IcariaClientHelper.getColor(pEntity);
 		pRenderState.livingEntity = pEntity;
 	}
 

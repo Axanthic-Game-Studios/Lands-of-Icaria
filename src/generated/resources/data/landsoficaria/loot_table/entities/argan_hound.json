@@ -2,19 +2,17 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "conditions": [
-        {
-          "chance": 0.01,
-          "condition": "minecraft:random_chance"
-        }
-      ],
+      "condition": {
+        "type": "minecraft:random_chance",
+        "chance": 0.01
+      },
       "entries": [
         {
           "type": "minecraft:item",
           "name": "landsoficaria:argan_hound_skull"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "landsoficaria:entities/argan_hound"

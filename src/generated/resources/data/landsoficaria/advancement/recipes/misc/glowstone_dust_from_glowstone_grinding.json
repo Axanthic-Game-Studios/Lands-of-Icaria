@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:glowstone_dust_from_glowstone_grinding"
+        "recipes": "landsoficaria:glowstone_dust_from_glowstone_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

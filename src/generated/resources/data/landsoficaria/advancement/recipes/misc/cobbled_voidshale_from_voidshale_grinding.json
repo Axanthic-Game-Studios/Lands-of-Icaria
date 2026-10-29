@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_voidshale_from_voidshale_grinding"
+        "recipes": "landsoficaria:cobbled_voidshale_from_voidshale_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:chiseled_dolomite_from_smooth_dolomite_slab"
+        "recipes": "landsoficaria:chiseled_dolomite_from_smooth_dolomite_slab"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

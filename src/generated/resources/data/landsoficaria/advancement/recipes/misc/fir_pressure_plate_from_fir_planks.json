@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:fir_pressure_plate_from_fir_planks"
+        "recipes": "landsoficaria:fir_pressure_plate_from_fir_planks"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

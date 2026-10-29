@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:sugar_from_vine_reed_grinding"
+        "recipes": "landsoficaria:sugar_from_vine_reed_grinding"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

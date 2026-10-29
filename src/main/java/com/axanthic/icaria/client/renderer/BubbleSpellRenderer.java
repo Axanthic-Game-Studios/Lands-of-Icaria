@@ -44,11 +44,11 @@ public class BubbleSpellRenderer extends EntityRenderer<BubbleSpellEntity, Bubbl
 
 		pPoseStack.translate(0.0D, 0.25D, 0.0D);
 
-		pPoseStack.mulPose(Axis.XP.rotationDegrees(randomSource.nextFloat() * 360.0F + speed * ticks));
-		pPoseStack.mulPose(Axis.YP.rotationDegrees(randomSource.nextFloat() * 360.0F + speed * ticks));
-		pPoseStack.mulPose(Axis.ZP.rotationDegrees(randomSource.nextFloat() * 360.0F + speed * ticks));
+		pPoseStack.rotateDegrees(Axis.XP, randomSource.nextFloat() * 360.0F + speed * ticks);
+		pPoseStack.rotateDegrees(Axis.YP, randomSource.nextFloat() * 360.0F + speed * ticks);
+		pPoseStack.rotateDegrees(Axis.ZP, randomSource.nextFloat() * 360.0F + speed * ticks);
 
-		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.ADDITIVE, (pose, vertexConsumer) -> this.submit(pose.pose(), randomSource, vertexConsumer, 0.25F, 0.25F));
+		pSubmitNodeCollector.submitCustomGeometry(pPoseStack, IcariaRenderTypes.additive(), (pose, vertexConsumer) -> this.submit(pose.pose(), randomSource, vertexConsumer, 0.25F, 0.25F));
 
 		pPoseStack.popPose();
 

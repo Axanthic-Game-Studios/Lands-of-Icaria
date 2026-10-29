@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:cobbled_silkstone_stairs"
+        "recipes": "landsoficaria:cobbled_silkstone_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "bottom": "landsoficaria:block/purple_terry_block",
+    "particle": "landsoficaria:block/purple_terry_block",
+    "side": "landsoficaria:block/purple_terry_block",
+    "top": "landsoficaria:block/purple_terry_block"
+  }
+}

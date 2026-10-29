@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "landsoficaria:lapis_lazuli_from_lapis_ore_forging"
+        "recipes": "landsoficaria:lapis_lazuli_from_lapis_ore_forging"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

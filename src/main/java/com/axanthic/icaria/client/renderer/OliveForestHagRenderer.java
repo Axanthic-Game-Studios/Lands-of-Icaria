@@ -26,7 +26,7 @@ public class OliveForestHagRenderer extends MobRenderer<ForestHagEntity, OliveFo
 	public void extractRenderState(ForestHagEntity pEntity, OliveForestHagRenderState pRenderState, float pPartialTicks) {
 		super.extractRenderState(pEntity, pRenderState, pPartialTicks);
 		pRenderState.aggressive = pEntity.isAggressive();
-		pRenderState.attackTime = pEntity.getAttackAnim(pPartialTicks);
+		pRenderState.attackTime = pEntity.getSwingAnimation(pPartialTicks);
 		pRenderState.livingEntity = pEntity;
 	}
 
