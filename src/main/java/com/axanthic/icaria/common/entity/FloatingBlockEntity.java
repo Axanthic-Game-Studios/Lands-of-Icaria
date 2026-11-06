@@ -119,9 +119,11 @@ public class FloatingBlockEntity extends Entity {
 				var fluidState = this.level().getFluidState(this.blockPosition());
 				if (this.level().getBlockState(this.blockPosition()).canBeReplaced() && this.getBlockState().canSurvive(this.level(), this.blockPosition())) {
 					this.level().setBlockAndUpdate(this.blockPosition(), this.getBlockState().trySetValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState.is(IcariaFluids.MEDITERRANEAN_WATER)).trySetValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER)));
+					this.playSound(this.getBlockState().getSoundType(this.level(), this.blockPosition(), null).getPlaceSound());
 					this.discard();
 				} else if (this.level() instanceof ServerLevel serverLevel && serverLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
 					this.spawnAtLocation(serverLevel, this.getBlockState().getBlock());
+					this.playSound(this.getBlockState().getSoundType(this.level(), this.blockPosition(), null).getBreakSound());
 					this.discard();
 				}
 			}
