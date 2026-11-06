@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.entity;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.helper.IcariaBarrelHelper;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaSoundEvents;
@@ -13,10 +14,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MoveSimulationType;
-import net.minecraft.world.entity.MoverType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -39,6 +37,16 @@ public class IcariaBarrelEntity extends Entity {
 	public IcariaBarrelEntity(EntityType<? extends IcariaBarrelEntity> pEntityType, Level pLevel, BlockState pBlockState) {
 		this(pEntityType, pLevel);
 		this.setBlockState(pBlockState);
+	}
+
+	@Override
+	public boolean causeFallDamage(double pFallDistance, float pDamageModifier, DamageSource pDamageSource) {
+		var amount = Math.min(this.fallDistance, 40.0D);
+		var boundingBox = this.getBoundingBox();
+		var damageSource = this.damageSources().fallingBlock(this);
+		var predicate = EntitySelector.NO_CREATIVE_OR_SPECTATOR.and(EntitySelector.LIVING_ENTITY_STILL_ALIVE);
+		this.level().getEntities(this, boundingBox, predicate).forEach(entity -> IcariaCommonHelper.hurt(damageSource, entity, (float) amount));
+		return true;
 	}
 
 	@Override
