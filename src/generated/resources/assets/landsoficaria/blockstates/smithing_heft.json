@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "landsoficaria:block/smithing_heft",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "landsoficaria:block/smithing_heft"
+    },
+    "facing=south": {
+      "model": "landsoficaria:block/smithing_heft",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "landsoficaria:block/smithing_heft",
+      "y": 270
+    }
+  }
+}

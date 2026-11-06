@@ -144,6 +144,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.MOLYBDENUM_BLOCK.block())
 			.add(IcariaBlockItemIds.MOLYBDENUMSTEEL_BLOCK.block())
 			.add(IcariaBlockItemIds.BLURIDIUM_BLOCK.block())
+			.add(IcariaBlockItemIds.SMITHING_HEFT.block())
 			.add(IcariaBlockItemIds.GRATE_FIREPLACE.block())
 			.add(IcariaBlockItemIds.POT_FIREPLACE.block())
 			.add(IcariaBlockItemIds.KETTLE.block())
@@ -1329,6 +1330,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.MOLYBDENUM_BLOCK.block())
 			.add(IcariaBlockItemIds.MOLYBDENUMSTEEL_BLOCK.block())
 			.add(IcariaBlockItemIds.BLURIDIUM_BLOCK.block())
+			.add(IcariaBlockItemIds.SMITHING_HEFT.block())
 			.add(IcariaBlockItemIds.GRATE_FIREPLACE.block())
 			.add(IcariaBlockItemIds.POT_FIREPLACE.block())
 			.add(IcariaBlockItemIds.GRINDER.block())
@@ -1846,7 +1848,8 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.RAW_MOLYBDENUM_BLOCK.block())
 			.add(IcariaBlockItemIds.MOLYBDENUM_BLOCK.block())
 			.add(IcariaBlockItemIds.MOLYBDENUMSTEEL_BLOCK.block())
-			.add(IcariaBlockItemIds.BLURIDIUM_BLOCK.block());
+			.add(IcariaBlockItemIds.BLURIDIUM_BLOCK.block())
+			.add(IcariaBlockItemIds.SMITHING_HEFT.block());
 
 		this.tag(IcariaBlockTags.NEEDS_VANADIUMSTEEL_TOOL)
 			.add(IcariaBlockItemIds.COBBLED_VOIDSHALE.block())

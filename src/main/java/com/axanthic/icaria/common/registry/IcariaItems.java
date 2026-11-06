@@ -396,6 +396,8 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> HAMMER = IcariaItems.register(IcariaBlockItemIds.HAMMER, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.HAMMER.get(), properties));
 
+	public static final DeferredHolder<Item, Item> SMITHING_HEFT = IcariaItems.register(IcariaBlockItemIds.SMITHING_HEFT, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.SMITHING_HEFT.get(), properties));
+
 	public static final DeferredHolder<Item, Item> GRATE_FIREPLACE = IcariaItems.register(IcariaBlockItemIds.GRATE_FIREPLACE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.GRATE_FIREPLACE.get(), properties));
 	public static final DeferredHolder<Item, Item> POT_FIREPLACE = IcariaItems.register(IcariaBlockItemIds.POT_FIREPLACE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.POT_FIREPLACE.get(), properties));
 

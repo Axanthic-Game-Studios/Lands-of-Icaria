@@ -373,6 +373,8 @@ public class IcariaBlockItemIds {
 
 	public static final BlockItemId HAMMER = IcariaBlockItemIds.create("hammer");
 
+	public static final BlockItemId SMITHING_HEFT = IcariaBlockItemIds.create("smithing_heft");
+
 	public static final BlockItemId GRATE_FIREPLACE = IcariaBlockItemIds.create("grate_fireplace");
 	public static final BlockItemId POT_FIREPLACE = IcariaBlockItemIds.create("pot_fireplace");
 

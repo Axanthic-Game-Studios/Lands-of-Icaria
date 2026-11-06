@@ -386,6 +386,7 @@ public class IcariaClientEvents {
 		EntityRenderers.register(IcariaEntityTypes.RUG.get(), RugRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SCORPION.get(), ScorpionRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.CLUSTER_SLUG.get(), ClusterSlugRenderer::new);
+		EntityRenderers.register(IcariaEntityTypes.SMITHING_HEFT.get(), SmithingHeftRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.FOREST_SNULL.get(), ForestSnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SNULL.get(), SnullRenderer::new);
 		EntityRenderers.register(IcariaEntityTypes.SOLIFUGAE.get(), SolifugaeRenderer::new);

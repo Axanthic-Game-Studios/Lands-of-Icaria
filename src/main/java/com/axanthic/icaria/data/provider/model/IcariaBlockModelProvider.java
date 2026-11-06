@@ -160,6 +160,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.simpleRack(pBlockModelGenerators);
 		IcariaBlockModelProvider.slab(pBlockModelGenerators);
 		IcariaBlockModelProvider.smallBowls(pBlockModelGenerators);
+		IcariaBlockModelProvider.smithingHeft(pBlockModelGenerators);
 		IcariaBlockModelProvider.speltFlourJar(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.stairs(pBlockModelGenerators);
@@ -311,6 +312,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.smallBowlsModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.smithingHeftModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.speltFlourJarModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.spoonHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.stoolModel(pBlockModelGenerators);
@@ -1437,6 +1439,10 @@ public class IcariaBlockModelProvider {
 
 	public static void smallBowls(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.smallBowls(IcariaBlocks.SMALL_BOWLS.get(), pBlockModelGenerators);
+	}
+
+	public static void smithingHeft(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.smithingHeft(IcariaBlocks.SMITHING_HEFT.get(), pBlockModelGenerators);
 	}
 
 	public static void speltFlourJar(BlockModelGenerators pBlockModelGenerators) {
@@ -5672,6 +5678,13 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_loam"))), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void smithingHeft(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_smithing_heft")).build()
+			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
+				.putForced(IcariaTextureSlots.SMOOTH_MOLIBOS_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molibos_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molibos_block"))), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void speltFlourJar(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_spelt_flour_jar")).build()
 			.create(IcariaModelProvider.blockFile(pBlock), new TextureMapping()
@@ -6982,6 +6995,10 @@ public class IcariaBlockModelProvider {
 
 	public static void smallBowlsModel(BlockModelGenerators pBlockModelGenerators) {
 		SmallBowlsModel.template().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_small_bowls"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void smithingHeftModel(BlockModelGenerators pBlockModelGenerators) {
+		SmithingHeftModel.template().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_smithing_heft"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void speltFlourJarModel(BlockModelGenerators pBlockModelGenerators) {

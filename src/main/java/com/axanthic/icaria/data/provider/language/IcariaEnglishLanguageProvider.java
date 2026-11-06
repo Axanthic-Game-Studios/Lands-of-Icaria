@@ -403,6 +403,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.HAMMER.get(), "Hammer");
 
+		this.add(IcariaBlocks.SMITHING_HEFT.get(), "Smithing Heft");
+
 		this.add(IcariaBlocks.GRATE_FIREPLACE.get(), "Grate Fireplace");
 		this.add(IcariaBlocks.POT_FIREPLACE.get(), "Pot Fireplace");
 
@@ -1171,6 +1173,7 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.RUG.get(), "Rug");
 		this.add(IcariaEntityTypes.SCORPION.get(), "Scorpion");
 		this.add(IcariaEntityTypes.CLUSTER_SLUG.get(), "Cluster Slug");
+		this.add(IcariaEntityTypes.SMITHING_HEFT.get(), "Smithing Heft");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Forest Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Solifugae");

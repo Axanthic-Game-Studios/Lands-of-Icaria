@@ -403,6 +403,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.HAMMER.get(), "Hammer");
 
+		this.add(IcariaBlocks.SMITHING_HEFT.get(), "Schmiedeklotz");
+
 		this.add(IcariaBlocks.GRATE_FIREPLACE.get(), "Feuerstelle mit Rost");
 		this.add(IcariaBlocks.POT_FIREPLACE.get(), "Feuerstelle mit Topf");
 
@@ -1171,6 +1173,7 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaEntityTypes.RUG.get(), "Läufer");
 		this.add(IcariaEntityTypes.SCORPION.get(), "Skorpion");
 		this.add(IcariaEntityTypes.CLUSTER_SLUG.get(), "Haufen-Nacktschnecke");
+		this.add(IcariaEntityTypes.SMITHING_HEFT.get(), "Schmiedeklotz");
 		this.add(IcariaEntityTypes.FOREST_SNULL.get(), "Wald Snull");
 		this.add(IcariaEntityTypes.SNULL.get(), "Snull");
 		this.add(IcariaEntityTypes.SOLIFUGAE.get(), "Walzenspinne");

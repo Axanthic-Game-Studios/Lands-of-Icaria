@@ -653,6 +653,7 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void horizontal1(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.horizontal1(IcariaBlocks.SMITHING_HEFT.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.BONE_LADDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.LIGNITE_WALL_TORCH.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal1(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), pBlockModelGenerators);

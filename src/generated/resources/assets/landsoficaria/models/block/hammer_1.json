@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_hammer_1",
+  "textures": {
+    "laurel_ladder": "landsoficaria:block/laurel_ladder",
+    "molybdenum_block": "landsoficaria:block/molybdenum_block",
+    "particle": "landsoficaria:block/molybdenum_block"
+  }
+}

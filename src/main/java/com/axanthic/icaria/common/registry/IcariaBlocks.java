@@ -397,6 +397,8 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, Block> HAMMER = IcariaBlocks.register(IcariaBlockItemIds.HAMMER, IcariaBlocks.propertiesHammer(MapColor.NONE, SoundType.METAL), TableDecorationBlock::new);
 
+	public static final DeferredHolder<Block, Block> SMITHING_HEFT = IcariaBlocks.register(IcariaBlockItemIds.SMITHING_HEFT, IcariaBlocks.propertiesSmithingHeft(MapColor.NONE, SoundType.ANVIL), SmithingHeftBlock::new);
+
 	public static final DeferredHolder<Block, Block> GRATE_FIREPLACE = IcariaBlocks.register(IcariaBlockItemIds.GRATE_FIREPLACE, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE), properties -> new GrateFireplaceBlock(1.275F, properties));
 	public static final DeferredHolder<Block, Block> POT_FIREPLACE = IcariaBlocks.register(IcariaBlockItemIds.POT_FIREPLACE, IcariaBlocks.propertiesWorkstation(MapColor.WOOD, SoundType.STONE), properties -> new PotFireplaceBlock(1.2425F, properties));
 
@@ -1239,6 +1241,10 @@ public class IcariaBlocks {
 
 	public static BlockBehaviour.Properties propertiesHammer(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.POPPED).sound(pSoundType).instabreak().noCollision();
+	}
+
+	public static BlockBehaviour.Properties propertiesSmithingHeft(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.HARP).mapColor(pMapColor).pushReaction(PushReaction.IMMOVEABLE).sound(pSoundType).destroyTime(5.0F).explosionResistance(1200.0F).requiresCorrectToolForDrops();
 	}
 
 	public static BlockBehaviour.Properties propertiesWorkstation(MapColor pMapColor, SoundType pSoundType) {

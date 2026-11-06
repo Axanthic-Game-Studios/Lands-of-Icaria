@@ -640,6 +640,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.HORIZONTAL_VANADIUMSTEEL_BARS.get());
 		this.dropThis(IcariaBlocks.VANADIUMSTEEL_CHAIN.get());
 		this.dropThis(IcariaBlocks.HAMMER.get());
+		this.dropThis(IcariaBlocks.SMITHING_HEFT.get());
 		this.dropThis(IcariaBlocks.GRATE_FIREPLACE.get());
 		this.dropThis(IcariaBlocks.POT_FIREPLACE.get());
 		this.dropThis(IcariaBlocks.KETTLE.get());

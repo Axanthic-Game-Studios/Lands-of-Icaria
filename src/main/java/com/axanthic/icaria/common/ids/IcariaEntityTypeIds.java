@@ -58,6 +58,7 @@ public class IcariaEntityTypeIds {
 	public static final ResourceKey<EntityType<?>> RUG = IcariaEntityTypeIds.create("rug");
 	public static final ResourceKey<EntityType<?>> SCORPION = IcariaEntityTypeIds.create("scorpion");
 	public static final ResourceKey<EntityType<?>> CLUSTER_SLUG = IcariaEntityTypeIds.create("cluster_slug");
+	public static final ResourceKey<EntityType<?>> SMITHING_HEFT = IcariaEntityTypeIds.create("smithing_heft");
 	public static final ResourceKey<EntityType<?>> FOREST_SNULL = IcariaEntityTypeIds.create("forest_snull");
 	public static final ResourceKey<EntityType<?>> SNULL = IcariaEntityTypeIds.create("snull");
 	public static final ResourceKey<EntityType<?>> SOLIFUGAE = IcariaEntityTypeIds.create("solifugae");

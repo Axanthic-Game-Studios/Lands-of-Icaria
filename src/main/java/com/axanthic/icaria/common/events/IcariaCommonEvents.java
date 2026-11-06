@@ -957,6 +957,8 @@ public class IcariaCommonEvents {
 
 			pEvent.accept(IcariaItems.HAMMER.get());
 
+			pEvent.accept(IcariaItems.SMITHING_HEFT.get());
+
 			pEvent.accept(IcariaItems.GRATE_FIREPLACE.get());
 			pEvent.accept(IcariaItems.POT_FIREPLACE.get());
 

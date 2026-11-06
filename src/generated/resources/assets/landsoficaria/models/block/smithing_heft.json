@@ -1,0 +1,7 @@
+{
+  "parent": "landsoficaria:block/template_smithing_heft",
+  "textures": {
+    "particle": "landsoficaria:block/smooth_molibos_block",
+    "smooth_molibos_block": "landsoficaria:block/smooth_molibos_block"
+  }
+}
