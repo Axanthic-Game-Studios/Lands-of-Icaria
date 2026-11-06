@@ -6,6 +6,7 @@ import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaEntityTypes;
 import com.axanthic.icaria.common.tags.IcariaBlockTags;
 
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -33,6 +34,7 @@ public class AntiGravitySpellEntity extends SpellEntity {
 			entity.setDeltaMovement(0.0D, 0.05D, 0.0D);
 			entity.snapTo(blockPos, 0.0F, 0.0F);
 			level.addFreshEntity(entity);
+			level.playSound(null, blockPos, blockState.getSoundType(level, blockPos, null).getBreakSound(), SoundSource.BLOCKS);
 			level.removeBlock(blockPos, false);
 		}
 	}
