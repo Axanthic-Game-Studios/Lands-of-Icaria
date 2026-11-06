@@ -22,6 +22,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
+import net.minecraft.util.TriState;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -230,8 +231,8 @@ public class RackBlock extends Block implements MediterraneanWaterloggedBlock, S
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
-		return Shapes.empty();
+	public TriState canBeConnectedTo(BlockState pBlockState, Direction pDirection, Block pBlock) {
+		return TriState.FALSE;
 	}
 
 	@Override

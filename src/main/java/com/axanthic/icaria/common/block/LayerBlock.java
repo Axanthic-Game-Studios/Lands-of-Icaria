@@ -9,6 +9,7 @@ import com.axanthic.icaria.common.shapes.LayerVoxelShapes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.TriState;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.LevelReader;
@@ -23,7 +24,6 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -98,8 +98,8 @@ public class LayerBlock extends Block implements MediterraneanWaterloggedBlock, 
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
-		return Shapes.empty();
+	public TriState canBeConnectedTo(BlockState pBlockState, Direction pDirection, Block pBlock) {
+		return TriState.FALSE;
 	}
 
 	@Override

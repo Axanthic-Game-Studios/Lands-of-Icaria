@@ -8,6 +8,7 @@ import com.axanthic.icaria.common.shapes.DeadLogVoxelShapes;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.TriState;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -59,8 +60,8 @@ public class DeadLogBlock extends RotatedPillarBlock implements MediterraneanWat
 	}
 
 	@Override
-	public VoxelShape getBlockSupportShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos) {
-		return Shapes.empty();
+	public TriState canBeConnectedTo(BlockState pBlockState, Direction pDirection, Block pBlock) {
+		return TriState.FALSE;
 	}
 
 	@Override
