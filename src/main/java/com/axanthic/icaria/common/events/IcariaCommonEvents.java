@@ -955,6 +955,8 @@ public class IcariaCommonEvents {
 
 			pEvent.accept(IcariaItems.VANADIUMSTEEL_CHAIN.get());
 
+			pEvent.accept(IcariaItems.HAMMER.get());
+
 			pEvent.accept(IcariaItems.GRATE_FIREPLACE.get());
 			pEvent.accept(IcariaItems.POT_FIREPLACE.get());
 

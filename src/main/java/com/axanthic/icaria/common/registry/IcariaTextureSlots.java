@@ -72,6 +72,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot KETTLE = TextureSlot.create("kettle");
 	public static final TextureSlot KILN = TextureSlot.create("kiln");
 	public static final TextureSlot LAUREL_LOG = TextureSlot.create("laurel_log");
+	public static final TextureSlot LAUREL_LADDER = TextureSlot.create("laurel_ladder");
 	public static final TextureSlot LAUREL_PLANKS = TextureSlot.create("laurel_planks");
 	public static final TextureSlot LAVA_FLOW = TextureSlot.create("lava_flow");
 	public static final TextureSlot LAVA_STILL = TextureSlot.create("lava_still");
@@ -84,6 +85,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot LOOT_VASE = TextureSlot.create("loot_vase");
 	public static final TextureSlot MARL = TextureSlot.create("marl");
 	public static final TextureSlot MEDITERRANEAN_WATER = TextureSlot.create("mediterranean_water");
+	public static final TextureSlot MOLYBDENUM_BLOCK = TextureSlot.create("molybdenum_block");
 	public static final TextureSlot MOLYBDENUMSTEEL_BLOCK = TextureSlot.create("molybdenumsteel_block");
 	public static final TextureSlot MOSS = TextureSlot.create("moss");
 	public static final TextureSlot NATURE_JELLYFISH_JELLY_JAR = TextureSlot.create("nature_jellyfish_jelly_jar");

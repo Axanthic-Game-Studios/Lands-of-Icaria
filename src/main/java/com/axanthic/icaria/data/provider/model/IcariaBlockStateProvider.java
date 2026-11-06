@@ -789,6 +789,7 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void horizontal3(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockStateProvider.horizontal3(IcariaBlocks.HAMMER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal3(IcariaBlocks.BROKEN_CYPRESS_HOLDER.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal3(IcariaBlocks.BROKEN_CYPRESS_CUPBOARD.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.horizontal3(IcariaBlocks.BROKEN_DROUGHTROOT_HOLDER.get(), pBlockModelGenerators);

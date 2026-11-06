@@ -95,6 +95,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.groundFlowers(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteCluster(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteDustJar(pBlockModelGenerators);
+		IcariaBlockModelProvider.hammer(pBlockModelGenerators);
 		IcariaBlockModelProvider.hangingSign(pBlockModelGenerators);
 		IcariaBlockModelProvider.herbHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalBars(pBlockModelGenerators);
@@ -258,6 +259,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.groundFlowersModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteClusterModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.haliteDustJarModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.hammerModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.herbHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalBarsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.horizontalPaneModel(pBlockModelGenerators);
@@ -929,6 +931,10 @@ public class IcariaBlockModelProvider {
 
 	public static void haliteDustJar(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.haliteDustJar(IcariaBlocks.HALITE_DUST_JAR.get(), pBlockModelGenerators);
+	}
+
+	public static void hammer(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.hammer(IcariaBlocks.HAMMER.get(), pBlockModelGenerators);
 	}
 
 	public static void hangingSign(BlockModelGenerators pBlockModelGenerators) {
@@ -4378,6 +4384,24 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "jar"))), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void hammer(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.MOLYBDENUM_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.MOLYBDENUM_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.MOLYBDENUM_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "molybdenum_block"))), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void hangingSign(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_hanging_sign_rot_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "rot_0"), new TextureMapping()
@@ -6711,6 +6735,12 @@ public class IcariaBlockModelProvider {
 
 	public static void haliteDustJarModel(BlockModelGenerators pBlockModelGenerators) {
 		HaliteJarModel.template().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_halite_dust_jar"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void hammerModel(BlockModelGenerators pBlockModelGenerators) {
+		HammerModel.template0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		HammerModel.template1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		HammerModel.template2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_hammer_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void herbHolderModel(BlockModelGenerators pBlockModelGenerators) {

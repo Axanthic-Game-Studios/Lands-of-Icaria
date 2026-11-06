@@ -401,6 +401,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 
 		this.add(IcariaBlocks.VANADIUMSTEEL_CHAIN.get(), "Vanadinstahlkette");
 
+		this.add(IcariaBlocks.HAMMER.get(), "Hammer");
+
 		this.add(IcariaBlocks.GRATE_FIREPLACE.get(), "Feuerstelle mit Rost");
 		this.add(IcariaBlocks.POT_FIREPLACE.get(), "Feuerstelle mit Topf");
 

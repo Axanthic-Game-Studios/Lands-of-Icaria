@@ -371,6 +371,8 @@ public class IcariaBlockItemIds {
 
 	public static final BlockItemId VANADIUMSTEEL_CHAIN = IcariaBlockItemIds.create("vanadiumsteel_chain");
 
+	public static final BlockItemId HAMMER = IcariaBlockItemIds.create("hammer");
+
 	public static final BlockItemId GRATE_FIREPLACE = IcariaBlockItemIds.create("grate_fireplace");
 	public static final BlockItemId POT_FIREPLACE = IcariaBlockItemIds.create("pot_fireplace");
 

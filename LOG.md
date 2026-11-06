@@ -17,6 +17,7 @@ Additions
 - Forge Recipes for Golden Nuggets from Golden Nautilus Armor and Golden Spear
 - Forge Recipes for Iron Nuggets from Iron Nautilus Armor and Iron Spear
 - Grinder Recipe for Yellow Dye from Golden Dandelion
+- Hammer Block
 - Broken, Herb, Pan, Pot, Spoon and Towel Holder Blocks for each Wood Type
 - Hutch and Wall Hutch Blocks for each Wood Type
 - Ender, Fire, Nature, Void, Water Jellyfish Jelly Jar Blocks
@@ -28,6 +29,7 @@ Additions
 - Scrollshelf Blocks for each Wood Type
 - Shelf Blocks for each Wood Type
 - Small Bowls Block
+- Smithing Heft Block
 - Spears
 - Stonecutter Recipes for Cobbled Yellowstone, Sunstone, Silkstone, Voidshale and Baetyl Blocks, Slabs, Stairs and Walls
 - Stool Blocks for each Wood Type
@@ -49,15 +51,20 @@ Updates
 - Arachne Queens place Cobwebs only in empty Blocks when attacking the Player instead of replacing any Block the Player is standing in
 - Arachne Queens play a Placement Sound when placing Cobwebs now
 - Arachne Queens show a Boss Bar in their Vicinity now
+- Blocks now play a corresponding Sound when hit with an Anti Gravity Spell and turning into a Floating Block
 - Captain Revenants show a Boss Bar in their Vicinity now
 - Chalkos Armor uses Copper Armor Sounds instead of Iron Armor Sounds now
 - Decorated Pots in Villages contain Loot now
+- Falling Barrels and Loot Vases deal Damage to Entities upon Impact now
 - Farmland and Fertilized Farmland now support Vegetation Blocks similar to vanilla
+- Floating Blocks now play a corresponding Sound when dropping or turning back into a solid Block
 - Grainel, Silksand and Surface Lignite play ambient Block Sounds now
 - Grassy Marl, Marl, Coarse Marl, Dry Lakebed, Loam, Farmland and Fertilized Farmland now support Big Dripleaf similar to vanilla
+- Healing Spells damage undead Entities now
 - Jellyfishes, Crystal Slug and Snulls drop Experience and Loot independent of their Size now
 - Jellyfish Jelly Blocks and Spawners use updated Sounds now
 - Just Enough Items shows Anvil Repair Recipes for all damageable Items now
+- Killing living Entities with damaging Spells grants Drops and Experience now
 - Kilns no longer show Smoke Particles inside the Burning Chamber when no Input Item is present
 - Kilns now show light instead of dark Smoke Particles inside the Burning Chamber when an Input Item is present
 - Mediterranean Water now supports Bubble Columns, Frogspawn and Lily Pads

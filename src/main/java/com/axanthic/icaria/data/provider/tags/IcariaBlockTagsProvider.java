@@ -525,6 +525,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.VOIDSHALE_RUBBLE.block())
 			.add(IcariaBlockItemIds.BAETYL_RUBBLE.block())
 			.add(IcariaBlockItemIds.RELICSTONE_RUBBLE.block())
+			.add(IcariaBlockItemIds.HAMMER.block())
 			.add(IcariaBlockItemIds.AMPHORA.block())
 			.add(IcariaBlockItemIds.FLASK.block())
 			.add(IcariaBlockItemIds.LARGE_BOWLS.block())
