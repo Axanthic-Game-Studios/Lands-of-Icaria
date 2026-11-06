@@ -2101,6 +2101,13 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")))
 				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_broken_cupboard_3")).build()
+			.create(IcariaModelProvider.blockFile(pBrokenCupboard, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PLANKS, new Material(IcariaModelProvider.blockFile(pCupboard, "cupboard", "planks")))
+				.putForced(IcariaTextureSlots.SMOOTH_LOG, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pCupboard, "cupboard", "log")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("smooth", pCupboard, "cupboard", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brokenHolder(Block pHolder, Block pPlanks, BlockModelGenerators pBlockModelGenerators) {
@@ -6523,6 +6530,7 @@ public class IcariaBlockModelProvider {
 		BrokenCupboardModel.template0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_broken_cupboard_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		BrokenCupboardModel.template1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_broken_cupboard_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		BrokenCupboardModel.template2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_broken_cupboard_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		BrokenCupboardModel.template3().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_broken_cupboard_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void brokenHolderModel(BlockModelGenerators pBlockModelGenerators) {
