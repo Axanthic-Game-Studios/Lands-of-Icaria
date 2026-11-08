@@ -250,6 +250,9 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> QUARTZ_WALL = IcariaItems.register(IcariaBlockItemIds.QUARTZ_WALL, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.QUARTZ_WALL.get(), properties));
 	public static final DeferredHolder<Item, Item> QUARTZ_PILLAR_HEAD = IcariaItems.register(IcariaBlockItemIds.QUARTZ_PILLAR_HEAD, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), properties));
 
+	public static final DeferredHolder<Item, Item> PEDESTAL = IcariaItems.register(IcariaBlockItemIds.PEDESTAL, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.PEDESTAL.get(), properties));
+	public static final DeferredHolder<Item, Item> RUINED_PEDESTAL = IcariaItems.register(IcariaBlockItemIds.RUINED_PEDESTAL, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.RUINED_PEDESTAL.get(), properties));
+
 	public static final DeferredHolder<Item, Item> CHIMNEY = IcariaItems.register(IcariaBlockItemIds.CHIMNEY, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CHIMNEY.get(), properties));
 	public static final DeferredHolder<Item, Item> CHIMNEY_BRICK_CROWN = IcariaItems.register(IcariaBlockItemIds.CHIMNEY_BRICK_CROWN, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), properties));
 	public static final DeferredHolder<Item, Item> CHIMNEY_GRATE_CROWN = IcariaItems.register(IcariaBlockItemIds.CHIMNEY_GRATE_CROWN, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), properties));

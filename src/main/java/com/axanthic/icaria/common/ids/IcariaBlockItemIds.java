@@ -227,6 +227,9 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId QUARTZ_WALL = IcariaBlockItemIds.create("quartz_wall");
 	public static final BlockItemId QUARTZ_PILLAR_HEAD = IcariaBlockItemIds.create("quartz_pillar_head");
 
+	public static final BlockItemId PEDESTAL = IcariaBlockItemIds.create("pedestal");
+	public static final BlockItemId RUINED_PEDESTAL = IcariaBlockItemIds.create("ruined_pedestal");
+
 	public static final BlockItemId CHIMNEY = IcariaBlockItemIds.create("chimney");
 	public static final BlockItemId CHIMNEY_BRICK_CROWN = IcariaBlockItemIds.create("chimney_brick_crown");
 	public static final BlockItemId CHIMNEY_GRATE_CROWN = IcariaBlockItemIds.create("chimney_grate_crown");

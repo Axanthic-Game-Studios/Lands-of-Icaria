@@ -548,6 +548,8 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThis(IcariaBlocks.CHISELED_PLATOSHALE.get());
 		this.dropThis(IcariaBlocks.QUARTZ_WALL.get());
 		this.dropThis(IcariaBlocks.QUARTZ_PILLAR_HEAD.get());
+		this.dropThis(IcariaBlocks.PEDESTAL.get());
+		this.dropThis(IcariaBlocks.RUINED_PEDESTAL.get());
 		this.dropThis(IcariaBlocks.CHIMNEY.get());
 		this.dropThis(IcariaBlocks.CHIMNEY_BRICK_CROWN.get());
 		this.dropThis(IcariaBlocks.CHIMNEY_GRATE_CROWN.get());

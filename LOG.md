@@ -23,6 +23,7 @@ Additions
 - Ender, Fire, Nature, Void, Water Jellyfish Jelly Jar Blocks
 - Kline Blocks for each Wood Type
 - Large Bowls Block
+- Pedestal and Ruined Pedestal Blocks
 - Plates Block
 - Pot Block
 - Calcite, Greenpowder, Halite, Spelt Flour, Sugar Powder Jar Blocks

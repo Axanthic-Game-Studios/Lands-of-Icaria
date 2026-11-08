@@ -129,6 +129,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.pane(pBlockModelGenerators);
 		IcariaBlockModelProvider.path(pBlockModelGenerators);
 		IcariaBlockModelProvider.particle(pBlockModelGenerators);
+		IcariaBlockModelProvider.pedestal(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisSeeds(pBlockModelGenerators);
 		IcariaBlockModelProvider.plates(pBlockModelGenerators);
 		IcariaBlockModelProvider.portal(pBlockModelGenerators);
@@ -153,6 +154,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rottenBoneLadder(pBlockModelGenerators);
 		IcariaBlockModelProvider.rowan(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(pBlockModelGenerators);
+		IcariaBlockModelProvider.ruinedPedestal(pBlockModelGenerators);
 		IcariaBlockModelProvider.scrollshelf(pBlockModelGenerators);
 		IcariaBlockModelProvider.seeds(pBlockModelGenerators);
 		IcariaBlockModelProvider.shelf(pBlockModelGenerators);
@@ -290,6 +292,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.palmFernModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.panHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.paneInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.pedestalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisSeedsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.platesModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.portalModel(pBlockModelGenerators);
@@ -310,6 +313,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.raisedBasinCountertopModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.rowanModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.rubbleModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.ruinedPedestalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.simpleRackModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.smallBowlsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.smithingHeftModel(pBlockModelGenerators);
@@ -1186,6 +1190,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.particle(IcariaBlocks.TRAPPED_CHEST.get(), IcariaBlocks.LAUREL_PLANKS.get(), pBlockModelGenerators);
 	}
 
+	public static void pedestal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.pedestal(IcariaBlocks.PEDESTAL.get(), pBlockModelGenerators);
+	}
+
 	public static void physalisSeeds(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.physalisSeeds(IcariaBlocks.PHYSALIS_SEEDS.get(), pBlockModelGenerators);
 	}
@@ -1326,6 +1334,10 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.rubble(IcariaBlocks.VOIDSHALE_RUBBLE.get(), IcariaBlocks.VOIDSHALE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(IcariaBlocks.BAETYL_RUBBLE.get(), IcariaBlocks.BAETYL.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.rubble(IcariaBlocks.RELICSTONE_RUBBLE.get(), IcariaBlocks.RELICSTONE.get(), pBlockModelGenerators);
+	}
+
+	public static void ruinedPedestal(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.ruinedPedestal(IcariaBlocks.RUINED_PEDESTAL.get(), pBlockModelGenerators);
 	}
 
 	public static void scrollshelf(BlockModelGenerators pBlockModelGenerators) {
@@ -5183,6 +5195,40 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void pedestal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_single")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "single"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_bottom")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_center")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "center"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void physalisSeeds(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_physalis_seeds_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
@@ -5530,6 +5576,44 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pName, "4"), new TextureMapping()
 				.putForced(IcariaTextureSlots.TEXTURE, new Material(IcariaModelProvider.blockFile(pFile)))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pFile))), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ruinedPedestal(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_single")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "single"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_RUINED, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_ruined")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_bottom")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "bottom"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_RUINED, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_ruined")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_center")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "center"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_RUINED, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_ruined")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_top")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
+				.putForced(IcariaTextureSlots.PEDESTAL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar")))
+				.putForced(IcariaTextureSlots.PEDESTAL_COLLAR_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_collar_top")))
+				.putForced(IcariaTextureSlots.PEDESTAL_RUINED, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_ruined")))
+				.putForced(IcariaTextureSlots.PEDESTAL_SIDE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_side")))
+				.putForced(IcariaTextureSlots.PEDESTAL_TOP, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "pedestal_top"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void scrollshelf(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -6902,6 +6986,13 @@ public class IcariaBlockModelProvider {
 		PaneInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pane_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void pedestalModel(BlockModelGenerators pBlockModelGenerators) {
+		PedestalModel.single().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_single"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PedestalModel.bottom().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_bottom"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PedestalModel.center().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_center"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		PedestalModel.top().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pedestal_top"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void physalisSeedsModel(BlockModelGenerators pBlockModelGenerators) {
 		PhysalisSeedsModel.template0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_physalis_seeds_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		PhysalisSeedsModel.template1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_physalis_seeds_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
@@ -6993,6 +7084,13 @@ public class IcariaBlockModelProvider {
 		RubbleModel.template2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_rubble_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		RubbleModel.template3().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_rubble_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		RubbleModel.template4().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_rubble_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void ruinedPedestalModel(BlockModelGenerators pBlockModelGenerators) {
+		RuinedPedestalModel.single().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_single"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RuinedPedestalModel.bottom().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_bottom"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RuinedPedestalModel.center().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_center"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		RuinedPedestalModel.top().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_ruined_pedestal_top"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void simpleRackModel(BlockModelGenerators pBlockModelGenerators) {

@@ -931,6 +931,10 @@ public class IcariaBlockItemTagsProvider extends BlockItemTagsProvider {
 			.add(IcariaBlockItemIds.LIGNITE_ORE)
 			.add(IcariaBlockItemIds.CHALKOS_ORE);
 
+		this.tag(IcariaBlockItemTags.PEDESTALS)
+			.add(IcariaBlockItemIds.PEDESTAL)
+			.add(IcariaBlockItemIds.RUINED_PEDESTAL);
+
 		this.tag(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE)
 			.add(IcariaBlockItemIds.ANTHRACITE_BLOCK);
 

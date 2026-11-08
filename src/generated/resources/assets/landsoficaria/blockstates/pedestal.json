@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "pedestal=bottom": {
+      "model": "landsoficaria:block/pedestal_bottom"
+    },
+    "pedestal=center": {
+      "model": "landsoficaria:block/pedestal_center"
+    },
+    "pedestal=single": {
+      "model": "landsoficaria:block/pedestal_single"
+    },
+    "pedestal=top": {
+      "model": "landsoficaria:block/pedestal_top"
+    }
+  }
+}

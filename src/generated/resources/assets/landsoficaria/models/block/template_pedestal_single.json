@@ -1,0 +1,203 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#pedestal_top"
+        },
+        "east": {
+          "texture": "#pedestal"
+        },
+        "north": {
+          "texture": "#pedestal"
+        },
+        "south": {
+          "texture": "#pedestal"
+        },
+        "up": {
+          "texture": "#pedestal_top"
+        },
+        "west": {
+          "texture": "#pedestal"
+        }
+      },
+      "from": [
+        1,
+        11,
+        1
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        15,
+        16,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#pedestal_collar"
+        },
+        "east": {
+          "texture": "#pedestal"
+        },
+        "north": {
+          "texture": "#pedestal"
+        },
+        "south": {
+          "texture": "#pedestal"
+        },
+        "west": {
+          "texture": "#pedestal"
+        }
+      },
+      "from": [
+        2,
+        10,
+        2
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        14,
+        11,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#pedestal_side"
+        },
+        "north": {
+          "texture": "#pedestal_side"
+        },
+        "south": {
+          "texture": "#pedestal_side"
+        },
+        "west": {
+          "texture": "#pedestal_side"
+        }
+      },
+      "from": [
+        3,
+        6,
+        3
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        13,
+        10,
+        13
+      ]
+    },
+    {
+      "faces": {
+        "east": {
+          "texture": "#pedestal"
+        },
+        "north": {
+          "texture": "#pedestal"
+        },
+        "south": {
+          "texture": "#pedestal"
+        },
+        "up": {
+          "texture": "#pedestal_collar_top"
+        },
+        "west": {
+          "texture": "#pedestal"
+        }
+      },
+      "from": [
+        2,
+        5,
+        2
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        14,
+        6,
+        14
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#pedestal_top"
+        },
+        "east": {
+          "texture": "#pedestal"
+        },
+        "north": {
+          "texture": "#pedestal"
+        },
+        "south": {
+          "texture": "#pedestal"
+        },
+        "up": {
+          "texture": "#pedestal_top"
+        },
+        "west": {
+          "texture": "#pedestal"
+        }
+      },
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "rotation": {
+        "origin": [
+          0,
+          0,
+          0
+        ],
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "to": [
+        15,
+        5,
+        15
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "parent": "landsoficaria:block/template_pedestal_center",
+  "textures": {
+    "particle": "landsoficaria:block/pedestal_top",
+    "pedestal": "landsoficaria:block/pedestal",
+    "pedestal_collar": "landsoficaria:block/pedestal_collar",
+    "pedestal_collar_top": "landsoficaria:block/pedestal_collar_top",
+    "pedestal_side": "landsoficaria:block/pedestal_side"
+  }
+}

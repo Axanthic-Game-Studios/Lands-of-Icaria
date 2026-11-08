@@ -30,6 +30,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 	@Override
 	public void addTags(HolderLookup.Provider pProvider) {
 		this.tag(BlockTags.BLOCKS_MOTION_NO_LEAVES)
+			.addTag(IcariaBlockItemTags.PEDESTALS.block())
 			.addTag(IcariaBlockItemTags.TERRY_BLOCKS.block())
 			.add(IcariaBlockItemIds.FARMLAND.block())
 			.add(IcariaBlockItemIds.FERTILIZED_FARMLAND.block())
@@ -1155,6 +1156,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.STEPPE_MOSS.block());
 
 		this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
+			.addTag(IcariaBlockItemTags.PEDESTALS.block())
 			.add(IcariaBlockItemIds.MARL_ADOBE.block())
 			.add(IcariaBlockItemIds.MARL_ADOBE_STAIRS.block())
 			.add(IcariaBlockItemIds.MARL_ADOBE_SLAB.block())

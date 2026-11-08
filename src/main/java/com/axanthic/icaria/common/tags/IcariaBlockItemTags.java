@@ -58,6 +58,8 @@ public class IcariaBlockItemTags {
 	public static final BlockItemTagId ORES_IN_GROUND_VOIDSHALE = IcariaBlockItemTags.create("ores_in_ground/voidshale");
 	public static final BlockItemTagId ORES_IN_GROUND_YELLOWSTONE = IcariaBlockItemTags.create("ores_in_ground/yellowstone");
 
+	public static final BlockItemTagId PEDESTALS = IcariaBlockItemTags.createIcaria("pedestals");
+
 	public static final BlockItemTagId STORAGE_BLOCKS_ANTHRACITE = IcariaBlockItemTags.create("storage_blocks/anthracite");
 	public static final BlockItemTagId STORAGE_BLOCKS_ARACHNE_STRING = IcariaBlockItemTags.create("storage_blocks/arachne_string");
 	public static final BlockItemTagId STORAGE_BLOCKS_ARISTONE = IcariaBlockItemTags.create("storage_blocks/aristone");

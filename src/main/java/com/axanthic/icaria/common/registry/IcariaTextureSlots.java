@@ -95,6 +95,12 @@ public class IcariaTextureSlots {
 	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
 	public static final TextureSlot PANE = TextureSlot.create("pane");
 	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
+	public static final TextureSlot PEDESTAL = TextureSlot.create("pedestal");
+	public static final TextureSlot PEDESTAL_COLLAR = TextureSlot.create("pedestal_collar");
+	public static final TextureSlot PEDESTAL_COLLAR_TOP = TextureSlot.create("pedestal_collar_top");
+	public static final TextureSlot PEDESTAL_RUINED = TextureSlot.create("pedestal_ruined");
+	public static final TextureSlot PEDESTAL_SIDE = TextureSlot.create("pedestal_side");
+	public static final TextureSlot PEDESTAL_TOP = TextureSlot.create("pedestal_top");
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
 	public static final TextureSlot PLANT = TextureSlot.create("plant");
 	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");

@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,pedestal=bottom": {
+      "model": "landsoficaria:block/ruined_pedestal_bottom",
+      "y": 90
+    },
+    "facing=east,pedestal=center": {
+      "model": "landsoficaria:block/ruined_pedestal_center",
+      "y": 90
+    },
+    "facing=east,pedestal=single": {
+      "model": "landsoficaria:block/ruined_pedestal_single",
+      "y": 90
+    },
+    "facing=east,pedestal=top": {
+      "model": "landsoficaria:block/ruined_pedestal_top",
+      "y": 90
+    },
+    "facing=north,pedestal=bottom": {
+      "model": "landsoficaria:block/ruined_pedestal_bottom"
+    },
+    "facing=north,pedestal=center": {
+      "model": "landsoficaria:block/ruined_pedestal_center"
+    },
+    "facing=north,pedestal=single": {
+      "model": "landsoficaria:block/ruined_pedestal_single"
+    },
+    "facing=north,pedestal=top": {
+      "model": "landsoficaria:block/ruined_pedestal_top"
+    },
+    "facing=south,pedestal=bottom": {
+      "model": "landsoficaria:block/ruined_pedestal_bottom",
+      "y": 180
+    },
+    "facing=south,pedestal=center": {
+      "model": "landsoficaria:block/ruined_pedestal_center",
+      "y": 180
+    },
+    "facing=south,pedestal=single": {
+      "model": "landsoficaria:block/ruined_pedestal_single",
+      "y": 180
+    },
+    "facing=south,pedestal=top": {
+      "model": "landsoficaria:block/ruined_pedestal_top",
+      "y": 180
+    },
+    "facing=west,pedestal=bottom": {
+      "model": "landsoficaria:block/ruined_pedestal_bottom",
+      "y": 270
+    },
+    "facing=west,pedestal=center": {
+      "model": "landsoficaria:block/ruined_pedestal_center",
+      "y": 270
+    },
+    "facing=west,pedestal=single": {
+      "model": "landsoficaria:block/ruined_pedestal_single",
+      "y": 270
+    },
+    "facing=west,pedestal=top": {
+      "model": "landsoficaria:block/ruined_pedestal_top",
+      "y": 270
+    }
+  }
+}

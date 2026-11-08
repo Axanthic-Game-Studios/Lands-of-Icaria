@@ -270,6 +270,8 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.CHISELED_PLATOSHALE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.QUARTZ_WALL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.QUARTZ_PILLAR_HEAD.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PEDESTAL.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.RUINED_PEDESTAL.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHIMNEY.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHIMNEY_BRICK_CROWN.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHIMNEY_GRATE_CROWN.get(), pItemModelGenerators);

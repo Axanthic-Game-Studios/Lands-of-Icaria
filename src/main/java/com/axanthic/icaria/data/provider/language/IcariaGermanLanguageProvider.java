@@ -293,6 +293,9 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quarzmauer");
 		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quarzsäulenende");
 
+		this.add(IcariaBlocks.PEDESTAL.get(), "Podest");
+		this.add(IcariaBlocks.RUINED_PEDESTAL.get(), "Ruiniertes Podest");
+
 		this.add(IcariaBlocks.CHIMNEY.get(), "Schornstein");
 		this.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), "Schornstein-Ziegelmündung");
 		this.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), "Schornstein-Gittermündung");
@@ -1812,6 +1815,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_VOIDSHALE.block(), "Erze in Leerenschieferboden");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_YELLOWSTONE.block(), "Erze in Gelbsteinboden");
 
+		this.add(IcariaBlockItemTags.PEDESTALS.block(), "Podeste");
+
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE.block(), "Schwarzkohlespeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING.block(), "Arachnefadenspeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARISTONE.block(), "Aristeinspeicherblöcke");
@@ -1978,6 +1983,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_SUNSTONE.item(), "Erze in Sonnensteinboden");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_VOIDSHALE.item(), "Erze in Leerenschieferboden");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_YELLOWSTONE.item(), "Erze in Gelbsteinboden");
+
+		this.add(IcariaBlockItemTags.PEDESTALS.item(), "Podeste");
 
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE.item(), "Schwarzkohlespeicherblöcke");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING.item(), "Arachnefadenspeicherblöcke");

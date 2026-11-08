@@ -251,6 +251,9 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> QUARTZ_WALL = IcariaBlocks.register(IcariaBlockItemIds.QUARTZ_WALL, IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE), IcariaWallBlock::new);
 	public static final DeferredHolder<Block, Block> QUARTZ_PILLAR_HEAD = IcariaBlocks.register(IcariaBlockItemIds.QUARTZ_PILLAR_HEAD, IcariaBlocks.propertiesQuartz(MapColor.QUARTZ, SoundType.STONE), PillarHeadBlock::new);
 
+	public static final DeferredHolder<Block, Block> PEDESTAL = IcariaBlocks.register(IcariaBlockItemIds.PEDESTAL, IcariaBlocks.propertiesPedestal(MapColor.QUARTZ, SoundType.STONE), PedestalBlock::new);
+	public static final DeferredHolder<Block, Block> RUINED_PEDESTAL = IcariaBlocks.register(IcariaBlockItemIds.RUINED_PEDESTAL, IcariaBlocks.propertiesPedestal(MapColor.QUARTZ, SoundType.STONE), RuinedPedestalBlock::new);
+
 	public static final DeferredHolder<Block, Block> CHIMNEY = IcariaBlocks.register(IcariaBlockItemIds.CHIMNEY, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_PINK, SoundType.STONE).forceSolidOff(), ChimneyBlock::new);
 	public static final DeferredHolder<Block, Block> CHIMNEY_BRICK_CROWN = IcariaBlocks.register(IcariaBlockItemIds.CHIMNEY_BRICK_CROWN, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_YELLOW, SoundType.STONE).forceSolidOff(), ChimneyBrickCrownBlock::new);
 	public static final DeferredHolder<Block, Block> CHIMNEY_GRATE_CROWN = IcariaBlocks.register(IcariaBlockItemIds.CHIMNEY_GRATE_CROWN, IcariaBlocks.propertiesStone(MapColor.TERRACOTTA_ORANGE, SoundType.STONE).forceSolidOff(), ChimneyGrateCrownBlock::new);
@@ -1164,6 +1167,10 @@ public class IcariaBlocks {
 	}
 
 	public static BlockBehaviour.Properties propertiesQuartz(MapColor pMapColor, SoundType pSoundType) {
+		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).requiresCorrectToolForDrops();
+	}
+
+	public static BlockBehaviour.Properties propertiesPedestal(MapColor pMapColor, SoundType pSoundType) {
 		return BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.BASEDRUM).mapColor(pMapColor).pushReaction(PushReaction.PUSH_PULL).sound(pSoundType).destroyTime(0.8F).explosionResistance(0.8F).requiresCorrectToolForDrops();
 	}
 

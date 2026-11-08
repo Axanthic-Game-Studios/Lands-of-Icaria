@@ -8,6 +8,8 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
+import it.unimi.dsi.fastutil.HashCommon;
+
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
@@ -82,6 +84,12 @@ public class IcariaCommonHelper {
 		if (!pPlayer.isCreative()) {
 			pPlayer.setItemInHand(pInteractionHand, pItemStack);
 		}
+	}
+
+	public static Direction getSeededFacing(BlockPos pBlockPos) {
+		var mix = HashCommon.mix(pBlockPos.asLong());
+		var mod = Math.floorMod(mix, 4);
+		return Direction.from2DDataValue(mod);
 	}
 
 	public static Item getItemFromMat(Mat pMat) {

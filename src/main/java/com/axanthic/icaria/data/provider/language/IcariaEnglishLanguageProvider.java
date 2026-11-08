@@ -293,6 +293,9 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.QUARTZ_WALL.get(), "Quartz Wall");
 		this.add(IcariaBlocks.QUARTZ_PILLAR_HEAD.get(), "Quartz Pillar Head");
 
+		this.add(IcariaBlocks.PEDESTAL.get(), "Pedestal");
+		this.add(IcariaBlocks.RUINED_PEDESTAL.get(), "Ruined Pedestal");
+
 		this.add(IcariaBlocks.CHIMNEY.get(), "Chimney");
 		this.add(IcariaBlocks.CHIMNEY_BRICK_CROWN.get(), "Chimney Brick Crown");
 		this.add(IcariaBlocks.CHIMNEY_GRATE_CROWN.get(), "Chimney Grate Crown");
@@ -1812,6 +1815,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_VOIDSHALE.block(), "Voidshale Ores In Ground");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_YELLOWSTONE.block(), "Yellowstone Ores In Ground");
 
+		this.add(IcariaBlockItemTags.PEDESTALS.block(), "Pedestals");
+
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE.block(), "Anthracite Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING.block(), "Arachne String Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARISTONE.block(), "Aristone Storage Blocks");
@@ -1978,6 +1983,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_SUNSTONE.item(), "Sunstone Ores In Ground");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_VOIDSHALE.item(), "Voidshale Ores In Ground");
 		this.add(IcariaBlockItemTags.ORES_IN_GROUND_YELLOWSTONE.item(), "Yellowstone Ores In Ground");
+
+		this.add(IcariaBlockItemTags.PEDESTALS.item(), "Pedestals");
 
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ANTHRACITE.item(), "Anthracite Storage Blocks");
 		this.add(IcariaBlockItemTags.STORAGE_BLOCKS_ARACHNE_STRING.item(), "Arachne String Storage Blocks");

@@ -811,6 +811,9 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.QUARTZ_WALL.get());
 			pEvent.accept(IcariaItems.QUARTZ_PILLAR_HEAD.get());
 
+			pEvent.accept(IcariaItems.PEDESTAL.get());
+			pEvent.accept(IcariaItems.RUINED_PEDESTAL.get());
+
 			pEvent.accept(IcariaItems.CHIMNEY.get());
 			pEvent.accept(IcariaItems.CHIMNEY_BRICK_CROWN.get());
 			pEvent.accept(IcariaItems.CHIMNEY_GRATE_CROWN.get());

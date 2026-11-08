@@ -48,6 +48,7 @@ public class IcariaBlockStateProperties {
 	public static final EnumProperty<Mat> MAT = EnumProperty.create("mat", Mat.class);
 	public static final EnumProperty<Moss> MOSS = EnumProperty.create("moss", Moss.class);
 	public static final EnumProperty<Olives> OLIVES = EnumProperty.create("olives", Olives.class);
+	public static final EnumProperty<Pedestal> PEDESTAL = EnumProperty.create("pedestal", Pedestal.class);
 	public static final EnumProperty<Trough> TROUGH = EnumProperty.create("trough", Trough.class);
 	public static final EnumProperty<Vine> VINE = EnumProperty.create("vine", Vine.class);
 	public static final EnumProperty<Wedge> WEDGE = EnumProperty.create("wedge", Wedge.class);
