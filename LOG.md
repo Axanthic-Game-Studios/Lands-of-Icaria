@@ -87,6 +87,7 @@ Updates
 
 Fixes
 
+- Blocks with connection-based Properties (e.g. Walls) moved using the Anti Gravity Spell now update their State accordingly when landing
 - Waterlogged Blocks moved using the Anti Gravity Spell now update their State accordingly when landing outside Fluid Blocks and vice versa
 - Harvesting Vine Sprouts from Brushy Vines displays fitting Closed Captions now
 - Inconsistent Scroll Item Lighting

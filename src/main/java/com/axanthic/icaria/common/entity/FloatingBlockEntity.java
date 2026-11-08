@@ -14,6 +14,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -117,8 +118,9 @@ public class FloatingBlockEntity extends Entity {
 			this.setDeltaMovement(this.getDeltaMovement().add(0.0, -0.05D, 0.0));
 			if (this.onGround()) {
 				var fluidState = this.level().getFluidState(this.blockPosition());
-				if (this.level().getBlockState(this.blockPosition()).canBeReplaced() && this.getBlockState().canSurvive(this.level(), this.blockPosition())) {
-					this.level().setBlockAndUpdate(this.blockPosition(), this.getBlockState().trySetValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState.is(IcariaFluids.MEDITERRANEAN_WATER)).trySetValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER)));
+				var blockState = Block.updateFromNeighbourShapes(this.getBlockState().trySetValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluidState.is(IcariaFluids.MEDITERRANEAN_WATER)).trySetValue(BlockStateProperties.WATERLOGGED, fluidState.is(Fluids.WATER)), this.level(), this.blockPosition());
+				if (this.level().getBlockState(this.blockPosition()).canBeReplaced() && this.getBlockState().canSurvive(this.level(), this.blockPosition()) && !blockState.isAir()) {
+					this.level().setBlockAndUpdate(this.blockPosition(), blockState);
 					this.playSound(this.getBlockState().getSoundType(this.level(), this.blockPosition(), null).getPlaceSound());
 					this.discard();
 				} else if (this.level() instanceof ServerLevel serverLevel && serverLevel.getGameRules().get(GameRules.ENTITY_DROPS)) {
