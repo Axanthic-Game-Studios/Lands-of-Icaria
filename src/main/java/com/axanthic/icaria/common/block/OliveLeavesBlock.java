@@ -21,8 +21,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 
 @MethodsReturnNonnullByDefault
@@ -60,19 +58,27 @@ public class OliveLeavesBlock extends IcariaLeavesBlock {
 
 	@Override
 	public InteractionResult useWithoutItem(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, Player pPlayer, BlockHitResult pBlockHitResult) {
-		if (pLevel instanceof ServerLevel serverLevel && pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.OLIVE_LEAVES);
-		} else if (pLevel instanceof ServerLevel serverLevel && pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
-			return this.dropFromLootTable(pBlockPos, pBlockState, pBlockHitResult.getDirection(), serverLevel, IcariaLootTableIds.OLIVE_LEAVES);
+		if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.BLACK) {
+			this.dropLoot(pBlockPos, pBlockState, pBlockHitResult.getDirection(), pLevel, pPlayer, IcariaLootTableIds.OLIVE_LEAVES);
+			return InteractionResult.SUCCESS;
+		} else if (pBlockState.getValue(IcariaBlockStateProperties.OLIVES) == Olives.GREEN) {
+			this.dropLoot(pBlockPos, pBlockState, pBlockHitResult.getDirection(), pLevel, pPlayer, IcariaLootTableIds.OLIVE_LEAVES);
+			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.PASS;
 		}
 	}
 
-	public InteractionResult dropFromLootTable(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
-		Block.dropFromLootTable(pServerLevel, pResourceKey, builder -> builder.withParameter(LootContextParams.BLOCK_STATE, pBlockState).create(LootContextParamSets.BLOCK_INTERACT), (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
+	public void dropLoot(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Level pLevel, Player pPlayer, ResourceKey<LootTable> pResourceKey) {
+		if (pLevel instanceof ServerLevel serverLevel) {
+			this.dropLoot(pBlockPos, pBlockState, pDirection, pPlayer, serverLevel, pResourceKey);
+		}
+	}
+
+	public void dropLoot(BlockPos pBlockPos, BlockState pBlockState, Direction pDirection, Player pPlayer, ServerLevel pServerLevel, ResourceKey<LootTable> pResourceKey) {
+		var blockEntity = pServerLevel.getBlockEntity(pBlockPos);
+		Block.dropFromBlockInteractLootTable(pServerLevel, pResourceKey, pBlockPos, pBlockState, blockEntity, null, pPlayer, (serverLevel, itemStack) -> Block.popResourceFromFace(serverLevel, pBlockPos, pDirection, itemStack));
 		pServerLevel.playSound(null, pBlockPos, IcariaSoundEvents.OLIVES_POP, SoundSource.BLOCKS);
 		pServerLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(IcariaBlockStateProperties.OLIVES, Olives.NONE));
-		return InteractionResult.SUCCESS;
 	}
 }
