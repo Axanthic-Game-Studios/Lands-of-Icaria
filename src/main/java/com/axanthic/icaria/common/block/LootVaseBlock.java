@@ -7,6 +7,7 @@ import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.ids.IcariaLootTableIds;
 import com.axanthic.icaria.common.payload.LootVasePayload;
 import com.axanthic.icaria.common.registry.*;
+import com.axanthic.icaria.common.shapes.LootVaseVoxelShapes;
 
 import java.util.List;
 
@@ -15,12 +16,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.TriState;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
@@ -35,6 +36,9 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.neoforged.neoforge.network.PacketDistributor;
 
@@ -115,7 +119,19 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	}
 
 	@Override
-	public TriState canBeConnectedTo(BlockState pBlockState, Direction pDirection, Block pBlock) {
-		return TriState.FALSE;
+	public VoxelShape getShape(BlockState pBlockState, BlockGetter pBlockGetter, BlockPos pBlockPos, CollisionContext pCollisionContext) {
+		return switch (pBlockState.getValue(IcariaBlockStateProperties.VASE_VARIANT)) {
+			case 0 -> LootVaseVoxelShapes.V0;
+			case 1 -> LootVaseVoxelShapes.V1;
+			case 2 -> LootVaseVoxelShapes.V2;
+			case 3 -> LootVaseVoxelShapes.V3;
+			case 4 -> LootVaseVoxelShapes.V4;
+			case 5 -> LootVaseVoxelShapes.V5;
+			case 6 -> LootVaseVoxelShapes.V6;
+			case 7 -> LootVaseVoxelShapes.V7;
+			case 8 -> LootVaseVoxelShapes.V8;
+			case 9 -> LootVaseVoxelShapes.V9;
+			default -> Shapes.block();
+		};
 	}
 }
