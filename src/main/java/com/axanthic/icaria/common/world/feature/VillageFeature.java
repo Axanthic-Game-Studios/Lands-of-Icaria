@@ -157,7 +157,7 @@ public class VillageFeature implements Feature {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
 				blockEntity.setLootTable(IcariaLootTableIds.RED_STORAGE_VASE, pRandomSource.nextLong());
 			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTableIds.CYAN_LOOT_VASE, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTableIds.CYAN_STORAGE_VASE, pRandomSource.nextLong());
 			}
 		}
 	}
