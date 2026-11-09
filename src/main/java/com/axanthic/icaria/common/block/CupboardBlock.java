@@ -21,6 +21,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -69,7 +70,8 @@ public class CupboardBlock extends Block implements MediterraneanWaterloggedBloc
 			case NORTH -> CupboardVoxelShapes.NORTH;
 			case EAST -> CupboardVoxelShapes.EAST;
 			case SOUTH -> CupboardVoxelShapes.SOUTH;
-			default -> CupboardVoxelShapes.WEST;
+			case WEST -> CupboardVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

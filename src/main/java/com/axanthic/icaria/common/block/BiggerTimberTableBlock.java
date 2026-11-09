@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -131,7 +132,8 @@ public class BiggerTimberTableBlock extends Block {
 			case NORTH -> BiggerTimberTableVoxelShapes.FRONT_NORTH;
 			case EAST -> BiggerTimberTableVoxelShapes.FRONT_EAST;
 			case SOUTH -> BiggerTimberTableVoxelShapes.FRONT_SOUTH;
-			default -> BiggerTimberTableVoxelShapes.FRONT_WEST;
+			case WEST -> BiggerTimberTableVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -140,7 +142,8 @@ public class BiggerTimberTableBlock extends Block {
 			case NORTH -> BiggerTimberTableVoxelShapes.CENTER_NORTH;
 			case EAST -> BiggerTimberTableVoxelShapes.CENTER_EAST;
 			case SOUTH -> BiggerTimberTableVoxelShapes.CENTER_SOUTH;
-			default -> BiggerTimberTableVoxelShapes.CENTER_WEST;
+			case WEST -> BiggerTimberTableVoxelShapes.CENTER_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -149,7 +152,8 @@ public class BiggerTimberTableBlock extends Block {
 			case NORTH -> BiggerTimberTableVoxelShapes.BACK_NORTH;
 			case EAST -> BiggerTimberTableVoxelShapes.BACK_EAST;
 			case SOUTH -> BiggerTimberTableVoxelShapes.BACK_SOUTH;
-			default -> BiggerTimberTableVoxelShapes.BACK_WEST;
+			case WEST -> BiggerTimberTableVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

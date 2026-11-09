@@ -32,6 +32,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -99,7 +100,8 @@ public class VaseBlock extends Block implements MediterraneanWaterloggedBlock, S
 			case NORTH -> VaseVoxelShapes.NORTH;
 			case EAST -> VaseVoxelShapes.EAST;
 			case SOUTH -> VaseVoxelShapes.SOUTH;
-			default -> VaseVoxelShapes.WEST;
+			case WEST -> VaseVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

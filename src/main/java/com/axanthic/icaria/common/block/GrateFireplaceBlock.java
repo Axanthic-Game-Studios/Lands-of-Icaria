@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -33,7 +34,8 @@ public class GrateFireplaceBlock extends FireplaceBlock {
 			case NORTH -> GrateFireplaceVoxelShapes.BOTTOM_NORTH;
 			case EAST -> GrateFireplaceVoxelShapes.BOTTOM_EAST;
 			case SOUTH -> GrateFireplaceVoxelShapes.BOTTOM_SOUTH;
-			default -> GrateFireplaceVoxelShapes.BOTTOM_WEST;
+			case WEST -> GrateFireplaceVoxelShapes.BOTTOM_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -42,7 +44,8 @@ public class GrateFireplaceBlock extends FireplaceBlock {
 			case NORTH -> GrateFireplaceVoxelShapes.TOP_NORTH;
 			case EAST -> GrateFireplaceVoxelShapes.TOP_EAST;
 			case SOUTH -> GrateFireplaceVoxelShapes.TOP_SOUTH;
-			default -> GrateFireplaceVoxelShapes.TOP_WEST;
+			case WEST -> GrateFireplaceVoxelShapes.TOP_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

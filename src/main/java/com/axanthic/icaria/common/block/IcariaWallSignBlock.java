@@ -30,6 +30,7 @@ import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
@@ -118,7 +119,8 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 			case NORTH -> WallSignVoxelShapes.CEILING_NORTH;
 			case EAST -> WallSignVoxelShapes.CEILING_EAST;
 			case SOUTH -> WallSignVoxelShapes.CEILING_SOUTH;
-			default -> WallSignVoxelShapes.CEILING_WEST;
+			case WEST -> WallSignVoxelShapes.CEILING_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -127,7 +129,8 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 			case NORTH -> WallSignVoxelShapes.FLOOR_NORTH;
 			case EAST -> WallSignVoxelShapes.FLOOR_EAST;
 			case SOUTH -> WallSignVoxelShapes.FLOOR_SOUTH;
-			default -> WallSignVoxelShapes.FLOOR_WEST;
+			case WEST -> WallSignVoxelShapes.FLOOR_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -136,7 +139,8 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 			case NORTH -> WallSignVoxelShapes.WALL_NORTH;
 			case EAST -> WallSignVoxelShapes.WALL_EAST;
 			case SOUTH -> WallSignVoxelShapes.WALL_SOUTH;
-			default -> WallSignVoxelShapes.WALL_WEST;
+			case WEST -> WallSignVoxelShapes.WALL_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

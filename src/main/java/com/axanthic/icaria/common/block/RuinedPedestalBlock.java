@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -35,7 +36,8 @@ public class RuinedPedestalBlock extends PedestalBlock {
 			case NORTH -> RuinedPedestalVoxelShapes.SINGLE_NORTH;
 			case EAST -> RuinedPedestalVoxelShapes.SINGLE_EAST;
 			case SOUTH -> RuinedPedestalVoxelShapes.SINGLE_SOUTH;
-			default -> RuinedPedestalVoxelShapes.SINGLE_WEST;
+			case WEST -> RuinedPedestalVoxelShapes.SINGLE_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -44,7 +46,8 @@ public class RuinedPedestalBlock extends PedestalBlock {
 			case NORTH -> RuinedPedestalVoxelShapes.BOTTOM_NORTH;
 			case EAST -> RuinedPedestalVoxelShapes.BOTTOM_EAST;
 			case SOUTH -> RuinedPedestalVoxelShapes.BOTTOM_SOUTH;
-			default -> RuinedPedestalVoxelShapes.BOTTOM_WEST;
+			case WEST -> RuinedPedestalVoxelShapes.BOTTOM_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -53,7 +56,8 @@ public class RuinedPedestalBlock extends PedestalBlock {
 			case NORTH -> RuinedPedestalVoxelShapes.CENTER_NORTH;
 			case EAST -> RuinedPedestalVoxelShapes.CENTER_EAST;
 			case SOUTH -> RuinedPedestalVoxelShapes.CENTER_SOUTH;
-			default -> RuinedPedestalVoxelShapes.CENTER_WEST;
+			case WEST -> RuinedPedestalVoxelShapes.CENTER_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -62,7 +66,8 @@ public class RuinedPedestalBlock extends PedestalBlock {
 			case NORTH -> RuinedPedestalVoxelShapes.TOP_NORTH;
 			case EAST -> RuinedPedestalVoxelShapes.TOP_EAST;
 			case SOUTH -> RuinedPedestalVoxelShapes.TOP_SOUTH;
-			default -> RuinedPedestalVoxelShapes.TOP_WEST;
+			case WEST -> RuinedPedestalVoxelShapes.TOP_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

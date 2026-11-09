@@ -34,6 +34,7 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -197,7 +198,8 @@ public class GrinderBlock extends BaseEntityBlock {
 			case NORTH -> GrinderVoxelShapes.LEFT_NORTH;
 			case EAST -> GrinderVoxelShapes.LEFT_EAST;
 			case SOUTH -> GrinderVoxelShapes.LEFT_SOUTH;
-			default -> GrinderVoxelShapes.LEFT_WEST;
+			case WEST -> GrinderVoxelShapes.LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -206,7 +208,8 @@ public class GrinderBlock extends BaseEntityBlock {
 			case NORTH -> GrinderVoxelShapes.RIGHT_NORTH;
 			case EAST -> GrinderVoxelShapes.RIGHT_EAST;
 			case SOUTH -> GrinderVoxelShapes.RIGHT_SOUTH;
-			default -> GrinderVoxelShapes.RIGHT_WEST;
+			case WEST -> GrinderVoxelShapes.RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 

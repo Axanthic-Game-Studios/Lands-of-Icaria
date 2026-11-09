@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -63,7 +64,8 @@ public class CountertopBlock extends Block implements MediterraneanWaterloggedBl
 			case NORTH -> CountertopVoxelShapes.NORTH;
 			case EAST -> CountertopVoxelShapes.EAST;
 			case SOUTH -> CountertopVoxelShapes.SOUTH;
-			default -> CountertopVoxelShapes.WEST;
+			case WEST -> CountertopVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

@@ -32,6 +32,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -155,7 +156,8 @@ public class TimberBenchBlock extends Block {
 			case NORTH -> TimberBenchVoxelShapes.FRONT_NORTH;
 			case EAST -> TimberBenchVoxelShapes.FRONT_EAST;
 			case SOUTH -> TimberBenchVoxelShapes.FRONT_SOUTH;
-			default -> TimberBenchVoxelShapes.FRONT_WEST;
+			case WEST -> TimberBenchVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -164,7 +166,8 @@ public class TimberBenchBlock extends Block {
 			case NORTH -> TimberBenchVoxelShapes.BACK_NORTH;
 			case EAST -> TimberBenchVoxelShapes.BACK_EAST;
 			case SOUTH -> TimberBenchVoxelShapes.BACK_SOUTH;
-			default -> TimberBenchVoxelShapes.BACK_WEST;
+			case WEST -> TimberBenchVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

@@ -36,6 +36,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -254,7 +255,8 @@ public class TroughBlock extends Block implements EntityBlock, MediterraneanWate
 			case NORTH -> TroughVoxelShapes.NORTH;
 			case EAST -> TroughVoxelShapes.EAST;
 			case SOUTH -> TroughVoxelShapes.SOUTH;
-			default -> TroughVoxelShapes.WEST;
+			case WEST -> TroughVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

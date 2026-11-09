@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -126,7 +127,8 @@ public class TimberTableBlock extends Block {
 			case NORTH -> TimberTableVoxelShapes.FRONT_NORTH;
 			case EAST -> TimberTableVoxelShapes.FRONT_EAST;
 			case SOUTH -> TimberTableVoxelShapes.FRONT_SOUTH;
-			default -> TimberTableVoxelShapes.FRONT_WEST;
+			case WEST -> TimberTableVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -135,7 +137,8 @@ public class TimberTableBlock extends Block {
 			case NORTH -> TimberTableVoxelShapes.BACK_NORTH;
 			case EAST -> TimberTableVoxelShapes.BACK_EAST;
 			case SOUTH -> TimberTableVoxelShapes.BACK_SOUTH;
-			default -> TimberTableVoxelShapes.BACK_WEST;
+			case WEST -> TimberTableVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

@@ -38,6 +38,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -128,7 +129,8 @@ public class SmithingHeftBlock extends Block implements MediterraneanWaterlogged
 			case NORTH -> SmithingHeftVoxelShapes.NORTH;
 			case EAST -> SmithingHeftVoxelShapes.EAST;
 			case SOUTH -> SmithingHeftVoxelShapes.SOUTH;
-			default -> SmithingHeftVoxelShapes.WEST;
+			case WEST -> SmithingHeftVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

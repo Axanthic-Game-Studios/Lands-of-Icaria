@@ -22,6 +22,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -90,7 +91,8 @@ public class FirewoodWedgeBlock extends Block implements MediterraneanWaterlogge
 			case NORTH -> FirewoodWedgeVoxelShapes.JAGGED_NORTH;
 			case EAST -> FirewoodWedgeVoxelShapes.JAGGED_EAST;
 			case SOUTH -> FirewoodWedgeVoxelShapes.JAGGED_SOUTH;
-			default -> FirewoodWedgeVoxelShapes.JAGGED_WEST;
+			case WEST -> FirewoodWedgeVoxelShapes.JAGGED_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -99,7 +101,8 @@ public class FirewoodWedgeBlock extends Block implements MediterraneanWaterlogge
 			case NORTH -> FirewoodWedgeVoxelShapes.SMOOTH_NORTH;
 			case EAST -> FirewoodWedgeVoxelShapes.SMOOTH_EAST;
 			case SOUTH -> FirewoodWedgeVoxelShapes.SMOOTH_SOUTH;
-			default -> FirewoodWedgeVoxelShapes.SMOOTH_WEST;
+			case WEST -> FirewoodWedgeVoxelShapes.SMOOTH_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

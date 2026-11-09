@@ -35,6 +35,7 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -211,7 +212,8 @@ public class HutchBlock extends Block implements EntityBlock, MediterraneanWater
 			case NORTH -> HutchVoxelShapes.NORTH;
 			case EAST -> HutchVoxelShapes.EAST;
 			case SOUTH -> HutchVoxelShapes.SOUTH;
-			default -> HutchVoxelShapes.WEST;
+			case WEST -> HutchVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

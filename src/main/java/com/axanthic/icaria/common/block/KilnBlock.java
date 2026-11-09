@@ -35,6 +35,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -185,7 +186,8 @@ public class KilnBlock extends BaseEntityBlock {
 			case NORTH -> KilnVoxelShapes.BOTTOM_NORTH;
 			case EAST -> KilnVoxelShapes.BOTTOM_EAST;
 			case SOUTH -> KilnVoxelShapes.BOTTOM_SOUTH;
-			default -> KilnVoxelShapes.BOTTOM_WEST;
+			case WEST -> KilnVoxelShapes.BOTTOM_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -194,7 +196,8 @@ public class KilnBlock extends BaseEntityBlock {
 			case NORTH -> KilnVoxelShapes.TOP_NORTH;
 			case EAST -> KilnVoxelShapes.TOP_EAST;
 			case SOUTH -> KilnVoxelShapes.TOP_SOUTH;
-			default -> KilnVoxelShapes.TOP_WEST;
+			case WEST -> KilnVoxelShapes.TOP_WEST;
+			default -> Shapes.block();
 		};
 	}
 

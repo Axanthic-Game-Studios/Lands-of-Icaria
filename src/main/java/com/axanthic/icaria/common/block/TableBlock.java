@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -126,7 +127,8 @@ public class TableBlock extends Block {
 			case NORTH -> TableVoxelShapes.FRONT_NORTH;
 			case EAST -> TableVoxelShapes.FRONT_EAST;
 			case SOUTH -> TableVoxelShapes.FRONT_SOUTH;
-			default -> TableVoxelShapes.FRONT_WEST;
+			case WEST -> TableVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -135,7 +137,8 @@ public class TableBlock extends Block {
 			case NORTH -> TableVoxelShapes.BACK_NORTH;
 			case EAST -> TableVoxelShapes.BACK_EAST;
 			case SOUTH -> TableVoxelShapes.BACK_SOUTH;
-			default -> TableVoxelShapes.BACK_WEST;
+			case WEST -> TableVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

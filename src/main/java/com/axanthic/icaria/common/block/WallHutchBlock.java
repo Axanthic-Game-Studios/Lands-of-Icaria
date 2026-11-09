@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -71,7 +72,8 @@ public class WallHutchBlock extends HutchBlock implements EntityBlock {
 			case NORTH -> WallHutchVoxelShapes.MULTI_NORTH;
 			case EAST -> WallHutchVoxelShapes.MULTI_EAST;
 			case SOUTH -> WallHutchVoxelShapes.MULTI_SOUTH;
-			default -> WallHutchVoxelShapes.MULTI_WEST;
+			case WEST -> WallHutchVoxelShapes.MULTI_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -80,7 +82,8 @@ public class WallHutchBlock extends HutchBlock implements EntityBlock {
 			case NORTH -> WallHutchVoxelShapes.NORTH;
 			case EAST -> WallHutchVoxelShapes.EAST;
 			case SOUTH -> WallHutchVoxelShapes.SOUTH;
-			default -> WallHutchVoxelShapes.WEST;
+			case WEST -> WallHutchVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 

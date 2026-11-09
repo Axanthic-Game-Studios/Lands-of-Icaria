@@ -39,6 +39,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -343,7 +344,8 @@ public class BathtubBlock extends Block implements EntityBlock {
 			case NORTH -> BathtubVoxelShapes.FRONT_NORTH;
 			case EAST -> BathtubVoxelShapes.FRONT_EAST;
 			case SOUTH -> BathtubVoxelShapes.FRONT_SOUTH;
-			default -> BathtubVoxelShapes.FRONT_WEST;
+			case WEST -> BathtubVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -352,7 +354,8 @@ public class BathtubBlock extends Block implements EntityBlock {
 			case NORTH -> BathtubVoxelShapes.BACK_NORTH;
 			case EAST -> BathtubVoxelShapes.BACK_EAST;
 			case SOUTH -> BathtubVoxelShapes.BACK_SOUTH;
-			default -> BathtubVoxelShapes.BACK_WEST;
+			case WEST -> BathtubVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

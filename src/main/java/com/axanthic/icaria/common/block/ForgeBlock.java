@@ -38,6 +38,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -283,7 +284,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_EAST;
 			case SOUTH -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_WEST;
+			case WEST -> ForgeVoxelShapes.BOTTOM_FRONT_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -292,7 +294,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_EAST;
 			case SOUTH -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_WEST;
+			case WEST -> ForgeVoxelShapes.BOTTOM_FRONT_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -301,7 +304,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.TOP_FRONT_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_FRONT_LEFT_EAST;
 			case SOUTH -> ForgeVoxelShapes.TOP_FRONT_LEFT_SOUTH;
-			default -> ForgeVoxelShapes.TOP_FRONT_LEFT_WEST;
+			case WEST -> ForgeVoxelShapes.TOP_FRONT_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -310,7 +314,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.TOP_FRONT_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_FRONT_RIGHT_EAST;
 			case SOUTH -> ForgeVoxelShapes.TOP_FRONT_RIGHT_SOUTH;
-			default -> ForgeVoxelShapes.TOP_FRONT_RIGHT_WEST;
+			case WEST -> ForgeVoxelShapes.TOP_FRONT_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -319,7 +324,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_EAST;
 			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_WEST;
+			case WEST -> ForgeVoxelShapes.BOTTOM_BACK_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -328,7 +334,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_EAST;
 			case SOUTH -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_SOUTH;
-			default -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_WEST;
+			case WEST -> ForgeVoxelShapes.BOTTOM_BACK_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -337,7 +344,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.TOP_BACK_LEFT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_BACK_LEFT_EAST;
 			case SOUTH -> ForgeVoxelShapes.TOP_BACK_LEFT_SOUTH;
-			default -> ForgeVoxelShapes.TOP_BACK_LEFT_WEST;
+			case WEST -> ForgeVoxelShapes.TOP_BACK_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -346,7 +354,8 @@ public class ForgeBlock extends BaseEntityBlock {
 			case NORTH -> ForgeVoxelShapes.TOP_BACK_RIGHT_NORTH;
 			case EAST -> ForgeVoxelShapes.TOP_BACK_RIGHT_EAST;
 			case SOUTH -> ForgeVoxelShapes.TOP_BACK_RIGHT_SOUTH;
-			default -> ForgeVoxelShapes.TOP_BACK_RIGHT_WEST;
+			case WEST -> ForgeVoxelShapes.TOP_BACK_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 

@@ -35,6 +35,7 @@ import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -151,7 +152,8 @@ public class TripleBarrelRackBlock extends Block {
 			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_EAST;
 			case SOUTH -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_SOUTH;
-			default -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_WEST;
+			case WEST -> TripleBarrelRackVoxelShapes.BOTTOM_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -160,7 +162,8 @@ public class TripleBarrelRackBlock extends Block {
 			case NORTH -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_EAST;
 			case SOUTH -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_SOUTH;
-			default -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_WEST;
+			case WEST -> TripleBarrelRackVoxelShapes.BOTTOM_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -169,7 +172,8 @@ public class TripleBarrelRackBlock extends Block {
 			case NORTH -> TripleBarrelRackVoxelShapes.TOP_LEFT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.TOP_LEFT_EAST;
 			case SOUTH -> TripleBarrelRackVoxelShapes.TOP_LEFT_SOUTH;
-			default -> TripleBarrelRackVoxelShapes.TOP_LEFT_WEST;
+			case WEST -> TripleBarrelRackVoxelShapes.TOP_LEFT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -178,7 +182,8 @@ public class TripleBarrelRackBlock extends Block {
 			case NORTH -> TripleBarrelRackVoxelShapes.TOP_RIGHT_NORTH;
 			case EAST -> TripleBarrelRackVoxelShapes.TOP_RIGHT_EAST;
 			case SOUTH -> TripleBarrelRackVoxelShapes.TOP_RIGHT_SOUTH;
-			default -> TripleBarrelRackVoxelShapes.TOP_RIGHT_WEST;
+			case WEST -> TripleBarrelRackVoxelShapes.TOP_RIGHT_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

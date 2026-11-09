@@ -9,6 +9,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -25,7 +26,8 @@ public class BrokenHolderBlock extends HolderBlock {
 			case NORTH -> BrokenHolderVoxelShapes.NORTH;
 			case EAST -> BrokenHolderVoxelShapes.EAST;
 			case SOUTH -> BrokenHolderVoxelShapes.SOUTH;
-			default -> BrokenHolderVoxelShapes.WEST;
+			case WEST -> BrokenHolderVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

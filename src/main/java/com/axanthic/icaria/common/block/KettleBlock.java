@@ -42,6 +42,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -271,7 +272,8 @@ public class KettleBlock extends BaseEntityBlock {
 			case NORTH -> KettleVoxelShapes.BOTTOM_NORTH;
 			case EAST -> KettleVoxelShapes.BOTTOM_EAST;
 			case SOUTH -> KettleVoxelShapes.BOTTOM_SOUTH;
-			default -> KettleVoxelShapes.BOTTOM_WEST;
+			case WEST -> KettleVoxelShapes.BOTTOM_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -280,7 +282,8 @@ public class KettleBlock extends BaseEntityBlock {
 			case NORTH -> KettleVoxelShapes.TOP_NORTH;
 			case EAST -> KettleVoxelShapes.TOP_EAST;
 			case SOUTH -> KettleVoxelShapes.TOP_SOUTH;
-			default -> KettleVoxelShapes.TOP_WEST;
+			case WEST -> KettleVoxelShapes.TOP_WEST;
+			default -> Shapes.block();
 		};
 	}
 

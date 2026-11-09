@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -94,7 +95,8 @@ public class HolderBlock extends Block implements MediterraneanWaterloggedBlock,
 			case NORTH -> HolderVoxelShapes.NORTH;
 			case EAST -> HolderVoxelShapes.EAST;
 			case SOUTH -> HolderVoxelShapes.SOUTH;
-			default -> HolderVoxelShapes.WEST;
+			case WEST -> HolderVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

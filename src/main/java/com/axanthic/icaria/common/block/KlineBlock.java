@@ -36,6 +36,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -169,7 +170,8 @@ public class KlineBlock extends Block {
 			case NORTH -> KlineVoxelShapes.FRONT_NORTH;
 			case EAST -> KlineVoxelShapes.FRONT_EAST;
 			case SOUTH -> KlineVoxelShapes.FRONT_SOUTH;
-			default -> KlineVoxelShapes.FRONT_WEST;
+			case WEST -> KlineVoxelShapes.FRONT_WEST;
+			default -> Shapes.block();
 		};
 	}
 
@@ -178,7 +180,8 @@ public class KlineBlock extends Block {
 			case NORTH -> KlineVoxelShapes.BACK_NORTH;
 			case EAST -> KlineVoxelShapes.BACK_EAST;
 			case SOUTH -> KlineVoxelShapes.BACK_SOUTH;
-			default -> KlineVoxelShapes.BACK_WEST;
+			case WEST -> KlineVoxelShapes.BACK_WEST;
+			default -> Shapes.block();
 		};
 	}
 }

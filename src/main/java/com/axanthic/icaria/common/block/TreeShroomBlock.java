@@ -22,6 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -85,7 +86,8 @@ public class TreeShroomBlock extends Block {
 			case NORTH -> DirectionVoxelShapes.NORTH;
 			case EAST -> DirectionVoxelShapes.EAST;
 			case SOUTH -> DirectionVoxelShapes.SOUTH;
-			default -> DirectionVoxelShapes.WEST;
+			case WEST -> DirectionVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

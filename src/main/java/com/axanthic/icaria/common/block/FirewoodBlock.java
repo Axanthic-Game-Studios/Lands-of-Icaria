@@ -21,6 +21,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -69,7 +70,8 @@ public class FirewoodBlock extends Block implements MediterraneanWaterloggedBloc
 			case NORTH -> FirewoodVoxelShapes.NORTH;
 			case EAST -> FirewoodVoxelShapes.EAST;
 			case SOUTH -> FirewoodVoxelShapes.SOUTH;
-			default -> FirewoodVoxelShapes.WEST;
+			case WEST -> FirewoodVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }

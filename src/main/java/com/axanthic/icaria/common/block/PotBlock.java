@@ -38,6 +38,7 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 @MethodsReturnNonnullByDefault
@@ -206,7 +207,8 @@ public class PotBlock extends Block implements EntityBlock, MediterraneanWaterlo
 			case NORTH -> PotVoxelShapes.NORTH;
 			case EAST -> PotVoxelShapes.EAST;
 			case SOUTH -> PotVoxelShapes.SOUTH;
-			default -> PotVoxelShapes.WEST;
+			case WEST -> PotVoxelShapes.WEST;
+			default -> Shapes.block();
 		};
 	}
 }
