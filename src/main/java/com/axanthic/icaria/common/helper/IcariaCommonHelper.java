@@ -8,14 +8,13 @@ import com.axanthic.icaria.common.registry.IcariaBlocks;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.registry.IcariaItems;
 
-import it.unimi.dsi.fastutil.HashCommon;
-
 import javax.annotation.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -86,12 +85,6 @@ public class IcariaCommonHelper {
 		}
 	}
 
-	public static Direction getSeededFacing(BlockPos pBlockPos) {
-		var mix = HashCommon.mix(pBlockPos.asLong());
-		var mod = Math.floorMod(mix, 4);
-		return Direction.from2DDataValue(mod);
-	}
-
 	public static Item getItemFromMat(Mat pMat) {
 		return switch (pMat) {
 			case Mat.TERRY_MAT -> IcariaItems.TERRY_MAT.get();
@@ -112,5 +105,9 @@ public class IcariaCommonHelper {
 			case Mat.MAGENTA_TERRY_MAT -> IcariaItems.MAGENTA_TERRY_MAT.get();
 			case Mat.PINK_TERRY_MAT -> IcariaItems.PINK_TERRY_MAT.get();
 		};
+	}
+
+	public static RandomSource getRandomSource(BlockPos pBlockPos) {
+		return RandomSource.create(0L).forkPositional().at(pBlockPos);
 	}
 }

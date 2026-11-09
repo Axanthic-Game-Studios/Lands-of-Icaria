@@ -79,7 +79,7 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var fluid = pBlockPlaceContext.getLevel().getFluidState(blockPos).getType();
-		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.VASE_VARIANT, Math.floorMod(blockPos.asLong(), 10)).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		return this.defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.VASE_VARIANT, IcariaCommonHelper.getRandomSource(blockPos).nextInt(10)).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
