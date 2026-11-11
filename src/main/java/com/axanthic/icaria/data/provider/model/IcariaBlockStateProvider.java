@@ -848,9 +848,9 @@ public class IcariaBlockStateProvider {
 	}
 
 	public static void lootVase(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockStateProvider.lootVase(IcariaBlocks.RED_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.lootVase(IcariaBlocks.COMMON_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockStateProvider.lootVase(IcariaBlocks.UNCOMMON_LOOT_VASE.get(), pBlockModelGenerators);
 		IcariaBlockStateProvider.lootVase(IcariaBlocks.LOST_LOOT_VASE.get(), pBlockModelGenerators);
-		IcariaBlockStateProvider.lootVase(IcariaBlocks.CYAN_LOOT_VASE.get(), pBlockModelGenerators);
 	}
 
 	public static void matHorizontal(BlockModelGenerators pBlockModelGenerators) {

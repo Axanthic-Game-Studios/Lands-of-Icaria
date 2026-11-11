@@ -411,9 +411,9 @@ public class IcariaBlockItemIds {
 
 	public static final BlockItemId VASE = IcariaBlockItemIds.create("vase");
 
-	public static final BlockItemId RED_LOOT_VASE = IcariaBlockItemIds.create("red_loot_vase");
+	public static final BlockItemId COMMON_LOOT_VASE = IcariaBlockItemIds.create("common_loot_vase");
+	public static final BlockItemId UNCOMMON_LOOT_VASE = IcariaBlockItemIds.create("uncommon_loot_vase");
 	public static final BlockItemId LOST_LOOT_VASE = IcariaBlockItemIds.create("lost_loot_vase");
-	public static final BlockItemId CYAN_LOOT_VASE = IcariaBlockItemIds.create("cyan_loot_vase");
 
 	public static final BlockItemId ARACHNE_SPAWNER = IcariaBlockItemIds.create("arachne_spawner");
 	public static final BlockItemId REVENANT_SPAWNER = IcariaBlockItemIds.create("revenant_spawner");

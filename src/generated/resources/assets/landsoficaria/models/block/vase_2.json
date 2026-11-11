@@ -2,7 +2,7 @@
   "parent": "landsoficaria:block/template_vase_2",
   "textures": {
     "halite_cluster": "landsoficaria:block/halite_cluster",
-    "loot_vase": "landsoficaria:block/cyan_loot_vase",
-    "particle": "landsoficaria:block/cyan_loot_vase_particle"
+    "particle": "landsoficaria:block/uncommon_loot_vase_particle",
+    "uncommon_loot_vase": "landsoficaria:block/uncommon_loot_vase"
   }
 }

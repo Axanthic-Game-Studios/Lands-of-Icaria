@@ -39,6 +39,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot COBWEB_NEGATIVE_OPPOSITE = TextureSlot.create("cobweb_negative_opposite");
 	public static final TextureSlot COBWEB_POSITIVE = TextureSlot.create("cobweb_positive");
 	public static final TextureSlot COBWEB_POSITIVE_OPPOSITE = TextureSlot.create("cobweb_positive_opposite");
+	public static final TextureSlot COMMON_LOOT_VASE = TextureSlot.create("common_loot_vase");
 	public static final TextureSlot COOKIE_JAR = TextureSlot.create("cookie_jar");
 	public static final TextureSlot CROP = TextureSlot.create("crop");
 	public static final TextureSlot CROSS = TextureSlot.create("cross");
@@ -82,7 +83,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot LOAM_BRICKS = TextureSlot.create("loam_bricks");
 	public static final TextureSlot LOG = TextureSlot.create("log");
 	public static final TextureSlot LOG_TOP = TextureSlot.create("log_top");
-	public static final TextureSlot LOOT_VASE = TextureSlot.create("loot_vase");
 	public static final TextureSlot MARL = TextureSlot.create("marl");
 	public static final TextureSlot MEDITERRANEAN_WATER = TextureSlot.create("mediterranean_water");
 	public static final TextureSlot MOLYBDENUM_BLOCK = TextureSlot.create("molybdenum_block");
@@ -103,7 +103,6 @@ public class IcariaTextureSlots {
 	public static final TextureSlot PEDESTAL_TOP = TextureSlot.create("pedestal_top");
 	public static final TextureSlot PLANKS = TextureSlot.create("planks");
 	public static final TextureSlot PLANT = TextureSlot.create("plant");
-	public static final TextureSlot RED_LOOT_VASE = TextureSlot.create("red_loot_vase");
 	public static final TextureSlot RED_STORAGE_VASE = TextureSlot.create("red_storage_vase");
 	public static final TextureSlot RED_TERRY_BLOCK = TextureSlot.create("red_terry_block");
 	public static final TextureSlot SHROOM = TextureSlot.create("shroom");
@@ -142,6 +141,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot TORCH_METAL = TextureSlot.create("torch_metal");
 	public static final TextureSlot TRAPDOOR = TextureSlot.create("trapdoor");
 	public static final TextureSlot TWIGS = TextureSlot.create("twigs");
+	public static final TextureSlot UNCOMMON_LOOT_VASE = TextureSlot.create("uncommon_loot_vase");
 	public static final TextureSlot UP = TextureSlot.create("up");
 	public static final TextureSlot VANADIUMSTEEL_CHAIN = TextureSlot.create("vanadiumsteel_chain");
 	public static final TextureSlot VASE = TextureSlot.create("vase");

@@ -19,7 +19,7 @@
       "translate": "advancement.landsoficaria.loot_vase.description"
     },
     "icon": {
-      "id": "landsoficaria:cyan_loot_vase"
+      "id": "landsoficaria:common_loot_vase"
     },
     "title": {
       "translate": "advancement.landsoficaria.loot_vase.title"

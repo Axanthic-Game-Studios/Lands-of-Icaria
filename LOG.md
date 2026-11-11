@@ -69,6 +69,7 @@ Updates
 - Kilns no longer show Smoke Particles inside the Burning Chamber when no Input Item is present
 - Kilns now show light instead of dark Smoke Particles inside the Burning Chamber when an Input Item is present
 - Mediterranean Water now supports Bubble Columns, Frogspawn and Lily Pads
+- Renamed Red and Cyan Loot Vase to Common und Uncommon Loot Vase respectively
 - Revenants can open, close and walk through Doors now
 - Skulls now hide the Player from the Locator Bar when worn
 - Soldier Revenants have a Chance to spawn with a Kassiteros Spear now

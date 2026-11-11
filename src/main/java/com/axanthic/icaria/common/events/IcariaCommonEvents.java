@@ -995,9 +995,9 @@ public class IcariaCommonEvents {
 
 			pEvent.accept(IcariaItems.VASE.get());
 
-			pEvent.accept(IcariaItems.RED_LOOT_VASE.get());
+			pEvent.accept(IcariaItems.COMMON_LOOT_VASE.get());
+			pEvent.accept(IcariaItems.UNCOMMON_LOOT_VASE.get());
 			pEvent.accept(IcariaItems.LOST_LOOT_VASE.get());
-			pEvent.accept(IcariaItems.CYAN_LOOT_VASE.get());
 
 			pEvent.accept(IcariaItems.ARACHNE_SPAWNER.get());
 			pEvent.accept(IcariaItems.REVENANT_SPAWNER.get());

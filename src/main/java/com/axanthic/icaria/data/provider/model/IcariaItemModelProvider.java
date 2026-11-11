@@ -816,9 +816,9 @@ public class IcariaItemModelProvider {
 		IcariaItemModelProvider.parent(IcariaItems.PINK_STORAGE_VASE.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.AMPHORA.get(), "single", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.VASE.get(), "0", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.RED_LOOT_VASE.get(), "2", pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.COMMON_LOOT_VASE.get(), "2", pItemModelGenerators);
+		IcariaItemModelProvider.parent(IcariaItems.UNCOMMON_LOOT_VASE.get(), "2", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.LOST_LOOT_VASE.get(), "2", pItemModelGenerators);
-		IcariaItemModelProvider.parent(IcariaItems.CYAN_LOOT_VASE.get(), "2", pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.ARACHNE_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.REVENANT_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemModelProvider.parent(IcariaItems.GREENPOWDER_JAR.get(), pItemModelGenerators);

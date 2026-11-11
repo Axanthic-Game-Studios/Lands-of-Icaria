@@ -70,7 +70,7 @@ public class IcariaAdvancementSubProvider extends AdvancementSubProvider {
 		var chertPickaxe = this.advancement("chert_pickaxe", IcariaItems.CHERT_PICKAXE.get(), chertPickaxeTrigger, AdvancementType.TASK, root, true, false, true);
 		var chest = this.advancement("chest", IcariaItems.CHEST.get(), chestTrigger, AdvancementType.TASK, root, true, false, true);
 		var fertilizedFarmland = this.advancement("fertilized_farmland", IcariaItems.CALCITE_DUST.get(), fertilizedFarmlandTrigger, AdvancementType.TASK, root, true, false, true);
-		var lootVase = this.advancement("loot_vase", IcariaItems.CYAN_LOOT_VASE.get(), lootVaseTrigger, AdvancementType.TASK, root, true, false, true);
+		var lootVase = this.advancement("loot_vase", IcariaItems.COMMON_LOOT_VASE.get(), lootVaseTrigger, AdvancementType.TASK, root, true, false, true);
 		var storageVase = this.advancement("storage_vase", IcariaItems.STORAGE_VASE.get(), storageVaseTrigger, AdvancementType.TASK, root, true, false, true);
 		var chalkosPickaxe = this.advancement("chalkos_pickaxe", IcariaItems.CHALKOS_PICKAXE.get(), chalkosPickaxeTrigger, AdvancementType.TASK, chertPickaxe, true, false, true);
 		var kiln = this.advancement("kiln", IcariaItems.KILN.get(), kilnTrigger, AdvancementType.GOAL, chertPickaxe, true, false, true);

@@ -434,9 +434,9 @@ public class IcariaItems {
 
 	public static final DeferredHolder<Item, Item> VASE = IcariaItems.register(IcariaBlockItemIds.VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.VASE.get(), properties));
 
-	public static final DeferredHolder<Item, Item> RED_LOOT_VASE = IcariaItems.register(IcariaBlockItemIds.RED_LOOT_VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.RED_LOOT_VASE.get(), properties));
+	public static final DeferredHolder<Item, Item> COMMON_LOOT_VASE = IcariaItems.register(IcariaBlockItemIds.COMMON_LOOT_VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.COMMON_LOOT_VASE.get(), properties));
+	public static final DeferredHolder<Item, Item> UNCOMMON_LOOT_VASE = IcariaItems.register(IcariaBlockItemIds.UNCOMMON_LOOT_VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.UNCOMMON_LOOT_VASE.get(), properties));
 	public static final DeferredHolder<Item, Item> LOST_LOOT_VASE = IcariaItems.register(IcariaBlockItemIds.LOST_LOOT_VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.LOST_LOOT_VASE.get(), properties));
-	public static final DeferredHolder<Item, Item> CYAN_LOOT_VASE = IcariaItems.register(IcariaBlockItemIds.CYAN_LOOT_VASE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CYAN_LOOT_VASE.get(), properties));
 
 	public static final DeferredHolder<Item, Item> ARACHNE_SPAWNER = IcariaItems.register(IcariaBlockItemIds.ARACHNE_SPAWNER, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.ARACHNE_SPAWNER.get(), properties));
 	public static final DeferredHolder<Item, Item> REVENANT_SPAWNER = IcariaItems.register(IcariaBlockItemIds.REVENANT_SPAWNER, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.REVENANT_SPAWNER.get(), properties));

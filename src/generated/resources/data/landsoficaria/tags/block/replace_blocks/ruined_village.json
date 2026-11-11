@@ -9,8 +9,8 @@
     "landsoficaria:lignite_block",
     "landsoficaria:red_storage_vase",
     "landsoficaria:cyan_storage_vase",
-    "landsoficaria:red_loot_vase",
-    "landsoficaria:cyan_loot_vase",
+    "landsoficaria:common_loot_vase",
+    "landsoficaria:uncommon_loot_vase",
     "landsoficaria:arachne_spawner"
   ]
 }

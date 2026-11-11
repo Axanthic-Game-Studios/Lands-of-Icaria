@@ -92,7 +92,7 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
 			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_STAIRS.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get()),
 			IcariaProcessorLists.slab(IcariaBlocks.RELICSTONE_TILE_SLAB.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_SLAB.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_SLAB.get()),
-			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.1F, IcariaBlocks.CYAN_LOOT_VASE.get(), 0.2F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.2F, Blocks.AIR)
+			IcariaProcessorLists.block(IcariaBlocks.COMMON_LOOT_VASE.get(), 0.1F, IcariaBlocks.UNCOMMON_LOOT_VASE.get(), 0.2F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.2F, Blocks.AIR)
 		));
 	}
 
@@ -297,7 +297,7 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.block(IcariaBlocks.RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILES.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILES.get()),
 			IcariaProcessorLists.stairs(IcariaBlocks.RELICSTONE_TILE_STAIRS.get(), 0.25F, IcariaBlocks.CRACKED_RELICSTONE_TILE_STAIRS.get(), 0.25F, IcariaBlocks.MOSSY_RELICSTONE_TILE_STAIRS.get()),
 
-			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.25F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.5F, Blocks.AIR),
+			IcariaProcessorLists.block(IcariaBlocks.COMMON_LOOT_VASE.get(), 0.25F, IcariaBlocks.REVENANT_SPAWNER.get(), 0.5F, Blocks.AIR),
 
 			IcariaProcessorLists.log(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pStrippedLog),
 			IcariaProcessorLists.stairs(IcariaBlocks.LAUREL_STAIRS.get(), pLaurelStairs),
@@ -326,7 +326,7 @@ public class IcariaProcessorLists {
 			IcariaProcessorLists.stairs(IcariaBlocks.YELLOWSTONE_ADOBE_STAIRS.get(), pAdobeStairs),
 			IcariaProcessorLists.slab(IcariaBlocks.YELLOWSTONE_ADOBE_SLAB.get(), pAdobeSlab),
 
-			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.66F, Blocks.AIR),
+			IcariaProcessorLists.block(IcariaBlocks.COMMON_LOOT_VASE.get(), 0.66F, Blocks.AIR),
 
 			IcariaProcessorLists.log(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), pStrippedLog),
 			IcariaProcessorLists.stairs(IcariaBlocks.LAUREL_STAIRS.get(), pLaurelStairs),
@@ -373,7 +373,7 @@ public class IcariaProcessorLists {
 
 			IcariaProcessorLists.block(IcariaBlocks.CHEST.get(), Blocks.AIR),
 
-			IcariaProcessorLists.block(IcariaBlocks.RED_LOOT_VASE.get(), 0.25F, IcariaBlocks.ARACHNE_SPAWNER.get(), 0.5F, Blocks.AIR),
+			IcariaProcessorLists.block(IcariaBlocks.COMMON_LOOT_VASE.get(), 0.25F, IcariaBlocks.ARACHNE_SPAWNER.get(), 0.5F, Blocks.AIR),
 
 			IcariaProcessorLists.block(IcariaBlocks.STRIPPED_LAUREL_LOG.get(), Blocks.AIR),
 			IcariaProcessorLists.block(IcariaBlocks.LAUREL_STAIRS.get(), Blocks.AIR),

@@ -4,7 +4,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.5,
@@ -14,7 +14,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -23,7 +23,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -33,7 +33,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.25,
@@ -42,7 +42,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -52,7 +52,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -85,7 +85,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             2.5,
@@ -95,7 +95,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             1.5,
@@ -104,7 +104,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             1.5,
@@ -114,7 +114,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             2.25,
@@ -123,7 +123,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             1.5,
@@ -133,7 +133,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.5,
@@ -166,7 +166,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             3.0,
@@ -176,7 +176,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.5,
@@ -185,7 +185,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.5,
@@ -195,7 +195,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -204,7 +204,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.5,
@@ -214,7 +214,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.5,
@@ -247,7 +247,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.5,
             2.5,
@@ -257,7 +257,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.5,
@@ -266,7 +266,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.5,
@@ -276,7 +276,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.25,
@@ -285,7 +285,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.5,
@@ -295,7 +295,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             1.5,
@@ -328,7 +328,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -338,7 +338,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -347,7 +347,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -357,7 +357,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.75,
@@ -366,7 +366,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -376,7 +376,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             0.5,
@@ -409,7 +409,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             1.25,
@@ -419,7 +419,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -428,7 +428,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -438,7 +438,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             1.0,
@@ -447,7 +447,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -457,7 +457,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             0.75,
@@ -490,7 +490,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -500,7 +500,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -509,7 +509,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -519,7 +519,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             2.5,
@@ -528,7 +528,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -538,7 +538,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             1.25,
@@ -571,7 +571,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.25,
@@ -581,7 +581,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -590,7 +590,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -600,7 +600,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             3.0,
@@ -609,7 +609,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -619,7 +619,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -652,7 +652,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             3.5,
@@ -662,7 +662,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -671,7 +671,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -681,7 +681,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.25,
@@ -690,7 +690,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -700,7 +700,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             3.0,
@@ -733,7 +733,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             3.25,
@@ -743,7 +743,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -752,7 +752,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -762,7 +762,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             3.0,
@@ -771,7 +771,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -781,7 +781,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             2.75,
@@ -814,7 +814,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.5,
             2.75,
@@ -824,7 +824,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -833,7 +833,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -843,7 +843,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             2.5,
@@ -852,7 +852,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -862,7 +862,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             1.25,
@@ -895,7 +895,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             1.25,
@@ -905,7 +905,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -914,7 +914,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -924,7 +924,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -933,7 +933,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -943,7 +943,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             0.75,
@@ -976,7 +976,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             6.25,
@@ -985,7 +985,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -994,7 +994,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -1003,7 +1003,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.0,
@@ -1013,7 +1013,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -1022,7 +1022,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             6.5,
             5.0,
@@ -1056,7 +1056,7 @@
       "faces": {
         "down": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             6.25,
@@ -1065,7 +1065,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1074,7 +1074,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             7.0,
             5.0,
@@ -1083,7 +1083,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1093,7 +1093,7 @@
         },
         "up": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1102,7 +1102,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.0,
@@ -1135,7 +1135,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             1.0,
@@ -1144,7 +1144,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1153,7 +1153,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1162,7 +1162,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1196,7 +1196,7 @@
       "faces": {
         "down": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             1.0,
@@ -1205,7 +1205,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1214,7 +1214,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.5,
             0.75,
@@ -1223,7 +1223,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1233,7 +1233,7 @@
         },
         "up": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1242,7 +1242,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1275,7 +1275,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             1.0,
@@ -1284,7 +1284,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1293,7 +1293,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1302,7 +1302,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1335,7 +1335,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             6.25,
@@ -1344,7 +1344,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             6.5,
             5.0,
@@ -1353,7 +1353,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.0,
@@ -1362,7 +1362,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -1371,7 +1371,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -1380,7 +1380,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.25,
             5.0,
@@ -1414,7 +1414,7 @@
       "faces": {
         "down": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             6.25,
@@ -1424,7 +1424,7 @@
         },
         "east": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.25,
@@ -1433,7 +1433,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1442,7 +1442,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             7.0,
             5.0,
@@ -1452,7 +1452,7 @@
         },
         "up": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1461,7 +1461,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             4.75,
             5.0,
@@ -1494,7 +1494,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             1.0,
@@ -1503,7 +1503,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1512,7 +1512,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1521,7 +1521,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1555,7 +1555,7 @@
       "faces": {
         "down": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             1.0,
@@ -1564,7 +1564,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.75,
             0.75,
@@ -1573,7 +1573,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1582,7 +1582,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.5,
             0.75,
@@ -1592,7 +1592,7 @@
         },
         "up": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1601,7 +1601,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.25,
             0.75,
@@ -1634,7 +1634,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             1.0,
@@ -1643,7 +1643,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1652,7 +1652,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1661,7 +1661,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.0,
             0.75,
@@ -1694,7 +1694,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -1704,7 +1704,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -1713,7 +1713,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -1723,7 +1723,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.75,
@@ -1732,7 +1732,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             0.5,
@@ -1742,7 +1742,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             0.5,
@@ -1775,7 +1775,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             1.25,
@@ -1785,7 +1785,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -1794,7 +1794,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -1804,7 +1804,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             1.0,
@@ -1813,7 +1813,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             0.75,
@@ -1823,7 +1823,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             0.75,
@@ -1856,7 +1856,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -1866,7 +1866,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -1875,7 +1875,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -1885,7 +1885,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             2.5,
@@ -1894,7 +1894,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.5,
             1.25,
@@ -1904,7 +1904,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             1.25,
@@ -1937,7 +1937,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.25,
@@ -1947,7 +1947,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -1956,7 +1956,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -1966,7 +1966,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             3.0,
@@ -1975,7 +1975,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             8.75,
             2.75,
@@ -1985,7 +1985,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -2018,7 +2018,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             3.5,
@@ -2028,7 +2028,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -2037,7 +2037,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -2047,7 +2047,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.25,
@@ -2056,7 +2056,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.25,
             3.0,
@@ -2066,7 +2066,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.5,
             3.0,
@@ -2099,7 +2099,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             3.25,
@@ -2109,7 +2109,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -2118,7 +2118,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -2128,7 +2128,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             3.0,
@@ -2137,7 +2137,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             2.75,
@@ -2147,7 +2147,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             2.75,
@@ -2180,7 +2180,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.5,
             2.75,
@@ -2190,7 +2190,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -2199,7 +2199,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -2209,7 +2209,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             2.5,
@@ -2218,7 +2218,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             1.25,
@@ -2228,7 +2228,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             1.25,
@@ -2261,7 +2261,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.25,
             1.25,
@@ -2271,7 +2271,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -2280,7 +2280,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -2290,7 +2290,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -2299,7 +2299,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             0.75,
@@ -2309,7 +2309,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             0.75,
@@ -2342,7 +2342,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             11.0,
             3.0,
@@ -2352,7 +2352,7 @@
         },
         "east": {
           "rotation": 90,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -2361,7 +2361,7 @@
           ]
         },
         "north": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -2371,7 +2371,7 @@
         },
         "south": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             2.75,
@@ -2380,7 +2380,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             9.0,
             1.0,
@@ -2390,7 +2390,7 @@
         },
         "west": {
           "rotation": 270,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             10.75,
             1.0,
@@ -2456,7 +2456,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             5.25,
             2.5,
@@ -2465,7 +2465,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             6.5,
             1.25,
@@ -2475,7 +2475,7 @@
         },
         "north": {
           "rotation": 180,
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             6.75,
             2.75,
@@ -2484,7 +2484,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             5.25,
             1.25,
@@ -2493,7 +2493,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             5.25,
             1.25,
@@ -2502,7 +2502,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             5.25,
             1.25,
@@ -2535,7 +2535,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.75,
             2.0,
@@ -2544,7 +2544,7 @@
           ]
         },
         "east": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             14.0,
             1.75,
@@ -2553,7 +2553,7 @@
           ]
         },
         "south": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.75,
             1.75,
@@ -2562,7 +2562,7 @@
           ]
         },
         "up": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.75,
             1.75,
@@ -2571,7 +2571,7 @@
           ]
         },
         "west": {
-          "texture": "#loot_vase",
+          "texture": "#uncommon_loot_vase",
           "uv": [
             13.75,
             1.75,

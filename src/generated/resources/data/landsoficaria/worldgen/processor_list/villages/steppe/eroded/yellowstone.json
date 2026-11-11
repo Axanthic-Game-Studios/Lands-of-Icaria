@@ -3506,7 +3506,7 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": "landsoficaria:red_loot_vase",
+            "block_state": "landsoficaria:common_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.25
           },
@@ -3517,7 +3517,7 @@
         },
         {
           "input_predicate": {
-            "block_state": "landsoficaria:red_loot_vase",
+            "block_state": "landsoficaria:common_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.5
           },

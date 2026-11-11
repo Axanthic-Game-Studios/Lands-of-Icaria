@@ -4891,18 +4891,18 @@
       "rules": [
         {
           "input_predicate": {
-            "block_state": "landsoficaria:red_loot_vase",
+            "block_state": "landsoficaria:common_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.1
           },
           "location_predicate": {
             "predicate_type": "minecraft:always_true"
           },
-          "output_state": "landsoficaria:cyan_loot_vase"
+          "output_state": "landsoficaria:uncommon_loot_vase"
         },
         {
           "input_predicate": {
-            "block_state": "landsoficaria:red_loot_vase",
+            "block_state": "landsoficaria:common_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.2
           },
@@ -4913,7 +4913,7 @@
         },
         {
           "input_predicate": {
-            "block_state": "landsoficaria:red_loot_vase",
+            "block_state": "landsoficaria:common_loot_vase",
             "predicate_type": "minecraft:random_blockstate_match",
             "probability": 0.2
           },

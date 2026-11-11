@@ -428,9 +428,9 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.PINK_STORAGE_VASE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.AMPHORA.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.VASE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.RED_LOOT_VASE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.COMMON_LOOT_VASE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.UNCOMMON_LOOT_VASE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.LOST_LOOT_VASE.get(), pItemModelGenerators);
-		IcariaItemStateProvider.parent(IcariaItems.CYAN_LOOT_VASE.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.ARACHNE_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.REVENANT_SPAWNER.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.COBWEB.get(), pItemModelGenerators);

@@ -17,9 +17,9 @@ public class IcariaLootTableIds {
 	public static final ResourceKey<LootTable> BARREL = IcariaLootTableIds.create("barrels/barrel");
 	public static final ResourceKey<LootTable> CHEST = IcariaLootTableIds.create("chests/chest");
 	public static final ResourceKey<LootTable> DECORATED_POT = IcariaLootTableIds.create("decorated_pots/decorated_pot");
-	public static final ResourceKey<LootTable> RED_LOOT_VASE = IcariaLootTableIds.create("loot_vases/red_loot_vase");
+	public static final ResourceKey<LootTable> COMMON_LOOT_VASE = IcariaLootTableIds.create("loot_vases/common_loot_vase");
+	public static final ResourceKey<LootTable> UNCOMMON_LOOT_VASE = IcariaLootTableIds.create("loot_vases/uncommon_loot_vase");
 	public static final ResourceKey<LootTable> LOST_LOOT_VASE = IcariaLootTableIds.create("loot_vases/lost_loot_vase");
-	public static final ResourceKey<LootTable> CYAN_LOOT_VASE = IcariaLootTableIds.create("loot_vases/cyan_loot_vase");
 	public static final ResourceKey<LootTable> OLIVE_LEAVES = IcariaLootTableIds.create("olive_leaves/olive_leaves");
 	public static final ResourceKey<LootTable> RED_STORAGE_VASE = IcariaLootTableIds.create("storage_vases/red_storage_vase");
 	public static final ResourceKey<LootTable> CYAN_STORAGE_VASE = IcariaLootTableIds.create("storage_vases/cyan_storage_vase");

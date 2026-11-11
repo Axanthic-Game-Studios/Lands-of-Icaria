@@ -1042,9 +1042,9 @@ public class IcariaBlockModelProvider {
 	}
 
 	public static void lootVase(BlockModelGenerators pBlockModelGenerators) {
-		IcariaBlockModelProvider.lootVase(IcariaBlocks.RED_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVase(IcariaBlocks.COMMON_LOOT_VASE.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.lootVase(IcariaBlocks.UNCOMMON_LOOT_VASE.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.lootVase(IcariaBlocks.LOST_LOOT_VASE.get(), pBlockModelGenerators);
-		IcariaBlockModelProvider.lootVase(IcariaBlocks.CYAN_LOOT_VASE.get(), pBlockModelGenerators);
 	}
 
 	public static void mat(BlockModelGenerators pBlockModelGenerators) {
@@ -4511,7 +4511,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log")))
 				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_planks")))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.COMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "common_loot_vase")))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "yellowstone")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_kettle_bottom")).build()
@@ -4520,7 +4520,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log")))
 				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_planks")))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.COMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "common_loot_vase")))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "yellowstone")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_kettle_bottom_lit")).build()
@@ -4529,7 +4529,7 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.KETTLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "kettle")))
 				.putForced(IcariaTextureSlots.LAUREL_LOG, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log")))
 				.putForced(IcariaTextureSlots.LAUREL_PLANKS, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_planks")))
-				.putForced(IcariaTextureSlots.RED_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "red_loot_vase")))
+				.putForced(IcariaTextureSlots.COMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "common_loot_vase")))
 				.putForced(IcariaTextureSlots.YELLOWSTONE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "yellowstone")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_log"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_kettle_top")).build()
@@ -6404,18 +6404,18 @@ public class IcariaBlockModelProvider {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_vase_0")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
 				.putForced(IcariaTextureSlots.HALITE_CLUSTER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "halite_cluster")))
-				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase")))
-				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.UNCOMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_vase_1")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
 				.putForced(IcariaTextureSlots.HALITE_CLUSTER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "halite_cluster")))
-				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase")))
-				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.UNCOMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_vase_2")).build()
 			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
 				.putForced(IcariaTextureSlots.HALITE_CLUSTER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "halite_cluster")))
-				.putForced(IcariaTextureSlots.LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase")))
-				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "cyan_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
+				.putForced(IcariaTextureSlots.UNCOMMON_LOOT_VASE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "uncommon_loot_vase_particle"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void vaseCupboard(Block pBlock, BlockModelGenerators pBlockModelGenerators) {

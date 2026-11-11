@@ -435,9 +435,9 @@ public class IcariaBlocks {
 
 	public static final DeferredHolder<Block, Block> VASE = IcariaBlocks.register(IcariaBlockItemIds.VASE, IcariaBlocks.propertiesVase(MapColor.COLOR_LIGHT_GRAY, IcariaSoundTypes.POTTERY), VaseBlock::new);
 
-	public static final DeferredHolder<Block, Block> RED_LOOT_VASE = IcariaBlocks.register(IcariaBlockItemIds.RED_LOOT_VASE, IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.POTTERY), LootVaseBlock::new);
+	public static final DeferredHolder<Block, Block> COMMON_LOOT_VASE = IcariaBlocks.register(IcariaBlockItemIds.COMMON_LOOT_VASE, IcariaBlocks.propertiesLootVase(MapColor.COLOR_RED, IcariaSoundTypes.POTTERY), LootVaseBlock::new);
+	public static final DeferredHolder<Block, Block> UNCOMMON_LOOT_VASE = IcariaBlocks.register(IcariaBlockItemIds.UNCOMMON_LOOT_VASE, IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.POTTERY), LootVaseBlock::new);
 	public static final DeferredHolder<Block, Block> LOST_LOOT_VASE = IcariaBlocks.register(IcariaBlockItemIds.LOST_LOOT_VASE, IcariaBlocks.propertiesLootVase(MapColor.PODZOL, IcariaSoundTypes.POTTERY), LootVaseBlock::new);
-	public static final DeferredHolder<Block, Block> CYAN_LOOT_VASE = IcariaBlocks.register(IcariaBlockItemIds.CYAN_LOOT_VASE, IcariaBlocks.propertiesLootVase(MapColor.COLOR_CYAN, IcariaSoundTypes.POTTERY), LootVaseBlock::new);
 
 	public static final DeferredHolder<Block, Block> ARACHNE_SPAWNER = IcariaBlocks.register(IcariaBlockItemIds.ARACHNE_SPAWNER, IcariaBlocks.propertiesSpawner(MapColor.COLOR_LIGHT_GRAY, SoundType.SPAWNER), SpawnerBlock::new);
 	public static final DeferredHolder<Block, Block> REVENANT_SPAWNER = IcariaBlocks.register(IcariaBlockItemIds.REVENANT_SPAWNER, IcariaBlocks.propertiesSpawner(MapColor.COLOR_GREEN, SoundType.SPAWNER), SpawnerBlock::new);

@@ -4270,7 +4270,7 @@
       "faces": {
         "down": {
           "rotation": 180,
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.75,
@@ -4279,7 +4279,7 @@
           ]
         },
         "east": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.0,
@@ -4288,7 +4288,7 @@
           ]
         },
         "north": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.0,
@@ -4298,7 +4298,7 @@
         },
         "up": {
           "rotation": 180,
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.0,
@@ -4307,7 +4307,7 @@
           ]
         },
         "west": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             10.25,
             5.0,
@@ -4340,7 +4340,7 @@
     {
       "faces": {
         "down": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.75,
@@ -4349,7 +4349,7 @@
           ]
         },
         "east": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.25,
             5.0,
@@ -4358,7 +4358,7 @@
           ]
         },
         "south": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.0,
@@ -4367,7 +4367,7 @@
           ]
         },
         "up": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             9.5,
             5.0,
@@ -4376,7 +4376,7 @@
           ]
         },
         "west": {
-          "texture": "#red_loot_vase",
+          "texture": "#common_loot_vase",
           "uv": [
             10.5,
             5.0,
