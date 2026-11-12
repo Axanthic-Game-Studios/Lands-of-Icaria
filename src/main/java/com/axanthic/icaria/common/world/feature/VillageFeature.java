@@ -157,7 +157,7 @@ public class VillageFeature extends Feature<NoneFeatureConfiguration> {
 			if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.RED_STORAGE_VASE.get())) {
 				blockEntity.setLootTable(IcariaLootTables.RED_STORAGE_VASE, pRandomSource.nextLong());
 			} else if (pWorldGenLevel.getBlockState(pBlockPos).is(IcariaBlocks.CYAN_STORAGE_VASE.get())) {
-				blockEntity.setLootTable(IcariaLootTables.CYAN_LOOT_VASE, pRandomSource.nextLong());
+				blockEntity.setLootTable(IcariaLootTables.CYAN_STORAGE_VASE, pRandomSource.nextLong());
 			}
 		}
 	}
