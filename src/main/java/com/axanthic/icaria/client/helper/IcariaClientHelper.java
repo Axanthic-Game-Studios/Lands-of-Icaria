@@ -2,7 +2,7 @@ package com.axanthic.icaria.client.helper;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.client.meta.ColorMetadataManager;
+import com.axanthic.icaria.client.color.ColorManager;
 import com.axanthic.icaria.client.registry.IcariaRenderTypes;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.registry.IcariaColors;
@@ -64,11 +64,11 @@ public class IcariaClientHelper {
 	}
 
 	public static int getColor(BlockEntity pBlockEntity) {
-		return ColorMetadataManager.resolve(BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).withPrefix("block" + "/"));
+		return ColorManager.fetch(BuiltInRegistries.BLOCK.getKey(pBlockEntity.getBlockState().getBlock()).withPrefix("block" + "/"));
 	}
 
 	public static int getColor(LivingEntity pLivingEntity) {
-		return ColorMetadataManager.resolve(BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).withPrefix("entity" + "/"));
+		return ColorManager.fetch(BuiltInRegistries.ENTITY_TYPE.getKey(pLivingEntity.getType()).withPrefix("entity" + "/"));
 	}
 
 	public static int getColorAndAlpha(LivingEntity pLivingEntity) {

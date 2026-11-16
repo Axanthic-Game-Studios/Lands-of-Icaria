@@ -7,6 +7,7 @@ import com.axanthic.icaria.client.extensions.IcariaClientItemExtensions;
 import com.axanthic.icaria.client.layer.BarrelRenderLayer;
 import com.axanthic.icaria.client.layer.LootVaseRenderLayer;
 import com.axanthic.icaria.client.model.*;
+import com.axanthic.icaria.client.outline.OutlineManager;
 import com.axanthic.icaria.client.particle.provider.IcariaBubbleParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaPortalParticleProvider;
 import com.axanthic.icaria.client.particle.provider.IcariaSteamParticleProvider;
@@ -85,6 +86,17 @@ public class IcariaClientEvents {
 		pEvent.registerSkullModel(SkullBlockType.POPULUS_FOREST_HAG, IcariaModelLayerLocations.POPULUS_FOREST_HAG_SKULL, IcariaIdentifiers.POPULUS_FOREST_HAG);
 		pEvent.registerSkullModel(SkullBlockType.REVENANT, IcariaModelLayerLocations.REVENANT_SKULL, IcariaIdentifiers.CAPTAIN_REVENANT);
 		pEvent.registerSkullModel(SkullBlockType.THOG, IcariaModelLayerLocations.THOG_SKULL, IcariaIdentifiers.THOG);
+	}
+
+	@SubscribeEvent
+	public static void onExtractBlockOutlineRenderState(ExtractBlockOutlineRenderStateEvent pEvent) {
+		var blockPos = pEvent.getHitResult().getBlockPos();
+		var blockState = pEvent.getBlockState();
+		var models = OutlineManager.CACHE.get(blockState);
+		if (models != null) {
+			var lines = OutlineManager.choose(blockPos, blockState, models);
+			pEvent.addCustomRenderer((blockOutlineRenderState, submitNodeCollector, poseStack, levelRenderState) -> OutlineManager.draw(blockOutlineRenderState, blockPos, levelRenderState, poseStack, submitNodeCollector, lines));
+		}
 	}
 
 	@SubscribeEvent

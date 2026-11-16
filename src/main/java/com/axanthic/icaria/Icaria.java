@@ -2,7 +2,8 @@ package com.axanthic.icaria;
 
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
-import com.axanthic.icaria.client.meta.ColorMetadataManager;
+import com.axanthic.icaria.client.color.ColorManager;
+import com.axanthic.icaria.client.outline.OutlineManager;
 import com.axanthic.icaria.common.config.IcariaConfig;
 import com.axanthic.icaria.common.payload.*;
 import com.axanthic.icaria.common.registry.*;
@@ -68,7 +69,8 @@ public class Icaria {
 	}
 
 	public static void onAddClientReloadListeners(AddClientReloadListenersEvent pEvent) {
-		pEvent.addListener(Identifier.fromNamespaceAndPath(IcariaIds.ID, "color"), new ColorMetadataManager());
+		pEvent.addListener(Identifier.fromNamespaceAndPath(IcariaIds.ID, "color"), new ColorManager());
+		pEvent.addListener(Identifier.fromNamespaceAndPath(IcariaIds.ID, "outline"), new OutlineManager());
 	}
 
 	public static void onFMLClientSetup(FMLClientSetupEvent pEvent) {
