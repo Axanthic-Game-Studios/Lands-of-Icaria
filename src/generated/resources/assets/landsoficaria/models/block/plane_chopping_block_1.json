@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_chopping_block_1",
+  "textures": {
+    "firewood": "landsoficaria:block/plane_firewood",
+    "laurel_ladder": "landsoficaria:block/laurel_ladder",
+    "log": "landsoficaria:block/plane_log",
+    "log_top": "landsoficaria:block/plane_log_top",
+    "particle": "landsoficaria:block/stripped_plane_log",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "stripped_log": "landsoficaria:block/stripped_plane_log",
+    "stripped_log_top": "landsoficaria:block/stripped_plane_log_top"
+  }
+}

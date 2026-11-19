@@ -1,0 +1,12 @@
+{
+  "parent": "landsoficaria:block/template_chopping_block_0",
+  "textures": {
+    "laurel_ladder": "landsoficaria:block/laurel_ladder",
+    "log": "landsoficaria:block/olive_log",
+    "log_top": "landsoficaria:block/olive_log_top",
+    "particle": "landsoficaria:block/stripped_olive_log",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "stripped_log": "landsoficaria:block/stripped_olive_log",
+    "stripped_log_top": "landsoficaria:block/stripped_olive_log_top"
+  }
+}

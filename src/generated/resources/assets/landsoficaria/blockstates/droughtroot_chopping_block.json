@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "chopping_block_variant=0,facing=east": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_0",
+      "y": 90
+    },
+    "chopping_block_variant=0,facing=north": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_0"
+    },
+    "chopping_block_variant=0,facing=south": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_0",
+      "y": 180
+    },
+    "chopping_block_variant=0,facing=west": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_0",
+      "y": 270
+    },
+    "chopping_block_variant=1,facing=east": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_1",
+      "y": 90
+    },
+    "chopping_block_variant=1,facing=north": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_1"
+    },
+    "chopping_block_variant=1,facing=south": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_1",
+      "y": 180
+    },
+    "chopping_block_variant=1,facing=west": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_1",
+      "y": 270
+    },
+    "chopping_block_variant=2,facing=east": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_2",
+      "y": 90
+    },
+    "chopping_block_variant=2,facing=north": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_2"
+    },
+    "chopping_block_variant=2,facing=south": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_2",
+      "y": 180
+    },
+    "chopping_block_variant=2,facing=west": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_2",
+      "y": 270
+    },
+    "chopping_block_variant=3,facing=east": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_3",
+      "y": 90
+    },
+    "chopping_block_variant=3,facing=north": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_3"
+    },
+    "chopping_block_variant=3,facing=south": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_3",
+      "y": 180
+    },
+    "chopping_block_variant=3,facing=west": {
+      "model": "landsoficaria:block/droughtroot_chopping_block_3",
+      "y": 270
+    }
+  }
+}

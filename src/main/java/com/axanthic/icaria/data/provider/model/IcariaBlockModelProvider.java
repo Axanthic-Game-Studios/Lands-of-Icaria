@@ -57,6 +57,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyBrickCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrown(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlab(pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(pBlockModelGenerators);
 		IcariaBlockModelProvider.cobweb(pBlockModelGenerators);
 		IcariaBlockModelProvider.cookieJar(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertop(pBlockModelGenerators);
@@ -233,6 +234,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.chimneyBrickCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneyGrateCrownModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.chimneySlabModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlockModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cobwebModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.cookieJarModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.countertopModel(pBlockModelGenerators);
@@ -685,6 +687,16 @@ public class IcariaBlockModelProvider {
 
 	public static void chimneySlab(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.chimneySlab(IcariaBlocks.CHIMNEY_SLAB.get(), pBlockModelGenerators);
+	}
+
+	public static void choppingBlock(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.CYPRESS_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.DROUGHTROOT_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.FIR_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.LAUREL_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.OLIVE_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.PLANE_CHOPPING_BLOCK.get(), pBlockModelGenerators);
+		IcariaBlockModelProvider.choppingBlock(IcariaBlocks.POPULUS_CHOPPING_BLOCK.get(), pBlockModelGenerators);
 	}
 
 	public static void cobweb(BlockModelGenerators pBlockModelGenerators) {
@@ -2535,6 +2547,48 @@ public class IcariaBlockModelProvider {
 			.create(IcariaModelProvider.blockFile(pBlock, "top"), new TextureMapping()
 				.putForced(IcariaTextureSlots.ALL, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "chimney")))
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "chimney"))), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void choppingBlock(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG_TOP, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "firewood")))
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG_TOP, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "firewood")))
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG_TOP, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.FIREWOOD, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "firewood")))
+				.putForced(IcariaTextureSlots.LAUREL_LADDER, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "laurel_ladder")))
+				.putForced(IcariaTextureSlots.LOG, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.LOG_TOP, new Material(IcariaModelProvider.blockFile(pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.SMOOTH_MOLYBDENUMSTEEL_BLOCK, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "smooth_molybdenumsteel_block")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log")))
+				.putForced(IcariaTextureSlots.STRIPPED_LOG_TOP, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log_top")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile("stripped", pBlock, "chopping_block", "log"))), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cobweb(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
@@ -6686,6 +6740,13 @@ public class IcariaBlockModelProvider {
 	public static void chimneySlabModel(BlockModelGenerators pBlockModelGenerators) {
 		ChimneySlabModel.bottom().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chimney_slab_bottom"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 		ChimneySlabModel.top().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chimney_slab_top"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void choppingBlockModel(BlockModelGenerators pBlockModelGenerators) {
+		ChoppingBlockModel.template0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ChoppingBlockModel.template1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ChoppingBlockModel.template2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ChoppingBlockModel.template3().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_chopping_block_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void cobwebModel(BlockModelGenerators pBlockModelGenerators) {

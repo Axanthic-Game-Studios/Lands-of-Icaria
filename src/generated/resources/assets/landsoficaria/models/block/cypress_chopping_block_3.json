@@ -1,0 +1,13 @@
+{
+  "parent": "landsoficaria:block/template_chopping_block_3",
+  "textures": {
+    "firewood": "landsoficaria:block/cypress_firewood",
+    "laurel_ladder": "landsoficaria:block/laurel_ladder",
+    "log": "landsoficaria:block/cypress_log",
+    "log_top": "landsoficaria:block/cypress_log_top",
+    "particle": "landsoficaria:block/stripped_cypress_log",
+    "smooth_molybdenumsteel_block": "landsoficaria:block/smooth_molybdenumsteel_block",
+    "stripped_log": "landsoficaria:block/stripped_cypress_log",
+    "stripped_log_top": "landsoficaria:block/stripped_cypress_log_top"
+  }
+}

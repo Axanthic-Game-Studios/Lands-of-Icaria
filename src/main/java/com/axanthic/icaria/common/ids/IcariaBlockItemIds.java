@@ -498,6 +498,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId CYPRESS_BATHTUB = IcariaBlockItemIds.create("cypress_bathtub");
 	public static final BlockItemId CYPRESS_TROUGH = IcariaBlockItemIds.create("cypress_trough");
 	public static final BlockItemId CYPRESS_STOOL = IcariaBlockItemIds.create("cypress_stool");
+	public static final BlockItemId CYPRESS_CHOPPING_BLOCK = IcariaBlockItemIds.create("cypress_chopping_block");
 	public static final BlockItemId CYPRESS_CUTTING_BOARD = IcariaBlockItemIds.create("cypress_cutting_board");
 	public static final BlockItemId CYPRESS_HERB_HOLDER = IcariaBlockItemIds.create("cypress_herb_holder");
 	public static final BlockItemId CYPRESS_PAN_HOLDER = IcariaBlockItemIds.create("cypress_pan_holder");
@@ -561,6 +562,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId DROUGHTROOT_BATHTUB = IcariaBlockItemIds.create("droughtroot_bathtub");
 	public static final BlockItemId DROUGHTROOT_TROUGH = IcariaBlockItemIds.create("droughtroot_trough");
 	public static final BlockItemId DROUGHTROOT_STOOL = IcariaBlockItemIds.create("droughtroot_stool");
+	public static final BlockItemId DROUGHTROOT_CHOPPING_BLOCK = IcariaBlockItemIds.create("droughtroot_chopping_block");
 	public static final BlockItemId DROUGHTROOT_CUTTING_BOARD = IcariaBlockItemIds.create("droughtroot_cutting_board");
 	public static final BlockItemId DROUGHTROOT_HERB_HOLDER = IcariaBlockItemIds.create("droughtroot_herb_holder");
 	public static final BlockItemId DROUGHTROOT_PAN_HOLDER = IcariaBlockItemIds.create("droughtroot_pan_holder");
@@ -624,6 +626,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId FIR_BATHTUB = IcariaBlockItemIds.create("fir_bathtub");
 	public static final BlockItemId FIR_TROUGH = IcariaBlockItemIds.create("fir_trough");
 	public static final BlockItemId FIR_STOOL = IcariaBlockItemIds.create("fir_stool");
+	public static final BlockItemId FIR_CHOPPING_BLOCK = IcariaBlockItemIds.create("fir_chopping_block");
 	public static final BlockItemId FIR_CUTTING_BOARD = IcariaBlockItemIds.create("fir_cutting_board");
 	public static final BlockItemId FIR_HERB_HOLDER = IcariaBlockItemIds.create("fir_herb_holder");
 	public static final BlockItemId FIR_PAN_HOLDER = IcariaBlockItemIds.create("fir_pan_holder");
@@ -687,6 +690,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId LAUREL_BATHTUB = IcariaBlockItemIds.create("laurel_bathtub");
 	public static final BlockItemId LAUREL_TROUGH = IcariaBlockItemIds.create("laurel_trough");
 	public static final BlockItemId LAUREL_STOOL = IcariaBlockItemIds.create("laurel_stool");
+	public static final BlockItemId LAUREL_CHOPPING_BLOCK = IcariaBlockItemIds.create("laurel_chopping_block");
 	public static final BlockItemId LAUREL_CUTTING_BOARD = IcariaBlockItemIds.create("laurel_cutting_board");
 	public static final BlockItemId LAUREL_HERB_HOLDER = IcariaBlockItemIds.create("laurel_herb_holder");
 	public static final BlockItemId LAUREL_PAN_HOLDER = IcariaBlockItemIds.create("laurel_pan_holder");
@@ -750,6 +754,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId OLIVE_BATHTUB = IcariaBlockItemIds.create("olive_bathtub");
 	public static final BlockItemId OLIVE_TROUGH = IcariaBlockItemIds.create("olive_trough");
 	public static final BlockItemId OLIVE_STOOL = IcariaBlockItemIds.create("olive_stool");
+	public static final BlockItemId OLIVE_CHOPPING_BLOCK = IcariaBlockItemIds.create("olive_chopping_block");
 	public static final BlockItemId OLIVE_CUTTING_BOARD = IcariaBlockItemIds.create("olive_cutting_board");
 	public static final BlockItemId OLIVE_HERB_HOLDER = IcariaBlockItemIds.create("olive_herb_holder");
 	public static final BlockItemId OLIVE_PAN_HOLDER = IcariaBlockItemIds.create("olive_pan_holder");
@@ -813,6 +818,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId PLANE_BATHTUB = IcariaBlockItemIds.create("plane_bathtub");
 	public static final BlockItemId PLANE_TROUGH = IcariaBlockItemIds.create("plane_trough");
 	public static final BlockItemId PLANE_STOOL = IcariaBlockItemIds.create("plane_stool");
+	public static final BlockItemId PLANE_CHOPPING_BLOCK = IcariaBlockItemIds.create("plane_chopping_block");
 	public static final BlockItemId PLANE_CUTTING_BOARD = IcariaBlockItemIds.create("plane_cutting_board");
 	public static final BlockItemId PLANE_HERB_HOLDER = IcariaBlockItemIds.create("plane_herb_holder");
 	public static final BlockItemId PLANE_PAN_HOLDER = IcariaBlockItemIds.create("plane_pan_holder");
@@ -876,6 +882,7 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId POPULUS_BATHTUB = IcariaBlockItemIds.create("populus_bathtub");
 	public static final BlockItemId POPULUS_TROUGH = IcariaBlockItemIds.create("populus_trough");
 	public static final BlockItemId POPULUS_STOOL = IcariaBlockItemIds.create("populus_stool");
+	public static final BlockItemId POPULUS_CHOPPING_BLOCK = IcariaBlockItemIds.create("populus_chopping_block");
 	public static final BlockItemId POPULUS_CUTTING_BOARD = IcariaBlockItemIds.create("populus_cutting_board");
 	public static final BlockItemId POPULUS_HERB_HOLDER = IcariaBlockItemIds.create("populus_herb_holder");
 	public static final BlockItemId POPULUS_PAN_HOLDER = IcariaBlockItemIds.create("populus_pan_holder");

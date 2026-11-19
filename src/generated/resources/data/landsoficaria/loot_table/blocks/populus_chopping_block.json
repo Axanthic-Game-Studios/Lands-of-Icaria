@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "landsoficaria:populus_chopping_block"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "landsoficaria:blocks/populus_chopping_block"
+}

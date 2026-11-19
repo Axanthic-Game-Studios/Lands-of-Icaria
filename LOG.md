@@ -5,6 +5,7 @@ Additions
 - Bone Ladder and Rotten Bone Ladder Blocks
 - Checkers and Chess Blocks
 - Chimney Blocks
+- Chopping Blocks for each Wood Type
 - Cobweb Block
 - Cookie Jar Block
 - Candle, Flower Pot, Mortar, Pot, Basin and Raised Basin Countertop Blocks for each Wood Type
