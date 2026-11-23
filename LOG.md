@@ -108,6 +108,14 @@ Fixes
 - Workstations, including the Forge, Grinder, Kiln and Kettle, were consuming but not yielding an Item, when the Result Item has a maximum Stack Size of 1
 - Triple Barrel Racks did not drop Loot when the lower right or upper Barrel was broken, only when the lower left Barrel was broken
 - Ink Sacs used on Chest Labels applied to Icaria Chests had their Uses counted towards Glow Ink Sacs instead of Ink Sacs in the Statistics
+- Fluids from waterlogged Blocks now flow out when not contained
+- Greek Fire no longer replaces waterlogged Blocks
+- Mediterranean waterlogged Fences, Iron Bars and Walls now block Skylight like Vanilla does
+- Mediterranean waterlogged Trapdoors now direct the Flow like Vanilla
+- Mediterranean Water Buckets can now place Water within placed Slabs
+- Mediterranean waterlogged Trapdoors now allow Mobs to path them
+- Water Buckets can now place Water within placed waterlog-able Blocks
+- Water Buckets can now be filled with Water from waterlogged Blocks
 
 Removals
 

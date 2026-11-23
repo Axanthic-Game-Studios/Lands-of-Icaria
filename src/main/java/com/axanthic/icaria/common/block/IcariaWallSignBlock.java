@@ -3,6 +3,7 @@ package com.axanthic.icaria.common.block;
 import com.axanthic.icaria.annotation.MethodsReturnNonnullByDefault;
 import com.axanthic.icaria.annotation.ParametersAreNonnullByDefault;
 import com.axanthic.icaria.common.entity.IcariaSignBlockEntity;
+import com.axanthic.icaria.common.helper.IcariaCommonHelper;
 import com.axanthic.icaria.common.registry.IcariaBlockStateProperties;
 import com.axanthic.icaria.common.registry.IcariaFluids;
 import com.axanthic.icaria.common.shapes.WallSignVoxelShapes;
@@ -89,6 +90,7 @@ public class IcariaWallSignBlock extends WallSignBlock implements EntityBlock, M
 
 	@Override
 	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		IcariaCommonHelper.scheduleTick(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPos, pBlockState, IcariaFluids.MEDITERRANEAN_WATER.get(), pLevelReader, pScheduledTickAccess);
 		return this.getConnectedDirection(pBlockState).getOpposite() == pDirection && !pBlockState.canSurvive(pLevelReader, pBlockPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource);
 	}
 

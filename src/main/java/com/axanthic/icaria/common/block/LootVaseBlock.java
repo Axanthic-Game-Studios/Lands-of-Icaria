@@ -26,7 +26,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -45,7 +44,7 @@ import net.neoforged.neoforge.network.PacketDistributor;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class LootVaseBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+public class LootVaseBlock extends Block implements MediterraneanWaterloggedBlock {
 	public LootVaseBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.VASE_VARIANT, 0).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -89,6 +88,8 @@ public class LootVaseBlock extends Block implements MediterraneanWaterloggedBloc
 
 	@Override
 	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		IcariaCommonHelper.scheduleTick(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPos, pBlockState, IcariaFluids.MEDITERRANEAN_WATER.get(), pLevelReader, pScheduledTickAccess);
+		IcariaCommonHelper.scheduleTick(BlockStateProperties.WATERLOGGED, pBlockPos, pBlockState, Fluids.WATER, pLevelReader, pScheduledTickAccess);
 		pScheduledTickAccess.scheduleTick(pBlockPos, this, 0);
 		return super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource);
 	}

@@ -14,6 +14,7 @@ import com.axanthic.icaria.common.shapes.StoolVoxelShapes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
@@ -24,10 +25,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -41,7 +43,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+public class StoolBlock extends Block implements MediterraneanWaterloggedBlock {
 	public StoolBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MAT, Mat.TERRY_MAT).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.STOOL_TAKEN, false).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -93,6 +95,13 @@ public class StoolBlock extends Block implements MediterraneanWaterloggedBlock, 
 	@Override
 	public BlockState rotate(BlockState pBlockState, Rotation pRotation) {
 		return pBlockState.setValue(BlockStateProperties.HORIZONTAL_FACING, pRotation.rotate(pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING)));
+	}
+
+	@Override
+	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		IcariaCommonHelper.scheduleTick(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPos, pBlockState, IcariaFluids.MEDITERRANEAN_WATER.get(), pLevelReader, pScheduledTickAccess);
+		IcariaCommonHelper.scheduleTick(BlockStateProperties.WATERLOGGED, pBlockPos, pBlockState, Fluids.WATER, pLevelReader, pScheduledTickAccess);
+		return super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource);
 	}
 
 	@Override

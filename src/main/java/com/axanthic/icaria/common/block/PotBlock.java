@@ -44,7 +44,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 @MethodsReturnNonnullByDefault
 @ParametersAreNonnullByDefault
 
-public class PotBlock extends Block implements EntityBlock, MediterraneanWaterloggedBlock, SimpleWaterloggedBlock {
+public class PotBlock extends Block implements EntityBlock, MediterraneanWaterloggedBlock {
 	public PotBlock(Properties pProperties) {
 		super(pProperties);
 		this.registerDefaultState(this.getStateDefinition().any().setValue(IcariaBlockStateProperties.FILL, Fill.NONE).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.NORTH).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, false).setValue(IcariaBlockStateProperties.POT_FILL, 0).setValue(BlockStateProperties.WATERLOGGED, false));
@@ -93,6 +93,8 @@ public class PotBlock extends Block implements EntityBlock, MediterraneanWaterlo
 
 	@Override
 	public BlockState updateShape(BlockState pBlockState, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess, BlockPos pBlockPos, Direction pDirection, BlockPos pBlockPosFaced, BlockState pBlockStateFaced, RandomSource pRandomSource) {
+		IcariaCommonHelper.scheduleTick(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, pBlockPos, pBlockState, IcariaFluids.MEDITERRANEAN_WATER.get(), pLevelReader, pScheduledTickAccess);
+		IcariaCommonHelper.scheduleTick(BlockStateProperties.WATERLOGGED, pBlockPos, pBlockState, Fluids.WATER, pLevelReader, pScheduledTickAccess);
 		return pBlockState.canSurvive(pLevelReader, pBlockPos) ? super.updateShape(pBlockState, pLevelReader, pScheduledTickAccess, pBlockPos, pDirection, pBlockPosFaced, pBlockStateFaced, pRandomSource) : Blocks.AIR.defaultBlockState();
 	}
 

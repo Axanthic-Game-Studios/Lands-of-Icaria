@@ -25,8 +25,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SupportType;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.Fluids;
 
 @MethodsReturnNonnullByDefault
@@ -54,9 +59,9 @@ public class IcariaCommonHelper {
 				var blockState = pLevel.getBlockState(blockPos);
 				var fluidState = pLevel.getFluidState(blockPos);
 				if (pLevel.getBlockState(blockPos.below()).isSolidRender() && pLevel.getRandom().nextInt(pChance) == 0) {
-					if (fluidState.is(IcariaFluids.MEDITERRANEAN_WATER.get())) {
+					if (blockState.getBlock() == IcariaBlocks.MEDITERRANEAN_WATER.get() && fluidState.getType() == IcariaFluids.MEDITERRANEAN_WATER.get()) {
 						pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState().setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, true));
-					} else if (fluidState.is(Fluids.WATER)) {
+					} else if (blockState.getBlock() == Blocks.WATER && fluidState.getType() == Fluids.WATER) {
 						pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, true));
 					} else if (blockState.isAir()) {
 						pLevel.setBlockAndUpdate(blockPos, IcariaBlocks.GREEK_FIRE.get().defaultBlockState());
@@ -69,6 +74,12 @@ public class IcariaCommonHelper {
 	public static void hurt(DamageSource pDamageSource, Entity pEntity, float pAmount) {
 		if (pEntity.level() instanceof ServerLevel serverLevel) {
 			pEntity.hurtServer(serverLevel, pDamageSource, pAmount);
+		}
+	}
+
+	public static void scheduleTick(BooleanProperty pBooleanProperty, BlockPos pBlockPos, BlockState pBlockState, Fluid pFluid, LevelReader pLevelReader, ScheduledTickAccess pScheduledTickAccess) {
+		if (pBlockState.getValue(pBooleanProperty)) {
+			pScheduledTickAccess.scheduleTick(pBlockPos, pFluid, pFluid.getTickDelay(pLevelReader));
 		}
 	}
 
