@@ -56,7 +56,8 @@ public class PedestalBlock extends Block {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
 		var fluid = level.getFluidState(blockPos).getType();
-		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.Plane.HORIZONTAL.getRandomDirection(IcariaCommonHelper.getRandomSource(blockPos))).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.PEDESTAL, this.getPedestal(blockPos, level)).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		var randomSource = IcariaCommonHelper.getRandomSource(blockPos);
+		return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.Plane.HORIZONTAL.getRandomDirection(randomSource)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(IcariaBlockStateProperties.PEDESTAL, this.getPedestal(blockPos, level)).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override

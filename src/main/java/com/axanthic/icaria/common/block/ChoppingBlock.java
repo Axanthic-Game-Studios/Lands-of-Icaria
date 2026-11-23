@@ -41,8 +41,8 @@ public class ChoppingBlock extends Block {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
 		var fluid = level.getFluidState(blockPos).getType();
-		var random = IcariaCommonHelper.getRandomSource(blockPos);
-		return this.defaultBlockState().setValue(IcariaBlockStateProperties.CHOPPING_BLOCK_VARIANT, random.nextInt(4)).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.Plane.HORIZONTAL.getRandomDirection(random)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
+		var randomSource = IcariaCommonHelper.getRandomSource(blockPos);
+		return this.defaultBlockState().setValue(IcariaBlockStateProperties.CHOPPING_BLOCK_VARIANT, randomSource.nextInt(4)).setValue(BlockStateProperties.HORIZONTAL_FACING, Direction.Plane.HORIZONTAL.getRandomDirection(randomSource)).setValue(IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, fluid == IcariaFluids.MEDITERRANEAN_WATER.get()).setValue(BlockStateProperties.WATERLOGGED, fluid == Fluids.WATER);
 	}
 
 	@Override
