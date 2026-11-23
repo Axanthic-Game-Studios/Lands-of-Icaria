@@ -37,6 +37,7 @@ public class ChoppingBlock extends Block {
 		pBuilder.add(IcariaBlockStateProperties.CHOPPING_BLOCK_VARIANT, BlockStateProperties.HORIZONTAL_FACING, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
 	}
 
+	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext pBlockPlaceContext) {
 		var blockPos = pBlockPlaceContext.getClickedPos();
 		var level = pBlockPlaceContext.getLevel();
