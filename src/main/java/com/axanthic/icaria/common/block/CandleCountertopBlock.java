@@ -67,6 +67,31 @@ public class CandleCountertopBlock extends CountertopBlock {
 		return pBlockState.getValue(BlockStateProperties.LIT) ? pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) * 3 : 0;
 	}
 
+	public void animateExtinguish(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, double pXMin, double pXMax, double pY, double pZMin, double pZMax, int pCount) {
+		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) > pCount) {
+			this.animateExtinguish(pBlockPos, pBlockState, pLevel, pXMin, pXMax, pY, pZMin, pZMax);
+		}
+	}
+
+	public void animateExtinguish(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, double pXMin, double pXMax, double pY, double pZMin, double pZMax) {
+		if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.NORTH) {
+			this.animateExtinguish(pBlockPos, pLevel, pXMax, pY, pZMax);
+		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.EAST) {
+			this.animateExtinguish(pBlockPos, pLevel, pZMin, pY, pXMax);
+		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.SOUTH) {
+			this.animateExtinguish(pBlockPos, pLevel, pXMin, pY, pZMin);
+		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.WEST) {
+			this.animateExtinguish(pBlockPos, pLevel, pZMax, pY, pXMin);
+		}
+	}
+
+	public void animateExtinguish(BlockPos pBlockPos, Level pLevel, double pX, double pY, double pZ) {
+		var x = pBlockPos.getX() + pX;
+		var y = pBlockPos.getY() + pY;
+		var z = pBlockPos.getZ() + pZ;
+		pLevel.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.1D, 0.0D);
+	}
+
 	@Override
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource) {
 		this.animateTick(pBlockState, pLevel, pBlockPos, pRandomSource, 0.40625D, 0.59375D, 0.75D, 0.34375D, 0.65625D, 0);
@@ -83,17 +108,17 @@ public class CandleCountertopBlock extends CountertopBlock {
 
 	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource, double pXMin, double pXMax, double pY, double pZMin, double pZMax) {
 		if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.NORTH) {
-			this.animateTick(pBlockPos, pBlockState, pLevel, pRandomSource, pXMax, pY, pZMax);
+			this.animateTick(pBlockState, pLevel, pBlockPos, pRandomSource, pXMax, pY, pZMax);
 		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.EAST) {
-			this.animateTick(pBlockPos, pBlockState, pLevel, pRandomSource, pZMin, pY, pXMax);
+			this.animateTick(pBlockState, pLevel, pBlockPos, pRandomSource, pZMin, pY, pXMax);
 		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.SOUTH) {
-			this.animateTick(pBlockPos, pBlockState, pLevel, pRandomSource, pXMin, pY, pZMin);
+			this.animateTick(pBlockState, pLevel, pBlockPos, pRandomSource, pXMin, pY, pZMin);
 		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.WEST) {
-			this.animateTick(pBlockPos, pBlockState, pLevel, pRandomSource, pZMax, pY, pXMin);
+			this.animateTick(pBlockState, pLevel, pBlockPos, pRandomSource, pZMax, pY, pXMin);
 		}
 	}
 
-	public void animateTick(BlockPos pBlockPos, BlockState pBlockState, Level pLevel, RandomSource pRandomSource, double pX, double pY, double pZ) {
+	public void animateTick(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, RandomSource pRandomSource, double pX, double pY, double pZ) {
 		var x = pBlockPos.getX() + pX;
 		var y = pBlockPos.getY() + pY;
 		var z = pBlockPos.getZ() + pZ;
@@ -112,31 +137,6 @@ public class CandleCountertopBlock extends CountertopBlock {
 	@Override
 	public void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
 		pBuilder.add(IcariaBlockStateProperties.CANDLE, IcariaBlockStateProperties.CANDLE_AMOUNT, BlockStateProperties.HORIZONTAL_FACING, BlockStateProperties.LIT, IcariaBlockStateProperties.MEDITERRANEAN_WATERLOGGED, BlockStateProperties.WATERLOGGED);
-	}
-
-	public void extinguish(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, double pXMin, double pXMax, double pY, double pZMin, double pZMax, int pCount) {
-		if (pBlockState.getValue(IcariaBlockStateProperties.CANDLE_AMOUNT) > pCount) {
-			this.extinguish(pBlockState, pLevel, pBlockPos, pXMin, pXMax, pY, pZMin, pZMax);
-		}
-	}
-
-	public void extinguish(BlockState pBlockState, Level pLevel, BlockPos pBlockPos, double pXMin, double pXMax, double pY, double pZMin, double pZMax) {
-		if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.NORTH) {
-			this.extinguish(pBlockPos, pLevel, pXMax, pY, pZMax);
-		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.EAST) {
-			this.extinguish(pBlockPos, pLevel, pZMin, pY, pXMax);
-		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.SOUTH) {
-			this.extinguish(pBlockPos, pLevel, pXMin, pY, pZMin);
-		} else if (pBlockState.getValue(BlockStateProperties.HORIZONTAL_FACING) == Direction.WEST) {
-			this.extinguish(pBlockPos, pLevel, pZMax, pY, pXMin);
-		}
-	}
-
-	public void extinguish(BlockPos pBlockPos, Level pLevel, double pX, double pY, double pZ) {
-		var x = pBlockPos.getX() + pX;
-		var y = pBlockPos.getY() + pY;
-		var z = pBlockPos.getZ() + pZ;
-		pLevel.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0D, 0.1D, 0.0D);
 	}
 
 	@Override
@@ -221,10 +221,10 @@ public class CandleCountertopBlock extends CountertopBlock {
 		if (pBlockState.getValue(BlockStateProperties.LIT)) {
 			pLevel.playSound(null, pBlockPos, SoundEvents.CANDLE_EXTINGUISH, SoundSource.BLOCKS, 1.0F, 1.0F);
 			pLevel.setBlockAndUpdate(pBlockPos, pBlockState.setValue(BlockStateProperties.LIT, false));
-			this.extinguish(pBlockState, pLevel, pBlockPos, 0.40625D, 0.59375D, 0.75D, 0.34375D, 0.65625D, 0);
-			this.extinguish(pBlockState, pLevel, pBlockPos, 0.1875D, 0.8125D, 0.5625D, 0.5625D, 0.4375D, 1);
-			this.extinguish(pBlockState, pLevel, pBlockPos, 0.8125D, 0.1875D, 0.5D, 0.4375D, 0.5625D, 2);
-			this.extinguish(pBlockState, pLevel, pBlockPos, 0.625D, 0.375D, 0.625D, 0.25D, 0.75D, 3);
+			this.animateExtinguish(pBlockPos, pBlockState, pLevel, 0.40625D, 0.59375D, 0.75D, 0.34375D, 0.65625D, 0);
+			this.animateExtinguish(pBlockPos, pBlockState, pLevel, 0.1875D, 0.8125D, 0.5625D, 0.5625D, 0.4375D, 1);
+			this.animateExtinguish(pBlockPos, pBlockState, pLevel, 0.8125D, 0.1875D, 0.5D, 0.4375D, 0.5625D, 2);
+			this.animateExtinguish(pBlockPos, pBlockState, pLevel, 0.625D, 0.375D, 0.625D, 0.25D, 0.75D, 3);
 			return InteractionResult.SUCCESS;
 		} else {
 			return InteractionResult.TRY_WITH_EMPTY_HAND;
