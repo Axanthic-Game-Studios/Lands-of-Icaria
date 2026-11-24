@@ -499,6 +499,8 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLATES.get(), "Plates");
 		this.add(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), "Suspicious Substance");
 
+		this.add(IcariaBlocks.PARCHMENT.get(), "Parchment");
+
 		this.add(IcariaBlocks.CHECKERS.get(), "Checkers");
 		this.add(IcariaBlocks.CHESS.get(), "Chess");
 
@@ -1589,6 +1591,11 @@ public class IcariaEnglishLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kettle consumes");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "pop", "Kettle pops");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite_rubble" + "." + "crackle", "Lignite Rubble crackles");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "break", "Parchment breaks");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "fall", "Something falls on Parchment");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "hit", "Parchment breaks");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "place", "Parchment places");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "step", "Something steps on Parchment");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "pottery" + "." + "break", "Pottery breaks");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "rotten_bone_ladder" + "." + "break", "Rotten Bone Ladder breaks");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "aeternae" + "." + "ambient", "Aeternae moos");

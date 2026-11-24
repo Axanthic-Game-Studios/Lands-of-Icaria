@@ -70,6 +70,7 @@ public class IcariaBlockStateProperties {
 	public static final IntegerProperty COOKIE_AMOUNT = IntegerProperty.create("cookie_amount", 0, 7);
 	public static final IntegerProperty FLASK_AMOUNT = IntegerProperty.create("flask_amount", 1, 4);
 	public static final IntegerProperty LADDER_TICK = IntegerProperty.create("ladder_tick", 0, 40);
+	public static final IntegerProperty PARCHMENT_VARIANT = IntegerProperty.create("parchment_variant", 0, 5);
 	public static final IntegerProperty POT_FILL = IntegerProperty.create("pot_fill", 0, 3);
 	public static final IntegerProperty SUSPICIOUS_SUBSTANCE = IntegerProperty.create("suspicious_substance", 0, 3);
 	public static final IntegerProperty TROUGH_FILL = IntegerProperty.create("trough_fill", 0, 9);

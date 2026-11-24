@@ -1,0 +1,184 @@
+{
+  "variants": {
+    "facing=east,lit=false,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_0",
+      "y": 90
+    },
+    "facing=east,lit=false,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_1",
+      "y": 90
+    },
+    "facing=east,lit=false,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_2",
+      "y": 90
+    },
+    "facing=east,lit=false,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_3",
+      "y": 90
+    },
+    "facing=east,lit=false,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_4",
+      "y": 90
+    },
+    "facing=east,lit=false,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_5",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_lit_0",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_lit_1",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_lit_2",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_lit_3",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_lit_4",
+      "y": 90
+    },
+    "facing=east,lit=true,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_lit_5",
+      "y": 90
+    },
+    "facing=north,lit=false,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_0"
+    },
+    "facing=north,lit=false,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_1"
+    },
+    "facing=north,lit=false,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_2"
+    },
+    "facing=north,lit=false,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_3"
+    },
+    "facing=north,lit=false,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_4"
+    },
+    "facing=north,lit=false,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_5"
+    },
+    "facing=north,lit=true,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_lit_0"
+    },
+    "facing=north,lit=true,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_lit_1"
+    },
+    "facing=north,lit=true,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_lit_2"
+    },
+    "facing=north,lit=true,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_lit_3"
+    },
+    "facing=north,lit=true,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_lit_4"
+    },
+    "facing=north,lit=true,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_lit_5"
+    },
+    "facing=south,lit=false,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_0",
+      "y": 180
+    },
+    "facing=south,lit=false,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_1",
+      "y": 180
+    },
+    "facing=south,lit=false,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_2",
+      "y": 180
+    },
+    "facing=south,lit=false,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_3",
+      "y": 180
+    },
+    "facing=south,lit=false,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_4",
+      "y": 180
+    },
+    "facing=south,lit=false,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_5",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_lit_0",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_lit_1",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_lit_2",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_lit_3",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_lit_4",
+      "y": 180
+    },
+    "facing=south,lit=true,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_lit_5",
+      "y": 180
+    },
+    "facing=west,lit=false,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_0",
+      "y": 270
+    },
+    "facing=west,lit=false,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_1",
+      "y": 270
+    },
+    "facing=west,lit=false,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_2",
+      "y": 270
+    },
+    "facing=west,lit=false,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_3",
+      "y": 270
+    },
+    "facing=west,lit=false,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_4",
+      "y": 270
+    },
+    "facing=west,lit=false,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_5",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=0": {
+      "model": "landsoficaria:block/parchment_lit_0",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=1": {
+      "model": "landsoficaria:block/parchment_lit_1",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=2": {
+      "model": "landsoficaria:block/parchment_lit_2",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=3": {
+      "model": "landsoficaria:block/parchment_lit_3",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=4": {
+      "model": "landsoficaria:block/parchment_lit_4",
+      "y": 270
+    },
+    "facing=west,lit=true,parchment_variant=5": {
+      "model": "landsoficaria:block/parchment_lit_5",
+      "y": 270
+    }
+  }
+}

@@ -492,6 +492,8 @@ public class IcariaItems {
 	public static final DeferredHolder<Item, Item> PLATES = IcariaItems.register(IcariaBlockItemIds.PLATES, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.PLATES.get(), properties));
 	public static final DeferredHolder<Item, Item> SUSPICIOUS_SUBSTANCE = IcariaItems.register(IcariaBlockItemIds.SUSPICIOUS_SUBSTANCE, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), properties));
 
+	public static final DeferredHolder<Item, Item> PARCHMENT = IcariaItems.register(IcariaBlockItemIds.PARCHMENT, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.PARCHMENT.get(), properties));
+
 	public static final DeferredHolder<Item, Item> CHECKERS = IcariaItems.register(IcariaBlockItemIds.CHECKERS, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CHECKERS.get(), properties));
 	public static final DeferredHolder<Item, Item> CHESS = IcariaItems.register(IcariaBlockItemIds.CHESS, IcariaItems.propertiesBlock(), properties -> new BlockItem(IcariaBlocks.CHESS.get(), properties));
 

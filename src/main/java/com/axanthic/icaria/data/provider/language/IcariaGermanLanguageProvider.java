@@ -499,6 +499,8 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add(IcariaBlocks.PLATES.get(), "Teller");
 		this.add(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), "Seltsame Substanz");
 
+		this.add(IcariaBlocks.PARCHMENT.get(), "Pergament");
+
 		this.add(IcariaBlocks.CHECKERS.get(), "Dame");
 		this.add(IcariaBlocks.CHESS.get(), "Schach");
 
@@ -1589,6 +1591,11 @@ public class IcariaGermanLanguageProvider extends LanguageProvider {
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "consume", "Kessel konsumiert");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "kettle" + "." + "pop", "Kessel poppt");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "lignite_rubble" + "." + "crackle", "Braunkohlegeröll knistert");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "break", "Pergament bricht");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "fall", "Etwas fällt auf Pergament");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "hit", "Pergament bricht");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "place", "Pergament platziert");
+		this.add("subtitle" + "." + IcariaIds.ID + "." + "parchment" + "." + "step", "Etwas läuft auf Pergament");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "pottery" + "." + "break", "Keramik bricht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "rotten_bone_ladder" + "." + "break", "Verrottete Knochenleiter bricht");
 		this.add("subtitle" + "." + IcariaIds.ID + "." + "aeternae" + "." + "ambient", "Äterne muht");

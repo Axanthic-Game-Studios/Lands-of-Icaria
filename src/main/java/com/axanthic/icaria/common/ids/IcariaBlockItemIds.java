@@ -469,6 +469,8 @@ public class IcariaBlockItemIds {
 	public static final BlockItemId PLATES = IcariaBlockItemIds.create("plates");
 	public static final BlockItemId SUSPICIOUS_SUBSTANCE = IcariaBlockItemIds.create("suspicious_substance");
 
+	public static final BlockItemId PARCHMENT = IcariaBlockItemIds.create("parchment");
+
 	public static final BlockItemId CHECKERS = IcariaBlockItemIds.create("checkers");
 	public static final BlockItemId CHESS = IcariaBlockItemIds.create("chess");
 

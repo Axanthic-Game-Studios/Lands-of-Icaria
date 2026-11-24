@@ -457,6 +457,7 @@ public class IcariaItemStateProvider {
 		IcariaItemStateProvider.parent(IcariaItems.LARGE_BOWLS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.PLATES.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.SUSPICIOUS_SUBSTANCE.get(), pItemModelGenerators);
+		IcariaItemStateProvider.parent(IcariaItems.PARCHMENT.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHECKERS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CHESS.get(), pItemModelGenerators);
 		IcariaItemStateProvider.parent(IcariaItems.CYPRESS_SAPLING.get(), pItemModelGenerators);

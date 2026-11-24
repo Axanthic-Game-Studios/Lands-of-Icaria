@@ -128,6 +128,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.palmFern(pBlockModelGenerators);
 		IcariaBlockModelProvider.panHolder(pBlockModelGenerators);
 		IcariaBlockModelProvider.pane(pBlockModelGenerators);
+		IcariaBlockModelProvider.parchment(pBlockModelGenerators);
 		IcariaBlockModelProvider.path(pBlockModelGenerators);
 		IcariaBlockModelProvider.particle(pBlockModelGenerators);
 		IcariaBlockModelProvider.pedestal(pBlockModelGenerators);
@@ -294,6 +295,7 @@ public class IcariaBlockModelProvider {
 		IcariaBlockModelProvider.palmFernModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.panHolderModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.paneInventoryModel(pBlockModelGenerators);
+		IcariaBlockModelProvider.parchmentModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.pedestalModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.physalisSeedsModel(pBlockModelGenerators);
 		IcariaBlockModelProvider.platesModel(pBlockModelGenerators);
@@ -1188,6 +1190,10 @@ public class IcariaBlockModelProvider {
 	public static void pane(BlockModelGenerators pBlockModelGenerators) {
 		IcariaBlockModelProvider.pane(IcariaBlocks.GRAINGLASS_PANE.get(), IcariaBlocks.GRAINGLASS.get(), pBlockModelGenerators);
 		IcariaBlockModelProvider.pane(IcariaBlocks.SILKGLASS_PANE.get(), IcariaBlocks.SILKGLASS.get(), pBlockModelGenerators);
+	}
+
+	public static void parchment(BlockModelGenerators pBlockModelGenerators) {
+		IcariaBlockModelProvider.parchment(IcariaBlocks.PARCHMENT.get(), pBlockModelGenerators);
 	}
 
 	public static void path(BlockModelGenerators pBlockModelGenerators) {
@@ -5234,6 +5240,69 @@ public class IcariaBlockModelProvider {
 				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(pPane))), pBlockModelGenerators.modelOutput);
 	}
 
+	public static void parchment(Block pBlock, BlockModelGenerators pBlockModelGenerators) {
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_0")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_0"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_1")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_1"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_2")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_2"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_3")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_3"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_4")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_4"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_5")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_5")).build()
+			.create(IcariaModelProvider.blockFile(pBlock, "lit_5"), new TextureMapping()
+				.putForced(IcariaTextureSlots.CANDLE, new Material(IcariaModelProvider.blockFile(IcariaIds.MC, "candle_lit")))
+				.putForced(IcariaTextureSlots.PARCHMENT, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment")))
+				.putForced(IcariaTextureSlots.PARTICLE, new Material(IcariaModelProvider.blockFile(IcariaIds.ID, "parchment_particle"))), pBlockModelGenerators.modelOutput);
+	}
+
 	public static void path(Block pPath, Block pBase, BlockModelGenerators pBlockModelGenerators) {
 		ExtendedModelTemplateBuilder.builder().parent(IcariaModelProvider.blockFile(IcariaIds.MC, "template_cube_bottom_top_indented")).build()
 			.create(IcariaModelProvider.blockFile(pPath), new TextureMapping()
@@ -7045,6 +7114,15 @@ public class IcariaBlockModelProvider {
 
 	public static void paneInventoryModel(BlockModelGenerators pBlockModelGenerators) {
 		PaneInventoryModel.template().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_pane_inventory"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+	}
+
+	public static void parchmentModel(BlockModelGenerators pBlockModelGenerators) {
+		ParchmentModel.template0().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_0"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ParchmentModel.template1().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_1"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ParchmentModel.template2().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_2"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ParchmentModel.template3().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_3"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ParchmentModel.template4().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_4"), new TextureMapping(), pBlockModelGenerators.modelOutput);
+		ParchmentModel.template5().create(IcariaModelProvider.blockFile(IcariaIds.ID, "template_parchment_5"), new TextureMapping(), pBlockModelGenerators.modelOutput);
 	}
 
 	public static void pedestalModel(BlockModelGenerators pBlockModelGenerators) {

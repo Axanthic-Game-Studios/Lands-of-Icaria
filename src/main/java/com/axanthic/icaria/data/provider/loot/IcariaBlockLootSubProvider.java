@@ -149,7 +149,6 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropElse(IcariaBlocks.THOG_WALL_SKULL.get(), IcariaItems.THOG_SKULL.get());
 		this.dropElse(IcariaBlocks.LIGNITE_WALL_TORCH.get(), IcariaItems.LIGNITE_TORCH.get());
 		this.dropElse(IcariaBlocks.ANTHRACITE_WALL_TORCH.get(), IcariaItems.ANTHRACITE_TORCH.get());
-		this.dropElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), Items.SUGAR);
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HUTCH.get(), IcariaItems.CYPRESS_HUTCH.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_SIGN.get(), IcariaItems.CYPRESS_SIGN.get());
 		this.dropElse(IcariaBlocks.CYPRESS_WALL_HANGING_SIGN.get(), IcariaItems.CYPRESS_HANGING_SIGN.get());
@@ -1089,6 +1088,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilk(IcariaBlocks.JASPER_GLASS.get());
 		this.dropThisWithSilk(IcariaBlocks.ZIRCON_GLASS.get());
 		this.dropThisWithSilk(IcariaBlocks.PLATES.get());
+		this.dropThisWithSilk(IcariaBlocks.PARCHMENT.get());
 	}
 
 	public void dropThisWithSilkOrBone() {
@@ -1136,6 +1136,7 @@ public class IcariaBlockLootSubProvider extends BlockLootSubProvider {
 		this.dropThisWithSilkOrElse(IcariaBlocks.WATER_JELLYFISH_JELLY_JAR.get(), IcariaItems.WATER_JELLYFISH_JELLY.get(), 5, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.LARGE_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.SMALL_BOWLS.get(), IcariaItems.LOAM_BOWL.get(), 2, 0);
+		this.dropThisWithSilkOrElse(IcariaBlocks.SUSPICIOUS_SUBSTANCE.get(), Items.SUGAR, 1, 0);
 		this.dropThisWithSilkOrElse(IcariaBlocks.CYPRESS_TWIGS.get(), Items.STICK, 1, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.DROUGHTROOT_TWIGS.get(), Items.STICK, 1, 2);
 		this.dropThisWithSilkOrElse(IcariaBlocks.FIR_TWIGS.get(), Items.STICK, 1, 2);

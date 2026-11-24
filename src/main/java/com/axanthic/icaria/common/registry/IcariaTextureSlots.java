@@ -94,6 +94,7 @@ public class IcariaTextureSlots {
 	public static final TextureSlot ORANGE_STORAGE_VASE_LITE = TextureSlot.create("orange_storage_vase_lite");
 	public static final TextureSlot OVERLAY = TextureSlot.create("overlay");
 	public static final TextureSlot PANE = TextureSlot.create("pane");
+	public static final TextureSlot PARCHMENT = TextureSlot.create("parchment");
 	public static final TextureSlot PARTICLE = TextureSlot.create("particle");
 	public static final TextureSlot PEDESTAL = TextureSlot.create("pedestal");
 	public static final TextureSlot PEDESTAL_COLLAR = TextureSlot.create("pedestal_collar");

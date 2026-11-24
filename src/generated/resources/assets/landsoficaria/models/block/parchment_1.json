@@ -1,0 +1,8 @@
+{
+  "parent": "landsoficaria:block/template_parchment_1",
+  "textures": {
+    "candle": "minecraft:block/candle",
+    "parchment": "landsoficaria:block/parchment",
+    "particle": "landsoficaria:block/parchment_particle"
+  }
+}

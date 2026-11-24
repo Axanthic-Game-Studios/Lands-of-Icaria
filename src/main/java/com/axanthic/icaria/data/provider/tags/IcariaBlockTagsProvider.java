@@ -541,6 +541,7 @@ public class IcariaBlockTagsProvider extends BlockTagsProvider {
 			.add(IcariaBlockItemIds.SMALL_BOWLS.block())
 			.add(IcariaBlockItemIds.PLATES.block())
 			.add(IcariaBlockItemIds.SUSPICIOUS_SUBSTANCE.block())
+			.add(IcariaBlockItemIds.PARCHMENT.block())
 			.add(IcariaBlockItemIds.CYPRESS_SAPLING.block())
 			.add(IcariaBlockItemIds.CYPRESS_TWIGS.block())
 			.add(IcariaBlockItemIds.SIMPLE_CYPRESS_RACK.block())

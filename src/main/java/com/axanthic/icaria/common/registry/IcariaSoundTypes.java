@@ -13,5 +13,6 @@ import net.neoforged.neoforge.common.util.DeferredSoundType;
 
 public class IcariaSoundTypes {
 	public static final SoundType BARREL = new DeferredSoundType(1.0F, 1.0F, () -> IcariaSoundEvents.BARREL_BREAK, () -> SoundEvents.WOOD_STEP, () -> SoundEvents.WOOD_PLACE, () -> SoundEvents.WOOD_HIT, () -> SoundEvents.WOOD_FALL);
+	public static final SoundType PARCHMENT = new DeferredSoundType(1.0F, 1.0F, () -> IcariaSoundEvents.PARCHMENT_BREAK, () -> IcariaSoundEvents.PARCHMENT_STEP, () -> IcariaSoundEvents.PARCHMENT_PLACE, () -> IcariaSoundEvents.PARCHMENT_HIT, () -> IcariaSoundEvents.PARCHMENT_FALL);
 	public static final SoundType POTTERY = new DeferredSoundType(1.0F, 1.0F, () -> IcariaSoundEvents.POTTERY_BREAK, () -> SoundEvents.STONE_STEP, () -> SoundEvents.STONE_PLACE, () -> SoundEvents.STONE_HIT, () -> SoundEvents.STONE_FALL);
 }

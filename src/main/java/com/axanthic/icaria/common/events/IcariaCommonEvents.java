@@ -1053,6 +1053,8 @@ public class IcariaCommonEvents {
 			pEvent.accept(IcariaItems.PLATES.get());
 			pEvent.accept(IcariaItems.SUSPICIOUS_SUBSTANCE.get());
 
+			pEvent.accept(IcariaItems.PARCHMENT.get());
+
 			pEvent.accept(IcariaItems.CHECKERS.get());
 			pEvent.accept(IcariaItems.CHESS.get());
 		}

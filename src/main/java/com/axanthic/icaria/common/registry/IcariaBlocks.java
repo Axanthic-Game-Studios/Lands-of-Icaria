@@ -510,6 +510,8 @@ public class IcariaBlocks {
 	public static final DeferredHolder<Block, Block> PLATES = IcariaBlocks.register(IcariaBlockItemIds.PLATES, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE), TableDecorationBlock::new);
 	public static final DeferredHolder<Block, Block> SUSPICIOUS_SUBSTANCE = IcariaBlocks.register(IcariaBlockItemIds.SUSPICIOUS_SUBSTANCE, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, SoundType.STONE), SuspiciousSubstanceBlock::new);
 
+	public static final DeferredHolder<Block, Block> PARCHMENT = IcariaBlocks.register(IcariaBlockItemIds.PARCHMENT, IcariaBlocks.propertiesTableDecoration(MapColor.NONE, IcariaSoundTypes.PARCHMENT), ParchmentBlock::new);
+
 	public static final DeferredHolder<Block, Block> CHECKERS = IcariaBlocks.register(IcariaBlockItemIds.CHECKERS, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE), ChessboardBlock::new);
 	public static final DeferredHolder<Block, Block> CHESS = IcariaBlocks.register(IcariaBlockItemIds.CHESS, IcariaBlocks.propertiesChessboard(MapColor.NONE, SoundType.STONE), ChessboardBlock::new);
 

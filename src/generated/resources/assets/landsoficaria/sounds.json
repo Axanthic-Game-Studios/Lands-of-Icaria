@@ -107,6 +107,46 @@
     ],
     "subtitle": "subtitle.landsoficaria.lignite_rubble.crackle"
   },
+  "block.parchment.break": {
+    "sounds": [
+      "landsoficaria:block/parchment/break_00",
+      "landsoficaria:block/parchment/break_01",
+      "landsoficaria:block/parchment/break_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.parchment.break"
+  },
+  "block.parchment.fall": {
+    "sounds": [
+      "landsoficaria:block/parchment/fall_00",
+      "landsoficaria:block/parchment/fall_01",
+      "landsoficaria:block/parchment/fall_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.parchment.fall"
+  },
+  "block.parchment.hit": {
+    "sounds": [
+      "landsoficaria:block/parchment/hit_00",
+      "landsoficaria:block/parchment/hit_01",
+      "landsoficaria:block/parchment/hit_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.parchment.hit"
+  },
+  "block.parchment.place": {
+    "sounds": [
+      "landsoficaria:block/parchment/place_00",
+      "landsoficaria:block/parchment/place_01",
+      "landsoficaria:block/parchment/place_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.parchment.place"
+  },
+  "block.parchment.step": {
+    "sounds": [
+      "landsoficaria:block/parchment/step_00",
+      "landsoficaria:block/parchment/step_01",
+      "landsoficaria:block/parchment/step_02"
+    ],
+    "subtitle": "subtitle.landsoficaria.parchment.step"
+  },
   "block.pottery.break": {
     "sounds": [
       "landsoficaria:block/pottery/break_00",
